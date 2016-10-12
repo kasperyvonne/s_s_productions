@@ -1,0 +1,110 @@
+\documentclass[parskip=half]{scrbook} %Ich habe [parskip=half] hinzugefügt
+
+%\usepackage[calc]{picture}
+\usepackage{fixltx2e}
+
+\usepackage{tcolorbox}
+
+%\pagestyle{headings}
+\usepackage{scrpage2}
+\pagestyle{scrheadings}
+\ifoot[\pagemark]{\pagemark}
+\ofoot[]{}
+\cfoot[]{}
+
+\usepackage{polyglossia}
+\setmainlanguage{german}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+
+\usepackage[
+  math-style=ISO,
+  bold-style=ISO,
+  sans-style=italic,
+  nabla=upright,
+]{unicode-math}
+
+\setmathfont{Latin Modern Math}
+%\setmathfont[range={\mathscr, \mathbfscr}]{XITS Math}
+%\setmathfont[range=\coloneq]{XITS Math}
+%\setmathfont[range=\propto]{XITS Math}
+
+\usepackage[autostyle]{csquotes}
+
+\usepackage[
+  locale=DE,                   % deutsche Einstellungen
+  separate-uncertainty=true,   % Immer Fehler mit \pm
+  per-mode=symbol-or-fraction, % m/s im Text, sonst Brüche
+]{siunitx}
+\sisetup{math-micro=\text{µ},text-micro=µ}
+
+\usepackage{xfrac}
+
+\usepackage[section, below]{placeins}
+\usepackage[
+  labelfont=bf,
+  font=small,
+  width=0.9\textwidth,
+]{caption}
+
+\usepackage{subcaption}
+
+\usepackage{graphicx}
+
+\usepackage{float}
+\floatplacement{figure}{h}
+\floatplacement{table}{h}
+
+\usepackage{booktabs}
+
+\usepackage{biblatex}
+\addbibresource{lit.bib}
+
+\usepackage{bookmark}
+
+\usepackage[shortcuts]{extdash}
+
+\usepackage[math]{blindtext}
+
+\usepackage{microtype}
+
+
+
+\usepackage{hyperref}
+
+\usepackage{color} % Das ist Geschmacksfrage
+
+\usepackage{makeidx} %Ich habe makeidx hinzugefügt + makeindex
+\makeindex
+
+\newcommand{\tens}[1]{\underline{\underline{#1}}} %Für Tensor mit der Ordnung zwei
+\newcommand{\map}[1]{\mathup{#1}} %Befehl für mathup
+
+\usepackage[version=3]{mhchem} % für Thermodynamik-chemische Elemente
+\usepackage{enumitem} %Ich habe enumitem hinzugefügt
+
+
+
+%\usepackage{showframe}
+
+\author{Steven Becker und Stefan Grisad}
+
+\title{Versuchsname}
+
+\date{\today\\WS 2016/2017}
+
+\newcommand{\ud}{\mathup{d}}
+\newcommand{\del}{\partial}
+
+\begin{document}
+\maketitle
+\input{""}
+
+\printbibliography
+\printindex
+\end{document}
