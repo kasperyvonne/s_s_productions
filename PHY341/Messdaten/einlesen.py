@@ -1,7 +1,7 @@
 import numpy as np
 
 
-a, b, c, d, e = np.genfromtxt('LED.txt', unpack=True)
+a, b, c, d, e = np.genfromtxt('daten.txt', unpack=True)
 
 leng = len(a)
 i = 0
@@ -17,7 +17,7 @@ with open('tabelle.tex', 'w') as f:
 
     f.write('\\begin{table} \n \\centering \n \\caption{Testtabelle} \n \\label{tab:some_data} \n \\begin{tabular}{S S S S S} \n \\toprule \\\ \n $\\alpha$ & $\\beta$ & $\\gamma$ & $\\theta$ & $\\kappa$ \\\ \n  \\midrule \\\ \n ')
 
-    while i< leng:
+    while i < leng:
         f.write('{:.2f} & {:.2f} & {:.2f} & {:.2f} & {:.2f} \\\ \n '.format(a[i], b[i], c[i], d[i], e[i]))
         i += 1
 

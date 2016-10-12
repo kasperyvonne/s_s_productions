@@ -1,3 +1,4 @@
-tabelle.pdf: tabelle.tex data.txt einlesen.py LED.txt
+tabelle.pdf: tabelle.tex daten.txt einlesen.py input.py
+
 	python einlesen.py
 	lualatex tabelle.tex
