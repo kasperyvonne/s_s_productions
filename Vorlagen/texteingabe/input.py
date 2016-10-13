@@ -6,6 +6,7 @@ print('Anzahl der Messgrößen eingeben')
 p = int(input())
 data = OrderedDict()
 
+
 head = ""
 for i in range(0, p):
     print(i+1, 'te Messgröße eingeben')
@@ -31,8 +32,7 @@ np.savetxt('daten.txt', np.column_stack(data.values()), header = head)
 
 
 
-
-with open('tabelle.tex', 'w') as f:
+with open('tab.tex', 'w') as f: 
 
 
     f.write(r'\input{header.tex}')
@@ -65,11 +65,6 @@ with open('tabelle.tex', 'w') as f:
             else:
                 f.write('{:.2f} & '.format(data[i][j]))
             helpindex += 1
-
-#'while i < leng:
-#        f.write('{:.2f} & {:.2f} & {:.2f} & {:.2f} & {:.2f} \\\ \n '.format())
-#        i += 1
-
 
 
     f.write('\\bottomrule \n \\end{tabular} \n \\end{table}')
