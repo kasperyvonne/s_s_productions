@@ -6,38 +6,39 @@ import math
 
 l=unp.uarray(13e-2,1e-3)
 
+#Hier nicht wichtig
 g,u=np.genfromtxt('zeiten.txt',unpack=True)
 for a in u:
 	u_e=unp.uarray(u,10e-5)
 
+print('Bitte Intervalllänge angeben: ')
+m=int(input())
 #print(a)
-v_e=l/u_e
+
 #print(v_e)
 g_1=[]
 m_u1=[]
 m_f=[]
 n=0
 a=0
-print(len(u))
+f_f=[]
 while n<len(u):
-	l=sum(u[n:n+5])
+	l=sum(u[n:n+m])
 	print(l)
-	m_u=l/5
+	m_u=l/m
 	m_u1.append(m_u)
-	print('Der Mittelwert für ', g[n])
-	print(' lautet ', m_u)
+	print('Der Mittelwert für ', g[n], ' lautet: ', m_u)
 	g_1.append(g[n])
 	hilfsv=0
-	print(hilfsv)
-	n+=5
-	while a<n:
+	n+=m
+	while a<n: #hier könnte man das n eingeben
 		hilfsv+=(u[a]-m_u)**2
 		a+=1
-		m_b=np.sqrt(1/20*hilfsv)
-	
+		m_b=np.sqrt(1/(m*(m-1))*hilfsv)
 	print('Fehler',m_b)
+	print('Dabei ist der Fehler des Mittelwert: ',m_b)
+	print('\n')
 	m_f.append(m_b)
-		
 d=np.array([g_1,m_u1,m_f])
 
 
