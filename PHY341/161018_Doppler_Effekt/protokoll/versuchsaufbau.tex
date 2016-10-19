@@ -1,0 +1,164 @@
+\documentclass[parskip=half]{scrartcl} %Ich habe [parskip=half] hinzugefügt
+
+%\usepackage[calc]{picture}
+\usepackage{fixltx2e}
+
+\usepackage{tcolorbox}
+
+%\pagestyle{headings}
+\usepackage{scrpage2}
+\pagestyle{scrheadings}
+\ifoot[\pagemark]{\pagemark}
+\ofoot[]{}
+\cfoot[]{}
+
+\usepackage{polyglossia}
+\setmainlanguage{german}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+
+\usepackage[
+  math-style=ISO,
+  bold-style=ISO,
+  sans-style=italic,
+  nabla=upright,
+]{unicode-math}
+
+\setmathfont{Latin Modern Math}
+%\setmathfont[range={\mathscr, \mathbfscr}]{XITS Math}
+%\setmathfont[range=\coloneq]{XITS Math}
+%\setmathfont[range=\propto]{XITS Math}
+
+\usepackage[autostyle]{csquotes}
+
+\usepackage[
+  locale=DE,                   % deutsche Einstellungen
+  separate-uncertainty=true,   % Immer Fehler mit \pm
+  per-mode=symbol-or-fraction, % m/s im Text, sonst Brüche
+]{siunitx}
+\sisetup{math-stylemicro=\text{µ},text-micro=µ}
+
+\usepackage{xfrac}
+
+\usepackage[section, below]{placeins}
+\usepackage[
+  labelfont=bf,
+  font=small,
+  width=0.9\textwidth,
+]{caption}
+
+\usepackage{subcaption}
+
+\usepackage{graphicx}
+
+\usepackage{float}
+\floatplacement{figure}{h}
+\floatplacement{table}{h}
+
+\usepackage{booktabs}
+
+\usepackage{biblatex}
+\addbibresource{lit.bib}
+
+\usepackage{bookmark}
+
+\usepackage[shortcuts]{extdash}
+
+\usepackage[math]{blindtext}
+
+\usepackage{microtype}
+
+
+
+\usepackage{hyperref}
+
+\usepackage{color} % Das ist Geschmacksfrage
+
+\usepackage{makeidx} %Ich habe makeidx hinzugefügt + makeindex
+\makeindex
+
+\newcommand{\tens}[1]{\underline{\underline{#1}}} %Für Tensor mit der Ordnung zwei
+\newcommand{\map}[1]{\mathup{#1}} %Befehl für mathup
+
+\usepackage[version=3]{mhchem} % für Thermodynamik-chemische Elemente
+\usepackage{enumitem} %Ich habe enumitem hinzugefügt
+
+
+
+%\usepackage{showframe}
+
+\author{Steven Becker und Stefan Grisad}
+
+\title{Doppler-Effekt}
+
+\date{\today\\WS 2016/2017}
+
+\newcommand{\ud}{\mathup{d}}
+\newcommand{\del}{\partial}
+
+\begin{document}
+\maketitle
+%\input{""}
+\section{Versuchsdurchführung}
+
+Der Versuch Doppler-Effekt bestand an sich aus vier einzelnen Versuchen.
+In jedem dieser sollte entweder der Doppler-Effekt selber gemessen oder eine 
+für die Auswertung entscheidene Größe bestimmt werden.
+
+\subsection{Messung der Relativgeschwindigkeit}
+
+%Die Messung der Realtivgeschwindigkeit, wird benötigt um nacher die Frequenz 
+%bzw. die Wellenlängenverschiebung des Doppler-Effekts zu berechnen.
+%
+%Zur Messung benötigt man einen Wagen, auf dem der Lautsprecher montiert ist,
+%zwei Lichtschranken, logische Schaltung und ein Antriebsmotor (10 Gang).
+%
+%Die Lichtschranken sollen Anfangs- und Endpunkt festlegen.
+%Erreicht der Wagen, angetrieben durch den Synchronmotor, die erste 
+%Lichtschranke, so aktiviert diese.
+
+Der Verrsuchsaufbau ist in Abbildung $1$ zu entnehmen. 
+Der Wagen wurde von einem zehngängigen Synchronmotor angetrieben.
+Dabei sollen die Lichtschranken Start- und Endpunkt der Messung festlegen.
+Um somit die Zeit zu bestimmen, die der Wagen benöigt um die beiden 
+Lichtschranken zu passieren.
+
+
+
+\subsection{Messung der Schallgeschwindigkeit}
+
+Der Versusaufbau zur Messung der Schallgeschwindigkeit ist
+Abbildung \textbf{ NUMMER EINFÜGEN} zu entnehmen.
+
+Im Versuch werden das vom Quarzgenrator gelieferte Ton und der 
+vom Mikrofon gemessene Ton an einem Ozilliskop angelegt.
+Dabei werden die Signale so eingestelt Lissajou-Figuren entstehen.
+Diese werden genutzt um den auf dem Lautsprecher montierten Schlitten, so 
+einzustellen, dass beide Signale in Phase (Lissajou Figur entspricht einer Geraden) sind. 
+Wenn nun immer der Abstand abgelesen wird, zwischen zwei 
+Signalen gleicher Phase, kann auf die Wellenlänge geschlossen werden.
+
+\subsection{Frequenzmessung}
+
+Im Anhang \textbf{Nummer einfügen} wird der Versuchsaufbau dargestellt.
+Beim Versuch bewegt sich der, auf dem Wagen montierte, Lautsprecher entweder 
+in Richtung des Mikrofons oder in gegengesetzer Richtung vom Mikrofons.
+Dadurch entsteht eine Relativbewegung und somit auch der
+Doppler-Effekt.
+Nachdem der Wagen mittels eine Lichtschranke den Messzeitraum startet.
+Das Mikrofon misst solange, jede angekommene Phase, bis der Untersetzer 
+die Messung beendet.
+Der Versuch wird mit verschiedenen Wagengeschwindigkeit
+wiederholt, um die unerschieldiche Stärke des Doppler-Effekts 
+festzustellen.
+
+\subsection{Frequenzmessung mit der Schwebungsmethode}
+
+\printbibliography
+\printindex
+\end{document}
