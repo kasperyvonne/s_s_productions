@@ -1,4 +1,4 @@
-This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2016.10.10)  20 OCT 2016 14:49
+This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2016.10.10)  20 OCT 2016 15:29
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -606,7 +606,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.106 seconds)
+luaotfload | main : initialization completed in 0.100 seconds)
 Lua module: fontspec 2016/02/01 2.5a Advanced font selection for LuaLaTeX.
 (/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/fontspec/fontspec-luatex
 .sty
@@ -2298,35 +2298,32 @@ Package microtype Info: Loading generic settings for font family
 (load luc: /home/stefan/.local/texlive/2016/texmf-var/luatex-cache/generic/fonts
 /otl/lmsans10-bold.luc)) (./versuchsaufbau.tex [1
 
-{/home/stefan/.local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]) [2]
+{/home/stefan/.local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
+(./diskussion.tex [2])
 
-LaTeX Warning: Empty bibliography on input line 9.
+LaTeX Warning: Empty bibliography on input line 10.
 
 [3]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 12.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 12.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 13.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 13.
  (./build/main.aux
 Language ngerman already loaded; id is 8)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 12.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 12.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 13.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 13.
 Package logreq Info: Writing requests to 'main.run.xml'.
 
 \openout1 = main.run.xml
 )
 
 Here is how much of LuaTeX's memory you used:
- 50659 strings out of 495118
+ 50671 strings out of 495118
  100000,1648299 words of node,token memory allocated
- 1397 words of node memory still in use:
-   7 hlist, 2 vlist, 2 rule, 109 glue, 1 kern, 45 attribute, 57 glue_spec, 45 at
+ 1422 words of node memory still in use:
+   7 hlist, 2 vlist, 2 rule, 112 glue, 1 kern, 46 attribute, 57 glue_spec, 46 at
 tribute_list, 1 write nodes
-   avail lists: 1:4,2:388,3:88,4:38,5:197,6:2503,7:497,8:46,9:244,10:12,11:333
- 52782 multiletter control sequences out of 65536+600000
- 50 fonts using 11214067 bytes
+   avail lists: 1:4,2:386,3:88,4:38,5:197,6:2503,7:494,8:46,9:244,10:12,11:333
+ 52786 multiletter control sequences out of 65536+600000
+ 50 fonts using 11214243 bytes
  65i,11n,104p,8835b,787s stack positions out of 5000i,500n,10000p,200000b,100000s
 </home/stefan/.local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmroman10-
 bold.otf></home/stefan/.local/texlive/2016/texmf-dist/fonts/opentype/public/lm-m
@@ -2334,10 +2331,10 @@ ath/latinmodern-math.otf></home/stefan/.local/texlive/2016/texmf-dist/fonts/open
 type/public/lm-math/latinmodern-math.otf></home/stefan/.local/texlive/2016/texmf
 -dist/fonts/opentype/public/lm/lmroman10-regular.otf></home/stefan/.local/texliv
 e/2016/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf>
-Output written on main.pdf (3 pages, 29686 bytes).
+Output written on main.pdf (3 pages, 30077 bytes).
 
-PDF statistics: 97 PDF objects out of 1000 (max. 8388607)
- 76 compressed objects within 1 object stream
- 17 named destinations out of 1000 (max. 131072)
- 80 words of extra memory for PDF output out of 10000 (max. 10000000)
+PDF statistics: 101 PDF objects out of 1000 (max. 8388607)
+ 80 compressed objects within 1 object stream
+ 18 named destinations out of 1000 (max. 131072)
+ 88 words of extra memory for PDF output out of 10000 (max. 10000000)
 
