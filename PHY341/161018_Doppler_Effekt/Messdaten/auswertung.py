@@ -13,7 +13,7 @@ n_0=np.genfromtxt('ruhefrequenz.txt',unpack=True)
 for a in u:
 	u_e=unp.uarray(u,10e-5)
 
-well*=2
+well*=2e-3
 well_m=sum(well)/len(well)
 wellf=np.std(well,ddof=1)/(np.sqrt(len(well)))
 
