@@ -1,4 +1,4 @@
-This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2016.10.10)  20 OCT 2016 09:09
+This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2016.10.10)  20 OCT 2016 09:16
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -1234,7 +1234,224 @@ ator.sty
 Package: translator 2010/06/12 ver 1.10
 
 (/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/beamer/translator/transl
-ator-language-mappings.tex)))) (./build/main.aux
+ator-language-mappings.tex)))
+(/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/biblatex/biblatex.sty
+Package: biblatex 2016/09/17 v3.6 programmable bibliographies (PK/JW/AB)
+
+(/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/logreq/logreq.sty
+Package: logreq 2010/08/04 v1.0 xml request logger
+\lrq@indent=\count179
+
+(/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/logreq/logreq.def
+File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
+))
+(/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/home/stefan/.local/texlive/2016/texmf-dist/tex/generic/xstring/xstring.sty
+(/home/stefan/.local/texlive/2016/texmf-dist/tex/generic/xstring/xstring.tex
+\@xs@message=\write3
+\integerpart=\count180
+\decimalpart=\count181
+)
+Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
+)
+\c@tabx@nest=\count182
+\c@listtotal=\count183
+\c@listcount=\count184
+\c@liststart=\count185
+\c@liststop=\count186
+\c@citecount=\count187
+\c@citetotal=\count188
+\c@multicitecount=\count189
+\c@multicitetotal=\count190
+\c@instcount=\count191
+\c@maxnames=\count192
+\c@minnames=\count193
+\c@maxitems=\count194
+\c@minitems=\count195
+\c@citecounter=\count196
+\c@savedcitecounter=\count197
+\c@uniquelist=\count198
+\c@uniquename=\count199
+\c@refsection=\count266
+\c@refsegment=\count267
+\c@maxextratitle=\count268
+\c@maxextratitleyear=\count269
+\c@maxextrayear=\count270
+\c@maxextraalpha=\count271
+\c@abbrvpenalty=\count272
+\c@highnamepenalty=\count273
+\c@lownamepenalty=\count274
+\c@maxparens=\count275
+\c@parenlevel=\count276
+\blx@tempcnta=\count277
+\blx@tempcntb=\count278
+\blx@tempcntc=\count279
+\blx@maxsection=\count280
+\blx@maxsegment@0=\count281
+\blx@notetype=\count282
+\blx@parenlevel@text=\count283
+\blx@parenlevel@foot=\count284
+\blx@sectionciteorder@0=\count285
+\labelnumberwidth=\skip75
+\labelalphawidth=\skip76
+\biblabelsep=\skip77
+\bibitemsep=\skip78
+\bibnamesep=\skip79
+\bibinitsep=\skip80
+\bibparsep=\skip81
+\bibhang=\skip82
+\blx@bcfin=\read2
+\blx@bcfout=\write4
+\c@mincomprange=\count286
+\c@maxcomprange=\count287
+\c@mincompwidth=\count288
+Package biblatex Info: Trying to load biblatex default data model...
+Package biblatex Info: ... file 'blx-dm.def' found.
+
+(/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/biblatex/blx-dm.def)
+Package biblatex Info: Trying to load biblatex custom data model...
+Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
+\c@afterword=\count289
+\c@savedafterword=\count290
+\c@annotator=\count291
+\c@savedannotator=\count292
+\c@author=\count293
+\c@savedauthor=\count294
+\c@bookauthor=\count295
+\c@savedbookauthor=\count296
+\c@commentator=\count297
+\c@savedcommentator=\count298
+\c@editor=\count299
+\c@savededitor=\count300
+\c@editora=\count301
+\c@savededitora=\count302
+\c@editorb=\count303
+\c@savededitorb=\count304
+\c@editorc=\count305
+\c@savededitorc=\count306
+\c@foreword=\count307
+\c@savedforeword=\count308
+\c@holder=\count309
+\c@savedholder=\count310
+\c@introduction=\count311
+\c@savedintroduction=\count312
+\c@namea=\count313
+\c@savednamea=\count314
+\c@nameb=\count315
+\c@savednameb=\count316
+\c@namec=\count317
+\c@savednamec=\count318
+\c@translator=\count319
+\c@savedtranslator=\count320
+\c@shortauthor=\count321
+\c@savedshortauthor=\count322
+\c@shorteditor=\count323
+\c@savedshorteditor=\count324
+\c@labelname=\count325
+\c@savedlabelname=\count326
+\c@institution=\count327
+\c@savedinstitution=\count328
+\c@lista=\count329
+\c@savedlista=\count330
+\c@listb=\count331
+\c@savedlistb=\count332
+\c@listc=\count333
+\c@savedlistc=\count334
+\c@listd=\count335
+\c@savedlistd=\count336
+\c@liste=\count337
+\c@savedliste=\count338
+\c@listf=\count339
+\c@savedlistf=\count340
+\c@location=\count341
+\c@savedlocation=\count342
+\c@organization=\count343
+\c@savedorganization=\count344
+\c@origlocation=\count345
+\c@savedoriglocation=\count346
+\c@origpublisher=\count347
+\c@savedorigpublisher=\count348
+\c@publisher=\count349
+\c@savedpublisher=\count350
+\c@language=\count351
+\c@savedlanguage=\count352
+\c@pageref=\count353
+\c@savedpageref=\count354
+\shorthandwidth=\skip83
+\shortjournalwidth=\skip84
+\shortserieswidth=\skip85
+\shorttitlewidth=\skip86
+\shortauthorwidth=\skip87
+\shorteditorwidth=\skip88
+Package biblatex Info: Trying to load compatibility code...
+Package biblatex Info: ... file 'blx-compat.def' found.
+
+(/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/biblatex/blx-compat.def
+File: blx-compat.def 2016/09/17 v3.6 biblatex compatibility (PK/JW/AB)
+)
+Package biblatex Info: Trying to load generic definitions...
+Package biblatex Info: ... file 'biblatex.def' found.
+(/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/biblatex/biblatex.def
+File: biblatex.def 2016/09/17 v3.6 biblatex compatibility (PK/JW/AB)
+\c@textcitecount=\count355
+\c@textcitetotal=\count356
+\c@textcitemaxnames=\count357
+\c@biburlnumpenalty=\count358
+\c@biburlucpenalty=\count359
+\c@biburllcpenalty=\count360
+\c@smartand=\count361
+)
+Package biblatex Info: Trying to load bibliography style 'numeric'...
+Package biblatex Info: ... file 'numeric.bbx' found.
+
+(/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
+File: numeric.bbx 2016/09/17 v3.6 biblatex bibliography style (PK/JW/AB)
+Package biblatex Info: Trying to load bibliography style 'standard'...
+Package biblatex Info: ... file 'standard.bbx' found.
+
+(/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/biblatex/bbx/standard.bb
+x
+File: standard.bbx 2016/09/17 v3.6 biblatex bibliography style (PK/JW/AB)
+\c@bbx:relatedcount=\count362
+\c@bbx:relatedtotal=\count363
+))
+Package biblatex Info: Trying to load citation style 'numeric'...
+Package biblatex Info: ... file 'numeric.cbx' found.
+
+(/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx
+File: numeric.cbx 2016/09/17 v3.6 biblatex citation style (PK/JW/AB)
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\parencite'.
+Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcitetext'.
+Package biblatex Info: Redefining '\smartcite'.
+Package biblatex Info: Redefining '\supercite'.
+Package biblatex Info: Redefining '\textcite'.
+Package biblatex Info: Redefining '\textcites'.
+Package biblatex Info: Redefining '\cites'.
+Package biblatex Info: Redefining '\parencites'.
+Package biblatex Info: Redefining '\smartcites'.
+)
+Package biblatex Info: Trying to load configuration file...
+Package biblatex Info: ... file 'biblatex.cfg' found.
+ (/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/biblatex/biblatex.cfg
+File: biblatex.cfg 
+)))
+Package biblatex Info: Trying to load language 'german'...
+Package biblatex Info: ... file 'german.lbx' found.
+
+(/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/biblatex/lbx/german.lbx
+File: german.lbx 2016/09/17 v3.6 biblatex localization (PK/JW/AB)
+)
+
+Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
+(biblatex)                Loading 'csquotes' recommended.
+
+\@quotelevel=\count364
+\@quotereset=\count365
+(./build/main.aux
 luatex-hyphen: loading patterns and exceptions for: german (\language4)
 luatex-hyphen: info: no hyphenation exceptions for this language
 Language ngerman already loaded; id is 8)
@@ -1271,16 +1488,16 @@ LaTeX Font Info:    ... okay on input line 3.
 (/home/stefan/.local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mki
 i
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count179
+\scratchcounter=\count366
 \scratchdimen=\dimen195
 \scratchbox=\box53
-\nofMPsegments=\count180
-\nofMParguments=\count181
+\nofMPsegments=\count367
+\nofMParguments=\count368
 \everyMPshowfont=\toks26
-\MPscratchCnt=\count182
+\MPscratchCnt=\count369
 \MPscratchDim=\dimen196
-\MPnumerator=\count183
-\makeMPintoPDFobject=\count184
+\MPnumerator=\count370
+\makeMPintoPDFobject=\count371
 \everyMPtoPDFconversion=\toks27
 )
 (/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.s
@@ -1312,7 +1529,7 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 g.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count185
+\c@section@level=\count372
 )
 LaTeX Info: Redefining \ref on input line 3.
 LaTeX Info: Redefining \pageref on input line 3.
@@ -1336,7 +1553,19 @@ Dictionary: translator-basic-dictionary, Language: English
 tions.cfg
 File: siunitx-abbreviations.cfg 2016/09/02 v2.6s siunitx: Abbreviated units
 )
-\c__siunitx_mathsf_int=\count186
+Package biblatex Info: LuaTeX detected.
+(biblatex)             Assuming input encoding 'utf8'.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'utf8'.
+
+\openout4 = main.bcf
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file 'main.bbl' not found.
+
+No file main.bbl.
+Package biblatex Info: Reference section=0 on input line 3.
+Package biblatex Info: Reference segment=0 on input line 3.
+\c__siunitx_mathsf_int=\count373
 LaTeX Font Info:    Font shape `EU2/LatinModernMath(1)/m/n' will be
 (Font)              scaled to size 10.95015pt on input line 3.
 LaTeX Font Info:    Font shape `EU2/LatinModernMath(1)/m/n' will be
@@ -1350,7 +1579,6 @@ LaTeX Font Info:    Font shape `EU2/LatinModernMath(2)/m/n' will be
 LaTeX Font Info:    Font shape `EU2/LatinModernMath(2)/m/n' will be
 (Font)              scaled to size 5.99991pt on input line 3.
 LaTeX Font Info:    Try loading font information for U+msa on input line 3.
-
 (/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
@@ -1359,41 +1587,38 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 3.
 (/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-\c__siunitx_mathtt_int=\count187
+\c__siunitx_mathtt_int=\count374
 
 (./theorie.tex(load luc: /home/stefan/.local/texlive/2016/texmf-var/luatex-cache
 /generic/fonts/otl/lmsans10-bold.luc)) (./versuchsaufbau.tex [1
 Non-PDF special ignored!
 
-{/home/stefan/.local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-! Undefined control sequence.
-l.73 \printbibliography
-                     
-? 
-! Undefined control sequence.
-l.74 \printindex
-              
-? 
-)
+{/home/stefan/.local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
+
+LaTeX Warning: Empty bibliography on input line 9.
+
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 12.
- [2]
+[2]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 12.
  (./build/main.aux
 Language ngerman already loaded; id is 8)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 12.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 12.
+Package logreq Info: Writing requests to 'main.run.xml'.
+
+\openout1 = main.run.xml
 )
 
 Here is how much of LuaTeX's memory you used:
- 33292 strings out of 495118
- 100000,953878 words of node,token memory allocated
- 1331 words of node memory still in use:
-   7 hlist, 2 vlist, 2 rule, 103 glue, 1 kern, 39 attribute, 57 glue_spec, 39 at
+ 39262 strings out of 495118
+ 100000,1373583 words of node,token memory allocated
+ 1397 words of node memory still in use:
+   7 hlist, 2 vlist, 2 rule, 109 glue, 1 kern, 45 attribute, 57 glue_spec, 45 at
 tribute_list, 1 write nodes
-   avail lists: 1:10,2:262,3:88,4:13,5:187,6:2251,7:485,8:42,9:206,10:9,11:304
- 36132 multiletter control sequences out of 65536+600000
- 49 fonts using 10445447 bytes
- 73i,11n,100p,8835b,733s stack positions out of 5000i,500n,10000p,200000b,100000s
+   avail lists: 1:3,2:268,3:91,4:13,5:187,6:2251,7:485,8:42,9:206,10:9,11:304
+ 41992 multiletter control sequences out of 65536+600000
+ 49 fonts using 10445527 bytes
+ 73i,11n,100p,8835b,747s stack positions out of 5000i,500n,10000p,200000b,100000s
 </home/stefan/.local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmroman10-
 bold.otf></home/stefan/.local/texlive/2016/texmf-dist/fonts/opentype/public/lm-m
 ath/latinmodern-math.otf></home/stefan/.local/texlive/2016/texmf-dist/fonts/open
