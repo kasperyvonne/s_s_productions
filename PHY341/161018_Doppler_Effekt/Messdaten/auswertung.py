@@ -8,9 +8,14 @@ l_1=unp.uarray(13e-2,1e-3)
 
 #Hier nicht wichtig
 g,u=np.genfromtxt('schwebung_v_pos.txt',unpack=True)
+well=np.genfromtxt('wellenlaenge.txt', unpack=True)
 n_0=np.genfromtxt('ruhefrequenz.txt',unpack=True)
 for a in u:
 	u_e=unp.uarray(u,10e-5)
+
+well*=2
+well_m=sum(well)/len(well)
+wellf=np.std(well,ddof=1)/(np.sqrt(len(well)))
 
 print('Bitte Intervalllänge angeben: ')
 
@@ -20,6 +25,12 @@ m=int(input())
 n_0m=sum(n_0)/len(n_0)
 n_0f=np.std(n_0,ddof=1)/(np.sqrt(len(n_0)))
 n_s=(n_0m,n_0f)
+
+c_m=n_0m*well_m
+c_f=np.sqrt((wellf/well_m)**2+(n_0f/n_0m)**2)
+
+
+
 
 n_0un=unp.uarray(n_0m,n_0f)
 n_0u=np.array( [n_0m, n_0f])
@@ -69,13 +80,14 @@ while n<len(u):
 	#v=b/m_u
 	##print('Geschwindigkeit', v)
 	#v_m.append(v)
-	#v_f.append(np.sqrt((m_b/m_u)**2+(b_f/b)))
+	#v_f.append(np.sqrt((m_b/m_u)**2+(b_f/b)**2))
 	
 dopp_un=unp.uarray(dopp,dopp_f)
 dopp_u=np.array([dopp,dopp_f])
 print(dopp_un)
 d=np.array([g_1,m_u1,m_f])
+np.savetxt('Wellenaenge_Mittelwert.txt',np.column_stack([well_m, wellf]),header='Mittelwert Fehler')
+np.savetxt('Schallgeschwindigkeit_Mittelwert.txt',np.column_stack([c_m,c_f]),header='Mittelwert Fehler')
 
-np.savetxt('Mittelwert_schwebung_pos.txt',d.T,header='Gang Mittelwert Fehler')
 #np.savetxt('Dopplereffekt_pos.txt',dopp_u.T,header='Doppler Fehler')
 #np.savetxt('ruhefrequenz_mittelwert.txt',np.column_stack([n_0m, n_0f]),header='Mittelwert Abweichung')
