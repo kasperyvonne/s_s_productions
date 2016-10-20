@@ -1,0 +1,37 @@
+\section{Theorie}
+Der Doppler-Effekt tritt immer dann auf, wenn sich Sender und Empfänger einer Welle relativ zueinander bewegen. In dem Versuch 104
+soll insbesondere die Verschiebung von akustischen Signalen, sprich die Frequenzänderung von Schallwellen im Medium Luft untersucht
+werden. Anders als bei elektromagnetischen Wellen, besteht hier ein Unterschied zwischen den Fällen in denen nur der Sender bzw. nur
+der Empfänger in Bewegung ist.
+
+\subsection{Sender in Ruhe, bewegter Empfänger}
+In diesem Fall gilt für die empfangene Frequenz $\nu_E$:
+
+\begin{equation}
+  \nu_E = \nu_0 (1 + \frac{u}{c})
+\end{equation}
+
+Mit der Ruhefrequenz $\nu_0$, der Geschwindigkeit $u$ des Empfängers sowie der Phasengeschwindigkeit $c$ (hier: Schallgeschwidigkeit in Luft bei Raumtemperatur).
+Das heißt die Frequenzverschiebung beträgt:
+
+\begin{equation}
+  \Delta \nu = \nu_0 \frac{u}{c}
+  \label{eq:frequenzverschiebung_bew_empf}
+\end{equation}
+
+Entsprechend wird die Frequenz höher, wenn sich E auf S zu bewegt ($u > 0$) resp. tiefer, wenn sich E von S weg bewegt ($u<0$).
+
+\subsection{Empfänger in Ruhe, bewegter Sender}
+Hierbei ergibt sich für die empfangene Frequenz $\nu_Q$:
+\begin{equation}
+  \nu_Q = \nu_0 \cdot \frac{1}{1 - \frac{u}{c}}
+  \label{eq:frequenzveschiebung_bew_sen}
+\end{equation}
+Dieser Ausdruck lässt sich in eine Reihe nach Potenzen von $\frac{u}{c}$ entwickeln:
+\begin{align}
+  \nu_Q &= \nu_0 \left( 1 + \frac{u}{c} + \left( \frac{u}{c} \right)^2 +  \left( \frac{u}{c} \right)^3 + \dots \right) \\
+       &= \nu_E + \nu_0 \left( \left( \frac{u}{c} \right)^2 + \dots \right)
+\end{align}
+Hieran lässt sich erkennen, dass stets $\nu_Q > \nu_E > \nu_0$ (für $u > 0$) gilt und dasss für den Fall $|u| << c$, $\nu_E \approx \nu_Q$ folgt.
+
+Das Experiment soll die angegebenen Zusammenhänge überprüfen, wozu Messungen der einzelnen Größen durchgeführt wurden.
