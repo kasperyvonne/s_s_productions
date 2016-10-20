@@ -7,17 +7,24 @@ import math
 l_1=unp.uarray(13e-2,1e-3)
 
 #Hier nicht wichtig
-g,u=np.genfromtxt('frequenz_v_neg.txt',unpack=True)
+g,u=np.genfromtxt('schwebung_v_pos.txt',unpack=True)
 n_0=np.genfromtxt('ruhefrequenz.txt',unpack=True)
 for a in u:
 	u_e=unp.uarray(u,10e-5)
 
 print('Bitte Intervalllänge angeben: ')
+
+
 m=int(input())
+
 n_0m=sum(n_0)/len(n_0)
 n_0f=np.std(n_0,ddof=1)/(np.sqrt(len(n_0)))
 n_s=(n_0m,n_0f)
 
+n_0un=unp.uarray(n_0m,n_0f)
+n_0u=np.array( [n_0m, n_0f])
+
+print(n_0un)
 #for N_0 in n_0:
 #	n_0f+=np.sqrt(1/m*(m-1)*(N_0-n_0m))
 #
@@ -48,8 +55,14 @@ while n<len(u):
 	while a<n: #hier könnte man das n eingeben
 		hilfsv+=(u[a]-m_u)**2
 		a+=1
-		m_b=np.sqrt(1/(m*(m-1))*hilfsv)
+	m_b=np.sqrt(1/(m*(m-1))*hilfsv)
+	m_f.append(m_b)
+	
+
+	m_un=unp.uarray(m_u,m_b)
 	dopp.append(n_0m-m_u)
+	dopp_f.append(unp.std_devs(n_0un-m_un))
+	print('Fehler vom Delta', (n_0un-m_un))
 	print('Fehler',m_b)
 	print('Dabei ist der Fehler des Mittelwert: ',m_b)
 	print('\n')
@@ -57,10 +70,12 @@ while n<len(u):
 	##print('Geschwindigkeit', v)
 	#v_m.append(v)
 	#v_f.append(np.sqrt((m_b/m_u)**2+(b_f/b)))
-	#m_f.append(m_b)
+	
+dopp_un=unp.uarray(dopp,dopp_f)
+dopp_u=np.array([dopp,dopp_f])
+print(dopp_un)
+d=np.array([g_1,m_u1,m_f])
 
-
-d=np.array([g_1,m_u1,m_f,v_m,v_f])
-
-#np.savetxt('Mittelwert_u.txt',d.T,header='Gang Mittelwert Fehler Geschwindgkeit Fehler_Geschwindigkeit')
-np.savetxt('ruhefrequenz_mittelwert.txt',n_0s,header='Mittelwert Abweichung')
+np.savetxt('Mittelwert_schwebung_pos.txt',d.T,header='Gang Mittelwert Fehler')
+#np.savetxt('Dopplereffekt_pos.txt',dopp_u.T,header='Doppler Fehler')
+#np.savetxt('ruhefrequenz_mittelwert.txt',np.column_stack([n_0m, n_0f]),header='Mittelwert Abweichung')
