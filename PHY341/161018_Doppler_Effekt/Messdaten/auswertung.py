@@ -16,7 +16,7 @@ for a in u:
 well*=2e-3
 well_m=sum(well)/len(well)
 wellf=np.std(well,ddof=1)/(np.sqrt(len(well)))
-
+inwell=1/well_m
 print('Bitte Intervalllänge angeben: ')
 
 
@@ -91,4 +91,4 @@ d=np.array([g_1,m_u1,m_f])
 #np.savetxt('Wellenaenge_Mittelwert.txt',np.column_stack([well_m, wellf]),header='Mittelwert Fehler')
 #np.savetxt('Schallgeschwindigkeit_Mittelwert.txt',np.column_stack([c_m,c_f]),header='Mittelwert Fehler')
 #np.savetxt('Dopplereffekt_pos.txt',dopp_u.T,header='Deltafrequenz Fehler')
-#np.savetxt('ruhefrequenz_mittelwert.txt',np.column_stack([n_0m, n_0f]),header='Mittelwert Abweichung')
+np.savetxt('Inverse der Wellenlaenge.txt',np.column_stack([inwell]),header='Inverse_der_wellelaenge')
