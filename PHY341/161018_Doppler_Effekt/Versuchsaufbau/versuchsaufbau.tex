@@ -41,7 +41,7 @@
   separate-uncertainty=true,   % Immer Fehler mit \pm
   per-mode=symbol-or-fraction, % m/s im Text, sonst Brüche
 ]{siunitx}
-\sisetup{math-stylemicro=\text{µ},text-micro=µ}
+%\sisetup{math-stylemicro=\text{µ},text-micro=µ}
 
 \usepackage{xfrac}
 
@@ -106,9 +106,12 @@
 %\input{""}
 \section{Versuchsdurchführung}
 
-Der Versuch Doppler-Effekt bestand an sich aus vier einzelnen Versuchen.
-In jedem dieser sollte entweder der Doppler-Effekt selber gemessen oder eine 
-für die Auswertung entscheidene Größe bestimmt werden.
+Der Versuch Doppler-Effekt besteht aus fünf einzelnen Versuchen.
+Zwei dienen dazu die Eigentlichen beiden Messungen vorzubereiten, denn 
+zum einen wird die Geschwindigkeit des Wagens, auf dem der
+Lautsprecher befestigt ist und zum Anderen wird die Grundfrequenz
+$\nu_0$ eines 
+frequenzstabilen Generators gemessen.
 
 \subsection{Messung der Relativgeschwindigkeit}
 
@@ -122,42 +125,110 @@ für die Auswertung entscheidene Größe bestimmt werden.
 %Erreicht der Wagen, angetrieben durch den Synchronmotor, die erste 
 %Lichtschranke, so aktiviert diese.
 
-Der Verrsuchsaufbau ist in Abbildung $1$ zu entnehmen. 
-Der Wagen wurde von einem zehngängigen Synchronmotor angetrieben.
-Dabei sollen die Lichtschranken Start- und Endpunkt der Messung festlegen.
-Um somit die Zeit zu bestimmen, die der Wagen benöigt um die beiden 
-Lichtschranken zu passieren.
-
-
+Der Versuchsaufbau ist in Abbildung $1$ abgebildet. 
+Der durch den zehgängigen Synchronmotor angetriebene Wagen, durch läuft eine 
+von zwei Lichtschranken festgelegte Strecke $l$. Dabei dienen die Lichtschranken weiter dazu
+eine Zeitmessung zu beginnen bzw. zubeenden. Die dadurch resultierenden Messgrößen
+werden dann weiter genutzt um die Geschwindigkeit des Wagens abhängig vom eingestellten
+Gang zu berechnen.
+Die in der Abbildung zu erkennende logische Schaltung soll im Folgenden einmal kurz
+erläutert werden.
+Zunächst sind die beiden Phototransistoren an sogenannte Schmitt-Trigger angeschlossen.
+Diese haben die Aufgaben die vom Photoransistor regrestierten Impulse in ein 
+für logische Gatter essenzieles TTL-Signal umzuwandeln. Weiter sind beide Schmitt-Trigger an
+eine bistabile Kippstufe angeschlossen, die sobald einer der Transistor einen Impuls sendet.
+Entweder auf High (Messung beginnt) oder auf Low (Messung endet) schaltet. Dadurch wird 
+das folgende Und-Gatter für Signale durchlässig oder nicht.
+Der neben der bistabilenKippstufe angeschlossene, Zeitgenerator liefert mit einer Genauigkeit von
+$10^{-5}$ im Abstand von $1\si{\micro\second}$ einen Impuls.
+Aufgrund dieser Eigenschaft übernimmt er in diesem Versuch die Rolle einer Uhr.
+Der nach dem Zeitgenerator eingebaute Untersetzer dient hier dazu, um 
+ein Overflow des Zählwerks zu verhindern. Denn er verringert die Anzahl der Impulse um 
+den einstellbaren Faktor $10^n$.
 
 \subsection{Messung der Schallgeschwindigkeit}
 
-Der Versusaufbau zur Messung der Schallgeschwindigkeit ist
+Der Versuchsaufbau zur Messung der Schallgeschwindigkeit ist der
 Abbildung \textbf{ NUMMER EINFÜGEN} zu entnehmen.
 
-Im Versuch werden das vom Quarzgenrator gelieferte Ton und der 
-vom Mikrofon gemessene Ton an einem Ozilliskop angelegt.
-Dabei werden die Signale so eingestelt Lissajou-Figuren entstehen.
-Diese werden genutzt um den auf dem Lautsprecher montierten Schlitten, so 
-einzustellen, dass beide Signale in Phase (Lissajou Figur entspricht einer Geraden) sind. 
-Wenn nun immer der Abstand abgelesen wird, zwischen zwei 
-Signalen gleicher Phase, kann auf die Wellenlänge geschlossen werden.
+Im Versuch wird der vom Quarzgenerator erzeugte und der vom Mikrofon gemessene 
+Ton, jeweils auf die x- und y-Achse eines Ozilliskop aufgetragen.
+Dadurch können sogenannte Lissajou-Figuren erzeugt werden.
+Diese werden genutzt, um den auf dem Lautsprecher montierten Präzisionsschlitten 
+(Genauigkeit von $10\si{\micro\meter}$), so 
+einzustellen, dass beide Signale in Phase sind. 
+Dies ist genau dann der Fall, wenn die Lissajou-Figur eine Gerade ergibt.
+Wenn nun immer der Abstand, zwischen zwei 
+Signalen gleicher Phase, gemessen wird, kann auf die Wellenlänge geschlossen werden.
+Mithilfe der der Ruhefrequenz des Generators und der gerade gemessenen 
+Wellenlängen kann dann die Schallgeschwindigkeit gefolgert werden.
+
+
 
 \subsection{Frequenzmessung}
+Der Oberbegriff Frequenzmessung fasst jeweils drei verschiedene
+Frequenzmessung zusammen.
+Die Messung der Grundfrequenz $\nu_0$ 
+für die darauf folgende Messung der Frequenz einer bewegten Quelle wichtig. Denn sie wird für eine nachfolgende BErechnung benötigt.
+benötigt. Abschließend wird noch die Frequenz einer Schwebung gemessen.
 
-Im Anhang \textbf{Nummer einfügen} wird der Versuchsaufbau dargestellt.
-Beim Versuch bewegt sich der, auf dem Wagen montierte, Lautsprecher entweder 
-in Richtung des Mikrofons oder in gegengesetzer Richtung vom Mikrofons.
-Dadurch entsteht eine Relativbewegung und somit auch der
-Doppler-Effekt.
-Nachdem der Wagen mittels eine Lichtschranke den Messzeitraum startet.
-Das Mikrofon misst solange, jede angekommene Phase, bis der Untersetzer 
-die Messung beendet.
-Der Versuch wird mit verschiedenen Wagengeschwindigkeit
-wiederholt, um die unerschieldiche Stärke des Doppler-Effekts 
-festzustellen.
+An dieser Stelle soll noch eine kurze Erklärung der logischen Schaltung
+für die beiden folgenden Messungen folgen.
 
-\subsection{Frequenzmessung}
+Wie im obigen Versuch haben wir auch hier wieder an einen
+Schmitt-Trigger angeschlossen Phototransistor. 
+Der Schmitt-Trigger bzw. der Phototransistor übernehmen wieder die Aufgabe 
+einen eingestellten Messzeitraum zu starten. Denn nach dem der 
+Schmitt-Trigger den Impuls des Phototransistors in ein TTA-Signal 
+umgewandelt hat, geht dieses in eine Bistabile-Kippstufe.
+Das nun von der Kippstufe ausgesendete Signal dient, dazu um zwei
+Und-Gatter zu schalten. 
+Das eine Und-Gatter ist mit dem Mikrofon und einem Impulsforma (Sinusschwingung zu Rechteckschwingung)
+verbunden. Das heißt, sobald dass Und-Gatter vom Flip-Flop ein High Potential erhält, wird es freigeschaltet
+und das dahinter liegende Zählwerk kann die vom Mikrofon gesendeten Impulse (nur ganzzahlig) zählen.
+Das andere Und-Gatter ist noch mit dem Zählwerk verbunden. Wird es nach dem High Impuls von der
+Kippstufe freigeschaltet, steuert das Zählwerk mit regelmäßigen Impulsen (1 pro $1\si{\micro\second}$)
+einen Untersetzer. Der Untersetzer hat die Aufgabe ein reproduzierbares Zeitintervall festzulegen.
+Denn nach $10^n$ Signalen vom Zeitbasisgenerator sendet der Untersetzer ein Low Impuls an die Bistabilekippstufe.
+Dadurch wird dann der Messzeitraum beendet.
+
+\subsubsection{Ruhefrequenz}
+
+Um die Ruhefrequenz zu messen, bewegt sich der auf dem Wagen montierte Lautsprecher nicht. 
+Das vom Lautsprecher erzeugte Signal wird vom Mikrofon wahrgenommen und vom Zählwerk gemessen.
+Nachdem Ablauf des vorher festgelegten Zeitraums, kann dann die Grundfrequenz bestimmt werden.
+
+\subsection{Bewegte Quelle}
+
+Im Gegensatz zur Messung der Ruhefrequenz bewegen sich hier Wagen und Lautsprecher.
+Die Geschwindigkeit ist dabei abhängig von dem beim Motor eingestellten Gang.
+Sobald der Wagen jetzt die Lichtschranke durchläuft, beginnt der Messzeitraum und
+endet nach der beim Untersetzer eingestellten Zeit. Wichtig, ist noch zu erwähnen, dass hier 
+nicht nur eine Bewegungsrichtung gemessen wird. Das heißt, es werden jeweils Messreihen 
+aufgestellt, inden sich der Wagen in positiver (auf das Mikrofon) oder in negative (weg vom Mikrofon) Richtung
+bewegt.
+
+\subsubsection{Schwebungsmethode}
+
+Eine Schewbung entsteht allgemein, wenn sich zwei Schwingungen mit ähnlicher Frequenz überlagern.
+Es kommt zu einer zeitabhängigen Amplitude. Den Effekt der Schwebung macht man sich bei diesem Versuch
+zunutze.
+
+Der grundlegende Versuchsaufbau ist in Abbildung \textbf{Abbildung einfügen} zu sehen.
+Der Lautsprecher wird neben dem Mikrofon plaztiert, aber so das er in Richtung eines
+auf dem Wagen montierten Spigel zeigt. 
+Denn dadurch misst das Mikrofon nicht nur die Grundschwingung vom Lautsprecher, sondern auch
+die vom Spiegel reflektierte. 
+Es sei zu erwähnen, dass sich der Lautsprecher in der Nähe vom Mikrofon befinden muss, da sonst keine Schwebung messbar ist.
+Besagter Spiegel befindet sich auf dem Wagen. Dieser witd vom zehngängigen Motor angetrieben.
+angetrieben. Dadurch kommt es bei der vom Spiegel reflektierten Schwingung zu einer Frequenzänderung
+und eine Schwebung entsteht.
+Die vom Mikrofon gemessene Schwingung wird anschließend durch einen Gleichrichter und einen Tiefpass geschickt.
+Der Tiefpass filtert nun die Schwebung heraus. Da auch in diesem Versuch wieder ein Untersetzer eingesetzt wird, um
+ein Zeitintervall festzulegen. Kann die Frequenz der Schewbung danach bestimmt werden.
+Diese Frequenz entspricht dann gerade der Frequenzdifferenz durch den Dopplereffekt.
+%2v noch erwähnen? Wie erwähnen ?
+ 
 
 \printbibliography
 \printindex
