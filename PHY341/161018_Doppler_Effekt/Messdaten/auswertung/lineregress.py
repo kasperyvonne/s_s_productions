@@ -1,11 +1,7 @@
 import numpy as np
 
-
-g,m,f,u,u_f=np.genfromtxt('Mittelwert_u.txt', unpack=True)
-
-g_n,s =np.genfromtxt('Dopplereffekt_pos.txt', unpack=True)
-
-g_p,s =np.genfromtxt('Dopplereffekt_neg.txt', unpack=True)
+u, nu=np.genfromtxt('schwebung_werte_sammlung.txt',unpack=True)
+u*=-1
 # Lineare Regression mittels Methode der kleinsten Quadrate
 def linregress(x, y):
     assert len(x) == len(y)
@@ -27,7 +23,7 @@ def linregress(x, y):
     return A, A_error, B, B_error
 
 
-m,m_e,b,b_e=linregress(u,g_p)
+m,m_e,b,b_e=linregress(u,nu)
 
-np.savetxt('Lingress_berechneter_doppler_pos.txt',np.column_stack([m,m_e,b,b_e]),header='m m_err b b_e')
+np.savetxt('Lingress_schwebung_sammlung.txt',np.column_stack([m,m_e,b,b_e]),header='m m_err b b_e')
 
