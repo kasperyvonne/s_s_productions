@@ -3,11 +3,11 @@ import uncertainties.unumpy as unp
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 
-u,nu = np.genfromtxt('schwebung_werte_sammlung.txt',unpack=True)
-m,m_e,b,b_e=np.genfromtxt('Lingress_schwebung_sammlung.txt',unpack=True)
+u,nu = np.genfromtxt('deltafrequenz_werte_sammlung.txt',unpack=True)
+m,m_e,b,b_e=np.genfromtxt('Lingress_deltafrequenz_werte_sammlung.txt',unpack=True)
 #print(s)
 #print(f)
-u*=-1
+
 
 def f(m,u,b):
 	return m*u+b
@@ -29,5 +29,5 @@ plt.plot(x,f(x,m,b),'g-',label='Lingress')
 plt.legend(loc='best')
 plt.grid()
 plt.title('Geschwindigkeit zu Schwebung, Frequenzmessung 1')
-plt.show()
-#plt.savefig('Geschwindigkeit zu allen Deltafrequenzen .pdf')
+#plt.show()
+plt.savefig('Geschwindigkeit zu allen Deltafrequenzen .pdf')

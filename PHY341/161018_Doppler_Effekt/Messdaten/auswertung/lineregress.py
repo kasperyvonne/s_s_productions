@@ -1,7 +1,7 @@
 import numpy as np
 
-u, nu=np.genfromtxt('schwebung_werte_sammlung.txt',unpack=True)
-u*=-1
+u, nu=np.genfromtxt('deltafrequenz_werte_sammlung.txt',unpack=True)
+
 # Lineare Regression mittels Methode der kleinsten Quadrate
 def linregress(x, y):
     assert len(x) == len(y)
@@ -25,5 +25,5 @@ def linregress(x, y):
 
 m,m_e,b,b_e=linregress(u,nu)
 
-np.savetxt('Lingress_schwebung_sammlung.txt',np.column_stack([m,m_e,b,b_e]),header='m m_err b b_e')
+np.savetxt('Lingress_deltafrequenz_werte_sammlung.txt',np.column_stack([m,m_e,b,b_e]),header='m m_err b b_e')
 
