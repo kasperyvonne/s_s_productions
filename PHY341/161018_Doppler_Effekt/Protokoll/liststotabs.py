@@ -12,7 +12,7 @@ for i in range(0, p):
     v = input()
     data[v] = []
 
-
+# Vor Programmstart muss Dateipfad und Name der .tex Datei angepasst werden
 array = np.array(np.genfromtxt(r'/home/stefan/Desktop/s_s_productions/PHY341/161018_Doppler_Effekt/Messdaten/frequenz_v_neg.txt', unpack = True))
 helpindex = 0
 for k in data:
@@ -53,6 +53,3 @@ with open('tab.tex', 'w') as f:
 
 
     f.write('\\bottomrule \n \\end{tabular} \n \\end{table}')
-
-
-    
