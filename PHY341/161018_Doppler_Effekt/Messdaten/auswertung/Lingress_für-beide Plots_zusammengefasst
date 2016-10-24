@@ -4,4 +4,9 @@ Frquenzmessung 1 - bewegter Lautsprecher:
 5.305383680737500640e+01 2.872255887429929100e+00 7.258181818180310607e+00 4.384239534732692345e-01
 
 Frequenzmessung - Schwebungsmethode mit 2v:
+# m m_err b b_e
 6.454595731170029183e+01 7.736052241413288399e+00 -1.000000000000000888e+00 2.361677190949027061e+00
+
+Inverse der Wellenlänge (Angabe in 1/m)
+# Wert Abweichung
+59.4 1.0 

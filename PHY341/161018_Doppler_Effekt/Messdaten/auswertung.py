@@ -90,9 +90,9 @@ while n<len(u):
 	
 dopp_un=unp.uarray(dopp,dopp_f)
 dopp_u=np.array([dopp,dopp_f])
-print()
+print(inwell)
 d=np.array([g_1,m_u1,m_f])
 #np.savetxt('Wellenaenge_Mittelwert.txt',np.column_stack([well_m, wellf]),header='Mittelwert Fehler')
 #np.savetxt('Schallgeschwindigkeit_Mittelwert.txt',np.column_stack([c_m,c_f]),header='Mittelwert Fehler')
-np.savetxt('Dopplereffekt_neg.txt',dopp_u.T,header='Deltafrequenz Fehler')
+#np.savetxt('Dopplereffekt_neg.txt',dopp_u.T,header='Deltafrequenz Fehler')
 #np.savetxt('Inverse der Wellenlaenge.txt',np.column_stack([inwell]),header='Inverse_der_wellelaenge')
