@@ -7,7 +7,7 @@ u,nu= np.genfromtxt('schwebung_werte_sammlung.txt',unpack=True)
 #print(s)
 #print(f)
 
-
+u*=2
 def f(m,u,b):
 	return m*u+b
 params_p,covarian=curve_fit(f,u,nu)
@@ -18,7 +18,7 @@ params_p,covarian=curve_fit(f,u,nu)
 #
 plt.xlabel('$v$')
 plt.ylabel('$\Delta \\nu$')
-plt.xlim(-0.25,0.25)
+plt.xlim(-0.5,0.5)
 #plt.ylim(0.8,1.41	)
 x=np.linspace(-0.5,0.5,100)
 
@@ -29,5 +29,5 @@ plt.plot(u,f(u,*params_p),'b-',label='Fit')
 plt.legend(loc='best')
 plt.grid()
 plt.title('Geschwindigkeit zu Schwebungsmethode , Messung 2')
-#plt.show()
-plt.savefig('Geschwindigkeit Schwebungsmethode_betrag_aufgeloest_eine_gerade.pdf')
+plt.show()
+#plt.savefig('Geschwindigkeit Schwebungsmethode_betrag_aufgeloest_eine_gerade.pdf')
