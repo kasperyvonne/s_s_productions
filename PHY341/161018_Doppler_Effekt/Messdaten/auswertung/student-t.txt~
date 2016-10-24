@@ -4,16 +4,16 @@ Anzahl der Freiheitsgrade: 13
 Wellenlängenmessung und Frequenzmessung bewegterlautsprecher
 t=4,72 
 Abweichung: 1.34
-t_tilde=3,012 -> systematischer Fehler zu: 99.5%
+t_tilde=3,012 -> systematischer Fehlerwahrscheinlichkeit von 95%
 
 Anzahl der Freiheitsgrade: 13
 Wellenlängenmessung und Schwebung
 t=-1.45
 Abweichung: 3.54
-t_tilde=3,012 -> systematischer Fehler zu: 99.5%
+t_tilde=3,012 ->  systematischer Fehlerwahrscheinlichkeit von 95%
 
 Anzahl der Freiheitsgrade: 8
 Frequenzmessung bewegterlautsprecher und Schwebung
 t=4.40
 Abweichung: 2.61
-t_tilde=3,355 -> systematischer Fehler zu: 99.5 %
+t_tilde=3,355 -> systematischer Fehlerwahrscheinlichkeit von 95%
