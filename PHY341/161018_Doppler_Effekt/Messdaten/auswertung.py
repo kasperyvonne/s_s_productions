@@ -7,7 +7,7 @@ import math
 l_1=unp.uarray(13e-2,1e-3)
 
 #Hier nicht wichtig
-g,u=np.genfromtxt('frequenz_v_neg.txt',unpack=True)
+g,u=np.genfromtxt('zeiten.txt',unpack=True)
 well=np.genfromtxt('wellenlaenge.txt', unpack=True)
 n_0=np.genfromtxt('ruhefrequenz.txt',unpack=True)
 
@@ -73,9 +73,7 @@ while n<len(u):
 		hilfsv+=(u[a]-m_u)**2
 		a+=1
 	m_b=np.sqrt(1/(m*(m-1))*hilfsv)
-	m_f.append(m_b)
-	
-
+	m_f.append(m_b)	
 	m_un=unp.uarray(m_u,m_b)
 	dopp.append(m_u-n_0m)
 	dopp_f.append(unp.std_devs(n_0un-m_un))
@@ -83,16 +81,20 @@ while n<len(u):
 	print('Fehler',m_b)
 	print('Dabei ist der Fehler des Mittelwert: ',m_b)
 	print('\n')
-	#v=b/m_u
-	##print('Geschwindigkeit', v)
-	#v_m.append(v)
-	#v_f.append(np.sqrt(1/(m_b/m_u)**2+(b_f/b)**2))
+	v=b/m_u
+	print('Geschwindigkeit', v)
+	v_m.append(v)
+	v_f.append(np.sqrt((m_b/m_u)**2+(b_f/b)**2))
 	
 dopp_un=unp.uarray(dopp,dopp_f)
 dopp_u=np.array([dopp,dopp_f])
+
 print(inwell)
-d=np.array([g_1,m_u1,m_f])
+print(g)
+print(v)
+print(v_f)
+d=np.array([g_1,v_m,v_f])
 #np.savetxt('Wellenaenge_Mittelwert.txt',np.column_stack([well_m, wellf]),header='Mittelwert Fehler')
 #np.savetxt('Schallgeschwindigkeit_Mittelwert.txt',np.column_stack([c_m,c_f]),header='Mittelwert Fehler')
-#np.savetxt('Dopplereffekt_neg.txt',dopp_u.T,header='Deltafrequenz Fehler')
+np.savetxt('Geschwindigkeit.txt',d.T,header='Gang Geschindigkeit Fehler')
 #np.savetxt('Inverse der Wellenlaenge.txt',np.column_stack([inwell]),header='Inverse_der_wellelaenge')
