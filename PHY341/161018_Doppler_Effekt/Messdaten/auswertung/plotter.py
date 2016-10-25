@@ -29,5 +29,5 @@ plt.plot(u,f(u,*params_p),'b-',label='Fit')
 plt.legend(loc='best')
 plt.grid()
 plt.title('Geschwindigkeit zu Schwebungsmethode , Messung 2')
-plt.show()
-#plt.savefig('Geschwindigkeit Schwebungsmethode_betrag_aufgeloest_eine_gerade.pdf')
+
+plt.savefig('plot_schwebe.pdf')
