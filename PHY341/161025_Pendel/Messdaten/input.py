@@ -26,16 +26,16 @@ while u != 'x':
         data[k].append(float(u))
         print(data[k])
 
-np.savetxt('T_schwebe_70.txt', np.column_stack(data.values()), header = head)
+np.savetxt('T_schwebe_60.txt', np.column_stack(data.values()), header = head)
 
 
 
 
 
-with open('T_schwebe_70.tex', 'w') as f:
+with open('T_schwebe_60.tex', 'w') as f:
 
 
-    f.write('\\begin{table} \n \\centering \n \\caption{...} \n \\label{tab:...} \n \\begin{tabular}{')
+    f.write('\\begin{minipage}{0.49\textwidth} \n \\centering \n \\begin{tabular}{')
     f.write(p*'S ')
     f.write('} \n \\toprule \\\ \n')
 
@@ -64,4 +64,4 @@ with open('T_schwebe_70.tex', 'w') as f:
             helpindex += 1
 
 
-    f.write('\\bottomrule \n \\end{tabular} \n \\end{table}')
+    f.write('\\bottomrule \n \\end{tabular} \n \\captionof{table}{...} \n \\label{tab:...} \n  \\end{minipage}')
