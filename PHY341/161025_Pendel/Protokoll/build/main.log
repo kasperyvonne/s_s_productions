@@ -1,4 +1,4 @@
-This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2016.10.10)  25 OCT 2016 17:47
+This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2016.10.10)  25 OCT 2016 19:49
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -606,7 +606,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.101 seconds)
+luaotfload | main : initialization completed in 0.103 seconds)
 Lua module: fontspec 2016/02/01 2.5a Advanced font selection for LuaLaTeX.
 (/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/fontspec/fontspec-luatex
 .sty
@@ -822,7 +822,24 @@ File: babelsh.def 2013/04/30 Babel common definitions for shorthands
 Package polyglossia Info: Making " an active character on input line 79.
 )
 Package polyglossia Info: Default language is german.
- (/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/amsmath/amsmath.sty
+ (/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen176
+\captionmargin@=\dimen177
+\captionwidth=\dimen178
+\caption@tempdima=\dimen179
+\caption@indent=\dimen180
+\caption@parindent=\dimen181
+\caption@hangindent=\dimen182
+)
+Package caption Info: KOMA-Script document class.
+\c@ContinuedFloat=\count140
+)
+(/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2016/06/28 v2.15d AMS math features
 \@mathmargin=\skip61
 
@@ -833,46 +850,46 @@ Package: amstext 2000/06/29 v2.01 AMS text
 (/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks32
-\ex@=\dimen176
+\ex@=\dimen183
 ))
 (/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen177
+\pmbraise@=\dimen184
 )
 (/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count140
+\inf@bad=\count141
 LaTeX Info: Redefining \frac on input line 199.
-\uproot@=\count141
-\leftroot@=\count142
+\uproot@=\count142
+\leftroot@=\count143
 LaTeX Info: Redefining \overline on input line 297.
-\classnum@=\count143
-\DOTSCASE@=\count144
+\classnum@=\count144
+\DOTSCASE@=\count145
 LaTeX Info: Redefining \ldots on input line 394.
 LaTeX Info: Redefining \dots on input line 397.
 LaTeX Info: Redefining \cdots on input line 518.
 \Mathstrutbox@=\box59
 \strutbox@=\box60
-\big@size=\dimen178
+\big@size=\dimen185
 LaTeX Font Info:    Redeclaring font encoding OML on input line 634.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
-\macc@depth=\count145
-\c@MaxMatrixCols=\count146
+\macc@depth=\count146
+\c@MaxMatrixCols=\count147
 \dotsspace@=\muskip16
-\c@parentequation=\count147
-\dspbrk@lvl=\count148
+\c@parentequation=\count148
+\dspbrk@lvl=\count149
 \tag@help=\toks33
-\row@=\count149
-\column@=\count150
-\maxfields@=\count151
+\row@=\count150
+\column@=\count151
+\maxfields@=\count152
 \andhelp@=\toks34
-\eqnshift@=\dimen179
-\alignsep@=\dimen180
-\tagshift@=\dimen181
-\tagwidth@=\dimen182
-\totwidth@=\dimen183
-\lineht@=\dimen184
+\eqnshift@=\dimen186
+\alignsep@=\dimen187
+\tagshift@=\dimen188
+\tagwidth@=\dimen189
+\totwidth@=\dimen190
+\lineht@=\dimen191
 \@envbody=\toks35
 \multlinegap=\skip62
 \multlinetaggap=\skip63
@@ -895,15 +912,15 @@ Package: mathtools 2015/11/12 v1.18 mathematical typesetting tools
 
 (/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count152
-\calc@Bcount=\count153
-\calc@Adimen=\dimen185
-\calc@Bdimen=\dimen186
+\calc@Acount=\count153
+\calc@Bcount=\count154
+\calc@Adimen=\dimen192
+\calc@Bdimen=\dimen193
 \calc@Askip=\skip64
 \calc@Bskip=\skip65
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count154
+\calc@Ccount=\count155
 \calc@Cskip=\skip66
 )
 (/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/mathtools/mhsetup.sty
@@ -913,15 +930,15 @@ LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
-\g_MT_multlinerow_int=\count155
-\l_MT_multwidth_dim=\dimen187
+\g_MT_multlinerow_int=\count156
+\l_MT_multwidth_dim=\dimen194
 \origjot=\skip67
-\l_MT_shortvdotswithinadjustabove_dim=\dimen188
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen189
-\l_MT_above_intertext_sep=\dimen190
-\l_MT_below_intertext_sep=\dimen191
-\l_MT_above_shortintertext_sep=\dimen192
-\l_MT_below_shortintertext_sep=\dimen193
+\l_MT_shortvdotswithinadjustabove_dim=\dimen195
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen196
+\l_MT_above_intertext_sep=\dimen197
+\l_MT_below_intertext_sep=\dimen198
+\l_MT_above_shortintertext_sep=\dimen199
+\l_MT_below_shortintertext_sep=\dimen256
 )
 (/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/unicode-math/unicode-mat
 h.sty
@@ -950,9 +967,9 @@ Package: filehook-scrlfile 2011/01/03 v0.1 filehook patch for scrlfile package
 Package filehook Info: Package 'scrlfile' detected and compensated for on input 
 line 102.
 ))
-\g__um_fam_int=\count156
+\g__um_fam_int=\count157
 \g__um_primekern_muskip=\muskip17
-\l__um_primecount_int=\count157
+\l__um_primecount_int=\count158
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
@@ -1062,7 +1079,7 @@ luaotfload | cache : Lookup cache loaded from /home/stefan/.local/texlive/2016/t
 exmf-var/luatex-cache/generic/names/luaotfload-lookup-cache.luc.(load luc: /home
 /stefan/.local/texlive/2016/texmf-var/luatex-cache/generic/fonts/otl/latinmodern
 -math.luc)
-\g__fontspec_family_LatinModernMath_int=\count158
+\g__fontspec_family_LatinModernMath_int=\count159
 .................................................
 . fontspec info: "no-font-shape"
 . 
@@ -1199,12 +1216,12 @@ ne 32.
 
 (/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2016/07/14 v5.1h context-sensitive quotations (JAW)
-\csq@reset=\count159
-\csq@gtype=\count160
-\csq@glevel=\count161
-\csq@qlevel=\count162
-\csq@maxlvl=\count163
-\csq@tshold=\count164
+\csq@reset=\count160
+\csq@gtype=\count161
+\csq@glevel=\count162
+\csq@qlevel=\count163
+\csq@maxlvl=\count164
+\csq@tshold=\count165
 \csq@ltx@everypar=\toks37
 
 (/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/csquotes/csquotes.def
@@ -1223,46 +1240,46 @@ Package: siunitx 2016/09/02 v2.6s A comprehensive (SI) units package
 
 (/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/tools/array.sty
 Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
-\col@sep=\dimen194
-\extrarowheight=\dimen195
+\col@sep=\dimen257
+\extrarowheight=\dimen258
 \NC@list=\toks38
 \extratabsurround=\skip68
 \backup@length=\skip69
 )
 \l__siunitx_tmp_box=\box61
-\l__siunitx_tmp_dim=\dimen196
-\l__siunitx_tmp_int=\count165
-\l__siunitx_number_mantissa_length_int=\count166
-\l__siunitx_number_uncert_length_int=\count167
-\l__siunitx_round_int=\count168
-\l__siunitx_process_decimal_int=\count169
-\l__siunitx_process_uncertainty_int=\count170
-\l__siunitx_process_fixed_int=\count171
-\l__siunitx_process_integer_min_int=\count172
-\l__siunitx_process_precision_int=\count173
-\l__siunitx_group_min_int=\count174
+\l__siunitx_tmp_dim=\dimen259
+\l__siunitx_tmp_int=\count166
+\l__siunitx_number_mantissa_length_int=\count167
+\l__siunitx_number_uncert_length_int=\count168
+\l__siunitx_round_int=\count169
+\l__siunitx_process_decimal_int=\count170
+\l__siunitx_process_uncertainty_int=\count171
+\l__siunitx_process_fixed_int=\count172
+\l__siunitx_process_integer_min_int=\count173
+\l__siunitx_process_precision_int=\count174
+\l__siunitx_group_min_int=\count175
 \l__siunitx_angle_marker_box=\box62
 \l__siunitx_angle_unit_box=\box63
-\l__siunitx_angle_marker_dim=\dimen197
-\l__siunitx_angle_unit_dim=\dimen198
-\l__siunitx_unit_int=\count175
-\l__siunitx_unit_denominator_int=\count176
-\l__siunitx_unit_numerator_int=\count177
-\l__siunitx_unit_prefix_int=\count178
-\l__siunitx_unit_prefix_base_int=\count179
-\l__siunitx_unit_prefix_gram_int=\count180
-\l__siunitx_number_product_int=\count181
+\l__siunitx_angle_marker_dim=\dimen260
+\l__siunitx_angle_unit_dim=\dimen261
+\l__siunitx_unit_int=\count176
+\l__siunitx_unit_denominator_int=\count177
+\l__siunitx_unit_numerator_int=\count178
+\l__siunitx_unit_prefix_int=\count179
+\l__siunitx_unit_prefix_base_int=\count180
+\l__siunitx_unit_prefix_gram_int=\count181
+\l__siunitx_number_product_int=\count182
 \c__siunitx_one_fill_skip=\skip70
 \l__siunitx_table_unit_align_skip=\skip71
-\l__siunitx_table_exponent_dim=\dimen199
-\l__siunitx_table_integer_dim=\dimen256
-\l__siunitx_table_mantissa_dim=\dimen257
-\l__siunitx_table_marker_dim=\dimen258
-\l__siunitx_table_result_dim=\dimen259
-\l__siunitx_table_uncert_dim=\dimen260
-\l__siunitx_table_fill_pre_dim=\dimen261
-\l__siunitx_table_fill_post_dim=\dimen262
-\l__siunitx_table_fill_mid_dim=\dimen263
+\l__siunitx_table_exponent_dim=\dimen262
+\l__siunitx_table_integer_dim=\dimen263
+\l__siunitx_table_mantissa_dim=\dimen264
+\l__siunitx_table_marker_dim=\dimen265
+\l__siunitx_table_result_dim=\dimen266
+\l__siunitx_table_uncert_dim=\dimen267
+\l__siunitx_table_fill_pre_dim=\dimen268
+\l__siunitx_table_fill_post_dim=\dimen269
+\l__siunitx_table_fill_mid_dim=\dimen270
 \l__siunitx_table_pre_box=\box64
 \l__siunitx_table_post_box=\box65
 \l__siunitx_table_mantissa_box=\box66
@@ -1480,19 +1497,19 @@ Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 mplate.sty
 Package: xtemplate 2016/05/18 v6512 L3 Experimental prototype document functions
 
-\l__xtemplate_tmp_dim=\dimen264
-\l__xtemplate_tmp_int=\count182
+\l__xtemplate_tmp_dim=\dimen271
+\l__xtemplate_tmp_int=\count183
 \l__xtemplate_tmp_muskip=\muskip18
 \l__xtemplate_tmp_skip=\skip74
 )
 Package: xfrac 2016/05/18 v6512 L3 Experimental split-level fractions
 \l__xfrac_slash_box=\box68
 \l__xfrac_tmp_box=\box69
-\l__xfrac_denominator_bot_sep_dim=\dimen265
-\l__xfrac_numerator_bot_sep_dim=\dimen266
-\l__xfrac_numerator_top_sep_dim=\dimen267
-\l__xfrac_slash_left_sep_dim=\dimen268
-\l__xfrac_slash_right_sep_dim=\dimen269
+\l__xfrac_denominator_bot_sep_dim=\dimen272
+\l__xfrac_numerator_bot_sep_dim=\dimen273
+\l__xfrac_numerator_top_sep_dim=\dimen274
+\l__xfrac_slash_left_sep_dim=\dimen275
+\l__xfrac_slash_right_sep_dim=\dimen276
 \l__xfrac_slash_left_muskip=\muskip19
 \l__xfrac_slash_right_muskip=\muskip20
 .................................................
@@ -1508,23 +1525,6 @@ Package: xfrac 2016/05/18 v6512 L3 Experimental split-level fractions
 )
 (/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/placeins/placeins.sty
 Package: placeins 2005/04/18  v 2.2
-)
-(/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
-
-(/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
-Package caption3 Info: TeX engine: e-TeX on input line 67.
-\captionmargin=\dimen270
-\captionmargin@=\dimen271
-\captionwidth=\dimen272
-\caption@tempdima=\dimen273
-\caption@indent=\dimen274
-\caption@parindent=\dimen275
-\caption@hangindent=\dimen276
-)
-Package caption Info: KOMA-Script document class.
-\c@ContinuedFloat=\count183
 )
 (/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/caption/subcaption.sty
 Package: subcaption 2016/05/22 v1.1-161 Sub-captions (AR)
@@ -2180,6 +2180,11 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 
 ))
 Language ngerman already loaded; id is 8
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+Package caption Info: End \AtBeginDocument code.
+
 *************************************************
 * unicode-math warning: "mathtools-overbracket"
 * 
@@ -2196,10 +2201,6 @@ Dictionary: translator-basic-dictionary, Language: English
 tions.cfg
 File: siunitx-abbreviations.cfg 2016/09/02 v2.6s siunitx: Abbreviated units
 )
-Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: float package is loaded.
-Package caption Info: hyperref package is loaded.
-Package caption Info: End \AtBeginDocument code.
 Package biblatex Info: LuaTeX detected.
 (biblatex)             Assuming input encoding 'utf8'.
 Package biblatex Info: Automatic encoding selection.
@@ -2310,50 +2311,141 @@ LaTeX Font Info:    Font shape `EU2/LatinModernMath(2)/m/n' will be
 (Font)              scaled to size 6.9999pt on input line 5.
  (./theorie.tex)
 (./versuchsaufbau.tex) (./auswertung.tex
+LaTeX Font Info:    Font shape `EU2/LatinModernMath(1)/m/n' will be
+(Font)              scaled to size 12.00018pt on input line 2.
+LaTeX Font Info:    Font shape `EU2/LatinModernMath(2)/m/n' will be
+(Font)              scaled to size 11.99982pt on input line 2.
+(load luc: /home/stefan/.local/texlive/2016/texmf-var/luatex-cache/generic/fonts
+/otl/lmsans12-regular.luc)(load luc: /home/stefan/.local/texlive/2016/texmf-var/
+luatex-cache/generic/fonts/otl/lmsans8-regular.luc)(load luc: /home/stefan/.loca
+l/texlive/2016/texmf-var/luatex-cache/generic/fonts/otl/lmroman8-regular.luc)(lo
+ad luc: /home/stefan/.local/texlive/2016/texmf-var/luatex-cache/generic/fonts/ot
+l/lmroman5-regular.luc)
 
-! LaTeX Error: File `tabs/T_pendel_links_70.tex' not found.
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 2.
 
-Type X to quit or <RETURN> to proceed,
-or enter new name. (Default extension: tex)
 
-Enter file name: 
-) (./diskussion.tex)
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 2.
 
-LaTeX Warning: Empty bibliography on input line 11.
+(./tabs/T_Pendel_links_70.tex
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 16.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 16--16
+[] [] 
+ []
+
+) (./tabs/T_Pendel_rechts_70.tex
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 14.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 14--14
+[] [] 
+ []
+
+)
+Overfull \hbox (10.95pt too wide) in paragraph at lines 3--8
+$[]$ 
+ []
+
+(./tabs/T_gleichsinnig_70.tex
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 14.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 14--14
+[] [] 
+ []
+
+) (./tabs/T_gegensinnig_70.tex
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 14.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 14--14
+[] [] 
+ []
+
+)
+Overfull \hbox (10.95pt too wide) in paragraph at lines 10--15
+[]$[]$ 
+ []
+
+(./tabs/T_gekoppelt_70.tex
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 14.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 14--14
+[] [] 
+ []
+
+) (./tabs/T_schwebe_70.tex
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 15.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 15--15
+[] [] 
+ []
+
+)) (./diskussion.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+
+ []
 
 [1
 
 
-{/home/stefan/.local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 14.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 14.
+{/home/stefan/.local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]) [2]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 13.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 13.
  (./build/main.aux
 Language ngerman already loaded; id is 8)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 14.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 14.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 13.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 13.
 Package logreq Info: Writing requests to 'main.run.xml'.
 
 \openout1 = main.run.xml
 )
 
 Here is how much of LuaTeX's memory you used:
- 50742 strings out of 495118
+ 50916 strings out of 495118
  100000,1648299 words of node,token memory allocated
- 736 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 29 glue, 1 kern, 22 attribute, 57 glue_spec, 22 att
+ 1004 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 57 glue, 1 kern, 40 attribute, 57 glue_spec, 40 att
 ribute_list, 1 write nodes
-   avail lists: 1:4,2:268,3:52,4:29,5:26,6:156,7:175,8:29,9:71,10:2,11:19
- 52834 multiletter control sequences out of 65536+600000
- 75 fonts using 19196063 bytes
- 65i,11n,104p,8833b,789s stack positions out of 5000i,500n,10000p,200000b,100000s
+   avail lists: 1:4,2:2164,3:119,4:46,5:192,6:690,7:1222,8:107,9:768,10:3,11:44
+ 52923 multiletter control sequences out of 65536+600000
+ 101 fonts using 25746279 bytes
+ 65i,17n,100p,8833b,1045s stack positions out of 5000i,500n,10000p,200000b,100000s
 </home/stefan/.local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmroman10-
 regular.otf></home/stefan/.local/texlive/2016/texmf-dist/fonts/opentype/public/l
-m/lmroman12-regular.otf></home/stefan/.local/texlive/2016/texmf-dist/fonts/opent
-ype/public/lm/lmsans10-bold.otf>
-Output written on main.pdf (1 page, 11642 bytes).
+m/lmroman10-bold.otf></home/stefan/.local/texlive/2016/texmf-dist/fonts/opentype
+/public/lm-math/latinmodern-math.otf></home/stefan/.local/texlive/2016/texmf-dis
+t/fonts/opentype/public/lm-math/latinmodern-math.otf></home/stefan/.local/texliv
+e/2016/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></home/stefan/.
+local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf>
+Output written on main.pdf (2 pages, 23870 bytes).
 
-PDF statistics: 54 PDF objects out of 1000 (max. 8388607)
- 41 compressed objects within 1 object stream
- 6 named destinations out of 1000 (max. 131072)
- 48 words of extra memory for PDF output out of 10000 (max. 10000000)
+PDF statistics: 89 PDF objects out of 1000 (max. 8388607)
+ 66 compressed objects within 1 object stream
+ 14 named destinations out of 1000 (max. 131072)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
