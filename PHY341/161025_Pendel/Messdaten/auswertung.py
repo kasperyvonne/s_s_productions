@@ -87,3 +87,20 @@ t_schwebe_mid_60 = np.mean(t_schwebe)
 t_schwebe_std_60 = 1/np.sqrt(len(t_schwebe)) * np.std(t_schwebe)
 u_t_schwebe_60 = ufloat(t_schwebe_mid_60, t_schwebe_std_60)
 print(u_t_schwebe_60)
+
+
+
+#------------------------------------------------------------------
+# berechne Wert für Schwebung mit den anderen Zeiten
+
+t_schwebe_calc_70 =0.2 *  (u_t_links_70 * u_t_rechts_70) / (u_t_gleich_70 - u_t_gegen_70)
+print('Berechneter Wert für Ts(70): ', t_schwebe_calc_70)
+print('Gemessener Wert für Ts(70): ', u_t_schwebe_70)
+print('Prozentuale Abweichung(70): ', t_schwebe_calc_70/u_t_schwebe_70-1)
+
+
+
+t_schwebe_calc_60 =0.2 * (u_t_links_60 * u_t_rechts_60) / (u_t_gleich_60 - u_t_gegen_60)
+print('Berechneter Wert für Ts(60): ', t_schwebe_calc_60)
+print('Gemessener Wert für Ts(60): ', u_t_schwebe_60)
+print('Prozentuale Abweichung(60): ', (t_schwebe_calc_60 / u_t_schwebe_60) - 1)
