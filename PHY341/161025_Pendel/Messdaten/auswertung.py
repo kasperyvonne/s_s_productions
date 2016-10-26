@@ -43,6 +43,11 @@ t_schwebe_std_70 = 1/np.sqrt(len(t_schwebe)) * np.std(t_schwebe)
 u_t_schwebe_70 = ufloat(t_schwebe_mid_70, t_schwebe_std_70)
 print(u_t_schwebe_70)
 
+Werte = {"T_{S}": (u_t_schwebe_70.n, u_t_schwebe_70.s), "T_{S}": (u_t_schwebe_70.n, u_t_schwebe_70.s), "T_{1}": (u_t_links_70.n, u_t_links_70.s), "T_{+}": (u_t_gleich_70.n, u_t_gleich_70.s),
+"T_{-}": (u_t_gegen_70.n, u_t_gegen_70.s) ,"T": (u_t_gekop_70.n, u_t_gekop_70.s), "T_{2}": (u_t_rechts_70.n, u_t_rechts_70.s)}
+
+for key in Werte:
+    print(Werte[key])
 
 
 # Nun für Länge l = 0.6 m
