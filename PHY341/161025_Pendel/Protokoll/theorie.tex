@@ -1,1 +1,105 @@
 \section{Theorie}
+
+Bei gekoppelten Pendel, wir die Theorie eines einzelnen Pendels benötigt.
+Dieses soll im nächsten Unterkapitel besprochen werden.
+
+\subsection{Fadenpendel}
+
+Ein Pendel an sich zeichnet sich dadurch aus, das eine Masse $m$ an ein Seil der Länge $l$ befestigt ist.
+Dabei wirkt auf die Masse die Kraft:
+
+ \begin{equation*}
+ m\ddot{x}=-mg\sin(\varphi)
+\end{equation*}
+
+Setzen wir nun die Reihenentwicklung für den Sinus
+bis zu ersten Ordnung ein: $\sin(x)\approx x$.
+Außerdm nutzen wir noch den Zusammenhang 
+für die Bogenlänge $x=l\phi$.
+Damit ergibt sich:
+
+\begin{equation*}
+\ddot{\varphi}=-\frac{g}{l}\varphi
+\end{equation*}
+
+Damit erhalten wir eine Differntialgleichung zweiter Ordnung.
+Die Lösung dieser ist eine Schwingung mit der Frequenz 
+$\omega=\sqrt{\frac{g}{l}}$.
+
+\subsection{Gekopplete Schwingung}
+
+Werden zwei Fadenpendel miteinander, zum Beispiel durch eine Feder mit der Federkonstante $k$, 
+gekopplelt. So erhält man nicht nur noch eine Differentialgleichung, sondern eine Differntialgleichsungssystem der Form
+
+\begin{align*}
+\ddot{\varphi}_1+\frac{g}{l}\varphi_1-k(\varphi_1-\varphi_2)&=0\\
+\ddot{\varphi}_2+\frac{g}{l}\varphi_2-k(\varphi_2-\varphi_1)&=0
+\end{align*}
+
+Die beiden Terme mit der Federkonstante $k$ beschreiben, in
+diesem Zusammenhang den Kopplungsterm der beiden Systeme.
+Durch geeignete Transformation kann man das Differntialgleichungssystem in ein Eigenwertproblem umwandeln.
+Somit können die möglichen Eigenfrequenzen $\omega_1$ und $\omega_2$ des Sytems bestimmt werden.Außerdem erhält man auch noch die möglichen Schingungstypen.
+
+\subsubsection{Gleichsinnige Schwingung}
+
+Bei einer Gleichsinnigen Schwingung werden beiden 
+Pendel zu Anfang in die gleiche Richtung ausgelenkt.
+Dadurch schwingen beide Massen in die gleichen Richtung und verhalten sich so wie ein einziges Federpendel mit der Frequenz
+
+\begin{equation*}
+\omega_+=\sqrt{\frac{g}{l}}
+\end{equation*}
+
+Mit $T=\frac{2\pi}{\omega}$ folgt dann für die Periodenfrequenz:
+
+\begin{equation*}
+T_+=2\pi\sqrt{\frac{l}{g}}
+\end{equation*}
+
+\subsubsection{Gegensinnige Schwingung}
+Bei diesem Schwingungstyp des Systems werden beide Massen, zum Anfang, entgegengsetzt ausglenkt. Das sich nun beide Massen aufsich zu bewegen, übt die Feder noch eine Kraft auf beide Pendel.
+Dadurch ergibt sich einer veränderte Frequenz
+
+\begin{equation*}
+\omega_-=\sqrt{\frac{g}{l}+\frac{2K}{l}}
+\end{equation*}
+
+mit der veränderten Schwingungsdauer
+
+\begin{equation*}
+T_=2\pi\sqrt{\frac{l}{g+2K}}
+\end{equation*}
+
+Dabei sei $K$ die Kopplungskonstante der Feder.
+
+\subsubsection{Gekoppelte Schwingung}
+
+Bei diesem Schwingungstype wird nur eines der beiden Pendel 
+am Anfang ausgelenkt, während das andere in der Ruheposition 
+verharrt. Nachdem das ausgelenkte Pendel losgelassen wird,
+überträgt dieses Energie auf das Ruhende. Dadurch beginnt diesese an 
+zu schwingen, während das erste Pendel immer mehr zur Ruhe kommt.
+Neben der Energieerhaltung ist bei diesem Versuch auch eine Schwebung beobachtbar. Die Schwebungsdauer ist die Zeit zwischen
+zwei Stillständen eines Pendls.
+Es ergibt sich für die Schwebungsdauer $T_s$
+
+\begin{equation*}
+T_s=\frac{T_{+} T_{-}}{T_{+}-T_{-}}
+\end{equation*}
+
+,sowie die Frequenz
+
+\begin{equation*}
+\omega_s=\omega_{+}-\omega_{-}
+\end{equation*}
+
+Die Kooplungskonstante ist festgelegt durch
+
+\begin{equation*}
+K=\frac{\omega^2_{-} -\omega^2_{+}}{\omega^2_{-} +\omega^2_{+}}
+=-\frac{T^2_{+}T^2_{-}}{T^2_{+}+T^2_{-}}.
+\end{equation*}
+
+
+
