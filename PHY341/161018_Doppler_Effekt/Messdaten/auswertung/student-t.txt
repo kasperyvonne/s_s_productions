@@ -12,7 +12,7 @@ t=-1.45
 Abweichung: 3.54
 t_tilde=3,012 ->  systematischer Fehlerwahrscheinlichkeit von 95%
 
-Anzahl der Freiheitsgrade: 8
+Anzahl der Freiheitsgrade: 18
 Frequenzmessung bewegterlautsprecher und Schwebung
 t=4.40
 Abweichung: 2.61

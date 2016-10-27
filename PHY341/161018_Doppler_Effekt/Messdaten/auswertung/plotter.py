@@ -18,7 +18,7 @@ params_p,covarian=curve_fit(f,u,nu)
 #
 plt.xlabel('$v$')
 plt.ylabel('$\Delta \\nu$')
-plt.xlim(-0.5,0.5)
+plt.xlim(-0.5,0.)
 #plt.ylim(0.8,1.41	)
 x=np.linspace(-0.5,0.5,100)
 

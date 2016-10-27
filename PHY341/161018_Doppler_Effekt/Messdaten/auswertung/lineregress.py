@@ -1,4 +1,4 @@
-import numpy as np
+ximport numpy as np
 
 u,nu=np.genfromtxt('schwebung_werte_sammlung.txt',unpack=True)
 
