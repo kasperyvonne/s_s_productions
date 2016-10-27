@@ -1,4 +1,10 @@
+<<<<<<< 0b2686f1f9cfaa4ba2554828ce6aa2e01f8a4b82:PHY341/161018_Doppler_Effekt/Protokoll/build/main.log
 This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2016.10.10)  24 OCT 2016 21:13
+||||||| merged common ancestors
+This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2016.10.10)  27 OCT 2016 15:21
+=======
+This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2016.10.10)  27 OCT 2016 17:02
+>>>>>>> auswertung.py und .tex bearbeitet:PHY341/161025_Pendel/Protokoll/build/main.log
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -606,7 +612,13 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
+<<<<<<< 0b2686f1f9cfaa4ba2554828ce6aa2e01f8a4b82:PHY341/161018_Doppler_Effekt/Protokoll/build/main.log
 luaotfload | main : initialization completed in 0.107 seconds)
+||||||| merged common ancestors
+luaotfload | main : initialization completed in 0.103 seconds)
+=======
+luaotfload | main : initialization completed in 0.099 seconds)
+>>>>>>> auswertung.py und .tex bearbeitet:PHY341/161025_Pendel/Protokoll/build/main.log
 Lua module: fontspec 2016/02/01 2.5a Advanced font selection for LuaLaTeX.
 (/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/fontspec/fontspec-luatex
 .sty
@@ -2305,7 +2317,153 @@ LaTeX Font Info:    Font shape `EU2/LatinModernMath(2)/m/n' will be
 (Font)              scaled to size 9.99985pt on input line 5.
 LaTeX Font Info:    Font shape `EU2/LatinModernMath(2)/m/n' will be
 (Font)              scaled to size 6.9999pt on input line 5.
+<<<<<<< 0b2686f1f9cfaa4ba2554828ce6aa2e01f8a4b82:PHY341/161018_Doppler_Effekt/Protokoll/build/main.log
  (./theorie.tex [1
+||||||| merged common ancestors
+ (./theorie.tex)
+(./versuchsaufbau.tex) (./auswertung.tex
+LaTeX Font Info:    Font shape `EU2/LatinModernMath(1)/m/n' will be
+(Font)              scaled to size 12.00018pt on input line 3.
+LaTeX Font Info:    Font shape `EU2/LatinModernMath(2)/m/n' will be
+(Font)              scaled to size 11.99982pt on input line 3.
+(load luc: /home/stefan/.local/texlive/2016/texmf-var/luatex-cache/generic/fonts
+/otl/lmsans12-regular.luc)(load luc: /home/stefan/.local/texlive/2016/texmf-var/
+luatex-cache/generic/fonts/otl/lmsans8-regular.luc)(load luc: /home/stefan/.loca
+l/texlive/2016/texmf-var/luatex-cache/generic/fonts/otl/lmroman8-regular.luc)(lo
+ad luc: /home/stefan/.local/texlive/2016/texmf-var/luatex-cache/generic/fonts/ot
+l/lmroman5-regular.luc)
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 3.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 3.
+
+(./tabs/T_Pendel_links_70.tex
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 16.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 16--16
+[] [] 
+ []
+
+) (./tabs/T_Pendel_rechts_70.tex
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 14.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 14--14
+[] [] 
+ []
+
+)
+Overfull \hbox (10.95pt too wide) in paragraph at lines 4--9
+$[]$ 
+ []
+
+(./tabs/T_gleichsinnig_70.tex
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 14.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 14--14
+[] [] 
+ []
+
+) (./tabs/T_gegensinnig_70.tex
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 14.
+See the caption package documentation for explanation.
+=======
+ (./theorie.tex)
+(./versuchsaufbau.tex) (./auswertung.tex [1
+
+
+{/home/stefan/.local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./tabs/auswertung_70.tex(load luc: /home/stefan/.local/texlive/2016/texmf-var/luatex-cache/generic/fonts/otl/lmroman8-regular.luc)(load luc: /home/stefan/.local/texlive/2016/texmf-var/luatex-cache/generic/fonts/otl/lmroman6-regular.luc)
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 16.
+See the caption package documentation for explanation.
+
+LaTeX Font Info:    Font shape `EU2/LatinModernMath(1)/m/n' will be
+(Font)              scaled to size 5.00008pt on input line 16.
+LaTeX Font Info:    Font shape `EU2/LatinModernMath(2)/m/n' will be
+(Font)              scaled to size 4.99992pt on input line 16.
+
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 16--16
+[] [] 
+ []
+
+) (./tabs/auswertung_60.tex
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 15.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 15--15
+[] [] 
+ []
+
+)
+Overfull \hbox (10.95pt too wide) in paragraph at lines 39--44
+[]$[]$ 
+ []
+
+(./tabs/T_Pendel_links_70.tex(load luc: /home/stefan/.local/texlive/2016/texmf-v
+ar/luatex-cache/generic/fonts/otl/lmroman5-regular.luc)
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 16.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 16--16
+[] [] 
+ []
+
+) (./tabs/T_Pendel_rechts_70.tex
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 14.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 14--14
+[] [] 
+ []
+
+)
+Overfull \hbox (10.95pt too wide) in paragraph at lines 48--53
+$[]$ 
+ []
+
+(./tabs/T_gleichsinnig_70.tex
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 14.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 14--14
+[] [] 
+ []
+
+) (./tabs/T_gegensinnig_70.tex
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 14.
+See the caption package documentation for explanation.
+>>>>>>> auswertung.py und .tex bearbeitet:PHY341/161025_Pendel/Protokoll/build/main.log
 
 
 {/home/stefan/.local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
@@ -2314,7 +2472,154 @@ ve/2016/texmf-var/luatex-cache/generic/fonts/otl/lmroman8-regular.luc)(load luc:
  /home/stefan/.local/texlive/2016/texmf-var/luatex-cache/generic/fonts/otl/lmrom
 an5-regular.luc) [3] [4]) (./diskussion.tex
 
+<<<<<<< 0b2686f1f9cfaa4ba2554828ce6aa2e01f8a4b82:PHY341/161018_Doppler_Effekt/Protokoll/build/main.log
 LaTeX Warning: Citation 'numpy' on page 5 undefined on input line 5.
+||||||| merged common ancestors
+)
+Overfull \hbox (10.95pt too wide) in paragraph at lines 11--16
+[]$[]$ 
+ []
+
+(./tabs/T_gekoppelt_70.tex
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 14.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 14--14
+[] [] 
+ []
+
+) (./tabs/T_schwebe_70.tex
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 15.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 15--15
+[] [] 
+ []
+
+)
+Overfull \hbox (10.95pt too wide) in paragraph at lines 17--22
+[]$[]$ 
+ []
+
+[1
+
+
+{/home/stefan/.local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 24.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 24.
+
+(./tabs/T_Pendel_links_60.tex
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 14.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 14--14
+[] [] 
+ []
+
+) (./tabs/T_Pendel_rechts_60.tex
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 14.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 14--14
+[] [] 
+ []
+
+)
+Overfull \hbox (10.95pt too wide) in paragraph at lines 25--30
+$[]$ 
+ []
+=======
+)
+Overfull \hbox (10.95pt too wide) in paragraph at lines 55--60
+[]$[]$ 
+ []
+
+[2] (./tabs/T_gekoppelt_70.tex
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 14.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 14--14
+[] [] 
+ []
+
+) (./tabs/T_schwebe_70.tex
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 15.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 15--15
+[] [] 
+ []
+
+)
+Overfull \hbox (10.95pt too wide) in paragraph at lines 61--66
+[]$[]$ 
+ []
+
+LaTeX Font Info:    Font shape `EU2/LatinModernMath(1)/m/n' will be
+(Font)              scaled to size 12.00018pt on input line 68.
+LaTeX Font Info:    Font shape `EU2/LatinModernMath(2)/m/n' will be
+(Font)              scaled to size 11.99982pt on input line 68.
+(load luc: /home/stefan/.local/texlive/2016/texmf-var/luatex-cache/generic/fonts
+/otl/lmsans12-regular.luc)(load luc: /home/stefan/.local/texlive/2016/texmf-var/
+luatex-cache/generic/fonts/otl/lmsans8-regular.luc)
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 68.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 68.
+
+(./tabs/T_Pendel_links_60.tex
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 14.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 14--14
+[] [] 
+ []
+
+) (./tabs/T_Pendel_rechts_60.tex
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 14.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 14--14
+[] [] 
+ []
+
+)
+Overfull \hbox (10.95pt too wide) in paragraph at lines 69--74
+$[]$ 
+ []
+>>>>>>> auswertung.py und .tex bearbeitet:PHY341/161025_Pendel/Protokoll/build/main.log
 
 ) [5]
 
@@ -2330,25 +2635,170 @@ Language ngerman already loaded; id is 8)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 14.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 14.
 
+<<<<<<< 0b2686f1f9cfaa4ba2554828ce6aa2e01f8a4b82:PHY341/161018_Doppler_Effekt/Protokoll/build/main.log
 
 LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
+||||||| merged common ancestors
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 14--14
+[] [] 
+ []
+
+) (./tabs/T_gegensinnig_60.tex
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 14.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 14--14
+[] [] 
+ []
+
+)
+Overfull \hbox (10.95pt too wide) in paragraph at lines 32--37
+[]$[]$ 
+ []
+
+(./tabs/T_gekoppelt_60.tex
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 14.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 14--14
+[] [] 
+ []
+
+) (./tabs/T_schwebe_60.tex
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 14.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 14--14
+[] [] 
+ []
+
+)
+Overfull \hbox (10.95pt too wide) in paragraph at lines 38--43
+[]$[]$ 
+ []
+
+(./tabs/auswertung_70.tex(load luc: /home/stefan/.local/texlive/2016/texmf-var/l
+uatex-cache/generic/fonts/otl/lmroman6-regular.luc)
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 16.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 16--16
+[] [] 
+ []
+
+) (./tabs/auswertung_60.tex
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 15.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 15--15
+[] [] 
+ []
+
+)) (./diskussion.tex
+Underfull \hbox (badness 10000) in paragraph at lines 44--1
+=======
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 14--14
+[] [] 
+ []
+
+) (./tabs/T_gegensinnig_60.tex
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 14.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 14--14
+[] [] 
+ []
+
+)
+Overfull \hbox (10.95pt too wide) in paragraph at lines 76--81
+[]$[]$ 
+ []
+
+(./tabs/T_gekoppelt_60.tex
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 14.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 14--14
+[] [] 
+ []
+
+) (./tabs/T_schwebe_60.tex
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 14.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 14--14
+[] [] 
+ []
+
+)) (./diskussion.tex
+Underfull \hbox (badness 10000) in paragraph at lines 82--1
+>>>>>>> auswertung.py und .tex bearbeitet:PHY341/161025_Pendel/Protokoll/build/main.log
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
 (biblatex)                and rerun LaTeX afterwards.
 
+<<<<<<< 0b2686f1f9cfaa4ba2554828ce6aa2e01f8a4b82:PHY341/161018_Doppler_Effekt/Protokoll/build/main.log
+||||||| merged common ancestors
+[2]) [3]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 13.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 13.
+ (./build/main.aux
+Language ngerman already loaded; id is 8)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 13.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 13.
+=======
+[3]) [4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 13.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 13.
+ (./build/main.aux
+Language ngerman already loaded; id is 8)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 13.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 13.
+>>>>>>> auswertung.py und .tex bearbeitet:PHY341/161025_Pendel/Protokoll/build/main.log
 Package logreq Info: Writing requests to 'main.run.xml'.
 
 \openout1 = main.run.xml
 )
 
 Here is how much of LuaTeX's memory you used:
+<<<<<<< 0b2686f1f9cfaa4ba2554828ce6aa2e01f8a4b82:PHY341/161018_Doppler_Effekt/Protokoll/build/main.log
  50979 strings out of 495118
+||||||| merged common ancestors
+ 51034 strings out of 495118
+=======
+ 51045 strings out of 495118
+>>>>>>> auswertung.py und .tex bearbeitet:PHY341/161025_Pendel/Protokoll/build/main.log
  100000,1648299 words of node,token memory allocated
+<<<<<<< 0b2686f1f9cfaa4ba2554828ce6aa2e01f8a4b82:PHY341/161018_Doppler_Effekt/Protokoll/build/main.log
  2173 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 201 glue, 1 kern, 78 attribute, 57 glue_spec, 78 at
 tribute_list, 1 write nodes
@@ -2371,4 +2821,50 @@ PDF statistics: 161 PDF objects out of 1000 (max. 8388607)
  130 compressed objects within 2 object streams
  30 named destinations out of 1000 (max. 131072)
  152 words of extra memory for PDF output out of 10000 (max. 10000000)
+||||||| merged common ancestors
+ 1608 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 121 glue, 1 kern, 79 attribute, 57 glue_spec, 79 at
+tribute_list, 1 write nodes
+   avail lists: 1:4,2:2490,3:149,4:46,5:251,6:850,7:1543,8:170,9:911,10:5,11:44
+ 52958 multiletter control sequences out of 65536+600000
+ 102 fonts using 25878063 bytes
+ 65i,17n,100p,8833b,1045s stack positions out of 5000i,500n,10000p,200000b,100000s
+</home/stefan/.local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmroman10-
+regular.otf></home/stefan/.local/texlive/2016/texmf-dist/fonts/opentype/public/l
+m/lmroman10-bold.otf></home/stefan/.local/texlive/2016/texmf-dist/fonts/opentype
+/public/lm-math/latinmodern-math.otf></home/stefan/.local/texlive/2016/texmf-dis
+t/fonts/opentype/public/lm-math/latinmodern-math.otf></home/stefan/.local/texliv
+e/2016/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></home/stefan/.
+local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf>
+Output written on main.pdf (3 pages, 28386 bytes).
+
+PDF statistics: 105 PDF objects out of 1000 (max. 8388607)
+ 81 compressed objects within 1 object stream
+ 24 named destinations out of 1000 (max. 131072)
+ 64 words of extra memory for PDF output out of 10000 (max. 10000000)
+=======
+ 2379 words of node memory still in use:
+   7 hlist, 2 vlist, 2 rule, 211 glue, 1 kern, 112 attribute, 57 glue_spec, 112 
+attribute_list, 1 write nodes
+   avail lists: 1:4,2:2549,3:199,4:42,5:261,6:1149,7:1487,8:154,9:931,10:6,11:13
+6
+ 52959 multiletter control sequences out of 65536+600000
+ 102 fonts using 25877855 bytes
+ 65i,17n,100p,8833b,1047s stack positions out of 5000i,500n,10000p,200000b,100000s
+</home/stefan/.local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmroman10-
+bold.otf></home/stefan/.local/texlive/2016/texmf-dist/fonts/opentype/public/lm-m
+ath/latinmodern-math.otf></home/stefan/.local/texlive/2016/texmf-dist/fonts/open
+type/public/lm-math/latinmodern-math.otf></home/stefan/.local/texlive/2016/texmf
+-dist/fonts/opentype/public/lm-math/latinmodern-math.otf></home/stefan/.local/te
+xlive/2016/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></home/stef
+an/.local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf
+></home/stefan/.local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmsans10-
+bold.otf>
+Output written on main.pdf (4 pages, 38558 bytes).
+
+PDF statistics: 134 PDF objects out of 1000 (max. 8388607)
+ 105 compressed objects within 2 object streams
+ 34 named destinations out of 1000 (max. 131072)
+ 72 words of extra memory for PDF output out of 10000 (max. 10000000)
+>>>>>>> auswertung.py und .tex bearbeitet:PHY341/161025_Pendel/Protokoll/build/main.log
 

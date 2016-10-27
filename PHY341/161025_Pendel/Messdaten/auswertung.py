@@ -13,6 +13,7 @@ t_links_std_70 = 1/np.sqrt(len(t_links)) * np.std(t_links)
 u_t_links_70 = ufloat(t_links_mid_70, t_links_std_70)
 werte_70["T_{1}"] = (u_t_links_70.n, u_t_links_70.s)
 print(u_t_links_70)
+print('omega:', 2*np.pi / (0.2*u_t_links_70))
 
 t_rechts = np.genfromtxt('T_Pendel_rechts_70.txt', unpack = True)
 t_rechts_mid_70 = np.mean(t_rechts)
@@ -27,7 +28,7 @@ t_gleich_std_70 = 1/np.sqrt(len(t_gleich)) * np.std(t_gleich)
 u_t_gleich_70 = ufloat(t_gleich_mid_70, t_gleich_std_70)
 werte_70["T_{+}"] = (u_t_gleich_70.n, u_t_gleich_70.s)
 print(u_t_gleich_70)
-
+print('omega+7:', (2 * np.pi) / (0.2 * u_t_gleich_70))
 
 t_gegen = np.genfromtxt('T_gegensinnig_70.txt', unpack = True)
 t_gegen_mid_70 = np.mean(t_gegen)
@@ -35,7 +36,7 @@ t_gegen_std_70 = 1/np.sqrt(len(t_gegen)) * np.std(t_gegen)
 u_t_gegen_70 = ufloat(t_gegen_mid_70, t_gegen_std_70)
 werte_70["T_{-}"] = (u_t_gegen_70.n, u_t_gegen_70.s)
 print(u_t_gegen_70)
-
+print('omega-7:', (2*np.pi) / (0.2*u_t_gegen_70))
 
 
 t_gekop = np.genfromtxt('T_gekoppelt_70.txt', unpack = True)
@@ -51,6 +52,10 @@ t_schwebe_std_70 = 1/np.sqrt(len(t_schwebe)) * np.std(t_schwebe)
 u_t_schwebe_70 = ufloat(t_schwebe_mid_70, t_schwebe_std_70)
 werte_70["T_{S}"] = (u_t_schwebe_70.n, u_t_schwebe_70.s)
 print(u_t_schwebe_70)
+print('omegas7:', 2*np.pi / (0.2*u_t_schwebe_70))
+
+print('Mittelwert Kappa für 0.7: ', (u_t_gleich_70.n**2 - u_t_gegen_70.n**2 )/ (u_t_gleich_70.n**2 + u_t_gegen_70.n**2 ))
+print('Kappa für 0.7: ', (u_t_gleich_70 **2 - u_t_gegen_70**2 )/ (u_t_gleich_70**2 + u_t_gegen_70**2 ))
 
 
 
@@ -112,7 +117,7 @@ t_gleich_std_60 = 1/np.sqrt(len(t_gleich)) * np.std(t_gleich)
 u_t_gleich_60 = ufloat(t_gleich_mid_60, t_gleich_std_60)
 werte_60["T_{+}"] = (u_t_gleich_60.n, u_t_gleich_60.s)
 print(u_t_gleich_60)
-
+print('omega+6:', 2*np.pi / (0.2*u_t_gleich_60))
 
 t_gegen = np.genfromtxt('T_gegensinnig_60.txt', unpack = True)
 t_gegen_mid_60 = np.mean(t_gegen)
@@ -120,7 +125,7 @@ t_gegen_std_60 = 1/np.sqrt(len(t_gegen)) * np.std(t_gegen)
 u_t_gegen_60 = ufloat(t_gegen_mid_60, t_gegen_std_60)
 werte_60["T_{-}"] =  (u_t_gegen_60.n, u_t_gegen_60.s)
 print(u_t_gegen_60)
-
+print('omega-6:', 2*np.pi / (0.2*u_t_gegen_60))
 
 
 t_gekop = np.genfromtxt('T_gekoppelt_60.txt', unpack = True)
@@ -137,7 +142,11 @@ t_schwebe_std_60 = 1/np.sqrt(len(t_schwebe)) * np.std(t_schwebe)
 u_t_schwebe_60 = ufloat(t_schwebe_mid_60, t_schwebe_std_60)
 werte_60["T_{S}"] = (u_t_schwebe_60.n, u_t_schwebe_60.s)
 print(u_t_schwebe_60)
+print('omegas6:', 2*np.pi / (0.2*u_t_schwebe_60))
 
+
+print('Mittelwert für Kappa für 0.6: ', (u_t_gleich_60.n**2 - u_t_gegen_60.n**2 )/ (u_t_gleich_60.n**2 + u_t_gegen_60.n**2 ))
+print('Kappa für 0.6: ', (u_t_gleich_60 **2 - u_t_gegen_60**2 )/ (u_t_gleich_60**2 + u_t_gegen_60**2 ))
 
 with open('auswertung_60.tex', 'w') as f:
 
@@ -171,14 +180,16 @@ with open('auswertung_60.tex', 'w') as f:
 #------------------------------------------------------------------
 # berechne Wert für Schwebung mit den anderen Zeiten
 
-t_schwebe_calc_70 =0.2 *  (u_t_links_70 * u_t_rechts_70) / (u_t_gleich_70 - u_t_gegen_70)
+t_schwebe_calc_70 = 0.2 *  (u_t_gleich_70 * u_t_gegen_70) / (u_t_gleich_70 - u_t_gegen_70)
+print( 2*np.pi / (0.2*u_t_gleich_70) - 2*np.pi / (0.2*u_t_gegen_70))
+print(2*np.pi / t_schwebe_calc_70)
 print('Berechneter Wert für Ts(70): ', t_schwebe_calc_70)
 print('Gemessener Wert für Ts(70): ', u_t_schwebe_70)
 print('Prozentuale Abweichung(70): ', t_schwebe_calc_70/u_t_schwebe_70-1)
 
 
 
-t_schwebe_calc_60 =0.2 * (u_t_links_60 * u_t_rechts_60) / (u_t_gleich_60 - u_t_gegen_60)
+t_schwebe_calc_60 =0.2 * (u_t_gegen_60 * u_t_gleich_60) / (u_t_gleich_60 - u_t_gegen_60)
 print('Berechneter Wert für Ts(60): ', t_schwebe_calc_60)
 print('Gemessener Wert für Ts(60): ', u_t_schwebe_60)
 print('Prozentuale Abweichung(60): ', (t_schwebe_calc_60 / u_t_schwebe_60) - 1)

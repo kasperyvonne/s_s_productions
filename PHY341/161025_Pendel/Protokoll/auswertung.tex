@@ -1,6 +1,54 @@
 \section{Auswertung}
 
-\subsection{Pendellänge $l = 0,7 \si{\meter} $}
+\subsection{Messung der Schwingungsdauern}
+Alle Messungen wurden für zwei verschiedene Pendellängen ($l = (0.70 \pm 0.01)m$ und $l = (0.60 \pm 0.01)m$) durchgeführt, die identische Auswertung soll an dieser Stelle
+parallel geschehen. \\
+Für die beiden Pendel wurden zunächst die Zeiten $5 \cdot T_1$ und $5 \cdot T_2$ für jeweils 5 Schwingungen aufgezeichnet. Die jeweiligen Mittelwerte
+berechnen sich gemäß:
+\begin{equation}
+\bar{T}_{j}=\frac{1}{n}\sum_{i=1}t_i
+\end{equation}
+Selbiges wurde für die gleichsinnige($T_{+}$), gegesinnige ($T_{-}$) und gekoppelte ($T_{G}$) Schwingung durchgeführt. Zur direkten Messung der Schwebungszeit $T_{S}$ wurde lediglich
+die Zeit für einen vollen Schwebungsvorgang gemessen. Die Berechnung der Standardabweichung des Mittelwerts erfolgt in allen Fällen nach der Formel:
+\begin{equation}
+\bar{\sigma}_{\bar{T_j}}=\sqrt{\frac{1}{n(n-1)}\sum_{i=1}^{n}(t_i-\bar{t})^2}
+\end{equation}
+Die entsprechenden Ergebnisse sind in Tabelle \ref{tab:mids_T_70} bzw. \ref{tab:mids_T_60}  aufgetragen. Durch den Zusammenhang $\omega = 2\pi / T$ ergeben
+sich unmittelbar die dazugehörigen Frequenzen, welche in Tabelle xy aufgeführt sind.\\
+Nun soll mit den gefundenen Werten der Kopplungsgrad $\Kappa$ berechnet werden:
+\begin{equation}
+  \Kappa = \frac{T_{+}^2 - T_{-}^2}{T_{+}^2 + T_{-}^2}
+\end{equation}
+Hiermit ergibt sich für den Mittelwert $\bar{\Kappa}$ als Funktion der einzelnen Mittelwerte:
+\begin{equation}
+\bar{\Kappa}_{0.7} = 0.20
+\end{equation}
+Für die erste Konfiguration ($l = 0.70m$), respektive:
+\begin{equation}
+\bar{\Kappa}_{0.6} = 0.05
+\end{equation}
+Für die zweite Konfiguration ($l = 0.60m$). Um die zugehörigen Fehler anzugeben, muss die Gaußsche-Fehlerfortpflanzung verwendet werden:
+\begin{equation}
+  \dots
+\end{equation}
+Hierzu müssen zunächst die partiellen Ableitungen nach $T_{+}$ und $T_{-}$ bestimmt werden:
+\begin{align}
+  \frac{\partial \Kappa}{\partial T_{+}} &= \frac{4 \cdot T_{+} \cdot T_{-}^2}{(T_{+}^2 + T_{-}^2)^2} \\
+  \frac{\partial \Kappa}{\partial T_{-}} &= - \frac{4 \cdot T_{-} \cdot T_{+}^2 }{T_{+}^2 + T_{-}^2}
+\end{align}
+Einsetzen liefert, dass die entsprechenden Werte für den Fehler der Kopplungskonstante in der Größenordnung $10^{-3}$ liegen und somit
+vernachlässigt werden können. \\
+Abschließend sollen nun noch die gemessenen Werte
+
+\begin{minipage}{\textwidth}
+\input{tabs/auswertung_70.tex}
+ \hfill
+\input{tabs/auswertung_60.tex}
+\end{minipage}
+
+
+
+\subsection{Messungen}
 \begin{minipage}{\textwidth}
 \input{tabs/T_Pendel_links_70.tex}
  \hfill
@@ -39,10 +87,4 @@
 \input{tabs/T_gekoppelt_60.tex}
  \hfill
 \input{tabs/T_schwebe_60.tex}
-\end{minipage}
-
-\begin{minipage}{\textwidth}
-\input{tabs/auswertung_70.tex}
- \hfill
-\input{tabs/auswertung_60.tex}
 \end{minipage}
