@@ -1,4 +1,4 @@
-This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2016.10.10)  25 OCT 2016 20:24
+This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2016.10.10)  27 OCT 2016 15:21
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -606,7 +606,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.099 seconds)
+luaotfload | main : initialization completed in 0.103 seconds)
 Lua module: fontspec 2016/02/01 2.5a Advanced font selection for LuaLaTeX.
 (/home/stefan/.local/texlive/2016/texmf-dist/tex/latex/fontspec/fontspec-luatex
 .sty
@@ -2498,36 +2498,60 @@ Overfull \hbox (85.73997pt too wide) in paragraph at lines 14--14
 [] [] 
  []
 
+)
+Overfull \hbox (10.95pt too wide) in paragraph at lines 38--43
+[]$[]$ 
+ []
+
+(./tabs/auswertung_70.tex(load luc: /home/stefan/.local/texlive/2016/texmf-var/l
+uatex-cache/generic/fonts/otl/lmroman6-regular.luc)
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 16.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 16--16
+[] [] 
+ []
+
+) (./tabs/auswertung_60.tex
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 15.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (85.73997pt too wide) in paragraph at lines 15--15
+[] [] 
+ []
+
 )) (./diskussion.tex
-Underfull \hbox (badness 10000) in paragraph at lines 38--1
+Underfull \hbox (badness 10000) in paragraph at lines 44--1
 
  []
 
-) [2]
+[2]) [3]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 13.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 13.
  (./build/main.aux
 Language ngerman already loaded; id is 8)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 13.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 13.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package logreq Info: Writing requests to 'main.run.xml'.
 
 \openout1 = main.run.xml
 )
 
 Here is how much of LuaTeX's memory you used:
- 51002 strings out of 495118
+ 51034 strings out of 495118
  100000,1648299 words of node,token memory allocated
- 1276 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 85 glue, 1 kern, 59 attribute, 57 glue_spec, 59 att
-ribute_list, 1 write nodes
-   avail lists: 1:4,2:2163,3:149,4:46,5:193,6:691,7:1199,8:129,9:770,10:3,11:44
- 52948 multiletter control sequences out of 65536+600000
- 101 fonts using 25746279 bytes
+ 1608 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 121 glue, 1 kern, 79 attribute, 57 glue_spec, 79 at
+tribute_list, 1 write nodes
+   avail lists: 1:4,2:2490,3:149,4:46,5:251,6:850,7:1543,8:170,9:911,10:5,11:44
+ 52958 multiletter control sequences out of 65536+600000
+ 102 fonts using 25878063 bytes
  65i,17n,100p,8833b,1045s stack positions out of 5000i,500n,10000p,200000b,100000s
 </home/stefan/.local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmroman10-
 regular.otf></home/stefan/.local/texlive/2016/texmf-dist/fonts/opentype/public/l
@@ -2536,10 +2560,10 @@ m/lmroman10-bold.otf></home/stefan/.local/texlive/2016/texmf-dist/fonts/opentype
 t/fonts/opentype/public/lm-math/latinmodern-math.otf></home/stefan/.local/texliv
 e/2016/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></home/stefan/.
 local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf>
-Output written on main.pdf (2 pages, 25411 bytes).
+Output written on main.pdf (3 pages, 28386 bytes).
 
-PDF statistics: 99 PDF objects out of 1000 (max. 8388607)
- 76 compressed objects within 1 object stream
- 21 named destinations out of 1000 (max. 131072)
+PDF statistics: 105 PDF objects out of 1000 (max. 8388607)
+ 81 compressed objects within 1 object stream
+ 24 named destinations out of 1000 (max. 131072)
  64 words of extra memory for PDF output out of 10000 (max. 10000000)
 
