@@ -1,0 +1,7 @@
+Frequenz berechnet aus T_{1}:    4.03 \pm 0.02\\ 
+ Frequenz berechnet aus T_{2}:    4.05 \pm 0.02\\ 
+ Frequenz berechnet aus T_{+}:    4.12 \pm 0.03\\ 
+ Frequenz berechnet aus T_{-}:    4.34 \pm 0.03\\ 
+ Frequenz berechnet aus T_{K}:    0.23 \pm 0.00\\ 
+ Frequenz berechnet aus T_{S}:   0.25 \pm 0.00\\ 
+ 
