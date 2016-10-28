@@ -4,4 +4,4 @@ Frequenz berechnet aus T_{1}:    3.78 \pm 0.01\\
  Frequenz berechnet aus T_{-}:    4.68 \pm 0.02\\ 
  Frequenz berechnet aus T:    0.68 \pm 0.02\\ 
  Frequenz berechnet aus T_{S}:   0.79 \pm 0.01\\ 
- 
+ w_s_calc = -0.87+/-0.03 

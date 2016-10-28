@@ -14,7 +14,21 @@ die Zeit für einen vollen Schwebungsvorgang gemessen. Die Berechnung der Standa
 \bar{\sigma}_{\bar{T_j}}=\sqrt{\frac{1}{n(n-1)}\sum_{i=1}^{n}(t_i-\bar{t})^2}
 \end{equation}
 Die entsprechenden Ergebnisse sind in Tabelle \ref{tab:mids_T_70} bzw. \ref{tab:mids_T_60}  aufgetragen. Durch den Zusammenhang $\omega = 2\pi / T$ ergeben
-sich unmittelbar die dazugehörigen Frequenzen, welche in Tabelle xy aufgeführt sind.\\
+sich unmittelbar die dazugehörigen Frequenzen, welche in den Tabellen \ref{tab:mids_omega_70} und \ref{tab:mids_omega_60} aufgeführt sind.\\
+
+\begin{minipage}{\textwidth}
+\input{tabs/auswertung_70.tex}
+ \hfill
+\input{tabs/auswertung_60.tex}
+\end{minipage}
+
+\begin{minipage}{\textwidth}
+\input{tabs/frequenzen_70.tex}
+ \hfill
+\input{tabs/frequenzen_60.tex}
+\end{minipage}
+
+
 Nun soll mit den gefundenen Werten der Kopplungsgrad $\Kappa$ berechnet werden:
 \begin{equation}
   \Kappa = \frac{T_{+}^2 - T_{-}^2}{T_{+}^2 + T_{-}^2}
@@ -38,17 +52,27 @@ Hierzu müssen zunächst die partiellen Ableitungen nach $T_{+}$ und $T_{-}$ bes
 \end{align}
 Einsetzen liefert, dass die entsprechenden Werte für den Fehler der Kopplungskonstante in der Größenordnung $10^{-3}$ liegen und somit
 vernachlässigt werden können. \\
-Abschließend sollen nun noch die gemessenen Werte
+Abschließend soll nun noch der Zusammenhang
+\begin{equation}
+ \omega_{S} = |\omega_{+} - \omega_{-}|
+\end{equation}
+überprüft werden. Hierzu werden die Werte für $\omega_{S}$ aus $\omega_{+}$ und $\omega_{-}$ berechnet und mit dem gemessenen Wert verglichen.
+Mit den Werten aus \ref{tab: frequenzen_70} ergeben sich die Kreisfrequenzen zu:
+\begin{align}
+  \omega_{S, 0.7} &= (0.87 \pm 0.03) \si{\second ^{-1}} \\
+  \omega_{S, 0.6} &= (0.22 \pm 0.04) \si{\second^{-1}}
+\end{align}
+Die entsprechenden absoluten Fehler wurden gemäß der üblichen Formel für Summen berechnet:
+\begin{equation}
+(\Delta f(x_1, \dots ,x_n))^2 = \sum _i^n (\Delta x_i) ^2
+\end{equation}
 
-\begin{minipage}{\textwidth}
-\input{tabs/auswertung_70.tex}
- \hfill
-\input{tabs/auswertung_60.tex}
-\end{minipage}
 
 
+\section{Messungen}
 
-\subsection{Messungen}
+
+\subsection{Pendellänge $l = 0.70 m$}
 \begin{minipage}{\textwidth}
 \input{tabs/T_Pendel_links_70.tex}
  \hfill

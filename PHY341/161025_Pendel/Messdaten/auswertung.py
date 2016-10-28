@@ -124,8 +124,10 @@ with open('frequenzen_70.txt', 'w') as f:
     for key in werte_70:
         if key == 'T_{S}':
             f.write('Frequenz berechnet aus ' + key + ':   {:.2f} \\pm {:.2f}\\\ \n '.format(frequenz(5 * werte_70[key]).n, frequenz(5 * werte_70[key]).s))
+            f.write('w_s_calc = {:.2f} \n'.format(frequenz(werte_70['T_{+}'])-frequenz(werte_70['T_{-}'])))
         else:
             f.write('Frequenz berechnet aus ' + key + ':    {:.2f} \\pm {:.2f}\\\ \n '.format(frequenz(werte_70[key]).n, frequenz(werte_70[key]).s))
+
 
 
 with open('frequenzen_60.txt', 'w') as f:
@@ -133,5 +135,6 @@ with open('frequenzen_60.txt', 'w') as f:
     for key in werte_60:
         if key == 'T_{S}':
             f.write('Frequenz berechnet aus ' + key + ':   {:.2f} \\pm {:.2f}\\\ \n '.format(frequenz(5 * werte_60[key]).n, frequenz(5 * werte_60[key]).s))
+            f.write('w_s_calc = {:.2f} \n'.format(frequenz(werte_60['T_{+}'])-frequenz(werte_60['T_{-}'])))
         else:
             f.write('Frequenz berechnet aus ' + key + ':    {:.2f} \\pm {:.2f}\\\ \n '.format(frequenz(werte_60[key]).n, frequenz(werte_60[key]).s))
