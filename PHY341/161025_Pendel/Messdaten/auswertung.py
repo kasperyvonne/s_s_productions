@@ -128,6 +128,9 @@ with open('frequenzen_70.txt', 'w') as f:
         else:
             f.write('Frequenz berechnet aus ' + key + ':    {:.2f} \\pm {:.2f}\\\ \n '.format(frequenz(werte_70[key]).n, frequenz(werte_70[key]).s))
 
+print('Prozentuale Abweichung 70: ',-(frequenz(werte_70['T_{+}'])-frequenz(werte_70['T_{-}']))/ frequenz(5 * werte_70['T_{S}']) - 1)
+print('Prozentuale Abweichung 60: ',-(frequenz(werte_60['T_{+}'])-frequenz(werte_60['T_{-}']))/ frequenz(5 * werte_60['T_{S}']) - 1)
+
 
 
 with open('frequenzen_60.txt', 'w') as f:
