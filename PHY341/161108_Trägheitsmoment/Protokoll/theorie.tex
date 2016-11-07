@@ -3,13 +3,13 @@
 \subsection{Trägheitsmoment}
 Für das Trägheitsmoment eines starren Körpers gilt:
 \begin{equation}
-   I = \int r^2 dm
+   I = \int r^2 \dif{m}
 \end{equation}
 
 Hierbei entspricht $r$ dem Abstand eines Massenelements $dm$ zur Rotationsachse. Dies
-lässt sich mit Hilfe der Dichte des Körpers $\rho(\vec{r}) = dm/dV$ umformulieren zu:
+lässt sich mit Hilfe der Dichte des Körpers $\rho(\vec{r}) = \dif{m}/\dif{V}$ umformulieren zu:
 \begin{equation}
-  I = \int \rho(\vec{r})\cdot r^2 dV
+  I = \int \rho(\vec{r})\cdot r^2 \dif{V}
 \end{equation}
 
 Das Trägheitsmoment ist stets bezüglich einer Achse definiert und ist eine
@@ -44,7 +44,7 @@ werden kann.
 \begin{equation}
   D_{r} = - D \cdot \phi
 \end{equation}
-Mit \refeq{eq: drehmoment} ergibt sich die homogene Differentialgleichung:
+Mit \ref{eq: drehmoment} ergibt sich die homogene Differentialgleichung:
 \begin{equation}
   \ddot{\phi} + \frac{D}{I}\phi = 0
 \end{equation}

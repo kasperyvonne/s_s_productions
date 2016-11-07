@@ -82,21 +82,24 @@
 \usepackage{makeidx} %Ich habe makeidx hinzugefügt + makeindex
 \makeindex
 
-\newcommand{\tens}[1]{\underline{\underline{#1}}} %Für Tensor mit der Ordnung zwei
-\newcommand{\map}[1]{\mathup{#1}} %Befehl für mathup
 
 \usepackage[version=3]{mhchem} % für Thermodynamik-chemische Elemente
 \usepackage{enumitem} %Ich habe enumitem hinzugefügt
+\usepackage{expl3}
+\usepackage{xparse}
+%\ExplSyntaxOn
+
+\NewDocumentCommand \dif {m}
+{
+\mathinner{\symup{d} #1}
+}
 
 
 
 %\usepackage{showframe}
 
-\author{Steven Becker und Stefan Grisad}
+\author{Steven Becker und Stefan Grisard}
 
 \title{Das Trägheitsmoment}
 
 \date{\today\\WS 2016/2017}
-
-\newcommand{\ud}{\mathup{d}}
-\newcommand{\del}{\partial}
