@@ -51,7 +51,7 @@ b_f=1e-3
 #	print('Dabei ist der Fehler des Mittelwert: ',m_b)
 #	print('\n')
 	
-#Berechnung von  D:
+#Berechnung von  D pasiv:
 
 def D(rad, wink, kraf):
 	return (kraf*rad)/wink
@@ -71,7 +71,10 @@ print(winkelrecht_passiv)
 
 print(winkelrecht_passiv.n)
 
-np.savetxt('Winkelrichtgröße_passiv.txt', np.column_stack([winkelrecht_passiv.n,winkelrecht_passiv.s]), header='Winkelrichtgröße Fehler')
+#Berehnung von D dynamisch:
+
+
+#np.savetxt('Winkelrichtgröße_passiv.txt', np.column_stack([winkelrecht_passiv.n,winkelrecht_passiv.s]), header='Winkelrichtgröße Fehler')
 #np.savetxt('Schallgeschwindigkeit_Mittelwert.txt',np.column_stack([c_m,c_f]),header='Mittelwert Fehler')
 #np.savetxt('Geschwindigkeit.txt',d.T,header='Gang Geschindigkeit Fehler')
 #np.savetxt('Inverse der Wellenlaenge.txt',np.column_stack([inwell]),header='Inverse_der_wellelaenge')
