@@ -2,24 +2,21 @@ import numpy as np
 import uncertainties.unumpy as unp
 from uncertainties import ufloat
 import math
+from scipy.optimize import curve_fit
+import matplotlib.pyplot as plt
 
 #Hier nicht wichtig
 
 
-abst, wi, kra = np.genfromtxt('winkelrichtgöße.txt',unpack=True)
-wi_rad=[]
-for w in wi:
-	wi_rad.append(math.radians(w))
-print(wi_rad)
+ab, t = np.genfromtxt('eigenmoment.txt',unpack=True)
+
+
 
 print('Bitte Intervalllänge angeben: ')
 
 
 m=int(input())
 
-u=abst
-
-print(u)
 
 
 g_1= [] 
@@ -53,25 +50,63 @@ b_f=1e-3
 	
 #Berechnung von  D pasiv:
 
-def D(rad, wink, kraf):
-	return (kraf*rad)/wink
-
-winkelricht=[]
-while n<len(abst):
-	print('Bin dirn')
-	winkelricht.append( D(abst[n],wi_rad[n],kra[n]))
-	n+=1
-print(winkelricht)
-winkelricht_mitt=sum(winkelricht)/len(winkelricht)
-winkelricht_abweichung_mitt= 1/(np.sqrt(len(winkelricht)))*np.std(winkelricht)
-
-winkelrecht_passiv=ufloat(winkelricht_mitt,winkelricht_abweichung_mitt)
-
-print(winkelrecht_passiv)
-
-print(winkelrecht_passiv.n)
+#def D(rad, wink, kraf):
+#	return (kraf*rad)/wink
+#
+#wi_rad=[]
+#for w in wi:
+#	wi_rad.append(math.radians(w))
+#print(wi_rad)
+#winkelricht=[]
+#while n<len(abst):
+#	print('Bin dirn')
+#	winkelricht.append( D(abst[n],wi_rad[n],kra[n]))
+#	n+=1
+#print(winkelricht)
+#winkelricht_mitt=sum(winkelricht)/len(winkelricht)
+#winkelricht_abweichung_mitt= 1/(np.sqrt(len(winkelricht)))*np.std(winkelricht)
+#
+#winkelrecht_passiv=ufloat(winkelricht_mitt,winkelricht_abweichung_mitt)
+#
+#print(winkelrecht_passiv)
+#
+#print(winkelrecht_passiv.n)
 
 #Berehnung von D dynamisch:
+h_z=0.5*3.49
+ab-=h_z
+ab*=10e-2
+
+t_hilf=[]
+print(ab[::3])
+for i in range(len(t))[::3]:
+    t_hilf.append(np.mean(t[i:i+3]))
+t_mittel=np.array(t_hilf)
+print('Zeitlichesmittel ', t_mittel**2)
+
+
+ab_hilf=[]
+print(ab[::3])
+for i in range(len(ab))[::3]:
+    ab_hilf.append(np.mean(ab[i:i+3]))
+ab_mittel=np.array(ab_hilf)
+print('Abstands_mittel ', ab_mittel**2)
+
+def f(m,u,b):
+	return m*u+b
+
+assert len(ab_mittel)==len(t_mittel)
+
+params_p,covarian=curve_fit(f,ab_mittel**2,t_mittel**2)
+
+plt.xlim(0,4.58)
+plt.plot(ab_mittel**2,t_mittel**2,'rx',label='Messwert')
+plt.plot(ab_mittel**2,f(ab_mittel**2,*params_p),'b-',label='Fit')
+plt.legend(loc='best')
+
+#plt.savefig('Messung_Eigenträgheitsmoment.pdf')
+plt.show()
+
 
 
 #np.savetxt('Winkelrichtgröße_passiv.txt', np.column_stack([winkelrecht_passiv.n,winkelrecht_passiv.s]), header='Winkelrichtgröße Fehler')
