@@ -1,0 +1,20 @@
+Massepuppe:
+
+Kopf: 
+-Maße 3,09 cm, 2,39 cm; Mittel: 
+Arm: 
+-Maße: 1,62 cm , 1,32 cm, 1,48 cm; Mittel
+-Maß für Satz von Steiner: 9,37 cm
+
+Torso
+-Maße: 3,855 cm, 2,58 cm, 3,965 cm
+-Höhe: 9,77 cm
+
+Bein:
+- Maße: 1,92 cm , 1,60 cm
+-Länge: 15,80 cm 
+-Maß für Satz von Steiner (Position 1): a=1,19 cm
+-Maß für Satz von Steiner (Position 2): a=6,77 cm
+
+Gesamtgewicht: 161,90 g
+
