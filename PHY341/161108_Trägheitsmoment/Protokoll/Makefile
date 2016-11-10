@@ -1,6 +1,7 @@
 all: build/main.pdf
 
-build/main.pdf: versuchsaufbau.tex	theorie.tex header.tex main.tex diskussion.tex auswertung.tex| build
+build/main.pdf: versuchsaufbau.tex	theorie.tex header.tex main.tex diskussion.tex auswertung.tex build/lit.bib| build
+		biber build/main.bcf
 		lualatex --output-directory=build main.tex
 
 build:

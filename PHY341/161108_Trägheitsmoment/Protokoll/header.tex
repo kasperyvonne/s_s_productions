@@ -62,8 +62,7 @@
 
 \usepackage{booktabs}
 
-\usepackage{biblatex}
-\addbibresource{lit.bib}
+
 
 \usepackage{bookmark}
 
@@ -73,7 +72,11 @@
 
 \usepackage{microtype}
 
-
+\usepackage[
+  backend=biber,
+]{biblatex}
+% Quellendatenbank
+\addbibresource{lit.bib}
 
 \usepackage{hyperref}
 
