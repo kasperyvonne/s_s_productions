@@ -156,12 +156,15 @@ print('\n')
 #Puppe_mass_mitteler
 kopf=[3.09e-2,2.39e-2]
 kopf_u=Mittelwert(kopf)
+
 arm=[1.62e-2,1.32e-2,1.48e-2]
 arm_u=Mittelwert(arm)
 arm_laenge=14.00e-2
+
 torso=[3.855e-2,2.58e-2,3.965e-2]
 torso_u=Mittelwert(torso)
 torso_hoehe=9.77e-2
+
 bein=[1.92e-2,1.60e-2]
 bein_u=Mittelwert(bein)
 bein_laenge=15.8e-2
@@ -181,6 +184,8 @@ def traeg_kugel(masse,radius):
 	return (2/5)*masse*radius**2
 def trag_zylinder(masse,radius):
 	return (1/2)*masse*radius**2
+def trag_zylinder_z(masse,radius):
+	return (1/12)
 
 masse_kugel=1005.8e-3
 radius_kugel=(0.5*13.78)*1e-2
@@ -197,6 +202,58 @@ traegheitsmoment_zylindergrau_theo=trag_zylinder(masse_zylindergrau,radius_graue
 print('traegheitsmoment_grauerkegel_theo',traegheitsmoment_zylindergrau_theo)
 print('\n')
 
+#Theoretische Berechnung der Trägheitsmomente für die Puppe:
+
+def satz_von_steiner(traegheitsmoment,masse,verschiebung):
+	return traegheitsmoment+masse*verschiebung**2
+
+verschiebung_arm=9.37*1e-2
+verschiebung_bein_p1=1.19*1e-2
+verschiebung_bein_p2=6.77*1e-2
+
+masse_puppe=161.90*1e-3
+volumen_bein=volumen_zylinder(bein_u,bein_laenge)
+print('Volumen Bein' ,volumen_bein)
+volumen_bein_prozentual=volumen_bein/volumen_puppe
+
+volumen_arm=volumen_zylinder(arm_u,arm_laenge)
+print('volumen Arm',volumen_arm)
+print('\n')
+volumen_arm_prozentual=volumen_arm/volumen_puppe
+
+print('Prozentualer-Anteil Bein',volumen_bein_prozentual)
+print('prozentualer-Anteil Arm',volumen_arm_prozentual)
+print('\n')
+
+masse_arm=masse_puppe*volumen_arm_prozentual
+masse_bein=masse_puppe*volumen_bein_prozentual
+
+print('Masse des Arms', masse_arm)
+print('Masse des Bein', masse_bein)
+print('\n')
+
+volumen_torso=volumen_zylinder(torso_u,torso_hoehe)
+volumen_torso_prozentual=volumen_torso/volumen_puppe
+masse_torso=masse_puppe*volumen_torso_prozentual
+
+
+volumen_kopf=volumen_kugel(kopf_u)
+volumen_kopf_prozentual=volumen_kopf/volumen_puppe
+masse_kopf=masse_puppe*volumen_kopf_prozentual
+
+
+print(2*masse_bein+2*masse_arm+masse_kopf+masse_torso)
+
+##Position 1:
+#def J_zylinder(radius,hoehe,masse)
+trag_puppe_theo=2*satz_von_steiner(trag_zylinder(masse_bein,bein_u),masse_bein,verschiebung_bein_p1)
++trag_zylinder(masse_torso,torso_u)+traeg_kugel(masse_kopf,kopf_u)+satz_von_steiner(J_zylinder(arm_u,arm_laenge,masse_arm),masse_arm,verschiebung_arm)
+print(trag_puppe_theo)
+
+##Postiion 2:
+trag_puppe_theo_2=2*satz_von_steiner(trag_zylinder(masse_bein,bein_u),masse_bein,verschiebung_bein_p2)
++trag_zylinder(masse_torso,torso_u)+traeg_kugel(masse_kopf,kopf_u)+satz_von_steiner(J_zylinder(arm_u,arm_laenge,masse_arm),masse_arm,verschiebung_arm)
+print(trag_puppe_theo_2)
 
 
 #Plotbereich

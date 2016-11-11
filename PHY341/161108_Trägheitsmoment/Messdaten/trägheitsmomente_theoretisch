@@ -1,0 +1,5 @@
+#Trägheitsmoment in kg/m^2
+
+raegheitsmoment_kugel_theo: 0.0019098975272
+
+traegheitsmoment_grauerkegel_theo: 0.000649968
