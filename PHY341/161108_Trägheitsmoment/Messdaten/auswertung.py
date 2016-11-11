@@ -39,11 +39,15 @@ schwingungsdauer_kugel=np.genfromtxt('T_grosse_kugel.txt',unpack=True)
 #print(winkelrecht_passiv.n)
 
 #Berehnung von D dynamisch:
+print(abstand)
 hoehe_zylinder=0.5*3.49
-abstand+=hoehe_zylinder
-abstand*=10e-2
+print(hoehe_zylinder)
+abstand=abstand+hoehe_zylinder
+print(abstand)
+abstand*=1e-2
 schwingungsdauer*=(1/5)
 schwingungsdauer_hilf=[]
+print(abstand)
 
 #print(abstand[::3])
 for i in range(len(schwingungsdauer))[::3]:
@@ -82,10 +86,11 @@ m,m_e,b,b_e=linregress(abstand[::3]**2,schwingungsdauer_mittel**2)
 m_fehler=ufloat(m,m_e)
 b_fehler=ufloat(b,b_e)
 print('Steigung ', m_fehler)
+print('y-Achsenabschnitt', b_fehler)
 m_1=222.51e-3
 m_2=223.46e-3
-winkelrichtgroesse=(((m_1+m_2)*4*np.pi**2)/m_fehler)
-print('Winkelrichtgroesse ', winkelrichtgroesse)
+winkelrichtgroesse_dynamisch=(((m_1+m_2)*4*np.pi**2)/m_fehler)
+print('Winkelrichtgroesse-dynamisch ', winkelrichtgroesse_dynamisch)
 
 
 
@@ -99,15 +104,32 @@ hoehe_zylinder=(14.05*0.5)*10**(-3)
 J_zylinder1=J_zylinder(radius_zylinder,hoehe_zylinder,m_1)
 J_zylinder2=J_zylinder(radius_zylinder,hoehe_zylinder,m_2)
 
-print(J_zylinder1)
+J_eigen=-(J_zylinder1+J_zylinder2)+(winkelrecht_passiv)/(4*np.pi**2)*b_fehler
 
+print('Trageheitsmoment_Zylinder ', J_zylinder1)
+
+def traegheitsmoment(schwingungsdauer):
+	return (schwingungsdauer**2*winkelrecht_passiv)/(4*(np.pi)**2)
 
 #Berechnung Trägheitsmoment Zylinder grau
 schingungsdauer_grauer_zylinder*=(1/5)
 mittel_schingungsdauer_grauer_zylinder=sum(schingungsdauer_grauer_zylinder)/len(schingungsdauer_grauer_zylinder)
-mittel_schingungsdauer_grauer_zylinder_fehler= 1/(np.sqrt(len(schingungsdauer_grauer_zylinder)))*np.std(winkelricht)
+mittel_schingungsdauer_grauer_zylinder_fehler= 1/(np.sqrt(len(schingungsdauer_grauer_zylinder)))*np.std(schingungsdauer_grauer_zylinder)
 schingungsdauer_grauer_zylinder_u=ufloat(mittel_schingungsdauer_grauer_zylinder,mittel_schingungsdauer_grauer_zylinder_fehler)
-J_eigen=-(J_zylinder1+J_zylinder2)+(winkelrecht_passiv)/(4*np.pi**2)*b_fehler
+
+traeg_zylinder_grau=traegheitsmoment(schingungsdauer_grauer_zylinder_u)
+print('Zylinder grau ', traeg_zylinder_grau)
+
+#Berechnung Trägheitsmoment Kugel
+#Berechnung Trägheitsmoment Zylinder grau
+schwingungsdauer_kugel*=(1/5)
+mittel_schwingungsdauer_kugel=sum(schwingungsdauer_kugel)/len(schwingungsdauer_kugel)
+print('Mittelwert Kugel ', mittel_schwingungsdauer_kugel)
+mittel_schwingungsdauer_kugel_fehler= 1/(np.sqrt(len(schwingungsdauer_kugel)))*np.std(schwingungsdauer_kugel)
+schwingungsdauer_kugel_u=ufloat(mittel_schwingungsdauer_kugel,mittel_schwingungsdauer_kugel_fehler)
+
+traeg_kugel=traegheitsmoment(schwingungsdauer_kugel_u)
+print('Kugel', traeg_kugel)
 
 
 
@@ -116,19 +138,19 @@ J_eigen=-(J_zylinder1+J_zylinder2)+(winkelrecht_passiv)/(4*np.pi**2)*b_fehler
 
 
 #Plotbereich
-plt.xlim(0,6.4)
-plt.ylim(0,52)
-x=np.linspace(0,6.5,1000)
+plt.xlim(0,0.07)
+#plt.ylim(0,52)
+x=np.linspace(0,0.28,1000)
 
 plt.plot(abstand[::3]**2,schwingungsdauer_mittel**2,'rx',label='Messwerte')
 plt.plot(x**2,m*x**2+b,'b-',label='Lineare Regression')
-plt.plot(abstand[::3]**2,f(abstand[::3]**2,*params_p),'y-',label='Fit')
+#plt.plot(abstand[::3]**2,f(abstand[::3]**2,*params_p),'y-',label='Fit')
 plt.legend(loc='best')
 plt.ylabel(r'$T^2 \ in \ \frac{1}{\mathrm{s}^2}$')
 plt.xlabel(r'$r^2 \ in  \ \mathrm{m}^2$')
 plt.grid()
-#plt.savefig('lineare_regression.pdf')
-plt.show()
+plt.savefig('lineare_regression.pdf')
+#plt.show()
 
 
 
