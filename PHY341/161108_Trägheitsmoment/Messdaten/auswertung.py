@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 #Hier nicht wichtig
 
 
-ab, t = np.genfromtxt('eigenmoment.txt',unpack=True)
+abstand, schwingungsdauer = np.genfromtxt('eigenmoment.txt',unpack=True)
 
 
 
@@ -73,39 +73,60 @@ b_f=1e-3
 #print(winkelrecht_passiv.n)
 
 #Berehnung von D dynamisch:
-h_z=0.5*3.49
-ab-=h_z
-ab*=10e-2
+hoehe_zylinder=0.5*3.49
+abstand+=hoehe_zylinder
+abstand*=10e-2
+schwingungsdauer*=0.2
+schwingungsdauer_hilf=[]
 
-t_hilf=[]
-print(ab[::3])
-for i in range(len(t))[::3]:
-    t_hilf.append(np.mean(t[i:i+3]))
-t_mittel=np.array(t_hilf)
-print('Zeitlichesmittel ', t_mittel**2)
+print(abstand[::3])
+for i in range(len(schwingungsdauer))[::3]:
+    schwingungsdauer_hilf.append(np.mean(schwingungsdauer[i:i+3]))
+schwingungsdauer_mittel=np.array(schwingungsdauer_hilf)
+print('Zeitlichesmittel ', schwingungsdauer_mittel**2)
 
-
-ab_hilf=[]
-print(ab[::3])
-for i in range(len(ab))[::3]:
-    ab_hilf.append(np.mean(ab[i:i+3]))
-ab_mittel=np.array(ab_hilf)
-print('Abstands_mittel ', ab_mittel**2)
 
 def f(m,u,b):
 	return m*u+b
 
-assert len(ab_mittel)==len(t_mittel)
+params_p,covarian=curve_fit(f,abstand[::3]**2,schwingungsdauer_mittel**2)
 
-params_p,covarian=curve_fit(f,ab_mittel**2,t_mittel**2)
+def linregress(x, y):
+    assert len(x) == len(y)
 
-plt.xlim(0,4.58)
-plt.plot(ab_mittel**2,t_mittel**2,'rx',label='Messwert')
-plt.plot(ab_mittel**2,f(ab_mittel**2,*params_p),'b-',label='Fit')
+    x, y = np.array(x), np.array(y)
+
+    N = len(y)
+    Delta = N * np.sum(x**2) - (np.sum(x))**2
+
+    # A ist die Steigung, B der y-Achsenabschnitt
+    A = (N * np.sum(x * y) - np.sum(x) * np.sum(y)) / Delta
+    B = (np.sum(x**2) * np.sum(y) - np.sum(x) * np.sum(x * y)) / Delta
+
+    sigma_y = np.sqrt(np.sum((y - A * x - B)**2) / (N - 2))
+
+    A_error = sigma_y * np.sqrt(N / Delta)
+    B_error = sigma_y * np.sqrt(np.sum(x**2) / Delta)
+
+    return A, A_error, B, B_error
+
+
+m,m_e,b,b_e=linregress(abstand[::3]**2,schwingungsdauer_mittel**2)
+
+
+plt.xlim(0,6.4)
+plt.ylim(0,52)
+x=np.linspace(0,6.5,1000)
+
+plt.plot(abstand[::3]**2,schwingungsdauer_mittel**2,'rx',label='Messwerte')
+plt.plot(x**2,m*x**2+b,'b-',label='Lineare Regression')
+#plt.plot(ab[::3]**2,f(ab[::3]**2,*params_p),'b-',label='Fit')
 plt.legend(loc='best')
-
-#plt.savefig('Messung_Eigenträgheitsmoment.pdf')
-plt.show()
+plt.ylabel(r'$T^2 \ in \ \frac{1}{\mathrm{s}^2}$')
+plt.xlabel(r'$r^2 \ in  \ \mathrm{m}^2$')
+plt.grid()
+plt.savefig('lineare_regression.pdf')
+#plt.show()
 
 
 
