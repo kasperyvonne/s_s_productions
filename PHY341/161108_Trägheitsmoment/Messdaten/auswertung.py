@@ -13,6 +13,8 @@ winkelrecht_passiv_wert,winkelrecht_passiv_fehler =np.genfromtxt('Winkelrichtgr�
 winkelrecht_passiv=ufloat(winkelrecht_passiv_wert,winkelrecht_passiv_fehler)
 schingungsdauer_grauer_zylinder=np.genfromtxt('T_zylinder_gross.txt',unpack=True)
 schwingungsdauer_kugel=np.genfromtxt('T_grosse_kugel.txt',unpack=True)
+schwingungsdauer_puppe_1=np.genfromtxt('T_puppe_postition_1.txt',unpack=True)
+schwingungsdauer_puppe_2=np.genfromtxt('T_puppe_position_2.txt',unpack=True)
 
 #Berechnung von  D pasiv:
 
@@ -39,15 +41,14 @@ schwingungsdauer_kugel=np.genfromtxt('T_grosse_kugel.txt',unpack=True)
 #print(winkelrecht_passiv.n)
 
 #Berehnung von D dynamisch:
-print(abstand)
 hoehe_zylinder=0.5*3.49
-print(hoehe_zylinder)
+
 abstand=abstand+hoehe_zylinder
-print(abstand)
+
 abstand*=1e-2
 schwingungsdauer*=(1/5)
 schwingungsdauer_hilf=[]
-print(abstand)
+
 
 #print(abstand[::3])
 for i in range(len(schwingungsdauer))[::3]:
@@ -91,6 +92,7 @@ m_1=222.51e-3
 m_2=223.46e-3
 winkelrichtgroesse_dynamisch=(((m_1+m_2)*4*np.pi**2)/m_fehler)
 print('Winkelrichtgroesse-dynamisch ', winkelrichtgroesse_dynamisch)
+print('Winkelrichtgröße_passiv', winkelrecht_passiv)
 
 
 
@@ -99,37 +101,47 @@ print('Winkelrichtgroesse-dynamisch ', winkelrichtgroesse_dynamisch)
 def J_zylinder(radius,hoehe,masse):
 	return (1/4)*masse*radius**2+(1/12)*masse*hoehe**2
 
-radius_zylinder=(3.49*0.5)*10**(-3)
-hoehe_zylinder=(14.05*0.5)*10**(-3)
+radius_zylinder=(3.49*0.5)*1e-2
+hoehe_zylinder=(14.05*0.5)*1e-2
 J_zylinder1=J_zylinder(radius_zylinder,hoehe_zylinder,m_1)
 J_zylinder2=J_zylinder(radius_zylinder,hoehe_zylinder,m_2)
 
-J_eigen=-(J_zylinder1+J_zylinder2)+(winkelrecht_passiv)/(4*np.pi**2)*b_fehler
+J_eigen=-(J_zylinder1+J_zylinder2)+(winkelrichtgroesse_dynamisch)/(4*np.pi**2)*b_fehler
 
-print('Trageheitsmoment_Zylinder ', J_zylinder1)
+print('Trageheitsmoment_Eigen ', J_eigen)
 
 def traegheitsmoment(schwingungsdauer):
-	return (schwingungsdauer**2*winkelrecht_passiv)/(4*(np.pi)**2)
+	return (schwingungsdauer**2*winkelrichtgroesse_dynamisch)/(4*(np.pi)**2)
+
+def Mittelwert(schwingungsdauer):
+	mittel_schingungsdauer=sum(schwingungsdauer)/len(schwingungsdauer)
+	mittel_schingungsdauer_fehler= 1/(np.sqrt(len(schwingungsdauer)))*np.std(schwingungsdauer)
+	return ufloat(mittel_schingungsdauer,mittel_schingungsdauer_fehler)
 
 #Berechnung Trägheitsmoment Zylinder grau
 schingungsdauer_grauer_zylinder*=(1/5)
-mittel_schingungsdauer_grauer_zylinder=sum(schingungsdauer_grauer_zylinder)/len(schingungsdauer_grauer_zylinder)
-mittel_schingungsdauer_grauer_zylinder_fehler= 1/(np.sqrt(len(schingungsdauer_grauer_zylinder)))*np.std(schingungsdauer_grauer_zylinder)
-schingungsdauer_grauer_zylinder_u=ufloat(mittel_schingungsdauer_grauer_zylinder,mittel_schingungsdauer_grauer_zylinder_fehler)
-
+schingungsdauer_grauer_zylinder_u=Mittelwert(schingungsdauer_grauer_zylinder)
 traeg_zylinder_grau=traegheitsmoment(schingungsdauer_grauer_zylinder_u)
 print('Zylinder grau ', traeg_zylinder_grau)
 
 #Berechnung Trägheitsmoment Kugel
-#Berechnung Trägheitsmoment Zylinder grau
-schwingungsdauer_kugel*=(1/5)
-mittel_schwingungsdauer_kugel=sum(schwingungsdauer_kugel)/len(schwingungsdauer_kugel)
-print('Mittelwert Kugel ', mittel_schwingungsdauer_kugel)
-mittel_schwingungsdauer_kugel_fehler= 1/(np.sqrt(len(schwingungsdauer_kugel)))*np.std(schwingungsdauer_kugel)
-schwingungsdauer_kugel_u=ufloat(mittel_schwingungsdauer_kugel,mittel_schwingungsdauer_kugel_fehler)
 
+schwingungsdauer_kugel*=(1/5)
+schwingungsdauer_kugel_u=Mittelwert(schwingungsdauer_kugel)
 traeg_kugel=traegheitsmoment(schwingungsdauer_kugel_u)
 print('Kugel', traeg_kugel)
+
+#Berechnung Trägheitsmoment Puppe Position 1
+schwingungsdauer_puppe_1*=(1/5)
+schwingungsdauer_puppe1_u=Mittelwert(schwingungsdauer_puppe_1)
+traeg_puppe1_u=traegheitsmoment(schwingungsdauer_puppe1_u)
+print('Puppe 1', traeg_puppe1_u)
+
+#Berechnung Trägheitsmoment Puppe Position 2
+schwingungsdauer_puppe_2*=(1/5)
+schwingungsdauer_puppe2_u=Mittelwert(schwingungsdauer_puppe_2)
+traeg_puppe2_u=traegheitsmoment(schwingungsdauer_puppe2_u)
+print('Puppe 2', traeg_puppe2_u)
 
 
 
@@ -149,12 +161,12 @@ plt.legend(loc='best')
 plt.ylabel(r'$T^2 \ in \ \frac{1}{\mathrm{s}^2}$')
 plt.xlabel(r'$r^2 \ in  \ \mathrm{m}^2$')
 plt.grid()
-plt.savefig('lineare_regression.pdf')
+#plt.savefig('lineare_regression.pdf')
 #plt.show()
 
 
 
-#np.savetxt('Winkelrichtgröße_passiv.txt', np.column_stack([winkelrecht_passiv.n,winkelrecht_passiv.s]), header='Winkelrichtgröße Fehler')
+#np.savetxt('.txt', np.column_stack([winkelrecht_passiv.n,winkelrecht_passiv.s]), header='Winkelrichtgröße Fehler')
 #np.savetxt('Schallgeschwindigkeit_Mittelwert.txt',np.column_stack([c_m,c_f]),header='Mittelwert Fehler')
 #np.savetxt('Geschwindigkeit.txt',d.T,header='Gang Geschindigkeit Fehler')
 #np.savetxt('Inverse der Wellenlaenge.txt',np.column_stack([inwell]),header='Inverse_der_wellelaenge')
