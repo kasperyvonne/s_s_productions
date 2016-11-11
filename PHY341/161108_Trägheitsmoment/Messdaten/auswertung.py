@@ -86,13 +86,17 @@ m,m_e,b,b_e=linregress(abstand[::3]**2,schwingungsdauer_mittel**2)
 
 m_fehler=ufloat(m,m_e)
 b_fehler=ufloat(b,b_e)
+print('\n')
 print('Steigung ', m_fehler)
 print('y-Achsenabschnitt', b_fehler)
+print('\n')
+
 m_1=222.51e-3
 m_2=223.46e-3
 winkelrichtgroesse_dynamisch=(((m_1+m_2)*4*np.pi**2)/m_fehler)
 print('Winkelrichtgroesse-dynamisch ', winkelrichtgroesse_dynamisch)
 print('Winkelrichtgröße_passiv', winkelrecht_passiv)
+print('\n')
 
 
 
@@ -109,6 +113,7 @@ J_zylinder2=J_zylinder(radius_zylinder,hoehe_zylinder,m_2)
 J_eigen=-(J_zylinder1+J_zylinder2)+(winkelrichtgroesse_dynamisch)/(4*np.pi**2)*b_fehler
 
 print('Trageheitsmoment_Eigen ', J_eigen)
+print('\n')
 
 def traegheitsmoment(schwingungsdauer):
 	return (schwingungsdauer**2*winkelrichtgroesse_dynamisch)/(4*(np.pi)**2)
@@ -122,30 +127,75 @@ def Mittelwert(schwingungsdauer):
 schingungsdauer_grauer_zylinder*=(1/5)
 schingungsdauer_grauer_zylinder_u=Mittelwert(schingungsdauer_grauer_zylinder)
 traeg_zylinder_grau=traegheitsmoment(schingungsdauer_grauer_zylinder_u)
-print('Zylinder grau ', traeg_zylinder_grau)
+print('Trägheitsmoment_Zylinder grau ', traeg_zylinder_grau)
+print('\n')
 
 #Berechnung Trägheitsmoment Kugel
 
 schwingungsdauer_kugel*=(1/5)
 schwingungsdauer_kugel_u=Mittelwert(schwingungsdauer_kugel)
 traeg_kugel=traegheitsmoment(schwingungsdauer_kugel_u)
-print('Kugel', traeg_kugel)
+print('Trägheitsmoment_Kugel', traeg_kugel)
+print('\n')
 
 #Berechnung Trägheitsmoment Puppe Position 1
 schwingungsdauer_puppe_1*=(1/5)
 schwingungsdauer_puppe1_u=Mittelwert(schwingungsdauer_puppe_1)
 traeg_puppe1_u=traegheitsmoment(schwingungsdauer_puppe1_u)
-print('Puppe 1', traeg_puppe1_u)
+print('Trägheitsmoment_Puppe 1', traeg_puppe1_u)
+print('\n')
 
 #Berechnung Trägheitsmoment Puppe Position 2
 schwingungsdauer_puppe_2*=(1/5)
 schwingungsdauer_puppe2_u=Mittelwert(schwingungsdauer_puppe_2)
 traeg_puppe2_u=traegheitsmoment(schwingungsdauer_puppe2_u)
-print('Puppe 2', traeg_puppe2_u)
+print('Trägheitsmoment_Puppe 2', traeg_puppe2_u)
+print('\n')
 
 
+#Puppe_mass_mitteler
+kopf=[3.09e-2,2.39e-2]
+kopf_u=Mittelwert(kopf)
+arm=[1.62e-2,1.32e-2,1.48e-2]
+arm_u=Mittelwert(arm)
+arm_laenge=14.00e-2
+torso=[3.855e-2,2.58e-2,3.965e-2]
+torso_u=Mittelwert(torso)
+torso_hoehe=9.77e-2
+bein=[1.92e-2,1.60e-2]
+bein_u=Mittelwert(bein)
+bein_laenge=15.8e-2
 
+def volumen_zylinder(radius,hoehe):
+	return np.pi*radius**2*hoehe
+def volumen_kugel(radius):
+	return (4/3)*np.pi*radius**3
 
+volumen_puppe=volumen_kugel(kopf_u)+2*volumen_zylinder(arm_u,arm_laenge)+volumen_zylinder(torso_u,torso_hoehe)+2*volumen_zylinder(bein_u,bein_laenge)
+print('Volumen Puppe', volumen_puppe)
+print('\n')
+
+#Theoretische Berechnung der Trägheitsmomente:
+
+def traeg_kugel(masse,radius):
+	return (2/5)*masse*radius**2
+def trag_zylinder(masse,radius):
+	return (1/2)*masse*radius**2
+
+masse_kugel=1005.8e-3
+radius_kugel=(0.5*13.78)*1e-2
+
+radius_grauerzylinder=(4.00)*1e-2
+masse_zylindergrau=812.46e-3
+
+traeg_kugel_theo=traeg_kugel(masse_kugel,radius_kugel)
+
+print('traegheitsmoment_kugel_theo', traeg_kugel_theo)
+print('\n')
+
+traegheitsmoment_zylindergrau_theo=trag_zylinder(masse_zylindergrau,radius_grauerzylinder)
+print('traegheitsmoment_grauerkegel_theo',traegheitsmoment_zylindergrau_theo)
+print('\n')
 
 
 
@@ -166,7 +216,7 @@ plt.grid()
 
 
 
-#np.savetxt('.txt', np.column_stack([winkelrecht_passiv.n,winkelrecht_passiv.s]), header='Winkelrichtgröße Fehler')
+#np.savetxt('Winkelrichtgröße_dynamisch.txt', np.column_stack([winkelrichtgroesse_dynamisch.n,winkelrichtgroesse_dynamisch.s]), header='Winkelrichtgröße Fehler')
 #np.savetxt('Schallgeschwindigkeit_Mittelwert.txt',np.column_stack([c_m,c_f]),header='Mittelwert Fehler')
 #np.savetxt('Geschwindigkeit.txt',d.T,header='Gang Geschindigkeit Fehler')
 #np.savetxt('Inverse der Wellenlaenge.txt',np.column_stack([inwell]),header='Inverse_der_wellelaenge')
