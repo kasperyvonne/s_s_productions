@@ -48,13 +48,16 @@ abstand=abstand+hoehe_zylinder
 abstand*=1e-2
 schwingungsdauer*=(1/5)
 schwingungsdauer_hilf=[]
-
+schwingungsdauer_abweichung=[]
 
 #print(abstand[::3])
 for i in range(len(schwingungsdauer))[::3]:
     schwingungsdauer_hilf.append(np.mean(schwingungsdauer[i:i+3]))
+    schwingungsdauer_abweichung.append(1/(np.sqrt(len(schwingungsdauer[i:i+3])))*np.std(schwingungsdauer[i:i+3]))
 schwingungsdauer_mittel=np.array(schwingungsdauer_hilf)
-#print('Zeitlichesmittel ', schwingungsdauer_mittel**2)
+schwingungsdauer_u=unp.uarray(schwingungsdauer_hilf,schwingungsdauer_abweichung)
+print(schwingungsdauer_u)
+#print('Zeitlichesmittel_abweichung ', schwingungsdaer_abweichung_mitt)
 
 
 def f(m,u,b):
@@ -241,19 +244,17 @@ volumen_kopf=volumen_kugel(kopf_u)
 volumen_kopf_prozentual=volumen_kopf/volumen_puppe
 masse_kopf=masse_puppe*volumen_kopf_prozentual
 
-
-print(2*masse_bein+2*masse_arm+masse_kopf+masse_torso)
-
 ##Position 1:
 #def J_zylinder(radius,hoehe,masse)
-trag_puppe_theo=2*satz_von_steiner(trag_zylinder(masse_bein,bein_u),masse_bein,verschiebung_bein_p1)
-+trag_zylinder(masse_torso,torso_u)+traeg_kugel(masse_kopf,kopf_u)+satz_von_steiner(J_zylinder(arm_u,arm_laenge,masse_arm),masse_arm,verschiebung_arm)
-print(trag_puppe_theo)
+trag_puppe_theo_1=2*satz_von_steiner(trag_zylinder(masse_bein,bein_u),masse_bein,verschiebung_bein_p1)
++trag_zylinder(masse_torso,torso_u)+traeg_kugel(masse_kopf,kopf_u)+2*satz_von_steiner(J_zylinder(arm_u,arm_laenge,masse_arm),masse_arm,verschiebung_arm)
+print('Theoretisches Trägheitsmoment Puppe  1',trag_puppe_theo_1)
 
 ##Postiion 2:
 trag_puppe_theo_2=2*satz_von_steiner(trag_zylinder(masse_bein,bein_u),masse_bein,verschiebung_bein_p2)
-+trag_zylinder(masse_torso,torso_u)+traeg_kugel(masse_kopf,kopf_u)+satz_von_steiner(J_zylinder(arm_u,arm_laenge,masse_arm),masse_arm,verschiebung_arm)
-print(trag_puppe_theo_2)
++trag_zylinder(masse_torso,torso_u)+traeg_kugel(masse_kopf,kopf_u)+2*satz_von_steiner(J_zylinder(arm_u,arm_laenge,masse_arm),masse_arm,verschiebung_arm)
+print('Theoretisches Trägheitsmoment Puppe  2',trag_puppe_theo_2)
+print('\n')
 
 
 #Plotbereich
@@ -272,8 +273,8 @@ plt.grid()
 #plt.show()
 
 
-
-#np.savetxt('Winkelrichtgröße_dynamisch.txt', np.column_stack([winkelrichtgroesse_dynamisch.n,winkelrichtgroesse_dynamisch.s]), header='Winkelrichtgröße Fehler')
+#np.savetxt('schwingungsdauer_dynamisch_gemittelt.txt', np.column_stack([unp.nominal_values(schwingungsdauer_u),unp.std_devs(schwingungsdauer_u)]), header='Schwingungsdauermittel Abweichung')
+#np.savetxt('schwingungsdauer_dynamisch_gemi.txt', np.column_stack([winkelrichtgroesse_dynamisch.n,winkelrichtgroesse_dynamisch.s]), header='Winkelrichtgröße Fehler')
 #np.savetxt('Schallgeschwindigkeit_Mittelwert.txt',np.column_stack([c_m,c_f]),header='Mittelwert Fehler')
 #np.savetxt('Geschwindigkeit.txt',d.T,header='Gang Geschindigkeit Fehler')
 #np.savetxt('Inverse der Wellenlaenge.txt',np.column_stack([inwell]),header='Inverse_der_wellelaenge')
