@@ -117,9 +117,10 @@ T=2\pi\sqrt{\frac{I}{D}} \quad \Leftrightarrow \quad I=\frac{T^2 D}{4\pi^2}
 
 Da die Massen von der Drehachse verschoben waren, macht man sich den Satz von Steiner \eqref{eq: steiner} zu nutze und erhält den Zusammenhang:
 
-\begin{equation*}
+\begin{equation}
+\label{eq:gerade}
 \frac{T^2D}{4\pi^2}=I_s+ma^2\quad \Leftrightarrow \quad T^2=\frac{I_s 4\pi^2}{D}+\frac{4m_g\pi^2}{D}a^2
-\end{equation*}
+\end{equation}
 
 Dabei sei $m_g=m_1+m_2$.
 Offensichtlich ergibt sich eine Geradengleichung, die mit Linearer Regression angenährt werden kann.
@@ -142,3 +143,41 @@ Nach Ausführung der Regressionrechnung erhält man als Wert
 \label{eq: steigung}
 m=\left(\num{741.2}\pm\num{3.4}\right) \si{\kilogram\per\newton\meter}
 \end{equation}
+
+Da es sich bei \eqref{eq:gerade} um eine Gerade handelt muss gelten:
+
+\begin{equation*}
+m=\frac{4m_g\pi^2}{D}
+\end{equation*}
+
+Damit kann die Winkelrichtgröße dynamisch bestimmt werden
+
+\begin{equation*}
+D=\frac{4m_g\pi^2}{m}.
+\end{equation*}
+
+Er ergibt sich:
+
+\begin{equation}
+\label{winkelrichtgroesse_dynamisch}
+D_{dynam}=\left(\num{2.38e-2} \pm \num{1.10e-4}\right)\si{\newton\meter}
+\end{equation}
+
+Da die Abweichung von $D_{dynam}$ kleiner ist als von $D_{passiv}$ wird 
+diese in folgenden Rechnungen genutzt.
+Dabei sie ab jetzt $D=D_{dynam}$.
+
+
+\subsection{Bestimmung des Eigenträgheitsmoment $I_D$}
+
+Auch bei der Bestimmung des Eigenträgheitsmoment machen wir uns die 
+Geradengleichung \eqref{eq:gerade} und dessen Lineare Regression zunutzen.
+Denn durch Betrachtung des $y$-Achsenabschnitt der Geraden kann auf das Eigenträgheitsmoment der Drillachse geschlossen werden.
+Dazu
+
+\begin{equation*}
+b=\frac{4\pi^2}{D}\left(I_D+I_Z\right) \quad \Leftrightarrow \quad I_D=\frac{D}{4\pi^2}b-I_Z
+\end{equation*}
+
+Dabei sei $I_Z$ das Trägheitsmoment der kleinen Zylinder.
+\end{equation*}

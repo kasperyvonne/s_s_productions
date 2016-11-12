@@ -113,7 +113,7 @@ hoehe_zylinder=(14.05*0.5)*1e-2
 J_zylinder1=J_zylinder(radius_zylinder,hoehe_zylinder,m_1)
 J_zylinder2=J_zylinder(radius_zylinder,hoehe_zylinder,m_2)
 
-J_eigen=-(J_zylinder1+J_zylinder2)+(winkelrichtgroesse_dynamisch)/(4*np.pi**2)*b_fehler
+J_eigen=(winkelrichtgroesse_dynamisch)/(4*np.pi**2)*b_fehler-(J_zylinder1+J_zylinder2)
 
 print('Trageheitsmoment_Eigen ', J_eigen)
 print('\n')
