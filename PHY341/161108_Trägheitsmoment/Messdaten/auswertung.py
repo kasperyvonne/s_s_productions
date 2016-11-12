@@ -163,18 +163,24 @@ print('\n')
 #Puppe_mass_mitteler
 kopf=[3.09e-2,2.39e-2]
 kopf_u=Mittelwert(kopf)
+print('Mittelwert Kopf',kopf_u)
 
 arm=[1.62e-2,1.32e-2,1.48e-2]
 arm_u=Mittelwert(arm)
 arm_laenge=14.00e-2
+print('Mittelwert Arm',arm_u)
 
 torso=[3.855e-2,2.58e-2,3.965e-2]
 torso_u=Mittelwert(torso)
 torso_hoehe=9.77e-2
+print('Mittelwert Torso',torso_u)
 
 bein=[1.92e-2,1.60e-2]
 bein_u=Mittelwert(bein)
 bein_laenge=15.8e-2
+print('Mittelwert Bein',bein_u)
+print('\n')
+
 
 def volumen_zylinder(radius,hoehe):
 	return np.pi*radius**2*hoehe
@@ -191,8 +197,6 @@ def traeg_kugel(masse,radius):
 	return (2/5)*masse*radius**2
 def trag_zylinder(masse,radius):
 	return (1/2)*masse*radius**2
-def trag_zylinder_z(masse,radius):
-	return (1/12)
 
 masse_kugel=1005.8e-3
 radius_kugel=(0.5*13.78)*1e-2

@@ -122,7 +122,7 @@ Da die Massen von der Drehachse verschoben waren, macht man sich den Satz von St
 \frac{T^2D}{4\pi^2}=I_s+ma^2\quad \Leftrightarrow \quad T^2=\frac{I_s 4\pi^2}{D}+\frac{4m_g\pi^2}{D}a^2
 \end{equation}
 
-Dabei sei $m_g=m_1+m_2$.
+Dabei sei $m_g=m_1+m_2=\num{222.51e-2}\si{\meter}+\num{223.46e-2}\si{\meter}$.
 Offensichtlich ergibt sich eine Geradengleichung, die mit Linearer Regression angenährt werden kann.
 Dazu verwendet man aus der Regressionsrechnung.
 
@@ -257,7 +257,7 @@ m_{zyl}&=\num{1005.8}\si{\gram}
 \end{align*}
 
 Da es sich hier um eine Drehung um die Symetrieachse handelt wird zu
-theoretischen Berechnung \eqref{eq:traeg_zylinder} genutzt.
+theoretischen Berechnung \eqref{eq:traeg_zylinde} genutzt.
 Das resultierende Ergebnis lautet:
 
 \begin{equation}
@@ -297,7 +297,7 @@ Als theoretische Grundformel wird \eqref{eq:traeg_kugel} genutzt.
 Es resultiert 
 
 \begin{equation}
-\label{eq:traeg_zylinder_theo}
+\label{eq:traeg_kugel_theo}
 I_{kugel \,theo}= \num{0.002}\si{\kilogram\meter\squared}
 \end{equation}
 
@@ -307,3 +307,116 @@ Aschbließend gilt es noch zu erwähnen das es keinen unterschied
 zwischen theoretischen und experiementell Trägheitsmoment gibt.
 
 \subsection{Trägheitsmoment der Modellpuppe}
+
+Wie auch bei den voherigen Körpern wird zu Bestimmung des Trägheitsmoment
+die Schwinugngsdauer der Puppe gemessen.
+
+Der wesentliche Unterschied zu den vohrigen Körpern ist der Vergleich mit den theoretischen Werte. Den beid er Berrechnung muss die Form der Puppe 
+durch bekannkte Körper (Zylinder und Kugeln) angenährt werden.
+Da die einzelnen Körperteile nicht an jeder Stelle die gleichen Maße haben,
+wurde mehere Werte gemessen (siehen Anhang) und dann gemittelt.
+Das Ergebnis sind folgende Abmessungen für die Puppe:
+
+\begin{align*}
+\text{Abmessung} \quad &\\
+r_{kopf}&=\left(\num{0.027}\pm\num{0.002}\right)\si{\meter}\\
+r_{arm}&=\left(\num{0.015}\pm\num{0.001}\right)\si{\meter}\\
+r_{torso}&=\left(\num{0.035}\pm\num{0.004}\right)\si{\meter}\\
+r_{bein}&=\left(\num{0.018}\pm\num{0.001}\right)\si{\meter}\\
+\text{Gewicht} \quad &\\
+m_{puppe}&=\num{161.90}\si{\gram}
+\end{align*}
+
+Für spätere berechnung wurde die Puppe wie auf der folgenden Abbildung zusehen geometrisch angenährt:
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{pics/puppe.pdf}
+  \caption{Annäherung der Puppe}
+  \label{fig:approx_puppe}
+\end{figure}
+
+\subsubsection{Position 1}
+
+Die Haltung der Puppe in Position 1 ist in Abbildung \ref{fig:pup1} dargestellt.
+Die gemessenen Schwingungsdauer sind im Anahng aufgelistet.
+Als Mittelwert ergibt sich:
+
+\begin{equation*}
+\bar{T}_{puppe\, p1}=\left(\num{0.64}\pm\num{0.00}\right) \si{\per\second}
+\end{equation*}
+
+Daraus resultultier für das Trägheitsmoment:
+
+\begin{equation}
+\label{eq:traeg_puppe_p1}
+I_{puppe \,p1}= \left(\num{0.0002}\pm\num{0.0000}\right)\si{\kilogram\meter\squared}
+\end{equation}
+
+Bei der Berechnung des theoretischen Trägheitsmoment, macht man sich das additives Verhalten der Trägheitsmomente zu nutzen.
+Dabei ist jeodch zu beachten, das bei den Armen und Beinen der Satz von Steiner zu berücksichtigen sind. Dabei sind die Verschiebungen zur Drehachse
+\begin{align*}
+a_{arm}&=\num{9.27e-2}\si{\meter}\\
+a_{bein}&=\num{1.19e-2}\si{\meter}
+\end{align*}
+
+Desweiteren wird für den Satz von Steiner die Masse von Arm und Bein benötigt.
+Diese werden bestimmt indem man das Teilvolumen von Arm und Bein zum Gesamtvolumen bestimmt. Das Teilvolumen wird dann anschließend mit der Masse der Puppe multipliziert.
+
+Für den Arm ergab sich
+\begin{align}
+\begin{aligned}
+\label{eq:masse_arm}
+\text{prozentualer} Anteil \quad &\left(10\pm\num{1}\right)\% \\
+\text{Masse Arm} \quad &\left(\num{0.016}\pm\num{0.002}\right)\si{\kilogram}
+\end{aligned}
+\end{align}
+
+und für ein Bein
+
+\begin{align}
+\begin{aligned}
+\label{eq:masse_bein}
+\text{prozentualer} Anteil \quad &\left(16\pm\num{2}\right)\% \\
+\text{Masse Bein} \quad &\left(\num{0.026}\pm\num{0.003}\right)\si{\kilogram}.
+\end{aligned}
+\end{align}
+
+Nach der Theorie hat die Puppe in Position $1$ ein Trägheitsmoment von
+
+\begin{equation*}
+\bar{T}_{puppe\, p1\,theo}=\left(\num{1.55e-5}\pm\num{0.27e-5}\right) \si{\kilogram\meter\squared}.
+\end{equation*}
+
+Der Unterschied zwischen Theorie und Praxis liegt bei $\approx +1200 \%$.
+
+\subsubsection{Position 2}
+Die Haltung der Puppe in Position 2 ist in Abbildung \ref{fig:pup2} zusehen.
+Die gemessenen Schwingungen sind im Anhang abgedruckt.
+Als gemittelte Schwingungsdauer errechnet sich:
+
+\begin{equation*}
+\bar{T}_{puppe\, p2}=\left(\num{0.91}\pm\num{0.00}\right) \si{\per\second}
+\end{equation*}
+
+Damit folgt für das Trägheitsmoment
+
+\begin{equation}
+\label{eq:traeg_puppe_p2}
+I_{puppe \,p2}= \left(\num{0.0005}\pm\num{0.0000}\right)\si{\kilogram\meter\squared}
+\end{equation}
+
+Da bei dieser Position nur die Beine ihre Position geändert haben, ändert sich auch nur ihr Abstand zu Drehachse auf $a=\num{6.77e-2}\si{\meter}$.
+Sonst bleiben Massen und Abstände gelich.
+
+Für das theoretische Trägheitsmoment folgt
+
+\begin{equation*}
+\bar{T}_{puppe\, p2\,theo}=\left(\num{0.0002}\pm\num{0.0000}\right) \si{\kilogram\meter\squared}.
+\end{equation*}
+
+Die Abweichung von der experimentellen und theoretischen Messung ist 
+somit $\approx +250 \%$.
+
+
