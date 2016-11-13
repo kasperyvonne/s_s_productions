@@ -1,27 +1,27 @@
 \section{Auswertung}
 
 Zunächst wird im Versuch die Winkelrichtgröße $D$ und das
-das Eigenträgheitsmoment der Drillachse $I_D$ bestimmt.
+das Eigenträgheitsmoment der Drillachse $I_D$ bestimmt. %komma statt Punkt, Aufzählung
 Anschließend das Trägheitsmoment einer Kugel und eines Zylinders (\emph{grau}).
-Dazu kommt noch das Trägheitsmomente von einer Holzpuppe in zwei verschieden Positionen.
-Da das Trägheitsmoment nicht direkt gemessen werden kann, wurden immer 
+Dazu kommt noch das Trägheitsmomente von einer Holzpuppe in zwei verschieden Positionen. %Ausdruck
+Da das Trägheitsmoment nicht direkt gemessen werden kann, wurden immer
 die Schwingungsdauer $T$ von $5$ Schwingungen gemessen.
-Um so dann auf das Trägheitsmoment zu schließen.
+Um so dann auf das Trägheitsmoment zu schließen.  %kompliziert formuliert
 
 \subsection{Bestimmung der Winkelrichtröße $D$}
 
 Die Winkelrichtgröße $D$ kann auf zwei verschiedene Wege bestimmt werden.
-Zum einem durch eine passive und zum andern durch eine dynamische Methode.
+Zum einem durch eine passive und zum andern durch eine dynamische Methode. %wieso passiv?
 Beide Methoden werden im Anschluss genauer erklärt werden.
 
 \subsubsection{Passive Methode}
 
-Die Passive oder auch als statisch bezeichnete Methode wird mittels einem Drehmoment (gemessen mit einer Federwaage) 
-das für eine Auslenkung der Torsionsfeder sorgt gemessen.
+Die Passive oder auch als statisch bezeichnete Methode wird mittels einem Drehmoment (gemessen mit einer Federwaage)
+das für eine Auslenkung der Torsionsfeder sorgt gemessen. %Ausdruck
 Wichtig dabei ist, dass die Federwaage immer orthogonal zum Radius steht.
-Denn das Drehmoment errechnet sich mit $\vec{M}=\vec{r}\times\vec{F}$, durch 
-eine orthogonale Stellung von $\vec{r}$ und $\vec{F}$ kann mit den Beträgen 
-gerechnet werden und ergibt den Zusammenhang $M=rF$. 
+Denn das Drehmoment errechnet sich mit $\vec{M}=\vec{r}\times\vec{F}$, durch
+eine orthogonale Stellung von $\vec{r}$ und $\vec{F}$ kann mit den Beträgen %das hab ich in der Durchführung schon beschrieben
+gerechnet werden und ergibt den Zusammenhang $M=rF$.
 Im Versuch wurden folgende Werte bestimmt:
 
 
@@ -75,18 +75,18 @@ Es ergibt sich dann für die Winkelrichtgröße der Wert:
 
 \begin{equation}
 \label{eq:winkel_passiv}
-D_{passiv}=\left(\num{2.03e-2} \pm \num{1.22e-3}\right)\si{\newton\meter}
+D_{passiv}=\left(\num{2.03e-2} \pm \num{1.22e-3}\right)\si{\newton\meter} %Fehler und Bestwert unbedingt in gleicher Präzision
 \end{equation}
 
 \subsubsection{Dynamische Methode}
 
-Bei der dynamischen Methode wird die Schwingungsdauer von 
+Bei der dynamischen Methode wird die Schwingungsdauer von %können zwei kleine Zylinder eine Schwingungsdauer haben?
 zwei kleinen Zylindern ($m_1$ und $m_2$), die symmetrisch zum Mittelpunktes
-eines Stabes befestigt werden, gemessen. Durch Verschiebung der Massen, 
-ergibt sich eine Vielzahl von Messwerten, die im Anhang eingesehn
+eines Stabes befestigt werden, gemessen. Durch Verschiebung der Massen,
+ergibt sich eine Vielzahl von Messwerten, die im Anhang eingesehn %"Vielzahl" unpassend
 werden können.
 Diese wurden anschließend gemittelt mit \eqref{eq:mittel} und \eqref{eq:stand_ab}.
-Das Resultat ist in der Tabelle dargestellt:
+Das Resultat ist in der Tabelle dargestellt: %referiere hier auf die Tabelle
 
 \begin{table}
 \centering
@@ -118,8 +118,8 @@ T=2\pi\sqrt{\frac{I}{D}} \quad \Leftrightarrow \quad I=\frac{T^2 D}{4\pi^2}
 \end{equation*}
 
 kann auf die Winkelrichtgröße geschlossen werden.
-Da die Zylinder von der Drehachse verschoben sind, macht man sich den 
-Satz von Steiner \eqref{eq: steiner} zu nutze und erhält den Zusammenhang:
+Da die Zylinder von der Drehachse verschoben sind, macht man sich den
+Satz von Steiner \eqref{eq: steiner} zu nutze und erhält den Zusammenhang: %kompliziert formuliert
 
 \begin{equation}
 \label{eq:gerade}
@@ -127,10 +127,10 @@ Satz von Steiner \eqref{eq: steiner} zu nutze und erhält den Zusammenhang:
 \end{equation}
 
 Dabei sei $m_g=m_1+m_2=\num{222.51e-2}\si{\meter}+\num{223.46e-2}\si{\meter}$.
-Offensichtlich ergibt sich eine Gleichung für eine Gerade, die mittels linearer 
-Regression angenährt werden kann.
+Offensichtlich ergibt sich eine Gleichung für eine Gerade, die mittels linearer
+Regression angenährt werden kann. %besser: zwischen T^2 und a^2 besteht einer linearer Zusammenhang, die Funktionsparameter lassen sich mittels linearer Regerssion bestimmen...
 Dazu verwendet man aus der Regressionsrechnung
-die Annäherung um die Steigung $m$ 
+die Annäherung um die Steigung $m$
 
 \begin{equation*}
 m=\frac{\bar{xy}-\bar{x}\bar{y}}{\bar{x^2}-\bar{x}^2}
@@ -154,7 +154,7 @@ Da es sich bei \eqref{eq:gerade} um eine Gerade handelt muss gelten:
 m=\frac{4m_g\pi^2}{D}
 \end{equation*}
 
-Damit wird die Winkelrichtgröße dynamisch bestimmt, denn es gilt
+Damit wird die Winkelrichtgröße dynamisch bestimmt, denn es gilt %dynamisch bestimmt?
 
 \begin{equation*}
 D=\frac{4m_g\pi^2}{m}.
@@ -167,16 +167,16 @@ Er ergibt sich:
 D_{dynam}=\left(\num{2.38e-2} \pm \num{1.10e-4}\right)\si{\newton\meter}
 \end{equation}
 
-Da die Abweichung von $D_{dynam}$ kleiner ist als von $D_{passiv}$ wird 
+Da die Abweichung von $D_{dynam}$ kleiner ist als von $D_{passiv}$ wird
 diese in folgenden Rechnungen genutzt.
 Dabei sei ab sofort $D=D_{dynam}$.
 
 
 \subsection{Bestimmung des Eigenträgheitsmoment $I_D$}
 
-Auch bei der Bestimmung des Eigenträgheitsmomentes machen wir uns die 
+Auch bei der Bestimmung des Eigenträgheitsmomentes machen wir uns die
 Geradengleichung \eqref{eq:gerade} und dessen lineare Regression zunutze.
-Denn durch Betrachtung des $y$-Achsenabschnitt der Geraden kann auf das Eigenträgheitsmoment der Drillachse geschlossen werden.
+Denn durch Betrachtung des $y$-Achsenabschnitt der Geraden kann auf das Eigenträgheitsmoment der Drillachse geschlossen werden. %kompliziert
 Dazu
 
 \begin{equation*}
@@ -204,8 +204,8 @@ Rechnerisch ergibt sich:
 b=\left(\num{4.64}\pm\num{0.12}\right) \si{\meter}
 \end{equation}
 
-Mit dem theoretisch errechneten Wert für das Trägheitsmoment der kleinen Zylinder 
-(mittels \eqref{eq:traeg_zylinder_schwer}) ergibt sich für das 
+Mit dem theoretisch errechneten Wert für das Trägheitsmoment der kleinen Zylinder
+(mittels \eqref{eq:traeg_zylinder_schwer}) ergibt sich für das
 Eigenträgheitsmoment der Drillachse:
 
 \begin{equation}
@@ -232,9 +232,9 @@ Um das Trägheitsmoment zu bestimmen, wird der Zusammenhang
 I_{körper}=\frac{T^2 D}{4\pi^2}-I_D
 \end{equation*}
 genutzt.
-Am Ende jedes Unterkapitels soll ein Vergleich zwischen den 
-Trägheitsmomenten die aus der Theorie folgen und den 
-experimentellen Trägheitsmomenten folgen.
+Am Ende jedes Unterkapitels soll ein Vergleich zwischen den
+Trägheitsmomenten die aus der Theorie folgen und den
+experimentellen Trägheitsmomenten folgen. %Ausdruck
 
 \subsubsection{Trägheitsmoment des Zylinder}
 
@@ -252,7 +252,7 @@ Damit folgte für das Trägheitsmoment:
 I_{zylin}=\left(\num{0.0008}\pm\num{0.0000}\right) \si{\kilogram\meter\squared}
 \end{equation}
 
-Für die theoretische Berechnung werden die Maße und Masse des Zylinders benötigt. 
+Für die theoretische Berechnung werden die Maße und Masse des Zylinders benötigt.
 Gemessen wurde:
 
 \begin{align*}
@@ -272,12 +272,13 @@ Das resultierende Ergebnis lautet:
 I_{zylin \,theo}= \num{0.0006}\si{\kilogram\meter\squared}
 \end{equation}
 
-Die Abweichung vom experimentellen Resultat zur Theorie beläuft sich auf $\approx +33 \%$
+Die Abweichung vom experimentellen Resultat zur Theorie beläuft sich auf $\approx +33 \%$ %Ich würde den qualitativen Vergleich zwischen Theorie und Experiment in der Diskussion anstellen
 
 \subsubsection{Trägheitsmoment der Kugel}
 
-Bei der Bestimmung des Trägheitsmomentes einer Kugel wird genauso vorgegangen, wie bei 
-der Bestimmung für den Zylinder. Auch hier sind die gemessenen Schwingungsdaueren im Anhang einzusehen.
+Bei der Bestimmung des Trägheitsmomentes einer Kugel wird genauso vorgegangen, wie bei
+der Bestimmung für den Zylinder. %Ausdruck
+ Auch hier sind die gemessenen Schwingungsdaueren im Anhang einzusehen.
 Als gemittelter Wert ergibt sich:
 
 \begin{equation*}
@@ -301,7 +302,7 @@ m_{zyl}&=\num{812.40}\si{\gram}
 \end{align*}
 
 Als theoretische Grundformel wird \eqref{eq:traeg_kugel} genutzt.
-Es resultiert 
+Es resultiert
 
 \begin{equation}
 \label{eq:traeg_kugel_theo}
@@ -311,15 +312,16 @@ I_{kugel \,theo}= \num{0.002}\si{\kilogram\meter\squared}
 als theoretisches Trägheitsmoment.
 
 Abschließend gilt es noch zu erwähnen, dass es keinen Unterschied
-zwischen theoretischen und experimentellen Trägheitsmoment gibt.
+zwischen theoretischen und experimentellen Trägheitsmoment gibt. %was heißt das?
 
 \subsection{Trägheitsmoment der Modellpuppe}
 
 Wie auch bei dem vorherigen Körpern wird zu Bestimmung des Trägheitsmomentes
-die Schwingungsdauer der Puppe gemessen.
+die Schwingungsdauer der Puppe gemessen. %falschrum
 
-Der wesentliche Unterschied zu den vorhrigen Körpern ist, der Vergleich mit den 
-theoretischen Werten. Denn bei der Berechnung muss die Form der Puppe 
+Der wesentliche Unterschied zu den vorhrigen Körpern ist, der Vergleich mit den
+theoretischen Werten. %ausdruck
+Denn bei der Berechnung muss die Form der Puppe
 durch bekannte Körper (Zylinder und Kugeln) angenährt werden.
 Da die einzelnen Körperteile nicht an jeder Stelle die gleichen Maße haben,
 werden meheree Werte gemessen (siehe Anhang) und dann gemittelt.
@@ -335,7 +337,7 @@ r_{bein}&=\left(\num{0.018}\pm\num{0.001}\right)\si{\meter}\\
 m_{puppe}&=\num{161.90}\si{\gram}
 \end{align*}
 
-Für spätere Berechnung wird die Puppe, wie auf der folgenden Abbildung zusehen geometrisch angenährt:
+Für spätere Berechnung wird die Puppe, wie auf der folgenden Abbildung zusehen geometrisch angenährt: %ref
 
 
 \begin{figure}
@@ -362,17 +364,18 @@ Daraus resultiert für das Trägheitsmoment:
 I_{puppe \,p1}= \left(\num{0.0002}\pm\num{0.0000}\right)\si{\kilogram\meter\squared}
 \end{equation}
 
-Bei der Berechnung des theoretischen Trägheitsmomentes, macht man sich 
+Bei der Berechnung des theoretischen Trägheitsmomentes, macht man sich
 das additive Verhalten der Trägheitsmomente zu nutzen.
-Dabei ist jedoch zu beachten, dass bei den Armen und Beinen der 
-Satz von Steiner zu berücksichtigen ist. Dabei sind die Verschiebungen zur Drehachse
+Dabei ist jedoch zu beachten, dass bei den Armen und Beinen der
+Satz von Steiner zu berücksichtigen ist. %Ausdruck
+ Dabei sind die Verschiebungen zur Drehachse
 \begin{align*}
 a_{arm}&=\num{9.27e-2}\si{\meter}\\
 a_{bein}&=\num{1.19e-2}\si{\meter}
 \end{align*}
 
 Des Weiteren wird für den Satz von Steiner die Masse von Armen und Beinen benötigt.
-Diese werden bestimmt, indem man das Teilvolumen von Arm und Bein zum Gesamtvolumen bestimmt. 
+Diese werden bestimmt, indem man das Teilvolumen von Arm und Bein zum Gesamtvolumen bestimmt. %Ausdruck
 Das Teilvolumen wird dann anschließend mit der Masse der Puppe multipliziert.
 
 Für einen Arm ergibt sich
@@ -400,11 +403,11 @@ Nach der Theorie hat die Puppe in Position $1$ ein Trägheitsmoment von
 \bar{T}_{puppe\, p1\,theo}=\left(\num{1.55e-5}\pm\num{0.27e-5}\right) \si{\kilogram\meter\squared}.
 \end{equation*}
 
-Der Unterschied zwischen Theorie und Praxis liegt bei $\approx +1200 \%$.
+Der Unterschied zwischen Theorie und Praxis liegt bei $\approx +1200 \%$. %s.o.
 
 \subsubsection{Position 2}
 Die Haltung der Puppe in Position 2 ist in Abbildung \ref{fig:pup2} zusehen.
-Die gemessenen Schwingungen sind im Anhang abgedruckt.
+Die gemessenen Schwingungen sind im Anhang abgedruckt. %musst nicht immer auf den Anhang verweisen denke ich
 Als gemittelte Schwingungsdauer errechnet sich:
 
 \begin{equation*}
@@ -418,7 +421,7 @@ Damit folgt für das Trägheitsmoment
 I_{puppe \,p2}= \left(\num{0.0005}\pm\num{0.0000}\right)\si{\kilogram\meter\squared}
 \end{equation}
 
-Da bei dieser Position nur die Beine ihre Position geändert haben, ändert 
+Da bei dieser Position nur die Beine ihre Position geändert haben, ändert
 sich ihr Abstand zu der Drehachse auf $a_{beine}=\num{6.77e-2}\si{\meter}$.
 Sonst bleiben Massen und Abstände gleich.
 
@@ -428,7 +431,5 @@ Für das theoretische Trägheitsmoment folgt
 \bar{T}_{puppe\, p2\,theo}=\left(\num{0.0002}\pm\num{0.0000}\right) \si{\kilogram\meter\squared}.
 \end{equation*}
 
-Die Abweichung von dem experimentellen und theoretischen Ergebnis ist 
-somit $\approx +250 \%$.
-
-
+Die Abweichung von dem experimentellen und theoretischen Ergebnis ist
+somit $\approx +250 \%$. %s.o.
