@@ -43,7 +43,7 @@ with open('temppres.tex', 'w') as f:
     f.write('} \n \\toprule  \n')
     f.write('{Zeit in $\si{\second}$} & {$T_1$ in $\si{\kelvin}$} & {$p_b$ in $\si{\\bar}$} & {$T_1$ in $\si{\kelvin}$} & {$p_b$ in $\si{\\bar}$} \\\ \n')
     f.write('\\midrule  \n ')
-    for i in range (0,17):
+    for i in range (0,18):
         f.write('{:.0f} & {:.2f} & {:.2f} & {:.2f} & {:.2f} \\\ \n'.format( t[i] ,noms(T_1)[i], noms(p_b)[i], noms(T_2)[i], noms(p_a)[i]))
     f.write('\\bottomrule \n \\end{tabular} \n \\caption{Temperaturen und Drücke} \n \\label{tab: tempdruck} \n  \\end{table}')
 
@@ -163,7 +163,7 @@ def Gaskurve(T, A, B):
     return A * np.exp(B/T)
 L_params, L_cov = curve_fit(Gaskurve, noms(T_1), noms(p_b))
 
-L = L_params[1] * R
+L = - L_params[1] * R
 print(L)
 x_t = np.linspace(1, 1000 , 1000)
 plt.clf()
@@ -177,31 +177,53 @@ plt.savefig('plot3.pdf')
 
 
 #Massendurchsatz
-dm_dt = dQ2_dt / L
+dm_dt = - dQ2_dt / L
 print('dm: ' , dm_dt*120)
-dm_dt *= 120
+print(p_a)
+dm_dt *= 0.12
 #mechanische Arbeit
 #ideale Gasgleichung pV = nRT equals p = nRT/V
 T_0 = 273.15
-const = (T_0 * rho_0_CI2F2C / 1e05)
+const = ((T_0 * rho_0_CI2F2C)/ 1e05)
 def rho(p, T):
     return const * (p/T)
 
 N_mech = unp.uarray(np.zeros(18), np.zeros(18))
 for i in range(0,18):
-    N_mech[i] =  1/(kappa-1) * (p_b[i] * (p_a[i]/p_b[i])**(1/kappa) - p_a[i] ) * 1/rho(p_a[i], T_2[i]) * dm_dt[i]
+    N_mech[i] =  1/(kappa-1) * (p_b[i] * (p_a[i]/p_b[i])**(1/kappa) - p_a[i] ) * dm_dt[i]/(rho(p_a[i], T_2[i]))
 print('N_mech: ', N_mech)
 #Wirkungskoeffizient
+T_1 -= 273.15
+T_2 -= 273.15
+nu_ideal = T_1 / (T_1 - T_2)
+print(len(noms(nu_ideal)))
 nu_real = dQ1_dt / P
 print(nu_real)
+T_1 += 273.15
+T_2 += 273.15
+#umrechnen in g/s
+
+
 
 with open('differenz.tex', 'w') as f:
 
     f.write('\\begin{table} \n \\centering \n \\begin{tabular}{')
-    f.write(4 *'S ')
+    f.write(5 *'S ')
     f.write('} \n \\toprule  \n')
-    f.write('{Zeit in $\si{\second}$} & {$\\frac{dT_1}{dt}$ in $\si{\kelvin \per \second}$} & {$\\frac{dT_2}{dt}$ in $\si{\kelvin \per \second}$} & {$\\nu_{real}$} \\\ \n')
+    f.write('{Zeit in $\si{\second}$} & {$\\frac{dT_1}{dt}$ in $\si{\kelvin \per \second}$} & {$\\frac{dT_2}{dt}$ in $\si{\kelvin \per \second}$} & {$\\nu_{real}$}& {$\\nu_{ideal}$} \\\ \n')
     f.write('\\midrule  \n ')
-    for i in range (0,17):
-        f.write('{:.0f} & $\\num{{ {:.4f} \pm {:.4f} }}$ & $\\num{{ {:.4f} \pm {:.4f} }}$ & $\\num{{ {:.2f} \pm {:.2f} }}$ \\\ \n'.format(t[i] ,noms(dT1_dt)[i], stds(dT1_dt)[i], noms(dT2_dt)[i], stds(dT2_dt)[i], noms(nu_real)[i], stds(nu_real)[i]))
+    for i in range (0,18):
+        f.write('{:.0f} & $\\num{{ {:.4f} \pm {:.4f} }}$ & $\\num{{ {:.4f} \pm {:.4f} }}$ & $\\num{{ {:.2f} \pm {:.2f} }}$ & $\\num{{ {:.2f} }}$\\\ \n'.format(t[i] ,noms(dT1_dt)[i], stds(dT1_dt)[i], noms(dT2_dt)[i], stds(dT2_dt)[i], noms(nu_real)[i], stds(nu_real)[i], noms(nu_ideal)[i]))
     f.write('\\bottomrule \n \\end{tabular} \n \\caption{Differenzenquotienten und reale Güteziffer} \n \\label{tab: dTdt} \n  \\end{table}')
+
+    dm_dt *= 1000
+with open('massendurchsatz.tex', 'w') as f:
+
+    f.write('\\begin{table} \n \\centering \n \\begin{tabular}{')
+    f.write(3 *'S ')
+    f.write('} \n \\toprule  \n')
+    f.write('{Zeit in $\si{\second}$} & {$\\frac{dm}{dt}$ in $\si{\gram \per \second}$} & {$N_{mech}$ in $\si{\watt}$}  \\\ \n')
+    f.write('\\midrule  \n ')
+    for i in range (0,18):
+        f.write('{:.0f}  & $\\num{{ {:.2f} \pm {:.2f} }}$ & $\\num{{ {:.2f}  }}$ \\\ \n'.format(t[i] ,noms(dm_dt)[i], stds(dm_dt)[i], noms(N_mech)[i]))
+    f.write('\\bottomrule \n \\end{tabular} \n \\caption{Massendurchsatz und Kompressorleistung} \n \\label{tab: dmdtNmech} \n  \\end{table}')
