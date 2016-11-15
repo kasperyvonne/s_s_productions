@@ -13,6 +13,9 @@ T_1_raw = np.genfromtxt('T_1.txt', unpack = True)
 T_2_raw = np.genfromtxt('T_2.txt', unpack = True)
 T_1 = unp.uarray(T_1_raw, len(T_1_raw) * [T_error])
 T_2 = unp.uarray(T_2_raw, len(T_2_raw) * [T_error])
+#umrechnung kalvin
+T_1 += 273.15
+T_2 += 273.15
 timeinterval = 60
 t = np.linspace(0, (len(T_1) - 1) * timeinterval, num = len(T_1))
 print(t)
@@ -22,7 +25,12 @@ p_a_raw = np.genfromtxt('p_a.txt', unpack = True)
 p_b_raw = np.genfromtxt('p_b.txt', unpack = True)
 p_a = unp.uarray(p_a_raw, len(p_a_raw) * [p_error])
 p_b = unp.uarray(p_a_raw, len(p_b_raw) * [p_error])
+#umrechnung pascal
+p_a *= 1e05
+p_b *= 1e05
+
 #Konstanten
+R = const.gas_constant
 rho_H2O = 1
 vol_1 = 1
 vol_2 = 1
@@ -30,11 +38,9 @@ kappa = 1.14
 # in g/dm^3, bei T = 0 und p = 1 bar
 rho_0_CI2F2C = 5.51
 
-print(const.gas_constant)
-
 #Massen
-m_1 = 1
-m_2 = 1
+m_1 = rho_H2O * vol_1
+m_2 = rho_H2O * vol_2
 m_k = 1
 c_w = 1
 c_k = 1
@@ -98,16 +104,18 @@ dQ2_dt =  unp.uarray(np.zeros(4), np.zeros(4))
 for i in range(0,4):
     dQ2_dt[i] = dT2_dt[i] * (m_2 * c_w + m_k * c_k)
 
-#hier später Berechnung von L
+#Berechnung von L
 def Gaskurve(T, A, B):
     return A * np.exp(B/T)
 L_params, L_cov = curve_fit(Gaskurve, noms(T_1), noms(p_b))
-L = 1
+L = - np.sqrt(np.diag(L_cov))[1] * R
+print(L)
 x_t = np.linspace(0, 1000 , num = 1000)
 plt.yscale("log")
 plt.errorbar(1/noms(T_1), noms(p_b), yerr=stds(p_b), fmt="rx", label="$p_{b}$")
 plt.plot(1/x_t, Gaskurve(noms(T_1), *L_cov), 'rx', label = "fit")
-
+plt.legend(loc="best")
+plt.savefig('plot2.pdf')
 
 
 #Massendurchsatz
@@ -123,3 +131,7 @@ def rho(p, T):
 N_mech = unp.uarray(np.zeros(4), np.zeros(4))
 for i in range(0,4):
     N_mech[i] =  1/(kappa-1) * (p_b[i+1] * (p_a[i]/p_b[i+1])**(1/kappa) - p_a[i+1] ) * 1/rho(p_a[i+1]) * dm_dt[i]
+
+#Wirkungskoeffizient
+nu_real = dQ1_dt / N_mech
+print(nu_real)
