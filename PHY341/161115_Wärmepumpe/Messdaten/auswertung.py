@@ -132,6 +132,10 @@ plt.xlabel('Zeit in $s$')
 plt.ylabel('Temperatur in $K$')
 plt.legend(loc="best")
 plt.savefig('plot2.pdf')
+A_F1_T1 /= (10**6)
+A_F1_T2 /= (10**6)
+B_F1_T1 /= 100
+B_F1_T2 /= 100
 
 #Differentialquotient
 def dT_dt(t, A, B):
@@ -194,10 +198,10 @@ print(nu_real)
 with open('differenz.tex', 'w') as f:
 
     f.write('\\begin{table} \n \\centering \n \\begin{tabular}{')
-    f.write(3 *'S ')
+    f.write(4 *'S ')
     f.write('} \n \\toprule  \n')
     f.write('{Zeit in $\si{\second}$} & {$\\frac{dT_1}{dt}$ in $\si{\kelvin \per \second}$} & {$\\frac{dT_2}{dt}$ in $\si{\kelvin \per \second}$} & {$\\nu_{real}$} \\\ \n')
     f.write('\\midrule  \n ')
     for i in range (0,17):
-        f.write('{:.0f} & $\\num{{ {:.2f} \pm {:.2f} }}$ & $\\num{{ {:.2f} \pm {:.2f} }}$ & $\\num{{ {:.2f} \pm {:.2f} }}$ \\\ \n'.format(t[i] ,noms(dT1_dt)[i], stds(dT1_dt)[i], noms(dT2_dt)[i], stds(dT2_dt)[i], noms(nu_real)[i], stds(nu_real)[i]))
+        f.write('{:.0f} & $\\num{{ {:.4f} \pm {:.4f} }}$ & $\\num{{ {:.4f} \pm {:.4f} }}$ & $\\num{{ {:.2f} \pm {:.2f} }}$ \\\ \n'.format(t[i] ,noms(dT1_dt)[i], stds(dT1_dt)[i], noms(dT2_dt)[i], stds(dT2_dt)[i], noms(nu_real)[i], stds(nu_real)[i]))
     f.write('\\bottomrule \n \\end{tabular} \n \\caption{Differenzenquotienten und reale Güteziffer} \n \\label{tab: dTdt} \n  \\end{table}')
