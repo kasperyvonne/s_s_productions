@@ -30,28 +30,28 @@ p_b = unp.uarray(p_b_raw, len(p_b_raw) * [p_error])
 #umrechnung pascal
 p_a += 1
 p_b += 1
-p_a *= 1e05
-p_b *= 1e05
+
 
 #in tabelle speichern
 with open('temppres.tex', 'w') as f:
 
 
-    f.write('\\begin{minipage}{0.49\textwidth} \n \\centering \n \\begin{tabular}{')
+    f.write('\\begin{table} \n \\centering \n \\begin{tabular}{')
     f.write(5 *'S ')
-    f.write('} \n \\toprule \\\ \n')
-    f.write('Zeit in $\si{\second}$ & $T_1$ in $\si{\kalvin}$ & $p_b$ in $\si{\pascal}$ & $T_1$ in $\si{\kalvin}$ & $p_b$ in $\si{\pascal}$ \\\ \n')
-    f.write('\\midrule \\\ \n ')
+    f.write('} \n \\toprule  \n')
+    f.write('{Zeit in $\si{\second}$} & {$T_1$ in $\si{\kelvin}$} & {$p_b$ in $\si{\\bar}$} & {$T_1$ in $\si{\kelvin}$} & {$p_b$ in $\si{\\bar}$} \\\ \n')
+    f.write('\\midrule  \n ')
     for i in range (0,17):
-        f.write('{:.2f} & {:.2f} & {:.2f} & {:.2f} \\\ \n'.format(noms(T_1)[i], noms(p_b)[i], noms(T_2)[i], noms(p_a)[i]))
-    f.write('\\bottomrule \n \\end{tabular} \n \\captionof{table}{tab: tempdruck} \n \\label{tab: Temperaturen und Drücke} \n  \\end{minipage}')
+        f.write('{:.0f} & {:.2f} & {:.2f} & {:.2f} & {:.2f} \\\ \n'.format( t[i] ,noms(T_1)[i], noms(p_b)[i], noms(T_2)[i], noms(p_a)[i]))
+    f.write('\\bottomrule \n \\end{tabular} \n \\caption{Temperaturen und Drücke} \n \\label{tab: tempdruck} \n  \\end{table}')
 
 
 
 
 
 
-
+p_a *= 1e05
+p_b *= 1e05
 
 
 #Konstanten
