@@ -23,9 +23,10 @@ Diese gibt das Verhältnis zwischen transportierten Wärmemenge
 und die dazu benötigte Arbeit $A$.
 Aus der Hauptsatz ergibt sich für ideale Voraussetzung:
 
-\begin{equation*}
+\begin{equation}
+\label{eq:best_kennziffer}
 \nu=\frac{Q_1}{A}
-\end{equation*}
+\end{equation}
 
 Betrachtet man zusätlich den zweiten Hauptsatz der Thermodynamik.
 So ergibt sich ein weiterer Zusammenhang zwischen den Wärmemengen 
@@ -59,4 +60,38 @@ abschaätzen zu:
 
 Das bedeutet je geringer die Differenz zwischen $T_1$ und $T_2$, 
 desto höher ist die Effizienz der Wärmepumpe.
+
+\subsection{Bestimmung der realen Güteziffer}
+Aus einer von $t$ abhängigen Messreihe $T_1$ wird der Differezenqoutient $\frac{\Delta T_1}{\Delta T}$ bestimmt.
+Dadurch kann dann die Wärmemenge bestimmt werden:
+
+\begin{equation*}
+\frac{\Delta Q_1}{\Delta t}=\left(m_1c_w+m_kc_k\right)\frac{\Delta T_1}{\Delta T}
+\end{equation*}
+
+Durch Bestimmung einer Ausgleichsgeraden, kann der 
+Differenezenqoutient durch ein Differnezialqoutient
+ersetzt werden.
+Dies soll in allen folgenden Rechnungen gelten.
+
+man erhält:
+
+\begin{equation}
+\label{eq:warmemenge_1}
+\frac{\mathup{d} Q_1}{\mathup{d} t}=\left(m_1c_w+m_kc_k\right)\frac{\mathup{d} T_1}{\mathup{d} T}
+\end{equation}
+
+
+Wobei $m_1c_w$ die Wärmekapazität des Wassers im Behälter $1$ ist und 
+$m_kc_k$ die Wärmekapazität der Kupferschlange und des Eimers sind.
+Mit \eqref{eq:best_kennziffer} und \eqref{eq:warmemenge_1} folgt dann
+
+\begin{equation}
+\label{eq:bestimmung_ziffer}
+\nu_{real}=\frac{\mathup{d}Q_1}{\mathup{d}tN}
+\end{equation}
+
+Hierbei sei $N$ die leistungsaufnahme des Wattneter im Zeitraum $\mathup{d}$.
+
+
 
