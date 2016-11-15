@@ -8,7 +8,7 @@ from uncertainties.unumpy import (nominal_values as noms,
 std_devs as stds)
 import scipy.constants as const
 #Temperaturen einlesen
-T_error = 1
+T_error = 0
 T_1_raw = np.genfromtxt('T_1.txt', unpack = True)
 T_2_raw = np.genfromtxt('T_2.txt', unpack = True)
 T_1 = unp.uarray(T_1_raw, len(T_1_raw) * [T_error])
@@ -18,31 +18,34 @@ T_1 += 273.15
 T_2 += 273.15
 timeinterval = 60
 t = np.linspace(0, (len(T_1) - 1) * timeinterval, num = len(T_1))
-print(t)
+#print(t)
 #Drücke einlesen
-p_error = 1
+p_error = 0
 p_a_raw = np.genfromtxt('p_a.txt', unpack = True)
 p_b_raw = np.genfromtxt('p_b.txt', unpack = True)
 p_a = unp.uarray(p_a_raw, len(p_a_raw) * [p_error])
-p_b = unp.uarray(p_a_raw, len(p_b_raw) * [p_error])
+p_b = unp.uarray(p_b_raw, len(p_b_raw) * [p_error])
 #umrechnung pascal
+p_a += 1
+p_b += 1
 p_a *= 1e05
 p_b *= 1e05
 
 #Konstanten
 R = const.gas_constant
-rho_H2O = 1
-vol_1 = 1
-vol_2 = 1
+rho_H2O = 1000
+vol_1 = 3e-03
+vol_2 = 3e-03
 kappa = 1.14
 # in g/dm^3, bei T = 0 und p = 1 bar
 rho_0_CI2F2C = 5.51
 
+
 #Massen
-m_1 = rho_H2O * vol_1
-m_2 = rho_H2O * vol_2
-m_k = 1
-c_w = 1
+m_1 = 3
+m_2 = 3
+m_k = 660
+c_w = 4182
 c_k = 1
 
 #verschieden Funktionen für curve_fit
@@ -69,15 +72,18 @@ B_F1_T2 = ufloat(paramsF1_T2[1], errorsF1_T2[1])
 C_F1_T2 = ufloat(paramsF1_T2[2], errorsF1_T2[2])
 print('Gefittete Funktion:', A_F1_T1 , 'x2 +' , B_F1_T1 , 'x + ' , C_F1_T1)
 
-paramsF2, covarianceF2 = curve_fit(F2, t, noms(T_1),  sigma=0.1)
-errorsF2 = np.sqrt(np.diag(covarianceF2))
+#paramsF2, covarianceF2 = curve_fit(F2, t, noms(T_1))
+#errorsF2 = np.sqrt(np.diag(covarianceF2))
 
-paramsF3, covarianceF3 = curve_fit(F3, t, noms(T_1),  sigma=0.1)
-errorsF3 = np.sqrt(np.diag(covarianceF3))
+#paramsF3, covarianceF3 = curve_fit(F3, t, noms(T_1))
+#errorsF3 = np.sqrt(np.diag(covarianceF3))
 
-x_t = np.linspace(0, 1000 , num = 1000)
+x_t = np.linspace(1, 1000 , num = 1000)
 plt.plot(t, noms(T_1), 'rx', label="gemessene Temperaturen T_1")
 plt.plot(x_t, F1(x_t, *paramsF1_T1), 'b-', label='Fit, F1')
+
+plt.plot(t, noms(T_2), 'rx', label="gemessene Temperaturen T_2")
+plt.plot(x_t, F1(x_t, *paramsF1_T2), 'g-', label='Fit, F1T2')
 #plt.plot(t, F2(t, *paramsF2), 'g-', label='Fit, F2')
 #plt.plot(t, F3(t, *paramsF3), label='Fit, F3')
 plt.legend(loc="best")
@@ -88,50 +94,56 @@ plt.savefig('plot.pdf')
 def dT_dt(t, A, B):
     return 2*A*t + B
 #für 60, 120, 180, 240
-dT1_dt = unp.uarray(np.zeros(4), np.zeros(4))
-for i in range(0,4):
-    dT1_dt[i] = dT_dt(t[i+1], A_F1_T1, B_F1_T1)
+dT1_dt = unp.uarray(np.zeros(17), np.zeros(17))
+for i in range(0,17):
+    dT1_dt[i] = dT_dt(t[i], A_F1_T1, B_F1_T1)
 
-dT2_dt = unp.uarray(np.zeros(4), np.zeros(4))
-for i in range(0,4):
-    dT2_dt[i] = dT_dt(t[i+1], A_F1_T2, B_F1_T2)
+dT2_dt = unp.uarray(np.zeros(17), np.zeros(17))
+for i in range(0,17):
+    dT2_dt[i] = dT_dt(t[i], A_F1_T2, B_F1_T2)
 
-dQ1_dt =  unp.uarray(np.zeros(4), np.zeros(4))
-for i in range(0,4):
+dQ1_dt =  unp.uarray(np.zeros(17), np.zeros(17))
+for i in range(0,17):
     dQ1_dt[i] = dT1_dt[i] * (m_1 * c_w + m_k * c_k)
 
-dQ2_dt =  unp.uarray(np.zeros(4), np.zeros(4))
-for i in range(0,4):
+dQ2_dt =  unp.uarray(np.zeros(17), np.zeros(17))
+for i in range(0,17):
     dQ2_dt[i] = dT2_dt[i] * (m_2 * c_w + m_k * c_k)
 
 #Berechnung von L
+#print(len(noms(T_1)))
 def Gaskurve(T, A, B):
     return A * np.exp(B/T)
 L_params, L_cov = curve_fit(Gaskurve, noms(T_1), noms(p_b))
-L = - np.sqrt(np.diag(L_cov))[1] * R
+
+L = L_params[1] * R
 print(L)
-x_t = np.linspace(0, 1000 , num = 1000)
+x_t = np.linspace(1, 1000 , 1000)
+plt.clf()
+plt.xlim(1/T_1[0].n, 1/T_1[-1].n)
+plt.ylim(1e05, 1e07)
+plt.plot(1/noms(T_1), noms(p_b),'rx', label="$p_{b}$")
+plt.plot(1/x_t, Gaskurve(x_t, *L_params), 'b-', label = "fit")
 plt.yscale("log")
-plt.errorbar(1/noms(T_1), noms(p_b), yerr=stds(p_b), fmt="rx", label="$p_{b}$")
-plt.plot(1/x_t, Gaskurve(noms(T_1), *L_cov), 'rx', label = "fit")
 plt.legend(loc="best")
 plt.savefig('plot2.pdf')
 
 
 #Massendurchsatz
 dm_dt = dQ2_dt / L
-
+print('dm: ' , dm_dt*120)
 
 #mechanische Arbeit
 #ideale Gasgleichung pV = nRT equals p = nRT/V
+T_0 = 273.15
 const = (T_0 * rho_0_CI2F2C / 1e05)
 def rho(p, T):
     return const * (p/T)
 
-N_mech = unp.uarray(np.zeros(4), np.zeros(4))
-for i in range(0,4):
-    N_mech[i] =  1/(kappa-1) * (p_b[i+1] * (p_a[i]/p_b[i+1])**(1/kappa) - p_a[i+1] ) * 1/rho(p_a[i+1]) * dm_dt[i]
-
+N_mech = unp.uarray(np.zeros(17), np.zeros(17))
+for i in range(0,17):
+    N_mech[i] =  1/(kappa-1) * (p_b[i] * (p_a[i]/p_b[i])**(1/kappa) - p_a[i] ) * 1/rho(p_a[i], T_2[i]) * dm_dt[i]
+print('N_mech: ', N_mech)
 #Wirkungskoeffizient
 nu_real = dQ1_dt / N_mech
 print(nu_real)
