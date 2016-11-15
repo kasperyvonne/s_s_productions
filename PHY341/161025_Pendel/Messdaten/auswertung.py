@@ -2,6 +2,7 @@ import numpy as np
 import uncertainties.unumpy as unp
 from uncertainties import ufloat
 from collections import OrderedDict
+import scipy.constants as const
 # Zunächst für die Länge l = 0.7 m
 
 def frequenz(x):
@@ -113,7 +114,11 @@ werte_60["T_{S}"] = (u_t_schwebe_60)
 print(u_t_schwebe_60)
 
 
+Kappa_6 = (u_t_gleich_60 **2 - u_t_gegen_60**2 )/ (u_t_gleich_60**2 + u_t_gegen_60**2 )
+print (Kappa_6)
 
+Kappa_7 =  (u_t_gleich_70 **2 - u_t_gegen_70**2 )/ (u_t_gleich_70**2 + u_t_gegen_70**2 )
+print(Kappa_7)
 print('Mittelwert für Kappa für 0.6: ', (u_t_gleich_60.n**2 - u_t_gegen_60.n**2 )/ (u_t_gleich_60.n**2 + u_t_gegen_60.n**2 ))
 print('Kappa für 0.6: ', (u_t_gleich_60 **2 - u_t_gegen_60**2 )/ (u_t_gleich_60**2 + u_t_gegen_60**2 ))
 
@@ -127,6 +132,21 @@ with open('frequenzen_70.txt', 'w') as f:
             f.write('w_s_calc = {:.2f} \n'.format(frequenz(werte_70['T_{+}'])-frequenz(werte_70['T_{-}'])))
         else:
             f.write('Frequenz berechnet aus ' + key + ':    {:.2f} \\pm {:.2f}\\\ \n '.format(frequenz(werte_70[key]).n, frequenz(werte_70[key]).s))
+l7 = ufloat(0.7, 0.01)
+l6 = ufloat(0.6, 0.01)
+
+w_plus_theo_7 = unp.sqrt(const.g / l7)
+w_plus_theo_6 = unp.sqrt(const.g / l6)
+print('omega+ theo 60/ 70: ', w_plus_theo_6, w_plus_theo_7)
+w_minus_theo_7 = unp.sqrt((2*Kappa_7 + const.g)/l7 )
+print('omega- theo 70', w_minus_theo_7)
+w_minus_theo_6 = unp.sqrt((2*Kappa_6 + const.g)/l6 )
+print('omega- theo 60', w_minus_theo_6)
+
+w_s_theo_7 = w_plus_theo_7 - w_minus_theo_7
+w_s_theo_6 = w_plus_theo_6 - w_minus_theo_6
+
+print('ws theo 70/60', w_s_theo_7, w_s_theo_6)
 
 print('Prozentuale Abweichung 70: ',-(frequenz(werte_70['T_{+}'])-frequenz(werte_70['T_{-}']))/ frequenz(5 * werte_70['T_{S}']) - 1)
 print('Prozentuale Abweichung 60: ',-(frequenz(werte_60['T_{+}'])-frequenz(werte_60['T_{-}']))/ frequenz(5 * werte_60['T_{S}']) - 1)
