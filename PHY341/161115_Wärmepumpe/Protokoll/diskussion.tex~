@@ -1,0 +1,47 @@
+\section{Diskussion}
+In diesem Kapitel soll eine Art Plausibilitätsprüfung in Bezug auf die
+gewonnen Ergebnise folgen.
+Dabei beginnen wir zunächst bei der Messung der Schwingungsdauer.
+Hier sei direkt der Mensch und seine Reaktionszeit als Fehlerquelle anzumerken.
+Denn eine exakte Festlegung von Anfangs- und Endpunkt einer jeden Messung ist
+nicht möglich. % Denn es ist, extrem schwierig Anfangs- und Endpunkt einer jeden Zeitmessung exakt
+Doch eine Mittelung
+über 5 Messwerte sorgt dafür, dass der so entstehende Fehler vergleichsweise klein wird, wie in den Tabellen
+\ref{tab: winkelricht} und \ref{tab: winkel_dynamisc} zu sehen ist.
+
+Der entstandene Unterschied zwischen der statisch und dynamisch gemessenen Winkelrichtgröße
+lässt sich auf einige Faktoren zurückführen.
+Zum einen ist das Ablesen der Kraft bei der statischen Methode
+durch die grobe Skalierung ungenau.
+Zweitens ist es das Positionieren der Federwaage orthogonal zum Radius
+nicht ganz genau.
+Bei der dynamischen Methode ist auch das oben angesprochene Messen der Schwingungsdauer
+eine Fehlerquelle.
+Dazu kommt die Messungenauigkeit der Waage bei der Gewichtmessung.
+Betrachtet man die Messung des Eigenträgheitsmomentes der Drillachse, so fällt sofort auf,
+dass experimentelle Größen mit theoretisch bestimmten Größen (Trägheitsmoment der beiden Zylinder)
+gemischt worden sind.
+Dies vermindert die Aussagekraft der Messergebnisse.
+Hinzu kommt noch, dass die Höhen und Radien der Zylinder nicht ganz genau bestimmt werden können.
+Da die Ausrichtung der Massen auf dem Stab nicht hundertprozentig genau erfolgen kann, ist
+eine vollkommen symmetrische Anordnung nicht möglich.
+Hieraus folgt somit eine weitere Unsicherheit die in das Resultat einfließt.
+Des Weiteren wurde die Masse des Stabes selber in allen theoretischen Berechnungen vernachlässigt.
+Das Resultat der Berechnung verliert daher an Aussagekraft.
+
+Die Messung der Trägheitsmomente von Kugel und Zylinder fiel unterschiedlich aus.
+Bei dem Zylinder war eine Abweichung von $+33\%$ zur Theorie festzustellen,
+dies lässt sich wahrscheinlich auf die ungenaue Größe $I_S$ zurückführen.
+Ist aber dennoch als ein positives Ergebnis einzustufen.
+Hingegen war die Abweichung bei der Kugel $\pm 0\%$. Dies zeigt,
+wie genau mechanische Messungen von Hand getätigt werden können.
+Die wohl größte Ungenauigkeit fand man bei der Messung des Trägheitsmomentes der Puppe.
+Denn hier lag die Abweichung zwischen Theorie und Praxis bei bis zu
+$+1200\%$ (Position 1). Dieses Ergebnis lässt sich auf die
+ungenaue theoretische Berechnung zurückführen.
+Denn zum einen wurde die Puppe stark vereinfacht siehe \ref{fig:approx_puppe}, als auch
+die Befestigung der Puppe vernachlässigt.  %kann man das so schreiben ??
+
+Abschließend ist zu sagen, dass sich der Zusammenhang zwischen der Theorie und den experimentellen Befunden
+gerade bei dem Zylinder und der Kugel bestätigt haben.
+Lediglich bei der Puppe ist keine qualitative Aussage nicht möglich.

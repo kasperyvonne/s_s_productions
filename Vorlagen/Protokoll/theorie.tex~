@@ -1,0 +1,80 @@
+\section{Theorie}
+
+\subsection{Trägheitsmoment}
+Äquivalent zur trägen Masse, die den Widerstand eines Körpers gegen die Änderung seiner Geschwindigkeit beschreibt,
+definiert man für den Widerstand eines Körpers gegen die Änderung seiner Rotation das sogenannte Trägheitsmoment. \\
+Für das Trägheitsmoment eines starren Körpers gilt:
+\begin{equation}
+   I = \int r^2 \dif{m}
+\end{equation}
+
+Hierbei entspricht $r$ dem Abstand eines Massenelements $dm$ zur Rotationsachse. Dies
+lässt sich mit Hilfe der Dichte des Körpers $\rho(\vec{r}) = \dif{m}/\dif{V}$ umformulieren zu:
+\begin{equation}
+  I = \int \rho(\vec{r})\cdot r^2 \dif{V}
+\end{equation}
+
+Das Trägheitsmoment ist stets bezüglich einer Achse definiert und ist eine
+additive Größe. Der sogenannte \textit{Satz von Steiner} macht eine Aussage über die Änderung des Trägheitsmoments
+bei paralleler Verschiebung jener Achsen, die durch den Schwerpunkt verlaufen. Ist das
+Trägheitsmoment $I_S$ eines Körpers der Masse $m$ bezüglich einer solchen Achse bekannt, so ergibt sich das
+Trägheitsmoment bezüglich einer um die Länge $a$ parallel verschobenen Achse zu:
+
+\begin{equation}
+    I = I_S + m \cdot a^2
+    \label{eq: steiner}
+\end{equation}
+Konkret werden im Versuch die folgenden Formeln zur Berechnung von Trägheitsmomenten benötigt:
+\begin{enumerate}
+  \item homogene Kugel mit Radius R, Gesamtmasse M, Rotation um Symmetrieachse:
+  \begin{equation}
+  \label{eq:traeg_kugel}
+    I = \frac{2}{5}M R^2
+  \end{equation}
+
+  \item homogener Zylinder mit Radius R, Höhe h, Gesamtmasse M, Rotation um Symmetrieachse:
+  \begin{equation}
+  \label{eq:traeg_zylinde}
+    I = \frac{1}{2} M R^2
+  \end{equation}
+
+  \item homogener Zylinder mit Radius R, Höhe h, Gesamtmasse M, Rotation um Achse durch den Schwerpunkt senkrecht zur Symmetrieachse:
+  \begin{equation}
+  \label{eq:traeg_zylinder_schwer}
+    I = M (\frac{R^2}{4} + \frac{h^2}{12})
+  \end{equation}
+\end{enumerate}
+
+\subsection{Drehbewegung}
+Für den Drehimpuls eines rotierenden Körpers gilt:
+\begin{equation}
+ \vec{L} = I \cdot \vec{\omega}
+\end{equation}
+
+Bei konstantem Trägheitsmoment folgt mit dem Drehwinkel $\phi$ für die zeitliche Änderung, die dem Drehmoment
+entspricht:
+\begin{equation}
+  \dot{\vec{L}} = \vec{M} = I \cdot \frac{d}{dt}\vec{\omega} =
+  I \cdot \frac{d^2}{dt^2} \phi \cdot \frac{\vec{\omega}}{|\vec{\omega}|}
+  \label{eq: drehmoment}
+\end{equation}
+In einem schwingunsfähigen Drehsystem wirkt z.B. durch eine Torsionsfeder ein
+rücktreibendes Moment $M_{r}$, dessen Stärke durch eine Winkelrichtgröße $D$ gewichtet
+werden kann.
+\begin{equation}
+  M_{r} = - D \cdot \phi
+\end{equation}
+Mit \eqref{eq: drehmoment} ergibt sich die homogene Differentialgleichung:
+\begin{equation}
+  \ddot{\phi} + \frac{D}{I}\phi = 0
+\end{equation}
+Hierbei handelt sich um die charakteristische Differentialgleichung des harmonischen
+Oszillators, deren Allgemeine Lösung mit $\omega = \sqrt{\frac{D}{I}}$ folgendermaßen angegeben werden kann:
+\begin{equation}
+  \phi(t) = A\cdot \cos(\omega t) + B \cdot \sin(\omega t)
+\end{equation}
+Zwischen Drehfrequenz und Schwingungsdauer $T$ besteht der bekannte Zusammenhang
+$T = 2\pi / \omega$. Es folgt:
+\begin{equation}
+  T = 2\pi \cdot \sqrt{\frac{I}{D}} \Rightarrow T^2 = 4\pi^2 \frac{I}{D}
+\end{equation}
