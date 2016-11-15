@@ -13,6 +13,8 @@ T_1_raw = np.genfromtxt('T_1.txt', unpack = True)
 T_2_raw = np.genfromtxt('T_2.txt', unpack = True)
 T_1 = unp.uarray(T_1_raw, len(T_1_raw) * [T_error])
 T_2 = unp.uarray(T_2_raw, len(T_2_raw) * [T_error])
+
+
 #umrechnung kalvin
 T_1 += 273.15
 T_2 += 273.15
@@ -30,6 +32,27 @@ p_a += 1
 p_b += 1
 p_a *= 1e05
 p_b *= 1e05
+
+#in tabelle speichern
+with open('temppres.tex', 'w') as f:
+
+
+    f.write('\\begin{minipage}{0.49\textwidth} \n \\centering \n \\begin{tabular}{')
+    f.write(5 *'S ')
+    f.write('} \n \\toprule \\\ \n')
+    f.write('Zeit in $\si{\second}$ & $T_1$ in $\si{\kalvin}$ & $p_b$ in $\si{\pascal}$ & $T_1$ in $\si{\kalvin}$ & $p_b$ in $\si{\pascal}$ \\\ \n')
+    f.write('\\midrule \\\ \n ')
+    for i in range (0,17):
+        f.write('{:.2f} & {:.2f} & {:.2f} & {:.2f} \\\ \n'.format(noms(T_1)[i], noms(p_b)[i], noms(T_2)[i], noms(p_a)[i]))
+    f.write('\\bottomrule \n \\end{tabular} \n \\captionof{table}{tab: tempdruck} \n \\label{tab: Temperaturen und Drücke} \n  \\end{minipage}')
+
+
+
+
+
+
+
+
 
 #Konstanten
 R = const.gas_constant
