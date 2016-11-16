@@ -100,17 +100,50 @@ Damit kann dann, wie oben
 
 \begin{equation*}
 \frac{\mathup{d} Q_2}{\mathup{d} t}=\left(m_2c_w+m_kc_k\right)\frac{\mathup{d} T_2}{\mathup{d} t}
-\end{equation*}
+\end{equation*}Der
 
 die Wärmemenge, die pro Zeit $\mathup{d}t$ entohmen wird, bestimmen.
 Da es sich bei diesem Vorgang, um eine Aggregardzustandsänderung handelt.
-Muss die Wärmemenge gleich der Verdampfungswärme $L$ pro Massenzeitstückchen $\frac{\map{d}m}{dt}$.
+Muss die Wärmemenge gleich der Verdampfungswärme $L$ pro Massenzeitstückchen $\frac{\mathup{d}m}{dt}$.
 Also:
 
 \begin{equation*}
-\frac{\mathup{d} Q_2}{\mathup{d} t}=L\frac{\map{d}m}{dt}
+\frac{\mathup{d} Q_2}{\mathup{d} t}=L\frac{\mathup{d}m}{dt}
 \end{equation*}
 
 \subsection{Bestimmung der mechanischen Kompressorleistung}
+
+Der Kompressor benötigt, wenn ein Gas vom Volumen $V_a$ auf das Volumen $V_b$ verringert
+die Arbeit:
+
+\begin{equation}
+\label{eq:mechanische_arbeit}
+A_m=-\int_{V_a}^{V_b}p\mathup{d}V
+\end{equation}
+Hier sei $p$ der Druck.
+
+Gehen wir davon aus das der Kompressor adiabatisch arbeitet,
+d.h. ohne Wärme an die Umgebung abzugeben. 
+So kann mithilfe der Poisson Gleichung
+
+\begin{equation*}
+p_aV^{\kappa}_a=p_bV^{\kappa}_b=pV^{\kappa} \quad \kappa>1
+\end{equation*}
+
+die Gleichung \eqref{eq:mechanische_arbeit} umgeschrieben.
+$\kappa$ gibt das Verhältnis der Molwärme $C_p$ und $C_V$ a.
+Es folgt:
+
+\begin{equation*}
+A_m=-p_aV_a^{\kappa}\int_{V_a}^{V_b}V^{-\kappa}\mathup{d}V=\frac{1}{\kappa-1}\left(p_b\left(\frac{p_a}{p_b}\right)^{\frac{1}{k}}-p_a\right)V_a
+\end{equation*}
+
+Und damit direkt für die Kompressorleistung
+
+\begin{equation*}
+N_{mech}=\frac{\mathup{d}A_m}{\mathup{d}t}=\frac{1}{\kappa-1}\left(p_b\left(\frac{p_a}{p_b}\right)^{\frac{1}{\kappa}}-p_a\right)\frac{1}{\rho}\frac{\mathup{d}m}{\mathup{d}t}
+\end{equation*}
+
+Hierbei ist $\rho$ die Dichte des Transportmediums im gasförmigen Zustand, also beim Druck $p_a$.
 
 
