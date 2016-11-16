@@ -74,7 +74,7 @@ def F1 (t, A, B, C):
     return A*t**2 + B*t + C
 
 def F2(t, A, B, C):
-    return (A)/(1 + B*t**1.5)
+    return (A)/(1 + B*t**1.5) + 0*C
 
 def F3(t, A, B, C):
     return (A*t**1.5)/(1 + B*t**1.5) + C
@@ -86,14 +86,50 @@ A_F1_T1 = ufloat(paramsF1_T1[0], errorsF1_T1[0]) * 10**6
 B_F1_T1 = ufloat(paramsF1_T1[1], errorsF1_T1[1]) * 100
 C_F1_T1 = ufloat(paramsF1_T1[2], errorsF1_T1[2])
 
+x_t = np.linspace(1, 1200 , num = 1000)
+plt.plot(t, noms(T_1), 'rx', label="Gemessene Werte $T_1$")
+plt.plot(x_t, F1(x_t, *paramsF1_T1), 'b-', label='Fit $T_1$')
+plt.xlim(60, 960)
+plt.xlabel('Zeit in $s$')
+plt.ylabel('Temperatur in $K$')
+plt.legend(loc="best")
+plt.savefig('plot1.pdf')
 
-
-paramsF1_T2, covarianceF1_T2 = curve_fit(F1, t, noms(T_2), sigma=0.1)
+paramsF1_T2, covarianceF1_T2 = curve_fit(F1, t, noms(T_2))
 errorsF1_T2 = np.sqrt(np.diag(covarianceF1_T2))
 A_F1_T2 = ufloat(paramsF1_T2[0], errorsF1_T2[0]) * 10**6
 B_F1_T2 = ufloat(paramsF1_T2[1], errorsF1_T2[1]) * 100
 C_F1_T2 = ufloat(paramsF1_T2[2], errorsF1_T2[2])
-print('Gefittete Funktion:', A_F1_T1 , 'x2 +' , B_F1_T1 , 'x + ' , C_F1_T1)
+
+
+plt.clf()
+plt.plot(t, noms(T_2), 'rx', label="Gemessene Werte $T_2$")
+plt.plot(x_t, F1(x_t, *paramsF1_T2), 'g-', label='Fit $T_2$')
+plt.xlim(60, 960)
+plt.xlabel('Zeit in $s$')
+plt.ylabel('Temperatur in $K$')
+plt.legend(loc="best")
+plt.savefig('plot2_1.pdf')
+
+paramsF1_T2, covarianceF1_T2 = curve_fit(F1, t[6:-1], noms(T_2)[6:-1])
+errorsF1_T2 = np.sqrt(np.diag(covarianceF1_T2))
+A_F1_T2_2 = ufloat(paramsF1_T2[0], errorsF1_T2[0]) * 10**6
+B_F1_T2_2 = ufloat(paramsF1_T2[1], errorsF1_T2[1]) * 100
+C_F1_T2_2 = ufloat(paramsF1_T2[2], errorsF1_T2[2])
+
+plt.clf()
+plt.plot(t, noms(T_2), 'rx', label="Gemessene Werte $T_2$")
+plt.plot(x_t, F1(x_t, *paramsF1_T2), 'g-', label='Fit $T_2$')
+plt.ylim(275,300)
+plt.xlim(t[6], t[-1])
+plt.xlabel('Zeit in $s$')
+plt.ylabel('Temperatur in $K$')
+plt.legend(loc="best")
+plt.savefig('plot2_2.pdf')
+
+#paramsF2_T2, covarianceF2_T2 = curve_fit(F2, t, noms(T_2))
+#errorsF2_T2 = np.sqrt(np.diag(covarianceF2_T2))
+
 
 with open('fitconst.tex', 'w') as f:
 
@@ -114,28 +150,12 @@ with open('fitconst.tex', 'w') as f:
 #paramsF3, covarianceF3 = curve_fit(F3, t, noms(T_1))
 #errorsF3 = np.sqrt(np.diag(covarianceF3))
 
-x_t = np.linspace(1, 1000 , num = 1000)
-plt.plot(t, noms(T_1), 'rx', label="Gemessene Werte $T_1$")
-plt.plot(x_t, F1(x_t, *paramsF1_T1), 'b-', label='Fit $T_1$')
-plt.xlim(60, 960)
-plt.xlabel('Zeit in $s$')
-plt.ylabel('Temperatur in $K$')
-plt.legend(loc="best")
-plt.savefig('plot1.pdf')
 
 
-plt.clf()
-plt.plot(t, noms(T_2), 'rx', label="Gemessene Werte $T_2$")
-plt.plot(x_t, F1(x_t, *paramsF1_T2), 'g-', label='Fit $T_2$')
-plt.xlim(60, 960)
-plt.xlabel('Zeit in $s$')
-plt.ylabel('Temperatur in $K$')
-plt.legend(loc="best")
-plt.savefig('plot2.pdf')
 A_F1_T1 /= (10**6)
-A_F1_T2 /= (10**6)
+A_F1_T2_2 /= (10**6)
 B_F1_T1 /= 100
-B_F1_T2 /= 100
+B_F1_T2_2 /= 100
 
 #Differentialquotient
 def dT_dt(t, A, B):
@@ -147,7 +167,7 @@ for i in range(0,18):
 
 dT2_dt = unp.uarray(np.zeros(18), np.zeros(18))
 for i in range(0,18):
-    dT2_dt[i] = dT_dt(t[i], A_F1_T2, B_F1_T2)
+    dT2_dt[i] = dT_dt(t[i], A_F1_T2_2, B_F1_T2_2)
 
 dQ1_dt =  unp.uarray(np.zeros(18), np.zeros(18))
 for i in range(0,18):
@@ -180,7 +200,10 @@ plt.savefig('plot3.pdf')
 dm_dt = - dQ2_dt / L
 print('dm: ' , dm_dt*120)
 print(p_a)
+#umrechnung in kg/s
 dm_dt *= 0.12
+
+
 #mechanische Arbeit
 #ideale Gasgleichung pV = nRT equals p = nRT/V
 T_0 = 273.15
@@ -192,6 +215,7 @@ N_mech = unp.uarray(np.zeros(18), np.zeros(18))
 for i in range(0,18):
     N_mech[i] =  1/(kappa-1) * (p_b[i] * (p_a[i]/p_b[i])**(1/kappa) - p_a[i] ) * dm_dt[i]/(rho(p_a[i], T_2[i]))
 print('N_mech: ', N_mech)
+
 #Wirkungskoeffizient
 T_1 -= 273.15
 T_2 -= 273.15
@@ -201,7 +225,7 @@ nu_real = dQ1_dt / P
 print(nu_real)
 T_1 += 273.15
 T_2 += 273.15
-#umrechnen in g/s
+
 
 
 
@@ -216,7 +240,9 @@ with open('differenz.tex', 'w') as f:
         f.write('{:.0f} & $\\num{{ {:.4f} \pm {:.4f} }}$ & $\\num{{ {:.4f} \pm {:.4f} }}$ & $\\num{{ {:.2f} \pm {:.2f} }}$ & $\\num{{ {:.2f} }}$\\\ \n'.format(t[i] ,noms(dT1_dt)[i], stds(dT1_dt)[i], noms(dT2_dt)[i], stds(dT2_dt)[i], noms(nu_real)[i], stds(nu_real)[i], noms(nu_ideal)[i]))
     f.write('\\bottomrule \n \\end{tabular} \n \\caption{Differenzenquotienten und reale Güteziffer} \n \\label{tab: dTdt} \n  \\end{table}')
 
-    dm_dt *= 1000
+
+#umrechnen in g/s
+dm_dt *= 1000
 with open('massendurchsatz.tex', 'w') as f:
 
     f.write('\\begin{table} \n \\centering \n \\begin{tabular}{')
