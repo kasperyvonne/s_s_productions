@@ -4,7 +4,7 @@ Die Werte für die beiden Temperaturen $T_1$ und $T_2$ und die Drücke $p_a$ und
 \input{tabs/temppres.tex}
 Der zeitliche Verlauf der Temperaturen ist in den Abbildungen (...) dargestellt. Hierbei wurde mittels der Python Bibliothek $Scipy$ eine
 Regression an eine Funktion der Form $T_i = A t^2 + B t + C$ bestimmt. Um im späteren Verlauf eine präzisere Aussage über den Temperaturverlauf
-von $T_2$ zu gewährleisten, wurde selbiges für den Zeitraum nach $t_0 = ...$ erneut durchgeführt. In der Diskussion wird hierauf näher eingegangen. Die entsprechenden
+von $T_2$ zu gewährleisten, wurde selbiges für den Zeitraum nach $t_0 = 300 \si{\second}$ erneut durchgeführt. In der Diskussion wird hierauf näher eingegangen. Die entsprechenden
 Parameter sind in Tabelle \ref{tab: regress} zu finden. \\
 \begin{figure}[h]
   \centering
@@ -29,7 +29,7 @@ Parameter sind in Tabelle \ref{tab: regress} zu finden. \\
 
 
 Die gefundenen Regressionskurven erlauben es, die Differentialquotienten $\frac{dT_1}{dt}$ und $\frac{dT_2}{dt}$ zu berechnen. Die Werte für 4 verschiedene Zeiten sind
-in Tabelle \ref{tab: dTdt} aufgetragen. Hierbei wurden die Zeiten $> t_0$ gewählt, sodass die Kurve aus (...) verwendet werden konnte.
+in Tabelle \ref{tab: dTdt} aufgetragen. Hierbei wurden die Zeiten $t > t_0$ gewählt, sodass die Kurve aus (...) verwendet werden konnte.
 
 \subsection{Güteziffer}
 
@@ -37,8 +37,8 @@ Mittels des Zusammenhangs
 \begin{equation}
   \nu_{real} = (m_1 c_w + m_k c_k) \frac{dT_1}{dt} \frac{1}{P}
 \end{equation}
-wurde die reale Güteziffer $\nu_{real}$ berechnet. Hierbei entsprechen $m_k c_k = 660 J/K$ und $c_1 c_W$ den Wärmekapzitäten von Apparatur und Wasser. Die Masse $m_1 = V_1 \cdot \rho_w$ ergibt sich mit
-der Dichte des Wassers $\rho_w \approx 1000 kg/m^3$ und der entsprechenden Füllmenge $V_1 = 3 l$. Der Wert $c_w = 4182 Jkg^{-1}K^{-1}$ wurde der Literatur entnommen. Die Ergebnisse
+wurde die reale Güteziffer $\nu_{real}$ berechnet. Hierbei entsprechen $m_k c_k = 660 \si{\joule \per \second}$ und $c_1 c_W$ den Wärmekapzitäten von Apparatur und Wasser. Die Masse $m_1 = V_1 \cdot \rho_w$ ergibt sich mit
+der Dichte des Wassers $\rho_w \approx 1000 \si{\kilo \gram \per \meter ^3}$ und der entsprechenden Füllmenge $V_1 = 3 l$. Der Wert $c_w = 4182\si{\joule \kilo \gram^{-1} \kelvin^{-1}}$ wurde der Literatur entnommen. Die Ergebnisse
 der Rechnung, sowie die ideale Güteziffer $\nu_{ideal}$
 \begin{equation}
   \nu_{ideal} = \frac{T_1}{T_1 - T_2}
@@ -47,7 +47,7 @@ sind in Tabelle xy aufgetragen.
 \input{tabs/differenz.tex}
 
 \subsection{Massendurchsatz und Mechanische Leistung}
-Zur Bestimmung des Massendurchsatzes $\frac{dm}{dt}$ wird zunächst die Verdampfungswärme $L$ benötigt. Hierzu wird der aus $Vxxx$ bekannte Zusammenhang des Druckverlaufs für $p_b$ in Abhängigkeit von der Temperatur
+Zur Bestimmung des Massendurchsatzes $\frac{dm}{dt}$ wird zunächst die Verdampfungswärme $L$ benötigt. Hierzu wird der aus $V203$ bekannte Zusammenhang des Druckverlaufs für $p_b$ in Abhängigkeit von der Temperatur
 \begin{equation}
   p_b = p_0 \exp{-\frac{L}{R T_1}}
 \end{equation}
@@ -60,9 +60,9 @@ Es ergibt sich:
 \begin{equation}
   -\frac{L}{R} =  (-2228.58 \pm 111.63) \si{\kelvin}
 \end{equation}
-Mit der allgemeinen Gaskonstante $R = 8.314 J mol^{-1} K ^{-1}$ ergibt sich $L$ zu:
+Mit der allgemeinen Gaskonstante $R = 8.314\si{\joule \mol^{-1} \kelvin^{-1}}$ ergibt sich $L$ zu:
 \begin{equation}
-  L = (1.85 \pm 0.09)\cdot 10^{4} J mol^{-1}
+  L = (1.85 \pm 0.09)\cdot 10^{4} \si{\joule \mol^{-1}}
 \end{equation}
 Der Massendurchsatz berechnet sich nun mit:
 \begin{equation}
