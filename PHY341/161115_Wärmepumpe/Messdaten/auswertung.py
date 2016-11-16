@@ -54,6 +54,7 @@ p_b *= 1e05
 
 #Konstanten
 R = const.gas_constant
+print(R)
 rho_H2O = 1000
 vol_1 = 3e-03
 vol_2 = 3e-03
@@ -73,8 +74,8 @@ c_k = 1
 def F1 (t, A, B, C):
     return A*t**2 + B*t + C
 
-def F2(t, A, B, C):
-    return (A)/(1 + B*t**1.5) + 0*C
+def F2(t, A, B):
+    return (A)/(1 + B*t**1.5)
 
 def F3(t, A, B, C):
     return (A*t**1.5)/(1 + B*t**1.5) + C
@@ -139,13 +140,12 @@ with open('fitconst.tex', 'w') as f:
     f.write('} \n \\toprule  \n')
     f.write('{Funktion} & {$A$} & {$B$} & {$C$} \\\ \n')
     f.write('\\midrule  \n ')
-    f.write('T & $\\num{{{:.2f}}} \pm {{{:.2f}}}$ & $\\num{{{:.2f}}}\pm {{{:.2f}}}$ & $\\num{{{:.2f}}} \pm {{{:.2f}}}$ \\\ \n'.format(A_F1_T1.n, A_F1_T1.s, B_F1_T1.n, B_F1_T1.s, C_F1_T1.n, C_F1_T1.s))
-    f.write('T & $\\num{{{:.2f}}}\pm {{{:.2f}}}$ & $\\num{{{:.2f}}}\pm {{{:.2f}}}$ & $\\num{{{:.2f}}}\pm {{{:.2f}}}$ \\\ \n'.format(A_F1_T2.n, A_F1_T2.s, B_F1_T2.n, B_F1_T2.s, C_F1_T2.n, C_F1_T2.s))
-    f.write('\\bottomrule \n \\end{tabular} \n \\caption{Temperaturen und Drücke} \n \\label{tab: tempdruck} \n  \\end{table}')
+    f.write('$T_1$ & $\\num{{{:.2f} \pm {:.2f}}}$ & $\\num{{{:.2f}\pm {:.2f}}}$ & $\\num{{{:.2f} \pm {:.2f}}}$ \\\ \n'.format(A_F1_T1.n, A_F1_T1.s, B_F1_T1.n, B_F1_T1.s, C_F1_T1.n, C_F1_T1.s))
+    f.write('$T_2$ & $\\num{{{:.2f} \pm {:.2f}}}$ & $\\num{{{:.2f} \pm {:.2f}}}$ & $\\num{{{:.2f} \pm {:.2f}}}$ \\\ \n'.format(A_F1_T2.n, A_F1_T2.s, B_F1_T2.n, B_F1_T2.s, C_F1_T2.n, C_F1_T2.s))
+    f.write('$T_2*$ & $\\num{{{:.2f} \pm {:.2f}}}$ & $\\num{{{:.2f}\pm {:.2f}}}$ & $\\num{{{:.2f} \pm {:.2f}}}$ \\\ \n'.format(A_F1_T2_2.n, A_F1_T2_2.s, B_F1_T2_2.n, B_F1_T2_2.s, C_F1_T2_2.n, C_F1_T2_2.s))
+    f.write('\\bottomrule \n \\end{tabular} \n \\caption{Regressionsparameter} \n \\label{tab: regress} \n  \\end{table}')
 
 
-#paramsF2, covarianceF2 = curve_fit(F2, t, noms(T_1))
-#errorsF2 = np.sqrt(np.diag(covarianceF2))
 
 #paramsF3, covarianceF3 = curve_fit(F3, t, noms(T_1))
 #errorsF3 = np.sqrt(np.diag(covarianceF3))
@@ -182,16 +182,20 @@ for i in range(0,18):
 def Gaskurve(T, A, B):
     return A * np.exp(B/T)
 L_params, L_cov = curve_fit(Gaskurve, noms(T_1), noms(p_b))
-
-L = - L_params[1] * R
-print(L)
+errors_L = np.sqrt(np.diag(L_cov))
+print ('-l_R:', L_params[1], 'pm', errors_L[1])
+uB = ufloat(L_params[1],errors_L[1] )
+L = - uB * R
+print(L/10000)
 x_t = np.linspace(1, 1000 , 1000)
 plt.clf()
 plt.xlim(1/T_1[0].n, 1/T_1[-1].n)
 plt.ylim(1e05, 1e07)
-plt.plot(1/noms(T_1), noms(p_b),'rx', label="$p_{b}$")
-plt.plot(1/x_t, Gaskurve(x_t, *L_params), 'b-', label = "fit")
+plt.plot(1/noms(T_1)[1:-1], noms(p_b)[1:-1],'rx', label="Gemessene Werte $p_{b}$")
+plt.plot(1/x_t, Gaskurve(x_t, *L_params), 'b-', label = "Regressionsgerade")
 plt.yscale("log")
+plt.ylabel('$p_b$ in $Pa$')
+plt.xlabel('$1/T_1$ in $K^{-1}$')
 plt.legend(loc="best")
 plt.savefig('plot3.pdf')
 
