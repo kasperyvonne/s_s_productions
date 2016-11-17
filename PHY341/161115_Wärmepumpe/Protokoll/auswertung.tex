@@ -12,22 +12,22 @@ Parameter sind in Tabelle \ref{tab: regress} zu finden. \\
 \input{tabs/fitconst.tex}
 \begin{figure}
   \centering
-  \includegraphics[width = 12cm]{tabs/plot1.pdf}
+  \includegraphics[width = 14cm]{tabs/plot1.pdf}
   \caption{Temperaturverlauf $T_1$}
   \label{fig: plot1}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width = 12cm]{tabs/plot2_1.pdf}
+  \includegraphics[width = 14cm]{tabs/plot2_1.pdf}
   \caption{Temperaturverlauf $T_2$}
   \label{fig: plot2}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width = 12cm]{tabs/plot2_2.pdf}
-  \caption{Temperaturverlauf $T_2$ für $t > 300$}
+  \includegraphics[width = 14cm]{tabs/plot2_2.pdf}
+  \caption{Temperaturverlauf $T_2$ für $t > 360 \si{\second}$}
   \label{fig: plot2*}
 \end{figure}
 
@@ -64,7 +64,7 @@ ausgenutzt. Durch einmaliges Anwenden des Logarithmus erhält man einen linearen
 Durch halb-logarithmisches Auftragen der Werte für $p_b$ gegen die Reziproken der Temperatur $T_1$ (siehe Abb. \ref{fig: plot3}) kann also mit Hilfe einer lineare Regression die Steigung $-\frac{L}{R}$ ermittelt werden.
 Steigung und zugehöriger Fehler berechnen sich mit:
 \begin{equation}
-  m=\frac{\bar{xy}-\bar{x}\bar{y}}{\bar{x^2}-\bar{x}^2}  \quad   o_m=\sqrt{\frac{\sigma^2}{N(\bar{x^2}-\bar{x}^2)}}
+  m= \frac{\left( N  (\sum x_i y_i) - (\sum x_i)(\sum y_i)\right)}{N (\sum x_i^2)- (\sum x_i)^2 }    \quad   o_m=\frac{N o_y^2}{N (\sum x_i^2)- (\sum x_i)^2 }
 \end{equation}
 Es ergibt sich:
 \begin{equation}
@@ -73,7 +73,7 @@ Es ergibt sich:
 
 \begin{figure}
   \centering
-  \includegraphics[width = 12cm]{tabs/plot3.pdf}
+  \includegraphics[width = 14cm]{tabs/plot3.pdf}
   \caption{Regression der Druckkurve}
   \label{fig: plot3}
 \end{figure}
