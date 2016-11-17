@@ -227,14 +227,13 @@ for i in range(0,18):
 print('N_mech: ', N_mech)
 
 #Wirkungskoeffizient
-T_1 -= 273.15
-T_2 -= 273.15
+
 nu_ideal = T_1 / (T_1 - T_2)
 print(len(noms(nu_ideal)))
 nu_real = dQ1_dt / P
 print(nu_real)
-T_1 += 273.15
-T_2 += 273.15
+#T_1 += 273.15
+#T_2 += 273.15
 
 
 
@@ -256,10 +255,10 @@ dm_dt *= 1000
 with open('massendurchsatz.tex', 'w') as f:
 
     f.write('\\begin{table} \n \\centering \n \\begin{tabular}{')
-    f.write(3 *'S ')
+    f.write(3*'S ')
     f.write('} \n \\toprule  \n')
     f.write('{Zeit in $\si{\second}$} & {$\\frac{dm}{dt}$ in $\si{\gram \per \second}$} & {$N_{mech}$ in $\si{\watt}$}  \\\ \n')
     f.write('\\midrule  \n ')
     for i in range (0,18):
-        f.write('{:.0f}  & $\\num{{ {:.2f} \pm {:.2f} }}$ & $\\num{{ {:.2f}  }}$ \\\ \n'.format(t[i] ,noms(dm_dt)[i], stds(dm_dt)[i], noms(N_mech)[i]))
+        f.write('{:.0f}  & $\\num{{ {:.2f} \pm {:.2f} }}$ & $\\num{{ {:.2f} \pm {:.2f} }}$ \\\ \n'.format(t[i] ,noms(dm_dt)[i], stds(dm_dt)[i], noms(N_mech)[i], stds(N_mech)[i]))
     f.write('\\bottomrule \n \\end{tabular} \n \\caption{Massendurchsatz und Kompressorleistung} \n \\label{tab: dmdtNmech} \n  \\end{table}')
