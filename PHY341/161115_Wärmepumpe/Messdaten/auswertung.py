@@ -31,6 +31,7 @@ p_a_raw = np.genfromtxt('p_a.txt', unpack = True)
 p_b_raw = np.genfromtxt('p_b.txt', unpack = True)
 p_a = unp.uarray(p_a_raw, len(p_a_raw) * [p_error])
 p_b = unp.uarray(p_b_raw, len(p_b_raw) * [p_error])
+
 #umrechnung pascal
 p_a += 1
 p_b += 1
@@ -191,7 +192,7 @@ errors_L = np.sqrt(np.diag(L_cov))
 print ('-l_R:', L_params[1], 'pm', errors_L[1])
 uB = ufloat(L_params[1],errors_L[1] )
 L = - uB * R
-print(L/10000)
+
 x_t = np.linspace(1, 1000 , 1000)
 plt.clf()
 plt.xlim(1/T_1[0].n, 1/T_1[-1].n)
