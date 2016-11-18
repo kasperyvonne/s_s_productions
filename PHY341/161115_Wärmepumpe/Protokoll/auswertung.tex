@@ -33,19 +33,19 @@ Parameter sind in Tabelle \ref{tab: regress} zu finden. \\
 
 
 Die gefundenen Regressionskurven erlauben es, die Differentialquotienten $\frac{dT_1}{dt}$ und $\frac{dT_2}{dt}$ zu berechnen. Die Werte für vier verschiedene  Zeiten sind %\mathup
-in Tabelle \ref{tab: dTdt} aufgetragen, die entsprechenden Fehler $o_{dT_i}$ ergeben sich über die Gaußsche Fehlerfortpflanzung. Hierbei wurden die Zeiten $t > t_0$ gewählt, sodass die Kurve aus Abbildung \ref{fig: plot2*} verwendet werden konnte. %%\mathup
+in Tabelle \ref{tab: dTdt} aufgetragen, die entsprechenden Fehler $o_{\dif{T}_i}$ ergeben sich über die Gaußsche Fehlerfortpflanzung. Hierbei wurden die Zeiten $t > t_0$ gewählt, sodass die Kurve aus Abbildung \ref{fig: plot2*} verwendet werden konnte. %%\mathup
 
 \subsection{Güteziffer}
 
 Mittels des Zusammenhangs
 \begin{equation}
-  \nu_{real} = (m_1 c_w + m_k c_k) \frac{dT_1}{dt} \frac{1}{P} % %\mathup
+  \nu_{real} = (m_1 c_w + m_k c_k) \frac{\dif{T}_1}{\dif{t}} \frac{1}{P} % %\mathup
 \end{equation}
 wurde die reale Güteziffer $\nu_{real}$ berechnet. Hierbei entsprechen $m_k c_k = 660 \si{\joule \per \second}$ und $c_1 c_W$ den Wärmekapzitäten von Apparatur und Wasser. Die Masse $m_1 = V_1 \cdot \rho_w$ ergibt sich mit
 der Dichte des Wassers $\rho_w \approx 1000 \si{\kilo \gram \per \meter ^3}$  und der entsprechenden Füllmenge $V_1 = 3 l$. Der Wert $c_w = 4182\si{\joule \kilo \gram^{-1} \kelvin^{-1}}$ wurde der Literatur \cite{demtröder} entnommen. %^3 durch \cubic ersetzen ->\per\cubic\meter, ^{-1} durch \per ersetzen
-Da hier lediglich die Größe $\frac{dT_1}{dt}$ fehlerbehaftet ist, berechnet sich der Fehler zu: %\mathup
+Da hier lediglich die Größe $\frac{\dif{T}_1}{\dif{t}}$ fehlerbehaftet ist, berechnet sich der Fehler zu: %\mathup
 \begin{equation}
-  o_{\nu_{real}} = \left| const \right| \cdot o_{dT_1} %\mathup
+  o_{\nu_{real}} = \left| const \right| \cdot o_{\dif{T}_1} %\mathup
   \label{eq: errorconst}
 \end{equation}
 
@@ -53,13 +53,13 @@ Die Ergebnisse der Rechnung, sowie die ideale Güteziffer $\nu_{ideal}$ (formel)
 \input{tabs/differenz.tex}
 
 \subsection{Massendurchsatz und Mechanische Leistung}
-Zur Bestimmung des Massendurchsatzes $\frac{dm}{dt}$ wird zunächst die Verdampfungswärme $L$ benötigt. Hierzu wird der aus $V203$ \cite{anleitung203} bekannte Zusammenhang des Druckverlaufs für $p_b$ in Abhängigkeit von der Temperatur%%\mathup
+Zur Bestimmung des Massendurchsatzes $\frac{\dif{m}}{\dif{t}}$ wird zunächst die Verdampfungswärme $L$ benötigt. Hierzu wird der aus $V203$ \cite{anleitung203} bekannte Zusammenhang des Druckverlaufs für $p_b$ in Abhängigkeit von der Temperatur%%\mathup
 \begin{equation}
   p_b = p_0 \exp{-\frac{L}{R T_1}} %Klammern setzen
 \end{equation}
 ausgenutzt. Durch einmaliges Anwenden des Logarithmus erhält man einen linearen Zusammenhang der Form:
 \begin{equation}
-  \log{p_b} = \log{p_0} -\frac{L}{R} \cdot \frac{1}{T_1} 
+  \log{p_b} = \log{p_0} -\frac{L}{R} \cdot \frac{1}{T_1}
 \end{equation}
 Durch halb-logarithmisches Auftragen der Werte für $p_b$ gegen die Reziproken der Temperatur $T_1$ (siehe Abb. \ref{fig: plot3}) kann also mit Hilfe einer lineare Regression die Steigung $-\frac{L}{R}$ ermittelt werden.
 Steigung und zugehöriger Fehler berechnen sich mit:
@@ -84,14 +84,14 @@ Mit der allgemeinen Gaskonstante $R = 8.314\si{\joule \mol^{-1} \kelvin^{-1}}$ e
 \end{equation}
 Der Massendurchsatz berechnet sich nun mit:
 \begin{equation}
-  \frac{dm}{dt} = (m_2 c_w + m_k c_k)\frac{dT_2}{dt} \frac{1}{L}
+  \frac{\dif{m}}{\dif{t}} = (m_2 c_w + m_k c_k)\frac{\dif{T}_2}{dt} \frac{1}{L}
 \end{equation}
 Mit der identischen Wärmekapazitäten $m_2 c_w$ und $m_k c_k$ wie oben. Die berechneten Werte sind in Tabelle \ref{tab: dmdtNmech} aufgetragen, der relative Fehler berechnet sich gemäß der üblichen Formel
 für Produkte und Quotienten:
 \begin{equation}
-  \frac{o_{dm}}{\left| dm \right|} = \left| const \right| \sqrt{\left(\frac{o_{dT_2}}{\left| dT_2 \right|}\right)^2 + \left(\frac{o_{L}}{\left| L \right|}\right)^2} %%\mathup
+  \frac{o_{\dif{m}}}{\left| \dif{m} \right|} = \left| const \right| \sqrt{\left(\frac{o_{\dif{T}_2}}{\left| \dif{T}_2 \right|}\right)^2 + \left(\frac{o_{L}}{\left| L \right|}\right)^2} %%\mathup
 \end{equation}
-Des Weiteren wurde mittels der molaren Masse des Gases $120,91 \si{g \mol ^{-1}}$ \cite{demtröder} umgerechnet in die Einheit $\si{\gram \per \second}$. \\%g? (wenn gramm dann \gram) 
+Des Weiteren wurde mittels der molaren Masse des Gases $120,91 \si{g \mol ^{-1}}$ \cite{demtröder} umgerechnet in die Einheit $\si{\gram \per \second}$. \\%g? (wenn gramm dann \gram)
 Abschließend soll nun noch die mechanische Leistung des Kompressors errechnet werden. In Formel (x) kann $\frac{1}{\rho}$
 näherungsweise mit der idealen Gasgleichung bestimmt werden.
 \begin{equation}
