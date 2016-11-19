@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 
 tempertur_klein, fallzeit_klein = np.genfromtxt('fallzeiten_klein.txt,unpack=True')
 tempertur_gross, fallzeit_gross = np.genfromtxt('fallzeiten_gross.txt,unpack=True')
+
 #Standartabweichung und Mittelwert 
 def mittel_und_abweichung(messreihe):
 	mittelwert=sum(messreihe)/len(messreihe)
@@ -56,6 +57,9 @@ def linregress(x, y):
 
 masse_kugel_klein=4.4531e-3
 
+def volumen_kugel(radius):
+	return 4/3*np.pi*radius**3
+
 def Dichte(volumen, masse):
 	return masse/volumen
 
@@ -74,18 +78,18 @@ dichte_wasser=ufloat(,)
 apperaturkonst_klein=0.07640e-3 #(mPam^3/kg)
 fallstrecke=100e-3
 
-fallzeit_mittel_klein=mittel_und_abweichung_intervall(fallzeit_klein,10)
-fallzeit_mittel_gross=mittel_und_abweichung_intervall(fallzeit_gross,10)
+fallzeit_mittel_klein=mittel_und_abweichung(fallzeit_klein)
+fallzeit_mittel_gross=mittel_und_abweichung_intervall(fallzeit_gross,2)
 
-print('Temperatur - durchschnittliche Fallzeit - kleine Kugel',tempertur_klein[::10],fallzeit_mittel_klein)
-print('Temperatur - durchschnittliche Fallzeit - grosse Kugel',tempertur_gross[::10],fallzeit_mittel_gross)
+print('Temperatur - durchschnittliche Fallzeit - kleine Kugel',tempertur_klein,fallzeit_mittel_klein)
+print('Temperatur - durchschnittliche Fallzeit - grosse Kugel',tempertur_gross[::2],fallzeit_mittel_gross)
 print('\n')
 
 geschwindigkeit_mittel_klein=fallstrecke/fallzeit_mittel_klein
 geschwindigkeit_mittel_gross=fallstrecke/fallzeit_mittel_gross
 
-print('Temperatur - geschwindigkeit_mittel-kleine Kugel', tempertur[::10],geschwindigkeit_mittel_klein)
-print('Temperatur - geschwindigkeit_mittel-grosse Kugel', tempertur[::10],geschwindigkeit_mittel_gross)
+print('Temperatur - geschwindigkeit_mittel-kleine Kugel', tempertur,geschwindigkeit_mittel_klein)
+print('Temperatur - geschwindigkeit_mittel-grosse Kugel', tempertur[::2],geschwindigkeit_mittel_gross)
 print('\n')
 
 def viskositaet(dichte_wasser,dichte_kugel,fallzeit_mittel):
@@ -98,10 +102,20 @@ print('viskositate_kugel_klein', viskositate_kugel_klein)
 def apperaturkonstante_grose_kugel(dichte_kugel,dichte_wasser,fallzeit_mittel_gross):
 	return (viskositate_kugel_klein/((dichte_kugel-dichte_wasser)*fallzeit_mittel_gross))
 
-apperaturkons_gross=mittel_und_abweichung(apperaturkonstante_grose_kugel(dichte_gross,dichte_wasser,fallzeit_mittel_gross))
-
+apperaturkons_gross=apperaturkonstante_grose_kugel(dichte_kugel_gross,dichte_wasser,fallzeit_mittel_gross):
 print('apperaturkons_gross',apperaturkons_gross)
 print('\n')
+
+viskositaet_temperatur=mittel_und_abweichung(apperaturkonstante_grose_kugel(dichte_wasser,dichte_kugel_gross,fallzeit_mittel_gross),2)
+print('Viskosität Kugel gross, abhngig von der Temperatur',viskositaet_temperatur)
+
+
+viskositaet_temperatur=mittel_und_abweichung_intervall(viskositaet(dichte_wasser,dichte_kugel_gross))
+
+def reynold_zahl(dichte_wasser,geschwindigkeit_mittel_gross,fallstrecke,viskositate_kugel_klein):
+	return (dichte_wasser*geschwindigkeit_mittel_gross,fallstrecke)/viskositate_kugel_klein
+ 
+
 
 
 
