@@ -10,6 +10,10 @@ import matplotlib.pyplot as plt
 tempertur_klein, fallzeit_klein = np.genfromtxt('fallzeiten_klein.txt,unpack=True')
 tempertur_gross, fallzeit_gross = np.genfromtxt('fallzeiten_gross.txt,unpack=True')
 
+#Umrechnung
+tempertur_klein+=273.16
+tempertur_gross+=273.16
+
 #Standartabweichung und Mittelwert 
 def mittel_und_abweichung(messreihe):
 	mittelwert=sum(messreihe)/len(messreihe)
@@ -71,8 +75,8 @@ print('\n')
 
 
 #Dichte der Flüssigkeit einfügen:
+#Siehe Email
 
-dichte_wasser=ufloat(,)
 
 # Berechnung Viskosität und apperaturkonstante
 apperaturkonst_klein=0.07640e-3 #(mPam^3/kg)
@@ -113,20 +117,27 @@ print('Viskosität Kugel gross, abhngig von der Temperatur',viskositaet_temperat
 viskositaet_temperatur=mittel_und_abweichung_intervall(viskositaet(dichte_wasser,dichte_kugel_gross))
 
 def reynold_zahl(dichte_wasser,geschwindigkeit_mittel_gross,fallstrecke,viskositate_kugel_klein):
-	return (dichte_wasser*geschwindigkeit_mittel_gross,fallstrecke)/viskositate_kugel_klein
- 
+	return (dichte_wasser*geschwindigkeit_mittel_gross,fallstrecke)/viskositate_kugel_klein 
 
 
+#Lineare-regression
+m,m_err,b,b_err=linregress(1/tempertur_gross,np.log(viskositaet_temperatur))
 
+m_u=ufloat(m,m_err)
+b_u=ufloat(b,b_err)
+print('Steigung', m_u)
+print('y-Achsenabschnitt',b_u)
+print('\n')
 
 #Plotbereich
 
 plt.xlim()
 plt.ylim()
-aufvariabele=np.linsspace()
+aufvariabele=np.linsspace(1/273.16,1/350,1000)
 
-plt.plot(,,'rx',label='')
-
+plt.plot(1/tempertur_gross,np.log(viskositaet_temperatur),'rx',label='Messwerte')
+plt.plot(aufvariabele,m*aufvariabele+b,'b-',label='Lineare Regression')
+plt.yscale('log')
 plt.grid()
 plt.legend(loc='best')
 plt.xlabel()
