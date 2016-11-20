@@ -1,12 +1,10 @@
 \section{Auswertung}
-Im Folgenden sollen die Messergebnisse analysiert werden und die relevanten Größen aus der Theorie berechnet werden. \\
-Die Werte für die beiden Temperaturen $T_1$ und $T_2$ sowie die Drücke $p_a$ und $p_b$ sind in Tablle \ref{tab: tempdruck} aufgetragen.
-\FloatBarrier
+Im Folgenden sollen die Messergebnisse analysiert und die relevanten Größen aus der Theorie berechnet werden. \\
+Die Werte für die beiden Temperaturen $T_1$ und $T_2$, sowie die Drücke $p_a$ und $p_b$ sind in Tablle \ref{tab: tempdruck} aufgetragen.
 \input{tabs/temppres.tex}
-\FloatBarrier
-Der zeitliche Verlauf der Temperaturen ist in den Abbildungen (...) dargestellt. Hierbei wurde mittels der Python Bibliothek $Scipy$ eine %... ersetzen, scipy am besten mit \emph{} setzen
+Der zeitliche Verlauf der Temperaturen ist in den Abbildungen (\ref{fig: plot1}, \ref{fig: plot2}) dargestellt. Hierbei wurde mittels der Python Bibliothek \emph{Scipy} eine %... ersetzen, scipy am besten mit \emph{} setzen
 Regression an eine Funktion der Form $T_i = A t^2 + B t + C$ bestimmt. Um im späteren Verlauf eine präzisere Aussage über den Temperaturverlauf
-von $T_2$ zu gewährleisten, wurde selbiges für den Zeitraum nach $t_0 = 360 \si{\second}$ erneut durchgeführt ($T_2*$). In der Diskussion wird hierauf näher eingegangen. Die entsprechenden
+von $T_2$ zu gewährleisten, wurde selbiges für den Zeitraum nach $t_0 = 360 \si{\second}$ erneut durchgeführt ($T_2*$, Abbildung \ref{fig: plot2*}). In der Diskussion wird hierauf näher eingegangen. Die entsprechenden
 Parameter sind in Tabelle \ref{tab: regress} zu finden. \\
 
 \input{tabs/fitconst.tex}
@@ -32,7 +30,7 @@ Parameter sind in Tabelle \ref{tab: regress} zu finden. \\
 \end{figure}
 
 
-Die gefundenen Regressionskurven erlauben es, die Differentialquotienten $\frac{dT_1}{dt}$ und $\frac{dT_2}{dt}$ zu berechnen. Die Werte für vier verschiedene  Zeiten sind %\mathup
+Die gefundenen Regressionskurven erlauben es, die Differentialquotienten $\frac{\dif{T}_1}{dt}$ und $\frac{\dif{T}_2}{dt}$ zu berechnen. Die Werte für vier verschiedene  Zeiten sind %\mathup
 in Tabelle \ref{tab: dTdt} aufgetragen, die entsprechenden Fehler $o_{\dif{T}_i}$ ergeben sich über die Gaußsche Fehlerfortpflanzung. Hierbei wurden die Zeiten $t > t_0$ gewählt, sodass die Kurve aus Abbildung \ref{fig: plot2*} verwendet werden konnte. %%\mathup
 
 \subsection{Güteziffer}
@@ -49,7 +47,7 @@ Da hier lediglich die Größe $\frac{\dif{T}_1}{\dif{t}}$ fehlerbehaftet ist, be
   \label{eq: errorconst}
 \end{equation}
 
-Die Ergebnisse der Rechnung, sowie die ideale Güteziffer $\nu_{ideal}$ (formel) (fehlerunbehaftet) sind in Tabelle \ref{tab: dTdt} aufgetragen.
+Die Ergebnisse der Rechnung, sowie die ideale Güteziffer $\nu_{ideal}$ sind in Tabelle \ref{tab: dTdt} aufgetragen.
 \input{tabs/differenz.tex}
 
 \subsection{Massendurchsatz und Mechanische Leistung}
@@ -61,7 +59,7 @@ ausgenutzt. Durch einmaliges Anwenden des Logarithmus erhält man einen linearen
 \begin{equation}
   \log{p_b} = \log{p_0} -\frac{L}{R} \cdot \frac{1}{T_1}
 \end{equation}
-Durch halb-logarithmisches Auftragen der Werte für $p_b$ gegen die Reziproken der Temperatur $T_1$ (siehe Abb. \ref{fig: plot3}) kann also mit Hilfe einer lineare Regression die Steigung $-\frac{L}{R}$ ermittelt werden.
+Durch halb-logarithmisches Auftragen der Werte für $p_b$ gegen die Reziproken der Temperatur $T_1$ (siehe Abb. \ref{fig: plot3}) kann also mit Hilfe einer linearen Regression die Steigung $-\frac{L}{R}$ ermittelt werden.
 Steigung und zugehöriger Fehler berechnen sich mit:
 \begin{equation}
   m= \frac{\left( N  (\sum x_i y_i) - (\sum x_i)(\sum y_i)\right)}{N (\sum x_i^2)- (\sum x_i)^2 }    \quad   o_m=\frac{N o_y^2}{N (\sum x_i^2)- (\sum x_i)^2 }
@@ -86,18 +84,18 @@ Der Massendurchsatz berechnet sich nun mit:
 \begin{equation}
   \frac{\dif{m}}{\dif{t}} = (m_2 c_w + m_k c_k)\frac{\dif{T}_2}{dt} \frac{1}{L}
 \end{equation}
-Mit der identischen Wärmekapazitäten $m_2 c_w$ und $m_k c_k$ wie oben. Die berechneten Werte sind in Tabelle \ref{tab: dmdtNmech} aufgetragen, der relative Fehler berechnet sich gemäß der üblichen Formel
+Mit den identischen Wärmekapazitäten $m_2 c_w$ und $m_k c_k$ wie oben. Die berechneten Werte sind in Tabelle \ref{tab: dmdtNmech} aufgetragen, der relative Fehler berechnet sich gemäß der üblichen Formel
 für Produkte und Quotienten:
 \begin{equation}
   \frac{o_{\dif{m}}}{\left| \dif{m} \right|} = \left| const \right| \sqrt{\left(\frac{o_{\dif{T}_2}}{\left| \dif{T}_2 \right|}\right)^2 + \left(\frac{o_{L}}{\left| L \right|}\right)^2} %%\mathup
 \end{equation}
-Des Weiteren wurde mittels der molaren Masse des Gases $120,91 \si{g \mol ^{-1}}$ \cite{demtröder} umgerechnet in die Einheit $\si{\gram \per \second}$. \\%g? (wenn gramm dann \gram)
+Des Weiteren wurde mittels der molaren Masse des Gases $120,91 \si{\gram \mol ^{-1}}$ \cite{demtröder} umgerechnet in die Einheit $\si{\gram \per \second}$. \\%g? (wenn gramm dann \gram)
 Abschließend soll nun noch die mechanische Leistung des Kompressors errechnet werden. In Formel (x) kann $\frac{1}{\rho}$
 näherungsweise mit der idealen Gasgleichung bestimmt werden.
 \begin{equation}
   pV = nRT \Leftrightarrow  \frac{1}{\rho} = \frac{\rho_0 T_0 p_a}{T_2 p_0}
 \end{equation}
-Mit den aus der Versuchsanleitung \cite{anleitung206} entnommenen Konstanten des Gases $CI_2F_2C$. Die entsprechenden Mittelwerte befinden sich in Tabelle \ref{tab: dmdtNmech}.
+Mit den aus der Versuchsanleitung \cite{anleitung206} entnommenen Konstanten des Gases $CI_2F_2C$. Die entsprechenden Werte befinden sich in Tabelle \ref{tab: dmdtNmech}.
 
 
 
