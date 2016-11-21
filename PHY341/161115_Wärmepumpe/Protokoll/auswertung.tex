@@ -1,8 +1,10 @@
 \section{Auswertung}
 Im Folgenden sollen die Messergebnisse analysiert und die relevanten Größen aus der Theorie berechnet werden. \\
-Die Werte für die beiden Temperaturen $T_1$ und $T_2$, sowie die Drücke $p_a$ und $p_b$ sind in Tablle \ref{tab: tempdruck} aufgetragen.
+Die Werte für die beiden Temperaturen $T_1$ und $T_2$, sowie die Drücke $p_a$ und $p_b$ sind in Tabelle \ref{tab: tempdruck} aufgetragen.
+\FloatBarrier
 \input{tabs/temppres.tex}
-Der zeitliche Verlauf der Temperaturen ist in den Abbildungen (\ref{fig: plot1}, \ref{fig: plot2}) dargestellt. Hierbei wurde mittels der Python Bibliothek \emph{Scipy} eine %... ersetzen, scipy am besten mit \emph{} setzen
+\FloatBarrier
+Der zeitliche Verlauf der Temperaturen ist in den Abbildungen (\ref{fig: plot1}, \ref{fig: plot2}) dargestellt. Hierbei wurde mittels der Python Bibliothek \emph{Scipy} \cite{scipy} eine %... ersetzen, scipy am besten mit \emph{} setzen
 Regression an eine Funktion der Form $T_i = A t^2 + B t + C$ bestimmt. Um im späteren Verlauf eine präzisere Aussage über den Temperaturverlauf
 von $T_2$ zu gewährleisten, wurde selbiges für den Zeitraum nach $t_0 = 360 \si{\second}$ erneut durchgeführt ($T_2*$, Abbildung \ref{fig: plot2*}). In der Diskussion wird hierauf näher eingegangen. Die entsprechenden
 Parameter sind in Tabelle \ref{tab: regress} zu finden. \\
@@ -39,9 +41,10 @@ Mittels des Zusammenhangs
 \begin{equation}
   \nu_{real} = (m_1 c_w + m_k c_k) \frac{\dif{T}_1}{\dif{t}} \frac{1}{P} % %\mathup
 \end{equation}
-wurde die reale Güteziffer $\nu_{real}$ berechnet. Hierbei entsprechen $m_k c_k = 660 \si{\joule \per \second}$ und $c_1 c_W$ den Wärmekapzitäten von Apparatur und Wasser. Die Masse $m_1 = V_1 \cdot \rho_w$ ergibt sich mit
-der Dichte des Wassers $\rho_w \approx 1000 \si{\kilo \gram \per \meter ^3}$  und der entsprechenden Füllmenge $V_1 = 3 l$. Der Wert $c_w = 4182\si{\joule \kilo \gram^{-1} \kelvin^{-1}}$ wurde der Literatur \cite{demtröder} entnommen. %^3 durch \cubic ersetzen ->\per\cubic\meter, ^{-1} durch \per ersetzen
-Da hier lediglich die Größe $\frac{\dif{T}_1}{\dif{t}}$ fehlerbehaftet ist, berechnet sich der Fehler zu: %\mathup
+wurde die reale Güteziffer $\nu_{real}$ berechnet. Hierbei entsprechen $m_k c_k = 660 \si{\joule \per \second}$ und $m_1 c_W$ den Wärmekapzitäten von Apparatur und Wasser. Die Masse $m_1 = V_1 \cdot \rho_w$ ergibt sich mit
+der Dichte des Wassers $\rho_w \approx 1000 \si{\kilo \gram \per \meter ^3}$  und der entsprechenden Füllmenge $V_1 = 3 l$. Der Wert $c_w = 4182\si{\joule \kilo \gram^{-1} \kelvin^{-1}}$ wurde der Literatur \cite{demtröder} entnommen.
+Für $P$ wurden die gemessenen Werte der Leistung (siehe Anhang) eingesetzt.%^3 durch \cubic ersetzen ->\per\cubic\meter, ^{-1} durch \per ersetzen
+ Da hier lediglich die Größe $\frac{\dif{T}_1}{\dif{t}}$ fehlerbehaftet ist, berechnet sich der Fehler zu: %\mathup
 \begin{equation}
   o_{\nu_{real}} = \left| const \right| \cdot o_{\dif{T}_1} %\mathup
   \label{eq: errorconst}
@@ -87,10 +90,10 @@ Der Massendurchsatz berechnet sich nun mit:
 Mit den identischen Wärmekapazitäten $m_2 c_w$ und $m_k c_k$ wie oben. Die berechneten Werte sind in Tabelle \ref{tab: dmdtNmech} aufgetragen, der relative Fehler berechnet sich gemäß der üblichen Formel
 für Produkte und Quotienten:
 \begin{equation}
-  \frac{o_{\dif{m}}}{\left| \dif{m} \right|} = \left| const \right| \sqrt{\left(\frac{o_{\dif{T}_2}}{\left| \dif{T}_2 \right|}\right)^2 + \left(\frac{o_{L}}{\left| L \right|}\right)^2} %%\mathup
+  \frac{o_{\dif{m}}}{\left| \dif{m} \right|} = \sqrt{\left(\frac{o_{\dif{T}_2}}{\left| \dif{T}_2 \right|}\right)^2 + \left(\frac{o_{L}}{\left| L \right|}\right)^2} %%\mathup
 \end{equation}
 Des Weiteren wurde mittels der molaren Masse des Gases $120,91 \si{\gram \mol ^{-1}}$ \cite{demtröder} umgerechnet in die Einheit $\si{\gram \per \second}$. \\%g? (wenn gramm dann \gram)
-Abschließend soll nun noch die mechanische Leistung des Kompressors errechnet werden. In Formel (x) kann $\frac{1}{\rho}$
+Abschließend soll nun noch die mechanische Leistung des Kompressors errechnet werden. In Formel \eqref{eq: Nmech} kann $\frac{1}{\rho}$
 näherungsweise mit der idealen Gasgleichung bestimmt werden.
 \begin{equation}
   pV = nRT \Leftrightarrow  \frac{1}{\rho} = \frac{\rho_0 T_0 p_a}{T_2 p_0}

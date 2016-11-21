@@ -2,10 +2,10 @@
 
 \subsection{Prinzip der Wärmepuppe}
 
-Der Erfahrung nach fließt die Wärme
+Der Erfahrung nach fließt Wärme stets
 vom wärmeren Medium $T_1$ zum kälteren Medium $T_2$.
 Um diesen Effekt umzukehren, nutzt man die Wärmepumpe.
-Denn durch Zufuhr von Energie (z. B. mechanische Arbeit) sagt der erste 
+Durch Zufuhr von Energie (z. B. mechanische Arbeit) sagt der erste
 Hauptsatz der Thermodynamik mittels,
 
 \begin{equation}
@@ -13,26 +13,25 @@ Hauptsatz der Thermodynamik mittels,
 Q_1=Q_2+A
 \end{equation}
 
-dass die im Warmen aufgenommene Wärmemenge $Q_1$ gleich 
+dass die im Warmen aufgenommene Wärmemenge $Q_1$ gleich
 der Summe der aus dem Kalten entnommene Wärmemenge $Q_2$
 und der zugeführten Arbeit $A$ ist.
 
 Jede Wärmepumpe besitzt eine sogenannte Güteziffer $\nu$.
-Diese gibt das Verhältnis zwischen transportierter Wärmemenge 
-und der dazu benötigten Arbeit $A$.
-Aus dem Hauptsatz ergibt sich für ideale Voraussetzung:
+Diese gibt das Verhältnis zwischen transportierter Wärmemenge
+und der dazu benötigten Arbeit $A$ an.
+Aus dem ersten Hauptsatz ergibt sich unter idealen Voraussetzungen:
 
 \begin{equation}
 \label{eq:best_kennziffer}
 \nu=\frac{Q_1}{A}
 \end{equation}
 
-Betrachtet man zusätzlich den zweiten Hauptsatz der Thermodynamik.
-So ergibt sich ein weiterer Zusammenhang zwischen den Wärmemengen 
+Betrachtet man zusätzlich den zweiten Hauptsatz der Thermodynamik, so
+ergibt sich ein weiterer Zusammenhang zwischen den Wärmemengen
 $Q_1$ und $Q_2$ und den Temperaturen der Medien $T_1$ und $T_2$.
-Denn ändert sich die Temperatur der beiden Medien nicht während der 
-Wärmeübertragung. 
-So verschwindet die reduzierte Wärmemenge und es folgt
+Ändert sich die Temperatur der beiden Medien während der
+Wärmeübertragung nicht, so verschwindet die reduzierte Wärmemenge und es folgt
 
 \begin{equation}
 \label{eq:hst_2}
@@ -41,13 +40,13 @@ So verschwindet die reduzierte Wärmemenge und es folgt
 
 Jedoch ist für \eqref{eq:hst_2} eine Voraussetzung,
 dass der Prozess reversibel ist.
-Das bedeutet, dass die in einem thermodynamischen Prozess aufgenommene Wärme 
+Das bedeutet, dass die in einem thermodynamischen Prozess aufgenommene Wärme
 und Energie bei Umkehrung des Versuches wieder zurückfließen muss.
 In der Realität ist dies durch Verlustwärme und Reibungsprozesse
-nie zu realisieren.
-Dadurch stellt sich für die reale Wärmepumpe eine andere 
-Güterziffer $\nu_{real}$ ein. 
-Sie lässt sich mittels der idealen Güteziffer 
+nicht zu realisieren.
+Dadurch stellt sich für die reale Wärmepumpe eine andere
+Güterziffer $\nu_{real}$ ein.
+Sie lässt sich mittels der idealen Güteziffer
 \begin{equation*}
 \nu_{id}=\frac{T_1}{T_1-T_2}
 \end{equation*}
@@ -57,22 +56,21 @@ abschaätzen zu:
 \nu_{real}<\frac{T_1}{T_1-T_2}
 \end{equation*}
 
-Das bedeutet je geringer die Differenz zwischen $T_1$ und $T_2$, 
+Das bedeutet je geringer die Differenz zwischen $T_1$ und $T_2$,
 desto höher ist die Effizienz der Wärmepumpe.
 
 \subsection{Bestimmung der realen Güteziffer}
-Aus einer von $t$ abhängigen Messreihe $T_1$ wird der Differenzenquotient $\frac{\Delta T_1}{\Delta T}$ bestimmt.
+Aus einer von $t$ abhängigen Messreihe $T_1$ wird der Differenzenquotient $\frac{\Delta T_1}{\Delta t}$ bestimmt.
 Damit kann dann die Wärmemenge bestimmt werden:
 
 \begin{equation*}
 \frac{\Delta Q_1}{\Delta t}=\left(m_1c_w+m_kc_k\right)\frac{\Delta T_1}{\Delta t}
 \end{equation*}
 
-Durch Bestimmung einer Ausgleichskurve kann der 
-Differenzenquotient durch einen Differentialquotient
+Durch Bestimmung einer Ausgleichskurve, kann der
+Differenzenquotient durch einen Differentialquotienten
 ersetzt werden.
 Dies soll in allen folgenden Rechnungen gelten.
-
 Man erhält:
 
 \begin{equation}
@@ -80,17 +78,16 @@ Man erhält:
 \frac{\mathup{d} Q_1}{\mathup{d} t}=\left(m_1c_w+m_kc_k\right)\frac{\mathup{d} T_1}{\mathup{d} t}
 \end{equation}
 
-
-Wobei $m_1c_w$ die Wärmekapazität des Wassers im Behälter $1$ ist und 
-$m_kc_k$ die Wärmekapazität der Kupferschlange und des Eimers sind.
+Wobei $m_1c_w$ die Wärmekapazität des Wassers im Behälter $1$ ist und
+$m_kc_k$ die Wärmekapazitäten der Kupferschlange und des Eimers sind.
 Mit \eqref{eq:best_kennziffer} und \eqref{eq:warmemenge_1} folgt dann
 
 \begin{equation}
 \label{eq:bestimmung_ziffer}
-\nu_{real}=\frac{\mathup{d}Q_1}{\mathup{d}tN}
+\nu_{real}=\frac{\mathup{d}Q_1}{\mathup{d}tP}
 \end{equation}
 
-Hierbei sei $N$ die Leistungsaufnahme des Wattmeter im Zeitraum $\mathup{d}$.
+Hierbei sei $P$ die Leistungsaufnahme des Wattmeter im Zeitraum $\mathup{d}t$.
 
 \subsection{Bestimmung des Massendurchsatzes}
 
@@ -101,9 +98,9 @@ Damit kann dann mittels
 \frac{\mathup{d} Q_2}{\mathup{d} t}=\left(m_2c_w+m_kc_k\right)\frac{\mathup{d} T_2}{\mathup{d} t}
 \end{equation*}Der
 
-die Wärmemenge, die pro Zeit $\mathup{d}t$ entnohmen wird, bestimmen.
-Da es sich bei diesem Vorgang, um eine Aggregatzustandsänderung handelt.
-Muss die Wärmemenge gleich der Verdampfungswärme $L$ pro Massenzeitstückchen $\frac{\mathup{d}m}{dt}$.
+die Wärmemenge, die pro Zeit $\mathup{d}t$ entnohmen wird, bestimmt werden.
+Da es sich bei diesem Vorgang um eine Aggregatzustandsänderung handelt,
+muss die Wärmemenge gleich der Verdampfungswärme $L$ pro Massenzeitstückchen $\frac{\mathup{d}m}{dt}$.
 Also:
 
 \begin{equation*}
@@ -112,7 +109,7 @@ Also:
 
 \subsection{Bestimmung der mechanischen Kompressorleistung}
 
-Der Kompressor benötigt, wenn ein Gas vom Volumen $V_a$ auf das Volumen $V_b$ verringert
+Der Kompressor benötigt, wenn ein Gas vom Volumen $V_a$ auf das Volumen $V_b$ verringert wird,
 die Arbeit:
 
 \begin{equation}
@@ -122,15 +119,15 @@ A_m=-\int_{V_a}^{V_b}p\mathup{d}V
 Hier sei $p$ der Druck.
 
 Gehen wir davon aus, dass der Kompressor adiabatisch arbeitet,
-d. h. ohne Wärme an die Umgebung abzugeben. 
+also keine Wärme an die Umgebung abgibt.
 So kann mithilfe der Poisson Gleichung
 
 \begin{equation*}
 p_aV^{\kappa}_a=p_bV^{\kappa}_b=pV^{\kappa} \quad \kappa>1
 \end{equation*}
 
-die Gleichung \eqref{eq:mechanische_arbeit} umgeschrieben werden.
-Dabei gibt $\kappa$ das Verhältnis der Molwärme $C_p$ und $C_V$ a.
+der Zusammenhang \eqref{eq:mechanische_arbeit} umgeschrieben werden.
+Dabei gibt $\kappa$ das Verhältnis der Molwärme $C_p$ und $C_V$ an.
 Es folgt
 
 \begin{equation*}
@@ -139,8 +136,9 @@ A_m=-p_aV_a^{\kappa}\int_{V_a}^{V_b}V^{-\kappa}\mathup{d}V=\frac{1}{\kappa-1}\le
 
 und damit direkt für die Kompressorleistung
 
-\begin{equation*}
+\begin{equation}
 N_{mech}=\frac{\mathup{d}A_m}{\mathup{d}t}=\frac{1}{\kappa-1}\left(p_b\left(\frac{p_a}{p_b}\right)^{\frac{1}{\kappa}}-p_a\right)\frac{1}{\rho}\frac{\mathup{d}m}{\mathup{d}t}
-\end{equation*}
+\label{eq: Nmech}
+\end{equation}
 
 Hierbei ist $\rho$ die Dichte des Transportmediums im gasförmigen Zustand, also beim Druck $p_a$.
