@@ -96,9 +96,9 @@ print('\n')
 #Dichte der Flüssigkeit einfügen:
 temp_wasser, dichte_wasser=np.genfromtxt('wasser_dichte_temp_gekuerzt.txt',unpack=True)
 dichte_wasser*=1*-3
-dichte_wasser_20=9.982100000000000417e-01*1-3
+dichte_wasser_20=9.982100000000000417e-04
 # Berechnung Viskosität und apperaturkonstante
-apperaturkonst_klein=0.07640e-3 #(mPam^3/kg)
+apperaturkonst_klein=0.07640e-6 #(mPam^3/kg)
 fallstrecke=float(100e-3)
 
 fallzeit_mittel_klein=mittel_und_abweichung(fallzeit_kleine_kugel)
@@ -130,23 +130,24 @@ def viskositaet(dichte_wasser,dichte_kugel,fallzeit_mittel):
 	return apperaturkonst_klein*(dichte_kugel-dichte_wasser)*fallzeit_mittel
 
 viskositate_kugel_klein=viskositaet(dichte_wasser_20,dichte_klein,fallzeit_mittel_klein)
-
+print
 print('viskositate_kugel_klein', viskositate_kugel_klein)
 print('\n')
 
-#def apperaturkonstante_grose_kugel(dichte_kugel,dichte_wasser,fallzeit_mittel_gross):
-#	return (viskositate_kugel_klein/((dichte_kugel-dichte_wasser)*fallzeit_mittel_gross))
-#
-#apperaturkons_gross=apperaturkonstante_grose_kugel(dichte_kugel_gross,dichte_wasser,fallzeit_mittel_gross):
-#print('apperaturkons_gross',apperaturkons_gross)
-#print('\n')
-#
-#viskositaet_temperatur=mittel_und_abweichung(apperaturkonstante_grose_kugel(dichte_wasser,dichte_kugel_gross,fallzeit_mittel_gross),2)
-#print('Viskosität Kugel gross, abhngig von der Temperatur',viskositaet_temperatur)
-#
-#
-#viskositaet_temperatur=mittel_und_abweichung_intervall(viskositaet(dichte_wasser,dichte_kugel_gross))
-#
+def apperaturkonstante_grose_kugel(dichte_kugel,dichte_wasser,fallzeit_mittel_gross):
+	return (viskositate_kugel_klein/((dichte_kugel-dichte_wasser)*fallzeit_mittel_gross))
+
+apperaturkons_gross=
+print('apperaturkons_gross',apperaturkons_gross)
+print('\n')
+
+
+def viskositaet_gross(dichte_wasser,dichte_kugel,fallzeit_mittel):
+	return apperaturkonst_gross*(dichte_kugel-dichte_wasser)*fallzeit_mittel
+
+viskositaet_temperatur=mittel_und_abweichung_intervall(viskositaet_gross(dichte_wasser,dichte_gross,fallzeit_mittel_gross_t ),2)
+print('viskositaet_temperatur', temperatur[::2],viskositaet_temperatur)
+print('\n')
 #def reynold_zahl(dichte_wasser,geschwindigkeit_mittel_gross,fallstrecke,viskositate_kugel_klein):
 #	return (dichte_wasser*geschwindigkeit_mittel_gross,fallstrecke)/viskositate_kugel_klein 
 #
