@@ -14,6 +14,7 @@ durchmesser_1,durchmesser_2=np.genfromtxt('durchmesser.txt',unpack=True)
 
 #Umrechnung
 temperatur+=273.16
+durchmesser_gross=durchmesser_2*1e-3
 durchmesser_1*=0.5*1e-3
 durchmesser_2*=0.5*1e-3
 masse_1*=1e-3
@@ -137,21 +138,31 @@ print('\n')
 def apperaturkonstante_grose_kugel(dichte_kugel,dichte_wasser,fallzeit_mittel_gross):
 	return (viskositate_kugel_klein/((dichte_kugel-dichte_wasser)*fallzeit_mittel_gross))
 
-apperaturkons_gross=
-print('apperaturkons_gross',apperaturkons_gross)
+apperaturkons_grose=apperaturkonstante_grose_kugel(dichte_gross,dichte_wasser_20,fallzeit_mittel_gross)
+print('apperaturkons_gross',apperaturkons_grose)
 print('\n')
 
 
 def viskositaet_gross(dichte_wasser,dichte_kugel,fallzeit_mittel):
-	return apperaturkonst_gross*(dichte_kugel-dichte_wasser)*fallzeit_mittel
+	return apperaturkons_grose*(dichte_kugel-dichte_wasser)*fallzeit_mittel
 
-viskositaet_temperatur=mittel_und_abweichung_intervall(viskositaet_gross(dichte_wasser,dichte_gross,fallzeit_mittel_gross_t ),2)
-print('viskositaet_temperatur', temperatur[::2],viskositaet_temperatur)
+
+viskositat_temperatur=viskositaet_gross(dichte_wasser,dichte_gross,fallzeit_mittel_gross_t)
+print('viskositaet_temperatur', temperatur[::2],viskositat_temperatur)
 print('\n')
-#def reynold_zahl(dichte_wasser,geschwindigkeit_mittel_gross,fallstrecke,viskositate_kugel_klein):
-#	return (dichte_wasser*geschwindigkeit_mittel_gross,fallstrecke)/viskositate_kugel_klein 
-#
-#
+
+def reynold_zahl(dichte_wasser,geschwindigkeit_mittel_gross,durchmesser,viskositate_kugel_klein):
+	return (dichte_wasser*geschwindigkeit_mittel_gross*durchmesser)/viskositate_kugel_klein 
+
+rey_zahl=[]
+hilf=0
+for i in geschwindigkeit_mittel_gross_t:
+	rey_zahl.append(reynold_zahl(dichte_wasser[hilf],i,durchmesser_gross,viskositat_temperatur[hilf]))
+	hilf+=1
+
+print('Reynold Zahl',rey_zahl)
+print('\n')
+
 ##Lineare-regression
 #m,m_err,b,b_err=linregress(1/tempertur_gross,np.log(viskositaet_temperatur))
 #
