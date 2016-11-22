@@ -11,7 +11,7 @@ import scipy.constants as const
 T, n = np.genfromtxt('viskositaet.txt', unpack = True)
 T_kohl, n_kohl = np.genfromtxt('viskositaet_kohlrausch.txt', unpack = True)
 n *= 1000
-n_kohl *= 1000000
+n_kohl 
 
 def F1(t, A, B):
     return A * np.exp(B / t)
