@@ -20,8 +20,7 @@ Beide Methoden werden im Anschluss genauer erklärt werden.
 Die statische Methode benutzt die Auslenkung 
 einer Torsionsfeder. Um dann das Trägheitsmoment zu berechnen. %Ausdruck
 Wichtig dabei ist, dass die Federwaage immer orthogonal zum Radius steht.
-Im Versuch wurden folgende Werte bestimmt:
-
+Die im Versuch bestimmten Werte sind in Tabelle \ref{tab: winkelricht} einzusehen.
 
 \begin{table}
 \centering
@@ -54,8 +53,8 @@ Mit dem Zusammenhang
 D=\frac{M}{\phi}=\frac{Fr}{\phi}
 \end{equation*}
 
-ergibt sich dann, für jede Einzelne der insgesamt $n$ Messungen ein Wert für die Winkelrichtgröße.
-Diese wurden anschließend durch,
+ergibt sich dann für jede Einzelne der insgesamt $n$ Messungen ein Wert für die Winkelrichtgröße.
+Diese wurden anschließend durchs
 
 \begin{equation}
 \label{eq:mittel}
@@ -92,7 +91,7 @@ Das Resultat ist in der Tabelle \ref{tab: winkel_dynamisc} dargestellt. %referie
 %\renewcommand{\arraystretch}{1.2}
 \begin{tabular}{lr}
 	\toprule
-	$\bar{T}$ in $\si{\per\second}$ &  $\sigma_{\bar{T}}$ in $\si{\per\second}$ \\
+	$\bar{T}$ in $\si{\second}$ &  $\sigma_{\bar{T}}$ in $\si{\second}$ \\
 	\midrule
 	\num{2.52} & \num{6.43e-3} \\
 	\num{3.23} & \num{9.16e-3} \\
@@ -124,13 +123,13 @@ Satz von Steiner \eqref{eq: steiner} zunutze und erhält den Zusammenhang: %komp
 \end{equation}
 
 Dabei sei $m_g=m_1+m_2=\num{222.51e-2}\si{\meter}+\num{223.46e-2}\si{\meter}$.
-Zwischen $T^2$ und $a^2$ besteht ein linearer Zusammenhangm
-die Funktionparameter lassen sich mittels linearer Regression bestimmen. %besser: zwischen T^2 und a^2 besteht einer linearer Zusammenhang, die  	Funktionsparameter lassen sich mittels linearer Regerssion bestimmen...
+Zwischen $T^2$ und $a^2$ besteht ein linearer Zusammenhang.
+Die Funktionparameter lassen sich mittels linearer Regression bestimmen. %besser: zwischen T^2 und a^2 besteht einer linearer Zusammenhang, die  	Funktionsparameter lassen sich mittels linearer Regerssion bestimmen...
 Dazu verwendet man aus der Regressionsrechnung
 die Annäherung um die Steigung $m$
 
 \begin{equation*}
-m=\frac{\bar{xy}-\bar{x}\bar{y}}{\bar{x^2}-\bar{x}^2}
+m=\frac{\overline{xy}-\bar{x}\bar{y}}{\bar{x^2}-\bar{x}^2}
 \end{equation*}
 
 zu bestimmen, mit dem dazugehörigen Fehler
@@ -208,7 +207,7 @@ Eigenträgheitsmoment der Drillachse:
 
 \begin{equation}
 \label{eq:eigentraegheitsmoment}
-I_D=\left(\num{0.003}\pm\num{0.000}\right) \si{\kilogram\meter\squared}
+I_D=\left(\num{5}\pm\num{0.7}\right)\cdot{10^{-4}} \,\si{\kilogram\meter\squared}
 \end{equation}
 
 
@@ -241,14 +240,14 @@ Die gemessenen Schwingungsdauern sind im Anhang nachzulesen.
 Als gemittelter Wert ergibt sich:
 
 \begin{equation*}
-\bar{T}_{zylin}=\left(\num{1.17}\pm\num{0.00}\right) \si{\per\second}
+\bar{T}_{zylin}=\left(\num{1.17}\pm\num{0.002}\right)\si{\second}
 \end{equation*}
 
 Damit folgte für das Trägheitsmoment:
 
 \begin{equation}
 \label{eq:traeg_zylinder_grau_exp}
-I_{zylin}=\left(\num{0.0008}\pm\num{0.0000}\right) \si{\kilogram\meter\squared}
+I_{zylin}=\left(\num{0.0008}\pm\num{e-6}\right)\si{\kilogram\meter\squared}
 \end{equation}
 
 Für die theoretische Berechnung werden die Maße und Masse des Zylinders benötigt.
@@ -256,8 +255,8 @@ Gemessen wurde:
 
 \begin{align*}
 \text{Maße} \quad &\\
-d&=\num{3.49e-2}\si{\meter}\\
-h&=\num{3.01e-2}\si{\meter}\\
+d&=\num{8.00e-2}\si{\meter}\\
+h&=\num{14.05e-2}\si{\meter}\\
 \text{Masse} \quad &\\
 m_{zyl}&=\num{1005.8}\si{\gram}
 \end{align*}
@@ -268,10 +267,10 @@ Das resultierende Ergebnis lautet:
 
 \begin{equation}
 \label{eq:traeg_zylinder_theo}
-I_{zylin \,theo}= \num{0.0006}\si{\kilogram\meter\squared}
+I_{zylin \,theo}= \num{0.0008}\si{\kilogram\meter\squared}
 \end{equation}
 
-Die Abweichung vom experimentellen Resultat zur Theorie beläuft sich auf $\approx +33 \%$ %Ich würde den qualitativen Vergleich zwischen Theorie und Experiment in der Diskussion anstellen
+Theoretische und experimentelle Befunde stimmen somit über ein. %Ich würde den qualitativen Vergleich zwischen Theorie und Experiment in der Diskussion anstellen
 
 \subsubsection{Trägheitsmoment der Kugel}
 
@@ -280,14 +279,14 @@ Für das Trägheitsmoment der Kugel geht man genauso vor, wie beim Zylinder. %Au
 Als gemittelter Wert ergibt sich:
 
 \begin{equation*}
-\bar{T}_{kugel}=\left(\num{1.66}\pm\num{0.00}\right) \si{\per\second}
+\bar{T}_{kugel}=\left(\num{1.66}\pm\num{0.004}\right)\si{\second}
 \end{equation*}
 
 Daraus folgt für das Trägheitsmoment:
 
 \begin{equation}
 \label{eq:traeg_kugel_exp}
-I_{kugel}=\left(\num{0.002}\pm\num{0.000}\right) \si{\kilogram\meter\squared}
+I_{kugel}=\left(\num{17}\pm\num{0.12}\right)\cdot10^{-4} \, \si{\kilogram\meter\squared}
 \end{equation}
 
 Um das theoretische Trägheitsmoment zu bestimmen, werden die Abmessungen und das Gewicht der Kugel benötigt:
@@ -296,7 +295,7 @@ Um das theoretische Trägheitsmoment zu bestimmen, werden die Abmessungen und da
 \text{Abmessung} \quad &\\
 d&=\num{13.78e-2}\si{\meter}\\
 \text{Gewicht} \quad &\\
-m_{zyl}&=\num{812.40}\si{\gram}
+m_{ku}&=\num{812.40}\si{\gram}
 \end{align*}
 
 Als theoretische Grundformel wird \eqref{eq:traeg_kugel} genutzt.
@@ -304,13 +303,12 @@ Es resultiert
 
 \begin{equation}
 \label{eq:traeg_kugel_theo}
-I_{kugel \,theo}= \num{0.002}\si{\kilogram\meter\squared}
+I_{kugel \,theo}= \num{0.0015}\si{\kilogram\meter\squared}
 \end{equation}
 
 als theoretisches Trägheitsmoment.
 
-Abschließend gilt es noch zu erwähnen, dass es keinen Unterschied
-zwischen theoretischen und experimentellen Trägheitsmoment gibt. %was heißt das?
+Die Abweichung zwischen Theoie und Experiement beläuft sich auf $\approx +13 \%$ %was heißt das?
 
 \subsection{Trägheitsmoment der Modellpuppe}
 
@@ -351,19 +349,19 @@ Die gemessenen Schwingungsdauern sind im Anhang aufgelistet.
 Als Mittelwert ergibt sich:
 
 \begin{equation*}
-\bar{T}_{puppe\, p1}=\left(\num{0.64}\pm\num{0.00}\right) \si{\per\second}
+\bar{T}_{puppe\, p1}=\left(\num{0.64}\pm\num{0.002}\right) \si{\second}
 \end{equation*}
 
 Daraus resultiert für das Trägheitsmoment:
 
 \begin{equation}
 \label{eq:traeg_puppe_p1}
-I_{puppe \,p1}= \left(\num{0.0002}\pm\num{0.0000}\right)\si{\kilogram\meter\squared}
+I_{puppe \,p1}= \left(\num{2}\pm\num{0.2}\right)\cdot 10^{-4} \,\si{\kilogram\meter\squared}
 \end{equation}
 
 Bei der Berechnung des theoretischen Trägheitsmomentes macht man sich
 das additive Verhalten der Trägheitsmomente zu nutzen.
-Dabei ist jedoch der Satz von Steiner zu beachten.
+Dabei ist jedoch der \emph{Satz von Steiner} zu beachten.
  Dabei sind die Verschiebungen zur Drehachse
 \begin{align*}
 a_{arm}&=\num{9.27e-2}\si{\meter}\\
@@ -378,7 +376,7 @@ Für einen Arm ergibt sich
 \begin{align}
 \begin{aligned}
 \label{eq:masse_arm}
-\text{prozentualer} Anteil \quad &\left(10\pm\num{1}\right)\% \\
+\text{prozentualer Anteil} \quad &\left(10\pm\num{1}\right)\% \\
 \text{Masse Arm} \quad &\left(\num{0.016}\pm\num{0.002}\right)\si{\kilogram}
 \end{aligned}
 \end{align}
@@ -388,7 +386,7 @@ und für ein Bein
 \begin{align}
 \begin{aligned}
 \label{eq:masse_bein}
-\text{prozentualer} Anteil \quad &\left(16\pm\num{2}\right)\% \\
+\text{prozentualer Anteil} \quad &\left(16\pm\num{2}\right)\% \\
 \text{Masse Bein} \quad &\left(\num{0.026}\pm\num{0.003}\right)\si{\kilogram}.
 \end{aligned}
 \end{align}
@@ -396,7 +394,7 @@ und für ein Bein
 Nach der Theorie hat die Puppe in Position $1$ ein Trägheitsmoment von
 
 \begin{equation*}
-\bar{T}_{puppe\, p1\,theo}=\left(\num{1.55e-5}\pm\num{0.27e-5}\right) \si{\kilogram\meter\squared}.
+\bar{T}_{puppe\, p1\,theo}=\left(\num{1.55}\pm\num{0.27}\right)\cdot 10^{-5} \, \si{\kilogram\meter\squared}.
 \end{equation*}
 
 Der Unterschied zwischen Theorie und Praxis liegt bei $\approx +1200 \%$. %s.o.
@@ -406,14 +404,14 @@ Die Haltung der Puppe in Position 2 ist in Abbildung \ref{fig:pup2} zusehen.
 Als gemittelte Schwingungsdauer errechnet sich:
 
 \begin{equation*}
-\bar{T}_{puppe\, p2}=\left(\num{0.91}\pm\num{0.00}\right) \si{\per\second}
+\bar{T}_{puppe\, p2}=\left(\num{0.91}\pm\num{0.005}\right) \si{\second}
 \end{equation*}
 
 Damit folgt für das Trägheitsmoment
 
 \begin{equation}
 \label{eq:traeg_puppe_p2}
-I_{puppe \,p2}= \left(\num{0.0005}\pm\num{0.0000}\right)\si{\kilogram\meter\squared}
+I_{puppe \,p2}= \left(\num{5}\pm\num{0.5}\right)\cdot 10^{-4}\,\si{\kilogram\meter\squared}
 \end{equation}
 
 Da bei dieser Position nur die Beine ihre Position geändert haben, ändert
@@ -423,7 +421,7 @@ Sonst bleiben Massen und Abstände gleich.
 Für das theoretische Trägheitsmoment folgt
 
 \begin{equation*}
-\bar{T}_{puppe\, p2\,theo}=\left(\num{0.0002}\pm\num{0.0000}\right) \si{\kilogram\meter\squared}.
+I_{puppe\, p2\,theo}=\left(\num{2}\pm\num{0.3}\right)\cdot 10^{-4} \,\si{\kilogram\meter\squared}.
 \end{equation*}
 
 Die Abweichung von dem experimentellen und theoretischen Ergebnis ist

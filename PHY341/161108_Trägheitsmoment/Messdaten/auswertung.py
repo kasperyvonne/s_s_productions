@@ -107,13 +107,18 @@ print('\n')
 
 def J_zylinder(radius,hoehe,masse):
 	return (1/4)*masse*radius**2+(1/12)*masse*hoehe**2
+def duenner_stab(masse,laenge):
+    return (1/12)*masse*laenge**2
 
 radius_zylinder=(3.49*0.5)*1e-2
 hoehe_zylinder=(14.05*0.5)*1e-2
+laenge_stab=60e-2
+masse_stab=69.31e-3
 J_zylinder1=J_zylinder(radius_zylinder,hoehe_zylinder,m_1)
 J_zylinder2=J_zylinder(radius_zylinder,hoehe_zylinder,m_2)
+J_stab=duenner_stab(masse_stab,laenge_stab)
 
-J_eigen=(winkelrichtgroesse_dynamisch)/(4*np.pi**2)*b_fehler-(J_zylinder1+J_zylinder2)
+J_eigen=(winkelrichtgroesse_dynamisch)/(4*np.pi**2)*b_fehler-(J_zylinder1+J_zylinder2+J_stab)
 
 print('Trageheitsmoment_Eigen ', J_eigen)
 print('\n')
@@ -198,11 +203,11 @@ def traeg_kugel(masse,radius):
 def trag_zylinder(masse,radius):
 	return (1/2)*masse*radius**2
 
-masse_kugel=1005.8e-3
+masse_kugel=812.4e-3
 radius_kugel=(0.5*13.78)*1e-2
 
 radius_grauerzylinder=(4.00)*1e-2
-masse_zylindergrau=812.46e-3
+masse_zylindergrau=1005.8e-3
 
 traeg_kugel_theo=traeg_kugel(masse_kugel,radius_kugel)
 
@@ -274,7 +279,7 @@ plt.plot(abstand[::3]**2,schwingungsdauer_mittel**2,'rx',label='Messwerte')
 plt.plot(x**2,m*x**2+b,'b-',label='Lineare Regression')
 #plt.plot(abstand[::3]**2,f(abstand[::3]**2,*params_p),'y-',label='Fit')
 plt.legend(loc='best')
-plt.ylabel(r'$T^2 \ in \ \frac{1}{\mathrm{s}^2}$')
+plt.ylabel(r'$T^2 \ in \ \mathrm{s}^2$')
 plt.xlabel(r'$a^2 \ in  \ \mathrm{m}^2$')
 plt.grid()
 #plt.savefig('lineare_regression.pdf')
