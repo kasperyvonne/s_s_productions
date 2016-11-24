@@ -151,7 +151,7 @@ viskositat_temperatur=viskositaet_gross(dichte_wasser,dichte_gross,fallzeit_mitt
 print('viskositaet_temperatur', temperatur[::2],viskositat_temperatur)
 print('\n')
 
-#
+#Reynold_zahl
 def reynold_zahl(dichte_wasser,geschwindigkeit_mittel_gross,durchmesser,viskositate_kugel_klein):
 	return (dichte_wasser*geschwindigkeit_mittel_gross*durchmesser)/viskositate_kugel_klein 
 
@@ -169,7 +169,7 @@ rey_zahl=reynold_zahl(dichte_wasser_array,geschwindigkeit_mittel_gross_array,dur
 print('Reynold Zahl',rey_zahl)
 print('\n')
 
-##Lineare-regression
+##Regressionsrechnung
 
 def f(x,a,b):
 	return a*np.exp(b/x)
@@ -177,19 +177,20 @@ def f(x,a,b):
 params,covariance=curve_fit(f,temperatur[::2],unp.nominal_values(viskositat_temperatur))
 
 print(params)
-#print('\n')
-#
+print('\n')
+
 ##Plotbereich
 
-#plt.xlim()
-plt.ylim(1e-3,1.5e-3)
-#aufvariabele=np.linsspace(1/273.16,1/350,1000)
-plt.plot(temperatur[::2] ,unp.nominal_values(viskositat_temperatur),'rx',label='Messwerte')
-plt.plot(temperatur[::2],f(temperatur[::2],*params),'b-',label='Lineare Regression')
-#plt.yscale('log')
-plt.grid()
+plt.xlim(1/300,1/350)
+plt.ylim(1e-4,1e-2)
+aufvariabele=np.linspace(273.16,350,1000)
+plt.plot(1/temperatur[::2] ,unp.nominal_values(viskositat_temperatur),'rx',label='Messwerte')
+plt.plot(1/aufvariabele,f(aufvariabele,*params),'b-',label='Regressions Kurve')
+plt.yscale('log')
+plt.grid(True,which="both")
 plt.legend(loc='best')
-plt.xlabel('')
-plt.ylabel('')
-plt.show()
-#plt.savefig('.pdf')
+plt.xlabel(r'$T\ in \ \mathrm{K} $')
+plt.ylabel(r'$\eta \ in \ \mathrm{P\!a}\, \mathrm{s}$')
+#plt.tight_layout()
+#plt.show()
+plt.savefig('viskositaet_temp_log.pdf')

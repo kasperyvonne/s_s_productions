@@ -276,7 +276,7 @@ plt.xlim(0,0.07)
 x=np.linspace(0,0.28,1000)
 
 plt.plot(abstand[::3]**2,schwingungsdauer_mittel**2,'rx',label='Messwerte')
-plt.plot(x**2,m*x**2+b,'b-',label='Lineare Regression')
+plt.plot(x**2,m*x**2+b,'b-',label='Regressionsgerade')
 #plt.plot(abstand[::3]**2,f(abstand[::3]**2,*params_p),'y-',label='Fit')
 plt.legend(loc='best')
 plt.ylabel(r'$T^2 \ in \ \mathrm{s}^2$')
