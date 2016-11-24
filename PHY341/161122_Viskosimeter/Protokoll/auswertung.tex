@@ -16,8 +16,9 @@ Kugel 1 & $\num{7.565} $&  $\num{7.5625} $ & $\num{7.565} $  & $\num{4.45}$ & $\
 Kugel 2  & $\num{7.65} $&  $\num{7.65} $ & $\num{7.65} $ & $\num{4.6}$ & $\num{4.6} $ & $\num{4.61} $ \\
 \bottomrule
 \end{tabular}
-\caption{Abmessung Kugeln}
+\caption{Abmessung der Kugeln}
 \label{tab:messwerte_kugel}
+\end{table}
 
 Der Mittelwert der Messreihen wird mittels
 
@@ -49,6 +50,65 @@ folgende gemittelten Werte:
 \end{aligned}
 \end{align}
 
+Mithilfe der gemittelten Werte und der Formel
 
+\begin{equation*}
+\rho=\frac{m}{V_{k}} \qquad \text{mit} \, V_{k}=\frac{4}{3}\pi r^3
+\end{equation*}
 
+können die Dichten der Kugeln bestimmt werden.
+Es ergibt sich:
+
+\begin{align*}
+\rho_{1}&=\left(\num{2451.0}\pm\num{1.6}\right) \si{\kilogram\per\cubic\meter}\\
+\rho_{2}&=\left(\num{2454.7}\pm\num{1.5}\right) \si{\kilogram\per\cubic\meter}
+\end{align*}
+
+\subsection{Bestimmung der Viskosität von Wasser bei Zimmertemperatur}
+Um die Viskosität zu bestimmen wird neben der Dichte von Wasser die Fallzeit von der kleinen Kugel benötigt.
+Die gemessenen Werte sind in Tabelle \ref{tab:messwerte_fallzeit_kugel_klein} abgebildet. 
+\begin{table}
+\centering
+\begin{tabular} {c}
+	\toprule
+  Fallzeit $t$ in $\si{\second}$ \\
+  \midrule
+  $\num{12.7}$ \\
+  $\num{12.8}$ \\
+  $\num{12.9}$ \\
+  $\num{12.8}$ \\
+  $\num{12.8}$ \\
+  $\num{12.8}$ \\
+  $\num{12.7}$ \\
+  $\num{12.7}$ \\
+  $\num{12.7}$ \\
+  $\num{12.8}$ \\
+\bottomrule
+\end{tabular}
+\caption{Fallzeiten der kleinen Kugel im Viskosimeter bei $\SI{20}{\degreeCelsius}$}
+\label{tab:messwerte_fallzeit_kugel_klein}
 \end{table}
+
+Gemittelt ergibt sich
+
+\begin{equation}
+\label{eq:gemittelte_fallzeit_klein}
+t_{1}=\left(\num{12.78}\pm\num{0.02}\right) \si{\second}.
+\end{equation}
+Mittels der Gleichung \ref{eq: eta} ergibt sich als Viskosität
+für Wasser bei $\SI{20}{\degreeCelsius}$:
+
+\begin{equation}
+\label{eq:viskosi_wasser}
+\eta_{20}=\left(\num{0.0014}\pm\num{e-5}\right) \si{\pascal\second}
+\end{equation}
+
+Für die Dichte von Wasser bei $\SI{20}{\degreeCelsius}$ wurde als
+Literaturwert $\rho_{20}=\SI{998.21}{\kilogram\per\cubic\meter}$ angenommen. %Wichtig: Literaturverweis angeben
+
+\subsection{Bestimmungen der Apperaturkonstante für die große Kugel}
+
+
+
+
+
