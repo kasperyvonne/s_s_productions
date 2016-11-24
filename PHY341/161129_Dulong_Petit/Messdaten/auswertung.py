@@ -7,12 +7,13 @@ u = UnitRegistry()
 Q_ = u.Quantity
 
 #umrechnung einheiten mit var.to('unit')
-# Einheiten für pint:dimensionless, meter, second, degC, kelvin
+# Einheiten für pint:dimensionless, meter, second, degC, kelvin, ampere, kilogram, gram, pascal, bar, speed_of_light, mol
 #beispiel:
 a = ufloat(5, 2) * u.meter
-b = Q_(unp.uarray([5,4,3], [0.1, 0.2, 0.3]), 'meter')
-c = Q_(0, 'degC')
-c.to('kelvin')
-print(c.to('kelvin'))
+b = Q_(unp.uarray([5,4,3], [0.1, 0.2, 0.3]), 'cal')
+c = Q_(1, 'cal')
+s = Q_(1, 'second')
+print(c.to('joule'))
 print(a**2)
-print(b**2)
+print(b)
+###############################
