@@ -19,6 +19,11 @@ durchmesser_1*=0.5*1e-3
 durchmesser_2*=0.5*1e-3
 masse_1*=1e-3
 masse_2*=1e-3
+print(durchmesser_1)
+print(durchmesser_2)
+print('\n')
+print(masse_1)
+print(masse_2)
 
 #Standartabweichung und Mittelwert 
 def mittel_und_abweichung(messreihe):
@@ -189,8 +194,8 @@ plt.plot(1/aufvariabele,f(aufvariabele,*params),'b-',label='Regressions Kurve')
 plt.yscale('log')
 plt.grid(True,which="both")
 plt.legend(loc='best')
-plt.xlabel(r'$T\ in \ \mathrm{K} $')
-plt.ylabel(r'$\eta \ in \ \mathrm{P\!a}\, \mathrm{s}$')
+plt.xlabel(r'$1/T\ in \ \mathrm{K} $')
+plt.ylabel(r'$\log{\eta} \ in \ \mathrm{P\!a}\, \mathrm{s}$')
 #plt.tight_layout()
 #plt.show()
-plt.savefig('viskositaet_temp_log.pdf')
+#plt.savefig('viskositaet_temp_log.pdf')

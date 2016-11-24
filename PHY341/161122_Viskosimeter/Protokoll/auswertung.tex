@@ -1,1 +1,54 @@
 \section{Auswertung}
+
+
+\subsection{Bestimmung der Kugeldichten}
+
+In Tabelle \ref{tab:messwerte_kugel} sind die gemessenen Radien und Masses der Kugel 
+einzusehen.
+
+\begin{table}
+\centering
+\begin{tabular} {ccccccc}
+	\toprule
+  & \multicolumn{3}{c}{Radius in $\si{\meter}\cdot \num{e-3}$}  & \multicolumn{3}{c}{Masse in $\si{\kilogram}\cdot \num{e-3}$} \\
+\midrule \\
+Kugel 1 & $\num{7.565} $&  $\num{7.5625} $ & $\num{7.565} $  & $\num{4.45}$ & $\num{4.44} $ & $\num{4.44} $ \\
+Kugel 2  & $\num{7.65} $&  $\num{7.65} $ & $\num{7.65} $ & $\num{4.6}$ & $\num{4.6} $ & $\num{4.61} $ \\
+\bottomrule
+\end{tabular}
+\caption{Abmessung Kugeln}
+\label{tab:messwerte_kugel}
+
+Der Mittelwert der Messreihen wird mittels
+
+\begin{equation}
+\label{eq:mittel}
+\bar{x}=\frac{1}{n}\sum_{i=1}x_i
+\end{equation}
+
+berechnet. Dabei wird der zugehörige Fehler
+durch 
+\begin{equation}
+\label{eq:stand_ab}
+\bar{\sigma}_{\bar{x}}=\sqrt{\frac{1}{n(n-1)}\sum_{i=1}^{n}(x_i-\bar{x})^2}.
+\end{equation}
+
+bestimmt.
+
+Für die Messungen aus \ref{tab:messwerte_kugel} ergeben sich 
+folgende gemittelten Werte:
+
+\begin{align}
+\label{eq:abmessungen_kugel}
+\begin{aligned}
+\overline{m}_{1}&= \left(\num{0.0044}\pm\num{e-6}\right) \si{\kilogram} \\
+\overline{m}_{2}&= \left(\num{0.0046}\pm\num{e-6}\right) \si{\kilogram} \\
+\hfill \\
+\overline{r}_{1}&= \left(\num{0.0076}\pm\num{e-7}\right) \si{\meter} \\
+\overline{r}_{2}&= \left(\num{0.0077}\pm\num{0}\right) \si{\meter} \\
+\end{aligned}
+\end{align}
+
+
+
+\end{table}
