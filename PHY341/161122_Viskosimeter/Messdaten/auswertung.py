@@ -74,7 +74,7 @@ print('\n')
 
 radius_klein=mittel_und_abweichung(durchmesser_1)
 radius_gross=mittel_und_abweichung(durchmesser_2)
-
+durchmesser_rohr=mittel_und_abweichung(2*durchmesser_2)
 print('Radius Kugel 1', radius_klein)
 print('Radius Kugel 2',radius_gross)
 print('\n')
@@ -96,10 +96,10 @@ print('\n')
 
 #Dichte der Flüssigkeit einfügen:
 temp_wasser, dichte_wasser=np.genfromtxt('wasser_dichte_temp_gekuerzt.txt',unpack=True)
-dichte_wasser*=1*-3
-dichte_wasser_20=9.982100000000000417e-04
+dichte_wasser*=1e3
+dichte_wasser_20=9.982100000000000417e2
 # Berechnung Viskosität und apperaturkonstante
-apperaturkonst_klein=0.07640e-6 #(mPam^3/kg)
+apperaturkonst_klein=0.07640e-6 #(Pam^3/kg)
 fallstrecke=float(100e-3)
 
 fallzeit_mittel_klein=mittel_und_abweichung(fallzeit_kleine_kugel)
@@ -128,7 +128,7 @@ print('\n')
 
 
 def viskositaet(dichte_wasser,dichte_kugel,fallzeit_mittel):
-	return apperaturkonst_klein*(dichte_kugel-dichte_wasser)*fallzeit_mittel
+	return (apperaturkonst_klein*(dichte_kugel-dichte_wasser)*fallzeit_mittel)
 
 viskositate_kugel_klein=viskositaet(dichte_wasser_20,dichte_klein,fallzeit_mittel_klein)
 print
@@ -151,39 +151,45 @@ viskositat_temperatur=viskositaet_gross(dichte_wasser,dichte_gross,fallzeit_mitt
 print('viskositaet_temperatur', temperatur[::2],viskositat_temperatur)
 print('\n')
 
+#
 def reynold_zahl(dichte_wasser,geschwindigkeit_mittel_gross,durchmesser,viskositate_kugel_klein):
 	return (dichte_wasser*geschwindigkeit_mittel_gross*durchmesser)/viskositate_kugel_klein 
 
-rey_zahl=[]
-hilf=0
-for i in geschwindigkeit_mittel_gross_t:
-	rey_zahl.append(reynold_zahl(dichte_wasser[hilf],i,durchmesser_gross,viskositat_temperatur[hilf]))
-	hilf+=1
+
+dichte_wasser_array=np.array([ufloat(n, 0) for n in dichte_wasser])
+geschwindigkeit_mittel_gross_array=np.array(geschwindigkeit_mittel_gross_t)
+viskositaet_temperatur_array=np.array(viskositat_temperatur)
+
+print(type(dichte_wasser_array), len(dichte_wasser_array), dichte_wasser_array[0])
+print(type(geschwindigkeit_mittel_gross_array),len(geschwindigkeit_mittel_gross_array), geschwindigkeit_mittel_gross_array[0])
+print(type(viskositaet_temperatur_array),len(viskositaet_temperatur_array), viskositaet_temperatur_array[0])
+print(durchmesser_rohr)
+rey_zahl=reynold_zahl(dichte_wasser_array,geschwindigkeit_mittel_gross_array,durchmesser_rohr,viskositaet_temperatur_array)
 
 print('Reynold Zahl',rey_zahl)
 print('\n')
 
 ##Lineare-regression
-#m,m_err,b,b_err=linregress(1/tempertur_gross,np.log(viskositaet_temperatur))
-#
-#m_u=ufloat(m,m_err)
-#b_u=ufloat(b,b_err)
-#print('Steigung', m_u)
-#print('y-Achsenabschnitt',b_u)
+
+def f(x,a,b):
+	return a*np.exp(b/x)
+
+params,covariance=curve_fit(f,temperatur[::2],unp.nominal_values(viskositat_temperatur))
+
+print(params)
 #print('\n')
 #
 ##Plotbereich
-#
+
 #plt.xlim()
-#plt.ylim()
+plt.ylim(1e-3,1.5e-3)
 #aufvariabele=np.linsspace(1/273.16,1/350,1000)
-#
-#plt.plot(1/tempertur_gross,np.log(viskositaet_temperatur),'rx',label='Messwerte')
-#plt.plot(aufvariabele,m*aufvariabele+b,'b-',label='Lineare Regression')
+plt.plot(temperatur[::2] ,unp.nominal_values(viskositat_temperatur),'rx',label='Messwerte')
+plt.plot(temperatur[::2],f(temperatur[::2],*params),'b-',label='Lineare Regression')
 #plt.yscale('log')
-#plt.grid()
-#plt.legend(loc='best')
-#plt.xlabel()
-#plt.ylabel()
-#plt.show()
+plt.grid()
+plt.legend(loc='best')
+plt.xlabel('')
+plt.ylabel('')
+plt.show()
 #plt.savefig('.pdf')
