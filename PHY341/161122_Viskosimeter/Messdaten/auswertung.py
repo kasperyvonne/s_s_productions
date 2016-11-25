@@ -11,9 +11,13 @@ fallzeit_kleine_kugel, fallzeit_große_kugel = np.genfromtxt('fallzeit_raumtemp.
 temperatur, fallzeit_kugel_t = np.genfromtxt('fallzeit_temperatur.txt',unpack=True)
 masse_1, masse_2 = np.genfromtxt('masse.txt',unpack=True)
 durchmesser_1,durchmesser_2=np.genfromtxt('durchmesser.txt',unpack=True)
-
+temperatur_lit, viskosi_lit= np.genfromtxt('viskositaet_k.txt', unpack = True)
 #Umrechnung
 temperatur+=273.16
+temperatur_lit+=273.16
+viskosi_lit*=1e-03
+print('Viskositet',viskosi_lit)
+print('\n')
 durchmesser_gross=durchmesser_2*1e-3
 durchmesser_1*=0.5*1e-3
 durchmesser_2*=0.5*1e-3
@@ -182,22 +186,47 @@ def f(x,a,b):
 	return a*np.exp(b/x)
 
 params,covariance=curve_fit(f,temperatur[::2],unp.nominal_values(viskositat_temperatur))
-
+params_lit,covariance_lit=curve_fit(f,temperatur_lit,viskosi_lit)
 print(params)
 print('\n')
 
 ##Plotbereich
 
-plt.xlim(1/300,1/350)
-plt.ylim(1e-4,1e-2)
+#für loga
+plt.xlim(1/290,1/350)
+#plt.ylim(1e-4,1e-2)
+
+##Für nicht logaritmisch
+#plt.xlim(290,345)
+#plt.ylim()
+
 aufvariabele=np.linspace(273.16,350,1000)
+#Loga
 plt.plot(1/temperatur[::2] ,unp.nominal_values(viskositat_temperatur),'rx',label='Messwerte')
 plt.plot(1/aufvariabele,f(aufvariabele,*params),'b-',label='Regressions Kurve')
-plt.yscale('log')
+plt.plot(1/temperatur_lit,viskosi_lit,'gx',label='Literaturwerte')
+plt.plot(1/aufvariabele,f(aufvariabele,*params_lit),'-k',label='Regressions Kurve')
+
+#nicht Loga
+#plt.plot(temperatur[::2] ,unp.nominal_values(viskositat_temperatur),'rx',label='Messwerte')
+#plt.plot(aufvariabele,f(aufvariabele,*params),'b-',label='Regressions Kurve')
+#plt.plot(temperatur_lit,viskosi_lit,'gx',label='Literaturwerte')
+#plt.plot(aufvariabele,f(aufvariabele,*params_lit),'-k',label='Regressions Kurve')
+
+
+
 plt.grid(True,which="both")
+
 plt.legend(loc='best')
+#für nicht logaritmisch
+#plt.xlabel(r'$T\ in \ \mathrm{K} $')
+#plt.ylabel(r'$\eta \ in \ \mathrm{P\!a}\, \mathrm{s}$')
+
+#Für logaritmisch
 plt.xlabel(r'$1/T\ in \ \mathrm{K} $')
-plt.ylabel(r'$\log{\eta} \ in \ \mathrm{P\!a}\, \mathrm{s}$')
+plt.ylabel(r'$\log{\eta}$')
+plt.yscale('log')
+
 #plt.tight_layout()
 #plt.show()
-#plt.savefig('viskositaet_temp_log.pdf')
+plt.savefig('viskositaet_temp__log_mit_lit.pdf')

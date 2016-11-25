@@ -19,6 +19,8 @@ n_kohl *= 1e-06
 def F1(t, A, B):
     return A * np.exp(B / t)
 
+print(n)
+
 
 paramsF1, covarianceF1 = curve_fit(F1, T, n)
 errorsF1 = np.sqrt(np.diag(covarianceF1))
