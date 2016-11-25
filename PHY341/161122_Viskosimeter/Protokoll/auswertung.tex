@@ -64,14 +64,14 @@ Es ergibt sich:
 \rho_{2}&=\left(\num{2454.7}\pm\num{1.5}\right) \si{\kilogram\per\cubic\meter}
 \end{align*}
 
-\subsection{Bestimmung der Viskosität von Wasser bei Zimmertemperatur}
+\subsection{Bestimmung der Viskosität von Wasser bei Zimmertemperatur} \label{sec:visko}
 Um die Viskosität zu bestimmen wird neben der Dichte von Wasser die Fallzeit von der kleinen Kugel benötigt.
 Die gemessenen Werte sind in Tabelle \ref{tab:messwerte_fallzeit_kugel_klein} abgebildet. 
 \begin{table}
 \centering
 \begin{tabular} {c}
 	\toprule
-  Fallzeit $t$ in $\si{\second}$ \\
+  Fallzeit $t_1$ in $\si{\second}$ \\
   \midrule
   $\num{12.7}$ \\
   $\num{12.8}$ \\
@@ -86,16 +86,15 @@ Die gemessenen Werte sind in Tabelle \ref{tab:messwerte_fallzeit_kugel_klein} ab
 \bottomrule
 \end{tabular}
 \caption{Fallzeiten der kleinen Kugel im Viskosimeter bei $\SI{20}{\degreeCelsius}$}
-\label{tab:messwerte_fallzeit_kugel_klein}
 \end{table}
 
 Gemittelt ergibt sich
 
 \begin{equation}
 \label{eq:gemittelte_fallzeit_klein}
-t_{1}=\left(\num{12.78}\pm\num{0.02}\right) \si{\second}.
+\overline{t}_{1}=\left(\num{12.78}\pm\num{0.02}\right) \si{\second}.
 \end{equation}
-Mittels der Gleichung \ref{eq: eta} ergibt sich als Viskosität
+Mittels der Gleichung \eqref{eq: eta} ergibt sich als Viskosität
 für Wasser bei $\SI{20}{\degreeCelsius}$:
 
 \begin{equation}
@@ -107,8 +106,104 @@ Für die Dichte von Wasser bei $\SI{20}{\degreeCelsius}$ wurde als
 Literaturwert $\rho_{20}=\SI{998.21}{\kilogram\per\cubic\meter}$ angenommen. %Wichtig: Literaturverweis angeben
 
 \subsection{Bestimmungen der Apperaturkonstante für die große Kugel}
+Um die Apperaturkonstante für die große Kugel zu bestimmen nutzt man die 
+Gleichung \eqref{eq: eta}. Diese wird umgestellt zu 
 
+\begin{equation*}
+\Leftrightarrow \quad K_{g}=\frac{\eta}{\left(\rho_2-\rho_{20}\right)\overline{t}_2}
+\end{equation*}
 
+Hierbeisei $)\overline{t}_2$ die Fallzeit der zweiten Kugel im Viskosimeter.
+Die aufgenommenen Messwerte sind in Tabelle \ref{tab:messwerte_fallzeit_kugel_gross} dargestellt.
 
+\begin{table}
+\centering
+\begin{tabular} {c}
+  \toprule
+  Fallzeit $t_2$ in $\si{\second}$ \\
+  \midrule
+  $\num{97.3}$ \\
+  $\num{97.6}$ \\
+  $\num{97.4}$ \\
+  $\num{97.8}$ \\
+  $\num{97.2}$ \\
+  $\num{97.3}$ \\
+  $\num{97.2}$ \\
+  $\num{97.3}$ \\
+  $\num{97.6}$ \\
+  $\num{97.7}$ \\
+\bottomrule
+\end{tabular}
+\caption{Fallzeiten der großen Kugel im Viskosimeter bei $\SI{20}{\degreeCelsius}$}
+\label{tab:messwerte_fallzeit_kugel_gross}
+\end{table}
 
+Als gemittelte Zeit ergibt sich:
+\begin{equation}
+\label{eq:gemittelte_fallzeit_gross}
+\overline{t}_{2}=\left(\num{97.44}\pm\num{0.07}\right) \si{\second}.
+\end{equation}
 
+Mit dem Ergebnis aus \eqref{eq:viskosi_wasser} folgt für die 
+Apperaturkonstante
+
+\begin{equation}
+\label{eq:app_konst_gross}
+K_{g}=\left(\num{9.98}\pm\num{0.02}\right)\cdot{\num{e-9}} \si{\pascal\cubic\meter\per\kilogram}
+\end{equation}
+
+\subsection{Bestimmung der Viskosität in Abhängigkeit von der Temperatur}
+
+Das prinzipielle Verfahren zu Berechnung der Viskosotät $\eta$ ist
+das Selbe, wie im Unterkapitel \ref{sec:visko}.
+Lediglich die Dichte von Wasser ist nicht mehr konstant.
+Als Dichte des Wasser wurden folgende Dichten angenommen:  %Noch literatur ref
+
+\begin{table}
+\centering
+\begin{tabular} {cc}
+  \toprule
+  Temperatur in $\si{\kelvin}$ & Dichte $\rho$ in $\si{\kilogram\per\cubic\meter}$ \\
+  \midrule
+  $\num{303.16}$ &$\num{995.65}$ \\
+  $\num{308.16}$ &$\num{994.00}$\\
+  $\num{313.16}$ &$\num{992.20}$\\
+  $\num{318.16}$ &$\num{990.20}$\\
+  $\num{323.16}$ &$\num{988.00}$\\
+  $\num{328.16}$ &$\num{985.70}$\\
+  $\num{333.16}$ &$\num{983.20}$\\
+  $\num{338.16}$ &$\num{980.60}$\\
+  $\num{343.16}$ &$\num{977.8}$\\
+\bottomrule
+\end{tabular}
+\caption{Temperaturabhängige Dichte von Wasser}
+\label{tab:dichtewasser}
+\end{table}
+
+Bei den späteren Berechnungen wurde für die Dichte von Waser, bei den Temperaturen $\SI{336.16}{\kelvin}$ und $\SI{339.16}{\kelvin}$ 
+der Wert $\SI{983.20}{\kilogram\per\cubic\meter}$ angenommen.
+
+Für die Fallzeit der großen Kugel wurden die in Tabelle \ref{tab:}
+dargestellten Werte bestimmt:
+
+\begin{table}
+\centering
+\begin{tabular} {cccc}
+  \toprule
+  Temperatur in $\si{\kelvin}$ & \multicolumn{2}{c}{Fallzeit $t$ in $\si{\second}$} & $\overline{t}$ in $\si{\second}$ \\
+  \midrule 
+  $\num{303.16}$ & $\num{96.9}$  & $\num{97.0}$ & $\num{97}\pm\num{0.04}$ \\
+  $\num{308.16}$ & $\num{93.6}$  & $\num{93.7}$ & $\num{93.7}\pm\num{0.05}$ \\
+  $\num{313.16}$ & $\num{92.6}$ & $\num{93}$   & $\num{92.8}\pm\num{0.11}$ \\
+  $\num{318.16}$ & $\num{90.4}$ & $\num{90.5}$ &  $\num{90.4}\pm\num{0.03}$ \\
+  $\num{323.16}$ & $\num{87.7}$ & $\num{87.5}$ & $\num{87.6}\pm\num{0.06}$ \\
+  $\num{328.16}$ & $\num{83.4}$ & $\num{83.4}$ & $\num{83.4}\pm\num{0.03}$ \\
+  $\num{333.16}$ & $\num{81.4}$ & $\num{81.3}$ & $\num{81.4}\pm\num{0.01}$ \\
+  $\num{336.16}$ & $\num{79.6}$ & $\num{79.6}$ & $\num{79.6}\pm\num{0}$ \\
+  $\num{339.16}$ & $\num{78.0}$ &  $\num{77.6}$ & $\num{77.8}\pm\num{0.13}$ \\
+  $\num{343.16}$ & $\num{73.0}$ & $\num{73.2}$ & $\num{73.1}\pm\num{0.05}$ \\
+\bottomrule
+\end{tabular}
+\caption{Fallzeiten der großen Kugel im Viskosimeter bei unterschiedlichen Temperaturen}
+\label{tab:messwerte_fallzeit_kugel_gross_temo}
+\end{table}

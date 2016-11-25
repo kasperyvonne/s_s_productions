@@ -102,6 +102,8 @@ print('\n')
 #Dichte der Flüssigkeit einfügen:
 temp_wasser, dichte_wasser=np.genfromtxt('wasser_dichte_temp_gekuerzt.txt',unpack=True)
 dichte_wasser*=1e3
+print('dichte wasser', dichte_wasser)
+print('\n')
 dichte_wasser_20=9.982100000000000417e2
 # Berechnung Viskosität und apperaturkonstante
 apperaturkonst_klein=0.07640e-6 #(Pam^3/kg)
