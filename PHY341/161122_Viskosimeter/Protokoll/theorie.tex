@@ -13,7 +13,7 @@ $v$ durch die Flüssigkeit bewegt, mittels des empirisch gefundenen \emph{Stokes
 \end{equation}
 Hierbei handelt es sich bei $\eta$ um die anfangs erwähnte \emph{dynamische Viskosität}, deren Abhängigkeit von der Temperatur $T$ durch eine Funktion der Form
 \begin{equation}
-  \eta(T) = \mathup{A} \cdot \exp(\frac{B}{T}) \quad \mathup{A}, \mathup{B} \in \mathbb{R}
+  \eta(T) = \mathup{A} \cdot \exp\left(\frac{B}{T}\right) \quad \mathup{A}, \mathup{B} \in \mathbb{R}
   \label{eq: andrad}
 \end{equation}
 beschrieben werden kann (\emph{Andredesche Funktion}). \\
@@ -24,9 +24,13 @@ Betrag sich aus dem \emph{Prinzip des Archimedes} ergibt.
 \end{equation}
 Hierbei ist $\rho_{Fl}$ die Dichte der Flüssigkeit und $V_K$ das Volumen des Körpers (hier: Kugel). Durch das Ansteigen der Reibungskraft mit der Geschwindigkeit,
 stellt sich nach kurzer Zeit im Kräftgleichgewicht eine konstante Geschwindigkeit $v_0$ ein.
-\begin{equation}
-  6 \pi \cdot \eta \cdot v_0 \cdot R_K  = (\rho_K - \rho_{Fl}) \cdot \frac{4}{3}\pi R_K^3 \cdot g  \Leftrightarrow \eta = \frac{2 (\rho_K - \rho_{Fl}) \cdot R_K^2 \cdot  g}{9 v_0}
-\end{equation}
+\begin{align}
+  \begin{aligned}
+  6 \pi \cdot \eta \cdot v_0 \cdot R_K  &= (\rho_K - \rho_{Fl}) \cdot \frac{4}{3}\pi R_K^3 \cdot g  \\
+  \hfill
+  \Leftrightarrow \quad \eta &= \frac{2 (\rho_K - \rho_{Fl}) \cdot R_K^2 \cdot  g}{9 v_0}
+\end{aligned}
+\end{align}
 Mit der Dichte des Körpers $\rho_K$. Durch Ersetzen der Geschwindigkeit $v_0 = s / t$ ergibt sich:
 \begin{equation}
   \eta = \frac{2 (\rho_K - \rho_{Fl}) R_K^2 \cdot  g \cdot t}{9  s} := K (\rho_K - \rho_{Fl}) \cdot t
