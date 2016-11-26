@@ -193,12 +193,12 @@ print('\n')
 ##Plotbereich
 
 #für loga
-#plt.xlim(1/290,1/350)
+#plt.xlim(1/300,1/350)
 #plt.ylim(1e-4,1e-2)
 
 ##Für nicht logaritmisch
-plt.xlim(290,345)
-#plt.ylim()
+plt.xlim(300,345)
+
 
 aufvariabele=np.linspace(273.16,350,1000)
 #Loga
@@ -222,12 +222,11 @@ plt.legend(loc='best')
 #für nicht logaritmisch
 plt.xlabel(r'$T\ in \ \mathrm{K} $')
 plt.ylabel(r'$\eta \ in \ \mathrm{P\!a}\, \mathrm{s}$')
-
 #Für logaritmisch
 #plt.xlabel(r'$1/T\ in \ \mathrm{K} $')
 #plt.ylabel(r'$\log{\eta}$')
 #plt.yscale('log')
 
 #plt.tight_layout()
-plt.show()
-#plt.savefig('viskositaet_temp__log_mit_lit.pdf')
+#plt.show()
+plt.savefig('viskositaet_temp_mit_lit.pdf')

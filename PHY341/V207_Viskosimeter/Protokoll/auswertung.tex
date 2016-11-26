@@ -35,7 +35,9 @@ durch
 \end{equation}
 
 bestimmt.
-
+\\ \hfill
+\\
+\hfill
 Für die Messungen aus \ref{tab:messwerte_kugel} ergeben sich 
 folgende gemittelten Werte:
 
@@ -86,8 +88,11 @@ Die gemessenen Werte sind in Tabelle \ref{tab:messwerte_fallzeit_kugel_klein} ab
 \bottomrule
 \end{tabular}
 \caption{Fallzeiten der kleinen Kugel im Viskosimeter bei $\SI{20}{\degreeCelsius}$}
+\label{tab:messwerte_fallzeit_kugel_klein}
 \end{table}
-
+\\
+\\
+\hfill
 Gemittelt ergibt sich
 
 \begin{equation}
@@ -103,7 +108,7 @@ für Wasser bei $\SI{20}{\degreeCelsius}$:
 \end{equation}
 
 Für die Dichte von Wasser bei $\SI{20}{\degreeCelsius}$ wurde als
-Literaturwert $\rho_{20}=\SI{998.21}{\kilogram\per\cubic\meter}$ angenommen. %Wichtig: Literaturverweis angeben
+Literaturwert $\rho_{20}=\SI{998.21}{\kilogram\per\cubic\meter}$ angenommen\cite{lit_dichte}. %Wichtig: Literaturverweis angeben
 
 \subsection{Bestimmungen der Apperaturkonstante für die große Kugel}
 Um die Apperaturkonstante für die große Kugel zu bestimmen nutzt man die 
@@ -157,7 +162,7 @@ K_{g}=\left(\num{9.98}\pm\num{0.02}\right)\cdot{\num{e-9}} \si{\pascal\cubic\met
 Das prinzipielle Verfahren zu Berechnung der Viskosotät $\eta$ ist
 das Selbe, wie im Unterkapitel \ref{sec:visko}.
 Lediglich die Dichte von Wasser ist nicht mehr konstant.
-Als Dichte des Wasser wurden folgende Dichten angenommen:  %Noch literatur ref
+Als Dichte des Wasser wurden folgende Dichten angenommen \cite{lit_dichte}:  %Noch literatur ref
 
 \begin{table}
 \centering
@@ -238,14 +243,14 @@ Die Daten werden in Abbildung \ref{fig:t_v_v} und \ref{fig:t_v_l_v} dargestellt 
 \FloatBarrier
 \begin{figure}
 \centering
-\includegraphics[width=0.75\textwidth]{pics/viskositaet_temp_mit_lit.pdf}
+\includegraphics[width=0.7\textwidth]{pics/viskositaet_temp_mit_lit.pdf}
 \caption{Temperatur gegen Viskosität}
 \label{fig:t_v_v}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.75\textwidth]{pics/viskositaet_temp__log_mit_lit.pdf}
+\includegraphics[width=0.7\textwidth]{pics/viskositaet_temp__log_mit_lit.pdf}
 \caption{1/Temperatur gegen Viskosität (Halblogarithmische Skala)} %Überprüfen
 \label{fig:t_v_l_v}
 \end{figure}
@@ -316,3 +321,6 @@ zu finden.
 \caption{\emph{Reynolds-Zahl} des Viskosimeter bei unterschiedlichen Temperaturen}
 \label{tab:rey_visko}
 \end{table}
+Die kritische \emph{Reynolds-Zahl} für Wasser liegt bei $2040$\cite{rey}.
+Darum handelt es sich um eine Laminare Strömung im Viskosimeter.
+ %Literatur
