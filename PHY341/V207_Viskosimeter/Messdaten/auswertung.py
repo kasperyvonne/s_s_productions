@@ -187,46 +187,47 @@ def f(x,a,b):
 
 params,covariance=curve_fit(f,temperatur[::2],unp.nominal_values(viskositat_temperatur))
 params_lit,covariance_lit=curve_fit(f,temperatur_lit,viskosi_lit)
-print(params)
+print('Parameter a,b' ,params)
 print('\n')
 
 ##Plotbereich
 
 #für loga
-plt.xlim(1/290,1/350)
+#plt.xlim(1/290,1/350)
 #plt.ylim(1e-4,1e-2)
 
 ##Für nicht logaritmisch
-#plt.xlim(290,345)
+plt.xlim(290,345)
 #plt.ylim()
 
 aufvariabele=np.linspace(273.16,350,1000)
 #Loga
-plt.plot(1/temperatur[::2] ,unp.nominal_values(viskositat_temperatur),'rx',label='Messwerte')
-plt.plot(1/aufvariabele,f(aufvariabele,*params),'b-',label='Regressions Kurve')
-plt.plot(1/temperatur_lit,viskosi_lit,'gx',label='Literaturwerte')
-plt.plot(1/aufvariabele,f(aufvariabele,*params_lit),'-k',label='Regressions Kurve')
+#plt.plot(1/temperatur[::2] ,unp.nominal_values(viskositat_temperatur),'rx',label='Messwerte')
+#plt.plot(1/aufvariabele,f(aufvariabele,*params),'b-',label='Regressions Kurve')
+#plt.plot(1/temperatur_lit,viskosi_lit,'gx',label='Literaturwerte')
+#plt.plot(1/aufvariabele,f(aufvariabele,*params_lit),'-k',label='Regressions Kurve')
 
 #nicht Loga
-#plt.plot(temperatur[::2] ,unp.nominal_values(viskositat_temperatur),'rx',label='Messwerte')
-#plt.plot(aufvariabele,f(aufvariabele,*params),'b-',label='Regressions Kurve')
-#plt.plot(temperatur_lit,viskosi_lit,'gx',label='Literaturwerte')
-#plt.plot(aufvariabele,f(aufvariabele,*params_lit),'-k',label='Regressions Kurve')
+plt.plot(temperatur[::2] ,unp.nominal_values(viskositat_temperatur),'rx',label='Messwerte')
+plt.plot(aufvariabele,f(aufvariabele,*params),'b-',label='Regressions Kurve')
+plt.plot(temperatur_lit,viskosi_lit,'gx',label='Literaturwerte')
+plt.plot(aufvariabele,f(aufvariabele,*params_lit),'-k',label='Regressions Kurve')
 
 
 
 plt.grid(True,which="both")
 
 plt.legend(loc='best')
+
 #für nicht logaritmisch
-#plt.xlabel(r'$T\ in \ \mathrm{K} $')
-#plt.ylabel(r'$\eta \ in \ \mathrm{P\!a}\, \mathrm{s}$')
+plt.xlabel(r'$T\ in \ \mathrm{K} $')
+plt.ylabel(r'$\eta \ in \ \mathrm{P\!a}\, \mathrm{s}$')
 
 #Für logaritmisch
-plt.xlabel(r'$1/T\ in \ \mathrm{K} $')
-plt.ylabel(r'$\log{\eta}$')
-plt.yscale('log')
+#plt.xlabel(r'$1/T\ in \ \mathrm{K} $')
+#plt.ylabel(r'$\log{\eta}$')
+#plt.yscale('log')
 
 #plt.tight_layout()
-#plt.show()
-plt.savefig('viskositaet_temp__log_mit_lit.pdf')
+plt.show()
+#plt.savefig('viskositaet_temp__log_mit_lit.pdf')

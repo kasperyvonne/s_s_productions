@@ -234,4 +234,85 @@ werden deshalb in der Tabelle nicht aufgeführt.
 \label{tab:visko_wasser_temp}
 \end{table}
 
+Die Daten werden in Abbildung \ref{fig:t_v_v} und \ref{fig:t_v_l_v} dargestellt und mit den Literaturwerten verglichen. Eine qualitativer Vergleich erfolgt anschließend in der Diskussion
+\FloatBarrier
+\begin{figure}
+\centering
+\includegraphics[width=0.75\textwidth]{pics/viskositaet_temp_mit_lit.pdf}
+\caption{Temperatur gegen Viskosität}
+\label{fig:t_v_v}
+\end{figure}
 
+\begin{figure}
+\centering
+\includegraphics[width=0.75\textwidth]{pics/viskositaet_temp__log_mit_lit.pdf}
+\caption{1/Temperatur gegen Viskosität (Halblogarithmische Skala)} %Überprüfen
+\label{fig:t_v_l_v}
+\end{figure}
+\FloatBarrier
+
+Hierbei wurde mittels der Python Bibliothek \emph{Scipy} eine %... ersetzen, scipy am besten mit \emph{} setzen
+Regression an eine Funktion der Form $T_i = Ae^{\frac{B}{T}}$ bestimmt.
+Als Parameter ergaben sich:
+\begin{equation*}
+A=\SI{1.74e-3}{\pascal\second}\quad B=\SI{6.4e2}{\kelvin} %Einheiten ?
+\end{equation*}
+
+\subsection{Bestimmung der Reynolds-Zahl}
+
+Die \emph{Reynolds-Zahl} wird durch den Zusammenhang:
+
+\begin{equation*}
+\map{Re}=\frac{\rho v d}{\eta}
+\end{equation*}
+Dabei sei $d$ der Rohrdurchmesser und $v$ die Fallgeschindigkeit der Kugel.
+Der Rohrdurchmesser wird durch den Durchmesser der großen Kugel angenährt.
+Die Fallgeschwindigkeiten der Kugel bei den unterschiedlichen Temperaturen sind in Tabelle \ref{tab:fall_kugel} einzusehen.
+Der Fehler der Geschwindigkeit ist in der Größenordnung $\num{e-6}$ und wird deshalb nicht mit aufgeslistet.
+
+\begin{table}
+\centering
+\begin{tabular} {cc}
+  \toprule
+  Temperatur in $\si{\kelvin}$ & Fallgeschwindigkeit $v$ in $\si{\meter\per\second}$ \\
+  \midrule 
+  $\num{303.16}$ & $\num{0.00103}$ \\
+  $\num{308.16}$ & $\num{0.00107}$ \\
+  $\num{313.16}$ & $\num{0.00108}$ \\ 
+  $\num{318.16}$ & $\num{0.00110}$ \\
+  $\num{323.16}$ & $\num{0.00114}$ \\ 
+  $\num{328.16}$ & $\num{0.0012}$ \\ 
+  $\num{333.16}$ & $\num{0.00123}$ \\ 
+  $\num{336.16}$ & $\num{0.001126}$ \\
+  $\num{339.16}$ & $\num{0.00129}$ \\
+  $\num{343.16}$ & $\num{0.00137}$ \\
+\bottomrule
+\end{tabular}
+\caption{Fallgeschwindigkeit der großen Kugel bei unterschiedlichen Temperaturen}
+\label{tab:fall_kugel}
+\end{table}
+
+Die sich damit ergebenen Werte für die \emph{Reynolds-Zahl} sind in Tabelle \ref{tab:rey_visko} 
+zu finden.
+
+\begin{table}
+\centering
+\begin{tabular} {cc}
+  \toprule
+  Temperatur in $\si{\kelvin}$ & \emph{Reynolds-Zahl} $\map{Re}$ \\
+  \midrule 
+  $\num{303.16}$ & $\num{11.1}\pm \num{0.03}$ \\
+  $\num{308.16}$ & $\num{11.9}\pm \num{0.03}$ \\
+  $\num{313.16}$ & $\num{12.1}\pm \num{0.04}$ \\ 
+  $\num{318.16}$ & $\num{12.7}\pm \num{0.03}$ \\
+  $\num{323.16}$ & $\num{13.4}\pm \num{0.03}$ \\ 
+  $\num{328.16}$ & $\num{14.8}\pm \num{0.03}$ \\ 
+  $\num{333.16}$ & $\num{15.5}\pm \num{0.03}$ \\ 
+  $\num{336.16}$ & $\num{16.1}\pm \num{0.03}$ \\
+  $\num{339.16}$ & $\num{16.8}\pm \num{0.07}$ \\
+  $\num{343.16}$ & $\num{19}\pm \num{0.05}$ \\
+\bottomrule
+\end{tabular}
+\caption{\emph{Reynolds-Zahl} des Viskosimeter bei unterschiedlichen Temperaturen}
+\label{tab:rey_visko}
+\end{table}
