@@ -3,7 +3,7 @@
 
 \subsection{Bestimmung der Kugeldichten}
 
-In der Tabelle \ref{tab:messwerte_kugel} sind die gemessenen 
+In der Tabelle \ref{tab:messwerte_kugel} sind die gemessenen
 Radien und Massen der Kugeln einzusehen.
 
 \begin{table}
@@ -28,14 +28,14 @@ Der Mittelwert der Messreihen wird mittels
 \end{equation}
 
 bestimmt. Dabei wird der zugehörige Fehler
-durch 
+durch
 \begin{equation}
 \label{eq:stand_ab}
 \bar{\sigma}_{\bar{x}}=\sqrt{\frac{1}{n(n-1)}\sum_{i=1}^{n}(x_i-\bar{x})^2}.
 \end{equation}
 
 berechnet.
-\\ \hfill
+\\ \hfill % wieso platzhalter?
 \\
 \hfill
 Für die Messungen aus \ref{tab:messwerte_kugel} ergeben sich die
@@ -52,10 +52,10 @@ folgenden Werte:
 \end{aligned}
 \end{align}
 
-Der Fehler der Größen in \eqref{eq:abmessungen_kugel} ist in Größenordnung $\pm \mun{e-6}$ 
+Der Fehler der Größen in \eqref{eq:abmessungen_kugel} ist in Größenordnung $\pm \mun{e-6}$
 und wurde deshalb nicht mit aufgeführt.
 
-Durch Benutzung der Formel
+Durch Benutzung der Formel %ausdruck
 
 \begin{equation*}
 \rho=\frac{m}{V_{k}} \qquad \text{mit} \, V_{k}=\frac{4}{3}\pi r^3
@@ -71,7 +71,7 @@ Es ergibt sich:
 
 \subsection{Bestimmung der Viskosität von Wasser bei Zimmertemperatur} \label{sec:visko}
 Um die Viskosität zu bestimmen, wird die Dichte von Wasser und die Fallzeit der kleinen Kugel benötigt.
-Die gemessenen Werte sind in Tabelle \ref{tab:messwerte_fallzeit_kugel_klein} gelistet. 
+Die gemessenen Werte sind in Tabelle \ref{tab:messwerte_fallzeit_kugel_klein} gelistet. %auf
 \begin{table}
 \centering
 \begin{tabular} {c}
@@ -112,13 +112,13 @@ Als Wert errechnet sich:
 \eta_{20}= \num{0.0014} \si{\pascal\second}
 \end{equation}
 
-Der Fehler für die Viskosität liegt bei $\pm\num{e-6}$.
+Der Fehler für die Viskosität liegt bei $\pm\num{e-6}$. %genau bei {e-6} ?
 
-Für die Dichte von Wasser bei $\SI{20}{\degreeCelsius}$ wurde der Literaturwert $\rho_{20}=\SI{998.21}{\kilogram\per\cubic\meter}$ 
+Für die Dichte von Wasser bei $\SI{20}{\degreeCelsius}$ wurde der Literaturwert $\rho_{20}=\SI{998.21}{\kilogram\per\cubic\meter}$
 genutzt\cite{lit_dichte}.
 
 \subsection{Bestimmungen der Apperaturkonstante für die große Kugel}
-Für die Bestimmung der Apperaturkonstante der großen Kugel nutzt man Gleichung \eqref{eq: eta}. 
+Für die Bestimmung der Apperaturkonstante der großen Kugel nutzt man Gleichung \eqref{eq: eta}.
 
 \begin{equation*}
 \Leftrightarrow \quad K_{g}=\frac{\eta}{\left(\rho_2-\rho_{20}\right)\overline{t}_2}
@@ -155,7 +155,7 @@ Als gemittelte Zeit ergibt sich:
 \overline{t}_{2}=\left(\num{97.44}\pm\num{0.07}\right) \si{\second}.
 \end{equation}
 
-Mit dem Ergebnis aus \eqref{eq:viskosi_wasser} ergibt sich für die 
+Mit dem Ergebnis aus \eqref{eq:viskosi_wasser} ergibt sich für die
 Apperaturkonstante
 
 \begin{equation}
@@ -166,7 +166,7 @@ K_{g}=\left(\num{9.98}\pm\num{0.02}\right)\cdot{\num{e-9}} \si{\pascal\cubic\met
 \subsection{Bestimmung der Viskosität in Abhängigkeit von der Temperatur}
 
 Das prinzipielle Verfahren zu Berechnung der Viskosität $\eta$ ist
-dasselbe, wie im Unterkapitel \ref{sec:visko}. %Satz gefällt mir noch nicht
+dasselbe, wie im Unterkapitel \ref{sec:visko}. %Satz gefällt mir noch nicht... vielleicht: Mit der gefundenen Konstante K und der temperaturabhängigen Dichte(ref) kann nun die dynamische Viskosität berechnet werden.
 Lediglich die Dichte von Wasser ist nun temperaturabhängig.
 Aus der Literatur wurde die in Tabelle \ref{tab:dichtewasser} dargestellten Werte
 entnommen \cite{lit_dichte}.  %Noch literatur ref
@@ -192,10 +192,10 @@ entnommen \cite{lit_dichte}.  %Noch literatur ref
 \label{tab:dichtewasser}
 \end{table}
 
-Bei den späteren Berechnungen wird für die Dichte von Wasser, bei den Temperaturen $\SI{336.16}{\kelvin}$ und $\SI{339.16}{\kelvin}$ 
-der Wert $\SI{983.20}{\kilogram\per\cubic\meter}$ genährt.
+Bei den späteren Berechnungen wird für die Dichte von Wasser, bei den Temperaturen $\SI{336.16}{\kelvin}$ und $\SI{339.16}{\kelvin}$
+der Wert $\SI{983.20}{\kilogram\per\cubic\meter}$ genährt. %verwendet
 
-Für die Fallzeit der Kugel ergaben sich die in 
+Für die Fallzeit der Kugel ergaben sich die in  %würde tempus einheitlich machen
 Tabelle \ref{tab:messwerte_fallzeit_kugel_gross_temo} aufgelisteten Werte.
 
 \begin{table}
@@ -203,7 +203,7 @@ Tabelle \ref{tab:messwerte_fallzeit_kugel_gross_temo} aufgelisteten Werte.
 \begin{tabular} {cccc}
   \toprule
   Temperatur in $\si{\kelvin}$ & \multicolumn{2}{c}{Fallzeit $t$ in $\si{\second}$} & $\overline{t}$ in $\si{\second}$ \\
-  \midrule 
+  \midrule
   $\num{303.16}$ & $\num{96.9}$  & $\num{97.0}$ & $\num{97}\pm\num{0.04}$ \\
   $\num{308.16}$ & $\num{93.6}$  & $\num{93.7}$ & $\num{93.7}\pm\num{0.05}$ \\
   $\num{313.16}$ & $\num{92.6}$ & $\num{93}$   & $\num{92.8}\pm\num{0.11}$ \\
@@ -216,12 +216,12 @@ Tabelle \ref{tab:messwerte_fallzeit_kugel_gross_temo} aufgelisteten Werte.
   $\num{343.16}$ & $\num{73.0}$ & $\num{73.2}$ & $\num{73.1}\pm\num{0.05}$ \\
 \bottomrule
 \end{tabular}
-\caption{Fallzeiten der großen Kugel im Viskosimeter bei unterschiedlichen Temperaturen}
+\caption{Fallzeiten der großen Kugel im Viskosimeter bei unterschiedlichen Temperaturen} %ausdruck
 \label{tab:messwerte_fallzeit_kugel_gross_temo}
 \end{table}
 
-Das Ergebnis der Viskositätsberechnung ist in Tabelle \ref{tab:visko_wasser_temp} zufinden.
-Die Fehler der Berechnungen ist in der Größenordnung $\pm \num{e-6}$ und 
+Das Ergebnis der Viskositätsberechnung ist in Tabelle \ref{tab:visko_wasser_temp} zufinden. % zu finden
+Die Fehler der Berechnungen ist in der Größenordnung $\pm \num{e-6}$ und
 wird deshalb nicht aufgeführt.
 
 \begin{table}
@@ -229,31 +229,31 @@ wird deshalb nicht aufgeführt.
 \begin{tabular} {cc}
   \toprule
   Temperatur in $\si{\kelvin}$ & Viskosität $\eta$ $\si{\pascal\second}$ \\
-  \midrule 
+  \midrule
   $\num{303.16}$ & $\num{0.00141}$ \\
   $\num{308.16}$ & $\num{0.00137}$ \\
-  $\num{313.16}$ & $\num{0.00135}$ \\ 
+  $\num{313.16}$ & $\num{0.00135}$ \\
   $\num{318.16}$ & $\num{0.00132}$ \\
-  $\num{323.16}$ & $\num{0.00128}$ \\ 
-  $\num{328.16}$ & $\num{0.00122}$ \\ 
-  $\num{333.16}$ & $\num{0.00120}$ \\ 
+  $\num{323.16}$ & $\num{0.00128}$ \\
+  $\num{328.16}$ & $\num{0.00122}$ \\
+  $\num{333.16}$ & $\num{0.00120}$ \\
   $\num{336.16}$ & $\num{0.00117}$ \\
   $\num{339.16}$ & $\num{0.00114}$ \\
   $\num{343.16}$ & $\num{0.00108}$ \\
 \bottomrule
 \end{tabular}
-\caption{Viskoität von Wasser bei unterschiedlichen Temperaturen}
+\caption{Viskoität von Wasser bei unterschiedlichen Temperaturen} %ausdruck
 \label{tab:visko_wasser_temp}
 \end{table}
 
-Die Ergebnise werden in Abbildung \ref{fig:t_v_v} und \ref{fig:t_v_l_v} dargestellt und mit den Literaturwerten verglichen. 
-Eine qualitativer Vergleich erfolgt anschließend in der Diskussion.
+Die Ergebnise werden in Abbildung \ref{fig:t_v_v} und \ref{fig:t_v_l_v} dargestellt und mit den Literaturwerten verglichen.  %Ergebnisse, verglichen werden sie doch erst in der diskussion
+Eine qualitativer Vergleich erfolgt anschließend in der Diskussion. %
 
 \FloatBarrier
 \begin{figure}
 \centering
 \includegraphics[width=0.7\textwidth]{pics/viskositaet_temp_mit_lit.pdf}
-\caption{Temperatur gegen Viskosität}
+\caption{Temperatur gegen Viskosität} %umgangssprachlich
 \label{fig:t_v_v}
 \end{figure}
 
@@ -265,22 +265,22 @@ Eine qualitativer Vergleich erfolgt anschließend in der Diskussion.
 \end{figure}
 \FloatBarrier
 
-Hierbei wurde mittels der Python Bibliothek \emph{Scipy} eine 
-Regression an eine Funktion der Form $T_i = Ae^{\frac{B}{T}}$ bestimmt.
+Hierbei wurde mittels der Python Bibliothek \emph{Scipy} eine
+Regression an eine Funktion der Form $T_i = Ae^{\frac{B}{T}}$ bestimmt. %hinter formel ref
 
 Als Parameter ergaben sich:
 \begin{equation*}
-A=\SI{1.74e-3}{\pascal\second} \quad B=\SI{6.4e2}{\kelvin} %Einheiten ?
+A=\SI{1.74e-3}{\pascal\second} \quad B=\SI{6.4e2}{\kelvin} %Einheiten ? haben die ne dimension?
 \end{equation*}
 
 \subsection{Bestimmung der Reynolds-Zahl}
 
-Die \emph{Reynolds-Zahl} wird durch den in Gleichung \eqref{eq: reynolds}
+Die \emph{Reynolds-Zahl} wird durch den in Gleichung \eqref{eq: reynolds} %verb
 
 Dabei sei $d$ der Rohrdurchmesser und $v$ die Fallgeschwindigkeit der Kugel.
-Der Rohrdurchmesser wird durch den Durchmesser der großen Kugel angenährt.
+Der Rohrdurchmesser wird durch den Durchmesser der großen Kugel angenährt. %genähert
 Die temperaturabhängigen Fallgeschwindigkeiten der Kugel ist in Tabelle \ref{tab:fall_kugel} einzusehen.
-Da Fehler der Geschwindigkeitsberechnung in der Größenordnung $\num{e-6}$ ist, 
+Da Fehler der Geschwindigkeitsberechnung in der Größenordnung $\num{e-6}$ ist,
 wird er nicht mit aufgelistet.
 
 \begin{table}
@@ -288,14 +288,14 @@ wird er nicht mit aufgelistet.
 \begin{tabular} {cc}
   \toprule
   Temperatur in $\si{\kelvin}$ & Fallgeschwindigkeit $v$ in $\si{\meter\per\second}$ \\
-  \midrule 
+  \midrule
   $\num{303.16}$ & $\num{0.00103}$ \\
   $\num{308.16}$ & $\num{0.00107}$ \\
-  $\num{313.16}$ & $\num{0.00108}$ \\ 
+  $\num{313.16}$ & $\num{0.00108}$ \\
   $\num{318.16}$ & $\num{0.00110}$ \\
-  $\num{323.16}$ & $\num{0.00114}$ \\ 
-  $\num{328.16}$ & $\num{0.0012}$ \\ 
-  $\num{333.16}$ & $\num{0.00123}$ \\ 
+  $\num{323.16}$ & $\num{0.00114}$ \\
+  $\num{328.16}$ & $\num{0.0012}$ \\
+  $\num{333.16}$ & $\num{0.00123}$ \\
   $\num{336.16}$ & $\num{0.001126}$ \\
   $\num{339.16}$ & $\num{0.00129}$ \\
   $\num{343.16}$ & $\num{0.00137}$ \\
@@ -305,7 +305,7 @@ wird er nicht mit aufgelistet.
 \label{tab:fall_kugel}
 \end{table}
 
-Die sich damit ergebenen Werte für die \emph{Reynolds-Zahl} sind in Tabelle \ref{tab:rey_visko} 
+Die sich damit ergebenen Werte für die \emph{Reynolds-Zahl} sind in Tabelle \ref{tab:rey_visko} %'sich damit ergebenen Werte' weglassen
 zu finden.
 
 \begin{table}
@@ -313,22 +313,22 @@ zu finden.
 \begin{tabular} {cc}
   \toprule
   Temperatur in $\si{\kelvin}$ & \emph{Reynolds-Zahl} $\map{Re}$ \\
-  \midrule 
+  \midrule
   $\num{303.16}$ & $\num{11.1}\pm \num{0.03}$ \\
   $\num{308.16}$ & $\num{11.9}\pm \num{0.03}$ \\
-  $\num{313.16}$ & $\num{12.1}\pm \num{0.04}$ \\ 
+  $\num{313.16}$ & $\num{12.1}\pm \num{0.04}$ \\
   $\num{318.16}$ & $\num{12.7}\pm \num{0.03}$ \\
-  $\num{323.16}$ & $\num{13.4}\pm \num{0.03}$ \\ 
-  $\num{328.16}$ & $\num{14.8}\pm \num{0.03}$ \\ 
-  $\num{333.16}$ & $\num{15.5}\pm \num{0.03}$ \\ 
+  $\num{323.16}$ & $\num{13.4}\pm \num{0.03}$ \\
+  $\num{328.16}$ & $\num{14.8}\pm \num{0.03}$ \\
+  $\num{333.16}$ & $\num{15.5}\pm \num{0.03}$ \\
   $\num{336.16}$ & $\num{16.1}\pm \num{0.03}$ \\
   $\num{339.16}$ & $\num{16.8}\pm \num{0.07}$ \\
   $\num{343.16}$ & $\num{19}\pm \num{0.05}$ \\
 \bottomrule
 \end{tabular}
-\caption{\emph{Reynolds-Zahl} des Viskosimeter bei unterschiedlichen Temperaturen}
+\caption{\emph{Reynolds-Zahl} des Viskosimeter bei unterschiedlichen Temperaturen} %viskosimeters
 \label{tab:rey_visko}
 \end{table}
-Die kritische \emph{Reynolds-Zahl} für Wasser liegt bei $2040$\cite{rey}.
+Die kritische \emph{Reynolds-Zahl} für Wasser liegt bei $2040$\cite{rey}. %auf theorie verweisen
 Deshalb handelt es sich bei der Strömung im Viskosimeter um eine laminare.
  %Literatur
