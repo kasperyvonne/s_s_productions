@@ -149,7 +149,7 @@ print('\n')
 
 def apperaturkonstante_grose_kugel(dichte_kugel,dichte_wasser,fallzeit_mittel_gross):
 	return (viskositate_kugel_klein/((dichte_kugel-dichte_wasser)*fallzeit_mittel_gross))
-
+print(fallzeit_mittel_gross)
 apperaturkons_grose=apperaturkonstante_grose_kugel(dichte_gross,dichte_wasser_20,fallzeit_mittel_gross)
 print('apperaturkons_gross',apperaturkons_grose)
 print('\n')
@@ -159,8 +159,11 @@ g=const.g
 print('Gravitationsbeschleunigung',g)
 print(radius_gross)
 app_theo=(2/9)*(radius_gross**2*g)/fallstrecke
+app_theo_k=(2/9)*(radius_klein**2*g)/fallstrecke
+print('Theoretische Apperaturkonstante klein', app_theo_k)
 print('Theoretische Apperaturkonstante', app_theo)
 print('\n')
+
 
 ##Viskositätsberechnung
 def viskositaet_gross(dichte_wasser,dichte_kugel,fallzeit_mittel):
