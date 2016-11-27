@@ -18,7 +18,7 @@ Beide Methoden werden im Anschluss genauer erklärt werden.
 \subsubsection{Statische Methode}
 
 Die statische Methode benutzt die Auslenkung 
-einer Torsionsfeder. Um dann das Trägheitsmoment zu berechnen. %Ausdruck
+einer Torsionsfeder. Um die Winkelrichtgröße zu bestimmen. %Ausdruck
 Wichtig dabei ist, dass die Federwaage immer orthogonal zum Radius steht.
 Die im Versuch bestimmten Werte sind in Tabelle \ref{tab: winkelricht} einzusehen.
 
@@ -124,7 +124,7 @@ Satz von Steiner \eqref{eq: steiner} zunutze und erhält den Zusammenhang: %komp
 
 Dabei sei $m_g=m_1+m_2=\num{222.51e-2}\si{\meter}+\num{223.46e-2}\si{\meter}$.
 Zwischen $T^2$ und $a^2$ besteht ein linearer Zusammenhang.
-Die Funktionparameter lassen sich mittels linearer Regression bestimmen. %besser: zwischen T^2 und a^2 besteht einer linearer Zusammenhang, die  	Funktionsparameter lassen sich mittels linearer Regerssion bestimmen...
+Die Funktionsparameter lassen sich mittels linearer Regression bestimmen. %besser: zwischen T^2 und a^2 besteht einer linearer Zusammenhang, die  	Funktionsparameter lassen sich mittels linearer Regerssion bestimmen...
 Dazu verwendet man aus der Regressionsrechnung
 die Annäherung um die Steigung $m$
 
@@ -201,9 +201,16 @@ Rechnerisch ergibt sich:
 b=\left(\num{4.64}\pm\num{0.12}\right) \si{\meter}
 \end{equation}
 
-Mit dem theoretisch errechneten Wert für das Trägheitsmoment der kleinen Zylinder
-(mittels \eqref{eq:traeg_zylinder_schwer}) ergibt sich für das
-Eigenträgheitsmoment der Drillachse:
+Um das Eigenträgheitsmoment der Drillachse zu bestimmen, werden die Trägheitsmomente der kleinen Zylinder 
+und der Stange benötigt.
+Die Trägheitsmomente der Zylinder werden mittels \eqref{eq:traeg_zylinder_schwer} berechnet und 
+das der Stange durch
+
+\begin{equation*}
+I_{S}=\frac{1}{12}mh^2.
+\end{equation*}
+
+Es ergibt sich für das Eigenträgheitsmoment:
 
 \begin{equation}
 \label{eq:eigentraegheitsmoment}
