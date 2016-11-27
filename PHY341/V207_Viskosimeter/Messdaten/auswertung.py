@@ -4,6 +4,7 @@ from uncertainties import ufloat
 import math
 from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
+import scipy.constants  as const
 
 #variabel_1,variabel_2=np.genfromtxt('name.txt',unpack=True)
 
@@ -153,7 +154,15 @@ apperaturkons_grose=apperaturkonstante_grose_kugel(dichte_gross,dichte_wasser_20
 print('apperaturkons_gross',apperaturkons_grose)
 print('\n')
 
+##Theoretische Berechnung Apperaturkonstante
+g=const.g
+print('Gravitationsbeschleunigung',g)
+print(radius_gross)
+app_theo=(2/9)*(radius_gross**2*g)/fallstrecke
+print('Theoretische Apperaturkonstante', app_theo)
+print('\n')
 
+##Viskositätsberechnung
 def viskositaet_gross(dichte_wasser,dichte_kugel,fallzeit_mittel):
 	return apperaturkons_grose*(dichte_kugel-dichte_wasser)*fallzeit_mittel
 
@@ -193,25 +202,25 @@ print('\n')
 ##Plotbereich
 
 #für loga
-#plt.xlim(1/300,1/350)
-#plt.ylim(1e-4,1e-2)
+plt.xlim(1/300,1/350)
+plt.ylim(1e-4,1e-2)
 
 ##Für nicht logaritmisch
-plt.xlim(300,345)
+#plt.xlim(300,345)
 
 
 aufvariabele=np.linspace(273.16,350,1000)
 #Loga
-#plt.plot(1/temperatur[::2] ,unp.nominal_values(viskositat_temperatur),'rx',label='Messwerte')
-#plt.plot(1/aufvariabele,f(aufvariabele,*params),'b-',label='Regressions Kurve')
-#plt.plot(1/temperatur_lit,viskosi_lit,'gx',label='Literaturwerte')
-#plt.plot(1/aufvariabele,f(aufvariabele,*params_lit),'-k',label='Regressions Kurve')
+plt.plot(1/temperatur[::2] ,unp.nominal_values(viskositat_temperatur),'rx',label='Messwerte')
+plt.plot(1/aufvariabele,f(aufvariabele,*params),'b-',label='Regressions Kurve')
+plt.plot(1/temperatur_lit,viskosi_lit,'gx',label='Literaturwerte')
+plt.plot(1/aufvariabele,f(aufvariabele,*params_lit),'-k',label='Regressions Kurve')
 
 #nicht Loga
-plt.plot(temperatur[::2] ,unp.nominal_values(viskositat_temperatur),'rx',label='Messwerte')
-plt.plot(aufvariabele,f(aufvariabele,*params),'b-',label='Regressions Kurve')
-plt.plot(temperatur_lit,viskosi_lit,'gx',label='Literaturwerte')
-plt.plot(aufvariabele,f(aufvariabele,*params_lit),'-k',label='Regressions Kurve')
+#plt.plot(temperatur[::2] ,unp.nominal_values(viskositat_temperatur),'rx',label='Messwerte')
+#plt.plot(aufvariabele,f(aufvariabele,*params),'b-',label='Regressions Kurve')
+#plt.plot(temperatur_lit,viskosi_lit,'gx',label='Literaturwerte')
+#plt.plot(aufvariabele,f(aufvariabele,*params_lit),'-k',label='Regressions Kurve')
 
 
 
@@ -220,13 +229,13 @@ plt.grid(True,which="both")
 plt.legend(loc='best')
 
 #für nicht logaritmisch
-plt.xlabel(r'$T\ in \ \mathrm{K} $')
+#plt.xlabel(r'$T\ in \ \mathrm{K} $')
 plt.ylabel(r'$\eta \ in \ \mathrm{P\!a}\, \mathrm{s}$')
 #Für logaritmisch
-#plt.xlabel(r'$1/T\ in \ \mathrm{K} $')
+plt.xlabel(r'$1/T\ in \ \mathrm{K} $')
 #plt.ylabel(r'$\log{\eta}$')
-#plt.yscale('log')
+plt.yscale('log')
 
 #plt.tight_layout()
 #plt.show()
-plt.savefig('viskositaet_temp_mit_lit.pdf')
+plt.savefig('viskositaet_temp__log_mit_lit.pdf')
