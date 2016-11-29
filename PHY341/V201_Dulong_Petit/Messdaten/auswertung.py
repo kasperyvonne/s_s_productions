@@ -24,7 +24,7 @@ U_0 = 0
 U_100 = 3.98
 x = np.linspace(0, 100)
 m = 100 / (U_100 - U_0)
-
+print ('Steigung: ', m)
 def UtoT(u):
     return Q_(m * u + 273.15, 'kelvin')
 

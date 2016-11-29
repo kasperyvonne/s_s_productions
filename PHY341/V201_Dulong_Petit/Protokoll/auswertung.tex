@@ -2,18 +2,35 @@
 \subsection{Eichung des Thermoelements}
 Der Zusammenhang zwischen dem Kontaktpotential des Kalorimeters und der Temperatur soll im späteren Verlauf
 durch einen linearen Zusammenhang angenähert werden. Hierzu wurde eine Kontakstelle in Eiswasser($0 \si{\celsius}$)
-und eine in kochendes Wasser ($100 \si{\celsius}$) gehalten. Hierbei wurde folgender Wert am Kalorimeter abgelesen:
+und eine in kochendes Wasser ($100 \si{\celsius}$) gehalten. Folgender Wert wurde hierbei am Kalorimeter abgelesen:
 \begin{equation}
   U_{eich} = 3.98 \si{\milli\volt}
 \end{equation}
 Die Steigung der Geraden ergibt sich zu:
 \begin{equation}
-  m = \frac{100}{U_{eich}}
+  m = \frac{100 \si{\kelvin}}{U_{eich}} = 25.13 \si{\kelvin \per \milli\volt}
 \end{equation}
 Hiermit lässt sich die Temperatur in Kelvin über den Zusammenhang
 \begin{equation}
-  T(U) = m \cdot U + 275.13
+  T(U) = m \cdot U + 275.13 \si{\kelvin}
 \end{equation}
-berechnen.
+berechnen. Im späteren Verlauf werden die Spannungen direkt durch die zugeordnete Temperatur ersetzt.
 
 \subsection{Bestimmung der Wärmekapazität des Kalorimeters}
+Zur Bestimmung der spezifischen Wärmekapazitäten wird zunächst die Wärmekapazität des Kalorimeters über den Zusammenhang
+(Formel x) berechnet. Die Massen $m_x$ und $m_y$ ergeben sich mittels der Dichte von Wasser bei $40\si{\celsius}$: $\rho_w = ...\si{\gram\meter^3}$ (quelle).
+Der Wert $c_w = ...$ wurde der Praktikumsanleitung entnommen. Die gemessenen Werte, sowie das Ergebnis für $c_g m_g$ sind in $tab$ aufgetragen.
+\begin{table}
+  \centering
+  \begin{tabular}{S S S S S}
+      \toprule
+    {$m_x$ in $\si{\gram}$} & {$m_y$ in $\si{\gram}$} & {$T_x$ in $\si{\kelvin}$} & {$T_y$ in $\si{\kelvin}$} & $c_g m_g$ in  \\
+    \midrule
+  \end{tabular}
+  \caption{Massen, sowie Temperaturen der beiden Wassermengen zur Bestimmung der spezifischen Wärmekapazität des Kalorimeters}
+  \label{tab: cgmg}
+\end{table}
+
+\subsection{Bestimmung der Wärmekapazitäten von Blei, Graphit und Aluminium}
+Die berechneten Temperaturen aus den gemessenen Kontaktpotentialen zur Bestimmung der Wärmekapazitäten befinden sich in den Tabellen (...).
+\begin{table}
