@@ -13,8 +13,9 @@ Die Steigung der Geraden ergibt sich zu:
 Hiermit lässt sich die Temperatur in Kelvin über den Zusammenhang
 \begin{equation}
   T(U) = m \cdot U + 275.13 \si{\kelvin}
+  \label{eq: UtoTemp}
 \end{equation}
-berechnen. Im späteren Verlauf werden die Spannungen direkt durch die zugeordnete Temperatur ersetzt.
+berechnen.
 
 \subsection{Bestimmung der Wärmekapazität des Kalorimeters}
 Zur Bestimmung der spezifischen Wärmekapazitäten wird zunächst die Wärmekapazität des Kalorimeters über den Zusammenhang
@@ -22,15 +23,88 @@ Zur Bestimmung der spezifischen Wärmekapazitäten wird zunächst die Wärmekapa
 Der Wert $c_w = ...$ wurde der Praktikumsanleitung entnommen. Die gemessenen Werte, sowie das Ergebnis für $c_g m_g$ sind in $tab$ aufgetragen.
 \begin{table}
   \centering
-  \begin{tabular}{S S S S S}
+  \begin{tabular}{S S S S S S S}
       \toprule
-    {$m_x$ in $\si{\gram}$} & {$m_y$ in $\si{\gram}$} & {$T_x$ in $\si{\kelvin}$} & {$T_y$ in $\si{\kelvin}$} & $c_g m_g$ in  \\
+    {$m_x$ in $\si{\gram}$} & {$m_y$ in $\si{\gram}$} &  {$U_x$ in $\si{\milli \volt}$} & {$T_x$ in $\si{\kelvin}$} & {$U_y$ in $\si{\milli \volt}$} &{$T_y$ in $\si{\kelvin}$} & {$c_g m_g$ in $\si{\joule \per \kelvin}$} \\
     \midrule
+    $\num{297.7}$  &    $\num{297.7}$  &   $\num{0.75}$  &  $\num{291.97}$ &   $\num{2.76}$  &  $\num{342.50}$ &    $\num{472.66}$ \\
+
   \end{tabular}
   \caption{Massen, sowie Temperaturen der beiden Wassermengen zur Bestimmung der spezifischen Wärmekapazität des Kalorimeters}
   \label{tab: cgmg}
 \end{table}
 
-\subsection{Bestimmung der Wärmekapazitäten von Blei, Graphit und Aluminium}
+\subsection{Bestimmung der Wärmekapazitäten von Zinn, Graphit und Aluminium}
 Die berechneten Temperaturen aus den gemessenen Kontaktpotentialen zur Bestimmung der Wärmekapazitäten befinden sich in den Tabellen (...).
 \begin{table}
+  \centering
+  \begin{tabular}{S S S S}
+      \toprule
+    {Durchgang} &  {$T_k$ in $\si{\kelvin}$} & {$T_w$ in $\si{\kelvin}$} &{$T_m$ in $\si{\kelvin}$}  \\
+    \midrule
+    {$1$} &  {$\num{327.00}$} & {$\num{291.94}$}  & {$\num{293.25}$}  \\
+    {$2$} &  {$\num{349.03}$} & {$\num{293.25}$}  & {$\num{295.01}$}   \\
+    {$3$} &  {$\num{359.08}$} & {$\num{295.01}$} &  {$\num{297.27}$}  \\
+  \end{tabular}
+  \caption{Graphit}
+  \label{tab: graphit}
+\end{table}
+
+
+\begin{table}
+  \centering
+  \begin{tabular}{S S S S}
+      \toprule
+    {Durchgang} &  {$T_k$ in $\si{\kelvin}$} & {$T_w$ in $\si{\kelvin}$} &{$T_m$ in $\si{\kelvin}$}  \\
+    \midrule
+    {$1$} &  {$\num{372.90}$} & {$\num{291.49}$}  & {$\num{293.25}$}  \\
+    {$2$} &  {$\num{373.65}$} & {$\num{293.25}$}  & {$\num{294.51}$}   \\
+    {$3$} &  {$\num{371.14}$} & {$\num{294.50}$} &  {$\num{296.01}$}  \\
+  \end{tabular}
+  \caption{Zinn}
+  \label{tab: zinn}
+\end{table}
+
+
+
+\begin{table}
+  \centering
+  \begin{tabular}{S S S S}
+      \toprule
+    {Durchgang} &  {$T_k$ in $\si{\kelvin}$} & {$T_w$ in $\si{\kelvin}$} &{$T_m$ in $\si{\kelvin}$}  \\
+    \midrule
+    {$1$} &  {$\num{372.99}$} & {$\num{291.99}$}  & {$\num{293.75}$}  \\
+  \end{tabular}
+  \caption{Aluminium}
+  \label{tab: alu}
+\end{table}
+
+In Tabelle \ref{tab: konstanten} sind die für die Berechnung der spezifischen Wärmekapazität bei konstantem Volumen notwendigen Größen aufgeführt. Von den gemessenen
+Massen wurde das Gewicht der Aufhängung abgezogen.
+\begin{table}
+  \centering
+  \begin{tabular}{l S S S S S}
+      \toprule
+    {Stoff} &  {$m_k$ in $\si{\kelvin}$} & {$\rho$ in $\si{\gram \per \centi\meter^3}$} & {$M$ in $\si{\gram \per \mol}$} & {$\alpha$ in $\si{10^{-6}\kelvin^{-1}}$}
+     & {$\kappa$ in $\si{10^{-6}\kelvin^{-1}}$}  \\
+      \midrule
+    {Graphit} &  108.02 & 2.25 & 12.0 & 8 & 33 \\
+    {Zinn} &     232.03 & 7.28 & 118.7 & 27.0 & 55 \\
+    {Aluminium} & 114.57 & 2.7 & 27.0 & 23.5 & 75 \\
+
+  \end{tabular}
+  \caption{Massen und physikalische Eigenschaften der verwendeten Materialblöcke}
+  \label{tab: konstanten}
+\end{table}
+Zunächst sollen die spezifischen Wärmekapazitäten $c_k$ gemäß Formel (x) aus den Messreihen bestimmt werden. Die Werte für Graphit, Zinn und Aluminium sind in Tabelle
+dargestellt. Hierbei wurde mit der jeweiligen molaren Masse multipliziert um das Ergebnis bezogen auf ein $\si{mol}$ angeben zu können. Mit dem Zusammenhang (Formel)
+kann schließlich die zu untersuchende Größe $C_V$ bestimmt werden. Die Ergebnisse, sowie das Verhältnis $C_V / R$ zur Gaskonstanten R sind in Tabelle x aufgeführt.
+\FloatBarrier
+\input{tabs/tab.tex}
+Als Mittelwert der spezifischen Wärmekapazitäten für Zinn und Graphit ergeben sich:
+\begin{align}
+  &C_{V, Graphit} &= (11.70 \pm 0.41) \si{\joule \per {\kelvin \mol}} \\
+  &C_{V, Zinn} &= (29.10 \pm 2.26) \si{\joule \per {\kelvin \mol}}
+\end{align}
+Zur anschließenden qualtitativen Diskussion der Ergebnisse werden nun abschließend Literaturwerte der spezifischen Wärmekapazität aufgeführt und die Prozentuale
+Abweichung der berechneten Werte von diesen berechnet. 
