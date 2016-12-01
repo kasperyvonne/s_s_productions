@@ -66,6 +66,8 @@ print(R)
 #print('a', (c_k_graphit - 9 * alpha_graphit**2 * kappa_graphit * mol_vol_graphit * T_m_graphit)/R)
 const_graphit = (alpha_graphit**2 * kappa_graphit * mol_vol_graphit * T_m_graphit).to('joule/(mole*kelvin)')
 c_v_graphit = c_k_graphit - const_graphit
+c_graphit_lit =  Q_(0.751, 'joule /(gram* kelvin)' ) * M_graphit
+print('Literaturwert der spezifischen Wärmekapazität Graphit: ', c_graphit_lit)
 print(c_v_graphit)
 print(c_v_graphit /  (3 * R) -1 )
 print('Mittelwert Graphit: ', np.mean(c_v_graphit), 'pm', 1/np.sqrt(3) * np.std(c_v_graphit))
@@ -94,8 +96,8 @@ print('TK, TW, TM Zinn:  ', T_k_blei, T_w_blei, T_m_blei)
 c_k_blei = ((c_wasser * m_wasser + c_g_m_g)*(T_m_blei - T_w_blei))/(m_k_blei * (T_k_blei - T_m_blei)) * M_blei
 print('spezifische Wärmekapazität Blei:  ', c_k_blei)
 const_blei = (alpha_blei**2 * kappa_blei * mol_vol_blei * T_m_blei).to('joule/(mole*kelvin)')
-c_blei_lit = Q_(0.129, 'joule /(gram* kelvin)' ) * M_blei
-print('Literaturwert der spezifischen Wärmekapazität Blei: ', c_blei_lit)
+c_blei_lit = Q_(0.230, 'joule /(gram* kelvin)' ) * M_blei
+print('Literaturwert der spezifischen Wärmekapazität Zinn: ', c_blei_lit)
 c_v_blei = c_k_blei - const_blei
 print('Prozentuale Abweichung vom lit Wert', c_v_blei / c_blei_lit  - 1)
 print(c_v_blei)
