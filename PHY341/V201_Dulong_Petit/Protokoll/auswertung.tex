@@ -20,7 +20,7 @@ berechnen.
 \subsection{Bestimmung der Wärmekapazität des Kalorimeters}
 Zur Bestimmung der spezifischen Wärmekapazitäten wird zunächst die Wärmekapazität des Kalorimeters über den Zusammenhang
 (Formel x) berechnet. Die Massen $m_x$ und $m_y$ ergeben sich mittels der Dichte von Wasser bei $40\si{\celsius}$: $\rho_w = ...\si{\gram\meter^3}$ (quelle).
-Der Wert $c_w = ...$ wurde der Praktikumsanleitung entnommen. Die gemessenen Werte, sowie das Ergebnis für $c_g m_g$ sind in $tab$ aufgetragen.
+Der Wert $c_w = 4.18 \si{\joule \per (\gram \kelvin)}$ wurde der Praktikumsanleitung entnommen. Die gemessenen Werte, sowie das Ergebnis für $c_g m_g$ sind in Tabelle \ref{tab: cgmg} aufgetragen.
 \begin{table}
   \centering
   \begin{tabular}{S S S S S S S}
@@ -28,14 +28,13 @@ Der Wert $c_w = ...$ wurde der Praktikumsanleitung entnommen. Die gemessenen Wer
     {$m_x$ in $\si{\gram}$} & {$m_y$ in $\si{\gram}$} &  {$U_x$ in $\si{\milli \volt}$} & {$T_x$ in $\si{\kelvin}$} & {$U_y$ in $\si{\milli \volt}$} &{$T_y$ in $\si{\kelvin}$} & {$c_g m_g$ in $\si{\joule \per \kelvin}$} \\
     \midrule
     $\num{297.7}$  &    $\num{297.7}$  &   $\num{0.75}$  &  $\num{291.97}$ &   $\num{2.76}$  &  $\num{342.50}$ &    $\num{472.66}$ \\
-
   \end{tabular}
-  \caption{Massen, sowie Temperaturen der beiden Wassermengen zur Bestimmung der spezifischen Wärmekapazität des Kalorimeters}
+  \caption{Massen, sowie Temperaturen der beiden Wassermengen zur Bestimmung der spezifischen Wärmekapazität des Kalorimeters und berechneter Wert}
   \label{tab: cgmg}
 \end{table}
 
 \subsection{Bestimmung der Wärmekapazitäten von Zinn, Graphit und Aluminium}
-Die berechneten Temperaturen aus den gemessenen Kontaktpotentialen zur Bestimmung der Wärmekapazitäten befinden sich in den Tabellen (...).
+Die berechneten Temperaturen aus den gemessenen Kontaktpotentialen zur Bestimmung der Wärmekapazitäten befinden sich in den Tabellen \ref{tab: graphit} bis \ref{tab: alu}.
 \begin{table}
   \centering
   \begin{tabular}{S S S S}
@@ -91,11 +90,11 @@ Massen wurde das Gewicht der Aufhängung abgezogen.
     {Graphit} &  108.02 & 2.25 & 12.0 & 8 & 33 \\
     {Zinn} &     232.03 & 7.28 & 118.7 & 27.0 & 55 \\
     {Aluminium} & 114.57 & 2.7 & 27.0 & 23.5 & 75 \\
-
   \end{tabular}
   \caption{Massen und physikalische Eigenschaften der verwendeten Materialblöcke}
   \label{tab: konstanten}
 \end{table}
+
 Zunächst sollen die spezifischen Wärmekapazitäten $c_k$ gemäß Formel (x) aus den Messreihen bestimmt werden. Die Werte für Graphit, Zinn und Aluminium sind in Tabelle
 dargestellt. Hierbei wurde mit der jeweiligen molaren Masse multipliziert um das Ergebnis bezogen auf ein $\si{mol}$ angeben zu können. Mit dem Zusammenhang (Formel)
 kann schließlich die zu untersuchende Größe $C_V$ bestimmt werden. Die Ergebnisse, sowie das Verhältnis $C_V / R$ zur Gaskonstanten R sind in Tabelle x aufgeführt.
@@ -106,5 +105,16 @@ Als Mittelwert der spezifischen Wärmekapazitäten für Zinn und Graphit ergeben
   &C_{V, Graphit} &= (11.70 \pm 0.41) \si{\joule \per {\kelvin \mol}} \\
   &C_{V, Zinn} &= (29.10 \pm 2.26) \si{\joule \per {\kelvin \mol}}
 \end{align}
-Zur anschließenden qualtitativen Diskussion der Ergebnisse werden nun abschließend Literaturwerte der spezifischen Wärmekapazität aufgeführt und die Prozentuale
-Abweichung der berechneten Werte von diesen berechnet. 
+Zur qualtitativen Diskussion der Ergebnisse werden nun abschließend Literaturwerte $C_{V,lit}$der spezifischen Wärmekapazität aufgeführt und die Prozentuale
+Abweichung der beobachteten Werte von diesen berechnet (Tabelle \ref{tab: comp}).
+
+  \begin{table}
+    \centering
+    \begin{tabular}{l S S S}
+        \toprule
+      Stoff  &{$C_V$ in $\si{\joule \per {\kelvin \mol}}$} &  {$C_{V,lit}$ in $\si{\joule \per {\kelvin \mol}}$} &  {$\frac{C_V}{C_{V,lit}}-1$}  \\
+      \midrule
+    \end{tabular}
+    \caption{Vergleich mit Literaturwerten}
+    \label{tab: comp}
+  \end{table}
