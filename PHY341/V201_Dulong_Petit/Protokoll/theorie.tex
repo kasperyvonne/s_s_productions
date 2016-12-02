@@ -1,14 +1,16 @@
 \section*{Zielsetzung}
-Der Versuch soll eine Aussage darüber treffen, ob das Dulong-Petitsche Gesetz, der klassichen Physik genügt, oder
-eine quantenmechanische Beschreibung von Nöten ist.
+Der Versuch soll überprüfen, ob die Dulong-Peptitsche Gesetz
+angesprochenden Ozillation der Atome. Einer klassischen Beschreibung genügt,
+oder ob eine quantenmechanische Beschreibung von Nöten ist.
+
 
 \section{Theorie}
 
 \subsection{Definition der spezifischen Wärmekapazität}
 
 Findet an einem Körper eine Temperaturänderung $\Delta T$ statt, ohne das an ihm 
-Arbeit verrichet wird. So kommt es bei ihm zu einer Wärmeaufnahme oder -abgabe $\Delta Q$.
-Mit dem ersten Hauptsatz der Thermodynamik ergibt sich der Zusammenhang
+Arbeit verrichet wird. So kommt es zu einer Wärmeaufnahme bzw. Abgabe $\Delta Q$.
+Mit dem ersten Hauptsatz der Thermodynamik ergibt sich dann der Zusammenhang
 
 \begin{equation*}
 \Delta Q=m c \Delta T.
@@ -19,15 +21,15 @@ des Körpers.
 Wird zusätzlich die Masseneinheit berücksichtig
 so wird $c$ als spezifische Wärmekapazität bezeichnet.
 
-Weiter ist die Molwärme $C$ eine für den Versuch relevante Größe.
-Sie gitb an was für eine Wärmemenge $\map{d}Q$ benötigt wird,
+Desweitern gibt die Molwärme $C$
+an, was für eine Wärmemenge $\map{d}Q$ benötigt wird,
 um ein Mol eines Stoffes um $\map{d}T$ zu erwärmen.
 
-Der Betrag der Molwärme hängt davon ab unter welchen Bedingungen 
-die Temperaturänderung hervor gerufen wurde.
-Zum Beispiel wird zwischen der spezfischen Wärmekapazität beo konstantem
-Volumen $C_{V}$ und bei kosntantem Druck $C_{p}$.
-Dabei sei $C_{V}$:
+Dabei hängt der Betrag der Molwärme  davon ab unter welchen Bedingungen 
+die Temperaturänderung hervor gerufen wird.
+Hierbei wird zwischen der spezfischen Wärmekapazität bei konstantem
+Volumen $C_{V}$ und bei kosntantem Druck $C_{p}$ unterschieden.
+Die Größe $C_{V}$ sei gegeben durch:
 
 \begin{equation}
 \label{eq:molwarme}
@@ -35,74 +37,77 @@ C_V=\left(\frac{\map{d}U}{\map{d}T}\right)_V
 \end{equation}
 
 
-\subsection{Dulong-Petitsch-Gestz}
+\subsection{Dulong-Petitsch-Gesetz}
 
 Das Dulong-Petitsche-Gesetz sagt aus, dass die Atomwärme (im festem Aggregatzustand) bei 
 konstantem Volumen unabhängig von den chemischen Eigenschaften eines Elementes 
-und gleich $3R$, hier sei $R$ die allgemeine Gaskonstante.
-Das Gestz begründet die makroskopischen thermodynamsichen Phänomene, 
-auf zufälligen mikroskpoischen Bewegung deer Atome bzw. Moleküle.
-Um die Aussage herzuleiten, nutzt das Dulong-Petitsch-Gestz
-das sogenannte Äquipartitionstheorem. 
-Dieses liefert gibt Rückschlüsse auf die kinetische Energie eines Atom
-im thermischen Gleichgewicht:
+und gleich $3R$ sei.
+Man bezeichnet $R$ als die allgemeine Gaskonstante.
+Das Gesetz begründet die makroskopischen thermodynamischen Phänomene, 
+auf zufällige mikroskpoischen Bewegungen der Atome.
+Das Dulong-Petitsch-Gesetz wird zum Teil aus dem 
+das sogenannte Äquipartitionstheorem hergeleitet. 
+Das Theorem gibt Rückschlüsse auf die kinetische Energie eines Atom
+im thermischen Gleichgewicht, druch:
 
 \begin{equation*}
 \left< E_{kin} \right>=\frac{1}{2}kT
 \end{equation*} 
 
-Mit diesem und weitern Zusammenhängen folgt danbn für drei Bewegungsrichtungen:
+Mit diesem und weitern Zusammenhängen folgt für die innere Energie $U$ 
+einer Gitterstruktur mit drei Freiheitsgraden:
 
 \begin{equation*}
 \left< U_{fest} \right> = 3 \left< U \right>=3RT \quad \Rightarrow \quad C_{V}\overset{\eqref{eq:molwarme}}{=}3R
 \end{equation*}
 
 \subsubsection{Quantenmechanische Betrachtung}
-Bei der quantenmechanischen Betrachtung wird angenommen 
-das die ozillierenden Atome nur quantisierte Energiezustände $\Delta u=n\hbar \omega \quad n\in\mathbb{N}$
+Bei der quantenmechanischen Betrachtung wird angenommen, 
+dass die ozillierenden Atome nur quantisierte Energiezustände $\Delta u=n\hbar \omega \quad n\in\mathbb{N}$
 annehmen können.
 Mit zu Hilfe nahme der Boltzmann-Verteilung kann dann auf den Zusammenhang 
-für drei Raumrichtung 
 \begin{equation}
 \label{eq:quant}
 \left< U_{qm} \right> =\frac{3N_L \hbar \omega}{\exp\left(\hbar \frac{\omega}{k} T\right) -1}
 \end{equation}
 
-geschlossen werden.
-Die Konstante $N_L = \SI{6.02e23}{\per\mol}$ wird als \emph{Loschmidtsche Zahl} bezeichnet.
-Für $T\to\infty$ läuft \eqref{eq:quant} gegen den aus der klassichen Physik bekannten Wert 
+geschlossen werden. Dieser gilt für Bewegungen mit drei Freiheitsgraden.
+Die Konstante $N_L = \SI{6.02e23}{\per\mol}$ wird als Loschmidtsche Zahl bezeichnet.
+Für $T\to\infty$ läuft \eqref{eq:quant} gegen, den aus der klassichen Physik bekannten Wert, 
 $3RT$.
 
 \subsection{Bestimmung der spezifischen Wärmekapazität}
 Da eine experiementelle Bestimmung der spezifischen Wärmekapazität 
 bei konstanten Volumen $C_V$ kaum möglich ist.
-Bestimmt man die Wärmekapazität bei konstanten Druck $C_P$.
-Beide Größen kann man durch den Zusammmenhang
+Bestimmt stattdessen die Wärmekapazität bei konstanten Druck $C_P$.
+Beide Größen könenn durch den Zusammenhang
 
 \begin{equation}
 \label{eq:umrechnung_cp_cv}
 C_P-C_V=9\alpha^2\kappa V_0 T \quad \text{mit} \kappa=V\left(\frac{\partial p}{\partial V}\right)_T
 \end{equation}
 
+ineinander umgerechnet werden.
 Hierbei sei $\alpha$ ein linearer Ausdehnungskoeffizient, $\kappa$ das Kompressionsmodul und
 $V_0$ das Molvolumen.
 
-Für die Bestimmmung wird ein Kaloriemeter verwendet.
-Dazu ein Rohrförmiger Probekörper mit der Masse $m_k$ der eine Temperatur 
-$T_k$ besitzt. Zusätlich gibt es ein mit Wasser gefülltes Gefäß.
+Die Bestimmung erfolgt mithilfe eines Kalorimeters,
+eins rohrförmigen Probekörpers mit der Masse $m_k$ und der Temperatur 
+$T_k$. Zusätlich gibt es ein mit Wasser gefülltes Gefäß.
 Das Wasser besitzt die Masse $m_w$ und die Temperatur $T_w$.
-Nach eintauchen des Körper stellt sich im Gefäß die 
-Temperatur $T_w$ ein. Also Zusammenhang für die 
-spezifische Wärmekapazität ergibt sich:
+Nach eintauchen de Körper stellt sich im Gefäß die 
+Mischtemperatur $T_w$ ein. 
+Es ergibt sich folgende Abhängigkeit:
+
 \begin{equation*}
 \label{eq:zusammenhang_ck}
 c_k=\frac{\left(c_wm_w+c_gm_g\right)\left(T_m-T_w\right)}{m_k\left(T_k-T_m\right)}
 \end{equation*}
 
-Dabei sei $c_gm_g$ die Wärmekapiztät des Kaloriemeters.
-Diese kann bestimmt werden durch eine weitere Messung. 
-Dabei werden zwei Wassermengen mit $m_x$ und $m_y$ und den 
-unterschiedlichen Temperaturen $T_x$ und $T_y$ miteinander versmischt.
+Die Wärmekapiztät des Kaloriemeters wird  druch $c_gm_g$ dargestellt.
+Sie wird in einer weitern Messung bestimmt.
+Bei dieser werden zwei Wassermengen mit $m_x$ und $m_y$ und den 
+dazugehörigen Temperaturen $T_x$ und $T_y$ miteinander vermischt.
 Mit der sich einstellenden Temperatur $T_M$ kann dann
 durch den Zusammenhang
 \begin{equation}
@@ -115,18 +120,20 @@ auf die Wärmekapazität geschlossen werden.
 
 Ein Thermoelement wird häufig eingesetzt um eine  
 Temperatur mit einer hohen Einstellungsschwindigkeit zu messen.
-Es besteht aus zwei Metallen, die sich durch zwei 
+Es besteht aus zwei Metallen, die sich jeweils durch
 verschiedene Wärmeleitkoeffizienten auszeichnen.
-Am Ende des Themoelemts befindet sich eine Berührungstelle zwischen 
-den beiden Elementen.
-An dieser kommt es später zu einem Elektronenfluss.
-Ein Thermoelement besitzt zwei Berührungsstellen, die 
-jeweils zwei verschiedene Temperaturen messen.
-Werdenn unterschiedliche Temperaturen gemessen, so 
+Am Ende des Themoelementes befindet sich ein Punkt an dem sich
+beide Elemente berrühren. Dieser Punkt wird als Berührungspunkt 
+bezeichnet.
+Ein Thermoelement besitzt zwei Berührungsstellen.
+Diese messen jeweils unterschiedliche Temperaturen $T_1$ und $T_2$.
+Herrscht eine Temperaturdifferenz zwischen $T_1$ und $T_2$, so 
 stellt sich zwischen den Kontaktstellen ein Kontaktpotential 
 ein. 
-Durch Messung der Spannung, kann auf die 
-Temperatur der beiden Wasserbäder geschlossen werden.
+Durch Messung der Spannung, kann anschließend auf 
+Temperaturdiffernz geschlossen werden.
+
+
 
 
 
