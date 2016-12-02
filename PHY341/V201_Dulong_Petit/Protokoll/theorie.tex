@@ -27,28 +27,96 @@ Der Betrag der Molwärme hängt davon ab unter welchen Bedingungen
 die Temperaturänderung hervor gerufen wurde.
 Zum Beispiel wird zwischen der spezfischen Wärmekapazität beo konstantem
 Volumen $C_{V}$ und bei kosntantem Druck $C_{p}$.
+Dabei sei $C_{V}$:
+
+\begin{equation}
+\label{eq:molwarme}
+C_V=\left(\frac{\map{d}U}{\map{d}T}\right)_V
+\end{equation}
 
 
 \subsection{Dulong-Petitsch-Gestz}
 
-Das Dulong-Petitsche-Gesetz sagt aus, dass die Atomwärme bei 
+Das Dulong-Petitsche-Gesetz sagt aus, dass die Atomwärme (im festem Aggregatzustand) bei 
 konstantem Volumen unabhängig von den chemischen Eigenschaften eines Elementes 
 und gleich $3R$, hier sei $R$ die allgemeine Gaskonstante.
-In der Herleitung des Gesetztes wird sich die Gitterstrucktur eines 
-Festkörper zu nutze gemacht.
+Das Gestz begründet die makroskopischen thermodynamsichen Phänomene, 
+auf zufälligen mikroskpoischen Bewegung deer Atome bzw. Moleküle.
+Um die Aussage herzuleiten, nutzt das Dulong-Petitsch-Gestz
+das sogenannte Äquipartitionstheorem. 
+Dieses liefert gibt Rückschlüsse auf die kinetische Energie eines Atom
+im thermischen Gleichgewicht:
 
+\begin{equation*}
+\left< E_{kin} \right>=\frac{1}{2}kT
+\end{equation*} 
 
+Mit diesem und weitern Zusammenhängen folgt danbn für drei Bewegungsrichtungen:
 
+\begin{equation*}
+\left< U_{fest} \right> = 3 \left< U \right>=3RT \quad \Rightarrow \quad C_{V}\overset{\eqref{eq:molwarme}}{=}3R
+\end{equation*}
 
+\subsubsection{Quantenmechanische Betrachtung}
+Bei der quantenmechanischen Betrachtung wird angenommen 
+das die ozillierenden Atome nur quantisierte Energiezustände $\Delta u=n\hbar \omega \quad n\in\mathbb{N}$
+annehmen können.
+Mit zu Hilfe nahme der Boltzmann-Verteilung kann dann auf den Zusammenhang 
+für drei Raumrichtung 
+\begin{equation}
+\label{eq:quant}
+\left< U_{qm} \right> =\frac{3N_L \hbar \omega}{\exp\left(\hbar \frac{\omega}{k} T\right) -1}
+\end{equation}
 
+geschlossen werden.
+Die Konstante $N_L = \SI{6.02e23}{\per\mol}$ wird als \emph{Loschmidtsche Zahl} bezeichnet.
+Für $T\to\infty$ läuft \eqref{eq:quant} gegen den aus der klassichen Physik bekannten Wert 
+$3RT$.
 
-\subsection{Thermoelemnte und ihre Funktionsweise}
+\subsection{Bestimmung der spezifischen Wärmekapazität}
+Da eine experiementelle Bestimmung der spezifischen Wärmekapazität 
+bei konstanten Volumen $C_V$ kaum möglich ist.
+Bestimmt man die Wärmekapazität bei konstanten Druck $C_P$.
+Beide Größen kann man durch den Zusammmenhang
 
-Ein Thermoelemt wird häufig eingesetzt um eine 
-Temperatur mir einer hohen Einstellungsschwindigkeit zu messen.
+\begin{equation}
+\label{eq:umrechnung_cp_cv}
+C_P-C_V=9\alpha^2\kappa V_0 T \quad \text{mit} \kappa=V\left(\frac{\partial p}{\partial V}\right)_T
+\end{equation}
+
+Hierbei sei $\alpha$ ein linearer Ausdehnungskoeffizient, $\kappa$ das Kompressionsmodul und
+$V_0$ das Molvolumen.
+
+Für die Bestimmmung wird ein Kaloriemeter verwendet.
+Dazu ein Rohrförmiger Probekörper mit der Masse $m_k$ der eine Temperatur 
+$T_k$ besitzt. Zusätlich gibt es ein mit Wasser gefülltes Gefäß.
+Das Wasser besitzt die Masse $m_w$ und die Temperatur $T_w$.
+Nach eintauchen des Körper stellt sich im Gefäß die 
+Temperatur $T_w$ ein. Also Zusammenhang für die 
+spezifische Wärmekapazität ergibt sich:
+\begin{equation*}
+\label{eq:zusammenhang_ck}
+c_k=\frac{\left(c_wm_w+c_gm_g\right)\left(T_m-T_w\right)}{m_k\left(T_k-T_m\right)}
+\end{equation*}
+
+\subsection{Thermoelemente und ihre Funktionsweise} %Skizze
+
+Ein Thermoelement wird häufig eingesetzt um eine  
+Temperatur mit einer hohen Einstellungsschwindigkeit zu messen.
 Es besteht aus zwei Metallen, die sich durch zwei 
 verschiedene Wärmeleitkoeffizienten auszeichnen.
 Am Ende des Themoelemts befindet sich eine Berührungstelle zwischen 
 den beiden Elementen.
 An dieser kommt es später zu einem Elektronenfluss.
+Ein Thermoelement besitzt zwei Berührungsstellen, die 
+jeweils zwei verschiedene Temperaturen messen.
+Werdenn unterschiedliche Temperaturen gemessen, so 
+stellt sich zwischen den Kontaktstellen ein Kontaktpotential 
+ein. 
+Durch Messung der Spannung, kann auf die 
+Temperatur der beiden Wasserbäder geschlossen werden.
+
+
+
+
 
