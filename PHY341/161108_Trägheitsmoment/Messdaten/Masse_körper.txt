@@ -1,0 +1,13 @@
+Masse: 
+
+kleiner Zylinder 1: 222,51g	
+kleiner Zylinder 2: 223,46g
+grauer Zylinder: 1005,8 g
+grosse Kugel: 812,4 g
+
+Abmessung:
+
+kleiner Zylinder 1: d=3.49 cm ,  h=3.01 cm
+grauer Zylinder: d=8.00 cm, h=14.05 cm
+Kugel: d=13.78 cm
+

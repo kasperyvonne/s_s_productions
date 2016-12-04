@@ -1,0 +1,53 @@
+\section*{Zielsetzung}
+Im Versuch $207$ soll das Verhalten der sogenannten \emph{dynamischen Viskosität} von destilliertem Wasser untersucht werden. Hierzu wird das Kugelfall-Viskosimeter verwendet,
+das auf eine Erfindung von Fritz Höppler aus dem Jahre 1932 zurück geht.
+
+\section{Theorie}
+Die Strömung einer Flüssigkeit wird als \emph{laminar} bezeichnet, wenn die \emph{innere Reibung} eine Kraft $F_R$ verursacht, die wesentlich größer ist
+als die strömungserzeugende Kraft $F_B$. Die Strömungslinien verlaufen ohne Verwirbelungen nebeneinander.
+In diesem Fall ergibt sich der Betrag der Reibungskraft auf eine Kugel mit Radius $R$, die sich mit einer Geschwindigkeit
+$v$ durch die Flüssigkeit bewegt, mittels des empirisch gefundenen \emph{Stokesschen Gesetzes}:
+\begin{equation}
+  F_R = 6 \pi \cdot \eta \cdot v \cdot R
+  \label{eq: stokes}
+\end{equation}
+Hierbei handelt es sich bei $\eta$ um die anfangs erwähnte \emph{dynamische Viskosität}, deren Abhängigkeit von der Temperatur $T$ durch eine Funktion der Form
+\begin{equation}
+  \eta(T) = \mathup{A} \cdot \exp\left(\frac{B}{T}\right) \quad \mathup{A}, \mathup{B} \in \mathbb{R}
+  \label{eq: andrad}
+\end{equation}
+beschrieben werden kann (\emph{Andredesche Funktion}). \\
+Fällt ein Körper in einer viskosen Flüssigkeit nach unten, so wirkt neben der Gewichts- und Reibungskraft ebenfalls eine nach oben gerichtete Auftriebskraft $F_A$, deren
+Betrag sich aus dem \emph{Prinzip des Archimedes} ergibt.
+\begin{equation}
+  F_A = \rho_{Fl} \cdot V_K \cdot g
+\end{equation}
+Hierbei ist $\rho_{Fl}$ die Dichte der Flüssigkeit und $V_K$ das Volumen des Körpers (hier: Kugel). Durch das Ansteigen der Reibungskraft mit der Geschwindigkeit,
+stellt sich nach kurzer Zeit im Kräftgleichgewicht eine konstante Geschwindigkeit $v_0$ ein.
+\begin{align}
+  \begin{aligned}
+  6 \pi \cdot \eta \cdot v_0 \cdot R_K  &= (\rho_K - \rho_{Fl}) \cdot \frac{4}{3}\pi R_K^3 \cdot g  \\
+  \hfill
+  \Leftrightarrow \quad \eta &= \frac{2 (\rho_K - \rho_{Fl}) \cdot R_K^2 \cdot  g}{9 v_0}
+\end{aligned}
+\end{align}
+Mit der Dichte des Körpers $\rho_K$. Durch Ersetzen der Geschwindigkeit $v_0 = s / t$ ergibt sich:
+\begin{equation}
+  \eta = \frac{2 (\rho_K - \rho_{Fl}) R_K^2 \cdot  g \cdot t}{9  s} := K (\rho_K - \rho_{Fl}) \cdot t
+  \label{eq: eta}
+\end{equation}
+Hierbei ist $K$ nun eine Konstante, die lediglich von der Geometrie der Kugel und der Fallstrecke abhängt. Sie dient der einfachen Handhabung im späteren Verlauf.\\
+
+Um den Fluss verschiedener Medien in ähnlichen Körpern qualitativ vergleichen zu können, definiert man in der Strömungslehre die sogenannte \emph{Reynoldsche Zahl} $R_e$. Für
+Zylinder mit Durchmesser $d$ ergibt sie sich zu:
+\begin{equation}
+  R_e = \frac{\rho_{Fl} \cdot v_0 \cdot d}{\eta}
+  \label{eq: reynolds}
+\end{equation}
+Ist die \emph{Reynoldsche Zahl} zweier Anordnungen (z.B. Fluss von Honig in einem Rohr mit Durchmesser $1 \si{\meter}$ und Fluss von Wasser in einem Rohr mit Durchmesser $1\si{cm}$) gleich, so
+ist das Strömungs- bzw. Turbulenzverhalten der Theorie nach identisch. Aus diesem Grund kann durch das Bestimmen der \emph{Reynoldschen Zahl} beurteilt werden, ob eine Strömung laminar ist oder nicht.
+Als Grenzwert für laminare Strömungen findet man in der Literatur (hier zitieren):
+\begin{equation}
+  \text{Strömung laminar} \Leftrightarrow R_e < 2320
+  \label{eq: laminar}
+\end{equation}
