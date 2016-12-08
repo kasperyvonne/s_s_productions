@@ -8,7 +8,7 @@ Radien und Massen der Kugeln einzusehen.
 
 \begin{table}
 \centering
-\begin{tabular} {ccccccc}
+\begin{tabular} {ccccccc} %Hier noch Radius durch Durchmesser ändern.
 	\toprule
   & \multicolumn{3}{c}{Radius in $\si{\meter}\cdot \num{e-3}$}  & \multicolumn{3}{c}{Masse in $\si{\kilogram}\cdot \num{e-3}$} \\
 \midrule 
@@ -19,6 +19,12 @@ Kugel 2  & $\num{7.65} $&  $\num{7.65} $ & $\num{7.65} $ & $\num{4.6}$ & $\num{4
 \caption{Abmessung der Kugeln}
 \label{tab:messwerte_kugel}
 \end{table}
+
+Der Radius wird dann mit
+\begin{equation*}
+r=\frac{d}{2}
+\end{equation*}
+bestimmt.
 
 Der Mittelwert der Messreihen wird mittels
 
@@ -31,14 +37,21 @@ bestimmt. Dabei wird der zugehörige Fehler
 durch
 \begin{equation}
 \label{eq:stand_ab}
-\bar{\sigma}_{\bar{x}}=\sqrt{\frac{1}{n(n-1)}\sum_{i=1}^{n}(x_i-\bar{x})^2}.
+\Delta \overline{x}=\sqrt{\frac{1}{n(n-1)}\sum_{i=1}^{n}(x_i-\bar{x})^2}.
 \end{equation}
 
 berechnet.
+Außerdem wird die Gaußsche Fehlerfortpflanung
+
+\begin{equation}
+\label{eq:gauss}
+\Delta f=\sqrt{\sum_{i=0}^n\left(\frac{\partial f}{\partial x_n} \Delta x_n\right)^2}
+\end{equation}
+
 Für die Messungen aus \ref{tab:messwerte_kugel} ergeben sich die
 folgenden Werte:
 
-\begin{align}
+\begin{align} %Hier noch Genauigkeit erhöhen und Durchmesser angeben
 \label{eq:abmessungen_kugel}
 \begin{aligned}
 \overline{m}_{1}&=  \num{0.0044}\si{\kilogram} \\
@@ -49,13 +62,13 @@ folgenden Werte:
 \end{aligned}
 \end{align}
 
-Der Fehler der Größen in \eqref{eq:abmessungen_kugel} ist in Größenordnung $\pm \num{e-6}$
+Der Fehler der Größen in \eqref{eq:abmessungen_kugel} ist in Größenordnung $\pm \SI{e-6}{kilogram}\,\text{bzw.}\, \si{\meter}$
 und wurde deshalb nicht mit aufgeführt.
 
 Mithilfe der Formel%ausdruck
 
 \begin{equation*}
-\rho=\frac{m}{V_{k}} \qquad \text{mit} \, V_{k}=\frac{4}{3}\pi r^3
+\rho=\frac{m}{V_{k}} \qquad \text{mit} \, V_{k}=\frac{4}{3}\pi \left(\frac{d}{2}\right)^3
 \end{equation*}
 
 können die Dichten der Kugeln ermittelt werden.
@@ -65,11 +78,11 @@ Es ergibt sich:
 \rho_{1}&=\left(\num{2451.0}\pm\num{1.6}\right) \si{\kilogram\per\cubic\meter}\\
 \rho_{2}&=\left(\num{2454.7}\pm\num{1.5}\right) \si{\kilogram\per\cubic\meter}
 \end{align*}
-
+Die Fehler wurden mit \eqref{eq:gauss} bestimmt.
 \subsection{Bestimmung der Viskosität von Wasser bei Zimmertemperatur} \label{sec:visko}
 Um die Viskosität zu bestimmen, wird die Dichte von Wasser und die Fallzeit der kleinen Kugel benötigt.
 Die gemessenen Werte sind in Tabelle \ref{tab:messwerte_fallzeit_kugel_klein} aufgelistet. %auf
-\begin{table}
+\begin{table} %Hier noch die Genauigkeit erhöhen
 \centering
 \begin{tabular} {c}
 	\toprule
@@ -97,7 +110,7 @@ Als gemittelter Wert ergibt sich
 
 \begin{equation}
 \label{eq:gemittelte_fallzeit_klein}
-\overline{t}_{1}=\left(\num{12.78}\pm\num{0.02}\right) \si{\second}.
+\overline{t}_{1}=\left(\num{12.77}\pm\num{0.02}\right) \si{\second}.
 \end{equation}
 
 Mittels der Gleichung \eqref{eq: eta} kann die Viskosität
@@ -109,7 +122,7 @@ Als Wert errechnet sich:
 \eta_{20}= \num{0.0014} \si{\pascal\second}
 \end{equation}
 
-Der Fehler für die Viskosität liegt in der Größenordnung $\pm\num{e-6}$. %genau bei {e-6} ?
+Der Fehler für die Viskosität liegt in der Größenordnung $\pm\SI{e-6}{\pascal\second}$. %genau bei {e-6} ?
 
 Für die Dichte von Wasser bei $\SI{20}{\degreeCelsius}$ wurde der Literaturwert $\rho_{20}=\SI{998.21}{\kilogram\per\cubic\meter}$
 genutzt\cite{lit_dichte}.
@@ -118,7 +131,7 @@ genutzt\cite{lit_dichte}.
 Für die Bestimmung der Apperaturkonstante der großen Kugel nutzt man Gleichung \eqref{eq: eta}.
 
 \begin{equation*}
-\Leftrightarrow \quad K_{g}=\frac{\eta}{\left(\rho_2-\rho_{20}\right)\overline{t}_2}
+\Leftrightarrow \quad K_{g}=\frac{K_{kl}\left(\rho_2-\rho_{20}\right)\overline{t}_1}{\left(\rho_2-\rho_{20}\right)\overline{t}_2}
 \end{equation*}
 
 Hierbei sei $\overline{t}_2$ die Fallzeit der zweiten Kugel.
@@ -159,6 +172,7 @@ Apperaturkonstante
 \label{eq:app_konst_gross}
 K_{g}=\left(\num{9.98}\pm\num{0.02}\right)\cdot{\num{e-9}} \si{\pascal\cubic\meter\per\kilogram}.
 \end{equation}
+Der Fehler wird mittels Gauß berechnet.
 
 \subsection{Bestimmung der Viskosität in Abhängigkeit von der Temperatur}
 Mit der gefundenen Konstante $K_{g}$ und den temperaturabhängigen Dichten kann nun die dynamische 
@@ -216,33 +230,60 @@ Tabelle \ref{tab:messwerte_fallzeit_kugel_gross_temo} aufgelisteten Werte.
 \label{tab:messwerte_fallzeit_kugel_gross_temo}
 \end{table}
 
-Das Ergebnis der Viskositätsberechnung ist in Tabelle \ref{tab:visko_wasser_temp} zu finden. % zu finden
-Die Fehler der Berechnungen ist in der Größenordnung $\pm \num{e-6}$ und 
+Das Ergebnis der Viskositätsberechnung (nach \eqref{eq: eta}) ist in Tabelle \ref{tab:visko_wasser_temp} zu finden. % zu finden
+Die Fehler der Berechnungen ist in der Größenordnung $\pm \SI{e-6}{\pascal\second}$ und 
 wird deshalb nicht aufgeführt.
 
 \begin{table}
 \centering
 \begin{tabular} {cc}
   \toprule
-  Temperatur in $\si{\kelvin}$ & Viskosität $\eta$ $\si{\pascal\second}$ \\
+  Temperatur in $\si{\kelvin}$ & Viskosität $\eta\cdot\num{e-3}$ in $\si{\pascal\second}$ \\
   \midrule
-  $\num{303.16}$ & $\num{0.00141}$ \\
-  $\num{308.16}$ & $\num{0.00137}$ \\
-  $\num{313.16}$ & $\num{0.00135}$ \\
-  $\num{318.16}$ & $\num{0.00132}$ \\
-  $\num{323.16}$ & $\num{0.00128}$ \\
-  $\num{328.16}$ & $\num{0.00122}$ \\
-  $\num{333.16}$ & $\num{0.00120}$ \\
-  $\num{336.16}$ & $\num{0.00117}$ \\
-  $\num{339.16}$ & $\num{0.00114}$ \\
-  $\num{343.16}$ & $\num{0.00108}$ \\
+  $\num{303.16}$ & $\num{1.41}$ \\
+  $\num{308.16}$ & $\num{1.37}$ \\
+  $\num{313.16}$ & $\num{1.35}$ \\
+  $\num{318.16}$ & $\num{1.32}$ \\
+  $\num{323.16}$ & $\num{1.28}$ \\
+  $\num{328.16}$ & $\num{1.22}$ \\
+  $\num{333.16}$ & $\num{1.20}$ \\
+  $\num{336.16}$ & $\num{1.17}$ \\
+  $\num{339.16}$ & $\num{1.14}$ \\
+  $\num{343.16}$ & $\num{1.08}$ \\
 \bottomrule
 \end{tabular}
 \caption{Dynamische Viskosität} %ausdruck
 \label{tab:visko_wasser_temp}
 \end{table}
 
-Die Ergebnisse werden in Abbildung \ref{fig:t_v_v} und \ref{fig:t_v_l_v} dargestellt.  %Ergebnisse, verglichen werden sie doch erst in der diskussion
+Die Ergebnisse werden in Abbildung \ref{fig:t_v_v} und \ref{fig:t_v_l_v} dargestellt.
+In den Abbildung \ref{fig:t_v_v} wird die Temperatur gegen die Viskosität aufgetragen.
+Zusätzlich werden die Literaturwerte \cite{lit_dichte} mit aufgetragen.
+Dagegen wird in Abbildung \ref{fig:t_v_l_v} $\log(\eta)$ gegen $\frac{1}{T}$ aufgetragen.
+Darüberhinaus sind auch die Literaturwerte \cite{lit_dichte} mit abgebildet.
+Zur Berechnung der Ausgleichsrechung in\ref{fig:t_v_l_v} , wurde aus der Regressionsrechnung:
+
+\begin{equation*}
+m=\frac{\overline{xy}-\bar{x}\bar{y}}{\bar{x^2}-\bar{x}^2}
+\end{equation*}
+zur Bestimmung der Steigung, mit dem dazugehörigen Fehler
+
+\begin{equation*}
+\sigma_m=\sqrt{\frac{\sigma^2}{N(\bar{x^2}-\bar{x}^2)}}.
+\end{equation*}
+
+Für den $y$-Achsenabschnitt gilt der Zusammenhang
+
+\begin{equation*}
+b=\frac{\bar{x^2}\bar{y}-\bar{x}\bar{xy}}{\bar{x^2}-\bar{x}^2}
+\end{equation*}
+
+mit dem dazugehörigen Abweichung
+
+\begin{equation*}
+\sigma_b=\sqrt{\frac{\sigma^2}{N\left(\bar{x^2}-\bar{x}^2\right)}}.
+\end{equation*}
+%Ergebnisse, verglichen werden sie doch erst in der diskussion
 Eine qualitativer Vergleich erfolgt anschließend in der Diskussion. %
 
 \FloatBarrier
@@ -265,41 +306,44 @@ Hierbei wurde mittels der Python Bibliothek \emph{Scipy} eine
 Regression an eine Funktion der Form $T_i = Ae^{\frac{B}{T}}$ (siehe \eqref{eq: andrad}) bestimmt. %hinter formel ref
 
 Als Parameter ergeben sich:
-\begin{equation*}
-A=\SI{1.74e-3}{\pascal\second} \quad B=\SI{6.4e2}{\kelvin} %Einheiten ? haben die ne dimension?
+\begin{equation*} %Hier nochmal kontrollieren
+A=\left(\num{1.74}\pm\num{24.8}\right)\cdot\num{e-4}\,\si{\pascal\second} \quad B=\left(\num{6.396} \pm\num{45.83}\right)\cdot\num{e-2}\,\si{\kelvin} %Einheiten ? haben die ne dimension?
 \end{equation*}
 
 \subsection{Bestimmung der Reynolds-Zahl}
 
-Die \emph{Reynolds-Zahl} wird durch die Gleichung \eqref{eq: reynolds} bestimmt. %verb
+Die \emph{Reynolds-Zahl} wird durch die Gleichung \eqref{eq: reynolds} bestimmt.
+Dabei wird $v_0$ ersetzt durch $v_0=\frac{l}{t}$.
+Zusätzlich sei $d$ der Rohrdurchmesser  %verb
+Der Rohrdurchmesser wird durch den Durchmesser der großen Kugel genährt.
+Die Fehler der \emph{Reynolds-Zahl} wird nach Gauß berechnet. %genähert
 
-Dabei sei $d$ der Rohrdurchmesser und $v$ die Fallgeschwindigkeit der Kugel.
-Der Rohrdurchmesser wird durch den Durchmesser der großen Kugel genährt. %genähert
-Die temperaturabhängigen Fallgeschwindigkeiten der Kugel ist in Tabelle \ref{tab:fall_kugel} einzusehen.
-Da Fehler der Geschwindigkeitsberechnung in der Größenordnung $\num{e-6}$ ist,
-wird er nicht mit aufgelistet.
+%Die temperaturabhängigen Fallgeschwindigkeiten der Kugel ist in Tabelle 
+%\ref{tab:fall_kugel} einzusehen.
+%Da Fehler der Geschwindigkeitsberechnung in der Größenordnung $\num{e-6}$ ist,
+%wird er nicht mit aufgelistet.
 
-\begin{table}
-\centering
-\begin{tabular} {cc}
-  \toprule
-  Temperatur in $\si{\kelvin}$ & Fallgeschwindigkeit $v$ in $\si{\meter\per\second}$ \\
-  \midrule
-  $\num{303.16}$ & $\num{0.00103}$ \\
-  $\num{308.16}$ & $\num{0.00107}$ \\
-  $\num{313.16}$ & $\num{0.00108}$ \\
-  $\num{318.16}$ & $\num{0.00110}$ \\
-  $\num{323.16}$ & $\num{0.00114}$ \\
-  $\num{328.16}$ & $\num{0.0012}$ \\
-  $\num{333.16}$ & $\num{0.00123}$ \\
-  $\num{336.16}$ & $\num{0.001126}$ \\
-  $\num{339.16}$ & $\num{0.00129}$ \\
-  $\num{343.16}$ & $\num{0.00137}$ \\
-\bottomrule
-\end{tabular}
-\caption{Fallgeschwindigkeit der großen Kugel bei unterschiedlichen Temperaturen}
-\label{tab:fall_kugel}
-\end{table}
+%\begin{table}
+%\centering
+%\begin{tab%ular} {cc}
+%  \toprule
+%  Temperatur in $\si{\kelvin}$ & Fallgeschwindigkeit $v$ in $\si{\meter\per\second}$ \%\
+%  \midrule
+%  $\num{303.16}$ & $\num{0.00103}$ \\
+%  $\num{308.16}$ & $\num{0.00107}$ \\
+%  $\num{313.16}$ & $\num{0.00108}$ \\
+%  $\num{318.16}$ & $\num{0.00110}$ \\
+%  $\num{323.16}$ & $\num{0.00114}$ \\
+%  $\num{328.16}$ & $\num{0.0012}$ \\
+%  $\num{333.16}$ & $\num{0.00123}$ \\
+%  $\num{336.16}$ & $\num{0.001126}$ \\
+%  $\num{339.16}$ & $\num{0.00129}$ \\
+%  $\num{343.16}$ & $\num{0.00137}$ \\
+%\bottomrule
+%\end{tabular}
+%\caption{Fallgeschwindigkeit der großen Kugel bei unterschiedlichen Temperaturen}
+%\label{tab:fall_kugel}
+%\end{table}
 
 Die Werte für die \emph{Reynolds-Zahl} sind in Tabelle \ref{tab:rey_visko} %'sich damit ergebenen Werte' weglassen
 zu finden.
