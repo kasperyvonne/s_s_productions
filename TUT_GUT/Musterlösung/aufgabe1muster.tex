@@ -1,0 +1,46 @@
+\section{Kiste auf schiefer Ebene}
+\subsection{Lösung i}
+  Bei dieser Aufgabe muss man sich klar machen, dass die Kisten in zwei Richtungen rutschen können. Als Lösung
+  für die Masse $m_2$, für die das System in Ruhe ist, wird sich also ein Intervall ergeben.
+  Zunächst soll der Fall des Rutschens nach rechts betrachtet werden. \\
+  In Abbildung x sind die Kräfte eingezeichnet, die auf Kiste 1 wirken. Die Haftreibung ist immer so gerichtet, dass
+  sie der Bewegungsrichtung entgegen wirkt, hier also in die selbe Richtung wie die Gewichtskraft der Kiste 2. Sie setzt
+  sich aus der Normalkraft und dem Haftreibungskeffizienten $\mu_H$ zusammen:
+  \begin{equation}
+    F_{R,H} = F_N \cdot \mu_H
+  \end{equation}
+  Die Normalkraft ergibt sich aus der Winkelbeziehung:
+  \begin{equation}
+    \cos\left(\Theta\right) = \frac{F_N}{F_{G,1}}\quad \Leftrightarrow\quad F_N = \cos\left(\Theta\right) \cdot F_{G,1}
+  \end{equation}
+  Auf analoge Weise erhält man die Hangabtriebskraft:
+  \begin{equation}
+     F_H = \sin\left(\Theta\right) \cdot F_{G,1}
+  \end{equation}
+  Nun betrachtet man den Fall des Kräftgleichgewichts und stellt nach $m_2$ um:
+  \begin{align}
+    \begin{aligned}
+      F_{G,2} + F_{R,H} &= F_H\\
+    \Leftrightarrow \quad  F_{G,2} + \cos\left(\Theta\right) \cdot F_{G,1} \cdot \mu_H &= \sin\left(\Theta\right) \cdot F_{G,1} \\
+    \Leftrightarrow \quad m_2 g + \cos\left(\Theta\right) \cdot m_1 g \cdot \mu_H &= \sin\left(\Theta\right) \cdot m_1 g \\
+    \Leftrightarrow \quad m_2  + \cos\left(\Theta\right) \cdot m_1  \cdot \mu_H &= \sin\left(\Theta\right) \cdot m_1  \\
+    \Leftrightarrow \quad m_2 &= m_1 \cdot (\sin\left(\Theta\right) - \cos\left(\Theta\right)  \cdot \mu_H)
+  \end{aligned}
+  \label{eq: m_2}
+  \end{align}
+Das heßt für alle Werte $m > x$ rutscht das System nicht nach rechts. Nun muss selbe Rechnung noch für den Fall des Rutschens nach
+links durchgeführt werden. Hier wirkt die Reibung nun nach rechts, das heißt im Kräftegleichgewicht gilt:
+\begin{equation}
+  F_{G,2}  = F_H + F_{R,H}
+\end{equation}
+Die Lösung unterscheidet sich also lediglich um ein Vorzeichen im Vergleich zu \eqref{eq: m_2}.
+\begin{equation}
+  m_2 = m_1 \cdot (\sin\left(\Theta\right) + \cos\left(\Theta\right)  \cdot \mu_H)
+\end{equation}
+Das heißt für alle Werte $m < y$ rutscht das System nicht nach links. Insgesamt ergibt sich:
+\begin{equation}
+  \text{System in Ruhe} \quad \Leftrightarrow \quad m_2 \in [x,y]
+\end{equation}
+
+
+\newpage
