@@ -14,16 +14,19 @@ masse_1, masse_2 = np.genfromtxt('masse.txt',unpack=True)
 durchmesser_1,durchmesser_2=np.genfromtxt('durchmesser.txt',unpack=True)
 temperatur_lit, viskosi_lit= np.genfromtxt('viskositaet_k.txt', unpack = True)
 #Umrechnung
+
 temperatur+=273.16
 temperatur_lit+=273.16
 viskosi_lit*=1e-03
 print('Viskositet',viskosi_lit)
 print('\n')
+
 durchmesser_gross=durchmesser_2*1e-3
 durchmesser_1*=1e-3
 durchmesser_2*=1e-3
 masse_1*=1e-3
 masse_2*=1e-3
+
 print(durchmesser_1)
 print(durchmesser_2)
 print('\n')
@@ -81,11 +84,12 @@ masse_klein=mittel_und_abweichung(masse_1)
 masse_gross=mittel_und_abweichung(masse_2)
 print('Masse Kugel 1', masse_klein)
 print('Masse Kugel 2', masse_gross)
+
 print('\n')
 
 radius_klein=mittel_und_abweichung(durchmesser_1)
 radius_gross=mittel_und_abweichung(durchmesser_2)
-durchmesser_rohr=mittel_und_abweichung(2*durchmesser_2)
+durchmesser_rohr=mittel_und_abweichung(durchmesser_2)
 print('Radius Kugel 1', radius_klein)
 print('Radius Kugel 2',radius_gross)
 print('\n')
@@ -125,6 +129,7 @@ print('\n')
 print('Temperatur - durchschnittliche Fallzeit - grosse Kugel',temperatur[::2],fallzeit_mittel_gross_t)
 print('\n')
 
+## Geschwindigkeitsberechnung
 geschwindigkeit_mittel_klein=fallstrecke/fallzeit_mittel_klein
 geschwindigkeit_mittel_gross=fallstrecke/fallzeit_mittel_gross
 
@@ -139,7 +144,7 @@ print('\n')
 print('Temperatur - geschwindigkeit_mittel-grosse Kugel', temperatur[::2],geschwindigkeit_mittel_gross_t)
 print('\n')
 
-
+## Viskosität
 def viskositaet(dichte_wasser,dichte_kugel,fallzeit_mittel):
 	return (apperaturkonst_klein*(dichte_kugel-dichte_wasser)*fallzeit_mittel)
 
@@ -172,12 +177,17 @@ def viskositaet_gross(dichte_wasser,dichte_kugel,fallzeit_mittel):
 
 
 viskositat_temperatur=viskositaet_gross(dichte_wasser,dichte_gross,fallzeit_mittel_gross_t)
-print('viskositaet_temperatur', temperatur[::2],viskositat_temperatur)
+print('viskositaet_temperatur',temperatur[::2],viskositat_temperatur)
 print('\n')
 
 #Reynold_zahl
-def reynold_zahl(dichte_wasser,geschwindigkeit_mittel_gross,durchmesser,viskositate_kugel_klein):
-	return (dichte_wasser*geschwindigkeit_mittel_gross*durchmesser)/viskositate_kugel_klein 
+print('fallstrecke',fallstrecke)
+print('Fallzeit Kugel', fallzeit_mittel_gross_t)
+print('geschwindigkeit 1', fallstrecke/68.86)
+print('\n')
+
+def reynold_zahl(dichte_wasser, fallzeit_kugel,durchmesser,viskositate_kugel_klein):
+	return (dichte_wasser*fallstrecke*durchmesser)/(fallzeit_kugel*viskositate_kugel_klein)
 
 
 dichte_wasser_array=np.array([ufloat(n, 0) for n in dichte_wasser])
@@ -188,7 +198,7 @@ viskositaet_temperatur_array=np.array(viskositat_temperatur)
 #print(type(geschwindigkeit_mittel_gross_array),len(geschwindigkeit_mittel_gross_array), geschwindigkeit_mittel_gross_array[0])
 #print(type(viskositaet_temperatur_array),len(viskositaet_temperatur_array), viskositaet_temperatur_array[0])
 #print(durchmesser_rohr)
-rey_zahl=reynold_zahl(dichte_wasser_array,geschwindigkeit_mittel_gross_array,durchmesser_rohr,viskositaet_temperatur_array)
+rey_zahl=reynold_zahl(dichte_wasser_array,fallzeit_mittel_gross_t,durchmesser_rohr,viskositaet_temperatur_array)
 
 print('Reynold Zahl',rey_zahl)
 print('\n')
