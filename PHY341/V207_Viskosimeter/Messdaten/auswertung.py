@@ -198,9 +198,12 @@ viskositaet_temperatur_array=np.array(viskositat_temperatur)
 #print(type(geschwindigkeit_mittel_gross_array),len(geschwindigkeit_mittel_gross_array), geschwindigkeit_mittel_gross_array[0])
 #print(type(viskositaet_temperatur_array),len(viskositaet_temperatur_array), viskositaet_temperatur_array[0])
 #print(durchmesser_rohr)
+
 rey_zahl=reynold_zahl(dichte_wasser_array,fallzeit_mittel_gross_t,durchmesser_rohr,viskositaet_temperatur_array)
+rey_zahl_klein=reynold_zahl(dichte_wasser_20,fallzeit_mittel_klein,durchmesser_rohr,viskositate_kugel_klein)
 
 print('Reynold Zahl',rey_zahl)
+print('rey_zahl_klein',rey_zahl_klein)
 print('\n')
 
 ##Regressionsrechnung
@@ -224,25 +227,35 @@ m_u=ufloat(m,m_err)
 b_u=ufloat(b,b_err)
 print('Steigung', m_u)
 print('y-Achsenabschnitt', b_u)
-print('yhoch e', np.exp(unp.nominal_values(b_u)))
+print('yhoch e', np.exp(unp.nominal_values(b_u)),np.exp(unp.std_devs(b_u)))
+print('\n')
+
+#mittels curve-fit:
+def g(x,a,b):
+	return a*1/x+b
+params_g,covariance_g=curve_fit(g,temperatur[::2],np.log(unp.nominal_values(viskositat_temperatur)))
+params_g_lit,covariance_g_lit=curve_fit(g,temperatur_lit,np.log(viskosi_lit))
+
+
+print('Lineare a,b',params)
 print('\n')
 ##Plotbereich
 
 #für loga
-#plt.xlim(1/300,1/350)
+plt.xlim(1/301,1/345)
 #plt.ylim(1e-4,1e-2)
 
 ##Für nicht logaritmisch
 #plt.xlim(300,345)
 
 
-aufvariabele=np.linspace(273.16,350,1000)
+aufvariabele=np.linspace(300,350,1000)
 #Loga
-plt.plot(1/temperatur[::2] ,unp.nominal_values(viskositat_temperatur),'rx',label='Messwerte')
-plt.plot(1/aufvariabele,m*(1/aufvariabele)+b,'b-',label='Regressions Kurve')
+plt.plot(1/temperatur[::2] ,np.log(unp.nominal_values(viskositat_temperatur)),'rx',label='Messwerte')
+plt.plot(1/aufvariabele,g(aufvariabele,*params_g),'b-',label='Regressions Kurve')
 
-plt.plot(1/temperatur_lit,viskosi_lit,'gx',label='Literaturwerte')
-plt.plot(1/aufvariabele,m_l*(1/aufvariabele)+b_l,'-k',label='Regressions Kurve')
+plt.plot(1/temperatur_lit,np.log(viskosi_lit),'gx',label='Literaturwerte')
+plt.plot(1/aufvariabele,g(aufvariabele,*params_g_lit),'-k',label='Regressions Kurve')
 
 #nicht Loga
 #plt.plot(temperatur[::2] ,unp.nominal_values(viskositat_temperatur),'rx',label='Messwerte')
@@ -264,5 +277,5 @@ plt.xlabel(r'$1/T\ in \ \mathrm{K} $')
 plt.ylabel(r'$\log{\eta}$')
 
 #plt.tight_layout()
-plt.show()
-#plt.savefig('viskositaet_temp__log_mit_lit.pdf')
+#plt.show()
+plt.savefig('viskositaet_temp__log_mit_lit.pdf')
