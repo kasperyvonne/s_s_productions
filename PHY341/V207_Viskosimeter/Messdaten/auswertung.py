@@ -187,7 +187,14 @@ print('geschwindigkeit 1', fallstrecke/68.86)
 print('\n')
 
 def reynold_zahl(dichte_wasser, fallzeit_kugel,durchmesser,viskositate_kugel_klein):
-	return (dichte_wasser*fallstrecke*durchmesser)/(fallzeit_kugel*viskositate_kugel_klein)
+		print(dichte_wasser)
+		a=(dichte_wasser*0.1*durchmesser)
+		b_1=(fallzeit_kugel*viskositate_kugel_klein)
+		print(a)
+		print(b_1)
+		print(a/b_1)
+		print('\n')
+		return a/b_1
 
 
 dichte_wasser_array=np.array([ufloat(n, 0) for n in dichte_wasser])
@@ -198,8 +205,8 @@ viskositaet_temperatur_array=np.array(viskositat_temperatur)
 #print(type(geschwindigkeit_mittel_gross_array),len(geschwindigkeit_mittel_gross_array), geschwindigkeit_mittel_gross_array[0])
 #print(type(viskositaet_temperatur_array),len(viskositaet_temperatur_array), viskositaet_temperatur_array[0])
 #print(durchmesser_rohr)
-
-rey_zahl=reynold_zahl(dichte_wasser_array,fallzeit_mittel_gross_t,durchmesser_rohr,viskositaet_temperatur_array)
+print(dichte_wasser_array[-1],fallzeit_mittel_gross_t[-1],viskositaet_temperatur_array[-1])
+rey_zahl=reynold_zahl(dichte_wasser_array[-1],fallzeit_mittel_gross_t[-1],durchmesser_rohr,viskositaet_temperatur_array[-1])
 rey_zahl_klein=reynold_zahl(dichte_wasser_20,fallzeit_mittel_klein,durchmesser_rohr,viskositate_kugel_klein)
 
 print('Reynold Zahl',rey_zahl)
@@ -238,6 +245,9 @@ params_g_lit,covariance_g_lit=curve_fit(g,temperatur_lit,np.log(viskosi_lit))
 
 
 print('Lineare a,b',params)
+print('\n')
+
+print('Viskosität Literatur', viskosi_lit)
 print('\n')
 ##Plotbereich
 
@@ -278,4 +288,4 @@ plt.ylabel(r'$\log{\eta}$')
 
 #plt.tight_layout()
 #plt.show()
-plt.savefig('viskositaet_temp__log_mit_lit.pdf')
+#plt.savefig('viskositaet_temp__log_mit_lit.pdf')

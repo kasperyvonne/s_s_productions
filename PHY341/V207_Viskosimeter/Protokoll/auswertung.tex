@@ -65,7 +65,7 @@ folgenden Werte:
 \end{aligned}
 \end{align}
 
-Der Fehler der Größen in \eqref{eq:abmessungen_kugel} ist in Größenordnung $\pm \SI{e-6}{kilogram}\,\text{bzw.}\, \si{\meter}$
+Der Fehler der Größen in \eqref{eq:abmessungen_kugel} ist in Größenordnung $\pm \num{e-6}\, \si{\kilogram}\,\text{bzw.}\, \si{\meter}$
 und wurde deshalb nicht mit aufgeführt.
 
 Mithilfe der Formel%ausdruck
@@ -134,7 +134,7 @@ genutzt\cite{lit_dichte}.
 Für die Bestimmung der Apperaturkonstante der großen Kugel nutzt man Gleichung \eqref{eq: eta}.
 
 \begin{equation*}
-\Leftrightarrow \quad K_{g}=\frac{K_{kl}\left(\rho_2-\rho_{20}\right)\overline{t}_1}{\left(\rho_2-\rho_{20}\right)\overline{t}_2}
+\Leftrightarrow \quad K_{g}=\frac{K_{kl}\left(\rho_1-\rho_{20}\right)\overline{t}_1}{\left(\rho_2-\rho_{20}\right)\overline{t}_2}
 \end{equation*}
 
 Hierbei sei $\overline{t}_2$ die Fallzeit der zweiten Kugel.
@@ -239,20 +239,21 @@ wird deshalb nicht aufgeführt.
 
 \begin{table}
 \centering
-\begin{tabular} {cc}
+\begin{tabular} {ccc}
   \toprule
-  Temperatur in $\si{\kelvin}$ & Viskosität $\eta\cdot\num{e-3}$ in $\si{\pascal\second}$ \\
+  Temperatur in $\si{\kelvin}$ & Viskosität $\eta\cdot\num{e-3}$ in $\si{\pascal\second}$ & Literaturwerte $\eta_{lit}\cdot\num{e-3}$ in $\si{\pascal\second}$  \\
   \midrule
-  $\num{303.16}$ & $\num{1.41}$ \\
-  $\num{308.16}$ & $\num{1.37}$ \\
-  $\num{313.16}$ & $\num{1.35}$ \\
-  $\num{318.16}$ & $\num{1.32}$ \\
-  $\num{323.16}$ & $\num{1.28}$ \\
-  $\num{328.16}$ & $\num{1.22}$ \\
-  $\num{333.16}$ & $\num{1.20}$ \\
-  $\num{336.16}$ & $\num{1.17}$ \\
-  $\num{339.16}$ & $\num{1.14}$ \\
-  $\num{343.16}$ & $\num{1.08}$ \\
+  $\num{303.16}$ & $\num{1.41}$ & $\num{0.801}$  \\
+  $\num{308.16}$ & $\num{1.37}$ & $\num{0.723}$  \\
+  $\num{313.16}$ & $\num{1.35}$& $\num{0.656}$  \\
+  $\num{318.16}$ & $\num{1.32}$ & $\num{0.599}$\\
+  $\num{323.16}$ & $\num{1.28}$& $\num{0.549}$ \\
+  $\num{328.16}$ & $\num{1.22}$& $\num{0.506}$ \\
+  $\num{333.16}$ & $\num{1.20}$& $\num{0.468}$ \\
+  $\num{336.16}$ & $\num{1.17}$&  --- \\
+  $\num{338.16}$ & --- & $\num{0.436}$ \\
+  $\num{339.16}$ & $\num{1.14}$&  --- \\
+  $\num{343.16}$ & $\num{1.08}$& $\num{0.406}$ \\
 \bottomrule
 \end{tabular}
 \caption{Dynamische Viskosität} %ausdruck
@@ -264,7 +265,7 @@ In den Abbildung \ref{fig:t_v_v} wird die Temperatur gegen die Viskosität aufge
 Zusätzlich werden die Literaturwerte \cite{lit_dichte} mit aufgetragen.
 Dagegen wird in Abbildung \ref{fig:t_v_l_v} $\log(\eta)$ gegen $\frac{1}{T}$ aufgetragen.
 Darüberhinaus sind auch die Literaturwerte \cite{lit_dichte} mit abgebildet.
-Zur Berechnung der Ausgleichsrechung in\ref{fig:t_v_l_v} , wurde aus der Regressionsrechnung:
+Zur Berechnung der Ausgleichsgeraden in \ref{fig:t_v_l_v} , wurde aus der Regressionsrechnung:
 
 \begin{equation*}
 m=\frac{\overline{xy}-\bar{x}\bar{y}}{\bar{x^2}-\bar{x}^2}
@@ -387,7 +388,7 @@ zu finden.
 
 Bei dem Fallen der kleinen Kugel ergab sich eine Reynoldzahl von:
 \begin{equation*}%Hier noch Wert einfügen
-\map{Re}_{klein}=\left(\num{}\pm\num{}\right)
+\map{Re}_{klein}=\left(\num{84.45}\pm\num{0.29}\right)
 \end{equation*}
 Die Werte liegen alle unterhalb der in der Theorie angesprochenen kritischen \emph{Reynolds-Zahl}. %auf theorie verweisen
 Deshalb handelt es sich um eine laminare Strömung.
