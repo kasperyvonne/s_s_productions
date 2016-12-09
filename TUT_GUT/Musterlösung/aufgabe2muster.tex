@@ -16,3 +16,30 @@ Nutze den Ansatz:
 \begin{equation*}
 \mathrm{grad}\phi=\begin{pmatrix} \partial_x \phi \\ \partial_y \phi \\ \partial_z \phi \end{pmatrix} =\begin{pmatrix} -F_x \\ -F_y \\ -F_z \end{pmatrix}=-\vec{F}
 \end{equation*}
+
+Beginne mit der ersten Komponente:
+
+\begin{align*}
+\partial_x \phi&=3x^2y^2z-y^3 \\
+\Rightarrow \quad  \phi&=\int 3x^2y^2z-y^3 \mathrm{d}x = x^3y^2z-y^3x+c(y,z)
+\end{align*}
+
+Damit haben wir schonmal ein Grundgerüst des Potential gefunden.
+Dieses versuchen wir jetzt weiter zu verfeinern.
+Dazu machen wir mit der zweiten Komponente weiter:
+
+\begin{align*}
+\partial_y \phi= \partial_y\left( x^3y^2z-y^3x+c(y,z)\right)&=2x^3y-3xy^2+\partial_y c(y,z)= 2x^3yz-3xy^2+z \\
+\Leftrightarrow \quad \partial_y c(y,z)&=z\\
+\Rightarrow \quad c(y,z)=yz+c(z)
+\end{align*}
+
+Noch die letzte Zeile
+
+\begin{align*}
+\partial_z\phi= \partial_y\left( x^3y^2z-y^3x+yz+c(z)\right)&=y^3y^2+y+\partial_z c(z)=x^3y^2+y\\
+\Leftrightarrow \quad \partial_y c(z)&=0\\
+\Rightarrow \quad c(z)=d \quad d\in\mathbb{R}
+\end{align*}
+
+Damit haben wir das Potential $\phi=x^3y^2z-y^3x+yz+d \quad d\in\mathbb{R}$.
