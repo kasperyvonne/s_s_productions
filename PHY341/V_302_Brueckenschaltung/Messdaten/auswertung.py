@@ -207,11 +207,12 @@ print('Teil f, Klirr', teil_f_klirr)
 #plt.ylim()
 #aufvariabele=np.linsspace()
 #
-#plt.plot(,,'rx',label='')
+#plt.plot(teily,,'rx',label='')
 #
-#plt.grid()
-#plt.legend(loc='best')
+plt.grid()
+plt.legend(loc='best')
 #plt.xlabel()
 #plt.ylabel()
+
 #plt.show()
 #plt.savefig('.pdf')
