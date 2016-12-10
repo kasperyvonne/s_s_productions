@@ -72,15 +72,15 @@ def linregress(x, y):
 
 #Plotbereich
 
-plt.xlim()
-plt.ylim()
-aufvariabele=np.linsspace()
-
-plt.plot(,,'rx',label='')
-
-plt.grid()
-plt.legend(loc='best')
-plt.xlabel()
-plt.ylabel()
-plt.show()
-plt.savefig('.pdf')
+#plt.xlim()
+#plt.ylim()
+#aufvariabele=np.linsspace()
+#
+#plt.plot(,,'rx',label='')
+#
+#plt.grid()
+#plt.legend(loc='best')
+#plt.xlabel()
+#plt.ylabel()
+#plt.show()
+#plt.savefig('.pdf')
