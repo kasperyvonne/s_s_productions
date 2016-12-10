@@ -68,7 +68,7 @@ def linregress(x, y):
 
 ##Teil a)
 #teil_a_widerstand_2,teil_a_widerstand_3,teil_a_widerstand_4=np.linspace('Teila_widerstaende.txt'unpack=True)
-#teil_a_widerstand_2,teil_a_verhaeltniR34_4=np.linspace('Teila_widerstaende.txt'unpack=True)
+#teil_a_widerstand_2,teil_a_verhaeltniR34=np.linspace('Teila_widerstaende.txt'unpack=True)
 
 #Widerstandberechnung
 
@@ -88,10 +88,32 @@ teil_a_widersta_x_v=wider_ver(teil_a_widerstand_2,teil_a_verhaeltniR34)
 
 #print('Teil a, Widerstand R_x',teil_a_widerstand_x)
 print('Teil a, Widerstand R_x',teil_a_widersta_x_v)
+print('\n')
 
 ##Teil b)
+#teil_b_widerstand_2,teil_b_verhaeltniR34=np.linspace('Teila_widerstaende.txt'unpack=True)
+
+teil_b_verhaeltniR34_u=unp.uarray(teil_a_verhaeltniR34,0.05*teil_a_verhaeltniR34)
+teil_b_widerstand_2_u=unp.uarray(teil_b_widerstand_2_u,0.03*teil_b_widerstand_2_u)
 
 #Kapazitätsbestimmung
+
+def capa(c_2,R_3dR_4):
+	u_teil_a_r_3durchr_4=unp.uarray(R_3dR_4,R_3dR_4*0.05)
+	return c_2*R_3dR_4
+
+teil_b_widerstand_rx=wider_ver(teil_b_widerstand_2_u,teil_b_verhaeltniR34)
+teil_b_capatität_cx=capa(c_2,teil_b_verhaeltniR34)
+
+print('Teil b, Widerstand Rx',teil_b_widerstand_rx)
+print('Teil b, Widerstand Cx',teil_b_capatität_cx)
+print('\n')
+
+##Teil c)
+
+#Induktivität
+
+
 
 
 
