@@ -149,9 +149,40 @@ teil_d_indu_lx=indu_max(teil_d_widerstand_2,teil_d_widerstand_3,c_4)
 
 print('Teil d), Wiederstand Rx ', teil_d_widerstand_rx)
 print('Teil d), Induktivität Lx ', teil_d_indu_lx)
+print('\n')
+
 
 ##Teil e)
+#teil_e_frequenz,teil_u_s,teil_e,u_br=np.genfromtxt('',unpack=True)
+R=
+C=
 
+#bestimmung omega_0 und Onega
+def freq(R,C):
+	return 1/(R*C)
+
+teil_e_omega_0=freq(R,C)
+print('Teil e, omega_0 ', teil_e_omega_0)
+
+def Omega(frequnz,omega_0):
+	return frequnz/omega_0
+
+teil_e_Omega=Omega(teil_e_frequenz,teil_e_omega_0)
+print('Teil e, OMEGA ', teil_e_Omega)
+
+#bestimmung u_s/u_e
+
+teil_e_quotient_usue=u_s/u_e
+print('Teil e, Us/U_e experimentell', teil_e_quotient_usue)
+
+def u_su_e_theo(omega):
+	return 1/9*((omega**2-1)**2/((1-omega**2)**2+9*omega**2))
+
+teil_e_quotient_usue_theo=u_su_e_theo(teil_e_Omega)
+print('Teil e, US/U_e theoretisch', teil_e_quotient_usue_theo)
+
+
+##Teil f)
 
 
 
