@@ -180,15 +180,24 @@ def u_su_e_theo(omega):
 
 teil_e_quotient_usue_theo=u_su_e_theo(teil_e_Omega)
 print('Teil e, US/U_e theoretisch', teil_e_quotient_usue_theo)
-
+print('\n')
 
 ##Teil f)
+teil_f_u_br=
+teil_f_u_1=
+#Bestimmung U_2
 
+def u_2(u_br):
+	return u_br/u_su_e_theo(2)
+teil_f_u_2=u_2(teil_f_u_br)
 
+print('Teil f, Oberwelle ', teil_f_u_2)
 
+def klirr(u_1):
+	return teil_f_u_2/u_1
 
-
-
+teil_f_klirr=flirr(teil_f_u_1)
+print('Teil f, Klirr', teil_f_klirr)
 
 
 
