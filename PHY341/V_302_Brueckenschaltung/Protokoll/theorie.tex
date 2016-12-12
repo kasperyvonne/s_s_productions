@@ -1,3 +1,30 @@
 \section*{Zielsetzung}
-
+Im Versuch 302 sollen, unter Verwendung sogenannter Brückenschaltungen, die Wirk- und Blindwiderstände
+ elektrischer Bauteile experimentell bestimmt werden.
 \section{Theorie}
+Zur Berechnung unbekannter Größen in einem elektrischen Stromkreis werden die Kirchhoffschen Regeln
+benötigt. Die erste Kirchhoffsche Regel (Knotenregel) sagt aus, dass die Summe aller zu- und abfließenden
+Ströme in einem Verzweigungspunkt verschwindet. Der Zusammenhang ergibt sich unmittelbar aus der Ladungserhaltung.
+\begin{equation}
+  \sum_k I_k = 0
+  \label{eq: knoten}
+\end{equation}
+
+Die zweite Kirchhoffsche Regel besagt, dass in einem in sich geschlossenen Stromkreis
+die Summe aller Quellspannungen der Summe aller abfallenden
+Spannungen enspricht. Die Regel ist ein Resultat aus der Energieerhaltung.
+\begin{equation}
+  \sum_k U_{Q,k} = \sum_k I_k \cdot R_k
+  \label{eq: maschen}
+\end{equation}
+Der grundsätzliche Aufbau einer Brückenschaltung ist in Abbildung x dargestellt. Regelt man die Brückenspannung
+zwischen den Punkten A und B auf null, so ergeben sich mit \eqref{eq: knoten} und \eqref{eq: maschen}
+für allgemeine komplexe Widerstände $Z_i = X_i + j \cdot Y_i$ die
+beiden Bedingungen:
+\begin{align}
+  \begin{aligned}
+    X_1 X_4 - Y_1 Y_4 &= X_2 X_3 - Y_2 Y_3 \\
+    X_1 Y_4 + X_4 Y_1 &= X_2 Y_3 + X_3 Y_2
+  \end{aligned}
+  \label{eq: widerstandsbedingungen}
+\end{align}
