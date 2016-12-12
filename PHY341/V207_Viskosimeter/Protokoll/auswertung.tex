@@ -40,7 +40,7 @@ durch
 \Delta \overline{x}=\sqrt{\frac{1}{n(n-1)}\sum_{i=1}^{n}(x_i-\bar{x})^2}.
 \end{equation}
 
-berechnet. \\\\
+berechnet.
 Außerdem wird die Gaußsche Fehlerfortpflanung
 
 \begin{equation}
@@ -55,18 +55,18 @@ folgenden Werte:
 \begin{align} %Hier noch Genauigkeit erhöhen und Durchmesser angeben
 \label{eq:abmessungen_kugel}
 \begin{aligned}
-\overline{m}_{1}&=  \num{0.00444}\si{\kilogram} \\
-\overline{m}_{2}&= \num{0.00460} \si{\kilogram} \\
+\overline{m}_{1}&=  \SI{0.00444}{\kilogram} \\
+\overline{m}_{2}&= \SI{0.00460}{\kilogram} \\
 \hfill \\
-\overline{d}_{1}&= \num{0.0151}\si{\meter} \\
-\overline{d}_{2}&= \num{0.0153} \si{\meter} \\
+\overline{d}_{1}&= \SI{0.0151}{\meter} \\
+\overline{d}_{2}&= \SI{0.0153}{\meter} \\
 \hfill\\
-\overline{r}_{1}&= \num{0.0076}\si{\meter} \\
-\overline{r}_{2}&= \num{0.0077} \si{\meter} \\
+\overline{r}_{1}&= \SI{0.0076}{\meter} \\
+\overline{r}_{2}&= \SI{0.0077}{\meter} \\
 \end{aligned}
 \end{align}
 
-Der Fehler der Größen in \eqref{eq:abmessungen_kugel} ist in Größenordnung $\pm \num{e-6}\, \si{\kilogram}\, \,\text{bzw.}\, \, \si{\meter}$
+Der Fehler der Größen in \eqref{eq:abmessungen_kugel} ist in Größenordnung $\pm \, \num{e-6}\, \si{\kilogram}\, \,\text{bzw.}\, \, \si{\meter}$
 und wurde deshalb nicht mit aufgeführt.
 
 Mithilfe der Formel%ausdruck
@@ -79,8 +79,8 @@ können die Dichten der Kugeln ermittelt werden.
 Es ergibt sich:
 
 \begin{align*}
-\rho_{1}&=\left(\num{2451.0}\pm\num{1.64}\right) \si{\kilogram\per\cubic\meter}\\
-\rho_{2}&=\left(\num{2454.7}\pm\num{1.44}\right) \si{\kilogram\per\cubic\meter}
+\rho_{1}&=\left(\num{2451.0}\pm\num{1.64}\right) \, \si{\kilogram\per\cubic\meter}\\
+\rho_{2}&=\left(\num{2454.7}\pm\num{1.44}\right) \, \si{\kilogram\per\cubic\meter}
 \end{align*}
 Die Fehler wurden mit \eqref{eq:gauss} bestimmt.
 \subsection{Bestimmung der Viskosität von Wasser bei Zimmertemperatur} \label{sec:visko}
@@ -114,7 +114,7 @@ Als gemittelter Wert ergibt sich
 
 \begin{equation}
 \label{eq:gemittelte_fallzeit_klein}
-\overline{t}_{1}=\left(\num{12.77}\pm\num{0.02}\right) \si{\second}.
+\overline{t}_{1}=\left(\num{12.77}\pm\num{0.02}\right)\, \si{\second}.
 \end{equation}
 
 Mittels der Gleichung \eqref{eq: eta} kann die Viskosität
@@ -123,10 +123,10 @@ Als Wert errechnet sich:
 
 \begin{equation}
 \label{eq:viskosi_wasser}
-\eta_{20}= \num{0.0014} \si{\pascal\second}
+\eta_{20}= \SI{0.0014}{\pascal\second}
 \end{equation}
 
-Der Fehler für die Viskosität liegt in der Größenordnung $\pm\SI{e-6}{\pascal\second}$. %genau bei {e-6} ?
+Der Fehler für die Viskosität liegt in der Größenordnung $\pm\,\SI{e-6}{\pascal\second}$. %genau bei {e-6} ?
 
 Für die Dichte von Wasser bei $\SI{20}{\degreeCelsius}$ wurde der Literaturwert $\rho_{20}=\SI{998.21}{\kilogram\per\cubic\meter}$
 genutzt\cite{lit_dichte}.
@@ -167,7 +167,7 @@ Die aufgenommenen Messwerte sind in Tabelle \ref{tab:messwerte_fallzeit_kugel_gr
 Als gemittelte Zeit ergibt sich:
 \begin{equation}
 \label{eq:gemittelte_fallzeit_gross}
-\overline{t}_{2}=\left(\num{97.44}\pm\num{0.075}\right) \si{\second}.
+\overline{t}_{2}=\left(\num{97.44}\pm\num{0.075}\right)\, \si{\second}.
 \end{equation}
 
 Mit dem Ergebnis aus \eqref{eq:viskosi_wasser} ergibt sich für die
@@ -175,7 +175,7 @@ Apperaturkonstante
 
 \begin{equation}
 \label{eq:app_konst_gross}
-K_{g}=\left(\num{9.98}\pm\num{0.02}\right)\cdot{\num{e-9}} \si{\pascal\cubic\meter\per\kilogram}.
+K_{g}=\left(\num{9.98}\pm\num{0.02}\right)\cdot{\num{e-9}}\, \si{\pascal\cubic\meter\per\kilogram}.
 \end{equation}
 Der Fehler wird mittels Gauß berechnet.
 
@@ -236,7 +236,7 @@ Tabelle \ref{tab:messwerte_fallzeit_kugel_gross_temo} aufgelisteten Werte.
 \end{table}
 
 Das Ergebnis der Viskositätsberechnung (nach \eqref{eq: eta}) ist in Tabelle \ref{tab:visko_wasser_temp} zu finden. % zu finden
-Die Fehler der Berechnungen ist in der Größenordnung $\pm \SI{e-6}{\pascal\second}$ und 
+Die Fehler der Berechnungen ist in der Größenordnung $\pm \, \SI{e-6}{\pascal\second}$ und 
 wird deshalb nicht aufgeführt.
 
 \begin{table}
@@ -303,7 +303,6 @@ A=\left(\num{1.74}\pm\num{24.8}\right)\cdot\num{e-4}\,\si{\pascal\second} \quad 
 
 Für den in Abbildung \ref{fig:t_v_l_v} dargestellten Fit der Messwerte ergeben sich
 folgende Parameter:
-
 \begin{equation}
 \label{eq:lreg}
 A=\left(\num{-8.71}\pm\num{0.15}\right) \quad B=\left(\num{6.6} \pm\num{0.5}\right)\cdot\num{e+2}\,\si{\kelvin} 
