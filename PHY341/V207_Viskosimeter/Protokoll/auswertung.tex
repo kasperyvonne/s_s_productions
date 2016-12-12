@@ -4,7 +4,7 @@
 \subsection{Bestimmung der Kugeldichten}
 
 In der Tabelle \ref{tab:messwerte_kugel} sind die gemessenen
-Radien und Massen der Kugeln einzusehen.
+Durchmesser und Massen der Kugeln einzusehen.
 
 \begin{table}
 \centering
@@ -48,14 +48,15 @@ Außerdem wird die Gaußsche Fehlerfortpflanung
 \Delta f=\sqrt{\sum_{i=0}^n\left(\frac{\partial f}{\partial x_n} \Delta x_n\right)^2}
 \end{equation}
 
+benutzt.
 Für die Messungen aus \ref{tab:messwerte_kugel} ergeben sich die
 folgenden Werte:
 
 \begin{align} %Hier noch Genauigkeit erhöhen und Durchmesser angeben
 \label{eq:abmessungen_kugel}
 \begin{aligned}
-\overline{m}_{1}&=  \num{0.0044}\si{\kilogram} \\
-\overline{m}_{2}&= \num{0.0046} \si{\kilogram} \\
+\overline{m}_{1}&=  \num{0.00444}\si{\kilogram} \\
+\overline{m}_{2}&= \num{0.00460} \si{\kilogram} \\
 \hfill \\
 \overline{d}_{1}&= \num{0.0151}\si{\meter} \\
 \overline{d}_{2}&= \num{0.0153} \si{\meter} \\
@@ -65,7 +66,7 @@ folgenden Werte:
 \end{aligned}
 \end{align}
 
-Der Fehler der Größen in \eqref{eq:abmessungen_kugel} ist in Größenordnung $\pm \num{e-6}\, \si{\kilogram}\,\text{bzw.}\, \si{\meter}$
+Der Fehler der Größen in \eqref{eq:abmessungen_kugel} ist in Größenordnung $\pm \num{e-6}\, \si{\kilogram}\, \,\text{bzw.}\, \, \si{\meter}$
 und wurde deshalb nicht mit aufgeführt.
 
 Mithilfe der Formel%ausdruck
@@ -138,6 +139,7 @@ Für die Bestimmung der Apperaturkonstante der großen Kugel nutzt man Gleichung
 \end{equation*}
 
 Hierbei sei $\overline{t}_2$ die Fallzeit der zweiten Kugel.
+Der Fehler der Größe $K_{g}$ wird mittels Gaußscher Fehlerfortpflanzung berechnet.
 Die aufgenommenen Messwerte sind in Tabelle \ref{tab:messwerte_fallzeit_kugel_gross} dargestellt.
 
 \begin{table}
@@ -165,7 +167,7 @@ Die aufgenommenen Messwerte sind in Tabelle \ref{tab:messwerte_fallzeit_kugel_gr
 Als gemittelte Zeit ergibt sich:
 \begin{equation}
 \label{eq:gemittelte_fallzeit_gross}
-\overline{t}_{2}=\left(\num{97.44}\pm\num{0.07}\right) \si{\second}.
+\overline{t}_{2}=\left(\num{97.44}\pm\num{0.075}\right) \si{\second}.
 \end{equation}
 
 Mit dem Ergebnis aus \eqref{eq:viskosi_wasser} ergibt sich für die
@@ -273,22 +275,33 @@ m=\frac{\overline{xy}-\bar{x}\bar{y}}{\bar{x^2}-\bar{x}^2}
 zur Bestimmung der Steigung, mit dem dazugehörigen Fehler
 
 \begin{equation*}
-\sigma_m=\sqrt{\frac{\sigma^2}{N(\bar{x^2}-\bar{x}^2)}}.
+\sigma_m=\sqrt{\frac{\sigma^2}{N(\bar{x^2}-\bar{x}^2)}}
 \end{equation*}
 
+benutzt.
 Für den $y$-Achsenabschnitt gilt der Zusammenhang
 
 \begin{equation*}
 b=\frac{\bar{x^2}\bar{y}-\bar{x}\bar{xy}}{\bar{x^2}-\bar{x}^2}
 \end{equation*}
 
-mit dem dazugehörigen Abweichung
+mit der dazugehörigen Abweichung
 
 \begin{equation*}
 \sigma_b=\sqrt{\frac{\sigma^2}{N\left(\bar{x^2}-\bar{x}^2\right)}}.
 \end{equation*}
 %Ergebnisse, verglichen werden sie doch erst in der diskussion
-Für den in Abbildung \ref{fig:t_v_l_v} dargestellten Fit für die Messwerte ergeben sich
+
+Für die Abbildung \ref{fig:t_v_v} wurde mittels der Python Bibliothek \emph{Scipy} eine
+Regression an eine Funktion der Form $T_i = Ae^{\frac{B}{T}}$ (siehe \eqref{eq: andrad}) bestimmt. %hinter formel ref
+
+Als Parameter ergeben sich:
+\begin{equation}
+ \label{eq:reg_wert} %Hier nochmal kontrollieren
+A=\left(\num{1.74}\pm\num{24.8}\right)\cdot\num{e-4}\,\si{\pascal\second} \quad B=\left(\num{6.396} \pm\num{0.458}\right)\cdot\num{e+2}\,\si{\kelvin} %Einheiten ? haben die ne dimension?
+\end{equation}
+
+Für den in Abbildung \ref{fig:t_v_l_v} dargestellten Fit der Messwerte ergeben sich
 folgende Parameter:
 
 \begin{equation}
@@ -316,14 +329,7 @@ Eine qualitativer Vergleich erfolgt anschließend in der Diskussion. %
 \end{figure}
 \FloatBarrier
 
-Hierbei wurde mittels der Python Bibliothek \emph{Scipy} eine
-Regression an eine Funktion der Form $T_i = Ae^{\frac{B}{T}}$ (siehe \eqref{eq: andrad}) bestimmt. %hinter formel ref
 
-Als Parameter ergeben sich:
-\begin{equation}
- \label{eq:reg_wert} %Hier nochmal kontrollieren
-A=\left(\num{1.74}\pm\num{24.8}\right)\cdot\num{e-4}\,\si{\pascal\second} \quad B=\left(\num{6.396} \pm\num{0.458}\right)\cdot\num{e+2}\,\si{\kelvin} %Einheiten ? haben die ne dimension?
-\end{equation}
 
 \subsection{Bestimmung der Reynolds-Zahl}
 
@@ -331,7 +337,7 @@ Die \emph{Reynolds-Zahl} wird durch die Gleichung \eqref{eq: reynolds} bestimmt.
 Dabei wird $v_0$ ersetzt durch $v_0=\frac{l}{t}$.
 Zusätzlich sei $d$ der Rohrdurchmesser  %verb
 Der Rohrdurchmesser wird durch den Durchmesser der großen Kugel genährt.
-Die Fehler der \emph{Reynolds-Zahl} wird nach Gauß berechnet. %genähert
+Die Fehler der \emph{Reynolds-Zahl} werden nach Gauß berechnet. %genähert
 
 %Die temperaturabhängigen Fallgeschwindigkeiten der Kugel ist in Tabelle 
 %\ref{tab:fall_kugel} einzusehen.
@@ -386,7 +392,7 @@ zu finden.
 \end{table}
 
 
-Bei dem Fallen der kleinen Kugel ergab sich eine Reynoldzahl von:
+Bei dem Fall der kleinen Kugel egibt sich eine \emph{Reynolds-Zahl} von:
 \begin{equation*}%Hier noch Wert einfügen
 \map{Re}_{klein}=\left(\num{84.45}\pm\num{0.29}\right)
 \end{equation*}
