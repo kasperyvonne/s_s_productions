@@ -239,10 +239,13 @@ print('\n')
 
 #mittels curve-fit:
 def g(x,a,b):
-	return a*1/x+b
+	return a*(1/x)+b
 params_g,covariance_g=curve_fit(g,temperatur[::2],np.log(unp.nominal_values(viskositat_temperatur)))
 params_g_lit,covariance_g_lit=curve_fit(g,temperatur_lit,np.log(viskosi_lit))
 
+print(covariance_g)
+error= np.sqrt(np.diag(covariance_g))
+print('Fehler Kovarianz,',error)
 
 print('Lineare a,b',params)
 print('\n')
@@ -262,7 +265,7 @@ plt.xlim(1/301,1/345)
 aufvariabele=np.linspace(300,350,1000)
 #Loga
 plt.plot(1/temperatur[::2] ,np.log(unp.nominal_values(viskositat_temperatur)),'rx',label='Messwerte')
-plt.plot(1/aufvariabele,g(aufvariabele,*params_g),'b-',label='Regressions Kurve')
+plt.plot(1/aufvariabele,m*1/aufvariabele+b,'b-',label='Regressions Kurve')
 
 plt.plot(1/temperatur_lit,np.log(viskosi_lit),'gx',label='Literaturwerte')
 plt.plot(1/aufvariabele,g(aufvariabele,*params_g_lit),'-k',label='Regressions Kurve')
@@ -287,5 +290,5 @@ plt.xlabel(r'$1/T\ in \ \mathrm{K} $')
 plt.ylabel(r'$\log{\eta}$')
 
 #plt.tight_layout()
-#plt.show()
+plt.show()
 #plt.savefig('viskositaet_temp__log_mit_lit.pdf')
