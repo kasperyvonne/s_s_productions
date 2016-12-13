@@ -14,10 +14,10 @@ Die zweite Kirchhoffsche Regel besagt, dass in einem in sich geschlossenen Strom
 die Summe aller Quellspannungen der Summe aller abfallenden
 Spannungen enspricht. Die Regel ist ein Resultat aus der Energieerhaltung.
 \begin{equation}
-  \sum_k U_{Q,k} = \sum_k I_k \cdot R_k
+  \sum_k U_{\symup{Q},k} = \sum_k I_k \cdot R_k
   \label{eq: maschen}
 \end{equation}
-Der grundsätzliche Aufbau einer Brückenschaltung ist in Abbildung x dargestellt. Regelt man die Brückenspannung
+Der grundsätzliche Aufbau einer Brückenschaltung ist in Abbildung x dargestellt. Regelt man die Brückenspannung $U_{\symup{Br}}$
 zwischen den Punkten A und B auf null, so ergeben sich mit \eqref{eq: knoten} und \eqref{eq: maschen}
 für allgemeine komplexe Widerstände $Z_i = X_i + j \cdot Y_i$ die
 beiden Bedingungen:
@@ -28,3 +28,17 @@ beiden Bedingungen:
   \end{aligned}
   \label{eq: widerstandsbedingungen}
 \end{align}
+Im Versuch werden drei Arten von Widerständen verwendet. Der rein ohmsche Widerstand
+$Z_{\symup{R}}$ verfügt lediglich über einen Wirkwiderstand:
+\begin{equation}
+ Z_{\symup{R}} = R \quad \Leftrightarrow \quad Y_{\symup{R}} = 0
+\end{equation}
+Eine reale Kapazität $C$ setzt einen Teil der in ihr gespeicherten elektrischen Energie
+in Wärme um. Der Widerstand $Z_{\symup{C}}$ setzt sich also aus einem Wirk- und einem Blindanteil zusammen:
+\begin{equation}
+  Z_{\symup{C}} = R - j \frac{1}{\omega C}
+\end{equation}
+Mit der Kreisfrequenz $\omega$. Für die reale Induktivität $L$ gilt entsprechend:
+\begin{equation}
+  Z_{\symup{L}} = R + j \omega L 
+\end{equation}
