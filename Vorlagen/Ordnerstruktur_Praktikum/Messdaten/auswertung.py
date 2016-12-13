@@ -13,12 +13,18 @@ Q_ = u.Quantity
 # Einheiten für pint:dimensionless, meter, second, degC, kelvin
 #beispiel:
 a = ufloat(5, 2) * u.meter
-b = Q_(unp.uarray([5,4,3], [0.1, 0.2, 0.3]), 'meter')
+b = Q_(unp.uarray([5,4,3], [0.1, 0.2, 0.3]), 'ohm')
 c = Q_(0, 'degC')
 c.to('kelvin')
 print(c.to('kelvin'))
 print(a**2)
 print(b**2)
+einheitentst=Q_(1*1e-3,'farad')
+einheitentst_2=Q_(1,'ohm')
+
+print(einheitentst)
+print(1/(einheitentst*einheitentst_2).to('second'))
+
 
 #variabel_1,variabel_2=np.genfromtxt('name.txt',unpack=True)
 

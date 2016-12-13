@@ -4,21 +4,21 @@ from uncertainties import ufloat
 import math
 from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
-#from pint import UnitRegistry
-#
-#u = UnitRegistry()
-#Q_ = u.Quantity
-#
-##umrechnung einheiten mit var.to('unit')
-## Einheiten für pint:dimensionless, meter, second, degC, kelvin
-##beispiel:
-#a = ufloat(5, 2) * u.meter
-#b = Q_(unp.uarray([5,4,3], [0.1, 0.2, 0.3]), 'meter')
-#c = Q_(0, 'degC')
-#c.to('kelvin')
-#print(c.to('kelvin'))
-#print(a**2)
-#print(b**2)
+from pint import UnitRegistry
+
+u = UnitRegistry()
+Q_ = u.Quantity
+
+#umrechnung einheiten mit var.to('unit')
+# Einheiten für pint:dimensionless, meter, second, degC, kelvin
+#beispiel:
+a = ufloat(5, 2) * u.meter
+b = Q_(unp.uarray([5,4,3], [0.1, 0.2, 0.3]), 'meter')
+c = Q_(0, 'degC')
+c.to('kelvin')
+print(c.to('kelvin'))
+print(a**2)
+print(b**2)
 
 #variabel_1,variabel_2=np.genfromtxt('name.txt',unpack=True)
 
@@ -69,6 +69,10 @@ def linregress(x, y):
 ##Teil a)
 #teil_a_widerstand_2,teil_a_widerstand_3,teil_a_widerstand_4=np.linspace('Teila_widerstaende.txt'unpack=True)
 #teil_a_widerstand_2,teil_a_verhaeltniR34=np.linspace('Teila_widerstaende.txt'unpack=True)
+#Einheitenzuteilung
+teil_a_widerstand_2=Q_(teil_a_widerstand_2,'ohm')
+teil_a_widerstand_3=Q_(teil_a_widerstand_3,'ohm')
+teil_a_widerstand_4=Q_(teil_a_widerstand_3,'ohm')
 
 #Widerstandberechnung
 
@@ -98,6 +102,12 @@ c_2=
 teil_b_verhaeltniR34_u=unp.uarray(teil_a_verhaeltniR34,0.05*teil_a_verhaeltniR34)
 teil_b_widerstand_2_u=unp.uarray(teil_b_widerstand_2_u,0.03*teil_b_widerstand_2_u)
 
+#Einheitenzuteilung
+c_2=Q_(c_2*1e-9,'farad') #Nano Farad
+teil_b_verhaeltniR34_u=Q_(teil_b_verhaeltniR34_u,'ohm')
+teil_b_widerstand_2_u=Q_(teil_b_widerstand_2_u,'ohm')
+
+
 #Kapazitätsbestimmung und Wiederstand
 
 def capa(c_2,R_3dR_4):
@@ -116,6 +126,11 @@ print('\n')
 #teil_c_widerstand_2,teil_c_verhaeltniR34=np.linspace('Teila_widerstaende.txt'unpack=True)
 l_2=
 
+#Einheitenzuteilung
+l_2=Q_(l_2,'henry')
+teil_c_widerstand_2=Q_(teil_c_widerstand_2,'ohm')
+teil_c_verhaeltniR34=Q_(teil_c_verhaeltniR34,'ohm')
+
 #Induktivität und Widerstand
 
 def indu(l_2,R_3dR_4):
@@ -131,6 +146,12 @@ print('Teil c, Indu lx', teil_c_induktivitaet_lx)
 ##Teil d)
 #teil_d_widerstand_2,teil_d_widerstand_3,teil_d_widerstand_4=np.linspace('Teila_widerstaende.txt'unpack=True)
 c_4=
+
+#einheitenbestimmung
+teil_d_widerstand_2=Q_(teil_d_widerstand_2,'ohm')
+teil_d_widerstand_3=Q_(teil_d_widerstand_3_'ohm')
+teil_d_widerstand_4=Q_(teil_d_widerstand_4,'ohm')
+c_4=Q_(c_4*1e-9,'farad') #nano Farad
 
 #Induktivitätbestimmung
 
@@ -153,30 +174,39 @@ print('\n')
 
 
 ##Teil e)
-#teil_e_frequenz,teil_u_s,teil_e,u_br=np.genfromtxt('',unpack=True)
+#teil_e_frequenz,teil_e_u_s,teil_e_u_br=np.genfromtxt('',unpack=True)
 R=
 C=
+R=Q_(R,'ohm')
+C=Q_(Q*1-9,'farad') #nano Farard
+teil_e_frequenz=Q_(teil_e_frequenz,'hertz')
+teil_e_u_s=Q_=(teil_e_u_s,'volt')
+teil_e_u_br=Q_(teil_e_u_br,'volt')
 
+print('Einheiten der Spannungen noch überprüfen, momentan: ')
+print(teil_e_u_s)
+print(teil_e_u_br)
+print('\n')
 #bestimmung omega_0 und Onega
 def freq(R,C):
-	return 1/(R*C)
+	return 1/(R*C).to(second)
 
 teil_e_omega_0=freq(R,C)
 print('Teil e, omega_0 ', teil_e_omega_0)
 
 def Omega(frequnz,omega_0):
-	return frequnz/omega_0
+	return frequnz/omega_0.to(second)
 
 teil_e_Omega=Omega(teil_e_frequenz,teil_e_omega_0)
 print('Teil e, OMEGA ', teil_e_Omega)
 
 #bestimmung u_s/u_e
 
-teil_e_quotient_usue=u_s/u_e
+teil_e_quotient_usue=teil_e_u_s/teil_e_u_br #Hier nochmal gucken
 print('Teil e, Us/U_e experimentell', teil_e_quotient_usue)
 
 def u_su_e_theo(omega):
-	return 1/9*((omega**2-1)**2/((1-omega**2)**2+9*omega**2))
+	return np.sqrt(1/9*((omega**2-1)**2/((1-omega**2)**2+9*omega**2))) 
 
 teil_e_quotient_usue_theo=u_su_e_theo(teil_e_Omega)
 print('Teil e, US/U_e theoretisch', teil_e_quotient_usue_theo)
@@ -185,6 +215,16 @@ print('\n')
 ##Teil f)
 teil_f_u_br=
 teil_f_u_1=
+
+##Einheitenzuweisung
+teil_f_u_br=Q_(teil_f_u_br,'volt')
+teil_f_u_1=Q_(teil_f_u_1,'volt')
+
+print('Einheiten der Spannungen noch überprüfen, momentan: ')
+print(teil_f_u_br)
+print(teil_f_u_1)
+print('\n')
+
 #Bestimmung U_2
 
 def u_2(u_br):
