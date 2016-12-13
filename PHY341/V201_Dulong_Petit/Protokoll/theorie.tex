@@ -75,7 +75,7 @@ Unter Zuhilfenahme der Boltzmann-Verteilung kann dann auf den Zusammenhang  %unt
 geschlossen werden. Dieser gilt für Bewegungen mit drei Freiheitsgraden.
 Die Konstante $N_L = \SI{6.02e23}{\per\mol}$ wird als Loschmidtsche Zahl bezeichnet.
 Für $T\to\infty$ läuft \eqref{eq:quant} gegen den aus der klassischen Physik bekannten Wert %ohne kommas
-$3RT$.
+$3RT$. Dabei konvergiert \eqref{eq:quant} bei schwereren Stoffen schneller, als bei leichten.
 
 \subsection{Bestimmung der spezifischen Wärmekapazität}
 Da eine experimentelle Bestimmung der spezifischen Wärmekapazität
@@ -139,4 +139,8 @@ Herrscht eine Temperaturdifferenz zwischen $T_1$ und $T_2$, so
 stellt sich zwischen den Kontaktstellen ein Kontaktpotential %potential
 ein.
 Durch Messung der Spannung kann anschließend auf
-Temperaturdifferenz geschlossen werden. %differenz
+Temperaturdifferenz geschlossen werden.
+Man nutzt die Taylorentwicklung
+\begin{equation*}
+U_{th}=a_1\left(T_2-T_1\right)+a_2\left(T_2-T_1\right)^2+a_3\left(T_2-T_1\right)^3+\dots
+\end{equation*} %differenz
