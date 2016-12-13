@@ -16,9 +16,9 @@ a = ufloat(5, 2) * u.meter
 b = Q_(unp.uarray([5,4,3], [0.1, 0.2, 0.3]), 'meter')
 c = Q_(0, 'degC')
 c.to('kelvin')
-print(c.to('kelvin'))
-print(a**2)
-print(b**2)
+#print(c.to('kelvin'))
+#print(a**2)
+#print(b**2)
 
 #variabel_1,variabel_2=np.genfromtxt('name.txt',unpack=True)
 
@@ -67,29 +67,23 @@ def linregress(x, y):
 ###Angepasstes Programm 
 
 ##Teil a)
-teil_a_widerstand_2,teil_a_widerstand_3=np.linspace('weath_brueck_teil_1.txt'unpack=True)
+teil_a_widerstand_2,teil_a_widerstand_3=np.genfromtxt('weath_brueck_teil_1.txt',unpack=True)
 #teil_a_widerstand_2,teil_a_verhaeltniR34=np.linspace('Teila_widerstaende.txt'unpack=True)
 
 #Einheitenzuteilung
-teil_a_widerstand_2=Q_(teil_a_widerstand_2,'ohm')
-teil_a_widerstand_3=Q_(teil_a_widerstand_3,'ohm')
-r_g=Q_(1000,'ohm')
+#teil_a_widerstand_2=Q_(teil_a_widerstand_2,'ohm')
+#teil_a_widerstand_3=Q_(teil_a_widerstand_3,'ohm')
+r_g=1000
 teil_a_widerstand_4=r_g-teil_a_widerstand_3
 
 #Widerstandberechnung
 
 def wider(R_2,R_3,R_4):
 	teil_a_r_3durch4=R_3/R_4
-	u_teil_a_r_3durchr_4=unp.uarray(teil_a_r_3durch4,teil_a_r_3durch4*0.05)
-	return R_2*u_teil_a_r_3durchr_4
-
-def wider_ver(R_2,R_3dR_4):
-	u_teil_a_r_3durchr_4=unp.uarray(R_3dR_4,R_3dR_4*0.05)
-	return R_2*u_teil_a_r_3durchr_4
-
-
+	return R_2*teil_a_r_3durch4
 
 teil_a_widerstand_x=wider(teil_a_widerstand_2,teil_a_widerstand_3,teil_a_widerstand_4)
+print(teil_a_widerstand_x)
 teil_a_widerstand_x_mittel=mittel_und_abweichung_intervall(teil_a_widerstand_x,3)
 
 #print('Teil a, Widerstand R_x',teil_a_widerstand_x)
@@ -99,160 +93,206 @@ print('\n')
 
 ##Teil b)
 
-teil_b_c_2,teil_b_r_3=np.genfromtxt('kapazi_mess_teil_2_a.txt'unpack=True)
+teil_b_c_2,teil_b_r_3=np.genfromtxt('kapazi_mess_teil_2_a.txt',unpack=True)
+teil_b_c_2*=1e-9
 
-
-#Einheitenzuteilung
-teil_b_c_2=Q_(teil_b_c_2*1e-9,'farad') #Nano Farad
-teil_b_r_3_u=Q_(teil_b_r_3,'ohm')
-
+##Einheitenzuteilung
+#teil_b_c_2=Q_(teil_b_c_2*1e-9,'farad') #Nano Farad
+#teil_b_r_3_u=Q_(teil_b_r_3,'ohm')
+#
 teil_b_widerstand_4=r_g-teil_b_r_3
 
 #Kapazitätsbestimmung und Wiederstand
 
 def capa(c_2,R_3,R_4):
-	teil_a_r_3durch4=R_3/R_4
-	u_teil_a_r_3durchr_4=unp.uarray(teil_a_r_3durch4,teil_a_r_3durch4*0.05)
-	return c_2*u_teil_a_r_3durchr_4
+	teil_a_r_3durch4=R_4/R_3
+	return c_2*teil_a_r_3durch4
 
-teil_b_capatität_cx_ideal=capa(c_2,teil_b_r_3,teil_b_widerstand_4)
+teil_b_capatität_cx_ideal=capa(teil_b_c_2,teil_b_r_3,teil_b_widerstand_4)
 teil_b_capatität_cx_ideal_mittel=mittel_und_abweichung_intervall(teil_b_capatität_cx_ideal,3)
-print('Teil b, Widerstand Cx ',teil_b_capatität_cx_ideal_mittel)
+
+print('Teil b, Kapazität Cx Ideal ',teil_b_capatität_cx_ideal_mittel)
 print('\n')
 
+##Teil 2 realer Kondensator
+teil_b_c2_real,teil_b_r2_real,teil_b_r3_real=np.genfromtxt('kapazi_mess_real_teil_2_b.txt',unpack=True)
+teil_b_c2_real*=1e-9
+#teil_b_c2_real=Q_(teil_b_c2_real*1e-9,'farad')
+#
+#teil_b_r2_real=Q_(teil_b_r2_real,'ohm')
+#teil_b_r3_real=Q_(teil_b_r3_real,'ohm')
+teil_b_widerstand_4_real=r_g-teil_b_r3_real
 
+teil_b_capatität_cx_real=capa(teil_b_c2_real,teil_b_r3_real,teil_b_widerstand_4_real)
+teil_b_capatität_cx_real_mittel=mittel_und_abweichung_intervall(teil_b_capatität_cx_real,3)
+teil_b_widerstand_rx_real=wider(teil_b_r2_real,teil_b_r3_real,teil_b_widerstand_4_real)
+teil_b_widerstand_cx_real_mittel=mittel_und_abweichung_intervall(teil_b_widerstand_rx_real,3)
+
+print('Teil b, Widerstand Rx real ',teil_b_widerstand_rx_real)
+print('Teil b, Kapatität Cx real',teil_b_capatität_cx_real_mittel)
+print('\n')
 
 ##Teil c)
-#teil_c_widerstand_2,teil_c_verhaeltniR34=np.genfromtxt('Teila_widerstaende.txt'unpack=True)
-l_2=
-
+teil_c_indu,teil_c_widerstand_2,teil_c_R3=np.genfromtxt('induktivitätmess_teil_3.txt',unpack=True)
+teil_c_indu*=1e-3
 #Einheitenzuteilung
-l_2=Q_(l_2,'henry')
-teil_c_widerstand_2=Q_(teil_c_widerstand_2,'ohm')
-teil_c_verhaeltniR34=Q_(teil_c_verhaeltniR34,'ohm')
+#teil_c_indu=Q_(teil_c_indu,'henry')
+#teil_c_widerstand_2=Q_(teil_c_widerstand_2,'ohm')
+#teil_c_R3=Q_(teil_c_R3,'ohm')
+teil_c_r4=r_g-teil_c_R3
 
 #Induktivität und Widerstand
 
-def indu(l_2,R_3dR_4):
-	u_teil_a_r_3durchr_4=unp.uarray(R_3dR_4,R_3dR_4*0.05)
-	return l_2*R_3dR_4
-teil_c_widerstand_rx=wider_ver(tc,teil_c_verhaeltniR34)
-teil_c_induktivitaet_lx=wider_ver(l_2,teil_c_verhaeltniR34)
+def indu(l_2,R_3,R_4):
+	teil_a_r_3durch4=R_3/R_4
+	return l_2*teil_a_r_3durch4
 
-print('Teil c, Widerstand Rx ', teil_c_widerstand_rx)
-print('Teil c, Indu lx', teil_c_induktivitaet_lx)
+teil_c_widerstand_rx=wider(teil_c_widerstand_2,teil_c_R3,teil_c_r4)
+teil_c_induktivitaet_lx=indu(teil_c_indu,teil_c_R3,teil_c_r4)
+teil_c_widerstand_rx_mittel=mittel_und_abweichung_intervall(teil_c_widerstand_rx,3)
+teil_c_induktivitaet_lx_mittel=mittel_und_abweichung_intervall(teil_c_induktivitaet_lx,3)
+
+print('Teil c, Widerstand Rx ', teil_c_widerstand_rx_mittel)
+print('Teil c, Indu lx (18, 16)', teil_c_induktivitaet_lx_mittel)
+print('\n')
 
 
-##Teil d)
-#teil_d_widerstand_2,teil_d_widerstand_3,teil_d_widerstand_4=np.linspace('Teila_widerstaende.txt'unpack=True)
-c_4=
 
-#einheitenbestimmung
-teil_d_widerstand_2=Q_(teil_d_widerstand_2,'ohm')
-teil_d_widerstand_3=Q_(teil_d_widerstand_3_'ohm')
-teil_d_widerstand_4=Q_(teil_d_widerstand_4,'ohm')
-c_4=Q_(c_4*1e-9,'farad') #nano Farad
+###Teil d)
 
+teil_d_widerstand_2,teil_d_c2,teil_d_widerstand_4,teil_d_widerstand_3=np.genfromtxt('maxwell_bruecke_teil_4.txt',unpack=True)
+teil_d_c2*=1e-9
+
+##einheitenbestimmung
+#teil_d_widerstand_2=Q_(teil_d_widerstand_2,'ohm')
+#teil_d_widerstand_3=Q_(teil_d_widerstand_3_'ohm')
+#teil_d_widerstand_4=Q_(teil_d_widerstand_4,'ohm')
+#c_4=Q_(c_4*1e-9,'farad') #nano Farad
+#
 #Induktivitätbestimmung
-
+#
 def wider_max(r_2,r_3,r_4):
-	r_3_u=unp.uarray(r_3,r_3*0.05)
-	r_4_u=unp.uarray(r_4,r_3*0.05)
-	return(r_2*r_3_u)/r_4_u
+	return(r_2*r_3)/r_4
 
-
+#
 def indu_max(r_2,r_3,c_4):
-	r_3_u=unp.uarray(r_3,r_3*0.05)
-	return r_2*r_3_u*c_4
+	return r_2*r_3*c_4
 
 teil_d_widerstand_rx=wider_max(teil_d_widerstand_2,teil_d_widerstand_3,teil_d_widerstand_4)
-teil_d_indu_lx=indu_max(teil_d_widerstand_2,teil_d_widerstand_3,c_4)
+teil_d_indu_lx=indu_max(teil_d_widerstand_2,teil_d_widerstand_3,teil_d_c2)
+teil_d_widerstand_rx_mittel=mittel_und_abweichung_intervall(teil_d_widerstand_rx,3)
+teil_d_indu_lx_mittel=mittel_und_abweichung_intervall(teil_d_indu_lx,3)
 
-print('Teil d), Wiederstand Rx ', teil_d_widerstand_rx)
-print('Teil d), Induktivität Lx ', teil_d_indu_lx)
+print('Teil d), Wiederstand Rx ', teil_d_widerstand_rx_mittel)
+print('Teil d), Induktivität Lx (16 ,18) ', teil_d_indu_lx_mittel)
 print('\n')
 
 
-##Teil e)
-#teil_e_frequenz,teil_e_u_s,teil_e_u_br=np.genfromtxt('',unpack=True)
-R=
-C=
-R=Q_(R,'ohm')
-C=Q_(Q*1-9,'farad') #nano Farard
-teil_e_frequenz=Q_(teil_e_frequenz,'hertz')
-teil_e_u_s=Q_=(teil_e_u_s,'volt')
-teil_e_u_br=Q_(teil_e_u_br,'volt')
+###Teil e)
+teil_e_frequenz,teil_e_u_br,teil_e_u_s=np.genfromtxt('wien_robison_teil_5.txt',unpack=True)
 
-print('Einheiten der Spannungen noch überprüfen, momentan: ')
-print(teil_e_u_s)
-print(teil_e_u_br)
-print('\n')
-#bestimmung omega_0 und Onega
+teil_e_u_br*=0.5
+teil_e_u_br*=1/(np.sqrt(2))
+
+
+R=1000
+C=993*1e-9
+
+#R=Q_(R,'ohm')
+#C=Q_(Q*1-9,'farad') #nano Farard
+#teil_e_frequenz=Q_(teil_e_frequenz,'hertz')
+#teil_e_u_s=Q_=(teil_e_u_s,'volt')
+#teil_e_u_br=Q_(teil_e_u_br,'volt')
+#
+#print('Einheiten der Spannungen noch überprüfen, momentan: ')
+#print(teil_e_u_s)
+#print(teil_e_u_br)
+#print('\n')
+##bestimmung omega_0 und Onega
 def freq(R,C):
-	return 1/(R*C).to(second)
-
+	return (1/(R*C))*((1/(2*np.pi)))
+#
 teil_e_omega_0=freq(R,C)
 print('Teil e, omega_0 ', teil_e_omega_0)
-
+#
 def Omega(frequnz,omega_0):
-	return frequnz/omega_0.to(second)
+	return frequnz/omega_0
 
 teil_e_Omega=Omega(teil_e_frequenz,teil_e_omega_0)
 print('Teil e, OMEGA ', teil_e_Omega)
 
-#bestimmung u_s/u_e
-
-teil_e_quotient_usue=teil_e_u_s/teil_e_u_br #Hier nochmal gucken
+##bestimmung u_s/u_e
+#
+teil_e_quotient_usue=teil_e_u_br/teil_e_u_s #Hier nochmal gucken
 print('Teil e, Us/U_e experimentell', teil_e_quotient_usue)
 
 def u_su_e_theo(omega):
-	return np.sqrt(1/9*((omega**2-1)**2/((1-omega**2)**2+9*omega**2))) 
+	return unp.sqrt(1/9*((omega**2-1)**2/((1-omega**2)**2+9*omega**2))) 
+#
+lauffvariabele=np.linspace(1e-1,210,100000)
 
-teil_e_quotient_usue_theo=u_su_e_theo(teil_e_Omega)
+teil_e_quotient_usue_theo=u_su_e_theo(lauffvariabele)
 print('Teil e, US/U_e theoretisch', teil_e_quotient_usue_theo)
 print('\n')
+#
+###Teil f)
 
-##Teil f)
-teil_f_u_br=
-teil_f_u_1=
-
-##Einheitenzuweisung
-teil_f_u_br=Q_(teil_f_u_br,'volt')
-teil_f_u_1=Q_(teil_f_u_1,'volt')
-
-print('Einheiten der Spannungen noch überprüfen, momentan: ')
-print(teil_f_u_br)
-print(teil_f_u_1)
+w_min=min(teil_e_u_br)
+print('Minimalspannung',w_min)
+teil_e_u_s_mittel=mittel_und_abweichung(teil_e_u_s)
+print('Mittelwert Speisspannung',teil_e_u_s_mittel)
+klirr=w_min/teil_e_u_s_mittel
+print('Klirrfaktor', klirr)
 print('\n')
-
-#Bestimmung U_2
-
-def u_2(u_br):
-	return u_br/u_su_e_theo(2)
-teil_f_u_2=u_2(teil_f_u_br)
-
-print('Teil f, Oberwelle ', teil_f_u_2)
-
-def klirr(u_1):
-	return teil_f_u_2/u_1
-
-teil_f_klirr=flirr(teil_f_u_1)
-print('Teil f, Klirr', teil_f_klirr)
+#
+###Einheitenzuweisung
+#teil_f_u_br=Q_(teil_f_u_br,'volt')
+#teil_f_u_1=Q_(teil_f_u_1,'volt')
+#
+#print('Einheiten der Spannungen noch überprüfen, momentan: ')
+#print(teil_f_u_br)
+#print(teil_f_u_1)
+#print('\n')
+#
+##Bestimmung U_2
+#
+#def u_2(u_br):
+#	return u_br/u_su_e_theo(2)
+#teil_f_u_2=u_2(teil_f_u_br)
+#
+#print('Teil f, Oberwelle ', teil_f_u_2)
+#
+#def klirr(u_1):
+#	return teil_f_u_2/u_1
+#
+#teil_f_klirr=flirr(teil_f_u_1)
+#print('Teil f, Klirr', teil_f_klirr)
 
 
 
 #Plotbereich
-
-#plt.xlim()
+plt.xlim(teil_e_Omega[0]-0.01,teil_e_Omega[-1]+10)
 #plt.ylim()
 #aufvariabele=np.linsspace()
-#
-#plt.plot(teily,,'rx',label='')
-#
-plt.grid()
-plt.legend(loc='best')
+plt.plot(teil_e_Omega,teil_e_quotient_usue,'rx',label='Messwerte')
+plt.plot(lauffvariabele,teil_e_quotient_usue_theo,'b-',label='Theoriekurve')
+plt.xscale('log')
 #plt.xlabel()
 #plt.ylabel()
+#
+plt.grid()
+#plt.legend(loc=9)
+plt.legend(loc=[0.13,0.84])
+
+plt.axes([0.58,0.15, 0.3,0.3])
+plt.xlim(teil_e_Omega[np.argmin(teil_e_quotient_usue)]-0.05,0.05+teil_e_Omega[np.argmin(teil_e_quotient_usue)])
+plt.ylim(-0.1*min(teil_e_quotient_usue),2*min(teil_e_quotient_usue))
+plt.plot(teil_e_Omega,teil_e_quotient_usue,'rx',label='Messwerte')
+plt.plot(lauffvariabele,teil_e_quotient_usue_theo,'b-',label='Theoriekurve')
+plt.grid()
+plt.title(r'$\mathrm{Vergrößerung \,  um \,  das \, Minimum}$')
+plt.xscale('log')
+
 
 #plt.show()
-#plt.savefig('.pdf')
+plt.savefig('ub_us.pdf')
