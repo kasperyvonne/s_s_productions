@@ -1,8 +1,8 @@
-\setcounter{page}{1} 
+\setcounter{page}{1}
 \section*{Zielsetzung}
-Im Versuch 302 sollen, unter Verwendung sogenannter Brückenschaltungen, die Wirk- und Blindwiderstände
- elektrischer Bauteile experimentell bestimmt werden.
-\section{Theorie}
+Im Versuch 302 sollen, unter Verwendung sogenannter Brückenschaltungen, physikalische Größen
+in elektrischen Schaltkreisen experimentell ermittelt werden.
+\section{Theorie}\label{abs: theo}
 Zur Berechnung unbekannter Größen in einem elektrischen Stromkreis werden die Kirchhoffschen Regeln
 benötigt. Die erste Kirchhoffsche Regel (Knotenregel) sagt aus, dass die Summe aller zu- und abfließenden
 Ströme in einem Verzweigungspunkt verschwindet. Der Zusammenhang ergibt sich unmittelbar aus der Ladungserhaltung.
@@ -20,12 +20,12 @@ Spannungen enspricht. Die Regel ist ein Resultat aus der Energieerhaltung.
 \end{equation}
 \begin{figure}
   \centering
-  \fbox{\includegraphics[width = 4cm]{pics/prinz_brückenschaltung.png}}
+  \fbox{\includegraphics[width = 6cm]{pics/prinz_brückenschaltung.png}}
   \caption{Prinzipielle Brückenschaltung\cite{anleitung302}}
   \label{fig: prinzbrücke}
 \end{figure}
 Der grundsätzliche Aufbau einer Brückenschaltung ist in Abbildung  dargestellt. Regelt man die Brückenspannung $U_{\symup{Br}}$
-zwischen den Punkten A und B auf null, so ergeben sich mit \eqref{eq: knoten} und \eqref{eq: maschen}
+zwischen den Punkten A und B auf null (abgeglichene Brücke), so ergeben sich mit \eqref{eq: knoten} und \eqref{eq: maschen}
 für allgemeine komplexe Widerstände $Z_i = X_i + j \cdot Y_i$ die
 beiden Bedingungen:
 \begin{align}
@@ -35,6 +35,7 @@ beiden Bedingungen:
   \end{aligned}
   \label{eq: widerstandsbedingungen}
 \end{align}
+Die spezielleren Formeln für Ausführungen der allgemeinen Brückenschaltung \ref{fig: prinzbrücke} werden im Aufbau aufgeführt.\\
 Im Versuch werden drei Arten von Widerständen verwendet. Der rein ohmsche Widerstand
 $Z_{\symup{R}}$ verfügt lediglich über einen Wirkwiderstand:
 \begin{equation}
@@ -49,4 +50,12 @@ Für die reale Induktivität $L$, die einen Teil der in ihr
 gespeicherten magnetischen Feldenergie in Wärme umsetzt, gilt entsprechend:
 \begin{equation}
   Z_{\symup{L}} = R + j \omega L
-\end{equation} 
+\end{equation}
+Über die Bestimmung von Real- und Wirkwiderständen hinaus, soll im Versuch die Güte einer Generatorspannung überprüft werden. Hierbei
+macht man sich Brückenschaltungen zur Nutze, die nur für eine bestimmte Spannungsfrequenz $\nu_0$ theoretisch abgeglichen sind. In der
+Praxis erzeugt ein Generator neben der Grundschwingung mit Amplitude $U_1$ unerwünschte Oberschwinungen mit entsprechenden
+Amplituden $U_i$ ($i\ge 2$). Der sogenannte Klirrfaktor $k$ als Maß für den Oberwellengehalt im Verhältnis zur Grundwelle ist definiert durch:
+\begin{equation}
+  k = \frac{1}{U_1} \left( \sum_{i\ge2} U_i ^2 \right) ^{\frac{1}{2}}
+  \label{eq: klirr}
+\end{equation}
