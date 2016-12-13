@@ -6,7 +6,8 @@ und eine in kochendes Wasser ($100 \si{\celsius}$) gehalten. Folgender Wert wurd
 \begin{equation}
   U_{eich} = 3.98 \si{\milli\volt}
 \end{equation}
-Die Steigung der Geraden ergibt sich zu:
+Anschließend wurden beide Kontaktstellen in Eiswasser gehalten. Hier wurde eine Spannung von $0 \si{\volt}$ gemessen.
+Die Steigung der Geraden ergibt sich damit zu:
 \begin{equation}
   m = \frac{100 \si{\kelvin}}{U_{eich}} = 25.13 \si{\kelvin \per \milli\volt}
 \end{equation}
@@ -19,7 +20,7 @@ berechnen.
 
 \subsection{Bestimmung der Wärmekapazität des Kalorimeters}
 Zur Bestimmung der spezifischen Wärmekapazitäten wird zunächst die Wärmekapazität des Kalorimeters über den Zusammenhang
-(Formel x) berechnet. Die Massen $m_x$ und $m_y$ ergeben sich mittels der Dichte von Wasser bei $40\si{\celsius}$: $\rho_w = 992.2\si{\kilo\gram\meter^3}$ \cite{lit_dichte}. %Formel und Quelle fehlen
+(Formel \eqref{eq:zusammenhang_cgmg}) berechnet. Die Massen $m_x$ und $m_y$ ergeben sich mittels der Dichte von Wasser bei $40\si{\celsius}$: $\rho_w = 992.2\si{\kilo\gram\meter^3}$ \cite{lit_dichte}. %Formel und Quelle fehlen
 Der Wert $c_w = 4.18 \si{\joule \per (\gram \kelvin)}$ wurde der Praktikumsanleitung \cite{anleitung201} entnommen. Die gemessenen Werte, sowie das Ergebnis für $c_g m_g$ sind in Tabelle \ref{tab: cgmg} aufgetragen.
 \begin{table}
   \centering
@@ -95,12 +96,12 @@ Massen wurde das Gewicht der Aufhängung abgezogen.
   \label{tab: konstanten}
 \end{table}
 
-Zunächst sollen die spezifischen Wärmekapazitäten $c_k$ gemäß Formel \eqref{eq:zusammenhang_ck} aus den Messreihen bestimmt werden. Die Werte für Graphit, Zinn und Aluminium sind in Tabelle %formel, Tabelle
+Zunächst sollen die spezifischen Wärmekapazitäten $c_k$ gemäß Formel \eqref{eq:zusammenhang_ck} aus den Messreihen bestimmt werden. Die Werte für Graphit, Zinn und Aluminium sind in Tabelle \ref{tab: c_v} %formel, Tabelle
 dargestellt. Hierbei wurde mit der jeweiligen molaren Masse multipliziert um das Ergebnis bezogen auf ein $\si{mol}$ angeben zu können. Mit dem Zusammenhang \eqref{eq:umrechnung_cp_cv} %formel
 kann schließlich die zu untersuchende Größe $C_V$ bestimmt werden. Die Ergebnisse, sowie das Verhältnis $C_V / R$ zur Gaskonstanten R sind in Tabelle \ref{tab: c_v} aufgeführt. %Tabelle
 \FloatBarrier
 \input{tabs/tab.tex}
-Als Mittelwert der spezifischen Wärmekapazitäten für Zinn und Graphit ergeben sich: %das hier lieber mit \quad abtrennen anstelle von &
+Als Mittelwert mit zugehörigen Standardabweichungen der spezifischen Wärmekapazitäten für Zinn und Graphit ergeben sich: %das hier lieber mit \quad abtrennen anstelle von &
 \begin{align}
   C_{V, Graphit} \quad  &= (11.70 \pm 0.41) \si{\joule \per {\kelvin \mol}} \\
   C_{V, Zinn} \quad &= (29.10 \pm 2.26) \si{\joule \per {\kelvin \mol}}
