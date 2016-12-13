@@ -18,7 +18,13 @@ Spannungen enspricht. Die Regel ist ein Resultat aus der Energieerhaltung.
   \sum_k U_{\symup{Q},k} = \sum_k I_k \cdot R_k
   \label{eq: maschen}
 \end{equation}
-Der grundsätzliche Aufbau einer Brückenschaltung ist in Abbildung x dargestellt. Regelt man die Brückenspannung $U_{\symup{Br}}$
+\begin{figure}
+  \centering
+  \fbox{\includegraphics[width = 4cm]{pics/prinz_brückenschaltung.png}}
+  \caption{Prinzipielle Brückenschaltung\cite{anleitung302}}
+  \label{fig: prinzbrücke}
+\end{figure}
+Der grundsätzliche Aufbau einer Brückenschaltung ist in Abbildung  dargestellt. Regelt man die Brückenspannung $U_{\symup{Br}}$
 zwischen den Punkten A und B auf null, so ergeben sich mit \eqref{eq: knoten} und \eqref{eq: maschen}
 für allgemeine komplexe Widerstände $Z_i = X_i + j \cdot Y_i$ die
 beiden Bedingungen:
@@ -43,4 +49,4 @@ Für die reale Induktivität $L$, die einen Teil der in ihr
 gespeicherten magnetischen Feldenergie in Wärme umsetzt, gilt entsprechend:
 \begin{equation}
   Z_{\symup{L}} = R + j \omega L
-\end{equation}
+\end{equation} 
