@@ -243,6 +243,10 @@ teil_e_u_s_mittel=mittel_und_abweichung(teil_e_u_s)
 print('Mittelwert Speisspannung',teil_e_u_s_mittel)
 klirr=w_min/teil_e_u_s_mittel
 print('Klirrfaktor', klirr)
+klirr_theo=teil_e_u_br/u_su_e_theo(2)
+klirr_theo_mittel=mittel_und_abweichung(klirr_theo)
+print('Klirrfaktor theoretisch',klirr_theo_mittel)
+
 print('\n')
 #
 ###Einheitenzuweisung
