@@ -21,7 +21,6 @@ print(a**2)
 print(b**2)
 einheitentst=Q_(1*1e-3,'farad')
 einheitentst_2=Q_(1,'ohm')
-
 print(einheitentst)
 print(1/(einheitentst*einheitentst_2).to('second'))
 

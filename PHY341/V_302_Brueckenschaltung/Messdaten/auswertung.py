@@ -67,63 +67,63 @@ def linregress(x, y):
 ###Angepasstes Programm 
 
 ##Teil a)
-#teil_a_widerstand_2,teil_a_widerstand_3,teil_a_widerstand_4=np.linspace('Teila_widerstaende.txt'unpack=True)
+teil_a_widerstand_2,teil_a_widerstand_3=np.linspace('weath_brueck_teil_1.txt'unpack=True)
 #teil_a_widerstand_2,teil_a_verhaeltniR34=np.linspace('Teila_widerstaende.txt'unpack=True)
+
 #Einheitenzuteilung
 teil_a_widerstand_2=Q_(teil_a_widerstand_2,'ohm')
 teil_a_widerstand_3=Q_(teil_a_widerstand_3,'ohm')
-teil_a_widerstand_4=Q_(teil_a_widerstand_3,'ohm')
+r_g=Q_(1000,'ohm')
+teil_a_widerstand_4=r_g-teil_a_widerstand_3
 
 #Widerstandberechnung
 
 def wider(R_2,R_3,R_4):
 	teil_a_r_3durch4=R_3/R_4
-	
 	u_teil_a_r_3durchr_4=unp.uarray(teil_a_r_3durch4,teil_a_r_3durch4*0.05)
-	
 	return R_2*u_teil_a_r_3durchr_4
 
 def wider_ver(R_2,R_3dR_4):
 	u_teil_a_r_3durchr_4=unp.uarray(R_3dR_4,R_3dR_4*0.05)
 	return R_2*u_teil_a_r_3durchr_4
 
+
+
 teil_a_widerstand_x=wider(teil_a_widerstand_2,teil_a_widerstand_3,teil_a_widerstand_4)
-teil_a_widersta_x_v=wider_ver(teil_a_widerstand_2,teil_a_verhaeltniR34)
+teil_a_widerstand_x_mittel=mittel_und_abweichung_intervall(teil_a_widerstand_x,3)
 
 #print('Teil a, Widerstand R_x',teil_a_widerstand_x)
-print('Teil a, Widerstand R_x ',teil_a_widersta_x_v)
+print('Teil a, Widerstand R_x ',teil_a_widerstand_x_mittel)
 print('\n')
 
 
 ##Teil b)
 
-#teil_b_widerstand_2,teil_b_verhaeltniR34=np.linspace('Teila_widerstaende.txt'unpack=True)
-c_2=
-teil_b_verhaeltniR34_u=unp.uarray(teil_a_verhaeltniR34,0.05*teil_a_verhaeltniR34)
-teil_b_widerstand_2_u=unp.uarray(teil_b_widerstand_2_u,0.03*teil_b_widerstand_2_u)
+teil_b_c_2,teil_b_r_3=np.genfromtxt('kapazi_mess_teil_2_a.txt'unpack=True)
+
 
 #Einheitenzuteilung
-c_2=Q_(c_2*1e-9,'farad') #Nano Farad
-teil_b_verhaeltniR34_u=Q_(teil_b_verhaeltniR34_u,'ohm')
-teil_b_widerstand_2_u=Q_(teil_b_widerstand_2_u,'ohm')
+teil_b_c_2=Q_(teil_b_c_2*1e-9,'farad') #Nano Farad
+teil_b_r_3_u=Q_(teil_b_r_3,'ohm')
 
+teil_b_widerstand_4=r_g-teil_b_r_3
 
 #Kapazitätsbestimmung und Wiederstand
 
-def capa(c_2,R_3dR_4):
-	u_teil_a_r_3durchr_4=unp.uarray(R_3dR_4,R_3dR_4*0.05)
-	return c_2*R_3dR_4
+def capa(c_2,R_3,R_4):
+	teil_a_r_3durch4=R_3/R_4
+	u_teil_a_r_3durchr_4=unp.uarray(teil_a_r_3durch4,teil_a_r_3durch4*0.05)
+	return c_2*u_teil_a_r_3durchr_4
 
-teil_b_widerstand_rx=wider_ver(teil_b_widerstand_2_u,teil_b_verhaeltniR34)
-teil_b_capatität_cx=capa(c_2,teil_b_verhaeltniR34)
-
-print('Teil b, Widerstand Rx ',teil_b_widerstand_rx)
-print('Teil b, Widerstand Cx ',teil_b_capatität_cx)
+teil_b_capatität_cx_ideal=capa(c_2,teil_b_r_3,teil_b_widerstand_4)
+teil_b_capatität_cx_ideal_mittel=mittel_und_abweichung_intervall(teil_b_capatität_cx_ideal,3)
+print('Teil b, Widerstand Cx ',teil_b_capatität_cx_ideal_mittel)
 print('\n')
 
 
+
 ##Teil c)
-#teil_c_widerstand_2,teil_c_verhaeltniR34=np.linspace('Teila_widerstaende.txt'unpack=True)
+#teil_c_widerstand_2,teil_c_verhaeltniR34=np.genfromtxt('Teila_widerstaende.txt'unpack=True)
 l_2=
 
 #Einheitenzuteilung
