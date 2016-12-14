@@ -12,9 +12,8 @@ Das Verhältnis $R_3 / R_4$ ist durch ein Potentiometer realisiert. Um eine Fehl
 zu können, wird der Widerstand $R_2$ drei mal varriert und jeweils die entsprechenden Werte für $R_3$, die
 zum Verschwinden der Brückenspannung führen, aufgenommen. Als Nullindikator wird ein Oszilloskop verwendet. \\
 Nach dem selben Prinzip werden die Kapazität eines Kondensators und dessen Wirkwiderstand bestimmt. Der Aufbau
-der Kapazitätsmessbrücke ist in Abbildung \ref{fig: brücke} dargestellt.
+der Kapazitätsmessbrücke ist in Abbildung \ref{fig: kapazität} dargestellt.
 
-%\input{bilder.tex}
 \begin{figure}
 \centering
 \begin{subfigure}{0.49\textwidth}
@@ -32,7 +31,6 @@ der Kapazitätsmessbrücke ist in Abbildung \ref{fig: brücke} dargestellt.
 \caption{Wheaton- und Kapazitätsmessbrücke \cite{anleitung302}}
 \label{fig: kapind}
 \end{figure}
-
 
 \begin{figure}
 \centering
@@ -58,8 +56,8 @@ Kapazität $C_{\symup{X}}$ gilt in diesem Fall:
   C_{\symup{X}} = C_2 \frac{R_4}{R_3}
   \label{eq: Cx}
 \end{equation}
-Zur Bestimmung von $R_{\symup{X}}$ einer realen Kapazität wird als weiteres Stellglied der Variable Widerstand $R_2$ in Reihe mit dem Kondesator $C_2$
-geschaltet. Als weitere Bedingung neben \eqref{eq: Cx} für die Nullmethode ergibt sich:
+Zur Bestimmung von $R_{\symup{X}}$ einer realen Kapazität wird als weiteres Stellglied der variable Widerstand $R_2$ in Reihe mit dem Kondesator $C_2$
+geschaltet. Als weitere Bedingung für die Nullmethode neben \eqref{eq: Cx} ergibt sich:
 \begin{equation}
   R_{\symup{X}} = R_2\frac{R_3}{R_4}
   \label{eq: Rx}
@@ -75,7 +73,7 @@ Für $U_{\symup{Br}} = 0$ gelten hier die Bedingungen:
 \end{align}
 
 Anschließend geschieht die Induktivitätsmessung erneut mittels einer Maxwell-Brücke (siehe Abbildung \ref{fig: maxwell}).
-Hierbei sind nun dei Wiederstände $R_3$ und $R_4$ als unabhängige Stellglieder eingebaut. Die Bedingungen für die abgeglichene Brücke lauten
+Hierbei sind nun die Wiederstände $R_3$ und $R_4$ als unabhängige Stellglieder eingebaut. Die Bedingungen für die abgeglichene Brücke lauten
 bei diesem Aufbau:
 \begin{align}
   \begin{aligned}
@@ -88,14 +86,15 @@ Abschließend wird die Frequenzabhängigkeit einer Wien-Robinson-Brücke untersu
  \ref{fig: wienrob} illustriert.
 \begin{figure}
   \centering
-  \fbox{\includegraphics[width = 6cm]{pics/wien_rob_brücke.png}}
+  \includegraphics[width = 6cm]{pics/wien_rob_brücke.png}
   \caption{Wien-Robinson-Brücke\cite{anleitung302}}
   \label{fig: wienrob}
 \end{figure}
 Für das Verhältnis zwischen den Betragsquadraten der Speise- und Brückenspannung gilt:
 \begin{equation}
-  \left| \frac{U_{\symup{Br}}}{U_{\symup{S}}}\right|^2 = \frac{1}{9} \frac{(\Omega^2 - 1)^2 }{(1 - \Omega ^2)^2 + 9 \Omega ^2}
+  \left| \frac{\textfrak{U}_{\symup{Br}}}{\textfrak{U}_{\symup{S}}}\right|^2 = \frac{1}{9} \frac{(\Omega^2 - 1)^2 }{(1 - \Omega ^2)^2 + 9 \Omega ^2}
 \end{equation}
 Mit $\Omega = \frac{\omega}{\omega_0} = \omega R C$. Hierbei entspricht $\omega_0$ also der zu $\nu_0$ gehörigen Kreisfrequenz (siehe Abs. \ref{abs: theo}), die
-für ein Verschwinden der Brückenspannung sorgt. Für variable Frequenzen $\nu \in [20, \num{30000}]\si{\hertz}$ werden $U_{\symup{S}}$ bzw. $U_{\symup{Br}}$ mit einem
-Voltmeter bzw. der Peak-to-Peak-Einstellung des Oszilloskops gemessen. Der Verlauf der Kurve ermöglicht in der Auswertung die Berechnung des Klirrfaktors \eqref{eq: klirr}.
+für ein Verschwinden der Brückenspannung sorgt. Für variable Frequenzen $\nu \in [20, \num{30000}]\,\si{\hertz}$ werden $U_{\symup{S}}$ bzw. $U_{\symup{Br}}$ mit einem
+Voltmeter bzw. der Peak-to-Peak-Einstellung des Oszilloskops gemessen. Die Untersuchung der Frequenzabhängigkeit
+ ermöglicht in der Auswertung die Berechnung des Klirrfaktors \eqref{eq: klirr}.
