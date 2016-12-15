@@ -1,1 +1,74 @@
 \section{Auswertung}
+
+Die im Versuch gemessenen Wiederstände, Kapazitäten und Induktivitäten
+wurden alle als fehlerfrei angenommen.
+Und mit einer Genauigkeit von drei Signifikatenstellen angegeben.%Überprüfen
+
+\subsection{Bestimmung zweier Widerstände mithilfe der Whetonschen Brückenschaltung}
+
+Im ersten Teil des Veruches sollten zwei unbekannte Widerstäne $R_{\map{12}}$ und $R_{\map{13}}$ ausgemessen werden.
+Die dazu eingestellen Widerstände am Potentiometer \\ (Gesamtwiderstand 
+$R_{G}=\SI{1000}{\ohm}$) werden wie folgt umgerechnet:
+
+\begin{equation*}
+R\ua{4}=R\ua{G}-R_{\map{3}}
+\end{equation*}
+
+Anschließen kann dann mithilfe von Formel \eqref{eq: Rx} die 
+unbekannten Wiederstände $R_{\map{12}}$ und $R_{\map{13}}$ bestimmt werden. 
+
+Die sich mit den Messwerten ergebene Widerstände sind in Tabelle \ref{tab:wid_r12} und
+\ref{tab:wid_r13} abgebildet. 
+
+\begin{figure}
+\begin{subfigure}{0.49\textwidth}
+\centering
+\begin{tabular}{S S S S}
+      \toprule
+    {$R\ua{2}$ in $\si{\ohm}$} &  {$R\ua{3}$ in $\si{\ohm}$} & {$R\ua{4}$ in $\si{\ohm}$} &{$R\ua{12}$ in $\si{\ohm}$}  \\
+    \midrule
+     {$\num{332}$} & {$\num{541}$} &  {$\num{459}$}& {$\num{391}$}  \\
+     {$\num{500}$} & {$\num{439}$}  & {$\num{561}$} & {$\num{391}$}  \\
+     {$\num{1000}$} & {$\num{281}$}  & {$\num{719}$} & {$\num{390}$}  \\
+     \bottomrule
+	\end{tabular}
+  \caption{Gemessene Widerstände für $R\ua{12}$}
+  \label{tab:wid_r12}
+\end{subfigure}
+\begin{subfigure}{0.49\textwidth}
+\centering
+\begin{tabular}{S S S S}
+      \toprule
+    {$R\ua{2}$ in $\si{\ohm}$} &  {$R\ua{3}$ in $\si{\ohm}$} & {$R\ua{4}$ in $\si{\ohm}$} &{$R\ua{13}$ in $\si{\ohm}$}  \\
+    \midrule
+     {$\num{332}$} & {$\num{420}$}  & {$\num{580}$} & {$\num{240}$}  \\
+     {$\num{500}$} & {$\num{324}$}  & {$\num{676}$} & {$\num{234}$}  \\
+     {$\num{1000}$} & {$\num{192}$} &  {$\num{808}$}& {$\num{238}$}  \\
+     \bottomrule
+  \end{tabular}
+  \caption{Gemessene Widerstände für $R\ua{13}$}
+  \label{tab:wid_r13}
+\end{subfigure}
+\label{fig:tabellen_rx_a}
+\end{figure}
+
+Die Mittlungen und Standartabweichungem werden im folgenden immer 
+mit den bekannten Zusammenhöngen bestimmt.
+
+Für $R_{\map{12}}$ und $R_{\map{13}}$ ergeben sich 
+
+\begin{equation}
+\label{eq:wert_r12_r_13}
+\overline{R}_{\map{12}}=\SI{391\pm0.13}{\ohm}\quad \overline{R}_{\map{13}}=\SI{239\pm0.68}{\ohm}
+\end{equation}
+als Mittelwert und dazugehöriger Abweichung.
+
+\subsection{Kapazitätsmessung mithilfe der Kapazitätmessbrücke}
+
+Bei den folgenden Messungen werden einmal 
+ideale Kondensatoren angenommen und einmal ideale.
+
+\subsubsection{Idealer Kondensator}
+
+Um die unbekannte Kapazität der Kondensatoren $C\ua{1}$ und $C\ua{3}$
+zu bestimmen.

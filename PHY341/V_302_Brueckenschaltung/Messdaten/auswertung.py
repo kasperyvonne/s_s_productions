@@ -87,7 +87,11 @@ print(teil_a_widerstand_x)
 teil_a_widerstand_x_mittel=mittel_und_abweichung_intervall(teil_a_widerstand_x,3)
 
 #print('Teil a, Widerstand R_x',teil_a_widerstand_x)
-print('Teil a, Widerstand R_x ',teil_a_widerstand_x_mittel)
+print('\n')
+print('Teil a, r_2', teil_a_widerstand_2)
+print('Teil a, R_3 und r_4', teil_a_widerstand_3,teil_a_widerstand_4)
+print('Teil a, Widerstand R_x ',teil_a_widerstand_x)
+print('Teil a, Widerstand R_x gemittelt',teil_a_widerstand_x_mittel)
 print('\n')
 
 
