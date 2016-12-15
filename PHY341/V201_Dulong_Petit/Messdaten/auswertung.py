@@ -148,7 +148,7 @@ with open('tab.tex', 'w') as f:
     f.write(' {Stoff} & {{$c_k$ in $\si{\joule \per {\kelvin \mol}}$}} & {{$C_V$ in $\si{\joule \per {\kelvin \mol}}$}}  &  {$\\frac{C_V}{R}$}  \\\ \n')
     f.write('\\midrule  \n ')
     for i in range (0,3):
-        f.write('{{Graphit}} & {:.2f} & {:.2f} & {:.2f}  \\\ \n'.format(c_k_graphit[i], c_v_graphit[i], c_v_graphit[i]/R))
+        f.write('{{Graphit}} & {:.2f} & {:.2f} & {:.2f}  \\\ \n'.format(c_k_graphit[i].magnitude, c_v_graphit[i].magnitude, c_v_graphit[i].magnitude/R.magnitude))
     for i in range (0,3):
         f.write('{{Zinn}} & {:.2f} & {:.2f} & {:.2f}  \\\ \n'.format(c_k_blei[i], c_v_blei[i], c_v_blei[i] /R ))
     f.write('{{Aluminium}} & {:.2f} & {:.2f} & {:.2f}  \\\ \n'.format(c_k_alu, c_v_alu, c_v_alu /R))
