@@ -8,7 +8,7 @@ Und mit einer Genauigkeit von drei Signifikatenstellen angegeben.%Überprüfen
 
 Im ersten Teil des Veruches sollten zwei unbekannte Widerstäne $R_{\map{12}}$ und $R_{\map{13}}$ ausgemessen werden.
 Die dazu eingestellen Widerstände am Potentiometer \\ (Gesamtwiderstand 
-$R_{G}=\SI{1000}{\ohm}$) werden wie folgt umgerechnet:
+$R_{\map{G}}=\SI{1000}{\ohm}$) werden wie folgt umgerechnet:
 
 \begin{equation*}
 R\ua{4}=R\ua{G}-R_{\map{3}}
@@ -23,6 +23,9 @@ Die sich mit den Messwerten ergebene Widerstände sind in Tabelle \ref{tab:wid_r
 \begin{figure}
 \begin{subfigure}{0.49\textwidth}
 \centering
+\hspace{-0.25cm}
+\caption{Gemessene Widerstände für $R\ua{12}$}
+  \label{tab:wid_r12}
 \begin{tabular}{S S S S}
       \toprule
     {$R\ua{2}$ in $\si{\ohm}$} &  {$R\ua{3}$ in $\si{\ohm}$} & {$R\ua{4}$ in $\si{\ohm}$} &{$R\ua{12}$ in $\si{\ohm}$}  \\
@@ -32,22 +35,21 @@ Die sich mit den Messwerten ergebene Widerstände sind in Tabelle \ref{tab:wid_r
      {$\num{1000}$} & {$\num{281}$}  & {$\num{719}$} & {$\num{390}$}  \\
      \bottomrule
 	\end{tabular}
-  \caption{Gemessene Widerstände für $R\ua{12}$}
-  \label{tab:wid_r12}
 \end{subfigure}
+\hspace{0.5cm}
 \begin{subfigure}{0.49\textwidth}
 \centering
+ \caption{Gemessene Widerstände für $R\ua{13}$}
+  \label{tab:wid_r13}
 \begin{tabular}{S S S S}
       \toprule
-    {$R\ua{2}$ in $\si{\ohm}$} &  {$R\ua{3}$ in $\si{\ohm}$} & {$R\ua{4}$ in $\si{\ohm}$} &{$R\ua{13}$ in $\si{\ohm}$}  \\
+    {$R\ua{2}$ in $\si{\ohm}$} &  {$R\ua{3}$ in $\si{\ohm}$} & {$R\ua{4}$ in $\si{\ohm}$} & {$R\ua{13}$ in $\si{\ohm}$}  \\
     \midrule
      {$\num{332}$} & {$\num{420}$}  & {$\num{580}$} & {$\num{240}$}  \\
      {$\num{500}$} & {$\num{324}$}  & {$\num{676}$} & {$\num{234}$}  \\
      {$\num{1000}$} & {$\num{192}$} &  {$\num{808}$}& {$\num{238}$}  \\
      \bottomrule
   \end{tabular}
-  \caption{Gemessene Widerstände für $R\ua{13}$}
-  \label{tab:wid_r13}
 \end{subfigure}
 \label{fig:tabellen_rx_a}
 \end{figure}
@@ -71,4 +73,101 @@ ideale Kondensatoren angenommen und einmal ideale.
 \subsubsection{Idealer Kondensator}
 
 Um die unbekannte Kapazität der Kondensatoren $C\ua{1}$ und $C\ua{3}$
-zu bestimmen.
+zu bestimmen. Wird Formel \eqref{eq: Cx} genutzt.
+Die gemessenen Werte und daraus resultiereneden Kapazitäten sind in den 
+Tabellen \ref{tab:kap_c1} und \ref{tab:kap_c3} abgebildet.
+
+\begin{figure}
+\begin{subfigure}{0.49\textwidth}
+\centering
+\hspace{-0.25cm}
+\caption{Gemessene Kapazitäten für $C\ua{2}$}
+  \label{tab:kap_c1}
+\begin{tabular}{S S S S}
+    \toprule
+    {$C\ua{2}$ in $\si{\nano\farad}$} &  {$R\ua{3}$ in $\si{\ohm}$} & {$R\ua{4}$ in $\si{\ohm}$} & {$C\ua{1}$ in $\si{\nano\farad}$}  \\
+    \midrule
+     {$\num{750}$} & {$\num{529}$} &  {$\num{471}$}& {$\num{664}$}  \\
+     {$\num{992}$} & {$\num{599}$}  & {$\num{401}$} & {$\num{667}$}  \\
+     {$\num{994}$} & {$\num{601}$}  & {$\num{399}$} & {$\num{659}$}  \\
+     \bottomrule
+	\end{tabular}
+ 
+\end{subfigure}
+\hspace{0.5cm}
+\begin{subfigure}{0.49\textwidth}
+\centering
+\caption{Gemessene Kapazitäten für $C\ua{3}$}
+  \label{tab:kap_c3}
+\begin{tabular}{S S S S}
+      \toprule
+    {$C\ua{2}$ in $\si{\nano\farad}$} &  {$R\ua{3}$ in $\si{\ohm}$} & {$R\ua{4}$ in $\si{\ohm}$} & {$C\ua{3}$ in $\si{\nano\farad}$}  \\
+    \midrule
+     {$\num{750}$} & {$\num{638}$}  & {$\num{362}$} & {$\num{426}$}  \\
+     {$\num{992}$} & {$\num{702}$}  & {$\num{298}$} & {$\num{421}$}  \\
+     {$\num{994}$} & {$\num{704}$} &  {$\num{296}$}& {$\num{418}$}  \\
+     \bottomrule
+  \end{tabular}
+\end{subfigure}
+\label{fig:tabellen_cx_3}
+\end{figure}
+
+Gemittelt ergibt sich
+\begin{equation}
+\label{eq:wert_c12_c_13}
+\overline{C}_{\map{2}}=\SI{664\pm1.85}{\nano\farad} \quad \overline{C}_{\map{3}}=\SI{422\pm1.80}{\nano\farad}
+\end{equation}
+
+\subsubsection{Realer Kondensator}
+
+Die Kapazitäten werden nach Formel \eqref{eq: Cx} und die 
+Wiederstände nach \eqref{eq: Rx}.
+Es werden die RC-Kombinationen $9$ und $8$ gemessen.
+Die aus den Messwerten resultierenden ergebnisse sind in Tabelle 
+\ref{tab:rc_r9} und \ref{tab:rc_r8} dargestellt.
+
+\begin{figure}
+\centering
+\caption{Gemessene Widerstände und Kapazitäten für $R\ua{9}$ und $C\ua{9}$}
+  \label{tab:rc_r9}
+\begin{tabular}{S S S S S S }
+    \toprule
+    {$R\ua{2}$ in $\si{\ohm}$} &  {$R\ua{3}$ in $\si{\ohm}$} & {$R\ua{4}$ in $\si{\ohm}$} & {$C\ua{2}$ in $\si{\nano\farad}$}& {$R\ua{9}$ in $\si{\ohm}$} &  {$C\ua{9}$ in $\si{\nano\farad}$} \\
+    \midrule
+     {$\num{204}$} & {$\num{694}$} &  {$\num{306}$}& {$\num{994}$}  &  {$\num{465}$} & {$\num{416}$}\\
+     {$\num{205}$} & {$\num{694}$}  & {$\num{306}$} & {$\num{992}$} & {$\num{463}$} & {$\num{4437}$}\\
+     {$\num{270}$} & {$\num{622}$}  & {$\num{378}$} & {$\num{750}$s} &{$\num{444}$} & {$\num{456}$}  \\
+ 
+     \bottomrule
+  \end{tabular}
+ \end{figure}
+Gemittelt ergibt sich
+\begin{equation}
+\label{eq:wert_r9_c_9}
+\overline{R}_{\map{9}}=\SI{457\pm5}{\ohm} \quad \overline{C}_{\map{3}}=\SI{436\pm9.3}{\nano\farad}.
+\end{equation}
+
+Weiter gilt:
+
+\begin{figure}
+\centering
+\caption{Gemessene Widerstände und Kapazitäten für $R\ua{8}$ und $C\ua{8}$}
+  \label{tab:rc_r8}
+  \begin{tabular}{S S S S S S}
+  \toprule
+    {$R\ua{2}$ in $\si{\ohm}$} &  {$R\ua{3}$ in $\si{\ohm}$} & {$R\ua{4}$ in $\si{\ohm}$} & {$C\ua{2}$ in $\si{\nano\farad}$}& {$R\ua{8}$ in $\si{\ohm}$} &  {$C\ua{8}$ in $\si{\nano\farad}$} \\
+    \midrule
+    {$\num{168}$} & {$\num{772}$} &  {$\num{228}$}& {$\num{750}$}  &  {$\num{566}$} & {$\num{296}$}\\
+     {$\num{169}$} & {$\num{770}$}  & {$\num{230}$} & {$\num{994}$} & {$\num{569}$} & {$\num{264}$}\\
+     {$\num{225}$} & {$\num{716}$}  & {$\num{284}$} & {$\num{992}$} &{$\num{567}$} & {$\num{297}$}  \\
+     \bottomrule
+    \end{tabular}
+\end{figure}
+
+Als gemittelter Wert ergibt sich
+\begin{equation}
+\label{eq:wert_r8_c_8}
+\overline{R}_{\map{8}}=\SI{567\pm5}{\ohm} \quad \overline{C}_{\map{8}}=\SI{296\pm95}{\nano\farad}.
+\end{equation}
+
+

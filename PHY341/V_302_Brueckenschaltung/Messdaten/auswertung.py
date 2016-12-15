@@ -115,7 +115,10 @@ def capa(c_2,R_3,R_4):
 teil_b_capatität_cx_ideal=capa(teil_b_c_2,teil_b_r_3,teil_b_widerstand_4)
 teil_b_capatität_cx_ideal_mittel=mittel_und_abweichung_intervall(teil_b_capatität_cx_ideal,3)
 
-print('Teil b, Kapazität Cx Ideal ',teil_b_capatität_cx_ideal_mittel)
+print('Teil b, c_2', teil_b_c_2)
+print('Teil b, R_3 und r_4', teil_b_r_3,teil_b_widerstand_4)
+print('Teil b, Kapazität C_x ',teil_b_capatität_cx_ideal)
+print('Teil b, Kapazität Cx Ideal Mittel ',teil_b_capatität_cx_ideal_mittel)
 print('\n')
 
 ##Teil 2 realer Kondensator
@@ -132,7 +135,18 @@ teil_b_capatität_cx_real_mittel=mittel_und_abweichung_intervall(teil_b_capatit�
 teil_b_widerstand_rx_real=wider(teil_b_r2_real,teil_b_r3_real,teil_b_widerstand_4_real)
 teil_b_widerstand_cx_real_mittel=mittel_und_abweichung_intervall(teil_b_widerstand_rx_real,3)
 
-print('Teil b, Widerstand Rx real ',teil_b_widerstand_rx_real)
+print('Teil B, c_2 real', teil_b_c2_real)
+print('\n')
+print('teil b, r-2 real',teil_b_r2_real)
+print('\n')
+print('Teil b, R_3 und r_4', teil_b_r3_real, teil_b_widerstand_4_real)
+print('\n')
+print('Teil b, Widerstand real R_x ',teil_b_widerstand_rx_real)
+print('\n')
+print('Teil b, Kapazität C_x ',teil_b_capatität_cx_real)
+print('\n')
+print('Teil b, Widerstand Rx real ',teil_b_widerstand_cx_real_mittel)
+print('\n')
 print('Teil b, Kapatität Cx real',teil_b_capatität_cx_real_mittel)
 print('\n')
 
