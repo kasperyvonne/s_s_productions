@@ -311,7 +311,7 @@ Mittels den Gleichungen
 \omega_{0}=\frac{1}{RC} \qquad \nu_{0}=\frac{\omega_0}{2\pi}
 \end{equation*}
 
-kann auf die Frequenz $\nu_{0}$ geschlossen werden, in dem theoretisch die 
+kann auf die Frequenz $\nu_{0}$ geschlossen werden, in dem die 
 Spannung $\textfrak{U}\ua{br}$ minimal werden sollte.
 Das Resultat ist das bei $\nu_{0}=\SI{160}{\hertz}$ ein Minimum zu finden sein sollte.
 Und in der Tat befindet sich das Spannungsminimum $\textfrak{U}\ua{br\,min}$ 
@@ -419,8 +419,45 @@ das Verhältniss zwischen den Freuqenzen und Ruhefrequenzen bestimmt werden.
  \end{subfigure}
 \end{figure}
 
-In Abbildung  \ref{}
+In Abbildung \ref{fig: plot}
 wird nun das Verhältnis $\frac{\textfrak{U}\ua{br}}{\textfrak{U}\ua{s}}$ 
 gegen $\Omega$ auf. Dabei werden halblogarithmische Achsen verwendet.
-Die in der Abbildung dargestellte Theoriekurve berechnet sich mittels Formel 
-\eqref{eq:wien_theo}
+Die in der Abbildung dargestellte Theoriekurve berechnet sich mittels der Formel 
+\eqref{eq:wien_theo}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=1\textwidth]{pics/ub_us.pdf}
+  \caption{Auftagung $\frac{\textfrak{U}\ua{br}}{\textfrak{U}\ua{s}}$  gegen $\Omega$ (halblogarithmisch) }
+  \label{fig: plot}
+\end{figure}
+
+Wie in der der Vergrößerung der Abbildung \ref{fig: plot} zu sehen wird die 
+Theoriekurve nie Null.
+
+\subsection{Bestimmung des Klirrfaktors}
+
+Der Klirrfaktor wird mit \eqref{eq: klirr} bestimmt.
+Wir nehmen dabei an das die Oberwelle nur aus Spannung $U\ua{2}$ besteht.
+Dabei bestimmen wir $U\ua{2}$ mit
+
+\begin{equation*}
+ U\ua{2}=U\ua{Br}\left(frac{1}{9} \frac{(\Omega^2 - 1)^2 }{(1 - \Omega ^2)^2 + 9 \Omega ^2}\right)^{-\frac{1}{2}}
+\end{equation*}
+
+Zu Berechnung wir für $U\ua{Br}$ der minimal Wert $\textfrak{U}\ua{br\,min}$
+genutzt und $\Omega=2$ gesetzt.
+Es ergibt sich
+
+\begin{equation*}
+ U\ua{2}=\SI{0.005}{\volt}
+\end{equation*}
+Die Abweichung liegt dabei in der Größenordnung $\pm \, \SI{e-6}{\volt}$ und 
+wird deshalb nicht mit aufgeführt.
+Um den Klirrfaktor zu bestimmen wird die Eingangsspanun gemittelt zu $\overline{\textfrak{U}}\ua{s}=\SI{3.0\pm0.02}{\volt}$.
+Damit resultiert für den Klirrfaktor der Wert:
+
+\begin{equation*}
+k=0.005
+\end{equation*}
+Der Fehler liegt dabei in einer Größenordnung von $\num{e-6}$ und wird deshalb vernachlässigt.

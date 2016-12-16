@@ -287,9 +287,11 @@ klirr=w_min/teil_e_u_s_mittel
 print('Klirrfaktor', klirr)
 u_2_theo=teil_e_u_br/u_su_e_theo(2)
 
-klirr_theo=teil_e_u_br/teil_e_u_s_mittel
-klirr_theo_mittel=mittel_und_abweichung(unp.nominal_values(klirr_theo))
-print('Klirrfaktor theoretisch',klirr_theo_mittel)
+klirr_theo=w_min/teil_e_u_s_mittel
+
+#klirr_theo_mittel=mittel_und_abweichung(unp.nominal_values(klirr_theo))
+print('U_2',klirr)
+print('Klirrfaktor theoretisch',klirr_theo)
 
 print('\n')
 #
@@ -322,27 +324,27 @@ print('\n')
 plt.xlim(teil_e_Omega[0]-0.01,teil_e_Omega[-1]+10)
 #plt.ylim()
 #aufvariabele=np.linsspace()
-plt.plot(teil_e_Omega,teil_e_quotient_usue,'rx',label='Messwerte')
-plt.plot(lauffvariabele,teil_e_quotient_usue_theo,'b-',label='Theoriekurve')
+plt.plot(teil_e_Omega,teil_e_quotient_usue,'rx',label=r'$\mathrm{Messwerte}$')
+plt.plot(lauffvariabele,teil_e_quotient_usue_theo,'b-',label=r'$\mathrm{Theoriekurve}$')
 plt.xscale('log')
-#plt.xlabel()
-#plt.ylabel()
+plt.xlabel(r'$\Omega$')
+plt.ylabel(r'$\frac{U_{\mathrm{br}}}{U_{\mathrm{s}}}$')
 #
 plt.grid()
 #plt.legend(loc=9)
 plt.legend(loc=[0.13,0.84])
 
 plt.axes([0.58,0.15, 0.3,0.3])
-plt.xlim(teil_e_Omega[np.argmin(teil_e_quotient_usue)]-0.05,0.05+teil_e_Omega[np.argmin(teil_e_quotient_usue)])
-plt.ylim(-0.1*min(teil_e_quotient_usue),2*min(teil_e_quotient_usue))
-plt.plot(teil_e_Omega,teil_e_quotient_usue,'rx',label='Messwerte')
-plt.plot(lauffvariabele,teil_e_quotient_usue_theo,'b-',label='Theoriekurve')
+plt.xlim(teil_e_Omega[np.argmin(teil_e_quotient_usue)]-0.025,0.025+teil_e_Omega[np.argmin(teil_e_quotient_usue)])
+plt.ylim(-0.1*min(teil_e_quotient_usue),0.5*min(teil_e_quotient_usue))
+plt.plot(teil_e_Omega,teil_e_quotient_usue,'rx')
+plt.plot(lauffvariabele,teil_e_quotient_usue_theo,'b-')
 plt.grid()
 plt.title(r'$\mathrm{Vergrößerung \,  um \,  das \, Minimum}$')
 plt.xscale('log')
 
 
 #plt.show()
-#plt.savefig('ub_us.pdf')
-print('\n')
-print(teil_e_u_s)
+plt.savefig('ub_us.pdf')
+#print('\n')
+#print(teil_e_u_s)
