@@ -219,13 +219,89 @@ Die Mittlung ergibt
 
 \begin{equation}
 \label{eq:wert_r16_l_16}
-\overline{R}_{\map{16}}=\SI{403\pm10}{\ohm} \qquad \overline{L}_{\map{16}}=\SI{50}{\milli\henry}.
+\overline{R}_{\map{16}}=\SI{403\pm10}{\ohm} \qquad \overline{L}_{\map{16}}=\SI{14}{\milli\henry}.
 \end{equation}
-Für die Induktivität $\overline{L}_{\map{16}}$ gab es auf der betrachteten Signifikanz keine 
+Für die Induktivität $\overline{L}_{\map{16}}$ gibt es auf der betrachteten Signifikanz keine 
 Standartabweichung.
 
-\subsection{Induktivitätverechnung mit der Kapazitätsmessbrücke}
+\subsection{Induktivitätverechnung mit der Maxwell-Brücke}
 
 In dieser Messung wurden die selben LR-Kombinationen verwendet, wie 
 im vorherigen Kapitel.
 Die resultierenden Ergebnisse werden dann in der Diskussion verglichen.
+Für diesen Versuchsaufbau werden $R\ua{x}$ und $L\ua{x}$ nach \eqref{eq: Lx_maxwell} berechnet.
+Die Resultate sind in den Tabellen \ref{tab:lc_r18_max} und \ref{eq:wert_lr_16_max} zu finden.
+
+\begin{figure}
+\centering
+\caption{Gemessene Widerstände und Induktivitäten für $LR\ua{18}$ (Maxwell-Brücke)}
+  \label{tab:lc_r18_max}
+\begin{tabular}{S S S S S S }
+    \toprule
+    {$R\ua{2}$  in $\si{\ohm}$} &  {$R\ua{3}$ in $\si{\ohm}$} & {$R\ua{4}$ in $\si{\ohm}$} & {$C\ua{4}$ in $\si{\nano\farad}$}& {$R\ua{18}$ in $\si{\ohm}$} &  {$L\ua{18}$ in $\si{\milli\henry}$} \\
+    \midrule
+     {$\num{332}$} & {$\num{157}$} &  {$\num{141}$}& {$\num{992}$}  &  {$\num{370}$} & {$\num{52}$}\\
+     {$\num{500}$} & {$\num{104}$}  & {$\num{140}$} & {$\num{992}$} & {$\num{371}$} & {$\num{52}$}\\
+     {$\num{1000}$} & {$\num{52}$}  & {$\num{140}$} & {$\num{992}$} &{$\num{371}$} & {$\num{52}$}  \\
+    \bottomrule
+  \end{tabular}
+ \end{figure}
+
+
+Gemittelt ergibt sich
+\begin{equation}
+\label{eq:wert_lr_16_max}
+\overline{R}_{\map{18}}=\SI{371\pm0.5}{\ohm} \qquad \overline{L}_{\map{18}}=\SI{51}{\milli\henry}.
+\end{equation}
+
+
+\begin{figure}
+\centering
+\caption{Gemessene Widerstände und Induktivitäten für $LR\ua{16}$ (Maxwell-Brücke)}
+  \label{tab:lc_r16_max}
+\begin{tabular}{S S S S S S }
+    \toprule
+    {$R\ua{2}$  in $\si{\ohm}$} &  {$R\ua{3}$ in $\si{\ohm}$} & {$R\ua{4}$ in $\si{\ohm}$} & {$C\ua{4}$ in $\si{\nano\farad}$}& {$R\ua{16}$ in $\si{\ohm}$} &  {$L\ua{16}$ in $\si{\milli\henry}$} \\
+    \midrule
+     {$\num{332}$} & {$\num{337}$} &  {$\num{428}$}& {$\num{992}$}  &  {$\num{422}$} & {$\num{14}$}\\
+     {$\num{500}$} & {$\num{282}$}  & {$\num{336}$} & {$\num{992}$} & {$\num{420}$} & {$\num{14}$}\\
+     {$\num{1000}$} & {$\num{428}$}  & {$\num{337}$} & {$\num{992}$} &{$\num{418}$} & {$\num{14}$}  \\
+    \bottomrule
+  \end{tabular}
+ \end{figure}
+
+
+Die Ergebnis werden zu 
+\begin{equation}
+\label{eq:wert_lr_16_max}
+\overline{R}_{\map{16}}=\SI{420\pm1}{\ohm} \qquad \overline{L}_{\map{16}}=\SI{14}{\milli\henry}
+\end{equation}
+gemittelt.
+
+\subsection{Brückenschaltung der Wien-Robinson-Brücke}
+
+Bei diesem Aufbau wird ein Frequenzbereich von $\nu\in\left[30,30000\right]\,\si{\hertz}$ betrachtet.
+Die dabei gemessene Brückenspannung $\textfrak{U}\ua{br}$ und Eingangsspannung $\textfrak{U}\ua{s}$ werden in Tabelle \ref{} abgebildet.
+In dieser wird auch der Quotient aus beiden aufgelistet.
+Da die Brückenspannung mittels der \emph{Peak-to-Peak} Funktion des gemessen wird, 
+muss der Wert noch durch zwei geteilt werden. Außerdem soll die Effektivspannung betrachtet werden, es ergibt sich insgesamt also:
+
+
+\begin{equation*}
+\textfrak{U}\ua{br}=\frac{\textfrak{U}\ua{br,gemess}}{2\sqrt{2}}
+\end{equation*}
+
+\begin{figure}
+\centering
+\caption{Gemessene Brücken- und Eingangsspannung}
+  \label{tab:U_br_u-s}
+\begin{tabular}{S S S S}
+    \toprule
+    {$\nu$  in $\si{\hertz}$} &  {$\textfrak{U}\ua{br}$ in $\num{e-1}\,\si{\volt}$} & {$\textfrak{U}\ua{s}$  in $\si{\volt}$} & {$\frac{\textfrak{U}\ua{br}}{\textfrak{U}\ua{s}}$} \\
+    \midrule
+     {$\num{20}$} & {$\num{8.62}$} &  {$\num{428}$}& {$\num{992}$}  \\
+     {$\num{500}$} & {$\num{282}$}  & {$\num{336}$} & {$\num{992}$} \\
+     {$\num{1000}$} & {$\num{428}$}  & {$\num{337}$} & {$\num{992}$}  \\
+    \bottomrule
+  \end{tabular}
+ \end{figure}

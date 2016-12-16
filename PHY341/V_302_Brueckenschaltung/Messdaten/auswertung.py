@@ -212,16 +212,25 @@ teil_d_indu_lx=indu_max(teil_d_widerstand_2,teil_d_widerstand_3,teil_d_c2)
 teil_d_widerstand_rx_mittel=mittel_und_abweichung_intervall(teil_d_widerstand_rx,3)
 teil_d_indu_lx_mittel=mittel_und_abweichung_intervall(teil_d_indu_lx,3)
 
-print('Teil d), Wiederstand Rx ', teil_d_widerstand_rx_mittel)
-print('Teil d), Induktivität Lx (16 ,18) ', teil_d_indu_lx_mittel)
+print(teil_d_widerstand_2)
+print('\n')
+print('Teil d), Wiederstand Rx ',teil_d_widerstand_rx)
+print('Teil d), Wiederstand Rx  mittel ', teil_d_widerstand_rx_mittel)
+print('\n')
+print('Teil d), Induktivität Lx ',teil_d_indu_lx)
+print('Teil d), Induktivität Lx mittel (16 ,18) ', teil_d_indu_lx_mittel)
 print('\n')
 
 
 ###Teil e)
 teil_e_frequenz,teil_e_u_br,teil_e_u_s=np.genfromtxt('wien_robison_teil_5.txt',unpack=True)
 
+teil_e_test=teil_e_u_br/(2*np.sqrt(2))
 teil_e_u_br*=0.5
 teil_e_u_br*=1/(np.sqrt(2))
+
+#print(teil_e_u_br)
+#print(teil_e_test)
 
 
 R=1000
@@ -264,6 +273,10 @@ teil_e_quotient_usue_theo=u_su_e_theo(lauffvariabele)
 print('Teil e, US/U_e theoretisch', teil_e_quotient_usue_theo)
 print('\n')
 #
+#print('Frequenzen',teil_e_frequenz)
+np.savetxt('U_b_u_s_q.txt',(teil_e_frequenz,teil_e_u_br,teil_e_u_s,teil_e_quotient_usue),header='Frequenz Brückenspannung Eingangspannung')
+f=np.genfromtxt('U_b_u_s_q.txt',unpack=True)
+print(f)
 ###Teil f)
 
 w_min=min(teil_e_u_br)
@@ -330,4 +343,6 @@ plt.xscale('log')
 
 
 #plt.show()
-plt.savefig('ub_us.pdf')
+#plt.savefig('ub_us.pdf')
+print('\n')
+print(teil_e_u_s)
