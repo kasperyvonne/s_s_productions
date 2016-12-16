@@ -136,7 +136,7 @@ Die aus den Messwerten resultierenden ergebnisse sind in Tabelle
     {$R\ua{2}$ in $\si{\ohm}$} &  {$R\ua{3}$ in $\si{\ohm}$} & {$R\ua{4}$ in $\si{\ohm}$} & {$C\ua{2}$ in $\si{\nano\farad}$}& {$R\ua{9}$ in $\si{\ohm}$} &  {$C\ua{9}$ in $\si{\nano\farad}$} \\
     \midrule
      {$\num{204}$} & {$\num{694}$} &  {$\num{306}$}& {$\num{994}$}  &  {$\num{465}$} & {$\num{416}$}\\
-     {$\num{205}$} & {$\num{694}$}  & {$\num{306}$} & {$\num{992}$} & {$\num{463}$} & {$\num{4437}$}\\
+     {$\num{205}$} & {$\num{694}$}  & {$\num{306}$} & {$\num{992}$} & {$\num{463}$} & {$\num{437}$}\\
      {$\num{270}$} & {$\num{622}$}  & {$\num{378}$} & {$\num{750}$s} &{$\num{444}$} & {$\num{456}$}  \\
  
      \bottomrule
@@ -171,3 +171,61 @@ Als gemittelter Wert ergibt sich
 \overline{R}_{\map{8}}=\SI{567\pm5}{\ohm} \qquad \overline{C}_{\map{8}}=\SI{296\pm95}{\nano\farad}.
 \end{equation}
 
+\subsection{Induktivitätverechnung mit der Kapazitätsmessbrücke}
+
+Es sollen die Induktivitäten für die LC-Kombinationen $L\ua{18}$ und
+$L\ua{16}$ bestimmt werden. Dazu werden die Gleichungen \eqref{eq: Lx} genutzt.
+Die sich ergebenden Werte sind in Tabelle \ref{lc_r18} und \ref{tab:lc_r16} einzusehen.
+
+\begin{figure}
+\centering
+\caption{Gemessene Widerstände und Induktivitäten für $L\ua{18}$}
+  \label{tab:lc_r18}
+\begin{tabular}{S S S S S S }
+    \toprule
+    {$R\ua{2}$ in $\si{\ohm}$} &  {$R\ua{3}$ in $\si{\ohm}$} & {$R\ua{4}$ in $\si{\ohm}$} & {$L\ua{2}$ in $\si{\milli\henry}$}& {$R\ua{18}$ in $\si{\ohm}$} &  {$L\ua{18}$ in $\si{\milli\henry}$} \\
+    \midrule
+     {$\num{106}$} & {$\num{773}$} &  {$\num{227}$}& {$\num{14,6}$}  &  {$\num{361}$} & {$\num{50}$}\\
+     {$\num{140}$} & {$\num{713}$}  & {$\num{287}$} & {$\num{20,1}$} & {$\num{348}$} & {$\num{50}$}\\
+     {$\num{194}$} & {$\num{646}$}  & {$\num{354}$} & {$\num{27,5}$} &{$\num{354}$} & {$\num{50}$}  \\
+    \bottomrule
+  \end{tabular}
+ \end{figure}
+Nach der Mittlung erhält man:
+
+\begin{equation}
+\label{eq:wert_r18_l_18}
+\overline{R}_{\map{18}}=\SI{354\pm3}{\ohm} \qquad \overline{L}_{\map{18}}=\SI{50}{\milli\henry}
+\end{equation}
+Für die Induktivität $\overline{L}_{\map{18}}$ gab es auf der betrachteten Signifikanz keine 
+Standartabweichung.
+
+\begin{figure}
+\centering
+\caption{Gemessene Widerstände und Induktivitäten für $L\ua{16}$}
+  \label{tab:lc_r16}
+\begin{tabular}{S S S S S S }
+    \toprule
+    {$R\ua{2}$  in $\si{\ohm}$} &  {$R\ua{3}$ in $\si{\ohm}$} & {$R\ua{4}$ in $\si{\ohm}$} & {$L\ua{2}$ in $\si{\milli\henry}$}& {$R\ua{16}$ in $\si{\ohm}$} &  {$L\ua{16}$ in $\si{\milli\henry}$} \\
+    \midrule
+     {$\num{44}$} & {$\num{905}$} &  {$\num{95}$}& {$\num{14,6}$}  &  {$\num{419}$} & {$\num{14}$}\\
+     {$\num{55}$} & {$\num{873}$}  & {$\num{127}$} & {$\num{20,1}$} & {$\num{378}$} & {$\num{14}$}\\
+     {$\num{194}$} & {$\num{646}$}  & {$\num{354}$} & {$\num{27,5}$} &{$\num{354}$} & {$\num{14}$}  \\
+    \bottomrule
+  \end{tabular}
+ \end{figure}
+
+Die Mittlung ergibt
+
+\begin{equation}
+\label{eq:wert_r16_l_16}
+\overline{R}_{\map{16}}=\SI{403\pm10}{\ohm} \qquad \overline{L}_{\map{16}}=\SI{50}{\milli\henry}.
+\end{equation}
+Für die Induktivität $\overline{L}_{\map{16}}$ gab es auf der betrachteten Signifikanz keine 
+Standartabweichung.
+
+\subsection{Induktivitätverechnung mit der Kapazitätsmessbrücke}
+
+In dieser Messung wurden die selben LR-Kombinationen verwendet, wie 
+im vorherigen Kapitel.
+Die resultierenden Ergebnisse werden dann in der Diskussion verglichen.

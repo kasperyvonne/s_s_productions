@@ -170,8 +170,19 @@ teil_c_induktivitaet_lx=indu(teil_c_indu,teil_c_R3,teil_c_r4)
 teil_c_widerstand_rx_mittel=mittel_und_abweichung_intervall(teil_c_widerstand_rx,3)
 teil_c_induktivitaet_lx_mittel=mittel_und_abweichung_intervall(teil_c_induktivitaet_lx,3)
 
-print('Teil c, Widerstand Rx ', teil_c_widerstand_rx_mittel)
-print('Teil c, Indu lx (18, 16)', teil_c_induktivitaet_lx_mittel)
+print('Teil c, Wiederstand 2Indu,',teil_c_widerstand_2)
+print('\n')
+print('Teil c, R_3', teil_c_R3)
+print('\n')
+print('Teil c, R_4', teil_c_r4)
+print('\n')
+print('Teil c, Induktivität in mH', teil_c_indu)
+print('\n')
+print('Teil c, Widerstand Rx ', teil_c_widerstand_rx)
+print('Teil c, Widerstand Rx mittel ', teil_c_widerstand_rx_mittel)
+print('\n')
+print('Teil c, Indu Lx ',teil_c_induktivitaet_lx)
+print('Teil c, Indu lx gemittelt (18, 16)', teil_c_induktivitaet_lx_mittel)
 print('\n')
 
 
@@ -261,8 +272,10 @@ teil_e_u_s_mittel=mittel_und_abweichung(teil_e_u_s)
 print('Mittelwert Speisspannung',teil_e_u_s_mittel)
 klirr=w_min/teil_e_u_s_mittel
 print('Klirrfaktor', klirr)
-klirr_theo=teil_e_u_br/u_su_e_theo(2)
-klirr_theo_mittel=mittel_und_abweichung(klirr_theo)
+u_2_theo=teil_e_u_br/u_su_e_theo(2)
+
+klirr_theo=teil_e_u_br/teil_e_u_s_mittel
+klirr_theo_mittel=mittel_und_abweichung(unp.nominal_values(klirr_theo))
 print('Klirrfaktor theoretisch',klirr_theo_mittel)
 
 print('\n')
