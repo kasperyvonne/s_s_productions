@@ -273,10 +273,10 @@ teil_e_quotient_usue_theo=u_su_e_theo(lauffvariabele)
 print('Teil e, US/U_e theoretisch', teil_e_quotient_usue_theo)
 print('\n')
 #
-#print('Frequenzen',teil_e_frequenz)
+#	print('Frequenzen',teil_e_frequenz)
 np.savetxt('U_b_u_s_q.txt',(teil_e_frequenz,teil_e_u_br,teil_e_u_s,teil_e_quotient_usue),header='Frequenz Brückenspannung Eingangspannung')
 f=np.genfromtxt('U_b_u_s_q.txt',unpack=True)
-print(f)
+#print(f)
 ###Teil f)
 
 w_min=min(teil_e_u_br)

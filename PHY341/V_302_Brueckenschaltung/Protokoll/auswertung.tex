@@ -337,3 +337,80 @@ muss der Wert noch durch zwei geteilt werden. Außerdem soll die Effektivspannun
     \bottomrule
   \end{tabular}
  \end{figure}
+
+Mit der Minimalspannung
+
+\begin{equation*}
+\textfrak{U}\ua{br\,min}=\SI{1.38e2}{\volt}.
+\end{equation*}
+
+In der Schaltung (vgl. \ref{fig: wienrob}) waren weiter folgende Größen verbaut
+\begin{equation*}
+R=\SI{1000}{\ohm} \quad R'=\SI{332}{\ohm} \quad C\ua{1}=\SI{992}{\nano\farad} \quad C\ua{2}=\SI{994}{\nano\farad}
+\end{equation*}
+
+Die Kapazitäten $C\ua{1}$ und $C\ua{2}$ werden fehlerfrei zu $C=\SI{993}{\nano\farad}$ gemittelt.
+
+Mittels den Gleichungen 
+\begin{equation*}
+\omega_{0}=\frac{1}{RC} \qquad \nu_{0}=\frac{\omega_0}{2\pi}
+\end{equation*}
+
+kann auf die Frequenz $\nu_{0}$ geschlossen werden, in dem theoretisch die 
+Spannung $\textfrak{U}\ua{br}$ minimal werden sollte.
+Das Resultat ist das bei $\nu_{0}=\SI{160}{\hertz}$ ein Minimum zu finden sein sollte.
+Und in der Tat befindet sich das Spannungsminimum $\textfrak{U}\ua{br\,min}$ 
+bei $\SI{160}{\hertz}$ (vgl. \ref{tab:U_br_u-s}).
+Nun soll mit Gleichung 
+\begin{equation*}
+\Omega=\frac{\nu}{\nu_0}
+\end{equation*}
+das Verhältniss zwischen den Freuqenzen und ruhe Frequenzen bestimmt werden.
+
+
+\begin{figure}
+\centering
+\caption{Ergebnis der $\Omega$-Berechnung}
+  \label{tab:Omega}
+\begin{tabular}{S S }
+    \toprule
+    {$\nu$  in $\si{\hertz}$} &  {${\nu}{\nu_0}$} \\
+    \midrule
+    {$\num{20}$}    & {$\num{1.24e-1}$} \\
+    {$\num{40}$} & {$\num{2.5e-1}$} \\
+    {$\num{60}$} & {$\num{3.74e-1}$} \\
+    {$\num{80}$} & {$\num{4.99e-1}$} \\
+    {$\num{100}$} & {$\num{6.24e-1}$} \\
+    {$\num{110}$} &{$\num{6.86e-1}$} \\
+    {$\num{120}$} &{$\num{7.49e-1}$} \\
+    {$\num{130}$} & {$\num{8.11e-1}$} \\
+    {$\num{140}$} &{$\num{8.73e-1}$} \\
+    {$\num{150}$} &{$\num{9.36e-1}$} \\
+    {$\num{160}$} &{$\num{9.98e-1}$} \\
+    {$\num{170}$} &{$\num{1.06}$} \\
+    {$\num{180}$} &{$\num{1.12}$}\\
+    {$\num{190}$} &{$\num{1.19}$}\\
+    {$\num{200}$} &{$\num{1.25}$}\\
+    {$\num{220}$} &{$\num{1.37}$}\\
+    {$\num{240}$} &{$\num{1.5}$}\\
+    {$\num{260}$} &{$\num{1.62}$}\\
+    {$\num{280}$} &{$\num{1.75}$}\\
+    {$\num{300}$} &{$\num{1.87}$}\\
+    {$\num{400}$} &{$\num{2.5}$}\\
+    {$\num{500}$} &{$\num{3.12}$}\\
+    {$\num{600}$} &{$\num{3.74}$}\\
+    {$\num{700}$} &{$\num{4.37}$}\\
+    {$\num{800}$} &{$\num{4.99}$}\\
+    {$\num{900}$} &{$\num{5.61}$}\\
+    {$\num{1000}$} &{$\num{6.24}$}\\
+    {$\num{2000}$} &{$\num{12.5}$}\\
+    {$\num{3000}$} &{$\num{18.7}$}\\
+    {$\num{4000}$} &{$\num{25}$}\\
+    {$\num{6000}$} &{$\num{37.4}$}\\
+    {$\num{8000}$} &{$\num{50}$}\\
+    {$\num{10000}$} &{$\num{62.4}$}\\
+    {$\num{20000}$} &{$\num{124}$}\\
+    {$\num{30000}$} &{$\num{187}$}\\
+     \bottomrule
+  \end{tabular}
+ \end{figure}
