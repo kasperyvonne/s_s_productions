@@ -267,7 +267,7 @@ print('Teil e, Us/U_e experimentell', teil_e_quotient_usue)
 def u_su_e_theo(omega):
 	return unp.sqrt(1/9*((omega**2-1)**2/((1-omega**2)**2+9*omega**2))) 
 #
-lauffvariabele=np.linspace(1e-1,210,100000)
+lauffvariabele=np.linspace(1e-1,210,1000000)
 
 teil_e_quotient_usue_theo=u_su_e_theo(lauffvariabele)
 print('Teil e, US/U_e theoretisch', teil_e_quotient_usue_theo)
@@ -334,14 +334,14 @@ plt.grid()
 #plt.legend(loc=9)
 plt.legend(loc=[0.13,0.84])
 
-plt.axes([0.58,0.15, 0.3,0.3])
-plt.xlim(teil_e_Omega[np.argmin(teil_e_quotient_usue)]-0.025,0.025+teil_e_Omega[np.argmin(teil_e_quotient_usue)])
-plt.ylim(-0.1*min(teil_e_quotient_usue),0.5*min(teil_e_quotient_usue))
-plt.plot(teil_e_Omega,teil_e_quotient_usue,'rx')
-plt.plot(lauffvariabele,teil_e_quotient_usue_theo,'b-')
-plt.grid()
-plt.title(r'$\mathrm{Vergrößerung \,  um \,  das \, Minimum}$')
-plt.xscale('log')
+#plt.axes([0.58,0.15, 0.3,0.3])
+#plt.xlim(teil_e_Omega[np.argmin(teil_e_quotient_usue)]-0.025,0.025+teil_e_Omega[np.argmin(teil_e_quotient_usue)])
+#plt.ylim(-0.1*min(teil_e_quotient_usue),0.5*min(teil_e_quotient_usue))
+#plt.plot(teil_e_Omega,teil_e_quotient_usue,'rx')
+#plt.plot(lauffvariabele,teil_e_quotient_usue_theo,'b-')
+#plt.grid()
+#plt.title(r'$\mathrm{Vergrößerung \,  um \,  das \, Minimum}$')
+#plt.xscale('log')
 
 
 #plt.show()
