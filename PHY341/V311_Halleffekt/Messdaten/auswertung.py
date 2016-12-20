@@ -18,17 +18,22 @@ print (h, m_0, e_0)
 
 def E_fermi(n):
 	return h**2 /(2 * m_0) * ( ( (3 * n) / (8 * np.pi) ) **2 ) **(1/3)
-n_test = Q_(3, '1/(m**3)')
-print(E_fermi(n_test).to('joule'))
+#n_test = Q_(3, '1/(m**3)')
+#print(E_fermi(n_test).to('joule'))
+def F_1(x, m, b):
+	return m * x + b
 
+I_eich_steigend, B_eich_steigend = np.genfromtxt('flussdichte_steigend.txt', unpack=True)
+I_eich_fallend, B_eich_fallend = np.genfromtxt('flussdichte_fallend.txt', unpack=True)
+params_1, covariance_1 = curve_fit(F_1, I_eich_steigend, B_eich_steigend, sigma=0.1)
+I_lim = np.linspace(0, 10, 100)
+#plt.plot(I_eich_steigend, -B_eich_steigend, 'rx')
+#plt.plot(I_eich_fallend, -B_eich_fallend, 'bx')
+#plt.plot(I_lim, -F_1(I_lim, *params_1), '-r')
+#plt.show()
 
-
-
-#variabel_1,variabel_2=np.genfromtxt('name.txt',unpack=True)
-
-
-
-
+def B(I):
+	return params_1[0] * I + params_1[1]
 
 
 
