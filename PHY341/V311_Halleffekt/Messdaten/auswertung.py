@@ -22,7 +22,7 @@ print(d_zink, d_kupfer)
 #beispiel:
 
 def E_fermi(n):
-	return h**2 /(2 * m_0) * ( ( (3 * n) / (8 * np.pi) ) **2 ) **(1/3)
+	return (h**2 /(2 * m_0) * ( ( (3 * n) / (8 * np.pi) ) **2 ) **(1/3) ).to('eV')
 #n_test = Q_(3, '1/(m**3)')
 #print(E_fermi(n_test).to('joule'))
 def F_1(x, m, b):
@@ -32,11 +32,14 @@ I_eich_steigend, B_eich_steigend = np.genfromtxt('flussdichte_steigend.txt', unp
 I_eich_fallend, B_eich_fallend = np.genfromtxt('flussdichte_fallend.txt', unpack=True)
 params_1, covariance_1 = curve_fit(F_1, I_eich_steigend, B_eich_steigend, sigma=0.1)
 I_lim = np.linspace(0, 10, 100)
-plt.plot(I_eich_steigend, B_eich_steigend, 'rx')
-plt.plot(I_eich_fallend, B_eich_fallend, 'bx')
-plt.plot(I_lim, F_1(I_lim, *params_1), '-r')
+plt.plot(I_eich_steigend, B_eich_steigend, 'rx', label='Messwerte steigender Strom')
+plt.plot(I_eich_fallend, B_eich_fallend, 'bx', label='Messwerte fallender Strom')
+plt.plot(I_lim, F_1(I_lim, *params_1), '-r', label='Lineare Regression')
 plt.xlim(I_eich_steigend[0], I_eich_steigend[-1])
+plt.xlabel('$I$ in $A$')
+plt.ylabel('$B$ in $mT$')
 plt.grid()
+plt.legend()
 plt.savefig('hysterese.pdf')
 
 with open('hysterese_tab.tex', 'w') as f:
@@ -67,6 +70,7 @@ plt.ylabel('$U$ in $mV$')
 plt.grid()
 plt.legend()
 plt.savefig('uri_zink.pdf')
+
 R_zink_errors = np.sqrt(np.diag(cov_zink_R))
 R_zink = Q_(ufloat(params_zink_R[0], R_zink_errors[0]), 'millivolt/ampere').to('milliohm')
 print('R_zink = ', R_zink)
@@ -96,7 +100,6 @@ print('R_kupfer = ', R_kupfer)
 B_konst_kupfer = B(3)
 U_ges_min_kupfer_konstB, U_ges_plu_kupfer_konstB = np.genfromtxt('u_h_konstB_kupfer.txt', unpack=True)
 U_h_kupfer_konstB = Q_(0.5 * (U_ges_plu_kupfer_konstB - U_ges_min_kupfer_konstB), 'millivolt')
-print(U_h_kupfer_konstB)
 I = np.linspace(0, 10 , 11)
 with open('u_h_kupfer_konstB_tab.tex', 'w') as f:
     f.write('\\begin{table} \n \\centering \n \\begin{tabular}{')
@@ -108,11 +111,28 @@ with open('u_h_kupfer_konstB_tab.tex', 'w') as f:
         f.write('{:.1f} & {:.3f} & {:.3f} & {:.3f} \\\ \n'.format(I[i], U_ges_min_kupfer_konstB[i], U_ges_plu_kupfer_konstB[i], U_h_kupfer_konstB[i].magnitude))
     f.write('\\bottomrule \n \\end{tabular} \n \\caption{Hallspannung Kupfer bei konstantem Magnetfeld} \n \\label{tab: hall_kupfer_konstB} \n  \\end{table}')
 
+params_kupfer_U_h_1, cov_kupfer_U_h_1 = curve_fit(F_1, I, U_h_kupfer_konstB.magnitude, sigma=0.1)
+plt.clf()
+I_lim = np.linspace(0, 10, 100)
+plt.plot(I, U_h_kupfer_konstB, 'rx', label='Messwerte')
+plt.plot(I_lim, F_1(I_lim, *params_kupfer_U_h_1), '-b', label='Lineare Regression')
+plt.xlim(0, 8)
+plt.xlabel('$I$ in $A$')
+plt.ylabel('$U_H$ in $mV$')
+plt.grid()
+plt.legend()
+plt.savefig('u_h_kupfer_konstB.pdf')
+
+Steigung_U_h_kupfer_konstB_errors = np.sqrt(np.diag(cov_kupfer_U_h_1))
+Steigung_U_h_kupfer_konstB = Q_(ufloat(params_kupfer_U_h_1[0], Steigung_U_h_kupfer_konstB_errors[0]), 'meter^3 * millitesla /(coulomb * millimeter)')
+print('Steigung der Hall Spannung, Kupfer, konst BFeld: ', Steigung_U_h_kupfer_konstB)
+n_kupfer_konstB =  - 1/(Steigung_U_h_kupfer_konstB * e_0 * d_kupfer) * B_konst_kupfer
+print('n_kupfer_konstB: ', n_kupfer_konstB)
+print('Fermienergie Kupfer: ', E_fermi(n_kupfer_konstB))
 
 B_konst_zink = B(3)
 U_ges_min_zink_konstB, U_ges_plu_zink_konstB = np.genfromtxt('u_h_konstB_zink.txt', unpack=True)
 U_h_zink_konstB = Q_(0.5 * (U_ges_plu_zink_konstB - U_ges_min_zink_konstB), 'millivolt')
-print(U_h_zink_konstB)
 I = np.linspace(0, 10 , 11)
 with open('u_h_zink_konstB_tab.tex', 'w') as f:
     f.write('\\begin{table} \n \\centering \n \\begin{tabular}{')
@@ -124,8 +144,24 @@ with open('u_h_zink_konstB_tab.tex', 'w') as f:
         f.write('{:.1f} & {:.3f} & {:.3f} & {:.3f} \\\ \n'.format(I[i], U_ges_min_zink_konstB[i], U_ges_plu_zink_konstB[i], U_h_zink_konstB[i].magnitude))
     f.write('\\bottomrule \n \\end{tabular} \n \\caption{Hallspannung Zink bei konstantem Magnetfeld} \n \\label{tab: hall_zink_konstB} \n  \\end{table}')
 
+params_zink_U_h_1, cov_zink_U_h_1 = curve_fit(F_1, I, U_h_zink_konstB.magnitude, sigma=0.1)
+plt.clf()
+I_lim = np.linspace(0, 10, 100)
+plt.plot(I, U_h_zink_konstB, 'rx', label='Messwerte')
+plt.plot(I_lim, F_1(I_lim, *params_zink_U_h_1), '-b', label='Lineare Regression')
+plt.xlim(0, 8)
+plt.xlabel('$I$ in $A$')
+plt.ylabel('$U_H$ in $mV$')
+plt.grid()
+plt.legend()
+plt.savefig('u_h_zink_konstB.pdf')
 
-
+Steigung_U_h_zink_konstB_errors = np.sqrt(np.diag(cov_zink_U_h_1))
+Steigung_U_h_zink_konstB = Q_(ufloat(params_zink_U_h_1[0], Steigung_U_h_zink_konstB_errors[0]), 'meter^3 * millitesla /(coulomb * millimeter)')
+print('Steigung der Hall Spannung, Zink, konst BFeld: ', Steigung_U_h_zink_konstB)
+n_zink_konstB =   1/(Steigung_U_h_zink_konstB * e_0 * d_zink) * B_konst_zink
+print('n_zink_konstB: ', n_zink_konstB)
+print('Fermienergie Zink: ', E_fermi(n_zink_konstB))
 
 
 
