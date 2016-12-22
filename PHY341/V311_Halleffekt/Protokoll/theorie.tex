@@ -23,7 +23,7 @@ ergibt sich für \emph{Driftgeschwindigkeit}:
 
 \begin{equation}
 \label{eq:drift_v}
-\vec{\overline{v}}\ua{d}=\frac{1}{2}\Delta\vec{V}=-\frac{1}{2}\frac{\map{e}}{\map{m}\ua{e}}\vec{E}\overline{\tau}
+\vec{\overline{v}}\ua{d}=\frac{1}{2}\Delta\vec{v}=-\frac{1}{2}\frac{\map{e}}{\map{m}\ua{e}}\vec{E}\overline{\tau}
 \end{equation}
 
 Hierbei sei $\map{m}\ua{e}$ die Elektronenmasse.
@@ -33,5 +33,63 @@ Mittels der \emph{Driftgeschwindigkeit} kann nun auf die Stromdichte $j$ geschlo
 \label{eq:stromdicht}
 j=-n\vec{\overline{v}}\ua{d}\map{e}=\frac{1}{2}\frac{\map{e^2}}{\map{m}\ua{e}}n\vec{E}\overline{\tau}
 \end{equation}
+Die Größe $n$ gibt die Elektronen pro Volumeneinheit an.
+Mit der idealisierte Annahme das ein homogener Leiter betrachtet wird, kann 
+$j=\frac{I}{Q}$ und $E=\frac{U}{L}$ umgeschrieben werden.
+Dabei sei $Q$ der Querschnitt und $L$ die Länge des Leiters.
+Mittels dem Ohmschen Gesetz folgt ansschließend
 
+\begin{equation}
+\label{eq:wider}
+R=2\frac{\map{m}\ua{e}}{\map{e}^2}\frac{1}{n\overline{\tau}}\frac{L}{Q}
+\end{equation}
+\subsection{Der Hall-Effekt}
+Der \emph{Hall-Effekt} kommt immer dann zu stande, wenn 
+ein Magnetfeld senkrecht auf einer stromdruchflossenden 
+homogen Leiterplatte (Dicke $d$ und Breite $b$) steht.
+Die Lorentzkraft $\vec{F}\ua{l}$ sorgt für eine Ablenkung der Elektronen.
+Die Ablenkung bewirkt eine Potentialdifferenz zwischen den 
+Punkten $A$ und $B$ (vgl. \ref{}). Dadruch entsteht gleichzeitig ein
+weiteres elektrisches Feld $E\ua{y}$, es wirkt der Elektronenbewegung entgegen.
+Die Spannung zwischen $A$ und $B$ wächst solange an, bis es zu einem Kräftgleichgewicht zwischen der Lorentz- und Coulombkraft kommt.
+Die gemessene Hallspannung ist  dann gleich
+
+\begin{equation}
+\label{eq:hall_span}
+U\ua{H})E\ua{y}b=\overline{v}\ua{d}Bd=-\frac{1}{n\map{e}}\frac{BI\ua{q}}{d}
+\end{equation}
+
+Die Hallspannung kann also Auskunft über die Ladungsträgerdichte $n$ geben.
+
+\subsection{Berechnung mikroskopischer Leitfähigkeitsparameter}
+Mithilfe des Widerstandes und der \emph{Hall-Spannung} kann nun auf 
+einige mikroskopischer Leitfähigkeitsparameter geschlossen werden.
+Zum einen lässt sich die \emph{freie Weglänge} $\overline{l}$ bestimmen.
+Dazu wird der Zusammenhang
+
+\begin{equation}
+\ref{eq:freie_weg}
+\overline{l}=\overline{\tau}\left|\,v\,\right|
+\end{equation}
+verwendet.
+Es ist $\left|\,v\,\right|$ die Totalgeschwindigkeit des Elektrons.
+Sie entsteht durch die Wärmebewegung der Kristallbausteine.
+Um die Totalgeschwindigkeit eines Elektrons zu bestimmen nutzt 
+man die \emph{Fermie-Energie} $E\ua{F}$. Sie nimmt den Wert des energiereichsten Elektronen wegen des 
+Pauli-Verbotes am absoluten Nullpunkt an.
+Und wir mit dem Zusammenhang 
+
+\begin{equation}
+\label{eq:fermi_e}
+E\ua{f}=\frac{h^2}{2\map{m}\ua{e}}\left[\left(\frac{3}{8\pi}\right)^2\right]^{\frac{1}{3}}
+\end{equation}
+berechnet. In Formel \eqref{eq:fermi_e} wird das Plancksches Wirkungsquantum $h$ benutzt.
+Da kaum ein Elektron $E\ua{f}$ erreicht und somit im wesentlichen nicht 
+für die elektrische Leitfähigkeit verantwortlich ist.
+Kann die Totalgeschwindigkeit abgeschätz werden mit
+
+\begin{equation}
+\label{eq:total_v}
+\left|\,\overline{v}\,\right|\approx\left(\frac{2E\ua{F}}{\map{m}\ua{e}}\right)^{\frac{1}{2}}
+\end{equation}
 \subsection{Histerese}
