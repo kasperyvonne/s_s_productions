@@ -87,3 +87,101 @@ Damit ergeben sich die Werte für die Teilchenzahlen pro Volumen zu:
 
 
 \subsection{Hallspannung bei konstantem Querstrom}
+Zur Messung der Hallspannung bei konstantem Querstrom wurde dieser für beide Proben auf $10\si{\ampere}$ eingestellt. Die
+Messwerte, sowie die berechneten Hallspannungen sind in den Tabellen \ref{tab: } und \ref{tab: } aufgeführt. Dabei wurde
+die variable Flussdichte gemäß \eqref{eq: hysterese} berechnet. In den Abbildungen \ref{fig: uh_konstI_kupfer} \ref{fig: uh_konstI_zink}
+wurde der Verlauf der Hallspannung in Abhängigkeit von der Magnetfeldstärke aufgretragen. Für die Beträge der Steigung der Regressionsgeraden
+ergeben sich die Werte:
+\begin{equation}
+  m_{Cu} = (0.018 \pm 0.000)\si{\volt \per \tesla }  \quad m_{Zn} = (0.020 \pm 0.002)\si{\volt \per \tesla}
+\end{equation}
+Für die Regression wurde jeweils auf einen Wert verzichtet (Zink $I = 0 \si{\ampere}$, Kupfer $I = 3.5\si{\ampere}$), da diese Werte offenbar
+durch systematische Fehler beeinträchtigt wurden.\\
+Damit ergeben sich die Werte für die Teilchenzahlen pro Volumen zu:
+\begin{equation}
+  n_{Cu,2} = (1.9 \pm 0.0)\cdot 10^{29}\,\si{ \meter^{-3}} \quad n_{Zn,2} = (2.1\pm 0.2)\cdot 10^{25}\,\si{ \meter^{-3}}
+\end{equation}
+\input{tabs/u_h_kupfer_konstI_tab.tex}
+\input{tabs/u_h_zink_konstI_tab.tex}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{pics/u_h_kupfer_konstI.pdf}
+  \caption{Kupferprobe, Verlauf der Hallspannung in Abhängigkeit von der Magnetfeldstärke}
+  \label{fig: uh_konstI_kupfer}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{pics/u_h_zink_konstI.pdf}
+  \caption{Zinkprobe, Verlauf der Hallspannung in Abhängigkeit von der Magnetfeldstärke}
+  \label{fig: uh_konstI_zink}
+\end{figure}
+
+
+\subsection{Berechnung weiterer Mikroskopischer Größen}
+Nun sollen aus den gemessenen makroskopischen Größen auf mikroskopische Zusammenhänge geschlossen werden. Zwischenergebnisse
+wurden bei den folgenden Rechnungen nicht gerundet. \\
+Mit den molaren Volumina von Kupfer und Zink kann auf die Anzahl der Ladungsträger pro Atom
+geschlossen werden. Hierzu wurden die Werte aus V201 verwendet:
+\begin{equation}
+  V_{mol, Cu} = 7.09 \cdot 10^{-6} \si{m^3 /mol} \quad   V_{mol, Zn} = 9.16 \cdot 10^{-6} \si{m^3 /mol}
+\end{equation}
+Für Kupfer ergibt sich die Anzahl der Ladungsträger pro Atom zu:
+\begin{align}
+  \begin{aligned}
+    z_{Cu,1} &= n_{Cu,1} \cdot V_{mol, Cu} =  2.18 \pm 0.04  \\
+    z_{Cu,2} &= n_{Cu,2} \cdot V_{mol, Cu} =  2.24 \pm 0.00
+  \end{aligned}
+\end{align}
+Für Zink berechnen sich die beiden Werte:
+\begin{align}
+  \begin{aligned}
+    z_{Zn,1} &= n_{Zn,1} \cdot V_{mol, Zn} =  (2.5\pm 0.4)\cdot 10^{-4}\\
+    z_{Zn,2} &= n_{Zn,2} \cdot V_{mol, Zn} =   (3.2\pm 0.3)\cdot 10^{-4}
+  \end{aligned}
+\end{align}
+Mittels der Abmessungen der verwendeten Leiter kann auf die spezifischen Widerstände der Proben geschlossen werden. Es ergeben sich folgende Werte:
+\begin{align}
+  \begin{aligned}
+    \rho_{Cu} =  (12,40 \pm 0,03)\cdot 10^{-5} \si{\ohm \milli \meter^2 \per \meter} \\
+    \rho_{Zn} =  (69,30 \pm 0,50) \cdot 10^{-2} \si{\ohm \milli \meter^2 \per \meter}
+  \end{aligned}
+\end{align}
+Zusammen mit den gefundenen Werten für die Anzahl der Ladungsträger pro Volumen berechnen sich die mittleren Flugzeiten $\tau_i$ zu:
+\begin{align}
+  \begin{aligned}
+    \tau_{Cu,1} &= (3.09 \pm 0.06) \cdot 10^{-12} \si{\second} \\
+    \tau_{Cu,1} &= (3.01 \pm 0.00) \cdot 10^{-12} \si{\second} \\
+    \tau_{Zn,1} &= (6.1 \pm 0.9) \cdot 10^{-12} \si{\second} \\
+    \tau_{Zn,2} &= (4.9 \pm 0.4) \cdot 10^{-12} \si{\second}
+  \end{aligned}
+\end{align}
+Nun soll die Driftgeschwindigkeit $v_d$ für eine Stromdichte von $j = 1 \si{\ampere \per \milli \meter}$ berechnet werden. Mittels Formel
+\eqref{eq: } ergeben sich die Werte:
+\begin{align}
+\begin{aligned}
+v_{Cu,1} &= (3.37 \pm 0.06)\cdot 10^{-2}  \si{\milli\meter\per\second}  \\
+v_{Cu,2} &= (3.28 \pm 0.00)\cdot 10^{-2}  \si{\milli\meter\per\second}  \\
+v_{Zn,1} &= (3.70 \pm 0.50)\cdot 10^{ 2}   \si{\milli\meter\per\second} \\
+v_{Zn,2} &= (1.98 \pm 0.20)\cdot 10^{ 2}   \si{\milli\meter\per\second}
+\end{aligned}
+\end{align}
+
+Weiter berechnen sich gemäß \eqref{eq:} die Fermi-Energien der Stoffe zu:
+\begin{align}
+\begin{aligned}
+E_{Cu,1} &= (11.84 \pm 0.14)  \si{\eV}  \\
+E_{Cu,2} &= (12.06 \pm 0.00)  \si{\eV}  \\
+E_{Zn,1} &= (2.39 \pm 0.23)\cdot 10^{-2}   \si{\eV} \\
+E_{Zn,2} &= (2.77 \pm 0.14)\cdot 10^{-2}  \si{\eV}
+\end{aligned}
+\end{align}
+
+Mit Formel \eqref{eq: } ergeben sich folgende Werte für die mittlere freie Weglänge:
+\begin{align}
+\begin{aligned}
+l_{Cu,1} &= (11.84 \pm 0.14)  \si{\eV}  \\
+l_{Cu,2} &= (12.06 \pm 0.00)  \si{\eV}  \\
+l_{Zn,1} &= (2.39 \pm 0.23)\cdot 10^{-2}   \si{\eV} \\
+l_{Zn,2} &= (2.77 \pm 0.14)\cdot 10^{-2}  \si{\eV}
+\end{aligned}
+\end{align}

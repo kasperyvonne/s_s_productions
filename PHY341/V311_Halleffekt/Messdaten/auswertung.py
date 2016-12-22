@@ -15,6 +15,10 @@ print (h, m_0, e_0)
 #Abmessungen der Proben
 d_zink = Q_(1.85-1.70, 'millimeter')
 d_kupfer = Q_(18 * 1e-06, 'millimeter')
+l_zink = Q_(43, 'millimeter')
+l_kupfer = Q_(28.05, 'millimeter')
+b_kupfer = Q_(25.3, 'millimeter')
+b_zink = Q_(25.5, 'millimeter')
 print(d_zink, d_kupfer)
 
 #umrechnung einheiten mit var.to('unit')
@@ -245,10 +249,10 @@ with open('u_h_kupfer_konstI_tab.tex', 'w') as f:
     f.write('\\bottomrule \n \\end{tabular} \n \\caption{Hallspannung Kupfer bei konstantem Querstrom} \n \\label{tab: hall_kupfer_konstI} \n  \\end{table}')
 
 B_konstI_kupfer = B(I_konstI).magnitude
-params_kupfer_U_h_2, cov_kupfer_U_h_2 = curve_fit(F_1, B_konstI_kupfer, U_h_kupfer_konstI.magnitude, sigma=0.1)
+params_kupfer_U_h_2, cov_kupfer_U_h_2 = curve_fit(F_1, B_konstI_kupfer[1:], U_h_kupfer_konstI.magnitude[1:], sigma=0.1)
 plt.clf()
 B_lim = np.linspace(B_konstI_kupfer[0], B_konstI_kupfer[-1], 100)
-plt.plot(B_konstI_kupfer[:-1], U_h_kupfer_konstI.magnitude[:-1], 'rx', label='Messwerte')
+plt.plot(B_konstI_kupfer, U_h_kupfer_konstI.magnitude, 'rx', label='Messwerte')
 plt.plot(B_lim, F_1(B_lim, *params_kupfer_U_h_2), '-b', label='Lineare Regression')
 plt.xlabel('$B$ in $mT$')
 plt.ylabel('$U_H$ in $mV$')
@@ -262,3 +266,66 @@ Steigung_U_h_kupfer_konstI = Q_(ufloat(params_kupfer_U_h_2[0], Steigung_U_h_kupf
 print('Steigung der Hall Spannung, Kupfer, konst Strom: ', Steigung_U_h_kupfer_konstI.to('volt/tesla'))
 n_kupfer_konstI =  - 1/(Steigung_U_h_kupfer_konstI * e_0 * d_kupfer) * konstI
 print('n_kupfer_konstI: ', n_kupfer_konstI)
+
+
+
+
+
+#Berechnungen weiterer Größen
+rho_kupfer = Q_(8.96, 'gram/(cm)^3').to('kilogram/m^3')
+rho_zink = Q_(7.14, 'gram/(cm)^3').to('kilogram/m^3')
+molmass_kupfer = Q_(63.5, 'gram/mol').to('kilogram/mol')
+molmass_zink = Q_(65.4, 'gram/mol').to('kilogram/mol')
+
+molvol_kupfer = molmass_kupfer/rho_kupfer
+molvol_zink = molmass_zink/rho_zink
+vol = Q_(1, 'meter^3')
+print(molvol_zink, molvol_kupfer)
+n_cube_kupfer = vol/molvol_kupfer
+n_cube_zink = vol/molvol_zink
+print(n_cube_zink, n_cube_kupfer)
+
+z_kupfer_konstI =  (n_kupfer_konstI*(molvol_kupfer / Q_(const.Avogadro, '1/mole')))
+print('z_kupfer_konstI: ', z_kupfer_konstI)
+z_kupfer_konstB =  (n_kupfer_konstB*(molvol_kupfer / Q_(const.Avogadro, '1/mole')))
+print('z_kupfer_konstB: ', z_kupfer_konstB)
+
+z_zink_konstI =  (n_zink_konstI*(molvol_zink / Q_(const.Avogadro, '1/mole')))
+print('z_zink_konstI: ', z_zink_konstI)
+z_zink_konstB =  (n_zink_konstB*(molvol_zink / Q_(const.Avogadro, '1/mole')))
+print('z_zink_konstB: ', z_zink_konstB)
+
+
+#spezifische Leitfähigkeit
+R_spez_kupfer = R_kupfer * b_kupfer * d_kupfer / l_kupfer
+print('spezifischer Widerstand Kupfer: ', R_spez_kupfer.to('ohm * millimeter^2 / meter'))
+R_spez_zink = R_zink * b_zink * d_zink / l_zink
+print('spezifischer Widerstand Zink: ',R_spez_zink.to('ohm * millimeter^2 / meter'))
+
+tau_kupfer1 = (2 * m_0) / (n_kupfer_konstB * R_spez_kupfer * e_0**2)
+print(tau_kupfer1.to('second'))
+tau_kupfer2 = (2 * m_0) / (n_kupfer_konstI * R_spez_kupfer * e_0**2)
+print(tau_kupfer2.to('second'))
+
+tau_zink1 = (2 * m_0) / (n_zink_konstB * R_spez_zink * e_0**2)
+print(tau_zink1.to('second'))
+tau_zink2 = (2 * m_0) / (n_zink_konstI * R_spez_zink * e_0**2)
+print(tau_zink2.to('second'))
+
+
+j = Q_(1, 'ampere/(millimeter)^2')
+v_d_kupfer1 = j / (n_kupfer_konstB * e_0)
+print('v_d_kupfer1: ', v_d_kupfer1.to('millimeter/second'))
+v_d_kupfer2 = j / (n_kupfer_konstI * e_0)
+print('v_d_kupfer2: ', v_d_kupfer2.to('millimeter/second'))
+
+v_d_zink1 = j / (n_zink_konstB * e_0)
+print('v_d_zink1: ', v_d_zink1.to('millimeter/second'))
+v_d_zink2 = j / (n_zink_konstI * e_0)
+print('v_d_zink2: ', v_d_zink2.to('millimeter/second'))
+
+
+print('E_fermi_kupfer1:', E_fermi(n_kupfer_konstB) )
+print('E_fermi_kupfer2:', E_fermi(n_kupfer_konstI) )
+print('E_fermi_zink1:', E_fermi(n_zink_konstB) )
+print('E_fermi_zink2:', E_fermi(n_zink_konstI) )
