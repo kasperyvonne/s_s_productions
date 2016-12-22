@@ -1,1 +1,89 @@
 \section{Auswertung}
+
+\subsection{Messung der geometrischen Abmessungen}
+
+\subsection{Widerstandsmessung}
+Für die Proben Zink und Kupfer wurde jeweils die Spannung in Abhängigkeit vom Strom gemessen. Die Messwerte befinden sich
+%in den Tabellen \ref{tab: uri_zink} und \ref{tab: uri_kupfer}.
+
+\begin{minipage}{\textwidth}
+\input{tabs/uri_zink_tab.tex}
+\hfill
+\input{tabs/uri_kupfer_tab.tex}
+\end{minipage}
+
+Die Auftragung der Messwerte sowie die Regressionsgeraden sind in den Abbildungen \ref{fig: uri_zink} und \ref{fig: uri_kupfer} illustriert.
+Als Regressionsparamter für die Steigungen, die den Widerständen entsprechen, ergeben sich die Werte:
+\begin{equation}
+  R_{Cu} = (7.64 \pm 0.02)\si{\milli \ohm} \quad \quad R_{Zn} = (7.80 \pm 0.06)\si{\milli \ohm}
+\end{equation}
+\FloatBarrier
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{pics/uri_zink.pdf}
+  \caption{Zinkprobe Verlauf der Spannung in Abhängigkeit vom Strom}
+  \label{fig: uri_zink}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{pics/uri_kupfer.pdf}
+  \caption{Kupferprobe Verlauf der Spannung in Abhängigkeit vom Strom}
+  \label{fig: uri_kupfer}
+\end{figure}
+
+
+
+\subsection{Magnetfeldmessung}
+Die Werte aus der Messung des Magnetfeldes in Abhängigkeit vom Spulenstrom sind in Tabelle \ref{tab: hysterese} einzusehen.
+Hierbei entsprechen $B_{wachsend}$ bzw. $B_{fallend}$ den gemessenen magnetischen Flussdichten bei wachsendem
+bzw. fallendem Spulenstrom.
+Die graphische Darstellung (Abbildung \ref{fig: hysterese}) zeigt, dass die Hysterese-Effekte vernachlässigbar sind. Für
+spätere Berechnungen soll der Zusammenhang zwischen dem ansteigendem Spulenstrom $I$ und dem dadurch entstehenden
+Magnetfeld mittels linearer Regression an eine Gerade approximiert werden. Für die Steigung $m$ und den $y\,$-Achsenabschnitt $b$ ergeben sich:
+\begin{equation}
+  m = (-219.4 \pm 4.3) \si{\milli\tesla \per \ampere} \quad b =  (1.1 \pm 12.8) \si{\milli\tesla}
+  \label{eq: hysterese}
+\end{equation}
+Die Regressiongerade ist ebenfalls in Abbildung \ref{fig: hystrese} dargestellt. Die Koeffizienten \eqref{eq: hysterese} werden im Folgenden
+als Fehlerunbehaftet angenommen.
+\input{tabs/hysterese_tab.tex}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{pics/hysterese.pdf}
+  \caption{Verlauf der magnetischen Flussdichte in Abhängigkeit vom Spulenstrom}
+  \label{fig: hysterese}
+\end{figure}
+
+
+
+
+\subsection{Hallspannung bei konstantem Magnetfeld}
+Zur Messung der Hallspannung bei konstantem Magnetfeld wurde für beide Proben der Spulenstrom auf $3\si{\ampere}$ eingestellt. Die
+Messwerte für $U_{ges+}$ und $U_{ges-}$ sowie die gemäß \eqref{eq:} berechneten Hallsapnnungen bei variablem Querstrom sind in den
+Tabellen \ref{tab: } und \ref{tab: } aufgelistet. Eine weitere Regressionsrechnung ermöglicht mittels Gleichung \eqref{eq: } eine
+erste Bestimmung der jeweiligen Teilchenzahl $n$ pro Volumen. Für die Beträge der jeweiligen Steigungen ergeben sich:
+\begin{equation}
+  m_{Cu} = (1.23 \pm 0.02)\si{\milli \volt \per \ampere}  \quad m_{Zn} = (1.63 \pm 0.24)\si{\milli \volt \per \ampere}
+\end{equation}
+Die Plots befinden sich in den Abbildungen \ref{fig: uh_konstB_kupfer} und \ref{fig: uh_konstB_zink}.
+Damit ergeben sich die Werte für die Teilchenzahlen pro Volumen zu:
+\begin{equation}
+  n_{Cu,1} = (1.85 \pm 0.03)\cdot 10^{29}\,\si{ \meter^{-3}} \quad n_{Zn,1} = (1.68\pm 0.24)\cdot 10^{25}\,\si{ \meter^{-3}}
+\end{equation}
+\input{tabs/u_h_kupfer_konstB_tab.tex}
+\input{tabs/u_h_zink_konstB_tab.tex}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{pics/u_h_kupfer_konstB.pdf}
+  \caption{Kupferprobe, Verlauf der Hallspannung in Abhängigkeit vom Querstrom}
+  \label{fig: uh_konstB_kupfer}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{pics/u_h_zink_konstB.pdf}
+  \caption{Zinkprobe, Verlauf der Hallspannung in Abhängigkeit vom Querstrom}
+  \label{fig: uh_konstB_zink}
+\end{figure}
+
+
+\subsection{Hallspannung bei konstantem Querstrom}
