@@ -13,7 +13,7 @@ e_0 = Q_(const.elementary_charge, 'coulomb')
 m_0 = Q_(const.m_e, 'kilogram')
 print (h, m_0, e_0)
 #Abmessungen der Proben
-d_zink = Q_(1.85-1.70, 'millimeter')
+d_zink = Q_(1.85 - 1.70, 'millimeter')
 d_kupfer = Q_(18 * 1e-06, 'millimeter')
 l_zink = Q_(43, 'millimeter')
 l_kupfer = Q_(28.05, 'millimeter')
@@ -233,8 +233,6 @@ print('n_zink_konstI: ', n_zink_konstI)
 
 
 
-
-
 konstI = Q_(10, 'ampere')
 I_konstI, U_ges_plu_kupfer_konstI, U_ges_min_kupfer_konstI = np.genfromtxt('u_h_konstI_kupfer.txt', unpack=True)
 U_h_kupfer_konstI = Q_(0.5 * (U_ges_plu_kupfer_konstI - U_ges_min_kupfer_konstI), 'millivolt')
@@ -328,3 +326,20 @@ print('E_fermi_kupfer1:', E_fermi(n_kupfer_konstB) )
 print('E_fermi_kupfer2:', E_fermi(n_kupfer_konstI) )
 print('E_fermi_zink1:', E_fermi(n_zink_konstB) )
 print('E_fermi_zink2:', E_fermi(n_zink_konstI) )
+
+print('vt1_kupfer: ', ((2 * E_fermi(n_kupfer_konstB) / m_0)**0.5).to('meter/second'))
+print('vt2_kupfer: ', ((2 * E_fermi(n_kupfer_konstI) / m_0)**0.5).to('meter/second'))
+print('vt1_zink: ', ((2 * E_fermi(n_zink_konstB) / m_0)**0.5 ).to('meter/second'))
+print('vt2_zink: ', ((2 * E_fermi(n_zink_konstI) / m_0)**0.5 ).to('meter/second'))
+
+
+print('l1_kupfer: ', (tau_kupfer1 * (2 * E_fermi(n_kupfer_konstB) / m_0)**0.5).to('micrometer'))
+print('l2_kupfer: ', (tau_kupfer2 * (2 * E_fermi(n_kupfer_konstI) / m_0)**0.5).to('micrometer'))
+print('l1_zink: ', (tau_zink1 * (2 * E_fermi(n_zink_konstB) / m_0)**0.5 ).to('micrometer'))
+print('l2_zink: ', (tau_zink2 * (2 * E_fermi(n_zink_konstI) / m_0)**0.5 ).to('micrometer'))
+
+
+print('mu_kupfer1:', (0.5 * tau_kupfer1* e_0/m_0).to('meter^2 / (volt * second)') )
+print('mu_kupfer2:', (0.5 * tau_kupfer2* e_0/m_0).to('meter^2 / (volt * second)') )
+print('mu_zink1:', (0.5 * tau_zink1* e_0/m_0).to('meter^2 / (volt * second)') )
+print('mu_zink2:', (0.5 * tau_zink2* e_0/m_0).to('meter^2 / (volt * second)') )
