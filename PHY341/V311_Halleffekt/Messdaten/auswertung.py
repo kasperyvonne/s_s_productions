@@ -297,9 +297,9 @@ print('z_zink_konstB: ', z_zink_konstB)
 
 
 #spezifische Leitfähigkeit
-R_spez_kupfer = R_kupfer * b_kupfer * d_kupfer / l_kupfer
+R_spez_kupfer = (R_kupfer * b_kupfer * d_kupfer) / l_kupfer
 print('spezifischer Widerstand Kupfer: ', R_spez_kupfer.to('ohm * millimeter^2 / meter'))
-R_spez_zink = R_zink * b_zink * d_zink / l_zink
+R_spez_zink = (R_zink * b_zink * d_zink) / l_zink
 print('spezifischer Widerstand Zink: ',R_spez_zink.to('ohm * millimeter^2 / meter'))
 
 tau_kupfer1 = (2 * m_0) / (n_kupfer_konstB * R_spez_kupfer * e_0**2)
@@ -323,7 +323,6 @@ v_d_zink1 = j / (n_zink_konstB * e_0)
 print('v_d_zink1: ', v_d_zink1.to('millimeter/second'))
 v_d_zink2 = j / (n_zink_konstI * e_0)
 print('v_d_zink2: ', v_d_zink2.to('millimeter/second'))
-
 
 print('E_fermi_kupfer1:', E_fermi(n_kupfer_konstB) )
 print('E_fermi_kupfer2:', E_fermi(n_kupfer_konstI) )
