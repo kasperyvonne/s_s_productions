@@ -2,6 +2,8 @@ import numpy as np
 import uncertainties.unumpy as unp
 from uncertainties import ufloat
 import math
+import latex
+from pandas import Series, DataFrame
 from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
 from pint import UnitRegistry
@@ -11,7 +13,7 @@ Q_ = u.Quantity
 h = Q_(const.h, 'joule*second')
 e_0 = Q_(const.elementary_charge, 'coulomb')
 m_0 = Q_(const.m_e, 'kilogram')
-print (h, m_0, e_0)
+
 #Abmessungen der Proben
 d_zink = Q_(1.85 - 1.70, 'millimeter')
 d_kupfer = Q_(18 * 1e-06, 'millimeter')
@@ -19,16 +21,16 @@ l_zink = Q_(43, 'millimeter')
 l_kupfer = Q_(28.05, 'millimeter')
 b_kupfer = Q_(25.3, 'millimeter')
 b_zink = Q_(25.5, 'millimeter')
-print(d_zink, d_kupfer)
 
-#umrechnung einheiten mit var.to('unit')
-# Einheiten für pint:dimensionless, meter, second, degC, kelvin
-#beispiel:
+index = ['Cu_konstB', 'Cu_konstI', 'Zn_konstB', 'Zn_konstI']
+d = Series([d_kupfer, d_kupfer, d_zink, d_zink], index = index, name = 'Dicke')
+b = Series([b_kupfer, b_kupfer, b_zink, b_zink], index = index, name = 'Breite')
+l = Series([l_kupfer, l_kupfer, l_zink, l_zink], index = index, name = 'Länge')
 
 def E_fermi(n):
 	return (h**2 /(2 * m_0) * ( ( (3 * n) / (8 * np.pi) ) **2 ) **(1/3) ).to('eV')
-#n_test = Q_(3, '1/(m**3)')
-#print(E_fermi(n_test).to('joule'))
+
+#lineare Funktion für Fits
 def F_1(x, m, b):
 	return m * x + b
 
@@ -37,6 +39,7 @@ I_eich_fallend, B_eich_fallend = np.genfromtxt('flussdichte_fallend.txt', unpack
 params_1, covariance_1 = curve_fit(F_1, I_eich_steigend, B_eich_steigend, sigma=0.1)
 errors_B = np.sqrt(np.diag(covariance_1))
 params_B = unp.uarray(params_1, errors_B)
+
 print('Gerade B(I) Paramter: ', params_B)
 I_lim = np.linspace(0, 10, 100)
 plt.plot(I_eich_steigend, B_eich_steigend, 'bx', label='Messwerte steigender Strom')
@@ -59,6 +62,11 @@ with open('hysterese_tab.tex', 'w') as f:
     for i in range (0,len(I_eich_steigend)):
         f.write('{:.1f} & {:.1f} & {:.1f}  \\\ \n'.format(I_eich_steigend[i], B_eich_steigend[i], B_eich_fallend[-(i+1)]))
     f.write('\\bottomrule \n \\end{tabular} \n \\caption{Messung des magnetischen Feldes bei fallendem und steigendem Strom} \n \\label{tab: hysterese} \n  \\end{table}')
+
+latex.Latexdocument('hysterese2_tab.tex').tabular([I_eich_steigend, B_eich_steigend, B_eich_fallend[::-1] ],
+'{$I_q$ in $\si{\\ampere}$} & {$B_{wachsend}$ in $\si{\milli \\tesla}$}  &  {$B_{fallend}$ in $\si{\milli \\tesla}$}', [1, 1, 1] ,
+caption = 'Messung des magnetischen Feldes bei fallendem und steigendem Strom', label = 'tab: hysterese')
+
 
 def B(I):
 	return Q_(params_1[0] * I + params_1[1], 'millitesla')
@@ -159,7 +167,6 @@ Steigung_U_h_kupfer_konstB_errors = np.sqrt(np.diag(cov_kupfer_U_h_1))
 Steigung_U_h_kupfer_konstB = Q_(ufloat(params_kupfer_U_h_1[0], Steigung_U_h_kupfer_konstB_errors[0]), 'meter^3 * millitesla /(coulomb * millimeter)')
 print('Steigung der Hall Spannung, Kupfer, konst BFeld: ', Steigung_U_h_kupfer_konstB.to('millivolt/ampere'))
 n_kupfer_konstB =  - 1/(Steigung_U_h_kupfer_konstB * e_0 * d_kupfer) * B_konst_kupfer
-print('n_kupfer_konstB: ', n_kupfer_konstB)
 print('Fermienergie Kupfer: ', E_fermi(n_kupfer_konstB))
 
 B_konst_zink = B(3)
@@ -193,7 +200,6 @@ Steigung_U_h_zink_konstB_errors = np.sqrt(np.diag(cov_zink_U_h_1))
 Steigung_U_h_zink_konstB = Q_(ufloat(params_zink_U_h_1[0], Steigung_U_h_zink_konstB_errors[0]), 'meter^3 * millitesla /(coulomb * millimeter)')
 print('Steigung der Hall Spannung, Zink, konst BFeld: ', Steigung_U_h_zink_konstB.to('millivolt/ampere'))
 n_zink_konstB =   1/(Steigung_U_h_zink_konstB * e_0 * d_zink) * B_konst_zink
-print('n_zink_konstB: ', n_zink_konstB)
 print('Fermienergie Zink: ', E_fermi(n_zink_konstB))
 
 
@@ -229,7 +235,8 @@ Steigung_U_h_zink_konstI_errors = np.sqrt(np.diag(cov_zink_U_h_2))
 Steigung_U_h_zink_konstI = Q_(ufloat(params_zink_U_h_2[0], Steigung_U_h_zink_konstI_errors[0]), 'meter^3 * ampere /(coulomb * millimeter)')
 print('Steigung der Hall Spannung, Zink, konst Strom: ', Steigung_U_h_zink_konstI.to('volt/tesla'))
 n_zink_konstI =   1/(Steigung_U_h_zink_konstI * e_0 * d_zink) * konstI
-print('n_zink_konstI: ', n_zink_konstI)
+
+
 
 
 
@@ -242,7 +249,7 @@ with open('u_h_kupfer_konstI_tab.tex', 'w') as f:
     f.write('} \n \\toprule  \n')
     f.write(' {$I$ in $\si{\\ampere}$} & {$B$ in $\si{\milli\\tesla}$} & {$U_{ges-}$ in $\si{\milli \\volt}$}  &  {$U_{ges+}$ in $\si{\milli \\volt}$} & {$U_{H}$ in $\si{\milli \\volt}$} \\\ \n')
     f.write('\\midrule  \n ')
-    for i in range (0,len(I_konstI)):
+    for i in range (0, len(I_konstI)):
         f.write('{:.1f} & {:.1f} & {:.3f} & {:.3f} & {:.3f} \\\ \n'.format(I_konstI[i] ,B(I_konstI[i]).magnitude ,U_ges_min_kupfer_konstI[i], U_ges_plu_kupfer_konstI[i], U_h_kupfer_konstI[i].magnitude))
     f.write('\\bottomrule \n \\end{tabular} \n \\caption{Hallspannung Kupfer bei konstantem Querstrom} \n \\label{tab: hall_kupfer_konstI} \n  \\end{table}')
 
@@ -263,11 +270,12 @@ Steigung_U_h_kupfer_konstI_errors = np.sqrt(np.diag(cov_kupfer_U_h_2))
 Steigung_U_h_kupfer_konstI = Q_(ufloat(params_kupfer_U_h_2[0], Steigung_U_h_kupfer_konstI_errors[0]), 'meter^3 * ampere /(coulomb * millimeter)')
 print('Steigung der Hall Spannung, Kupfer, konst Strom: ', Steigung_U_h_kupfer_konstI.to('volt/tesla'))
 n_kupfer_konstI =  - 1/(Steigung_U_h_kupfer_konstI * e_0 * d_kupfer) * konstI
-print('n_kupfer_konstI: ', n_kupfer_konstI)
 
-
-
-
+index = ['Cu_konstB', 'Cu_konstI', 'Zn_konstB', 'Zn_konstI']
+n = Series([n_kupfer_konstB, n_kupfer_konstI, n_zink_konstB, n_zink_konstI], index = index, name = 'Teilchenzahlen pro Volumen')
+print(n)
+Efermi = E_fermi(n)
+#print(Efermi)
 
 #Berechnungen weiterer Größen
 rho_kupfer = Q_(8.96, 'gram/(cm)^3').to('kilogram/m^3')
