@@ -2,38 +2,63 @@
 In dem Versuch sollen zwei Proben (Kupfer und Zinn) auf den \emph{Hall-Effekt} untersucht werden.
 
 \subsection{Hysteresemessung}
-Die Hysteresemessung dient dazu die Abhängigkeit der Magnetfeldstärke 
-zur Stromstärke zu bestimmen. Gleichzeitig aber auch den Hystereseeffekt 
-zu bestimmen. Der Versuch wird wie in \ref{} zu sehen aufgebaut.
-Mittels eines Teslameters wird nun für zehn Stromstärken die Magnetfeld bestimmt.
-Die Messungen ersten $10$ Messungen werden beim hochfahren des Magneten getätigt.
-Die anderen zehn beim herunterfahren.
+Die Hysteresemessung dient dazu, die Abhängigkeit der Magnetfeldstärke 
+zur Stromstärke zu bestimmen. Gleichzeitig aber auch den Effekt der Hysterese
+zu bestimmen. Der Versuch wird wie in \ref{fig: auf_hall} zu sehen aufgebaut.
+Mittels eines Teslameters wird nun für zehn Stromstärken das Magnetfeld bestimmt.
+Die ersten $10$ Messungen werden beim Hochfahren des Magneten getätigt.
+Die anderen zehn beim Herunterfahren.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{pics/Halleffekt_aufbau.png}
+  \caption{Versuchsaufbau für die Messung der Hallspannung}
+  \label{fig: auf_hall}
+\end{figure}
 
 \begin{center}
-Die im Folgenden beschriebenden Messungen, werden immer zwei Mal durchgeführt.
-Mit dem Unterschied, dass beim zweiten Durchgang die Spannnung umgepolt wird.
-Dies dient zur Vermeidung von systematischen Fehlern (z.B. Störspannung).
+Die im Folgenden beschriebenen Messungen, werden immer zwei Mal durchgeführt.
+Mit dem Unterschied, dass beim zweiten Durchgang die Spannung umgepolt wird.
+Dies dient zur Vermeidung von systematischen Fehlern (z. B. Störspannung).
 \end{center}
 
 \subsection{Bestimmung des Widerstands}
-Zur Wiederstandsbestimmung wird ein Voltmeter und 
+Zur Widerstandsbestimmung werden ein Voltmeter und 
 eine Spannungsquelle benötigt.
-Nachdem beide an die Probe angeschlossen wurden. 
-Wird die Spannungsquelle eingeschaltet und die Stromstärke variiert. 
-Für jede Probe werden zu zehn vetrschiedenen Stromstärken 
+Nachdem beide an die Probe angeschlossen sind, 
+wird die Spannungsquelle eingeschaltet und die Stromstärke variiert. 
+Für jede Probe wird zu zehn verschiedenen Stromstärken 
 die Spannung am Voltmeter notiert.
-Mithilfe des Ohmschen Gesetzes kann dann auf den Widerstand geschlossen werden.
+Mithilfe des ohmschen Gesetzes kann dann auf den Widerstand geschlossen werden.
 
 \subsection{Messung der Hallspannung}
-Der Grundlegende Versuchsaufbau ist in Abbildung \ref{} dargestellt.
+Der grundlegende Versuchsaufbau ist in Abbildung \ref{fig: auf_hall} dargestellt.
 Zunächst werden die Abmessungen (Breite, Höhe und Länge) der Probe gemessen.
-Anschließend folgt die Verkabelung nach dem in \ref{} abgebildeten Schaltbild.
-Die verkabelde Probe wird nun in eine Haltevorrichtung gegeben. Diese sorgt dadfür das 
-der Strommfluss durch die Probe orthogonal zum Magnetfeld steht.
+Anschließend folgt die Verkabelung nach dem in \ref{fig: kabel_hall} abgebildeten Schaltbild.
+Die verkabelte Probe wird nun in eine Haltevorrichtung gegeben. Diese sorgt dadfür, dass 
+der Stromfluss durch die Probe orthogonal zum Magnetfeld steht.
 Für die Messung der \emph{Hall-Spannung} gibt es nun zwei Verfahren. 
-Zum einen kann die Stromstärke die an der Probe anliegt konstant gelassen werden und
+Zum einen kann die Stromstärke, die an der Probe anliegt konstant gelassen werden und
 die Magnetfeldstärke variiert werden. Zum Andern kann 
 aber auch die Magnetfeldstärke konstant gelassen werden und die Stromstärke verändert
 werden. Für beide Verfahren sollten zehn Messpunkte gewählt werden.
 Bei der Regelung des Elektromagneten ist darauf zu achten, dass der 
-erzeugende Strom langsam herunter gefahren wird.
+erzeugende Strom langsam heruntergefahren wird.
+Die von dem Hall-Effekt erezeugt Spannugn kann dann wie folgt berechnet werden:
+
+\begin{align}
+\label{eq:hall_spann}
+\begin{aligned}
+U\ua{ges+}=U\ua{H}+U\ua{stör}\\
+U\ua{ges-}=-U\ua{H}+U\ua{stör}\\
+\end{aligned}
+\end{align}
+Dabei sei $U\ua{stör}$ die oben angesprochende Störspannung.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{pics/verkabelung_hall.png}
+  \caption{Verkabelung für die Messung der Hallspannung}
+  \label{fig: kabel_hall}
+\end{figure}
+
