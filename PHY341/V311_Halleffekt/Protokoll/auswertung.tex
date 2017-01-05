@@ -1,3 +1,4 @@
+\newpage
 \section{Auswertung}
 
 \subsection{Messung der geometrischen Abmessungen}
@@ -5,9 +6,9 @@ Zunächst wurden die Abmessungen (Dicke $d$, Länge $l$, Breite $b$) der Proben 
 werden im Folgenden als fehlerfrei angenommen. Für die Kupferprobe wurden folgende Werte gemessen:
 \begin{align}
   \begin{aligned}
-    d_{Cu} &= 18 \si{\micro \meter} \\ %\SI verwenden
-    l_{Cu} &= 28.05 \si{\milli \meter}\\ %\SI verwenden
-    b_{Cu} &= 25.03 \si{\milli \meter} %\SI verwenden
+    d_{Cu} &= \SI{18}{\micro \meter} \\ %\SI verwenden
+    l_{Cu} &= \SI{28.05}{\milli \meter}\\ %\SI verwenden
+    b_{Cu} &= \SI{25.03}{\milli \meter} %\SI verwenden
         \label{eq: abmessungen_kupfer}
       \end{aligned}
 \end{align}
@@ -71,8 +72,8 @@ Magnetfeld mittels linearer Regression an eine Gerade approximiert werden. Für 
 Die Regressiongerade ist ebenfalls in Abbildung \ref{fig: hysterese} dargestellt. Die Koeffizienten \eqref{eq: hysterese} werden im Folgenden
 als fehlerunbehaftet angenommen.
 \input{tabs/hysterese_tab.tex} %caption bei einer Tabelle drüber setzen und nicht darunter
-  \centering
 \begin{figure}
+  \centering
   \includegraphics[width=0.7\textwidth]{pics/hysterese.pdf}
   \caption{Verlauf der magnetischen Flussdichte in Abhängigkeit vom Spulenstrom}
   \label{fig: hysterese}
@@ -95,9 +96,7 @@ Damit ergeben sich die Werte für die Teilchenzahlen pro Volumen zu:
   n_{Cu,1} = (1.85 \pm 0.03)\cdot 10^{26}\,\si{ \meter^{-3}} \quad \quad n_{Zn,1} = (1.68\pm 0.24)\cdot 10^{25}\,\si{ \meter^{-3}}%\SI verwenden
 \end{equation}
 \input{tabs/u_h_kupfer_konstB_tab.tex} %caption bei einer Tabelle drüber setzen und nicht darunter
-  \centering
 \input{tabs/u_h_zink_konstB_tab.tex} %caption bei einer Tabelle drüber setzen und nicht darunter
-  \centering
 \begin{figure}
   \centering
   \includegraphics[width=0.7\textwidth]{pics/u_h_kupfer_konstB.pdf}
@@ -129,9 +128,9 @@ Damit ergeben sich die Werte für die Teilchenzahlen pro Volumen zu:
   n_{Cu,2} = (1.90 \pm 0.00)\cdot 10^{26}\,\si{ \meter^{-3}} \quad n_{Zn,2} = (2.09\pm 0.16)\cdot 10^{25}\,\si{ \meter^{-3}}%\SI verwenden
 \end{equation}
 \input{tabs/u_h_kupfer_konstI_tab.tex} %caption bei einer Tabelle drüber setzen und nicht darunter
-  \centering
+
 \input{tabs/u_h_zink_konstI_tab.tex} %caption bei einer Tabelle drüber setzen und nicht darunter
-  \centering
+
 \begin{figure}
   \centering
   \includegraphics[width=0.7\textwidth]{pics/u_h_kupfer_konstI.pdf}
@@ -171,21 +170,21 @@ Für Zink berechnen sich die beiden Werte:
 Mittels der Abmessungen der verwendeten Leiter kann auf die spezifischen Widerstände der Proben geschlossen werden. Es ergeben sich folgende Werte:
 \begin{align}
   \begin{aligned}
-    \rho_{Cu} &=  (12.41 \pm 0,03)\cdot 10^{-2} \si{\ohm \milli \meter^2 \per \meter} \\%\SI verwenden
-    \rho_{Zn} &=  (69.3 \pm 0,5) \cdot 10^{-2} \si{\ohm \milli \meter^2 \per \meter}
+    \rho_{Cu} &=  \SI{12.41(3)e-2}{\ohm \milli \meter^2 \per \meter} \\%\SI verwenden
+    \rho_{Zn} &=  \SI{69.3(5)e-2}{\ohm \milli \meter^2 \per \meter}
   \end{aligned}
 \end{align}
 Zusammen mit den gefundenen Werten für die Anzahl der Ladungsträger pro Volumen berechnen sich die mittleren Flugzeiten $\tau_i$ zu:
 \begin{align}
   \begin{aligned}
-    \tau_{Cu,1} &= (3.09 \pm 0.06) \cdot 10^{-12} \si{\second} \\%\SI verwenden
-    \tau_{Cu,1} &= (3.01 \pm 0.00) \cdot 10^{-12} \si{\second} \\
-    \tau_{Zn,1} &= (6.1 \pm 0.9) \cdot 10^{-12} \si{\second} \\
-    \tau_{Zn,2} &= (4.9 \pm 0.4) \cdot 10^{-12} \si{\second}
+    \tau_{Cu,1} &= \SI{3.09(6)e-12}{\second} \\%\SI verwenden
+    \tau_{Cu,1} &= \SI{3.01(0)e-12}{\second} \\
+    \tau_{Zn,1} &= \SI{6.1(9)e-12}{\second} \\
+    \tau_{Zn,2} &= \SI{4.9(4)e-12}{\second}
   \end{aligned}
 \end{align}
 Nun soll die Driftgeschwindigkeit $v_d$ für eine Stromdichte von $j = 1 \si{\ampere \per \milli \meter}$ berechnet werden. Mittels Formel
-\eqref{eq: } ergeben sich die Werte:
+\eqref{eq:stromdicht} ergeben sich die Werte:
 \begin{align}
 \begin{aligned}
 v_{Cu,1} &= (33.7 \pm 0.6)   \si{\milli\meter\per\second}  \\%\SI verwenden
@@ -195,7 +194,7 @@ v_{Zn,2} &= (1.98 \pm 0.20)\cdot 10^{ 2}   \si{\milli\meter\per\second}
 \end{aligned}
 \end{align}
 
-Weiter berechnen sich gemäß \eqref{eq:} die Fermi-Energien der Stoffe zu: %soll ich das weglassen?
+Weiter berechnen sich gemäß \eqref{eq:fermi_e} die Fermi-Energien der Stoffe zu: %soll ich das weglassen?
 \begin{align}
 \begin{aligned}
 E_{Cu,1} &= (11.84 \pm 0.14)\cdot 10^{-3} \, \si{\eV}  \\%\SI verwenden
@@ -205,7 +204,7 @@ E_{Zn,2} &= (2.77 \pm 0.14)\cdot 10^{-2}  \, \si{\eV}
 \end{aligned}
 \end{align}
 
-Mittels Zusammenhang \eqref{eq: } berechnen sich die Totalgeschwindigkeiten $\left| v \right| $ zu:
+Mittels Zusammenhang \eqref{eq:total_v} berechnen sich die Totalgeschwindigkeiten $\left| v \right| $ zu:
 \begin{align}
 \begin{aligned}
 \left|v_{Cu,1}\right| &= (2.04 \pm 0.01)\cdot 10^5 \, \si{\meter \per \second}  \\%\SI verwenden
@@ -215,7 +214,7 @@ Mittels Zusammenhang \eqref{eq: } berechnen sich die Totalgeschwindigkeiten $\le
 \end{aligned}
 \end{align}
 
-Mit Formel \eqref{eq: } ergeben sich folgende Werte für die mittlere freie Weglänge:
+Mit Formel \eqref{eq:mit_frei_weg} ergeben sich folgende Werte für die mittlere freie Weglänge:
 \begin{align}
 \begin{aligned}
 l_{Cu,1} &= (6.31 \pm 0.08)\cdot 10^{-1} \, \si{\micro\meter}  \\%\SI verwenden
@@ -225,7 +224,7 @@ l_{Zn,2} &= (0.48 \pm 0.03) \, \si{\micro\meter}
 \end{aligned}
 \end{align}
 
-Die Beweglichkeit $\mu$ ergibt sich schließlich mit \eqref{eq:} zu:
+Die Beweglichkeit $\mu$ ergibt sich schließlich mit \eqref{eq:beweg} zu:
 \begin{align}
 \begin{aligned}
 \mu_{Cu,1} &= (0.27 \pm 0.05) \, \si{\meter^2 \per \volt \second}  \\%\SI verwenden
