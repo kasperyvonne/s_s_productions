@@ -16,13 +16,13 @@ a = ufloat(5, 2) * u.meter
 b = Q_(unp.uarray([5,4,3], [0.1, 0.2, 0.3]), 'ohm')
 c = Q_(0, 'degC')
 c.to('kelvin')
-print(c.to('kelvin'))
-print(a**2)
-print(b**2)
-einheitentst=Q_(1*1e-3,'farad')
-einheitentst_2=Q_(1,'ohm')
-print(einheitentst)
-print(1/(einheitentst*einheitentst_2).to('second'))
+#print(c.to('kelvin'))
+#print(a**2)
+#print(b**2)
+#einheitentst=Q_(1*1e-3,'farad')
+#einheitentst_2=Q_(1,'ohm')
+#print(einheitentst)
+#print(1/(einheitentst*einheitentst_2).to('second'))
 
 
 #variabel_1,variabel_2=np.genfromtxt('name.txt',unpack=True)
@@ -37,6 +37,7 @@ def mittel_und_abweichung(messreihe):
 	return mittel_und_abweichung
 
 #Standartabweichung und Mittelwert für Messreihe mit Intervallen
+
 def mittel_und_abweichung_intervall(messreihe,intervall_laenge):
 	messreihe_einheit=messreihe.units
 	mittelwert_abweichung_liste=[]
@@ -72,9 +73,20 @@ def linregress(x, y):
 
 #Angepasstes Programm 
 
-
-
-
+a=Q_([10,20,39,21],'ohm')
+print(a.units)
+print(a)
+a_f=1/(np.sqrt(len(a)))*np.std(a)
+print(a_f)
+a_m=sum(a)/len(a)
+print(a_m)
+a_u=unp.uarray(a_m,a_f)
+print(a_u)
+print(mittel_und_abweichung(a))
+b=mittel_und_abweichung_intervall(a,2)
+print(b[0])
+#a_m=mittel_und_abweichung(a)
+#print(a_m)
 
 #Plotbereich
 
