@@ -73,20 +73,73 @@ def linregress(x, y):
 
 #Angepasstes Programm 
 
-a=Q_([10,20,39,21],'ohm')
-print(a.units)
-print(a)
-a_f=1/(np.sqrt(len(a)))*np.std(a)
-print(a_f)
-a_m=sum(a)/len(a)
-print(a_m)
-a_u=unp.uarray(a_m,a_f)
-print(a_u)
-print(mittel_und_abweichung(a))
-b=mittel_und_abweichung_intervall(a,2)
-print(b[0])
-#a_m=mittel_und_abweichung(a)
-#print(a_m)
+def v_min (l,c,c_k):
+	return 1/(2*np.pi*(l*(1/c+2/c_k)**(-1))**0.5)
+def v_plu (l,c):
+	return 1/(2*np.pi*(l*c)**0.5)
+##Aufgabenteil a
+
+
+c=Q_(ufloat( ,),'farad')
+c_k=Q_(ufloat(,),'farad')
+l=Q_(ufloat(,),'henry')
+
+#Bestimmung der Schwingungsfrequenzen
+v_mint=v_min(l,c,c_k).to('1/second')
+v_plut=v_plu(l,c).to('1/second')
+print('Schwingungsfrequenz v_-',v_min)
+print('Schwingungsfrequenz v_+',v_plu)
+print('\n')
+
+#Bestimmungen der Verhältnisse
+
+
+##Aufgabenteil b
+v_ming,v_plug=np.genfromtxt('.txt',unpack=True)
+v_ming=Q_(v_ming,'1/second')
+v_plug=Q_(v_plug,'1/second')
+
+#Verhältniss Theorie und Praxis
+v_min_verhael=v_ming/v_mint
+v_plu_verhael=v_plug/v_plut
+
+print('Verhältnis von v_m',v_min_verhael)
+print('Verhältnis von v_+',v_plu_verhael)
+print('\n')
+
+##Aufgabenteil c
+
+def I_2 (u,omega,c_k,l,c,r):
+	omega*=2*np.pi
+	z=omega*l-1/omega*(1/c+1/c_k)
+	i_2=u/(4*omega**2*c_k**2*r**2*z**2+(1/(omega*c_k)-omega*c_k*z**2+omega*r**2*c_k)**2)**0.5
+	return i_2
+
+def I_2u (u,r):
+	return u/r
+
+#Bestimmung von I_2
+r_min=Q_(85,'ohm')
+r_plu=Q_(73,'ohm')
+
+I_2_mint=I_2()
+I_2_plut=I_2()
+I_2_ming=I_2u(,r_min)
+I_2_plug=I_2u(,r_plu)
+
+print('I_2+ theoretisch', I_2_plut)
+print('I_2+ praktisch', I_2_plug)
+print('I_2- theoretisch', I_2_mint)
+print('I_2- praktisch', I_2_ming)
+print('\n')
+
+
+
+
+
+#Bestimmung von I_k
+
+
 
 #Plotbereich
 
