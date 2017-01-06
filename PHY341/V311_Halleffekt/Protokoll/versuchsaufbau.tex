@@ -1,13 +1,14 @@
 \section{Versuchsaufbau/-durchführung}
-In dem Versuch sollen zwei Proben (Kupfer und Zinn) auf den \emph{Hall-Effekt} untersucht werden. %Zink
+In dem Versuch sollen zwei Proben (Kupfer und Zink) auf den \emph{Hall-Effekt} untersucht werden. %Zink
 
 \subsection{Hysteresemessung}
 Die Hysteresemessung dient dazu, die Abhängigkeit der Magnetfeldstärke
-zur Stromstärke zu bestimmen. Gleichzeitig aber auch den Effekt der Hysterese %Abhängikeit [...] von; Stil
-zu bestimmen. Der Versuch wird wie in \ref{fig: auf_hall} zu sehen aufgebaut. %Kommata oder Satz anders formulieren
-Mittels eines Teslameters wird nun für zehn Stromstärken das Magnetfeld bestimmt. %Mit Hilfe
-Die ersten $10$ Messungen werden beim Hochfahren des Magneten getätigt. %Komma; $10$ bzw zehn konsistent
-Die anderen zehn beim Herunterfahren.
+von der Stromstärke zu bestimmen.
+Gleichzeitig soll aber auch die Auswirkung der Hysterese untersucht werden.
+ Der Versuch wird wie in \ref{fig: auf_hall} zu sehen aufgebaut, %Kommata oder Satz anders formulieren
+mit Hilfe eines Teslameters wird für zehn verschiedene Stromstärken das Magnetfeld bestimmt. %Mit Hilfe
+Die ersten zehn Messungen werden beim Hochfahren des Magneten getätigt, %Komma; $10$ bzw zehn konsistent
+die anderen zehn beim Herunterfahren.
 
 \begin{figure}
   \centering
@@ -17,9 +18,9 @@ Die anderen zehn beim Herunterfahren.
 \end{figure}
 
 \begin{center}
-Die im Folgenden beschriebenen Messungen, werden immer zwei Mal durchgeführt. % - komma
-Mit dem Unterschied, dass beim zweiten Durchgang die Spannung umgepolt wird. %Stil
-Dies dient zur Vermeidung von systematischen Fehlern (z. B. Störspannung). %z.\,B.
+Die im Folgenden beschriebenen Messungen werden immer zwei Mal durchgeführt. % - komma
+Beim zweiten Durchgang wird die Spannung umgepolt. %Stil
+Dies dient zur Vermeidung von systematischen Fehlern (z.\,B. Störspannung). %z.\,B.
 \end{center}
 
 \subsection{Bestimmung des Widerstands}
@@ -35,7 +36,7 @@ Mithilfe des ohmschen Gesetzes kann dann auf den Widerstand geschlossen werden.
 Der grundlegende Versuchsaufbau ist in Abbildung \ref{fig: auf_hall} dargestellt.
 Zunächst werden die Abmessungen (Breite, Höhe und Länge) der Probe gemessen.
 Anschließend folgt die Verkabelung nach dem in \ref{fig: kabel_hall} abgebildeten Schaltbild.
-Die verkabelte Probe wird nun in eine Haltevorrichtung gegeben. Diese sorgt dadfür, dass %gegeben passt nicht gut; dafür
+Die verkabelte Probe wird nun in eine Haltevorrichtung befestigt. Diese sorgt dafür, dass %gegeben passt nicht gut; dafür
 der Stromfluss durch die Probe orthogonal zum Magnetfeld steht.
 Für die Messung der \emph{Hall-Spannung} gibt es nun zwei Verfahren.
 Zum einen kann die Stromstärke, die an der Probe anliegt konstant gelassen werden und
@@ -44,16 +45,11 @@ aber auch die Magnetfeldstärke konstant gelassen werden und die Stromstärke ve
 werden. Für beide Verfahren sollten zehn Messpunkte gewählt werden.
 Bei der Regelung des Elektromagneten ist darauf zu achten, dass der
 erzeugende Strom langsam heruntergefahren wird.
-Die von dem Hall-Effekt erezeugt Spannugn kann dann wie folgt berechnet werden: %erzeugte Spannung
-
-\begin{align} %Füg hier besser die fertige Formel ein 
+Die von dem Hall-Effekt erzeugt Spannugn kann dann wie folgt berechnet werden: %erzeugte Spannung
+\begin{equation} %Füg hier besser die fertige Formel ein 
 \label{eq:hall_spann}
-\begin{aligned}
-U\ua{ges+}=U\ua{H}+U\ua{stör}\\
-U\ua{ges-}=-U\ua{H}+U\ua{stör}\\
-\end{aligned}
-\end{align}
-Dabei sei $U\ua{stör}$ die oben angesprochende Störspannung.
+U\ua{H}=\frac{1}{2}\left(U\ua{ges+}-U\ua{ges-}\right)
+\end{equation}
 
 \begin{figure}
   \centering
