@@ -319,5 +319,10 @@ print('mu_kupfer2:', (0.5 * tau_kupfer2* e_0/m_0).to('meter^2 / (volt * second)'
 print('mu_zink1:', (0.5 * tau_zink1* e_0/m_0).to('meter^2 / (volt * second)') )
 print('mu_zink2:', (0.5 * tau_zink2* e_0/m_0).to('meter^2 / (volt * second)') )
 
+R_spez_kupfer_lit = Q_(0.017e-06, ' ohm * meter').to('ohm * millimeter^2 / meter')
+print ('Literaturwert spezifischer Widerstand Kupfer', R_spez_kupfer_lit)
+print('Prozentuale Abweichung: ', R_spez_kupfer/R_spez_kupfer_lit - 1)
 
-print (Q_(0.018e-06, ' ohm * meter').to('ohm * millimeter^2 / meter'))
+R_spez_zink_lit = Q_(0.059e-06, ' ohm * meter').to('ohm * millimeter^2 / meter')
+print ('Literaturwert spezifischer Widerstand Zink', R_spez_zink_lit)
+print('Prozentuale Abweichung: ', R_spez_zink/R_spez_zink_lit - 1)

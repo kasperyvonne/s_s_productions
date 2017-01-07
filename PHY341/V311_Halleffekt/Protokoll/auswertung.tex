@@ -1,4 +1,5 @@
 \newpage
+
 \section{Auswertung}
 
 \subsection{Messung der geometrischen Abmessungen}
@@ -6,9 +7,9 @@ Zunächst wurden die Abmessungen (Dicke $d$, Länge $l$, Breite $b$) der Proben 
 werden im Folgenden als fehlerfrei angenommen. Für die Kupferprobe wurden folgende Werte gemessen:
 \begin{align}
   \begin{aligned}
-    d_{Cu} &= \SI{18}{\micro \meter} \\ %\SI verwenden
-    l_{Cu} &= \SI{28.05}{\milli \meter}\\ %\SI verwenden
-    b_{Cu} &= \SI{25.03}{\milli \meter} %\SI verwenden
+    d_{Cu} &= \SI{18}{\micro \meter} \\
+    l_{Cu} &= \SI{28.05}{\milli \meter}\\
+    b_{Cu} &= \SI{25.03}{\milli \meter}
         \label{eq: abmessungen_kupfer}
       \end{aligned}
 \end{align}
@@ -64,7 +65,7 @@ Hierbei entsprechen $B_{wachsend}$ bzw. $B_{fallend}$ den gemessenen magnetische
 bzw. fallendem Spulenstrom.
 Die graphische Darstellung (Abbildung \ref{fig: hysterese}) zeigt, dass die Hysterese-Effekte vernachlässigbar sind. Für
 spätere Berechnungen soll der Zusammenhang zwischen dem ansteigendem Spulenstrom $I$ und dem dadurch entstehenden
-Magnetfeld mittels linearer Regression an eine Gerade approximiert werden. Für die Steigung $m$ und den $y\,$-Achsenabschnitt $b$ ergeben sich:
+Magnetfeld $B$ mittels linearer Regression an eine Gerade approximiert werden. Für die Steigung $m$ und den $y\,$-Achsenabschnitt $b$ ergeben sich:
 \begin{equation}
   m = (-219.4 \pm 4.3) \si{\milli\tesla \per \ampere} \quad b =  (1.1 \pm 12.8) \si{\milli\tesla}%\SI verwenden
   \label{eq: hysterese}
@@ -84,9 +85,9 @@ als fehlerunbehaftet angenommen.
 
 \subsection{Hallspannung bei konstantem Magnetfeld}
 Zur Messung der Hallspannung bei konstantem Magnetfeld wurde für beide Proben der Spulenstrom auf $3\si{\ampere}$ eingestellt. Die %SI
-Messwerte für $U_{ges+}$ und $U_{ges-}$ sowie die gemäß \eqref{eq:} berechneten Hallspannungen bei variablem Querstrom sind in den %eqref
-Tabellen \ref{tab: hall_kupfer_konstB} und \ref{tab: hall_zink_konstB} aufgelistet. Eine weitere Regressionsrechnung ermöglicht mittels Gleichung \eqref{eq: } eine
-erste Bestimmung der jeweiligen Teilchenzahl $n$ pro Volumen. Für die Beträge der jeweiligen Steigungen ergeben sich: %zweite jeweilig vlt durch einzelnen ersetzen
+Messwerte für $U_{ges+}$ und $U_{ges-}$ sowie die gemäß \eqref{eq:hall_spann} berechneten Hallspannungen bei variablem Querstrom sind in den %eqref
+Tabellen \ref{tab: hall_kupfer_konstB} und \ref{tab: hall_zink_konstB} aufgelistet. Eine weitere Regressionsrechnung ermöglicht mittels Gleichung \eqref{eq:steig_teil_anz_konstb} eine
+erste Bestimmung der jeweiligen Teilchenzahl $n$ pro Volumen. Für die Beträge der Steigungen ergeben sich: %zweite jeweilig vlt durch einzelnen ersetzen
 \begin{equation}
   m_{Cu} = (1.23 \pm 0.02)\si{\milli \volt \per \ampere}  \quad \quad m_{Zn} = (1.63 \pm 0.24)\si{\milli \volt \per \ampere}%\SI verwenden
 \end{equation}
@@ -119,9 +120,10 @@ wurde der Verlauf der Hallspannung in Abhängigkeit von der Magnetfeldstärke au
 ergeben sich die Werte:
 \begin{equation}
   m_{Cu} = (0.018 \pm 0.000)\si{\volt \per \tesla }  \quad \quad m_{Zn} = (0.020 \pm 0.002)\si{\volt \per \tesla}%\SI verwenden
+  \label{eq: steigung_konst_I}
 \end{equation}
 Der Fehler von $m_{Cu}$ liegt hierbei in der Größenordnung $10^{-17}$. Er wird für folgende Rechnungen jedoch nicht vernachlässigt.
-Für die Regression wurde jeweils auf einen Wert verzichtet (Zink $I = 0 \si{\ampere}$, Kupfer $I = 3.5\si{\ampere}$), da diese Werte offenbar%\SI verwenden
+Für die Regression wurde jeweils auf einen Wert verzichtet (Zink $I = 0 \si{\ampere}$, Kupfer $I = 3.5\si{\ampere}$), da diese Werte offenbar
 durch systematische Fehler beeinträchtigt wurden.\\
 Damit ergeben sich die Werte für die Teilchenzahlen pro Volumen zu:
 \begin{equation}
@@ -145,13 +147,13 @@ Damit ergeben sich die Werte für die Teilchenzahlen pro Volumen zu:
 \end{figure}
 
 
-\subsection{Berechnung weiterer Mikroskopischer Größen}
+\subsection{Berechnung weiterer mikroskopischer Größen}
 Nun sollen aus den gemessenen makroskopischen Größen auf mikroskopische Zusammenhänge geschlossen werden. Zwischenergebnisse
 wurden bei den folgenden Rechnungen nicht gerundet. \\
 Mit den molaren Volumina von Kupfer und Zink kann auf die Anzahl der Ladungsträger pro Atom
 geschlossen werden. Hierzu wurden die Werte aus V201 \cite{anleitung201} verwendet:
 \begin{equation}
-  V_{mol, Cu} = 7.09 \cdot 10^{-6} \si{m^3 /mol} \quad   V_{mol, Zn} = 9.16 \cdot 10^{-6} \si{m^3 /mol}%\SI verwenden
+  V_{mol, Cu} = \SI{7.09e-6}{m^3 /mol} \quad   V_{mol, Zn} = \SI{9.16e-6}{m^3 /mol}%\SI verwenden
 \end{equation}
 Für Kupfer ergibt sich die Anzahl der Ladungsträger pro Atom zu:
 \begin{align}
@@ -167,18 +169,19 @@ Für Zink berechnen sich die beiden Werte:
     z_{Zn,2} &= n_{Zn,2} \cdot V_{mol, Zn} =   (3.2\pm 0.3)\cdot 10^{-4}
   \end{aligned}
 \end{align}
-Mittels der Abmessungen der verwendeten Leiter kann auf die spezifischen Widerstände der Proben geschlossen werden. Es ergeben sich folgende Werte:
+Mittels der Abmessungen \eqref{eq: abmessungen_kupfer}/\eqref{eq: abmessungen_zink} der verwendeten Leiter kann auf die spezifischen Widerstände der Proben geschlossen werden. Es ergeben sich folgende Werte:
 \begin{align}
   \begin{aligned}
     \rho_{Cu} &=  \SI{12.41(3)e-2}{\ohm \milli \meter^2 \per \meter} \\%\SI verwenden
     \rho_{Zn} &=  \SI{69.3(5)e-2}{\ohm \milli \meter^2 \per \meter}
+    \label{eq: res_spez_widerstand}
   \end{aligned}
 \end{align}
 Zusammen mit den gefundenen Werten für die Anzahl der Ladungsträger pro Volumen berechnen sich die mittleren Flugzeiten $\tau_i$ zu:
 \begin{align}
   \begin{aligned}
     \tau_{Cu,1} &= \SI{3.09(6)e-12}{\second} \\%\SI verwenden
-    \tau_{Cu,1} &= \SI{3.01(0)e-12}{\second} \\
+    \tau_{Cu,2} &= \SI{3.01(0)e-12}{\second} \\
     \tau_{Zn,1} &= \SI{6.1(9)e-12}{\second} \\
     \tau_{Zn,2} &= \SI{4.9(4)e-12}{\second}
   \end{aligned}
