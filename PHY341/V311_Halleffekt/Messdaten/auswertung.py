@@ -146,14 +146,14 @@ U_ges_min_zink_konstB, U_ges_plu_zink_konstB = np.genfromtxt('u_h_konstB_zink.tx
 U_h_zink_konstB = Q_(0.5 * (U_ges_plu_zink_konstB - U_ges_min_zink_konstB), 'millivolt')
 I = np.linspace(0, 10 , 11)
 with open('u_h_zink_konstB_tab.tex', 'w') as f:
-    f.write('\\begin{table} \n \\centering \n \\begin{tabular}{')
+    f.write('\\begin{table} \n \\centering \n \\caption{Hallspannung Zink bei konstantem Magnetfeld} \n \\label{tab: hall_zink_konstB} \n\\begin{tabular}{')
     f.write(4 *'S ')
     f.write('} \n \\toprule  \n')
     f.write(' {$I$ in $\si{\\ampere}$} & {$U_{ges-}$ in $\si{\milli \\volt}$}  &  {$U_{ges+}$ in $\si{\milli \\volt}$} & {$U_{H}$ in $\si{\milli \\volt}$} \\\ \n')
     f.write('\\midrule  \n ')
     for i in range (0,len(I)):
         f.write('{:.1f} & {:.3f} & {:.3f} & {:.3f} \\\ \n'.format(I[i], U_ges_min_zink_konstB[i], U_ges_plu_zink_konstB[i], U_h_zink_konstB[i].magnitude))
-    f.write('\\bottomrule \n \\end{tabular} \n \\caption{Hallspannung Zink bei konstantem Magnetfeld} \n \\label{tab: hall_zink_konstB} \n  \\end{table}')
+    f.write('\\bottomrule \n \\end{tabular} \n  \\end{table}')
 
 
 params_zink_U_h_1, cov_zink_U_h_1 = curve_fit(F_1, I, U_h_zink_konstB.magnitude, sigma=0.1)
@@ -183,14 +183,14 @@ konstI = Q_(10, 'ampere')
 I_konstI, U_ges_plu_zink_konstI, U_ges_min_zink_konstI = np.genfromtxt('u_h_konstI_zink.txt', unpack=True)
 U_h_zink_konstI = Q_(0.5 * (U_ges_plu_zink_konstI - U_ges_min_zink_konstI), 'millivolt')
 with open('u_h_zink_konstI_tab.tex', 'w') as f:
-    f.write('\\begin{table} \n \\centering \n \\begin{tabular}{')
+    f.write('\\begin{table} \n \\centering \n\\caption{Hallspannung Zink bei konstantem Querstrom} \n \\label{tab: hall_zink_konstI} \n \\begin{tabular}{')
     f.write(5 *'S ')
     f.write('} \n \\toprule  \n')
     f.write(' {$I$ in $\si{\\ampere}$} & {$B$ in $\si{\milli\\tesla}$} & {$U_{ges-}$ in $\si{\milli \\volt}$}  &  {$U_{ges+}$ in $\si{\milli \\volt}$} & {$U_{H}$ in $\si{\milli \\volt}$} \\\ \n')
     f.write('\\midrule  \n ')
     for i in range (0,len(I_konstI)):
         f.write('{:.1f} & {:.1f} & {:.3f} & {:.3f} & {:.3f} \\\ \n'.format(I_konstI[i],B(I_konstI[i]).magnitude ,U_ges_min_zink_konstI[i], U_ges_plu_zink_konstI[i], U_h_zink_konstI[i].magnitude))
-    f.write('\\bottomrule \n \\end{tabular} \n \\caption{Hallspannung Zink bei konstantem Querstrom} \n \\label{tab: hall_zink_konstI} \n  \\end{table}')
+    f.write('\\bottomrule \n \\end{tabular} \n   \\end{table}')
 
 B_konstI_zink = B(I_konstI).magnitude
 params_zink_U_h_2, cov_zink_U_h_2 = curve_fit(F_1, B_konstI_zink[:-1], U_h_zink_konstI.magnitude[:-1], sigma=0.1)
@@ -216,14 +216,14 @@ konstI = Q_(10, 'ampere')
 I_konstI, U_ges_plu_kupfer_konstI, U_ges_min_kupfer_konstI = np.genfromtxt('u_h_konstI_kupfer.txt', unpack=True)
 U_h_kupfer_konstI = Q_(0.5 * (U_ges_plu_kupfer_konstI - U_ges_min_kupfer_konstI), 'millivolt')
 with open('u_h_kupfer_konstI_tab.tex', 'w') as f:
-    f.write('\\begin{table} \n \\centering \n \\begin{tabular}{')
+    f.write('\\begin{table} \n \\centering \n\\caption{Hallspannung Kupfer bei konstantem Querstrom} \n \\label{tab: hall_kupfer_konstI} \n \\begin{tabular}{')
     f.write(5 *'S ')
     f.write('} \n \\toprule  \n')
     f.write(' {$I$ in $\si{\\ampere}$} & {$B$ in $\si{\milli\\tesla}$} & {$U_{ges-}$ in $\si{\milli \\volt}$}  &  {$U_{ges+}$ in $\si{\milli \\volt}$} & {$U_{H}$ in $\si{\milli \\volt}$} \\\ \n')
     f.write('\\midrule  \n ')
     for i in range (0, len(I_konstI)):
         f.write('{:.1f} & {:.1f} & {:.3f} & {:.3f} & {:.3f} \\\ \n'.format(I_konstI[i] ,B(I_konstI[i]).magnitude ,U_ges_min_kupfer_konstI[i], U_ges_plu_kupfer_konstI[i], U_h_kupfer_konstI[i].magnitude))
-    f.write('\\bottomrule \n \\end{tabular} \n \\caption{Hallspannung Kupfer bei konstantem Querstrom} \n \\label{tab: hall_kupfer_konstI} \n  \\end{table}')
+    f.write('\\bottomrule \n \\end{tabular} \n   \\end{table}')
 
 B_konstI_kupfer = B(I_konstI).magnitude
 params_kupfer_U_h_2, cov_kupfer_U_h_2 = curve_fit(F_1, B_konstI_kupfer[1:], U_h_kupfer_konstI.magnitude[1:], sigma=0.1)
