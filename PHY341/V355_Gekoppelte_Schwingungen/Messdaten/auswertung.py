@@ -5,6 +5,7 @@ import math
 from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
 from pint import UnitRegistry
+import latex
 
 u = UnitRegistry()
 Q_ = u.Quantity
@@ -32,7 +33,7 @@ c.to('kelvin')
 def mittel_und_abweichung(messreihe):
 	messreihe_einheit=messreihe.units
 	mittelwert=sum(messreihe)/len(messreihe)
-	abweichung_des_mittelwertes=1/(np.sqrt(len(messreihe)))*np.std(messreihe)
+	abweichung_des_mittelwertes=1/((len(messreihe))**0.5)*np.std(messreihe)
 	mittel_und_abweichung=Q_(unp.uarray(mittelwert,abweichung_des_mittelwertes),messreihe_einheit)
 	return mittel_und_abweichung
 
@@ -72,6 +73,12 @@ def linregress(x, y):
 
 
 #Angepasstes Programm 
+##Versuchskonstanten
+c=Q_(ufloat(0.7932 ,0),' nanofarad')
+c_sp=Q_(ufloat(0.028,0),'nanofarad')
+l=Q_(ufloat(23.954,0),'millihenry')
+
+##
 
 def v_min (l,c,c_k):
 	return 1/(2*np.pi*(l*(1/c+2/c_k)**(-1))**0.5)
@@ -79,27 +86,33 @@ def v_plu (l,c):
 	return 1/(2*np.pi*(l*c)**0.5)
 ##Aufgabenteil a
 
-
-c=Q_(ufloat( ,),'farad')
-c_k=Q_(ufloat(,),'farad')
-l=Q_(ufloat(,),'henry')
-
-#Bestimmung der Schwingungsfrequenzen
-v_mint=v_min(l,c,c_k).to('1/second')
-v_plut=v_plu(l,c).to('1/second')
-print('Schwingungsfrequenz v_-',v_min)
-print('Schwingungsfrequenz v_+',v_plu)
+c_k,n=np.genfromtxt('teilaufgabe_a_schwingungsmaxima.txt',unpack=True)
+c_k=Q_(unp.uarray(c_k,c_k*0.2),'nanofarad')
+n=unp.uarray(n,1)
+#Verhältnis
+verhaeltnis=1/n
+print('Verhaeltnis Schwebung zu Schwingung', verhaeltnis)
 print('\n')
 
-#Bestimmungen der Verhältnisse
+latex.Latexdocument('teila_ck_n.tex').tabular([	c_k.magnitude,n],'{$C_k in $\si{\\nano\\farad}$} & {Anzahl der Schwingungsmaxima}',[1,1],
+	caption=' Anzahl der Schwingungsmaxima bei verschiedenenen Kapazitäten $C_k$', label='teila_n_ck')
+
+
+#Bestimmung der Schwingungsfrequenzen
+v_mint=v_min(l,c,c_k).to('kilohertz')
+v_plut=v_plu(l,c).to('kilohertz')
+print('Schwingungsfrequenz v_-',v_mint)
+print('\n')
+print('Schwingungsfrequenz v_+',v_plut)
+print('\n')
 
 
 ##Aufgabenteil b
-v_ming,v_plug=np.genfromtxt('.txt',unpack=True)
-v_ming=Q_(v_ming,'1/second')
-v_plug=Q_(v_plug,'1/second')
+c_k,v_plug,v_ming=np.genfromtxt('teilaufgabe_b_frequenzen.txt',unpack=True)
+v_ming=Q_(unp.uarray(v_ming,0.06),'kilohertz')
+v_plug=Q_(unp.uarray(v_plug,0.06),'kilohertz')
 
-#Verhältniss Theorie und Praxis
+##Verhältniss Theorie und Praxis
 v_min_verhael=v_ming/v_mint
 v_plu_verhael=v_plug/v_plut
 
@@ -107,37 +120,43 @@ print('Verhältnis von v_m',v_min_verhael)
 print('Verhältnis von v_+',v_plu_verhael)
 print('\n')
 
+v_plu_verhael_mittel=(sum(v_plu_verhael)/len(v_plu_verhael))
+print('Gemittelte Abweichung v_plu',v_plu_verhael_mittel)
+print('\n')
+
 ##Aufgabenteil c
 
-def I_2 (u,omega,c_k,l,c,r):
-	omega*=2*np.pi
-	z=omega*l-1/omega*(1/c+1/c_k)
-	i_2=u/(4*omega**2*c_k**2*r**2*z**2+(1/(omega*c_k)-omega*c_k*z**2+omega*r**2*c_k)**2)**0.5
-	return i_2
+periode=Q_(1,'second')
+startf=Q_(15.67,'kilohertz')
+endf=Q_(96.15,'kilohertz')
+m=(endf-startf)/periode
+print('Steigung m',m)
+print('\n')
 
-def I_2u (u,r):
-	return u/r
+def zeit_f_gerade(t):
+	return m*t+startf
 
-#Bestimmung von I_2
-r_min=Q_(85,'ohm')
-r_plu=Q_(73,'ohm')
+c_k,t_1,t_2=np.genfromtxt('teilaufgabe_c_deltaT.txt',unpack=True)
+t_1=Q_(unp.uarray(t_1,5),'millisecond')
+t_2=Q_(unp.uarray(t_2,5),'millisecond')
 
-I_2_mint=I_2()
-I_2_plut=I_2()
-I_2_ming=I_2u(,r_min)
-I_2_plug=I_2u(,r_plu)
 
-print('I_2+ theoretisch', I_2_plut)
-print('I_2+ praktisch', I_2_plug)
-print('I_2- theoretisch', I_2_mint)
-print('I_2- praktisch', I_2_ming)
+frequenzen_t1=zeit_f_gerade(t_1).to('kilohertz')
+frequenzen_t2=zeit_f_gerade(t_2).to('kilohertz')
+print('Frequenz Teil c v+',frequenzen_t1)
+print('\n')
+v_pu_verhael_c=frequenzen_t1/v_plut
+v_plu_verhael_mittel_c=(sum(v_pu_verhael_c)/len(v_pu_verhael_c))
+
+print('Verhältnis Teilc v+, gemittelt', v_pu_verhael_c,v_plu_verhael_mittel_c)
+print('\n')
+print('Frequenz Teil c v-',frequenzen_t2)
+print('\n')
+v_min_verhael_c=frequenzen_t2/v_mint
+print('Verhältnis Teilc v-', v_min_verhael_c)
 print('\n')
 
 
-
-
-
-#Bestimmung von I_k
 
 
 
