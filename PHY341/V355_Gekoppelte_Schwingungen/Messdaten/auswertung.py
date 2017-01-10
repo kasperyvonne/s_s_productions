@@ -1,6 +1,8 @@
 import numpy as np
 import uncertainties.unumpy as unp
 from uncertainties import ufloat
+from uncertainties.unumpy import (nominal_values as noms,
+                                  std_devs as stds)
 import math
 from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt

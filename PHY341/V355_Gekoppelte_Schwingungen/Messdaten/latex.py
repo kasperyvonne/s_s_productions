@@ -11,7 +11,7 @@ class Latexdocument(object):
             for i in range(0, len(spalten[0])):
                 for j in range(0, len(spalten)):
                     if j == len(spalten) - 1:
-                        f.write(('\\num{{{:.' + str(places[j]) + 'f}}}' + '\\\ \n').format(spalten[j][i]))
+                        f.write(('\\num{{{:.' + str(places[j]) + 'f}\pm{:.' + str(places[j]) + 'f}}}' + '\\\ \n').format(spalten[j][i].n, spalten[j][i].s))
                     else:
-                        f.write(('\\num{{{:.' + str(places[j]) + 'f}}} ' + ' & ').format(spalten[j][i]))
+                        f.write(('\\num{{{:.' + str(places[j]) + 'f}\pm{:.' + str(places[j]) + 'f}}}' + ' & ').format(spalten[j][i].n, spalten[j][i].s))
             f.write('\\bottomrule \n\\end{tabular} \n\\end{table}')
