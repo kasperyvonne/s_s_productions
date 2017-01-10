@@ -91,12 +91,13 @@ def v_plu (l,c):
 c_k,n=np.genfromtxt('teilaufgabe_a_schwingungsmaxima.txt',unpack=True)
 c_k=Q_(unp.uarray(c_k,c_k*0.2),'nanofarad')
 n=unp.uarray(n,1)
+print(type(n))
 #Verhältnis
 verhaeltnis=1/n
 print('Verhaeltnis Schwebung zu Schwingung', verhaeltnis)
 print('\n')
 
-latex.Latexdocument('teila_ck_n.tex').tabular([	c_k.magnitude,n],'{$C_k in $\si{\\nano\\farad}$} & {Anzahl der Schwingungsmaxima}',[1,1],
+latex.Latexdocument('teila_ck_n.tex').tabular([	c_k.magnitude,n,verhaeltnis],'{$C_k$ in $\si{\\nano\\farad}$$} & {Anzahl der Schwingungsmaxima} & {Verhältnis}',[1,1,1],
 	caption=' Anzahl der Schwingungsmaxima bei verschiedenenen Kapazitäten $C_k$', label='teila_n_ck')
 
 
@@ -109,8 +110,9 @@ print('Schwingungsfrequenz v_+',v_plut)
 print('\n')
 
 
+
 ##Aufgabenteil b
-c_k,v_plug,v_ming=np.genfromtxt('teilaufgabe_b_frequenzen.txt',unpack=True)
+c_k_1,v_plug,v_ming=np.genfromtxt('teilaufgabe_b_frequenzen.txt',unpack=True)
 v_ming=Q_(unp.uarray(v_ming,0.06),'kilohertz')
 v_plug=Q_(unp.uarray(v_plug,0.06),'kilohertz')
 
@@ -121,6 +123,11 @@ v_plu_verhael=v_plug/v_plut
 print('Verhältnis von v_m',v_min_verhael)
 print('Verhältnis von v_+',v_plu_verhael)
 print('\n')
+
+latex.Latexdocument('teilb_schwingungen_prak_theo.tex').tabular([c_k.magnitude,v_ming.magnitude,v_plug.magnitude,v_min_verhael.magnitude,v_plu_verhael.magnitude],
+	'{$C_k in $\si{\\nano\\farad}$$} & {$Schwingungsfrequenz $\\nu_-$ in $\si{\kilo\hertz}$$} & {$Schwingungsfrequenz $\\nu_+$ in $\si{\kilo\hertz}$$ }& {$Verhältnis $\\nu_-$$ & $Verhältnis $\\nu_+$$}',[1,1,1,1,1],
+	caption=' Bestimme Fundamentalfrequenzen mit den Verhältnis zur Theorie', label='teilb_schwingungen_prak_theo')
+
 
 v_plu_verhael_mittel=(sum(v_plu_verhael)/len(v_plu_verhael))
 print('Gemittelte Abweichung v_plu',v_plu_verhael_mittel)
