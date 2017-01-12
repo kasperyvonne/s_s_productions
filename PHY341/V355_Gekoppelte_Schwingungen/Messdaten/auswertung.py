@@ -191,17 +191,22 @@ plt.xlim(noms(c_k[0].magnitude)-0.5,noms(c_k[-1].magnitude)+0.5)
 #plt.ylim()
 #aufvariabele=np.linsspace()
 #
+v_plutp=[]
+for n in range(len(c_k.magnitude)):
+	v_plutp.append(noms(v_plut.magnitude))
+
 plt.plot(noms(c_k.magnitude),noms(v_ming.magnitude),'rx',label='$ Teil \,b):\, \\nu_-$')
 plt.plot(noms(c_k.magnitude),noms(v_plug.magnitude),'gx',label=r'$Teil \,b):\, \nu_+$')
 plt.plot(noms(c_k.magnitude),noms(frequenzen_t2.magnitude),'yx',label='$ Teil \,c):\, \\nu_-$')
 plt.plot(noms(c_k.magnitude),noms(frequenzen_t1.magnitude),'bx',label=r'$Teil \,c):\, \nu_+$')
-plt.plot(noms(c_k.magnitude),noms(v_mint.magnitude),'co',label=r'$Theoriwert: \, \nu_-$')
+plt.plot(noms(c_k.magnitude),noms(v_mint.magnitude),'cx',label=r'$Theoriewert: \, \nu_-$')
+plt.plot(noms(c_k.magnitude),v_plutp,'mx',label=r'$Theoriewert: \, \nu_+$')
 
 
 
 plt.grid()
 plt.legend(loc='best')
-plt.xlabel('$C_{\\mathrm{k}}\,  in \, \\mathrm{nF}$')
-plt.ylabel('$\\nu \, in \,  \\mathrm{kHz}$')
+plt.xlabel('$C_{\\mathrm{k}} \\, \\, in \\,\\, \\mathrm{nF}$')
+plt.ylabel('$\\nu \\, \\, in \\, \\,  \\mathrm{kHz}$')
 #plt.show()
 plt.savefig('plot_frequenzen.pdf')
