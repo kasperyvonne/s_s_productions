@@ -1,10 +1,13 @@
 \section{Auswertung}
 Die für den Versuch verwendeten konstanten Bauelemente, mit den Werten
-\begin{align*}
+\begin{align}
+\label{eq:bau}
+\begin{aligned}
 L&=\SI{23.954}{\milli\henry}\\
 C&=\SI{0.7932}{\nano\farad}\\
 C\ua{sp}&=\SI{0.028}{\nano\farad}
-\end{align*}
+\end{aligned}
+\end{align}
 wurden als fehlerfrei angenommen.
 Hingegen wurde der veränderbare Kondensator $C\ua{k}$ mit
 einem relativen Fehler von $20\%$ behaftet.
@@ -36,7 +39,7 @@ theoretische Wert
 Und für die gegenphasigen Fundamentalfrequenzen ergibt sich in Abhängigkeit von $C\ua{k}$ die in Tabelle \ref{fig:teilb_frequenzen_theo} zu findenen Werte. 
 \input{table/teilb_schwingungen_prak_theo_frequenzen.tex}
 
-\subsection{Bestimmung der Fundamentalfrequenzen mithilfe erzwungener Schwingung}
+\subsection{Bestimmung der Fundamentalfrequenzen mithilfe erzwungener Schwingungen}
 Die bei verschieden eingestellen $C\ua{k}$ bestimmten Fundamentalfrequenzen 
 $\nu_+$ (gleichphasige Schwingung) und $\nu_-$ (gegenphasige Schwingung)
 sind in Tabelle \ref{fig:fig:teilb_schwingungen_prak_theo} zu finden.
@@ -72,7 +75,10 @@ Insgesamt folgt dann für die Geradengleichung
 g(t)=mt+b=80.48\,t+15.67
 \end{equation}
 
-Die gemessenen Zeitabstände sind in Tabelle \ref{tab:teilc_gemessene_zeitabstaende} dargestellt.
+Die gemessenen Zeitabstände sind in Tabelle \ref{fig:teilc_gemessene_zeit} dargestellt.
 \input{table/teilc_gemessene_zeitabstaende.tex}
-\input{table/teilc_schwingungen_prak_gemessen_frequenzen.tex}
 
+Mithilfe von Formel \eqref{eq:geraden} kann dann auf die Frequenz geschlossen werden (siehe Tabelle \ref{fig:teilc_schwingungen_prak_theo}.
+Äquivalent zu Formel \eqref{eq:verh} wurden die in \ref{fig:teilc_schwingungen_prak_theo} angebenen Verhältnisse bestimmt.
+\input{table/teilc_schwingungen_prak_gemessen_frequenzen.tex}
+Die angenommenen Fehler für die Zeitabstände $\Delta t_+$ und $\Delta t_-$ werden in der Diskussion besprochen.

@@ -117,8 +117,8 @@ print('\n')
 
 ##Aufgabenteil b
 c_k_1,v_plug,v_ming=np.genfromtxt('teilaufgabe_b_frequenzen.txt',unpack=True)
-v_ming=Q_(unp.uarray(v_ming,0.06),'kilohertz')
-v_plug=Q_(unp.uarray(v_plug,0.06),'kilohertz')
+v_ming=Q_(unp.uarray(v_ming,1),'kilohertz')
+v_plug=Q_(unp.uarray(v_plug,1),'kilohertz')
 
 ##Verhältniss Theorie und Praxis
 v_min_verhael=v_ming/v_mint
@@ -129,7 +129,7 @@ print('Verhältnis von v_+',v_plu_verhael)
 print('\n')
 
 latex.Latexdocument('teilb_schwingungen_prak_gemessen_frequenzen.tex').tabular([c_k.magnitude,v_ming.magnitude,v_plug.magnitude,v_min_verhael.magnitude,v_plu_verhael.magnitude],
-	'{$C_k in $\si{\\nano\\farad}$$} & {$Schwingungsfrequenz $\\nu_-$ in $\si{\kilo\hertz}$$} & {$Schwingungsfrequenz $\\nu_+$ in $\si{\kilo\hertz}$$ }& {$Verhältnis $\\nu_-$$ & $Verhältnis $\\nu_+$$}',[1,1,1,1,1],
+	'{$C_k$ in $\si{\\nano\\farad}$} & {$Schwingungsfrequenz $\\nu_-$ in $\si{\kilo\hertz}$$} & {$Schwingungsfrequenz $\\nu_+$ in $\si{\kilo\hertz}$$ }& {$Verhältnis $\\nu_-$$ & $Verhältnis $\\nu_+$$}',[1,1,1,1,1],
 	caption=' Bestimme Fundamentalfrequenzen mit den Verhältnis zur Theorie', label='teilb_schwingungen_prak_theo')
 
 latex.Latexdocument('teilb_schwingungen_prak_theo_frequenzen.tex').tabular([c_k.magnitude,v_mint.magnitude],'{$C_k in $\si{\\nano\\farad}$$} &{$\\nu_{-\,\mathup{theo}}$ in $\si{\hertz}$$}&{$\\nu_{+\,\mathup{theo}}$ in $\si{\hertz}$$}',[1,1],
@@ -187,15 +187,21 @@ latex.Latexdocument('teilc_schwingungen_prak_gemessen_frequenzen.tex').tabular([
 
 #Plotbereich
 
-#plt.xlim()
+plt.xlim(noms(c_k[0].magnitude)-0.5,noms(c_k[-1].magnitude)+0.5)
 #plt.ylim()
 #aufvariabele=np.linsspace()
 #
-#plt.plot(,,'rx',label='')
-#
-#plt.grid()
-#plt.legend(loc='best')
-#plt.xlabel()
-#plt.ylabel()
+plt.plot(noms(c_k.magnitude),noms(v_ming.magnitude),'rx',label='$ Teil \,b):\, \\nu_-$')
+plt.plot(noms(c_k.magnitude),noms(v_plug.magnitude),'gx',label=r'$Teil \,b):\, \nu_+$')
+plt.plot(noms(c_k.magnitude),noms(frequenzen_t2.magnitude),'yx',label='$ Teil \,c):\, \\nu_-$')
+plt.plot(noms(c_k.magnitude),noms(frequenzen_t1.magnitude),'bx',label=r'$Teil \,c):\, \nu_+$')
+plt.plot(noms(c_k.magnitude),noms(v_mint.magnitude),'co',label=r'$Theoriwert: \, \nu_-$')
+
+
+
+plt.grid()
+plt.legend(loc='best')
+plt.xlabel('$C_{\\mathrm{k}}\,  in \, \\mathrm{nF}$')
+plt.ylabel('$\\nu \, in \,  \\mathrm{kHz}$')
 #plt.show()
-#plt.savefig('.pdf')
+plt.savefig('plot_frequenzen.pdf')
