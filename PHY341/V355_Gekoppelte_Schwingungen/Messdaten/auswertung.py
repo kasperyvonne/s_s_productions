@@ -159,7 +159,9 @@ t_1=Q_(unp.uarray(t_1,5),'millisecond')
 t_2=Q_(unp.uarray(t_2,5),'millisecond')
 c_k=Q_(unp.uarray(c_k,c_k*0.2),'nanofarad')
 
-
+latex.Latexdocument('teilc_gemessene_zeitabstaende.tex').tabular([c_k.magnitude,t_2.magnitude,t_1.magnitude],
+	'{$C\\ua{k} in $\si{\\nano\\farad}$} & {Abstand $\\Delta t_+$} & {Abstand $\\Delta $}',
+	[1,1,1], caption='Gemessene Zeitabstände bei unterschiedlichen $C\\ua{k}$', label='teilc_gemessene_zeit')
 
 frequenzen_t1=zeit_f_gerade(t_1).to('kilohertz')
 frequenzen_t2=zeit_f_gerade(t_2).to('kilohertz')

@@ -1,3 +1,78 @@
 \section{Auswertung}
+Die für den Versuch verwendeten konstanten Bauelemente, mit den Werten
+\begin{align*}
+L&=\SI{23.954}{\milli\henry}\\
+C&=\SI{0.7932}{\nano\farad}\\
+C\ua{sp}&=\SI{0.028}{\nano\farad}
+\end{align*}
+wurden als fehlerfrei angenommen.
+Hingegen wurde der veränderbare Kondensator $C\ua{k}$ mit
+einem relativen Fehler von $20\%$ behaftet.
+Die resulutierenden Fehler wurden alle mit der Python Bibiothek 
+\emph{uncertainties} bestimmt.
+
+\subsection{Bestimmung des Verhältnisses von Schwingungs- und Schwebungsfrequenz}
+Die bei verschieden eingestellen $C\ua{k}$ gezählten Schwingungsmaxima pro einer halben
+Schwbungsperiode (ein 'Bauch') werden in Tabelle \ref{fig:teila_n_ck} aufgelistet.
+Zusätzlich befindet sich in der Tabelle noch das Verhältnis zur Schwebungsperiode.
+Bestimmt wurde dies mittels
+\begin{equation*}
+n=\frac{1}{\mathup{Anzahl der Schwingungsmaxima}}
+\end{equation*}
 \input{table/teila_ck_n.tex}
-\input{table/teilb_schwingungen_prak_theo.tex}
+Die Wahl des Fehlers für die Anzahl der Schwingunsmaxima wird in der Diskussion besprochen.
+
+
+\subsection{Bestimmung der theoretischen Fundamentalfrequenzen}
+Um die theoretischen Fundamentalfrequenzen zu bestimmen, werden Gleichung \eqref{} und 
+\eqref{}.
+Für die erste Fundamentalfrequenz (gleichphasiges Schwingen) ergibt sich der 
+theoretische Wert
+
+\begin{equation}
+\label{eq:nu_plu_theo}
+\nu_{+\,\mathup{theo}}=\SI{36,5}{\kilo\hertz}.
+\end{equation}
+Und für die gegenphasigen Fundamentalfrequenzen ergibt sich in Abhängigkeit von $C\ua{k}$ die in Tabelle \ref{fig:teilb_frequenzen_theo} zu findenen Werte. 
+\input{table/teilb_schwingungen_prak_theo_frequenzen.tex}
+
+\subsection{Bestimmung der Fundamentalfrequenzen mithilfe erzwungener Schwingung}
+Die bei verschieden eingestellen $C\ua{k}$ bestimmten Fundamentalfrequenzen 
+$\nu_+$ (gleichphasige Schwingung) und $\nu_-$ (gegenphasige Schwingung)
+sind in Tabelle \ref{fig:fig:teilb_schwingungen_prak_theo} zu finden.
+Zusätzlich ist in der Tabelle das Verhältnis der gemessenen Frequenzen 
+zu den theoretisch errechnetetn Frequzenten dargestellt.
+Die Verhältnisse werden mit
+\begin{equation}
+\label{eq:verh}
+n_+=\frac{\nu_+}{\nu_{+\,\mathup{theo}}} \qquad n_-=\frac{\nu_-}{\nu_{-\,\mathup{theo}}}
+\end{equation}
+berechnet.
+\FloatBarrier
+\input{table/teilb_schwingungen_prak_gemessen_frequenzen.tex}
+\FloatBarrier
+Die angenommenen Messfehler für $\nu_+$ und $\nu_-$ werden in der Diskussiuon besprochen.
+
+\subsection{Bestimmung der Fundamentalfrequenzen mithilfe der 'Sweep-Methode'}
+Zunächst müssen die Grundeinstellung des 'Sweeps' besprochen werden.
+Die Periodendauer eines Sweeps beträgt $P=\SI{1}{\second}$.
+Die Startfrequenz beträgt $\nu\ua{sta}=\SI{15.67}{\kilo\hertz}$ und 
+Endfrequenz $\nu\ua{end}=\SI{96.15}{\kilo\hertz}$.
+Da der Generator die Spannung linear erhöht kann so eine Gerade bestimmt werden, um 
+zu jedem Zeitpunkt auf die gerade anliegende Frequenz zu schließen.
+Die Parameter der Geradengleichung lauten:
+
+\begin{equation*}
+b=\SI{15.67}{\kilo\hertz} \qquad m=\frac{\nu\ua{end}-\nu\ua{sta}}{P}=\SI{80.48}{\kilo\hertz\per\second}
+\end{equation*}
+Insgesamt folgt dann für die Geradengleichung
+
+\begin{equation}
+\label{eq:geraden}
+g(t)=mt+b=80.48\,t+15.67
+\end{equation}
+
+Die gemessenen Zeitabstände sind in Tabelle \ref{tab:teilc_gemessene_zeitabstaende} dargestellt.
+\input{table/teilc_gemessene_zeitabstaende.tex}
+\input{table/teilc_schwingungen_prak_gemessen_frequenzen.tex}
+
