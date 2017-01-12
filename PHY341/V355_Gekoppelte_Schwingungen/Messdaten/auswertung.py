@@ -104,12 +104,16 @@ latex.Latexdocument('teila_ck_n.tex').tabular([	c_k.magnitude,n,verhaeltnis],'{$
 #Bestimmung der Schwingungsfrequenzen
 v_mint=v_min(l,c,c_k).to('kilohertz')
 v_plut=v_plu(l,c).to('kilohertz')
-print('Schwingungsfrequenz v_-',v_mint)
+print('Schwingungsfrequenz Theorie v_-',v_mint)
 print('\n')
-print('Schwingungsfrequenz v_+',v_plut)
+print('Schwingungsfrequenz Theorie v_+',v_plut)
 print('\n')
 
-
+#for n in range(len(v_mint)):
+#	a[n]=v_plut.magnitude.noms
+#	b[n]=v_plu.magnitude.stds
+#v_plut_list=unp.uarray(a,b)
+#print(v_plut_list)
 
 ##Aufgabenteil b
 c_k_1,v_plug,v_ming=np.genfromtxt('teilaufgabe_b_frequenzen.txt',unpack=True)
@@ -124,9 +128,14 @@ print('Verhältnis von v_m',v_min_verhael)
 print('Verhältnis von v_+',v_plu_verhael)
 print('\n')
 
-latex.Latexdocument('teilb_schwingungen_prak_theo.tex').tabular([c_k.magnitude,v_ming.magnitude,v_plug.magnitude,v_min_verhael.magnitude,v_plu_verhael.magnitude],
+latex.Latexdocument('teilb_schwingungen_prak_gemessen_frequenzen.tex').tabular([c_k.magnitude,v_ming.magnitude,v_plug.magnitude,v_min_verhael.magnitude,v_plu_verhael.magnitude],
 	'{$C_k in $\si{\\nano\\farad}$$} & {$Schwingungsfrequenz $\\nu_-$ in $\si{\kilo\hertz}$$} & {$Schwingungsfrequenz $\\nu_+$ in $\si{\kilo\hertz}$$ }& {$Verhältnis $\\nu_-$$ & $Verhältnis $\\nu_+$$}',[1,1,1,1,1],
 	caption=' Bestimme Fundamentalfrequenzen mit den Verhältnis zur Theorie', label='teilb_schwingungen_prak_theo')
+
+latex.Latexdocument('teilb_schwingungen_prak_theo_frequenzen.tex').tabular([c_k.magnitude,v_mint.magnitude],'{$C_k in $\si{\\nano\\farad}$$} &{$\\nu_{-\,\mathup{theo}}$ in $\si{\hertz}$$}&{$\\nu_{+\,\mathup{theo}}$ in $\si{\hertz}$$}',[1,1],
+	caption='Theoretisch bestimmte Fundamentalfrequenzen', label='teilb_frequenzen_theo')
+
+
 
 
 v_plu_verhael_mittel=(sum(v_plu_verhael)/len(v_plu_verhael))
@@ -148,6 +157,8 @@ def zeit_f_gerade(t):
 c_k,t_1,t_2=np.genfromtxt('teilaufgabe_c_deltaT.txt',unpack=True)
 t_1=Q_(unp.uarray(t_1,5),'millisecond')
 t_2=Q_(unp.uarray(t_2,5),'millisecond')
+c_k=Q_(unp.uarray(c_k,c_k*0.2),'nanofarad')
+
 
 
 frequenzen_t1=zeit_f_gerade(t_1).to('kilohertz')
@@ -165,6 +176,9 @@ v_min_verhael_c=frequenzen_t2/v_mint
 print('Verhältnis Teilc v-', v_min_verhael_c)
 print('\n')
 
+latex.Latexdocument('teilc_schwingungen_prak_gemessen_frequenzen.tex').tabular([c_k.magnitude,frequenzen_t2.magnitude,frequenzen_t1.magnitude,v_min_verhael_c.magnitude,v_pu_verhael_c.magnitude],
+	'{$C_k in $\si{\\nano\\farad}$$} & {$Schwingungsfrequenz $\\nu_-$ in $\si{\kilo\hertz}$$} & {$Schwingungsfrequenz $\\nu_+$ in $\si{\kilo\hertz}$$ }& {$Verhältnis $\\nu_-$$ & $Verhältnis $\\nu_+$$}',[1,1,1,1,1],
+	caption=' Bestimme Fundamentalfrequenzen im der \\textbf{Methodennamen einfügen} mit den Verhältnis zur Theorie', label='teilc_schwingungen_prak_theo')
 
 
 
