@@ -31,33 +31,42 @@ Subtraktion der beiden Gleichungen:
 Die Relativgröße $\left( I_1 + I_2 \right)$ schwingt also harmonisch mit den Frequenzen:
 
 \begin{equation}
-  \nu^+ = \frac{1}{2\pi \, \sqrt{LC}}
+  \nu_+ = \frac{1}{2\pi \, \sqrt{LC}}
   \label{eq: nu+}
 \end{equation}
 
 Die Größe $\left( I_1 - I_2 \right)$ entsprechend mit der Frequenz:
 
 \begin{equation}
-\nu^- = \frac{1}{2\pi \, \sqrt{L\, \left(\frac{1}{C} + \frac{2}{C\ua{k}}\right)^{-1}}}
+\nu_+ = \frac{1}{2\pi \, \sqrt{L\, \left(\frac{1}{C} + \frac{2}{C\ua{k}}\right)^{-1}}}
 \label{eq: nu-}
 \end{equation}
 
 Die beiden Frequenzen entsprechen genau jenen Frequenzen der Fundamentalschwingungen: Gleich- und gegenphasige Schwingung bei
-betragsmäßig gleichen Anfangsamplituden (in Analogie zum gekoppelten Pendel aus der Mechanik). Allgemein gilt $\nu^+ < \nu^-$.\\
-Alle weiteren Lösungen des Systems \eqref{eq: gekoppeltes_lgs} erhält man durch Superposition. Wird lediglich der linke Schwingkreis zu Schwinungen
-angeregt, so entstehen sogenannte Schwebungsvorgänge, die im Versuch untersucht werden sollen. Hierbei oszilliert die Energie des gekoppelten Systems
+betragsmäßig gleichen Anfangsamplituden (in Analogie zum gekoppelten Pendel aus der Mechanik). Allgemein gilt $\nu_+ < \nu_-$.\\
+Alle weiteren Lösungen des Systems \eqref{eq: gekoppeltes_lgs} erhält man durch Superposition. Wird lediglich der linke Schwingkreis zu Schwingungen
+angeregt, so entstehen sogenannte Schwebungsvorgänge, die im Versuch untersucht werden sollen. Der zeitliche Verlauf der Ströme nimmt dabei folgende
+Gestalt an:
+  \begin{align}
+  \begin{aligned}
+    I_1(t) = A \cos\left[\frac{1}{2}(\omega_+ + \omega_-) \right]\cos\left[\frac{1}{2}(\omega_+ - \omega_-) \right] \\
+    I_2(t) = A \sin\left[\frac{1}{2}(\omega_+ + \omega_-) \right]\sin\left[\frac{1}{2}(\omega_+ - \omega_-) \right] \\
+    \label{eq: strom_schwebung}
+  \end{aligned}
+  \end{align}
+Mit $\omega_{+,-} = 2\pi \nu_{+,-}$. Hierbei oszilliert die Energie des gekoppelten Systems
 mit der Schwebungsfrequenz $\nu\ua{schwebe}$ zwischen den Schwingsystemen.
 \begin{equation}
-  \nu\ua{schwebe} = \nu^- - \nu^+
+  \nu\ua{schwebe} = \nu_- - \nu_+
   \label{eq: nu_schwebe}
 \end{equation}
+Diese Frequenz definiert sich bezüglich der zeitlichen Distanz zwischen zwei Schwingungsbäuchen der Amplituden, sie entspricht also
+der doppelten Frequenz, die sich im hinteren Term der Lösungen \eqref{eq: strom_schwebung} abzeichnet.
 Innerhalb dieser enhüllenden Schwingung der einzelnen Amplituden führen die Oszillatoren die Schwingungsfrequenz $\nu\ua{schwing}$ aus.
-
 \begin{equation}
-  \nu\ua{schwing} = \nu^- + \nu^+
+  \nu\ua{schwing} =  \frac{1}{2}(\nu_- + \nu_+)
   \label{eq: nu_schwing}
 \end{equation}\par
-
 Wird das System im linken Zweig des Aufbaus durch eine Wechselspannung mit Amplitude $\left| U \right|$ und Frequenz $\omega$ angeregt, so ergibt sich für den Betrag des
 Stroms $I_2$:
 \begin{equation}
@@ -68,5 +77,6 @@ Hierbei entspricht $R$ einem in beiden Zweigen des Aufbaus geschalteten ohmschen
 \begin{equation}
   Z(\omega ) \coloneqq \omega L - \frac{1}{\omega } \left(\frac{1}{C} + \frac{1}{C\ua{K}}\right)
 \end{equation}
-Der Strom $I_2$ erreicht Maxima für die Fundamentalfrequenzen $\omega^+$ bzw. $\omega^-$. Diese Gegebenheit wird im Versuch ausgenutzt um
+Der Strom $I_2$ erreicht Maxima für die Fundamentalfrequenzen $\omega_+$ bzw. $\omega_-$. Des Weiteren ist die Phase zwischen der Erreger-
+und Resononazfrequenz in diesen Fällen identisch mit null. Diese Gegebenheiten werden im Versuch ausgenutzt um
 die Fundamenatlschwinungen experimentell zu bestimmen.
