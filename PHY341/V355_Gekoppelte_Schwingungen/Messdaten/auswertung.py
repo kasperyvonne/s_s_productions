@@ -90,7 +90,7 @@ def v_plu (l,c):
 
 c_k,n=np.genfromtxt('teilaufgabe_a_schwingungsmaxima.txt',unpack=True)
 c_k=Q_(unp.uarray(c_k,c_k*0.2),'nanofarad')
-n=unp.uarray(n,1)
+n=unp.uarray(n,0.5)
 print(type(n))
 #Verhältnis
 verhaeltnis=1/n
