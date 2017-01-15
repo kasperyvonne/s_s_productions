@@ -24,36 +24,39 @@
     \Leftrightarrow \quad  F_{G,2} + \cos\left(\Theta\right) \cdot F_{G,1} \cdot \mu_H &= \sin\left(\Theta\right) \cdot F_{G,1} \\
     \Leftrightarrow \quad m_2 g + \cos\left(\Theta\right) \cdot m_1 g \cdot \mu_H &= \sin\left(\Theta\right) \cdot m_1 g \\
     \Leftrightarrow \quad m_2  + \cos\left(\Theta\right) \cdot m_1  \cdot \mu_H &= \sin\left(\Theta\right) \cdot m_1  \\
-    \Leftrightarrow \quad m_2 &= m_1 \cdot (\sin\left(\Theta\right) - \cos\left(\Theta\right)  \cdot \mu_H)
+    \Leftrightarrow \quad m_2 &= m_1 \cdot (\sin\left(\Theta\right) - \cos\left(\Theta\right)  \cdot \mu_H) = \SI{2.8}{\kilo\gram}
   \end{aligned}
   \label{eq: m_2}
   \end{align}
-Das heßt für alle Werte $m > x$ rutscht das System nicht nach rechts. Nun muss selbe Rechnung noch für den Fall des Rutschens nach
+Das heßt für alle Werte $m_2 > \SI{2.8}{\kilo\gram}$ rutscht das System nicht nach rechts. Nun muss die selbe Rechnung noch für den Fall des Rutschens nach
 links durchgeführt werden. Hier wirkt die Reibung nun nach rechts, das heißt im Kräftegleichgewicht gilt:
 \begin{equation}
   F_{G,2}  = F_H + F_{R,H}
 \end{equation}
 Die Lösung unterscheidet sich also lediglich um ein Vorzeichen im Vergleich zu \eqref{eq: m_2}.
 \begin{equation}
-  m_2 = m_1 \cdot (\sin\left(\Theta\right) + \cos\left(\Theta\right)  \cdot \mu_H)
+  m_2 = m_1 \cdot (\sin\left(\Theta\right) + \cos\left(\Theta\right)  \cdot \mu_H) = \SI{9.2}{\kilo\gram}
 \end{equation}
-Das heißt für alle Werte $m < y$ rutscht das System nicht nach links. Insgesamt ergibt sich:
+Das heißt für alle Werte $m < \SI{9.2}{\kilo\gram}$ rutscht das System nicht nach links. Insgesamt ergibt sich:
 \begin{equation}
-  \text{System in Ruhe} \quad \Leftrightarrow \quad m_2 \in [x,y]
+  \text{System in Ruhe} \quad \Leftrightarrow \quad m_2 \in [2.8,9.2]\si{\kilo\gram}
 \end{equation}
 \subsection{Lösung ii}
 Die Masse $m_2 = \SI{10}{\kilo\gram}$ liegt außerhalb des Ruheintervalls. Das System rutscht in diesem Fall nach links. Ansatz:
 \begin{equation}
-  (m_1 + m_2) \cdot a_{ges} = F_{G,2} - F_{R, G}
+  (m_1 + m_2) \cdot a_{ges} = F_{G,2} - F_{R, G} - F_H
 \end{equation}
 Hierbei entspricht $F_{R, G}$ nun der Gleitreibungskraft, die der Bewegung entgegen wirkt.
 \begin{equation}
   F_{R, G} = \cos\left(\Theta\right) \cdot F_{G,1} \cdot \mu_G
 \end{equation}
 Damit lässt sich die Beschleunigng berechnen:
-\begin{equation}
-    a_{ges} = \frac{m_2 \cdot g - \cos\left(\Theta\right) \cdot F_{G,1} \cdot \mu_G}{(m_1 + m_2)}
-\end{equation}
+\begin{align}
+  \begin{aligned}
+    a_{ges} &= \frac{m_2 \cdot g - m_1 \cdot g\cdot(\sin\left(\Theta\right) + \cos\left(\Theta\right)\cdot \mu_G)}{(m_1 + m_2)} \\
+            &= \SI{0.784}{\meter\per\second^2}
+\end{aligned}
+\end{align}
 
 
 \newpage
