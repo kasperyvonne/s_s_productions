@@ -97,8 +97,8 @@ verhaeltnis=1/n
 print('Verhaeltnis Schwebung zu Schwingung', verhaeltnis)
 print('\n')
 
-latex.Latexdocument('teila_ck_n.tex').tabular([	c_k.magnitude,n,verhaeltnis],'{$C_k$ in $\si{\\nano\\farad}$$} & {Anzahl der Schwingungsmaxima} & {Verhältnis}',[1,1,1],
-	caption=' Anzahl der Schwingungsmaxima bei verschiedenenen Kapazitäten $C_k$', label='teila_n_ck')
+#latex.Latexdocument('teila_ck_n.tex').tabular([	c_k.magnitude,n,verhaeltnis],'{$C_k$ in $\si{\\nano\\farad}$$} & {Anzahl der Schwingungsmaxima} & {Verhältnis}',[1,1,1],
+#	caption=' Anzahl der Schwingungsmaxima bei verschiedenenen Kapazitäten $C_k$', label='teila_n_ck')
 
 
 #Bestimmung der Schwingungsfrequenzen
@@ -108,6 +108,15 @@ print('Schwingungsfrequenz Theorie v_-',v_mint)
 print('\n')
 print('Schwingungsfrequenz Theorie v_+',v_plut)
 print('\n')
+
+
+
+n_theo=(v_plut+v_mint)/(2*(v_mint-v_plut))
+print('Theoretisch Verhältnis',n_theo)
+
+latex.Latexdocument('teila_ck_n_mit_theo.tex').tabular([c_k.magnitude,n,verhaeltnis,n_theo],'{$C_k$ in $\si{\\nano\\farad}$$} & {Anzahl Schwingungsmaxima} & {Verhältnis $n$} & {theoretisches Verhältnis $n\\ua{theo}$}' ,[1,1,1,1],
+	caption=' Anzahl der Schwingungsmaxima bei verschiedenenen Kapazitäten $C_k$', label='teila_n_ck')
+
 
 #for n in range(len(v_mint)):
 #	a[n]=v_plut.magnitude.noms

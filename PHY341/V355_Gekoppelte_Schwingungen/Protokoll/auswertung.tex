@@ -6,28 +6,38 @@ einem relativen Fehler von $20\,\%$ behaftet.
 Die resultierenden Fehler werden mit der Python Bibliothek
 \emph{uncertainties} bestimmt.
 
-\subsection{Bestimmung des Verhältnisses von Schwingungs- und Schwebungsfrequenz}
-Die bei verschieden eingestellten $C\ua{k}$ gezählten Schwingungsmaxima pro einer halben %einer ganzen
-Schewbungsperiode (einem 'Bauch') werden in Tabelle \ref{fig:teila_n_ck} aufgelistet. %sind
-Zusätzlich befindet sich in der Tabelle, das Verhältnis zur Schwebungsperiode. %kein komma
-Bestimmt wurde diese mittels %dieses
-\begin{equation*}
-n=\frac{1}{\mathup{Anzahl der Schwingungsmaxima}}
-\end{equation*}
-\input{table/teila_ck_n.tex}
-
 \subsection{Bestimmung der theoretischen Fundamentalfrequenzen}
 Um die theoretischen Fundamentalfrequenzen zu bestimmen, werden die Gleichungen \eqref{eq: nu+} und
 \eqref{eq: nu-} verwendetet.
 Für die erste Fundamentalfrequenz (gleichphasiges Schwingen) ergibt sich der
-theoretische Wert %Doppelpunkt statt Punkt hinter formel
+theoretische Wert: %Doppelpunkt statt Punkt hinter formel
 
 \begin{equation}
 \label{eq:nu_plu_theo}
-\nu_{+\,\mathup{theo}}=\SI{36,5}{\kilo\hertz}.
+\nu_{+\,\mathup{theo}}=\SI{36,5}{\kilo\hertz}
 \end{equation}
-Und für die gegenphasigen Fundamentalfrequenzen ergibt sich in Abhängigkeit von $C\ua{k}$ die in Tabelle \ref{fig:teilb_frequenzen_theo} zu dargestellten Werte. %ohne zu
+Und für die gegenphasigen Fundamentalfrequenzen ergibt sich in Abhängigkeit von $C\ua{k}$ die in Tabelle \ref{fig:teilb_frequenzen_theo}  dargestellten Werte. %ohne zu
 \input{table/teilb_schwingungen_prak_theo_frequenzen.tex}
+
+\subsection{Bestimmung des Verhältnisses von Schwingungs- und Schwebungsfrequenz}
+Die bei verschieden eingestellten $C\ua{k}$ gezählten Schwingungsmaxima pro einer ganzen %einer ganzen
+Schewbungsperiode (einem 'Bauch') sind in Tabelle \ref{fig:teila_n_ck} aufgelistet. %sind
+Zusätzlich befindet sich in der Tabelle das Verhältnis zur Schwebungsperiode. %kein komma
+Bestimmt wurde dieses mittels %dieses
+\begin{equation*}
+n=\frac{1}{\mathup{Anzahl \, Schwingungsmaxima}}.
+\end{equation*}
+Für die sich aus der Theorie ergebenen Verhältnisse werden die aus der Theorie 
+bekannten Formeln \eqref{eq: nu_schwebe} und \eqref{eq: nu_schwing} verwendet.
+Es ergibt sich der Zusammenhang:
+
+\begin{equation*}
+n\ua{theo}=\frac{\nu_{+\,\mathup{theo}}+\nu_{-\,\mathup{theo}}}{2\left(\nu_{\,\mathup{theo}}-\nu_{+\,\mathup{theo}}\right)}
+\end{equation*}
+
+
+%\input{table/teila_ck_n.tex}
+\input{table/teila_ck_n_mit_theo.tex}
 
 \subsection{Bestimmung der Fundamentalfrequenzen mithilfe erzwungener Schwingungen}
 Die bei verschieden eingestellten $C\ua{k}$ bestimmten Fundamentalfrequenzen
@@ -44,7 +54,7 @@ berechnet.
 \FloatBarrier
 \input{table/teilb_schwingungen_prak_gemessen_frequenzen.tex}
 \FloatBarrier
-In Abbildung \ref{fig: plot} sind die Messwerte grraphisch dargestellt. %graphisch
+In Abbildung \ref{fig: plot} sind die Messwerte graphisch dargestellt. %graphisch
 
 \subsection{Bestimmung der Fundamentalfrequenzen mithilfe der Sweep-Methode}
 Zunächst werden die Grundeinstellungen des Sweeps besprochen.
@@ -71,7 +81,7 @@ Die im Versuch gemessenen Zeitabstände sind in Tabelle \ref{fig:teilc_gemessene
 Mithilfe von Formel \eqref{eq:geraden} können nun die Frequenz bestimmt werden (siehe Tabelle \ref{fig:teilc_schwingungen_prak_theo}.
 Äquivalent zu Formel \eqref{eq:verh} wurden die in Tab. \ref{fig:teilc_schwingungen_prak_theo} angebenden Verhältnisse berechnet.
 \input{table/teilc_schwingungen_prak_gemessen_frequenzen.tex}
-Die Messwerte in der Abbildung \ref{fig: plot} einmal aufgetragen. %Verb 
+Die Messwerte sind in der Abbildung \ref{fig: plot} einmal aufgetragen. %Verb 
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{pics/plot_frequenzen.pdf}
