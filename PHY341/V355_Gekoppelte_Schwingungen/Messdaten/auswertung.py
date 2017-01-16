@@ -111,7 +111,9 @@ print('\n')
 
 
 
-n_theo=(v_plut+v_mint)/(2*(v_mint-v_plut))
+#n_theo=(v_plut+v_mint)/(2*(v_mint-v_plut))
+n_theo=(2*(v_mint-v_plut))/(v_plut+v_mint)
+
 print('Theoretisch Verhältnis',n_theo)
 
 latex.Latexdocument('teila_ck_n_mit_theo.tex').tabular([c_k.magnitude,n,verhaeltnis,n_theo],'{$C_k$ in $\si{\\nano\\farad}$$} & {Anzahl Schwingungsmaxima} & {Verhältnis $n$} & {theoretisches Verhältnis $n\\ua{theo}$}' ,[1,1,1,1],
