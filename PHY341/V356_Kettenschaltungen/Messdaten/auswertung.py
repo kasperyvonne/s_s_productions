@@ -52,13 +52,13 @@ nu = nu(omega(theta))
 
 
 #Theorieplots der Disperionsrelation
-plt.plot(theta, omega(theta), label='Dispersion' )
+plt.plot(theta, omega(theta), label='Dispersionskurve $\omega(\\theta)$' )
 plt.ylabel('Kreisfrequenz $\\omega$ in $1/s$')
 plt.xlabel('Phasenverschiebung $\\theta$')
 plt.xlim(theta[0], theta[-1])
 plt.legend(loc='best')
 plt.grid()
-plt.savefig('dispersion.pdf')
+plt.savefig('plots/dispersion.pdf')
 
 
 plt.clf()
@@ -69,7 +69,7 @@ plt.xlabel('Phasenverschiebung $\\theta$')
 plt.xlim(theta[0], theta[-1])
 plt.legend(loc='best')
 plt.grid()
-plt.savefig('dispersion1.pdf')
+plt.savefig('plots/dispersion1.pdf')
 
 
 plt.clf()
@@ -79,7 +79,7 @@ plt.xlabel('Frequenz $\\nu$ in $1/s$')
 plt.xlim(nu[0], nu[-1])
 plt.legend(loc='best')
 plt.grid()
-plt.savefig('v_phase.pdf')
+plt.savefig('plots/v_phase.pdf')
 
 plt.clf()
 plt.plot( nu, v_gruppe(nu), label='$v_{Gr}(\\nu)$' )
@@ -88,7 +88,7 @@ plt.xlabel('Frequenz $\\nu$ in $1/s$')
 plt.xlim(nu[0], nu[-1])
 plt.legend(loc='best')
 plt.grid()
-plt.savefig('v_gruppe.pdf')
+plt.savefig('plots/v_gruppe.pdf')
 
 
 plt.clf()
@@ -98,4 +98,4 @@ plt.xlabel('Kreisfrequenz $\omega$ in $1/s$')
 plt.xlim(omega(theta)[0], omega(theta)[-1])
 plt.legend(loc='best')
 plt.grid()
-plt.savefig('impedanz.pdf')
+plt.savefig('plots/impedanz.pdf')
