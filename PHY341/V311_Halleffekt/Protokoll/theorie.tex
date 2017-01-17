@@ -6,13 +6,16 @@ Hall-Spannung experimentell untersucht werden. %untersucht
 \section{Theorie}
 
 \subsection{Elektrische Leitfähigkeit}
-Jedes Atom besitzt nach der Quantenmechanik und dem Pauli-Prinzip
+Jeder Festkörper besitzt nach der Quantenmechanik und dem Pauli-Prinzip
 Energiebänder.
-Diese geben die für ein gebundenes Elektron möglichen Energiebereiche an. Auf den Bändern kann das Elektron weder
-Energie aufnehmen noch abgeben. Es kann also
-nicht beschleunigen bzw. abbremsen (z. B. durch ein äußeres E-Feld).
-Lediglich bei leitenden Elementen (z. B. Metallen) gibt es ein sogenanntes \emph{Leitfähigkeitsband}.
-Auf diesem besitzen die Elektronen (\emph{Leitungselektronen}) die Möglichkeit zu beschleunigen oder abzubremsen.
+Diese geben die für ein gebundenes Elektron möglichen Energiebereiche an. Auf den Bändern bzw. Valenzbänder kann das Elektron weder
+Energie aufnehmen noch abgeben. 
+Es kann also nicht beschleunigen bzw. abbremsen (z. B. durch ein äußeres E-Feld).
+Erst auf den sogennanten Leitungsbändern ist es für das Elektron möglich 
+sich frei zu bewegen.
+
+Lediglich bei leitenden Elementen (z. B. Metallen) ist der Abstand zwischen Valenzband und \emph{Leitfähigkeitsband} gering genug, sodass die Elektron das Band
+wechseln können. 
 Bei Isolatoren befinden sich keine freien Elektronen auf dem \emph{Leitfähigkeitsband}.
 In Metallen kommt es zu Bildung von Gitterstrukturen.
 Auf diesen verhalten sich die \emph{Leitungselektronen}, wie Teilchen eines idealen Gases.
@@ -44,23 +47,24 @@ Mittels dem ohmschen Gesetz folgt anschließend
 \label{eq:wider}
 R=2\frac{\map{m}\ua{e}}{\map{e}^2}\frac{1}{n\overline{\tau}}\frac{L}{Q}
 \end{equation}
+
 \subsection{Der Hall-Effekt}
 Der \emph{Hall-Effekt} kommt immer dann zu Stande, wenn %zustande oder zu Stande
 ein Magnetfeld auf einer stromdruchflossene %muss nicht senkrecht stehen, damit der zustande kommt
-homogen Leiterplatte (Dicke $d$ und Breite $b$) wirkt.
+Leiterplatte (Dicke $d$ und Breite $b$) wirkt.
 Die Lorentzkraft $\vec{F}\ua{l}$ sorgt für eine Ablenkung der Elektronen.
 Die Ablenkung bewirkt eine Potentialdifferenz zwischen den
 Punkten $A$ und $B$ (vgl. \ref{fig: auf_hall}). Dadruch entsteht gleichzeitig ein %ref
 weiteres elektrisches Feld $E\ua{y}$, das der Elektronenbewegung entgegen wirkt. %elektrisches Feld, das der Elektronenbewegung entgegen wirkt
 Die Spannung zwischen $A$ und $B$ wächst so lange an, bis es zu einem Kräftegleichgewicht zwischen der Lorentz- und Coulombkraft kommt.
-Auf die Hallspannung kann dan gefolgert werden mit%stil
+Für die Hallspannung kann dan gefolgert werden mit%stil
 
 \begin{equation}
 \label{eq:hall_span}
 U\ua{H}=E\ua{y}b=\overline{v}\ua{d}Bd=-\frac{1}{n\map{e}}\frac{BI\ua{q}}{d}.
 \end{equation}
 Die Hallspannung kann also Auskunft über die Ladungsträgerdichte $n$ geben.
-Den Gleichung \eqref{eq:hall_span} ist bei konstanter Stromstärke eine Geradengleichung der Form $U\ua{H}=mB$ mit %anderen Fall berücksichtigen
+Die Gleichung \eqref{eq:hall_span} ist bei konstanter Stromstärke eine Geradengleichung der Form $U\ua{H}=mB$ mit %anderen Fall berücksichtigen
 \begin{align}
 m&=\frac{1}{n\map{e}}\frac{I\ua{q}}{d} \notag \\
 \Leftrightarrow \quad n&=\frac{I\ua{q}}{m\map{e}d}\label{eq:steig_teil_anz}
@@ -75,7 +79,7 @@ m&=\frac{1}{n\map{e}}\frac{B\ua{q}}{d} \notag \\
 
 \subsection{Berechnung mikroskopischer Leitfähigkeitsparameter}
 Mithilfe des Widerstandes und der \emph{Hall-Spannung} kann nun auf
-einige mikroskopische Leitfähigkeitsparamete geschlossen werden.
+einige mikroskopische Leitfähigkeitsparameter geschlossen werden.
 Zum einen lässt sich die mittlere \emph{freie Weglänge} $\overline{l}$ bestimmen.
 Dazu wird der Zusammenhang
 
@@ -84,11 +88,10 @@ Dazu wird der Zusammenhang
 \overline{l}=\overline{\tau}\left|\,v\,\right|
 \end{equation*}
 verwendet.
-Es ist $\left|\,v\,\right|$ die Totalgeschwindigkeit des Elektrons.
+Mit $\left|\,v\,\right|$ wird die Totalgeschwindigkeit des Elektrons bezeichnet.
 Sie entsteht durch die Wärmebewegung der Kristallbausteine.
 Um die Totalgeschwindigkeit eines Elektrons zu bestimmen, nutzt
-man die \emph{Fermie-Energie} $E\ua{F}$. Sie nimmt den Wert des energiereichsten Elektrons wegen des
-Pauli-Verbotes am absoluten Nullpunkt an.
+man die \emph{Fermi-Energie} $E\ua{F}$. Sie spiegelt den Wert des energiereichsten Elektrons am absoluten Nullpunkt wieder.
 Und wird mit dem Zusammenhang %wird
 
 \begin{equation}
@@ -134,6 +137,6 @@ Arbeit an. Das Aufbringen der Energie sorgt, aber gleichzeitig für eine Erwärm
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{pics/hystereskurve.png}
-  \caption{Hysteresekurve \cite{hyste}}
+  \caption{Hysteresekurve. \cite{hyste}}
   \label{fig: hyste}
 \end{figure}

@@ -13,17 +13,15 @@ die anderen zehn beim Herunterfahren.
 \begin{figure}
   \centering
   \includegraphics[width=0.7\textwidth]{pics/Halleffekt_aufbau.png}
-  \caption{Versuchsaufbau für die Messung der Hallspannung}
+  \caption{Versuchsaufbau für die Messung der Hallspannung. \cite{anleitung311}}
   \label{fig: auf_hall}
 \end{figure}
 
 
-Die im Folgenden beschriebenen Messungen werden immer zwei Mal durchgeführt. % - komma
-Beim zweiten Durchgang wird die Spannung umgepolt. %Stil
-Dies dient zur Vermeidung von systematischen Fehlern (z.\,B. Störspannung). %z.\,B.
-
-
 \subsection{Bestimmung des Widerstands}
+
+Die im Folgenden beschriebenen Messungen werden immer zwei Mal durchgeführt. % - komma %z.\,B.
+
 Zur Widerstandsbestimmung werden ein Voltmeter und
 eine Spannungsquelle benötigt.
 Nachdem beide an die Probe angeschlossen sind,
@@ -38,6 +36,7 @@ Zunächst werden die Abmessungen (Breite, Höhe und Länge) der Probe gemessen.
 Anschließend folgt die Verkabelung nach dem in \ref{fig: kabel_hall} abgebildeten Schaltbild.
 Die verkabelte Probe wird nun in eine Haltevorrichtung befestigt. Diese sorgt dafür, dass %gegeben passt nicht gut; dafür
 der Stromfluss durch die Probe orthogonal zum Magnetfeld steht.
+Die Hallspannung wird an den in Abbildung \ref{fig: auf_hall} geziegten Punkten $A$ und $B$ abgegriffen.
 Für die Messung der \emph{Hall-Spannung} gibt es nun zwei Verfahren.
 Zum einen kann die Stromstärke, die an der Probe anliegt konstant gelassen werden und
 die Magnetfeldstärke variiert werden. Zum Andern kann
@@ -45,15 +44,12 @@ aber auch die Magnetfeldstärke konstant gelassen werden und die Stromstärke ve
 werden. Für beide Verfahren sollten zehn Messpunkte gewählt werden.
 Bei der Regelung des Elektromagneten ist darauf zu achten, dass der
 erzeugende Strom langsam heruntergefahren wird.
+
+Beim zweiten Durchgang wird die Spannung umgepolt. %Stil
+Dies dient zur Vermeidung von systematischen Fehlern (z.\,B. Störspannung).
 Die von dem Hall-Effekt erzeugt Spannugn kann dann wie folgt berechnet werden: %erzeugte Spannung
 \begin{equation} %Füg hier besser die fertige Formel ein
 \label{eq:hall_spann}
 U\ua{H}=\frac{1}{2}\left(U\ua{ges+}-U\ua{ges-}\right)
 \end{equation}
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.7\textwidth]{pics/verkabelung_hall.png}
-  \caption{Verkabelung für die Messung der Hallspannung}
-  \label{fig: kabel_hall}
-\end{figure}
