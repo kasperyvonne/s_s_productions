@@ -7,6 +7,8 @@ from uncertainties.umath import *
 from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
 from pint import UnitRegistry
+from mpl_toolkits.axes_grid1 import host_subplot
+import mpl_toolkits.axisartist as AA
 u = UnitRegistry()
 Q_ = u.Quantity
 
@@ -15,12 +17,12 @@ L = Q_(1.75e-3, 'henry')
 C = Q_(22.0e-9, 'farad')
 C_1 = C
 C_2 = Q_(9.39e-9, 'farad')
-theta = np.linspace(0, np.pi, 100)
+theta = np.linspace(-0.2 * np.pi, np.pi, 100)
 
 #Dispersionskurven
 #gleiche kondensatoren
 def omega(theta):
-    return np.sqrt( 2 / (L.magnitude * C.magnitude) * (1 - np.cos(theta) ) )
+    return np.sqrt( (2 / (L.magnitude * C.magnitude)) * (1 - np.cos(theta) ) )
 
 def nu(omega):
     return 1/(2*np.pi) * omega
@@ -37,12 +39,12 @@ def f(x, A, B, C):
     return A * np.exp(B * x) + C
 
 #Phasengeschwindigkeit
-def v_phase(nu):
-    return 2*np.pi * nu / ( np.arccos(1 - 0.5 * (2 * np.pi * nu)**2 * L.magnitude * C.magnitude) )
+def v_phase(nus):
+    return 2 * np.pi * nus / ( np.arccos(1 - 0.5 * (2 * np.pi * nus)**2 * L.magnitude * C.magnitude) )
 
 #Gruppengeschwindigkeit
-def v_gruppe(nu):
-    return np.sqrt( 1/(L.magnitude * C.magnitude) * (1 - 0.25 * L.magnitude * C.magnitude * (2*np.pi*nu))    )
+def v_gruppe(nus):
+    return np.sqrt( 1/(L.magnitude * C.magnitude) * (1 - 0.25 * L.magnitude * C.magnitude * (2*np.pi*nus))    )
 
 def impedanz_plot(omega):
     return np.sqrt(L.magnitude / C.magnitude) * 1/np.sqrt( 1 - 0.25 * omega**2 * L.magnitude * C.magnitude )
@@ -57,9 +59,13 @@ eigenfrequenzen_a_LC = np.genfromtxt('eigenfrequenzen_a_LC.txt', unpack=True)
 range_lin = np.linspace(1, len(eigenfrequenzen_a_LC), 12)
 Phasenverschiebung_pro_glied_LC = np.pi * range_lin / 16
 
+
 eigenfrequenzen_a_LC1C2 = np.genfromtxt('eigenfrequenzen_a_LC1C2.txt', unpack=True)
 range_lin = np.linspace(1, len(eigenfrequenzen_a_LC1C2), len(eigenfrequenzen_a_LC1C2))
 Phasenverschiebung_pro_glied_LC1C2 = np.pi * range_lin / 16
+for i in range(0, len(Phasenverschiebung_pro_glied_LC1C2)):
+    if (Phasenverschiebung_pro_glied_LC1C2[i] > np.pi/2):
+        Phasenverschiebung_pro_glied_LC1C2[i] -= 2*(Phasenverschiebung_pro_glied_LC1C2[i] - np.pi/2)
 
 frequenzen_sweep_LC = np.genfromtxt('frequenz_sweep_LC.txt', unpack = True)
 x_range_LC = ((np.linspace(1, len(frequenzen_sweep_LC), len(frequenzen_sweep_LC))-1) * 4)[::-1]
@@ -88,53 +94,74 @@ def frequenz_sweep_LC1C2(x):
 print('Parameter des Fits LC1C2, A= ', A_param_LC1C2, ' B= ', B_param_LC1C2, ' C= ', C_param_LC1C2)
 #Berechnungen
 #Theoretische Werte
-omega_G_LC = np.sqrt(2 / (L * C)).to('1/second')
-print('Theoretische Grenzfrequenz LC: ', omega_G_LC)
+omega_G_LC = 2*np.sqrt(1 / (L.magnitude * C.magnitude))
+print('Theoretische Grenzfrequenz LC: ', nu(omega_G_LC))
 
 omega_G_u_LC1C2 = np.sqrt(2 / (L * C_1))
 omega_G_o_LC1C2 = np.sqrt(2 / (L * C_2))
-print('Theoretische Grenzfrequenz unten LC1C2: ', omega_G_u_LC1C2)
-print('Theoretische Grenzfrequenz oben LC1C2: ', omega_G_o_LC1C2)
+print('Theoretische Grenzfrequenz unten LC1C2: ', nu(omega_G_u_LC1C2))
+print('Theoretische Grenzfrequenz oben LC1C2: ', nu(omega_G_o_LC1C2))
 
 
 #Berechnungen
-distance_f_g_LC = ufloat(9, 1)
-distance_f_g_u_LC1C2 = ufloat(6, 1)
-distance_f_g_o_LC1C2 = ufloat(11, 1)
-print('Aus Sweep Methode bestimmte Grenzfrequenz LC: ', frequenz_sweep_LC(distance_f_g_LC) * np.pi * 2)
-print('Prozentuale Abweichung: ', (frequenz_sweep_LC(distance_f_g_LC) * np.pi * 2)/omega_G_LC.magnitude - 1)
-print('Aus Sweep Methode bestimmte Grenzfrequenz unten LC1C2: ', frequenz_sweep_LC1C2(distance_f_g_u_LC1C2) * np.pi * 2)
-print('Aus Sweep Methode bestimmte Grenzfrequenz oben LC1C2: ', frequenz_sweep_LC1C2(distance_f_g_o_LC1C2) * np.pi * 2)
+distance_f_g_LC = ufloat(9, 0.5)
+distance_f_g_u_LC1C2 = ufloat(6, 0.5)
+distance_f_g_o_LC1C2 = ufloat(11, 0.5)
+print('Aus Sweep Methode bestimmte Grenzfrequenz LC: ', frequenz_sweep_LC(distance_f_g_LC))
+print('Prozentuale Abweichung: ', (frequenz_sweep_LC(distance_f_g_LC))/nu(omega_G_LC) - 1)
+print('Aus Sweep Methode bestimmte Grenzfrequenz unten LC1C2: ', frequenz_sweep_LC1C2(distance_f_g_u_LC1C2))
+print('Aus Sweep Methode bestimmte Grenzfrequenz oben LC1C2: ', frequenz_sweep_LC1C2(distance_f_g_o_LC1C2))
 
-nu = nu(omega(theta))
+
+#Phasengeschwindigkeit
+eigenfrequenzen_offen = np.genfromtxt('eigenfrequenzen_offen.txt', unpack=True)
+range_lin = np.linspace(1, len(eigenfrequenzen_offen), len(eigenfrequenzen_offen))
+Phasenverschiebung_offen = np.pi * range_lin / 16
+
+
+
+
+
+
+
 #Theorieplots der Disperionsrelation
-plt.plot(theta, omega(theta), label='Dispersionskurve $\omega(\\theta)$' )
-plt.plot(Phasenverschiebung_pro_glied_LC, eigenfrequenzen_a_LC * 2 * np.pi, 'rx')
-plt.ylabel('Kreisfrequenz $\\omega$ in $1/s$')
-plt.xlabel('Phasenverschiebung $\\theta$')
-plt.xlim(Phasenverschiebung_pro_glied_LC[0], Phasenverschiebung_pro_glied_LC[-1])
+plt.plot(theta, nu(omega(theta)), label='Dispersionskurve $\\nu(\\theta)$' )
+plt.plot(Phasenverschiebung_pro_glied_LC, eigenfrequenzen_a_LC, 'rx', label = 'Messdaten')
+plt.plot(theta, np.ones(len(theta))*nu(omega_G_LC), 'b--' )
+print(nu(omega_G_LC))
+plt.ylabel('Frequenz $\\nu$ in $1/s$')
+plt.xlabel('Phasenverschiebung pro Glied $\\theta$')
+plt.xlim(0, theta[-1])
+plt.xticks([0, np.pi/8, np.pi / 4, 3*np.pi/8 , np.pi/2, 5 * np.pi/8, 3*np.pi/4, 7*np.pi/8, np.pi],
+           [r"$0$", r"$\frac{\pi}{8}$", r"$\frac{\pi}{4}$", r"$\frac{3\pi}{8}$", r"$\frac{\pi}{2}$",
+            r"$\frac{5\pi}{8}$", r"$\frac{3\pi}{4}$", r"$\frac{7\pi}{8}$", r"$\pi$"])
 plt.legend(loc='best')
 plt.grid()
 plt.savefig('plots/dispersion.pdf')
 
 
 plt.clf()
-plt.plot(theta, omega1(theta), label='$\omega_1(\\theta)$' )
-plt.plot(theta, omega2(theta), label='$\omega_2(\\theta)$' )
-plt.plot(Phasenverschiebung_pro_glied_LC1C2, eigenfrequenzen_a_LC1C2 * 2 * np.pi, 'rx')
-plt.ylabel('Kreisfrequenz $\\omega$ in $1/s$')
-plt.xlabel('Phasenverschiebung $\\theta$')
-plt.xlim(Phasenverschiebung_pro_glied_LC1C2[0], Phasenverschiebung_pro_glied_LC1C2[-1])
+plt.plot(theta, nu( omega1(theta) ), label='$\\nu_1(\\theta)$' )
+plt.plot(theta, nu( omega2(theta) ), label='$\\nu_2(\\theta)$' )
+plt.plot(Phasenverschiebung_pro_glied_LC1C2, eigenfrequenzen_a_LC1C2, 'rx', label='Messwerte')
+plt.plot(theta, np.ones(len(theta))*nu(omega_G_u_LC1C2), 'g--', label= 'Grenzfequenz $\\nu_{u}$')
+plt.plot(theta, np.ones(len(theta))*nu(omega_G_o_LC1C2), 'b--', label= 'Grenzfequenz $\\nu_{o}$')
+plt.ylabel('Frequenz $\\nu$ in $1/s$')
+plt.xlabel('Phasenverschiebung pro Glied $\\theta$')
+plt.xlim(0, np.pi/2 + 0.02)
+plt.xticks([0, np.pi/8, np.pi / 4, 3*np.pi/8 , np.pi/2],
+           [r"$0$", r"$\frac{\pi}{8}$", r"$\frac{\pi}{4}$", r"$\frac{3\pi}{8}$", r"$\frac{\pi}{2}$"])
 plt.legend(loc='best')
 plt.grid()
 plt.savefig('plots/dispersion1.pdf')
 
 
 plt.clf()
-plt.plot(nu, v_phase(nu), label='$v_{Ph}(\\nu)$' )
+plt.plot(nu(omega(theta)), v_phase(nu(omega(theta))), label='$v_{Ph}(\\nu)$' )
+plt.plot(eigenfrequenzen_offen, 2*np.pi*eigenfrequenzen_offen/Phasenverschiebung_offen, 'rx', label='Messwerte')
 plt.ylabel('Phasengeschwindigkeit $v$ in $m/s$')
 plt.xlabel('Frequenz $\\nu$ in $1/s$')
-plt.xlim(nu[0], nu[-1])
+plt.xlim(eigenfrequenzen_offen[0]-1000, eigenfrequenzen_offen[-1]+1000)
 plt.legend(loc='best')
 plt.grid()
 plt.savefig('plots/v_phase.pdf')
