@@ -1,8 +1,118 @@
 \section{Auswertung}
+Hier Allgemeines aufführen
+
+\subsection{Bestimmung der Grenzfrequenzen aus den Durchlasskurven}
+Um die Grenzfrequenzen aus dem Verlauf der Durchlasskurven zu ermitteln, wurden jeweils sechs
+Frequenzen mit dem zugehörigen Abstand $x$ zum gewählten Nullpunkt aufgezeichnet. Die Messwerte
+sind in Tabelle \ref{tab: sweep_LC} aufgeführt. Diese Referenzpunkte ermöglichen einen Fit an eine Funktion der Form:
+\begin{equation}
+  \nu(x) = A \cdot \exp(B\cdot x) + C
+  \label{eq: exp_fit}
+\end{equation}
+\FloatBarrier
+\input{../Messdaten/tabs/sweep_LC.tex}
+Für die LC-Kette ergeben sich folgende Parameter:
+\begin{align}
+  \begin{aligned}
+    A\ua{LC} &= \SI{1.9(4)e4}{\hertz}\\
+    B\ua{LC} &= \SI{0.079(8)}{\cm^{-1}}\\
+    C\ua{LC} &= \SI{7(5)e3}{\hertz}
+  \end{aligned}
+  \label{eq: params_LC}
+\end{align}
+Die Messwerte, sowie der Verlauf des Fits sind in Abbildung \ref{fig: plot_sweep_LC} dargestellt. Zusammen
+mit dem Abstand $x\ua{G} = \SI{10.2(5)}{cm}$, der auf dem Millimeterpapier abgelesen wurde, ergibt sich
+für die Grenzfrequenz:
+\begin{equation}
+  \nu\ua{G, exp}\SI{5.1(11)e4}{\hertz}
+  \label{eq: nu_g_LC}
+\end{equation}
+Mit Formel \eqref{eq: } und den Apparaturkonstanten ergibt sich der zugehörige theoretische Wert $\nu\ua{G, th}$, sowie die
+mittlere prozentuale Abweichung $d\ua{LC}$ des experimentell bestimmten Wertes zu:
+\begin{align}
+  \nu\ua{G, th} &= \SI{5.13e4}{\hertz} \\
+  d\ua{LC} &= 1 \%
+\end{align}
+\FloatBarrier
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.8\textwidth]{../Messdaten/plots/frequenzsweep_LC.pdf}
+  \caption{LC-Kette, Gemessene Referenzwerte des Frequenzssweeps und exponentieller Fit}
+  \label{fig: plot_sweep_LC}
+\end{figure}
+Auf analoge Weise sollen nun die beiden Grenzfrequenzen der $LC_1C_2$-Kette bestimmt werden. Die Referenzwerte
+des Sweeps sind in Tabelle \ref{tab: sweep_LC1C2} einzusehen.
+\FloatBarrier
+\input{../Messdaten/tabs/sweep_LC1C2.tex}
+Für die Fit-Parameter wurden folgende Werte berechnet:
+\begin{align}
+  \begin{aligned}
+    A\ua{LC_1C_2} &= \SI{2.0(5)e4}{\hertz}\\
+    B\ua{LC_1C_2} &= \SI{0.078(11)}{\cm^{-1}}\\
+    C\ua{LC_1C_2} &= \SI{6(7)e3}{\hertz}
+  \end{aligned}
+  \label{eq: params_LC1C2}
+\end{align}
+Die Messwerte, sowie der Verlauf des Fits sind in Abbildung \ref{fig: plot_sweep_LC1C2} dargestellt.
+Aus dem zur unteren Grenzfrequenz \eqref{eq: } gehörenden Abstand $x\ua{u} = \SI{6.5(1)}{\cm}$ ergibt sich die Frequenz:
+\begin{equation}
+  \nu\ua{G, u, exp} = \SI{4.0(11)e4}{\hertz}
+\end{equation}
+Die obere Grenzfrequenz \eqref{eq: } berechnet sich mit $x\ua{o} = \SI{10.7(1)}{\cm}$ zu:
+\begin{equation}
+    \nu\ua{G, o, exp} = \SI{5.3(15)e4}{\hertz}
+\end{equation}
+Hiermit können die mittleren prozentualen Abweichungen von den Theoriewerten bestimmt werden.
+\begin{align}
+  \nu\ua{G,u,th} &= \SI{3.63e4}{\hertz}\\
+  d\ua{LC_1C_2,u} &= 11 \%\\
+  \nu\ua{G,o,th} &= \SI{5.55e4}{\hertz}\\
+  d\ua{LC_1C_2, o} &= 4 \%
+\end{align}
+\FloatBarrier
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.8\textwidth]{../Messdaten/plots/frequenzsweep_LC1C2.pdf}
+  \caption{$LC_1C_2$-Kette, Gemessene Referenzwerte des Frequenzssweeps und exponentieller Fit}
+  \label{fig: plot_sweep_LC1C2}
+\end{figure}
+\newpage
+\subsection{Dispersionskurven}
+Die gemäß \eqref{eq: } und \eqref{eq: } berechneten Dispersionskurven sind in den Abbildungen \ref{fig: dispersion_LC} und \ref{fig: dispersion_LC1C2}
+dargestellt. Die gemessenen Frequenzen $\nu$ bei den Gesamtphasenverschiebungen, deren Betrag ein Vielfaches von $\pi$ beträgt,
+sind in Tabelle \ref{tab: dispersion_LC} und \ref{tab: dispersion_LC1C2} aufgeführt. Hierbei wurde die Gesamtphasenverschiebung direkt durch die
+Anzahl der Kettenglieder $n = 16$ geteilt, um die Phasenverschiebung pro Glied zu erhalten. Im Falle der $LC_1C_2$-Kette
+wurden Ergebnisse mit $\theta > \pi/2$ so interpretiert, sodass sie gemäß der Periodizität der Funktion \eqref{eq: } im Intervall
+$[0, \pi/2]$ liegen. Die Wertepaare wurden ebenfalls in den Abbildungen \ref{fig: dispersion_LC} und \ref{fig: dispersion_LC1C2} visualisiert.
+\input{tabs/eigenfrequenzen_dispersion_LC.tex}
+\input{tabs/eigenfrequenzen_dispersion_LC1C2.tex}
 
 \begin{figure}
   \centering
-  \includegraphics[width = \textwidth]{../Messdaten/plots/dispersion1.pdf}
-  \caption{Eins \cite{anleitung356}}
-  \label{fig: }
+  \includegraphics[width = 0.8\textwidth]{../Messdaten/plots/dispersion.pdf}
+  \caption{LC-Kette, Verlauf der theoretischen Dispersionskurve und gemessene Werte}
+  \label{fig: dispersion_LC}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.8\textwidth]{../Messdaten/plots/dispersion1.pdf}
+  \caption{$LC_1C_2$-Kette, Verlauf der theoretischen Dispersionskurve und gemessene Werte}
+  \label{fig: dispersion_LC1C2}
+\end{figure}
+\FloatBarrier
+
+
+\subsection{Bestimmung der Phasengeschwindigkeit}
+Die gemessenen Eigenfrequenzen, die die Spannung am Anfang bzw. Ende der beiderseits
+offenen Kette maximal werden lassen, sind in Tabelle \ref{tab: v_phase} eingetragen. Analog zum
+voran gegangenen Abschnitt wurden ihnen die Phasenverschiebungen pro Kettenglied $\theta$
+zugeordnet. Aus dem Quotienten $\nu / \theta$ ergeben sich die Phasengeschwindigkeiten $v\ua{ph}$.
+Die Wertepaare aus Phasengeschwindigkeit und zugehöriger Frequenz, sowie die gemäß \eqref{eq: } berechnete
+Theoriekurve sind in Abbildung \ref{fig: v_phase} dargestellt.
+\input{tabs/v_phase_LC.tex}
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.8\textwidth]{../Messdaten/plots/v_phase.pdf}
+  \caption{Verlauf der Phasengeschwindigkeit in Relation zur Frequenz}
+  \label{fig: v_phase}
 \end{figure}
