@@ -1,5 +1,5 @@
 \section{Das Trägheitsmoment eines Kegels}
-Es soll das Trägheitsmoment eines Kegels (homogene Massenverteilung, Radius $R$ und Höhe $H$) um die z-Achse bestimmt werden.
+Es soll das Trägheitsmoment eines Kegels (homogene Massenverteilung, Radius $R$ und Höhe $H$) bei einer Drehung um die z-Achse bestimmt werden.
 Wir starten mit der allgemeinen Formel für das Trägheitsmoment:
 \begin{equation}
 \label{eq:trag}
@@ -12,11 +12,11 @@ Da ein Kegel eine Zylindersymmetrie aufweißt, nutzen wir Zylinderkoordinaten:
 \vec{r}=\begin{pmatrix} r\cos(\phi) \\ r\sin(\phi) \\ z \end{pmatrix}
 \end{equation*}
 
-Die Koordinaten werden in $r_{\perp}^2$ eingesetz und es ergibt sich
+Die Koordinaten werden in $r_{\perp}^2$ eingesetz:
 \begin{equation*}
 r_{\perp}^2=\left(r\cos(\phi)\right)^2+\left(r\sin(\phi)\right)^2=r^2
 \end{equation*}
-Nun muss noch eine Bedingung für $z(r)$ oder für $r(z)$ gefunden werden.
+Nun muss noch eine Bedingung für $z(r)$ bzw. für $r(z)$ gefunden werden.
 
 \subsection{Methode A}
 Bei Methode A sei z abhängig vom Radius mit $z=\frac{rH}{R} \quad \Leftrightarrow \quad r=\frac{zR}{H}$ (bei $r=0$ ist $z=0$ und bei $r=R$ ist $z=H$). Wenn wir jetzt in \eqref{eq:trag} einsetzen erhalten wir:
@@ -28,25 +28,25 @@ JD ist die Jacobi Determinante.
 Wir müssen jetzt noch $ r=\frac{hR}{H}$ einsetzen (damit der Satz von Fubini nicht verletzt wird):
 
 \begin{equation*}
-I=\rho int_{0}^{2\pi}\int_{0}^{R}\int_{0}^{\frac{rH}{R}} \frac{z^3R^3}{H^3} \dv{z}\dv{r}\dv{\phi}
+I=\rho \int_{0}^{2\pi}\int_{0}^{R}\int_{0}^{\frac{rH}{R}} \frac{z^3R^3}{H^3} \dv{z}\dv{r}\dv{\phi}
 \end{equation*}
 Das integrieren wir jetzt:
 
 \begin{align*}
 I=\rho 2\pi \int_{0}^{R}\left[\frac{1}{4}z^4\frac{R^3}{H^3}\right]_{z=0}^{z=\frac{rH}{R}}\dv{r}&=\rho \frac{1}{2}\pi \int_{0}^{R} r^4\frac{H}{R}\dv{r}\\
-&=\rho \frac{1}{2}\pi \frac{1}{5}H R^4s\\
+&=\rho \frac{1}{2}\pi \frac{1}{5}H R^4\\
 \intertext{Mit $\rho=\frac{M}{V}=\frac{3M}{\pi R^2H}$ folgt}
 &=\frac{3}{10}MR^2
 \end{align*}
 
 \subsection{Methode B}
 Bei Methode B sei r abhängig von z mit $r=\frac{zR}{H}$. 
-Wir setzen wieder in 
+Es wird wieder in \eqref{eq:trag} eingesetzt:
 
 \begin{equation*}
 I=\rho\int_{V} r^2 \dv{V}=\rho \int_{0}^{2\pi}\int_{0}^{H}\int_{0}^{\frac{zH}{R}} \underset{\text{JD}}{r}r^2\dv{r}\dv{z}\dv{\phi}
 \end{equation*}
-ein. Dieses Mal müssen wir aber nichts für $r$ ersetzen.
+Dieses Mal muss $r$ nicht ersetzen werden.
 Wir lösen das Integral mit:
 
 \begin{align*}
@@ -57,6 +57,6 @@ I=\rho 2\pi \int_{0}^{H}\left[\frac{1}{4}r^4\right]_{r=0}^{r=\frac{zR}{H}}\dv{z}
 \end{align*}
 
 \begin{center}
-Methode A ist, auf Grund der extra substitution, nicht zu empfehlen.
-Macht es lieber so, wie in Methode B
+Methode A ist, auf Grund der zusätzlichen substitution, nicht zu empfehlen.
+Benutzt lieber Methode B.
 \end{center}
