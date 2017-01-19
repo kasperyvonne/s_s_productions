@@ -77,7 +77,7 @@ Es gibt also zwei verschiedene Kreisfrequenzen $\omega_1$ und $\omega_2$.
 Trägt man beide Frequenz in einem Diagramm auf (in Abhängigkeit von $\theta$) so ergeben sich 
 zwei Kurven (vgl. Abbildung \ref{}). 
 Zunächst soll die Lösung $\omega_2$ besprochen werden.
-Wird diese bei $\theta=0$ betrachtet ist $\omega=0$.
+Wird diese bei $\theta=0$ betrachtet ist ebenso $\omega=0$.
 Mit der Näherung $\sin(\theta)\approx\theta$ ergibt dann
 
 \begin{equation}
@@ -123,4 +123,28 @@ Dabei geht die Phasengescchwindigkeit im Grenzfall
 \lim_{\omega\to 0}v\ua{ph}=\frac{1}{\sqrt{LC}}
 \end{equation*}
 
-\subsection{Der Widerstand einer unendlich langen Kette}
+\subsection{Der Widerstand einer unendlichen langen Kette}
+Da es sich bei der Kettenschaltung um eine reale Schaltung handelt
+besitzt diese einen elektrischen Widerstand $R$.
+Der Widerstand kann mittels der Eingangspannung $U_0$ und dem Strom $I_0$ bestimmit werden.
+Dazu wird zunächst mit der Kirchhoffschen Knotregel gearbeitet (vgl. Abbildung \ref{}).
+Mit dieser erhält man
+\begin{equation*}
+I_0 - \map{i}\omega\frac{C}{2}U_0+\frac{U_1-U_0}{\map{i}\omega L}=0
+\end{equation*}
+Es sei $\map{i}$ das komplexe i.
+Mit dem ohmschen Gesetz erhält man letzendlich
+
+\begin{equation}
+R(\omega)=Z(\omega)=\sqrt{\frac{L}{C}}\frac{1}{\sqrt{1-\frac{1}{4}\omega^2LC}}
+\end{equation}
+Es ist üblich $R$ bzw. $Z$ als frequenzabhängigen Wellenwiderstand zu bezeichnen.
+Für den Fall einer unendlich langen Kette wäre der Wiederstand rein reell, dass bedeutet 
+das es zu keinem Zeiptunkt weder zu einer Phasenverschiebung kommmt noch zu einer Reflexion entsteht.
+Durch einen Abschlusswiederstand am Ender der Kette ist dieser Zustand auch bei einer endlichen Kette 
+realisierbar. Der Abschlusswiederstand muss dann lediglich den Betrag $Z$ besitzen.
+Zwar ist $Z$ frequenzabhängig, doch bei Frequenzen weit unter der Grenzfrequenz, ist 
+$Z\approx \sqrt{\frac{L}{C}}$.
+
+\subsection{Eigenschaften einer endlichen Kette}
+ 
