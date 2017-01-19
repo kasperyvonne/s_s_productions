@@ -1,4 +1,4 @@
-d\setcounter{page}{1}
+\setcounter{page}{1}
 \section*{Zielsetzung}
 Die Untersuchng einer Kettenschaltung von LC-Gliedern lässt sich mit der Analogie  
 zu einem eindimensionalen Festköper motivieren.
@@ -10,7 +10,14 @@ Festköpers.
 \subsection{Bestimmung der Schwingungsgleichungen für eine $LC$-Kette}
 Die Schwingungsgleichung werden mit der Kirchhoffschen Regel aufgestellt.
 Zunäschst wird mittels der ersten Kirchhoffschen Regel die Stöme für ein Kettenglied $n$ 
-bestimmt (vgl. Abbildung \ref{}):
+bestimmt (vgl. Abbildung \ref{fig:kettenglied}):
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{bilder/stöme_und_spannnungen_lc.png}
+  \caption{Kettenglied $n$}
+  \label{fig:kettenglied}
+\end{figure}
 
 \begin{equation}
 \label{eq:kircheins_lc}
@@ -48,7 +55,16 @@ die Formel maximal im Intervall:
 \subsection{Bestimmung der Schwingungsgleichungen für eine $LC_1C_2$-Kette}
 Im Gegensatz zum vorherigen Kapitel, werden bei diesem Aufbau zwei unterschieldiche 
 Kondensatoren $C_1$ und $C_2$ verwendet. Dabei werden die Kondensatoren immer
-immmer alternierend geschaltet (vgl. Abbidldung \ref{}).
+immmer alternierend geschaltet (vgl. Abbidldung \ref{fig:alternierende_kette}).
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{bilder/alternierende_kette.png}
+  \caption{$C_1C_2$ Kette}
+  \label{fig:alternierende_kette}
+\end{figure}
+
+
 Aufgrund dessen muss \eqref{eq:gleichung_lc} zu dem Gleichungssystem
 
 \begin{align}
@@ -75,7 +91,7 @@ Das Resultat lautet
 
 Es gibt also zwei verschiedene Kreisfrequenzen $\omega_1$ und $\omega_2$.
 Trägt man beide Frequenz in einem Diagramm auf (in Abhängigkeit von $\theta$) so ergeben sich 
-zwei Kurven (vgl. Abbildung \ref{}). 
+zwei Kurven (vgl. Abbildung \ref{fig: dispersion_LC1C2}). 
 Zunächst soll die Lösung $\omega_2$ besprochen werden.
 Wird diese bei $\theta=0$ betrachtet ist ebenso $\omega=0$.
 Mit der Näherung $\sin(\theta)\approx\theta$ ergibt dann
@@ -127,7 +143,15 @@ Dabei geht die Phasengescchwindigkeit im Grenzfall
 Da es sich bei der Kettenschaltung um eine reale Schaltung handelt
 besitzt diese einen elektrischen Widerstand $R$.
 Der Widerstand kann mittels der Eingangspannung $U_0$ und dem Strom $I_0$ bestimmit werden.
-Dazu wird zunächst mit der Kirchhoffschen Knotregel gearbeitet (vgl. Abbildung \ref{}).
+Dazu wird zunächst mit der Kirchhoffschen Knotregel gearbeitet (vgl. Abbildung \ref{fig:bestimmung_impe}).
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{bilder/eigenimpendanz.png}
+  \caption{Spannungen un Ströme in der $LC$-Kette}
+  \label{fig:bestimmung_impe}
+\end{figure}
+
+
 Mit dieser erhält man
 \begin{equation*}
 I_0 - \map{i}\omega\frac{C}{2}U_0+\frac{U_1-U_0}{\map{i}\omega L}=0
@@ -150,7 +174,14 @@ $Z\approx \sqrt{\frac{L}{C}}$.
 Je nach Endwiderstand $r$ kann es bei einer endlichen Kette 
 zu Wellenreflexion kommen. In der Kette kann es dann
 zu Überlagerung kommen, sogar stehende Wellen sind möglich.
-Für die Spannung bzw. Stromstärken am Kettenende (vgl. Bild \ref{}) gilt
+Für die Spannung bzw. Stromstärken am Kettenende (vgl. Bild \ref{fig:kettenende}) gilt
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{bilder/wellenwiderstand.png}
+  \caption{Kettenende}
+  \label{fig:kettenende}
+\end{figure}
 
 \begin{equation*}
 U\ua{R}=U\ua{E}+U\ua{ref} \qquad I\ua{R}=I\ua{E}+I\ua{ref}
