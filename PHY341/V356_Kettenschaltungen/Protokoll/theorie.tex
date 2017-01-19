@@ -24,9 +24,10 @@ Mit diesem Ansatz erhält man dann die Gleichung:
 -\omega^2CU\ua{n}+\frac{1}{L}\left(-U\ua{n-1}+2U\ua{n}-U\ua{n+1}\right)
 \end{equation}
 Gelöst wird die Gleichung mit
-\begin{equation*}
-U_n(t)=U_0\map{e}^{j\omgea t}\map{e}^{-jn\theta t}.
-\end{equation*}
+\begin{equation}
+\label{eq:loesung_gleichung_lc}
+U_n(t)=U_0 \map{e}^{j\omega t} \map{e}^{-jn\theta t}.
+\end{equation}
 Es sei hierbei $\omega$ die Kreisfrequenz und $\theta$ die Phasenverschiebung 
 die durch ein Kettenglied verursacht wird.
 Für die Kreisfrequenz ergibt sich die Dispersionsrelation:
@@ -69,11 +70,57 @@ Diese Gleichung kann dan nach $\omega^2$ aufgelöst werden.
 Das Resultat lautet
 \begin{equation}
 \label{eq:omgea_ceins_czwei}
-\omega_{1,2}^{2}=\frac{1}{L}\left(\frac{1}{C_1}+\frac{1}{C_2}\right)\pm\frac{1}{L}\sqrt{\left(\frac{1}{C_1}+\fac{1}{C_2}\right)-\frac{4\sin^2(\theta)}{C_1C_2}}.
+\omega_{1,2}^{2}=\frac{1}{L}\left(\frac{1}{C_1}+\frac{1}{C_2}\right)\pm\frac{1}{L}\sqrt{\left(\frac{1}{C_1}+\frac{1}{C_2}\right)-\frac{4\sin^2(\theta)}{C_1C_2}}.
 \end{equation}
 
 Es gibt also zwei verschiedene Kreisfrequenzen $\omega_1$ und $\omega_2$.
 Trägt man beide Frequenz in einem Diagramm auf (in Abhängigkeit von $\theta$) so ergeben sich 
 zwei Kurven (vgl. Abbildung \ref{}). 
+Zunächst soll die Lösung $\omega_2$ besprochen werden.
+Wird diese bei $\theta=0$ betrachtet ist $\omega=0$.
+Mit der Näherung $\sin(\theta)\approx\theta$ ergibt dann
 
+\begin{equation}
+\label{eq:omgea_2_lceins_czwei}
+\omega_2\approx\sqrt{\frac{2}{L\left(C_1+C_2\right)}}\theta.
+\end{equation}
+Die Nullstelle von \eqref{eq:omgea_2_lceins_czwei} liegt im Nullpunkt $\theta=0$.
+Für $\theta>0$ wächst die kurve monoton an und erreicht bei $\omega_2(\frac{\pi}{2})=\sqrt{\frac{2}{LC_1}}$
+ihr Maximum.
+Für $\omega_1$ beläuft sich die Lösung bei $\theta=0$ auf
+\begin{equation*}
+\omega_1(0)\approx\sqrt{\frac{2(C_1+C_2)}{LC_1C_2}}
+\end{equation*}
+Auch $\omega_1$ besitzt ein Maximum mit
 
+\begin{equation}
+\label{eq:max_omega_1_ceins_czwei}
+\omega_1(\frac{\pi}{2})=\sqrt{\frac{2}{LC_2}}
+\end{equation}
+Da die beiden Maxima unterschieldich Groß sind, gibt es einen Frequenzbereich
+in dem die Kettenschaltung keinen Strom durchlässt.
+\subsection{Ausbreitungsgeschwindigkeit von Wellen in eienr Kettenschaltung}
+Bei einer allgeimeinen Welle in der Form \eqref{eq:loesung_gleichung_lc}
+ergibt sich für Ausbreitungsgeschwindigkeit gleicher Phasen
+\begin{equation*}
+v\ua{ph}=\frac{\omega}{\theta}.
+\end{equation*}
+Es wird $v\ua{ph}$ als Phasengeschwindigkeit bezeichnet.
+Die Zeitabhängigkeit der Phasengeschwindigkeit ist durch $\omega=\map{const}$ 
+für alle Zeiten $t$ festgelegt. Wellen die sich mit der Phasengeschwindigkeit
+ausbreiten sind, aufgrund ihrer Unbeschränktheit in Raum und Zeit, nicht zu
+Informationsübermittlung genutzt werden. Dazu benötigt man Wellenpakete die sich 
+mit der Gruppengeschwindigkeit ausbreiten. Auf diese wird hier nicht eingegangen.
+Speziell für den versuch ergibt sich als Phasengeschwindigkeit:
+
+\begin{equation}
+\label{eq:phasen_esc}
+v\ua{ph}=\frac{\omega}{\theta}=\frac{\omega}{\arccos\!\left(1-\frac{1}{2}\omega^2LC\right)}
+\end{equation}
+Dabei geht die Phasengescchwindigkeit im Grenzfall
+
+\begin{equation*}
+\lim_{\omega\to 0}v\ua{ph}=\frac{1}{\sqrt{LC}}
+\end{equation*}
+
+\subsection{Der Widerstand einer unendlich langen Kette}
