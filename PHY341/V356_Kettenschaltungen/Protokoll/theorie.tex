@@ -9,7 +9,7 @@ Festköpers.
 
 \subsection{Bestimmung der Schwingungsgleichungen für eine $LC$-Kette}
 Die Schwingungsgleichung werden mit der Kirchhoffschen Regel aufgestellt.
-Zunäschst wird mittels der ersten Kirchhoffschen Regel die Stöme für ein Kettenglied $n$ 
+Zunäschst wird mittels der ersten Kirchhoffschen Regel die Ströme für ein Kettenglied $n$ 
 bestimmt (vgl. Abbildung \ref{fig:kettenglied}):
 
 \begin{figure}
@@ -24,17 +24,18 @@ bestimmt (vgl. Abbildung \ref{fig:kettenglied}):
 I_n-I_{n+1}-I_{n,\map{quer}}=0
 \end{equation}
 
-Mit diesem Ansatz erhält man dann die Gleichung:
+Der Ansatz führt auf die Gleichung:
 
 \begin{equation}
 \label{eq:gleichung_lc}
 -\omega^2CU\ua{n}+\frac{1}{L}\left(-U\ua{n-1}+2U\ua{n}-U\ua{n+1}\right)
 \end{equation}
-Gelöst wird die Gleichung mit
+Diese wird durch 
 \begin{equation}
 \label{eq:loesung_gleichung_lc}
-U_n(t)=U_0 \map{e}^{j\omega t} \map{e}^{-jn\theta t}.
+U_n(t)=U_0 \map{e}^{j\omega t} \map{e}^{-jn\theta t}
 \end{equation}
+gelöst.
 Es sei hierbei $\omega$ die Kreisfrequenz und $\theta$ die Phasenverschiebung 
 die durch ein Kettenglied verursacht wird.
 Für die Kreisfrequenz ergibt sich die Dispersionsrelation:
@@ -44,8 +45,7 @@ Für die Kreisfrequenz ergibt sich die Dispersionsrelation:
 \omega^2=\frac{2}{LC}\left(1-\cos(\theta)\right)
 \end{equation}
 
-Da \eqref{eq:kreisfrequenz_lc_glied} nur für endlich viele Kettenglieder definert ist, kann
-die Formel maximal im Intervall:
+Da \eqref{eq:kreisfrequenz_lc_glied} nur für endlich viele Kettenglieder definert ist, liegt $\omega$ maximal im Intervall:
 
 \begin{equation}
 \label{eq:menge_omega_lc_glied}
@@ -53,9 +53,9 @@ die Formel maximal im Intervall:
 \end{equation}
 
 \subsection{Bestimmung der Schwingungsgleichungen für eine $LC_1C_2$-Kette}
-Im Gegensatz zum vorherigen Kapitel, werden bei diesem Aufbau zwei unterschieldiche 
-Kondensatoren $C_1$ und $C_2$ verwendet. Dabei werden die Kondensatoren immer
-immmer alternierend geschaltet (vgl. Abbidldung \ref{fig:alternierende_kette}).
+Im Gegensatz zum vorherigen Kapitel, werden bei diesem Aufbau zwei unterschiedliche 
+Kondensatoren $C_1$ und $C_2$ verwendet. Die Kondensatoren werden
+alternierend hintereinander geschaltet (vgl. Abbidldung \ref{fig:alternierende_kette}).
 
 \begin{figure}
   \centering
@@ -77,8 +77,7 @@ Aufgrund dessen muss \eqref{eq:gleichung_lc} zu dem Gleichungssystem
 angepasst werden.
 Folglich ergeben sich die gleichen Lösungen wie bei \eqref{eq:gleichung_lc}
 lediglich einmal mit $2n$ und einmal mit $2n+1$.
-Durch anweden der Cramerschen Regel kann auf die Kreisfrequenz bestimmt 
-zu:
+Durch anweden der Cramerschen Regel kann auf die Kreisfrequenz geschlossen werden:
 \begin{equation*}
 \omega^4-\omega^2\frac{2}{L}\left(\frac{1}{C_1}+\frac{1}{C_2}\right)+\frac{4}{L^2C_1C_2}\left(1-\cos^2(\theta)\right)=0
 \end{equation*}
@@ -90,11 +89,11 @@ Das Resultat lautet
 \end{equation}
 
 Es gibt also zwei verschiedene Kreisfrequenzen $\omega_1$ und $\omega_2$.
-Trägt man beide Frequenz in einem Diagramm auf (in Abhängigkeit von $\theta$) so ergeben sich 
+Trägt man beide Frequenz in einem Diagramm auf so ergeben sich 
 zwei Kurven (vgl. Abbildung \ref{fig: dispersion_LC1C2}). 
 Zunächst soll die Lösung $\omega_2$ besprochen werden.
 Wird diese bei $\theta=0$ betrachtet ist ebenso $\omega=0$.
-Mit der Näherung $\sin(\theta)\approx\theta$ ergibt dann
+Mit der Näherung $\sin(\theta)\approx\theta$ ergibt sich dann
 
 \begin{equation}
 \label{eq:omgea_2_lceins_czwei}
@@ -102,21 +101,23 @@ Mit der Näherung $\sin(\theta)\approx\theta$ ergibt dann
 \end{equation}
 Die Nullstelle von \eqref{eq:omgea_2_lceins_czwei} liegt im Nullpunkt $\theta=0$.
 Für $\theta>0$ wächst die kurve monoton an und erreicht bei $\omega_2(\frac{\pi}{2})=\sqrt{\frac{2}{LC_1}}$
-ihr Maximum.
-Für $\omega_1$ beläuft sich die Lösung bei $\theta=0$ auf
+ihr Maximum. \newline
+Hingegen beläuft sich bei $\omega_1$ die Lösung an der Stelle $\theta=0$ auf
 \begin{equation*}
 \omega_1(0)\approx\sqrt{\frac{2(C_1+C_2)}{LC_1C_2}}
 \end{equation*}
-Auch $\omega_1$ besitzt ein Maximum mit
+Das Maximum von $\omgea_1$ beträgt
 
 \begin{equation}
 \label{eq:max_omega_1_ceins_czwei}
-\omega_1(\frac{\pi}{2})=\sqrt{\frac{2}{LC_2}}
+\omega_1(\frac{\pi}{2})=\sqrt{\frac{2}{LC_2}}.
 \end{equation}
-Da die beiden Maxima unterschieldich Groß sind, gibt es einen Frequenzbereich
-in dem die Kettenschaltung keinen Strom durchlässt.
+Aufgrund von dem Unterschied der beiden Maxima, gibt es einen Frequenzbereich in dem
+die Kettenschaltung undruchläsig wird. Dieser ist auch in auch in Abbildung \ref{fig: dispersion_LC1C2}
+zusehen.
+
 \subsection{Ausbreitungsgeschwindigkeit von Wellen in eienr Kettenschaltung}
-Bei einer allgeimeinen Welle in der Form \eqref{eq:loesung_gleichung_lc}
+Bei eine Welle in der Form \eqref{eq:loesung_gleichung_lc}
 ergibt sich für Ausbreitungsgeschwindigkeit gleicher Phasen
 \begin{equation*}
 v\ua{ph}=\frac{\omega}{\theta}.
@@ -124,56 +125,55 @@ v\ua{ph}=\frac{\omega}{\theta}.
 Es wird $v\ua{ph}$ als Phasengeschwindigkeit bezeichnet.
 Die Zeitabhängigkeit der Phasengeschwindigkeit ist durch $\omega=\map{const}$ 
 für alle Zeiten $t$ festgelegt. Wellen die sich mit der Phasengeschwindigkeit
-ausbreiten sind, aufgrund ihrer Unbeschränktheit in Raum und Zeit, nicht zu
-Informationsübermittlung genutzt werden. Dazu benötigt man Wellenpakete die sich 
-mit der Gruppengeschwindigkeit ausbreiten. Auf diese wird hier nicht eingegangen.
-Speziell für den versuch ergibt sich als Phasengeschwindigkeit:
+ausbreiten, sind aufgrund ihrer Unbeschränktheit in Raum und Zeit, nicht zur
+Informationsübermittlung geeignet. Hierzu benötigt man Wellenpakete die sich 
+mit der Gruppengeschwindigkeit ausbreiten. Auf diese hier nicht eingegangen.
+Speziell für den Versuch ergibt sich als Phasengeschwindigkeit:
 
 \begin{equation}
 \label{eq:phasen_esc}
 v\ua{ph}=\frac{\omega}{\theta}=\frac{\omega}{\arccos\!\left(1-\frac{1}{2}\omega^2LC\right)}
 \end{equation}
-Dabei geht die Phasengescchwindigkeit im Grenzfall
+Dabei geht die Phasengeschwindigkeit im Grenzfall in
 
 \begin{equation*}
 \lim_{\omega\to 0}v\ua{ph}=\frac{1}{\sqrt{LC}}
 \end{equation*}
 
+über.
 \subsection{Der Widerstand einer unendlichen langen Kette}
-Da es sich bei der Kettenschaltung um eine reale Schaltung handelt
+Da es sich bei der Kettenschaltung um eine, reale Schaltung handelt
 besitzt diese einen elektrischen Widerstand $R$.
 Der Widerstand kann mittels der Eingangspannung $U_0$ und dem Strom $I_0$ bestimmit werden.
-Dazu wird zunächst mit der Kirchhoffschen Knotregel gearbeitet (vgl. Abbildung \ref{fig:bestimmung_impe}).
+Dazu wird mittels der Kirchhoffschen Knotenregel (vgl. Abbildung \ref{fig:bestimmung_impe}).
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{bilder/eigenimpendanz.png}
   \caption{Spannungen un Ströme in der $LC$-Kette}
   \label{fig:bestimmung_impe}
 \end{figure}
-
-
-Mit dieser erhält man
 \begin{equation*}
 I_0 - \map{i}\omega\frac{C}{2}U_0+\frac{U_1-U_0}{\map{i}\omega L}=0
 \end{equation*}
+bestimmt.
 Es sei $\map{i}$ das komplexe i.
 Mit dem ohmschen Gesetz erhält man letzendlich
 
 \begin{equation}
-R(\omega)=Z(\omega)=\sqrt{\frac{L}{C}}\frac{1}{\sqrt{1-\frac{1}{4}\omega^2LC}}
+R(\omega)=Z(\omega)=\sqrt{\frac{L}{C}}\frac{1}{\sqrt{1-\frac{1}{4}\omega^2LC}}.
 \end{equation}
 Es ist üblich $R$ bzw. $Z$ als frequenzabhängigen Wellenwiderstand zu bezeichnen.
 Für den Fall einer unendlich langen Kette wäre der Wiederstand rein reell, dass bedeutet 
-das es zu keinem Zeiptunkt weder zu einer Phasenverschiebung kommmt noch zu einer Reflexion entsteht.
+das es zu keinem Zeiptunkt zu einer Phasenverschiebung noch zu einer Reflexion kommt.
 Durch einen Abschlusswiederstand am Ender der Kette ist dieser Zustand auch bei einer endlichen Kette 
-realisierbar. Der Abschlusswiederstand muss dann lediglich den Betrag $Z$ besitzen.
-Zwar ist $Z$ frequenzabhängig, doch bei Frequenzen weit unter der Grenzfrequenz, ist 
+realisierbar. Der Abschlusswiederstand muss dazu lediglich den Betrag $Z$ besitzen.
+Jedoch ist $Z$ frequenzabhängig, doch bei Frequenzen weit unter der Grenzfrequenz, ist 
 $Z\approx \sqrt{\frac{L}{C}}$.
 
 \subsection{Randverhalten einer endlichen Kette}
 Je nach Endwiderstand $r$ kann es bei einer endlichen Kette 
-zu Wellenreflexion kommen. In der Kette kann es dann
-zu Überlagerung kommen, sogar stehende Wellen sind möglich.
+zu Wellenreflexion kommen. In der Kette kommt es dann
+zu Überlagerung z. B. stehende Wellen kommen.
 Für die Spannung bzw. Stromstärken am Kettenende (vgl. Bild \ref{fig:kettenende}) gilt
 
 \begin{figure}
@@ -199,7 +199,7 @@ Somit ergibt sich das Verhältnis
 \frac{U\ua{ref}}{U\ua{e}}=\frac{r-Z}{r+Z}
 \end{equation*}
 
-Es gibt also drei Intereseante Sonderfälle:
+Es gibt drei intereseante Sonderfälle:
 
 \renewcommand{\labelenumi}{\alph{enumi})}
 \begin{enumerate}
@@ -209,7 +209,7 @@ Betrachten wir ein offenes Ende so ist $U\ua{ref}=U\ua{e}$ und die Welle wird am
 Bei diesem Fall ist $U\ua{ref}=U\ua{e}$. Zusätzlich kommt es bei der reflektierten Welle zu einem Phasensprung von $\pi$.}
 \item{ $r=Z$ \newline
 Ist der Abschlusswiederstand genauso groß wie der Wellenwiderstand, so wird eine unendlich lange Kette simuliert und 
-es gilt $U_{ref}=0$. Es wird also keine Welle reflektiert.}
+es gilt $U_{ref}=0$. Es kommt zu keiner Refelexion.}
 \end{enumerate}
 
 In allen anderen Fällen, kommt es zu Teilreflexionen.
