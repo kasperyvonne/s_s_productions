@@ -38,6 +38,9 @@ def omega2(theta):
 def f(x, A, B, C):
     return A * np.exp(B * x) + C
 
+def f_cos(x, A, B, C, D):
+    return A * np.cos(B*x + C) + D
+
 #Phasengeschwindigkeit
 def v_phase(nus):
     return 2 * np.pi * nus / ( np.arccos(1 - 0.5 * (2 * np.pi * nus)**2 * L.magnitude * C.magnitude) )
@@ -130,13 +133,28 @@ print('Prozentuale Abweichung: ', (frequenz_sweep_LC1C2(distance_f_g_o_LC1C2))/n
 eigenfrequenzen_offen = np.genfromtxt('eigenfrequenzen_offen.txt', unpack=True)
 range_lin = np.linspace(1, len(eigenfrequenzen_offen), len(eigenfrequenzen_offen))
 Phasenverschiebung_offen = np.pi * range_lin / 16
-Phasengeschwindigkeit = eigenfrequenzen_offen/Phasenverschiebung_offen
+Phasengeschwindigkeit = 2 * np.pi * eigenfrequenzen_offen/Phasenverschiebung_offen
 latex.Latexdocument('tabs/v_phase_LC.tex').tabular([Phasenverschiebung_offen, eigenfrequenzen_offen, Phasengeschwindigkeit],
 '{Phasenverschiebung $\\theta$} & {Frequenzen in $\si{\hertz}$} & {$v_{ph}$ in $\si{\meter\per\second}$}', [0, 0, 0],
 caption = 'Eigenfrequenzen der LC Kette und berechnete Phasengeschwindigkeiten', label = 'tab: v_phase')
 
 
-
+#stehende Wellen
+#nu1 = 5092 Hz
+messpunkte = np.linspace(1, 17, 17)
+print(messpunkte)
+spannungsverlauf_nu1 = np.genfromtxt('spannung_nu1.txt', unpack=True)
+#latex.Latexdocument('tabs/spannung_nu1.tex').tabular([messpunkte, spannungsverlauf_nu1],
+#'{Messpunkte} & {Spannung in $\si{\\volt}$}', [0, 2],
+#caption = 'Spannungsverlauf unter der Eigenfrequenz $\\nu_1$', label = 'tab: U_nu1')
+spannungsverlauf_nu2 = np.genfromtxt('spannung_nu2.txt', unpack=True)
+spannungsverlauf_geschlossen = np.genfromtxt('spannung_geschlossen.txt', unpack=True)
+latex.Latexdocument('tabs/spannung_nu1.tex').tabular([messpunkte, spannungsverlauf_nu1, spannungsverlauf_nu2, spannungsverlauf_geschlossen],
+'{Messpunkte} & {$U_{\\nu_1}$ in $\si{\\volt}$} & {$U_{\\nu_2}$ in $\si{\\volt}$} & {$U_{G}$ in $\si{\\volt}$ }', [0, 2, 2, 2],
+caption = 'Spannungsverläufe $U_{\\nu_1}$ und $U_{\\nu_2}$ unter den Eigenfrequenzen $\\nu_1$ und $\\nu_2$ bei der offenen LC-Kette; Spannungsverlauf $U_{G}$ der geschlossenen LC-Kette', label = 'tab: U_nu12')
+#params_nu1, covariance_nu1 = curve_fit(f_cos, messpunkte, spannungsverlauf_nu1)
+#params_nu2, covariance_nu2 = curve_fit(f_cos, messpunkte, spannungsverlauf_nu2)
+spannungsverlauf_geschlossen = np.genfromtxt('spannung_geschlossen.txt', unpack=True)
 
 
 #Theorieplots der Disperionsrelation
@@ -153,6 +171,44 @@ plt.xticks([0, np.pi/8, np.pi / 4, 3*np.pi/8 , np.pi/2, 5 * np.pi/8, 3*np.pi/4, 
 plt.legend(loc='best')
 plt.grid()
 plt.savefig('plots/dispersion.pdf')
+
+#stehende Wellen
+plt.clf()
+m_range = np.linspace(0, 18, 100)
+plt.plot(messpunkte, spannungsverlauf_nu1, 'bo', label='Messwerte')
+#plt.plot(m_range, f_cos(m_range, *params_nu1), 'b-')
+plt.grid()
+plt.legend(loc='best')
+plt.xlabel('Messpunkte')
+plt.ylabel('Spannung in V')
+plt.xlim(0.8, 17.2)
+plt.xticks(messpunkte, [int(i) for i in messpunkte], fontsize = 10)
+plt.ylim(0, 2)
+plt.savefig('plots/spannungsverlauf_nu1.pdf')
+
+plt.clf()
+plt.plot(messpunkte, spannungsverlauf_nu2, 'bo', label='Messwerte')
+#plt.plot(m_range, f_cos(m_range, *params_nu2), 'b-')
+plt.grid()
+plt.xlabel('Messpunkte')
+plt.ylabel('Spannung in V')
+plt.xticks(messpunkte, [int(i) for i in messpunkte], fontsize = 10)
+plt.xlim(0.8, 17.2)
+plt.ylim(-0.1, 2.5)
+plt.legend(loc='best')
+plt.savefig('plots/spannungsverlauf_nu2.pdf')
+
+plt.clf()
+plt.plot(messpunkte, spannungsverlauf_geschlossen, 'bo', label='Messwerte')
+#plt.plot(m_range, f_cos(m_range, *params_nu2), 'b-')
+plt.grid()
+plt.xlabel('Messpunkte')
+plt.ylabel('Spannung in V')
+plt.xticks(messpunkte, [int(i) for i in messpunkte], fontsize = 10)
+plt.xlim(0.8, 17.2)
+plt.ylim(0.35, 0.5)
+plt.legend(loc='best')
+plt.savefig('plots/spannungsverlauf_geschlossen.pdf')
 
 
 plt.clf()
@@ -173,7 +229,7 @@ plt.savefig('plots/dispersion1.pdf')
 
 plt.clf()
 plt.plot(nu(omega(theta)), v_phase(nu(omega(theta))), label='$v_{Ph}(\\nu)$' )
-plt.plot(eigenfrequenzen_offen, 2*np.pi*eigenfrequenzen_offen/Phasenverschiebung_offen, 'rx', label='Messwerte')
+plt.plot(eigenfrequenzen_offen, 2 * np.pi * eigenfrequenzen_offen/Phasenverschiebung_offen, 'rx', label='Messwerte')
 plt.ylabel('Phasengeschwindigkeit $v$ in $m/s$')
 plt.xlabel('Frequenz $\\nu$ in $1/s$')
 plt.xlim(eigenfrequenzen_offen[0]-1000, eigenfrequenzen_offen[-1]+1000)
@@ -182,14 +238,14 @@ plt.grid()
 plt.savefig('plots/v_phase.pdf')
 
 
-plt.clf()
-plt.plot( omega(theta), impedanz_plot(omega(theta)), label='$Z(\omega)$' )
-plt.ylabel('Impedanz $Z$')
-plt.xlabel('Kreisfrequenz $\omega$ in $1/s$')
-plt.xlim(omega(theta)[0], omega(theta)[-1])
-plt.legend(loc='best')
-plt.grid()
-plt.savefig('plots/impedanz.pdf')
+#plt.clf()
+#plt.plot( omega(theta), impedanz_plot(omega(theta)), label='$Z(\omega)$' )
+#plt.ylabel('Impedanz $Z$')
+#plt.xlabel('Kreisfrequenz $\omega$ in $1/s$')
+#plt.xlim(omega(theta)[0], omega(theta)[-1])
+#plt.legend(loc='best')
+#plt.grid()
+#plt.savefig('plots/impedanz.pdf')
 
 x_lim = np.linspace(x_range_LC[0]+2, x_range_LC[-1]-2, 100)
 plt.clf()

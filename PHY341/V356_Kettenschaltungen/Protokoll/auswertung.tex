@@ -116,3 +116,31 @@ Theoriekurve sind in Abbildung \ref{fig: v_phase} dargestellt.
   \caption{Verlauf der Phasengeschwindigkeit in Relation zur Frequenz}
   \label{fig: v_phase}
 \end{figure}
+
+
+\subsection{Untersuchung stehender Wellen}
+Für die ersten beiden Eigenfrequenzen $\nu_1 = \SI{5092}{\hertz}$ und $\nu_2 = \SI{10004}{\hertz}$ wurden
+die Spannungsverläufe $U_{\nu_1}$ und $U_{\nu_2}$ der offenen LC-Kette entlang der einzelnen Kettenglieder vermessen. Die Messwerte sind in Tabelle
+\ref{tab: U_nu12} einzusehen. Die Visualisierungen der einzelnen Verläufe befinden sich in den Abbildungen \ref{fig: U_nu1} und \ref{fig: U_nu2}.\par
+\input{../Messdaten/tabs/spannung_nu1.tex}
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.8\textwidth]{../Messdaten/plots/spannungsverlauf_nu1.pdf}
+  \caption{Verlauf der Spannung entlang der offenen LC-Kette unter der Frequenz $\nu_1$}
+  \label{fig: U_nu1}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.8\textwidth]{../Messdaten/plots/spannungsverlauf_nu2.pdf}
+  \caption{Verlauf der Spannung entlang der offenen LC-Kette unter der Frequenz $\nu_2$}
+  \label{fig: U_nu2}
+\end{figure}
+Bei der Frequenz $\nu\ua{G} = \SI{7762}{\hertz}$ wurde der Verlauf der Spannung der geschlossenen LC-Kette untersucht. Der Wellenwiderstand
+wurde gemäß \eqref{eq: } berechnet. Für die Frequenz $\omega = 0$ ergibt sich der Wert $Z(0) = 282.04$. Die entlang der Kette gemessenen
+Spannungen $U\ua{G}$ sind ebenfalls in Tabelle \ref{tab: U_nu12} aufgetragen. Ein Diagramm der Werte findet sich in Abbildung \ref{fig: U_G}
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.8\textwidth]{../Messdaten/plots/spannungsverlauf_geschlossen.pdf}
+  \caption{Verlauf der Spannung entlang der geschlossenen LC-Kette unter der Frequenz $\nu_G$}
+  \label{fig: U_G}
+\end{figure}
