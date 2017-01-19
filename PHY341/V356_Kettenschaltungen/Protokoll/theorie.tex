@@ -14,5 +14,66 @@ bestimmt (vgl. Abbildung \ref{}):
 
 \begin{equation}
 \label{eq:kircheins_lc}
-I\ua{n}-I\ua{n+1}-I\ua{n,quer}=0
+I_n-I_{n+1}-I_{n,\map{quer}}=0
 \end{equation}
+
+Mit diesem Ansatz erhält man dann die Gleichung:
+
+\begin{equation}
+\label{eq:gleichung_lc}
+-\omega^2CU\ua{n}+\frac{1}{L}\left(-U\ua{n-1}+2U\ua{n}-U\ua{n+1}\right)
+\end{equation}
+Gelöst wird die Gleichung mit
+\begin{equation*}
+U_n(t)=U_0\map{e}^{j\omgea t}\map{e}^{-jn\theta t}.
+\end{equation*}
+Es sei hierbei $\omega$ die Kreisfrequenz und $\theta$ die Phasenverschiebung 
+die durch ein Kettenglied verursacht wird.
+Für die Kreisfrequenz ergibt sich die Dispersionsrelation:
+
+\begin{equation}
+\label{eq:kreisfrequenz_lc_glied}
+\omega^2=\frac{2}{LC}\left(1-\cos(\theta)\right)
+\end{equation}
+
+Da \eqref{eq:kreisfrequenz_lc_glied} nur für endlich viele Kettenglieder definert ist, kann
+die Formel maximal im Intervall:
+
+\begin{equation}
+\label{eq:menge_omega_lc_glied}
+\omega\in\left[\,0,\frac{2}{\sqrt{LC}}\,\right)
+\end{equation}
+
+\subsection{Bestimmung der Schwingungsgleichungen für eine $LC_1C_2$-Kette}
+Im Gegensatz zum vorherigen Kapitel, werden bei diesem Aufbau zwei unterschieldiche 
+Kondensatoren $C_1$ und $C_2$ verwendet. Dabei werden die Kondensatoren immer
+immmer alternierend geschaltet (vgl. Abbidldung \ref{}).
+Aufgrund dessen muss \eqref{eq:gleichung_lc} zu dem Gleichungssystem
+
+\begin{align}
+\label{eq:lc1c2_gleichungsy}
+\begin{aligned}
+-\omega^2C_1U_{2n+1}+\frac{1}{L}\left(-U_{2n}+2U_{2n+1}-U_{2n+2}\right)\\
+-\omega^2C_2U_{2n}+\frac{1}{L}\left(-U_{2n-1}+2U_{2n}-U_{2n+2}\right)
+\end{aligned}
+\end{align}
+angepasst werden.
+Folglich ergeben sich die gleichen Lösungen wie bei \eqref{eq:gleichung_lc}
+lediglich einmal mit $2n$ und einmal mit $2n+1$.
+Durch anweden der Cramerschen Regel kann auf die Kreisfrequenz bestimmt 
+zu:
+\begin{equation*}
+\omega^4-\omega^2\frac{2}{L}\left(\frac{1}{C_1}+\frac{1}{C_2}\right)+\frac{4}{L^2C_1C_2}\left(1-\cos^2(\theta)\right)=0
+\end{equation*}
+Diese Gleichung kann dan nach $\omega^2$ aufgelöst werden.
+Das Resultat lautet
+\begin{equation}
+\label{eq:omgea_ceins_czwei}
+\omega_{1,2}^{2}=\frac{1}{L}\left(\frac{1}{C_1}+\frac{1}{C_2}\right)\pm\frac{1}{L}\sqrt{\left(\frac{1}{C_1}+\fac{1}{C_2}\right)-\frac{4\sin^2(\theta)}{C_1C_2}}.
+\end{equation}
+
+Es gibt also zwei verschiedene Kreisfrequenzen $\omega_1$ und $\omega_2$.
+Trägt man beide Frequenz in einem Diagramm auf (in Abhängigkeit von $\theta$) so ergeben sich 
+zwei Kurven (vgl. Abbildung \ref{}). 
+
+
