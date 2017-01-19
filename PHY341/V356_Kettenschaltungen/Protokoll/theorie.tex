@@ -146,5 +146,47 @@ realisierbar. Der Abschlusswiederstand muss dann lediglich den Betrag $Z$ besitz
 Zwar ist $Z$ frequenzabhängig, doch bei Frequenzen weit unter der Grenzfrequenz, ist 
 $Z\approx \sqrt{\frac{L}{C}}$.
 
-\subsection{Eigenschaften einer endlichen Kette}
- 
+\subsection{Randverhalten einer endlichen Kette}
+Je nach Endwiderstand $r$ kann es bei einer endlichen Kette 
+zu Wellenreflexion kommen. In der Kette kann es dann
+zu Überlagerung kommen, sogar stehende Wellen sind möglich.
+Für die Spannung bzw. Stromstärken am Kettenende (vgl. Bild \ref{}) gilt
+
+\begin{equation*}
+U\ua{R}=U\ua{E}+U\ua{ref} \qquad I\ua{R}=I\ua{E}+I\ua{ref}
+\end{equation*}
+
+Es ist $U\ua{E}/I\ua{E}$ die Spannung/Stromstärke der einfallenden und $U\ua{ref}/I\ua{ref}$ die Spannung der reflektierten 
+Welle. Besitzt der elektrische Aufbau nun den Wellenwiderstand $Z$ so folgt nach dem
+ohmschen Gestz
+\begin{equation*}
+I\ua{E}=\frac{U\ua{E}}{Z} \qquad I\ua{ref}=\frac{U\ua{ref}}{Z}.
+\end{equation*}
+Somit ergibt sich das Verhältnis
+
+\begin{equation*}
+\frac{U\ua{ref}}{U\ua{e}}=\frac{r-Z}{r+Z}
+\end{equation*}
+
+Es gibt also drei Intereseante Sonderfälle:
+
+\renewcommand{\labelenumi}{\alph{enumi})}
+\begin{enumerate}
+\item{ $r=\infty$ (offenens Ende) \newline
+Betrachten wir ein offenes Ende so ist $U\ua{ref}=U\ua{e}$ und die Welle wird am Kettenende ohne Phasensprung reflektiert.}
+\item{ $r=0$ (kurzgeschlossenes Ende) \newline
+Bei diesem Fall ist $U\ua{ref}=U\ua{e}$. Zusätzlich kommt es bei der reflektierten Welle zu einem Phasensprung von $\pi$.}
+\item{ $r=Z$ \newline
+Ist der Abschlusswiederstand genauso groß wie der Wellenwiderstand, so wird eine unendlich lange Kette simuliert und 
+es gilt $U_{ref}=0$. Es wird also keine Welle reflektiert.}
+\end{enumerate}
+
+In allen anderen Fällen, kommt es zu Teilreflexionen.
+Bei den Fällen $r=\infty$ und $r=0$ erfolgt eine Totalreflexion.
+Bildet sich im Schaltkreis eine stehende Welle aus, so bildet sich ein Spannungsbau genau dann aus, wenn
+\begin{equation}
+\label{eq:spannungsbauch}
+n\ua{max}\theta_k=k\pi \quad k=1,2,\dots,n\ua{max}
+\end{equation}
+Es sind im Schwingkrei somit maximal $n\ua{max}$ stehende Wellen möglich.
+Jede diese besitz eine zugehörige Frequenz $\omega_k$.
