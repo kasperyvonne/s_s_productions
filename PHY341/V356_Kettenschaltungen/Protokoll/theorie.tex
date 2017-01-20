@@ -1,15 +1,15 @@
 \setcounter{page}{1}
 \section*{Zielsetzung}
-Die Untersuchung einer Kettenschaltung von LC-Gliedern lässt sich mit der Analogie  
+Die Untersuchung einer Kettenschaltung von LC-Gliedern lässt sich mit der Analogie
 zu einem eindimensionalen Festköper motivieren.
-Der Versuch ermöglicht somit Einblicke in das Schwingverhalten eines 
+Der Versuch ermöglicht somit Einblicke in das Schwingverhalten eines
 Festköpers.
 
 \section{Theorie}
 
 \subsection{Bestimmung der Schwingungsgleichungen für eine $LC$-Kette}
 Die Schwingungsgleichung werden mit der Kirchhoffschen Regel aufgestellt.
-Zunächst wird mittels der ersten Kirchhoffschen Regel die Ströme für ein Kettenglied $n$ 
+Zunächst wird mittels der ersten Kirchhoffschen Regel die Ströme für ein Kettenglied $n$
 bestimmt (vgl. Abbildung \ref{fig:kettenglied}):
 
 \begin{figure}
@@ -30,13 +30,13 @@ Der Ansatz führt auf die Gleichung:
 \label{eq:gleichung_lc}
 -\omega^2CU\ua{n}+\frac{1}{L}\left(-U\ua{n-1}+2U\ua{n}-U\ua{n+1}\right)
 \end{equation}
-Diese wird durch 
+Diese wird durch
 \begin{equation}
 \label{eq:loesung_gleichung_lc}
 U_n(t)=U_0 \map{e}^{j\omega t} \map{e}^{-jn\theta t}
 \end{equation}
 gelöst.
-Es sei hierbei $\omega$ die Kreisfrequenz und $\theta$, die Phasenverschiebung 
+Es sei hierbei $\omega$ die Kreisfrequenz und $\theta$, die Phasenverschiebung
 die durch ein Kettenglied verursacht wird.
 Für die Kreisfrequenz ergibt sich die Dispersionsrelation:
 
@@ -45,7 +45,7 @@ Für die Kreisfrequenz ergibt sich die Dispersionsrelation:
 \omega^2=\frac{2}{LC}\left(1-\cos(\theta)\right)
 \end{equation}
 
-Da \eqref{eq:kreisfrequenz_lc_glied} nur für endlich viele Kettenglieder definert ist, liegt $\omega$ maximal im Intervall:
+Da \eqref{eq:kreisfrequenz_lc_glied} nur für endlich viele Kettenglieder definert ,ist, liegt $\omega$ maximal im Intervall:
 
 \begin{equation}
 \label{eq:menge_omega_lc_glied}
@@ -53,7 +53,7 @@ Da \eqref{eq:kreisfrequenz_lc_glied} nur für endlich viele Kettenglieder define
 \end{equation}
 
 \subsection{Bestimmung der Schwingungsgleichungen für eine $LC_1C_2$-Kette}
-Im Gegensatz zum vorherigen Kapitel, werden bei diesem Aufbau zwei unterschiedliche 
+Im Gegensatz zum vorherigen Kapitel, werden bei diesem Aufbau zwei unterschiedliche
 Kondensatoren $C_1$ und $C_2$ verwendet. Die Kondensatoren werden
 alternierend hintereinander geschaltet (vgl. Abbidldung \ref{fig:alternierende_kette}).
 
@@ -89,8 +89,8 @@ Das Resultat lautet
 \end{equation}
 
 Es gibt also zwei verschiedene Kreisfrequenzen $\omega_1$ und $\omega_2$.
-Trägt man beide Frequenzen in einem Diagramm auf so ergeben sich 
-zwei Kurven (vgl. Abbildung \ref{fig: dispersion_LC1C2}). 
+Trägt man beide Frequenzen in einem Diagramm auf so ergeben sich
+zwei Kurven (vgl. Abbildung \ref{fig: dispersion_LC1C2}).
 Zunächst soll die Lösung $\omega_2$ besprochen werden.
 Wird diese bei $\theta=0$ betrachtet ist ebenso $\omega=0$.
 Mit der Näherung $\sin(\theta)\approx\theta$ ergibt sich dann
@@ -123,10 +123,10 @@ ergibt sich für Ausbreitungsgeschwindigkeit gleicher Phasen
 v\ua{ph}=\frac{\omega}{\theta}.
 \end{equation*}
 Es wird $v\ua{ph}$ als Phasengeschwindigkeit bezeichnet.
-Die Zeitabhängigkeit der Phasengeschwindigkeit ist durch $\omega=\map{const}$ 
+Die Zeitabhängigkeit der Phasengeschwindigkeit ist durch $\omega=\map{const}$
 für alle Zeiten $t$ festgelegt. Wellen, die sich mit der Phasengeschwindigkeit
 ausbreiten, sind aufgrund ihrer Unbeschränktheit in Raum und Zeit, nicht zur
-Informationsübermittlung geeignet. Hierzu benötigt man Wellenpakete, die sich 
+Informationsübermittlung geeignet. Hierzu benötigt man Wellenpakete, die sich
 mit der Gruppengeschwindigkeit ausbreiten. Auf diese hier nicht eingegangen.
 Speziell für den Versuch ergibt sich als Phasengeschwindigkeit:
 
@@ -163,15 +163,15 @@ Mit dem ohmschen Gesetz erhält man letzendlich
 R(\omega)=Z(\omega)=\sqrt{\frac{L}{C}}\frac{1}{\sqrt{1-\frac{1}{4}\omega^2LC}}.
 \end{equation}
 Es ist üblich $R$ bzw. $Z$ als frequenzabhängigen Wellenwiderstand zu bezeichnen.
-Für den Fall einer unendlich langen Kette wäre der Widerstand rein reell, dass bedeutet 
+Für den Fall einer unendlich langen Kette wäre der Widerstand rein reell, dass bedeutet
 das es zu keinem Zeitpunkt zu einer Phasenverschiebung noch zu einer Reflexion kommt.
-Durch einen Abschlusswiderstand am Ende der Kette ist dieser Zustand auch bei einer endlichen Kette 
+Durch einen Abschlusswiderstand am Ende der Kette ist dieser Zustand auch bei einer endlichen Kette
 realisierbar. Der Abschlusswiderstand muss dazu lediglich den Betrag $Z$ besitzen.
-Jedoch ist $Z$ frequenzabhängig, doch bei Frequenzen weit unter der Grenzfrequenz, ist 
+Jedoch ist $Z$ frequenzabhängig, doch bei Frequenzen weit unter der Grenzfrequenz, ist
 $Z\approx \sqrt{\frac{L}{C}}$.
 
 \subsection{Randverhalten einer endlichen Kette}
-Je nach Endwiderstand $r$ kann es bei einer endlichen Kette 
+Je nach Endwiderstand $r$ kann es bei einer endlichen Kette
 zu Wellenreflexion kommen. In der Kette kommt es dann
 zu Überlagerung z. B. stehende Wellen kommen.
 Für die Spannung bzw. Stromstärken am Kettenende (vgl. Bild \ref{fig:kettenende}) gilt
@@ -187,7 +187,7 @@ Für die Spannung bzw. Stromstärken am Kettenende (vgl. Bild \ref{fig:kettenend
 U\ua{R}=U\ua{E}+U\ua{ref} \qquad I\ua{R}=I\ua{E}+I\ua{ref}
 \end{equation*}
 
-Es ist $U\ua{E}/I\ua{E}$ die Spannung/Stromstärke der einfallenden und $U\ua{ref}/I\ua{ref}$ die Spannung der reflektierten 
+Es ist $U\ua{E}/I\ua{E}$ die Spannung/Stromstärke der einfallenden und $U\ua{ref}/I\ua{ref}$ die Spannung der reflektierten
 Welle. Besitzt der elektrische Aufbau nun den Wellenwiderstand $Z$ so folgt nach dem
 ohmschen Gesetz
 \begin{equation*}
@@ -208,7 +208,7 @@ Betrachten wir ein offenes Ende so ist $U\ua{ref}=U\ua{e}$ und die Welle wird am
 \item{ $r=0$ (kurzgeschlossenes Ende) \newline
 Bei diesem Fall ist $U\ua{ref}=U\ua{e}$. Zusätzlich kommt es bei der reflektierten Welle zu einem Phasensprung von $\pi$.}
 \item{ $r=Z$ \newline
-Ist der Abschlusswiederstand genauso groß wie der Wellenwiderstand, so wird eine unendlich lange Kette simuliert und 
+Ist der Abschlusswiederstand genauso groß wie der Wellenwiderstand, so wird eine unendlich lange Kette simuliert und
 es gilt $U_{ref}=0$. Es kommt zu keiner Reflexion.}
 \end{enumerate}
 
