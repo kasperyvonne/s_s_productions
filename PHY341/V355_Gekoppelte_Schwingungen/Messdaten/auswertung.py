@@ -12,11 +12,11 @@ import latex
 u = UnitRegistry()
 Q_ = u.Quantity
 
-#umrechnung einheiten mit var.to('unit')
+# umrechnung einheiten mit var.to('unit')
 # Einheiten für pint:dimensionless, meter, second, degC, kelvin
-#beispiel:
+# beispiel:
 a = ufloat(5, 2) * u.meter
-b = Q_(unp.uarray([5,4,3], [0.1, 0.2, 0.3]), 'ohm')
+b = Q_(unp.uarray([5, 4, 3], [0.1, 0.2, 0.3]), 'ohm')
 c = Q_(0, 'degC')
 c.to('kelvin')
 #print(c.to('kelvin'))
@@ -30,10 +30,10 @@ c.to('kelvin')
 
 #variabel_1,variabel_2=np.genfromtxt('name.txt',unpack=True)
 
-#Standartabweichung und Mittelwert 
+#Standartabweichung und Mittelwert
 
 def mittel_und_abweichung(messreihe):
-	messreihe_einheit=messreihe.units
+    messreihe_einheit=messreihe.units
 	mittelwert=sum(messreihe)/len(messreihe)
 	abweichung_des_mittelwertes=1/((len(messreihe))**0.5)*np.std(messreihe)
 	mittel_und_abweichung=Q_(unp.uarray(mittelwert,abweichung_des_mittelwertes),messreihe_einheit)
@@ -74,7 +74,7 @@ def linregress(x, y):
     return A, A_error, B, B_error
 
 
-#Angepasstes Programm 
+#Angepasstes Programm
 ##Versuchskonstanten
 c=Q_(ufloat(0.7932 ,0),' nanofarad')
 c_sp=Q_(ufloat(0.028,0),'nanofarad')
