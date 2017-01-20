@@ -1,6 +1,6 @@
 \setcounter{page}{1}
 \section*{Zielsetzung}
-Die Untersuchng einer Kettenschaltung von LC-Gliedern lässt sich mit der Analogie  
+Die Untersuchung einer Kettenschaltung von LC-Gliedern lässt sich mit der Analogie  
 zu einem eindimensionalen Festköper motivieren.
 Der Versuch ermöglicht somit Einblicke in das Schwingverhalten eines 
 Festköpers.
@@ -9,7 +9,7 @@ Festköpers.
 
 \subsection{Bestimmung der Schwingungsgleichungen für eine $LC$-Kette}
 Die Schwingungsgleichung werden mit der Kirchhoffschen Regel aufgestellt.
-Zunäschst wird mittels der ersten Kirchhoffschen Regel die Ströme für ein Kettenglied $n$ 
+Zunächst wird mittels der ersten Kirchhoffschen Regel die Ströme für ein Kettenglied $n$ 
 bestimmt (vgl. Abbildung \ref{fig:kettenglied}):
 
 \begin{figure}
@@ -36,7 +36,7 @@ Diese wird durch
 U_n(t)=U_0 \map{e}^{j\omega t} \map{e}^{-jn\theta t}
 \end{equation}
 gelöst.
-Es sei hierbei $\omega$ die Kreisfrequenz und $\theta$ die Phasenverschiebung 
+Es sei hierbei $\omega$ die Kreisfrequenz und $\theta$, die Phasenverschiebung 
 die durch ein Kettenglied verursacht wird.
 Für die Kreisfrequenz ergibt sich die Dispersionsrelation:
 
@@ -77,11 +77,11 @@ Aufgrund dessen muss \eqref{eq:gleichung_lc} zu dem Gleichungssystem
 angepasst werden.
 Folglich ergeben sich die gleichen Lösungen wie bei \eqref{eq:gleichung_lc}
 lediglich einmal mit $2n$ und einmal mit $2n+1$.
-Durch anweden der Cramerschen Regel kann auf die Kreisfrequenz geschlossen werden:
+Durch anwenden der Cramerschen Regel kann auf die Kreisfrequenz geschlossen werden:
 \begin{equation*}
 \omega^4-\omega^2\frac{2}{L}\left(\frac{1}{C_1}+\frac{1}{C_2}\right)+\frac{4}{L^2C_1C_2}\left(1-\cos^2(\theta)\right)=0
 \end{equation*}
-Diese Gleichung kann dan nach $\omega^2$ aufgelöst werden.
+Diese Gleichung kann nach $\omega^2$ aufgelöst werden.
 Das Resultat lautet
 \begin{equation}
 \label{eq:omgea_ceins_czwei}
@@ -89,7 +89,7 @@ Das Resultat lautet
 \end{equation}
 
 Es gibt also zwei verschiedene Kreisfrequenzen $\omega_1$ und $\omega_2$.
-Trägt man beide Frequenz in einem Diagramm auf so ergeben sich 
+Trägt man beide Frequenzen in einem Diagramm auf so ergeben sich 
 zwei Kurven (vgl. Abbildung \ref{fig: dispersion_LC1C2}). 
 Zunächst soll die Lösung $\omega_2$ besprochen werden.
 Wird diese bei $\theta=0$ betrachtet ist ebenso $\omega=0$.
@@ -112,11 +112,11 @@ Das Maximum von $\omgea_1$ beträgt
 \label{eq:max_omega_1_ceins_czwei}
 \omega_1(\frac{\pi}{2})=\sqrt{\frac{2}{LC_2}}.
 \end{equation}
-Aufgrund von dem Unterschied der beiden Maxima, gibt es einen Frequenzbereich in dem
-die Kettenschaltung undruchläsig wird. Dieser ist auch in auch in Abbildung \ref{fig: dispersion_LC1C2}
+Aufgrund von dem Unterschied der beiden Maxima, gibt es einen Frequenzbereich, in dem
+die Kettenschaltung undruchlässig wird. Dieser ist auch in auch in Abbildung \ref{fig: dispersion_LC1C2}
 zusehen.
 
-\subsection{Ausbreitungsgeschwindigkeit von Wellen in eienr Kettenschaltung}
+\subsection{Ausbreitungsgeschwindigkeit von Wellen in einer Kettenschaltung}
 Bei eine Welle in der Form \eqref{eq:loesung_gleichung_lc}
 ergibt sich für Ausbreitungsgeschwindigkeit gleicher Phasen
 \begin{equation*}
@@ -124,9 +124,9 @@ v\ua{ph}=\frac{\omega}{\theta}.
 \end{equation*}
 Es wird $v\ua{ph}$ als Phasengeschwindigkeit bezeichnet.
 Die Zeitabhängigkeit der Phasengeschwindigkeit ist durch $\omega=\map{const}$ 
-für alle Zeiten $t$ festgelegt. Wellen die sich mit der Phasengeschwindigkeit
+für alle Zeiten $t$ festgelegt. Wellen, die sich mit der Phasengeschwindigkeit
 ausbreiten, sind aufgrund ihrer Unbeschränktheit in Raum und Zeit, nicht zur
-Informationsübermittlung geeignet. Hierzu benötigt man Wellenpakete die sich 
+Informationsübermittlung geeignet. Hierzu benötigt man Wellenpakete, die sich 
 mit der Gruppengeschwindigkeit ausbreiten. Auf diese hier nicht eingegangen.
 Speziell für den Versuch ergibt sich als Phasengeschwindigkeit:
 
@@ -142,7 +142,7 @@ Dabei geht die Phasengeschwindigkeit im Grenzfall in
 
 über.
 \subsection{Der Widerstand einer unendlichen langen Kette}
-Da es sich bei der Kettenschaltung um eine, reale Schaltung handelt
+Da es sich bei der Kettenschaltung um eine reale Schaltung handelt,
 besitzt diese einen elektrischen Widerstand $R$.
 Der Widerstand kann mittels der Eingangspannung $U_0$ und dem Strom $I_0$ bestimmit werden.
 Dazu wird mittels der Kirchhoffschen Knotenregel (vgl. Abbildung \ref{fig:bestimmung_impe}).
@@ -163,10 +163,10 @@ Mit dem ohmschen Gesetz erhält man letzendlich
 R(\omega)=Z(\omega)=\sqrt{\frac{L}{C}}\frac{1}{\sqrt{1-\frac{1}{4}\omega^2LC}}.
 \end{equation}
 Es ist üblich $R$ bzw. $Z$ als frequenzabhängigen Wellenwiderstand zu bezeichnen.
-Für den Fall einer unendlich langen Kette wäre der Wiederstand rein reell, dass bedeutet 
-das es zu keinem Zeiptunkt zu einer Phasenverschiebung noch zu einer Reflexion kommt.
-Durch einen Abschlusswiederstand am Ender der Kette ist dieser Zustand auch bei einer endlichen Kette 
-realisierbar. Der Abschlusswiederstand muss dazu lediglich den Betrag $Z$ besitzen.
+Für den Fall einer unendlich langen Kette wäre der Widerstand rein reell, dass bedeutet 
+das es zu keinem Zeitpunkt zu einer Phasenverschiebung noch zu einer Reflexion kommt.
+Durch einen Abschlusswiderstand am Ende der Kette ist dieser Zustand auch bei einer endlichen Kette 
+realisierbar. Der Abschlusswiderstand muss dazu lediglich den Betrag $Z$ besitzen.
 Jedoch ist $Z$ frequenzabhängig, doch bei Frequenzen weit unter der Grenzfrequenz, ist 
 $Z\approx \sqrt{\frac{L}{C}}$.
 
@@ -189,7 +189,7 @@ U\ua{R}=U\ua{E}+U\ua{ref} \qquad I\ua{R}=I\ua{E}+I\ua{ref}
 
 Es ist $U\ua{E}/I\ua{E}$ die Spannung/Stromstärke der einfallenden und $U\ua{ref}/I\ua{ref}$ die Spannung der reflektierten 
 Welle. Besitzt der elektrische Aufbau nun den Wellenwiderstand $Z$ so folgt nach dem
-ohmschen Gestz
+ohmschen Gesetz
 \begin{equation*}
 I\ua{E}=\frac{U\ua{E}}{Z} \qquad I\ua{ref}=\frac{U\ua{ref}}{Z}.
 \end{equation*}
@@ -209,10 +209,10 @@ Betrachten wir ein offenes Ende so ist $U\ua{ref}=U\ua{e}$ und die Welle wird am
 Bei diesem Fall ist $U\ua{ref}=U\ua{e}$. Zusätzlich kommt es bei der reflektierten Welle zu einem Phasensprung von $\pi$.}
 \item{ $r=Z$ \newline
 Ist der Abschlusswiederstand genauso groß wie der Wellenwiderstand, so wird eine unendlich lange Kette simuliert und 
-es gilt $U_{ref}=0$. Es kommt zu keiner Refelexion.}
+es gilt $U_{ref}=0$. Es kommt zu keiner Reflexion.}
 \end{enumerate}
 
-In allen anderen Fällen, kommt es zu Teilreflexionen.
+In allen anderen Fällen kommt es zu Teilreflexionen.
 Bei den Fällen $r=\infty$ und $r=0$ erfolgt eine Totalreflexion.
 Bildet sich im Schaltkreis eine stehende Welle aus, so bildet sich ein Spannungsbau genau dann aus, wenn
 \begin{equation}
