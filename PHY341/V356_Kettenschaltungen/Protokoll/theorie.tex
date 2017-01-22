@@ -3,19 +3,19 @@
 Die Untersuchung einer Kettenschaltung von LC-Gliedern lässt sich mit der Analogie
 zu einem eindimensionalen Festköper motivieren.
 Der Versuch ermöglicht somit Einblicke in das Schwingverhalten eines
-Festköpers.
+Festköpers. %redundant
 
 \section{Theorie}
 
-\subsection{Bestimmung der Schwingungsgleichungen für eine $LC$-Kette}
-Die Schwingungsgleichung werden mit der Kirchhoffschen Regel aufgestellt.
-Zunächst wird mittels der ersten Kirchhoffschen Regel die Ströme für ein Kettenglied $n$
+\subsection{Bestimmung der Schwingungsgleichungen für eine $LC$-Kette} %würde nicht $LC$
+Die Schwingungsgleichung werden mit der Kirchhoffschen Regel aufgestellt. %plural
+Zunächst wird mittels der ersten Kirchhoffschen Regel die Ströme für ein Kettenglied $n$ %singular/plural
 bestimmt (vgl. Abbildung \ref{fig:kettenglied}):
 
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{bilder/stöme_und_spannnungen_lc.png}
-  \caption{Kettenglied $n$}
+  \caption{Kettenglied $n$} %Zitat
   \label{fig:kettenglied}
 \end{figure}
 
@@ -36,7 +36,7 @@ Diese wird durch
 U_n(t)=U_0 \map{e}^{j\omega t} \map{e}^{-jn\theta t}
 \end{equation}
 gelöst.
-Es sei hierbei $\omega$ die Kreisfrequenz und $\theta$, die Phasenverschiebung
+Es sei hierbei $\omega$ die Kreisfrequenz und $\theta$, die Phasenverschiebung %kein komma nach theta, dafür nach phasenverschiebung
 die durch ein Kettenglied verursacht wird.
 Für die Kreisfrequenz ergibt sich die Dispersionsrelation:
 
@@ -45,7 +45,7 @@ Für die Kreisfrequenz ergibt sich die Dispersionsrelation:
 \omega^2=\frac{2}{LC}\left(1-\cos(\theta)\right)
 \end{equation}
 
-Da \eqref{eq:kreisfrequenz_lc_glied} nur für endlich viele Kettenglieder definert ,ist, liegt $\omega$ maximal im Intervall:
+Da \eqref{eq:kreisfrequenz_lc_glied} nur für endlich viele Kettenglieder definert ,ist, liegt $\omega$ maximal im Intervall: %-komma
 
 \begin{equation}
 \label{eq:menge_omega_lc_glied}
@@ -77,57 +77,57 @@ Aufgrund dessen muss \eqref{eq:gleichung_lc} zu dem Gleichungssystem
 angepasst werden.
 Folglich ergeben sich die gleichen Lösungen wie bei \eqref{eq:gleichung_lc}
 lediglich einmal mit $2n$ und einmal mit $2n+1$.
-Durch anwenden der Cramerschen Regel kann auf die Kreisfrequenz geschlossen werden:
+Durch anwenden der Cramerschen Regel kann auf die Kreisfrequenz geschlossen werden: %Anwenden
 \begin{equation*}
 \omega^4-\omega^2\frac{2}{L}\left(\frac{1}{C_1}+\frac{1}{C_2}\right)+\frac{4}{L^2C_1C_2}\left(1-\cos^2(\theta)\right)=0
 \end{equation*}
 Diese Gleichung kann nach $\omega^2$ aufgelöst werden.
-Das Resultat lautet
+Das Resultat lautet %doppelpunkt
 \begin{equation}
-\label{eq:omgea_ceins_czwei}
+\label{eq:omega_ceins_czwei}
 \omega_{1,2}^{2}=\frac{1}{L}\left(\frac{1}{C_1}+\frac{1}{C_2}\right)\pm\frac{1}{L}\sqrt{\left(\frac{1}{C_1}+\frac{1}{C_2}\right)-\frac{4\sin^2(\theta)}{C_1C_2}}.
 \end{equation}
 
 Es gibt also zwei verschiedene Kreisfrequenzen $\omega_1$ und $\omega_2$.
-Trägt man beide Frequenzen in einem Diagramm auf so ergeben sich
+Trägt man beide Frequenzen in einem Diagramm auf so ergeben sich %komma nach auf
 zwei Kurven (vgl. Abbildung \ref{fig: dispersion_LC1C2}).
 Zunächst soll die Lösung $\omega_2$ besprochen werden.
 Wird diese bei $\theta=0$ betrachtet ist ebenso $\omega=0$.
 Mit der Näherung $\sin(\theta)\approx\theta$ ergibt sich dann
 
 \begin{equation}
-\label{eq:omgea_2_lceins_czwei}
+\label{eq:omega_2_lceins_czwei}
 \omega_2\approx\sqrt{\frac{2}{L\left(C_1+C_2\right)}}\theta.
 \end{equation}
-Die Nullstelle von \eqref{eq:omgea_2_lceins_czwei} liegt im Nullpunkt $\theta=0$.
+Die Nullstelle von \eqref{eq:omega_2_lceins_czwei} liegt im Nullpunkt $\theta=0$.
 Für $\theta>0$ wächst die kurve monoton an und erreicht bei $\omega_2(\frac{\pi}{2})=\sqrt{\frac{2}{LC_1}}$
 ihr Maximum. \newline
 Hingegen beläuft sich bei $\omega_1$ die Lösung an der Stelle $\theta=0$ auf
 \begin{equation*}
 \omega_1(0)\approx\sqrt{\frac{2(C_1+C_2)}{LC_1C_2}}
 \end{equation*}
-Das Maximum von $\omgea_1$ beträgt
+Das Maximum von $\omega_1$ beträgt
 
 \begin{equation}
 \label{eq:max_omega_1_ceins_czwei}
 \omega_1(\frac{\pi}{2})=\sqrt{\frac{2}{LC_2}}.
 \end{equation}
-Aufgrund von dem Unterschied der beiden Maxima, gibt es einen Frequenzbereich, in dem
-die Kettenschaltung undruchlässig wird. Dieser ist auch in auch in Abbildung \ref{fig: dispersion_LC1C2}
+Aufgrund von dem Unterschied der beiden Maxima, gibt es einen Frequenzbereich, in dem %aufgrund des Unterschiedes
+die Kettenschaltung undruchlässig wird. Dieser ist auch in auch in Abbildung \ref{fig: dispersion_LC1C2} %-auch
 zusehen.
 
 \subsection{Ausbreitungsgeschwindigkeit von Wellen in einer Kettenschaltung}
-Bei eine Welle in der Form \eqref{eq:loesung_gleichung_lc}
-ergibt sich für Ausbreitungsgeschwindigkeit gleicher Phasen
+Bei eine Welle in der Form \eqref{eq:loesung_gleichung_lc} %bei einer Welle der Form
+ergibt sich für Ausbreitungsgeschwindigkeit gleicher Phasen %ist unabhängig von der Phase
 \begin{equation*}
 v\ua{ph}=\frac{\omega}{\theta}.
 \end{equation*}
 Es wird $v\ua{ph}$ als Phasengeschwindigkeit bezeichnet.
 Die Zeitabhängigkeit der Phasengeschwindigkeit ist durch $\omega=\map{const}$
 für alle Zeiten $t$ festgelegt. Wellen, die sich mit der Phasengeschwindigkeit
-ausbreiten, sind aufgrund ihrer Unbeschränktheit in Raum und Zeit, nicht zur
+ausbreiten, sind aufgrund ihrer Unbeschränktheit in Raum und Zeit, nicht zur %-komma
 Informationsübermittlung geeignet. Hierzu benötigt man Wellenpakete, die sich
-mit der Gruppengeschwindigkeit ausbreiten. Auf diese hier nicht eingegangen.
+mit der Gruppengeschwindigkeit ausbreiten. Auf diese hier nicht eingegangen. %verb
 Speziell für den Versuch ergibt sich als Phasengeschwindigkeit:
 
 \begin{equation}
@@ -145,7 +145,7 @@ Dabei geht die Phasengeschwindigkeit im Grenzfall in
 Da es sich bei der Kettenschaltung um eine reale Schaltung handelt,
 besitzt diese einen elektrischen Widerstand $R$.
 Der Widerstand kann mittels der Eingangspannung $U_0$ und dem Strom $I_0$ bestimmit werden.
-Dazu wird mittels der Kirchhoffschen Knotenregel (vgl. Abbildung \ref{fig:bestimmung_impe}).
+Dazu wird mittels der Kirchhoffschen Knotenregel (vgl. Abbildung \ref{fig:bestimmung_impe}). %-punkt
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{bilder/eigenimpendanz.png}
@@ -156,25 +156,25 @@ Dazu wird mittels der Kirchhoffschen Knotenregel (vgl. Abbildung \ref{fig:bestim
 I_0 - \map{i}\omega\frac{C}{2}U_0+\frac{U_1-U_0}{\map{i}\omega L}=0
 \end{equation*}
 bestimmt.
-Es sei $\map{i}$ das komplexe i.
-Mit dem ohmschen Gesetz erhält man letzendlich
+Es sei $\map{i}$ das komplexe i. %merkse selber
+Mit dem ohmschen Gesetz erhält man letzendlich %letztendlich
 
 \begin{equation}
 R(\omega)=Z(\omega)=\sqrt{\frac{L}{C}}\frac{1}{\sqrt{1-\frac{1}{4}\omega^2LC}}.
 \end{equation}
 Es ist üblich $R$ bzw. $Z$ als frequenzabhängigen Wellenwiderstand zu bezeichnen.
-Für den Fall einer unendlich langen Kette wäre der Widerstand rein reell, dass bedeutet
+Für den Fall einer unendlich langen Kette wäre der Widerstand rein reell, dass bedeutet %das bedeutet, dass es weder zu einer Phasenverschiebung noch zu einer Reflexion kommt.
 das es zu keinem Zeitpunkt zu einer Phasenverschiebung noch zu einer Reflexion kommt.
 Durch einen Abschlusswiderstand am Ende der Kette ist dieser Zustand auch bei einer endlichen Kette
 realisierbar. Der Abschlusswiderstand muss dazu lediglich den Betrag $Z$ besitzen.
 Jedoch ist $Z$ frequenzabhängig, doch bei Frequenzen weit unter der Grenzfrequenz, ist
-$Z\approx \sqrt{\frac{L}{C}}$.
+$Z\approx \sqrt{\frac{L}{C}}$. %überarbeite diesen satz nochmal
 
 \subsection{Randverhalten einer endlichen Kette}
 Je nach Endwiderstand $r$ kann es bei einer endlichen Kette
-zu Wellenreflexion kommen. In der Kette kommt es dann
-zu Überlagerung z. B. stehende Wellen kommen.
-Für die Spannung bzw. Stromstärken am Kettenende (vgl. Bild \ref{fig:kettenende}) gilt
+zu Wellenreflexion kommen. In der Kette kommt es dann %zur Wellenreflexion oder zu Wellenreflexionen
+zu Überlagerung z. B. stehende Wellen kommen. %überarbeite diesen satz nochmal
+Für die Spannung bzw. Stromstärken am Kettenende (vgl. Bild \ref{fig:kettenende}) %gilt entweder beides plural oder beides singular
 
 \begin{figure}
   \centering
@@ -204,9 +204,9 @@ Es gibt drei intereseante Sonderfälle:
 \renewcommand{\labelenumi}{\alph{enumi})}
 \begin{enumerate}
 \item{ $r=\infty$ (offenens Ende) \newline
-Betrachten wir ein offenes Ende so ist $U\ua{ref}=U\ua{e}$ und die Welle wird am Kettenende ohne Phasensprung reflektiert.}
+Betrachten wir ein offenes Ende so ist $U\ua{ref}=U\ua{e}$ und die Welle wird am Kettenende ohne Phasensprung reflektiert.} %offenes Ende,
 \item{ $r=0$ (kurzgeschlossenes Ende) \newline
-Bei diesem Fall ist $U\ua{ref}=U\ua{e}$. Zusätzlich kommt es bei der reflektierten Welle zu einem Phasensprung von $\pi$.}
+Bei diesem Fall ist $U\ua{ref}=U\ua{e}$. Zusätzlich kommt es bei der reflektierten Welle zu einem Phasensprung von $\pi$.} %in diesem Fall
 \item{ $r=Z$ \newline
 Ist der Abschlusswiederstand genauso groß wie der Wellenwiderstand, so wird eine unendlich lange Kette simuliert und
 es gilt $U_{ref}=0$. Es kommt zu keiner Reflexion.}
@@ -214,10 +214,10 @@ es gilt $U_{ref}=0$. Es kommt zu keiner Reflexion.}
 
 In allen anderen Fällen kommt es zu Teilreflexionen.
 Bei den Fällen $r=\infty$ und $r=0$ erfolgt eine Totalreflexion.
-Bildet sich im Schaltkreis eine stehende Welle aus, so bildet sich ein Spannungsbau genau dann aus, wenn
+Bildet sich im Schaltkreis eine stehende Welle aus, so bildet sich ein Spannungsbau genau dann aus, wenn %ch
 \begin{equation}
 \label{eq:spannungsbauch}
 n\ua{max}\theta_k=k\pi \quad k=1,2,\dots,n\ua{max}
 \end{equation}
-Es sind im Schwingkrei somit maximal $n\ua{max}$ stehende Wellen möglich.
-Jede diese besitz eine zugehörige Frequenz $\omega_k$.
+Es sind im Schwingkrei somit maximal $n\ua{max}$ stehende Wellen möglich. %s
+Jede diese besitz eine zugehörige Frequenz $\omega_k$. %%überarbeite diesen satz nochmal
