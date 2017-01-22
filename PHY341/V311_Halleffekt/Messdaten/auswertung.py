@@ -37,7 +37,7 @@ params_1, covariance_1 = curve_fit(F_1, I_eich_steigend, B_eich_steigend, sigma=
 errors_B = np.sqrt(np.diag(covariance_1))
 params_B = unp.uarray(params_1, errors_B)
 
-#print('Gerade B(I) Paramter: ', params_B)
+print('Gerade B(I) Paramter: ', params_B)
 I_lim = np.linspace(-0.2, 5.2, 100)
 plt.plot(I_eich_steigend, B_eich_steigend, 'bx', label='Messwerte steigender Strom')
 plt.plot(I_eich_fallend, B_eich_fallend, 'rx', label='Messwerte fallender Strom')
@@ -79,7 +79,7 @@ plt.savefig('uri_zink.pdf')
 
 R_zink_errors = np.sqrt(np.diag(cov_zink_R))
 R_zink = Q_(ufloat(params_zink_R[0], R_zink_errors[0]), 'millivolt/ampere').to('milliohm')
-#print('R_zink = ', R_zink)
+print('R_zink = ', R_zink)
 
 
 latex.Latexdocument('uri_zink_tab.tex').tabular([I_zink_raw, U_zink_raw],
@@ -105,7 +105,7 @@ plt.legend(loc='best')
 plt.savefig('uri_kupfer.pdf')
 R_kupfer_errors = np.sqrt(np.diag(cov_kupfer_R))
 R_kupfer = Q_(ufloat(params_kupfer_R[0], R_kupfer_errors[0]), 'millivolt/ampere').to('milliohm')
-#print('R_kupfer = ', R_kupfer)
+print('R_kupfer = ', R_kupfer)
 
 latex.Latexdocument('uri_kupfer_tab.tex').tabular([I_kupfer_raw, U_kupfer_raw],
 '{$I$ in $\si{\\ampere}$} & {$U$ in $\si{\\volt}$} ', [1, 1],
@@ -138,12 +138,12 @@ plt.legend(loc='best')
 plt.savefig('u_h_kupfer_konstB.pdf')
 
 Steigung_U_h_kupfer_konstB_errors = np.sqrt(np.diag(cov_kupfer_U_h_1))
-#print(params_kupfer_U_h_1[0])
+print(params_kupfer_U_h_1[0])
 Steigung_U_h_kupfer_konstB = Q_(ufloat(params_kupfer_U_h_1[0], Steigung_U_h_kupfer_konstB_errors[0]), 'millivolt/ampere')
-#print('Steigung der Hall Spannung, Kupfer, konst BFeld: ', Steigung_U_h_kupfer_konstB.to('millivolt/ampere'))
+print('Steigung der Hall Spannung, Kupfer, konst BFeld: ', Steigung_U_h_kupfer_konstB.to('millivolt/ampere'))
 n_kupfer_konstB =  (- 1/(Steigung_U_h_kupfer_konstB * e_0 * d_kupfer) * B_konst_kupfer).to('1/meter**3')
-#print('n_kupfer_konstB', n_kupfer_konstB)
-#print('Fermienergie Kupfer: ', E_fermi(n_kupfer_konstB))
+print('n_kupfer_konstB', n_kupfer_konstB)
+print('Fermienergie Kupfer: ', E_fermi(n_kupfer_konstB))
 
 B_konst_zink = B(3)
 U_ges_min_zink_konstB, U_ges_plu_zink_konstB = np.genfromtxt('u_h_konstB_zink.txt', unpack=True)
@@ -175,10 +175,10 @@ plt.savefig('u_h_zink_konstB.pdf')
 
 Steigung_U_h_zink_konstB_errors = np.sqrt(np.diag(cov_zink_U_h_1))
 Steigung_U_h_zink_konstB = Q_(ufloat(params_zink_U_h_1[0], Steigung_U_h_zink_konstB_errors[0]), 'millivolt/ampere')
-#print('Steigung der Hall Spannung, Zink, konst BFeld: ', Steigung_U_h_zink_konstB.to('millivolt/ampere'))
+print('Steigung der Hall Spannung, Zink, konst BFeld: ', Steigung_U_h_zink_konstB.to('millivolt/ampere'))
 n_zink_konstB =   (1/(Steigung_U_h_zink_konstB * e_0 * d_zink) * B_konst_zink).to('1/meter**3')
-#print('n_zink_konstB', n_zink_konstB)
-#print('Fermienergie Zink: ', E_fermi(n_zink_konstB))
+print('n_zink_konstB', n_zink_konstB)
+print('Fermienergie Zink: ', E_fermi(n_zink_konstB))
 
 
 
@@ -213,9 +213,9 @@ plt.savefig('u_h_zink_konstI.pdf')
 
 Steigung_U_h_zink_konstI_errors = np.sqrt(np.diag(cov_zink_U_h_2))
 Steigung_U_h_zink_konstI = Q_(ufloat(params_zink_U_h_2[0], Steigung_U_h_zink_konstI_errors[0]), 'volt/tesla')
-#print('Steigung der Hall Spannung, Zink, konst Strom: ', Steigung_U_h_zink_konstI.to('volt/tesla'))
+print('Steigung der Hall Spannung, Zink, konst Strom: ', Steigung_U_h_zink_konstI.to('volt/tesla'))
 n_zink_konstI =   (1/(Steigung_U_h_zink_konstI * e_0 * d_zink) * konstI).to('1/meter**3')
-#print('n_zink_konstI', n_zink_konstI)
+print('n_zink_konstI', n_zink_konstI)
 
 
 konstI = Q_(10, 'ampere')
@@ -246,9 +246,9 @@ plt.savefig('u_h_kupfer_konstI.pdf')
 
 Steigung_U_h_kupfer_konstI_errors = np.sqrt(np.diag(cov_kupfer_U_h_2))
 Steigung_U_h_kupfer_konstI = Q_(ufloat(params_kupfer_U_h_2[0], Steigung_U_h_kupfer_konstI_errors[0]), 'volt/tesla')
-#print('Steigung der Hall Spannung, Kupfer, konst Strom: ', Steigung_U_h_kupfer_konstI.to('volt/tesla'))
+print('Steigung der Hall Spannung, Kupfer, konst Strom: ', Steigung_U_h_kupfer_konstI.to('volt/tesla'))
 n_kupfer_konstI =  (- 1/(Steigung_U_h_kupfer_konstI * e_0 * d_kupfer) * konstI).to('1/meter**3')
-#print('n_kupfer_konstI', n_kupfer_konstI)
+print('n_kupfer_konstI', n_kupfer_konstI)
 
 #Berechnungen weiterer Größen
 rho_kupfer = Q_(8.96, 'gram/(cm)^3').to('kilogram/m^3')
@@ -259,76 +259,76 @@ molmass_zink = Q_(65.4, 'gram/mol').to('kilogram/mol')
 molvol_kupfer = molmass_kupfer/rho_kupfer
 molvol_zink = molmass_zink/rho_zink
 vol = Q_(1, 'meter^3')
-#print(molvol_zink, molvol_kupfer)
+print(molvol_zink, molvol_kupfer)
 n_cube_kupfer = vol/molvol_kupfer
 n_cube_zink = vol/molvol_zink
-#print(n_cube_zink, n_cube_kupfer)
+print(n_cube_zink, n_cube_kupfer)
 
 z_kupfer_konstI =  (n_kupfer_konstI*(molvol_kupfer / Q_(const.Avogadro, '1/mole')))
-#print('z_kupfer_konstI: ', z_kupfer_konstI)
+print('z_kupfer_konstI: ', z_kupfer_konstI)
 z_kupfer_konstB =  (n_kupfer_konstB*(molvol_kupfer / Q_(const.Avogadro, '1/mole')))
-#print('z_kupfer_konstB: ', z_kupfer_konstB)
+print('z_kupfer_konstB: ', z_kupfer_konstB)
 
 z_zink_konstI =  (n_zink_konstI*(molvol_zink / Q_(const.Avogadro, '1/mole')))
-#print('z_zink_konstI: ', z_zink_konstI)
+print('z_zink_konstI: ', z_zink_konstI)
 z_zink_konstB =  (n_zink_konstB*(molvol_zink / Q_(const.Avogadro, '1/mole')))
-#print('z_zink_konstB: ', z_zink_konstB)
+print('z_zink_konstB: ', z_zink_konstB)
 
 
 #spezifische Leitfähigkeit
 R_spez_kupfer = (R_kupfer * b_kupfer * d_kupfer) / l_kupfer
-#print('spezifischer Widerstand Kupfer: ', R_spez_kupfer.to('ohm * millimeter^2 / meter'))
+print('spezifischer Widerstand Kupfer: ', R_spez_kupfer.to('ohm * millimeter^2 / meter'))
 R_spez_zink = (R_zink * b_zink * d_zink) / l_zink
-#print('spezifischer Widerstand Zink: ',R_spez_zink.to('ohm * millimeter^2 / meter'))
+print('spezifischer Widerstand Zink: ',R_spez_zink.to('ohm * millimeter^2 / meter'))
 
 tau_kupfer1 = (2 * m_0) / (n_kupfer_konstB * R_spez_kupfer * e_0**2)
-#print(tau_kupfer1.to('second'))
+print(tau_kupfer1.to('second'))
 tau_kupfer2 = (2 * m_0) / (n_kupfer_konstI * R_spez_kupfer * e_0**2)
-#print(tau_kupfer2.to('second'))
+print(tau_kupfer2.to('second'))
 
 tau_zink1 = (2 * m_0) / (n_zink_konstB * R_spez_zink * e_0**2)
-#print(tau_zink1.to('second'))
+print(tau_zink1.to('second'))
 tau_zink2 = (2 * m_0) / (n_zink_konstI * R_spez_zink * e_0**2)
-#print(tau_zink2.to('second'))
+print(tau_zink2.to('second'))
 
 
 j = Q_(1, 'ampere/(millimeter)^2')
 v_d_kupfer1 = j / (n_kupfer_konstB * e_0)
-#print('v_d_kupfer1: ', v_d_kupfer1.to('millimeter/second'))
+print('v_d_kupfer1: ', v_d_kupfer1.to('millimeter/second'))
 v_d_kupfer2 = j / (n_kupfer_konstI * e_0)
-#print('v_d_kupfer2: ', v_d_kupfer2.to('millimeter/second'))
+print('v_d_kupfer2: ', v_d_kupfer2.to('millimeter/second'))
 
 v_d_zink1 = j / (n_zink_konstB * e_0)
-#print('v_d_zink1: ', v_d_zink1.to('millimeter/second'))
+print('v_d_zink1: ', v_d_zink1.to('millimeter/second'))
 v_d_zink2 = j / (n_zink_konstI * e_0)
-#print('v_d_zink2: ', v_d_zink2.to('millimeter/second'))
+print('v_d_zink2: ', v_d_zink2.to('millimeter/second'))
 
-#print('E_fermi_kupfer1:', E_fermi(n_kupfer_konstB) )
-#print('E_fermi_kupfer2:', E_fermi(n_kupfer_konstI) )
-#print('E_fermi_zink1:', E_fermi(n_zink_konstB) )
-#print('E_fermi_zink2:', E_fermi(n_zink_konstI) )
+print('E_fermi_kupfer1:', E_fermi(n_kupfer_konstB) )
+print('E_fermi_kupfer2:', E_fermi(n_kupfer_konstI) )
+print('E_fermi_zink1:', E_fermi(n_zink_konstB) )
+print('E_fermi_zink2:', E_fermi(n_zink_konstI) )
 
-#print('vt1_kupfer: ', ((2 * E_fermi(n_kupfer_konstB) / m_0)**0.5).to('meter/second'))
-#print('vt2_kupfer: ', ((2 * E_fermi(n_kupfer_konstI) / m_0)**0.5).to('meter/second'))
-#print('vt1_zink: ', ((2 * E_fermi(n_zink_konstB) / m_0)**0.5 ).to('meter/second'))
-#print('vt2_zink: ', ((2 * E_fermi(n_zink_konstI) / m_0)**0.5 ).to('meter/second'))
-
-
-#print('l1_kupfer: ', (tau_kupfer1 * (2 * E_fermi(n_kupfer_konstB) / m_0)**0.5).to('micrometer'))
-#print('l2_kupfer: ', (tau_kupfer2 * (2 * E_fermi(n_kupfer_konstI) / m_0)**0.5).to('micrometer'))
-#print('l1_zink: ', (tau_zink1 * (2 * E_fermi(n_zink_konstB) / m_0)**0.5 ).to('micrometer'))
-#print('l2_zink: ', (tau_zink2 * (2 * E_fermi(n_zink_konstI) / m_0)**0.5 ).to('micrometer'))
+print('vt1_kupfer: ', ((2 * E_fermi(n_kupfer_konstB) / m_0)**0.5).to('meter/second'))
+print('vt2_kupfer: ', ((2 * E_fermi(n_kupfer_konstI) / m_0)**0.5).to('meter/second'))
+print('vt1_zink: ', ((2 * E_fermi(n_zink_konstB) / m_0)**0.5 ).to('meter/second'))
+print('vt2_zink: ', ((2 * E_fermi(n_zink_konstI) / m_0)**0.5 ).to('meter/second'))
 
 
-#print('mu_kupfer1:', (0.5 * tau_kupfer1* e_0/m_0).to('meter^2 / (volt * second)') )
-#print('mu_kupfer2:', (0.5 * tau_kupfer2* e_0/m_0).to('meter^2 / (volt * second)') )
-#print('mu_zink1:', (0.5 * tau_zink1* e_0/m_0).to('meter^2 / (volt * second)') )
-#print('mu_zink2:', (0.5 * tau_zink2* e_0/m_0).to('meter^2 / (volt * second)') )
+print('l1_kupfer: ', (tau_kupfer1 * (2 * E_fermi(n_kupfer_konstB) / m_0)**0.5).to('micrometer'))
+print('l2_kupfer: ', (tau_kupfer2 * (2 * E_fermi(n_kupfer_konstI) / m_0)**0.5).to('micrometer'))
+print('l1_zink: ', (tau_zink1 * (2 * E_fermi(n_zink_konstB) / m_0)**0.5 ).to('micrometer'))
+print('l2_zink: ', (tau_zink2 * (2 * E_fermi(n_zink_konstI) / m_0)**0.5 ).to('micrometer'))
+
+
+print('mu_kupfer1:', (0.5 * tau_kupfer1* e_0/m_0).to('meter^2 / (volt * second)') )
+print('mu_kupfer2:', (0.5 * tau_kupfer2* e_0/m_0).to('meter^2 / (volt * second)') )
+print('mu_zink1:', (0.5 * tau_zink1* e_0/m_0).to('meter^2 / (volt * second)') )
+print('mu_zink2:', (0.5 * tau_zink2* e_0/m_0).to('meter^2 / (volt * second)') )
 
 R_spez_kupfer_lit = Q_(0.017e-06, ' ohm * meter').to('ohm * millimeter^2 / meter')
-#print ('Literaturwert spezifischer Widerstand Kupfer', R_spez_kupfer_lit)
-#print('Prozentuale Abweichung: ', R_spez_kupfer/R_spez_kupfer_lit - 1)
+print ('Literaturwert spezifischer Widerstand Kupfer', R_spez_kupfer_lit)
+print('Prozentuale Abweichung: ', R_spez_kupfer/R_spez_kupfer_lit - 1)
 
 R_spez_zink_lit = Q_(0.059e-06, ' ohm * meter').to('ohm * millimeter^2 / meter')
-#print ('Literaturwert spezifischer Widerstand Zink', R_spez_zink_lit)
-#print('Prozentuale Abweichung: ', R_spez_zink/R_spez_zink_lit - 1)
+print ('Literaturwert spezifischer Widerstand Zink', R_spez_zink_lit)
+print('Prozentuale Abweichung: ', R_spez_zink/R_spez_zink_lit - 1)
