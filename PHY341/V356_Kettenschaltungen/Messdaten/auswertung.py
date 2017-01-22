@@ -119,9 +119,9 @@ print('Theoretische Grenzfrequenz oben LC1C2: ', nu(omega_G_o_LC1C2))
 
 
 #Berechnungen
-distance_f_g_LC = ufloat(10.2, 0.1)
-distance_f_g_u_LC1C2 = ufloat(6.5, 0.1)
-distance_f_g_o_LC1C2 = ufloat(10.7, 0.1)
+distance_f_g_LC = ufloat(10.2, 0.5)
+distance_f_g_u_LC1C2 = ufloat(6.5, 0.5)
+distance_f_g_o_LC1C2 = ufloat(10.7, 0.5)
 print('Aus Sweep Methode bestimmte Grenzfrequenz LC: ', frequenz_sweep_LC(distance_f_g_LC))
 print('Prozentuale Abweichung: ', (frequenz_sweep_LC(distance_f_g_LC))/nu(omega_G_LC) - 1)
 print('Aus Sweep Methode bestimmte Grenzfrequenz unten LC1C2: ', frequenz_sweep_LC1C2(distance_f_g_u_LC1C2))
