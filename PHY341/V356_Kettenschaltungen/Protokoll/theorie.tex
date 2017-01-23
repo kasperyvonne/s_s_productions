@@ -161,7 +161,7 @@ Es sei $\map{i}$ das komplexe i. %merkse selber
 Mit dem ohmschen Gesetz erhält man letztendlich %letztendlich
 
 \begin{equation}
-R(\omega)=Z(\omega)=\sqrt{\frac{L}{C}}\frac{1}{\sqrt{1-\frac{1}{4}\omega^2LC}}.
+R(\omega)=Z\ua{LC}(\omega)=\sqrt{\frac{L}{C}}\frac{1}{\sqrt{1-\frac{1}{4}\omega^2LC}}.
 \label{eq: wellenwiderstand_LC}
 \end{equation}
 Es ist üblich $R$ bzw. $Z$ als frequenzabhängigen Wellenwiderstand zu bezeichnen.
@@ -169,8 +169,13 @@ Für den Fall einer unendlich langen Kette wäre der Widerstand rein reell, dass
 das es weder zu einer Phasenverschiebung noch zu einer Reflexion kommt.
 Durch einen Abschlusswiderstand am Ende der Kette ist dieser Zustand auch bei einer endlichen Kette
 realisierbar. Der Abschlusswiderstand muss dazu lediglich den Betrag $Z$ besitzen.
-Obwohl ist $Z$ frequenzabhängig, kann für Frequenzen weit unterhalb der Grenzfrequenz
-$Z\approx \sqrt{\frac{L}{C}}$ angenommen werden. %überarbeite diesen satz nochmal
+Obwohl $Z$ frequenzabhängig ist, kann für Frequenzen weit unterhalb der Grenzfrequenz $\nu{ua{G}}$
+$Z\ua{LC}\approx \sqrt{\frac{L}{C}}$ angenommen werden. Für den Wellenwiderstand $Z\ua{LC_1C_2}$ der $\mathup{LC_1C_2}$-Kette gilt
+in diesem Grenzfall:
+\begin{equation}
+  Z\ua{LC_1C_2} = \sqrt{\frac{2L}{C_1 + C_2}}
+  \label{eq: Z_LC_1C_2}
+\end{equation}
 
 \subsection{Randverhalten einer endlichen Kette}
 Je nach Endwiderstand $r$ kann es bei einer endlichen Kette
