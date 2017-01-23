@@ -17,7 +17,7 @@ L = Q_(1.75e-3, 'henry')
 C = Q_(22.0e-9, 'farad')
 C_1 = C
 C_2 = Q_(9.39e-9, 'farad')
-theta = np.linspace(-0.2 * np.pi, np.pi, 100)
+theta = np.linspace(-0.2 * np.pi, np.pi, 1000)
 
 #Dispersionskurven
 #gleiche kondensatoren
@@ -160,7 +160,7 @@ spannungsverlauf_geschlossen = np.genfromtxt('spannung_geschlossen.txt', unpack=
 #Theorieplots der Disperionsrelation
 plt.plot(theta, nu(omega(theta)), label='Dispersionskurve $\\nu(\\theta)$' )
 plt.plot(Phasenverschiebung_pro_glied_LC, eigenfrequenzen_a_LC, 'rx', label = 'Messdaten')
-plt.plot(theta, np.ones(len(theta))*nu(omega_G_LC), 'b--' )
+plt.plot(theta, np.ones(len(theta))*nu(omega_G_LC), 'b--', label='Grenzfrequenz $\\nu_G$' )
 print(nu(omega_G_LC))
 plt.ylabel('Frequenz $\\nu$ in 1/s')
 plt.xlabel('Phasenverschiebung pro Glied $\\theta$')

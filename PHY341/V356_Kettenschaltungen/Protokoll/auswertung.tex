@@ -1,9 +1,16 @@
 \section{Auswertung}
-Zur qualtitativen Diskussion der Messergebnisse sollen im folgendne Abschnitt relevante Rechnungen mit den gefundenen
+Zur qualtitativen Diskussion der Messergebnisse sollen im folgenden Abschnitt relevante Rechnungen mit den gefundenen
 Werten durchgeführt werden. Fehlerfortpflanzungen, sowie Ausgleichsrechnungen werden mit
-Hilfe der Python Bibliotheken \emph{uncertainties}\cite{uncertainties} und \emph{scipy}\cite{scipy} bestimmt.
+Hilfe der Python Bibliotheken \emph{uncertainties}\cite{uncertainties} und \emph{scipy}\cite{scipy} bestimmt. Der Zusammenhang zwischen
+der Frequenz $\nu$ und der Kreisfrequenz $\omega = 2\pi\nu$ wird in folgenden Rechnungen unkommentiert hergestellt.
 
 \subsection{Bestimmung der Grenzfrequenzen aus den Durchlasskurven}
+Die für den Aufbau \ref{fig:aufbau_durchlass} notwendigen Wellenwiderstände $Z\ua{LC}$ und $Z\ua{LC_1C_2}$ berechnen sich gemäß \eqref{eq: wellenwiderstand_LC} bzw. \eqref{eq:} zu:
+\begin{align}
+  Z\ua{LC}(\omega=0) &= \SI{282.04}{\ohm}\\
+  Z\ua{LC_1C_2}(\omega=0) &= \SI{333.90}{\ohm}
+  \label{eq: wellenwiderstand_zahlenwert}
+\end{align}
 Um die Grenzfrequenzen aus dem Verlauf der Durchlasskurven zu ermitteln, wurden jeweils sechs
 Frequenzen mit dem zugehörigen Abstand $x$ zum gewählten Nullpunkt aufgezeichnet. Die Messwerte
 sind in Tabelle \ref{tab: sweep_LC} aufgeführt. Diese Referenzpunkte ermöglichen einen Fit an eine Funktion der Form:
@@ -31,7 +38,7 @@ für die Grenzfrequenz:
 \end{equation}
 Der angegebene Fehler von $\SI{5}{\milli\meter}$ wurde gewählt, um Ableseungenauigkeiten und die in den Durchlasskurven
 erkennbaren Störschwingungen zu berücksichtigen.
-Mit Formel \eqref{eq: } und den Apparaturkonstanten ergibt sich der zugehörige theoretische Wert $\nu\ua{G, th}$, sowie die
+Mit Formel \eqref{eq:menge_omega_lc_glied} und den Apparaturkonstanten ergibt sich der zugehörige theoretische Wert $\nu\ua{G, th}$, sowie die
 mittlere prozentuale Abweichung $d\ua{LC}$ des experimentell bestimmten Wertes zu:
 \begin{align}
   \nu\ua{G, th} &= \SI{5.13e4}{\hertz} \\
@@ -58,11 +65,11 @@ Für die Fit-Parameter wurden folgende Werte berechnet:
   \label{eq: params_LC1C2}
 \end{align}
 Die Messwerte, sowie der Verlauf des Fits sind in Abbildung \ref{fig: plot_sweep_LC1C2} dargestellt.
-Aus dem zur unteren Grenzfrequenz \eqref{eq: } gehörenden Abstand $x\ua{u} = \SI{6.5(5)}{\cm}$ ergibt sich die Frequenz:
+Aus dem zur unteren Grenzfrequenz \eqref{eq:omega_2_lceins_czwei} gehörenden Abstand $x\ua{u} = \SI{6.5(5)}{\cm}$ ergibt sich die Frequenz:
 \begin{equation}
   \nu\ua{G, u, exp} = \SI{4.0(12)e4}{\hertz}
 \end{equation}
-Die obere Grenzfrequenz \eqref{eq: } berechnet sich mit $x\ua{o} = \SI{10.7(5)}{\cm}$ zu:
+Die obere Grenzfrequenz \eqref{eq:max_omega_1_ceins_czwei} berechnet sich mit $x\ua{o} = \SI{10.7(5)}{\cm}$ zu:
 \begin{equation}
     \nu\ua{G, o, exp} = \SI{5.3(15)e4}{\hertz}
 \end{equation}
@@ -82,11 +89,11 @@ Hiermit können die mittleren prozentualen Abweichungen von den Theoriewerten be
 \end{figure}
 \newpage
 \subsection{Dispersionskurven}
-Die gemäß \eqref{eq: } und \eqref{eq: } berechneten Dispersionskurven sind in den Abbildungen \ref{fig: dispersion_LC} und \ref{fig: dispersion_LC1C2}
+Die gemäß \eqref{eq:kreisfrequenz_lc_glied} und \eqref{eq:omega_ceins_czwei} berechneten Dispersionskurven sind in den Abbildungen \ref{fig: dispersion_LC} und \ref{fig: dispersion_LC1C2}
 dargestellt. Die gemessenen Frequenzen $\nu$ bei den Gesamtphasenverschiebungen, deren Betrag ein Vielfaches von $\pi$ beträgt,
 sind in Tabelle \ref{tab: dispersion_LC} und \ref{tab: dispersion_LC1C2} aufgeführt. Hierbei wurde die Gesamtphasenverschiebung direkt durch die
 Anzahl der Kettenglieder $n = 16$ geteilt, um die Phasenverschiebung pro Glied zu erhalten. Im Falle der $\mathup{LC_1C_2}$-Kette
-wurden Ergebnisse mit $\theta > \pi/2$ so interpretiert, sodass sie gemäß der Periodizität der Funktion \eqref{eq: } im Intervall
+wurden Ergebnisse mit $\theta > \pi/2$ so interpretiert, sodass sie gemäß der Periodizität der Funktion \eqref{eq:omega_ceins_czwei} im Intervall
 $[0, \pi/2]$ liegen. Die Wertepaare wurden ebenfalls in den Abbildungen \ref{fig: dispersion_LC} und \ref{fig: dispersion_LC1C2} visualisiert.
 \input{tabs/eigenfrequenzen_dispersion_LC.tex}
 \input{tabs/eigenfrequenzen_dispersion_LC1C2.tex}
@@ -111,7 +118,7 @@ Die gemessenen Eigenfrequenzen, die die Spannung am Anfang bzw. Ende der beiders
 offenen Kette maximal werden lassen, sind in Tabelle \ref{tab: v_phase} eingetragen. Analog zum
 voran gegangenen Abschnitt wurden ihnen die Phasenverschiebungen pro Kettenglied $\theta$
 zugeordnet. Aus dem Quotienten $\nu / \theta$ ergeben sich die Phasengeschwindigkeiten $v\ua{ph}$.
-Die Wertepaare aus Phasengeschwindigkeit und zugehöriger Frequenz, sowie die gemäß \eqref{eq: } berechnete
+Die Wertepaare aus Phasengeschwindigkeit und zugehöriger Frequenz, sowie die gemäß \eqref{eq:phasen_esc} berechnete
 Theoriekurve sind in Abbildung \ref{fig: v_phase} dargestellt.
 \input{tabs/v_phase_LC.tex}
 \begin{figure}
@@ -139,9 +146,9 @@ die Spannungsverläufe $U_{\nu_1}$ und $U_{\nu_2}$ der offenen LC-Kette entlang 
   \caption{Verlauf der Spannung entlang der offenen LC-Kette unter der Frequenz $\nu_2$}
   \label{fig: U_nu2}
 \end{figure}
-Bei der Frequenz $\nu\ua{G} = \SI{7762}{\hertz}$ wurde der Verlauf der Spannung der geschlossenen LC-Kette untersucht. Der Wellenwiderstand
-wurde gemäß \eqref{eq: } berechnet. Für die Frequenz $\omega = 0$ ergibt sich der Wert $Z(0) = \SI{282.04}{\ohm}$. Die entlang der Kette gemessenen
-Spannungen $U\ua{G}$ sind ebenfalls in Tabelle \ref{tab: U_nu12} aufgetragen. Ein Diagramm der Werte findet sich in Abbildung \ref{fig: U_G}
+Bei der Frequenz $\nu\ua{G} = \SI{7762}{\hertz}$ wurde der Verlauf der Spannung der geschlossenen LC-Kette untersucht. Hierzu wurde die Kette
+mit dem in \eqref{eq: wellenwiderstand_zahlenwert} berechneten Wellenwiderstand abgeschlossen. Die entlang der Kette gemessenen
+Spannungen $U\ua{G}$ sind ebenfalls in Tabelle \ref{tab: U_nu12} aufgetragen. Ein Diagramm der Werte findet sich in Abbildung \ref{fig: U_G}.
 \begin{figure}
   \centering
   \includegraphics[width = 0.8\textwidth]{../Messdaten/plots/spannungsverlauf_geschlossen.pdf}
