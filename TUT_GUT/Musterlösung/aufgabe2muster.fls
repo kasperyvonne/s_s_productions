@@ -1,0 +1,4 @@
+PWD /home/sb/Dokumente/praktikum/s_s_productions/TUT_GUT/Musterlösung
+INPUT /home/sb/.local/texlive/2015/texmf-var/web2c/luatex/lualatex.fmt
+INPUT ./aufgabe2muster.tex
+OUTPUT aufgabe2muster.log

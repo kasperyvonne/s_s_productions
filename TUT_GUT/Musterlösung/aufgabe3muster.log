@@ -1,0 +1,51 @@
+This is LuaTeX, Version beta-0.80.0 (TeX Live 2015) (rev 5238)  (format=lualatex 2015.12.16)  23 JAN 2017 16:09
+ restricted \write18 enabled.
+**aufgabe3muster.tex
+(./aufgabe3muster.tex
+LaTeX2e <2015/10/01> patch level 2
+Babel <3.9m> and hyphenation patterns for 79 languages loaded.
+! Undefined control sequence.
+l.1 \section
+          {Musterlösung Aufgabe 3}
+? 
+! Interruption.
+<to be read again> 
+{
+l.1 \section{
+           Musterlösung Aufgabe 3}
+? 
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 \section{M
+            usterlösung Aufgabe 3}
+? 
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 2.
+! Undefined control sequence.
+l.2 Masse der Kugel $M_1=\SI
+                          {100}{\gram}$,
+? 
+! Emergency stop.
+l.2 Masse der Kugel $M_1=\SI
+                          {100}{\gram}$,
+End of file on the terminal!
+
+
+
+Here is how much of LuaTeX's memory you used:
+ 20 strings out of 494897
+ 100000,89155 words of node,token memory allocated 452 words of node memory still in use:
+   1 hlist, 6 glue, 2 noad, 3 math_char, 33 glyph, 31 glue_spec, 2 temp, 1 local
+_par, 2 dir nodes
+   avail lists: 2:10
+ 3795 multiletter control sequences out of 65536+600000
+ 25 fonts using 994519 bytes
+ 18i,1n,12p,58b,57s stack positions out of 5000i,500n,10000p,200000b,100000s
+!  ==> Fatal error occurred, no output PDF file produced!
