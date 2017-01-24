@@ -34,10 +34,10 @@ c.to('kelvin')
 
 def mittel_und_abweichung(messreihe):
     messreihe_einheit=messreihe.units
-	mittelwert=sum(messreihe)/len(messreihe)
-	abweichung_des_mittelwertes=1/((len(messreihe))**0.5)*np.std(messreihe)
-	mittel_und_abweichung=Q_(unp.uarray(mittelwert,abweichung_des_mittelwertes),messreihe_einheit)
-	return mittel_und_abweichung
+    mittelwert=sum(messreihe)/len(messreihe)
+    abweichung_des_mittelwertes=1/((len(messreihe))**0.5)*np.std(messreihe)
+    mittel_und_abweichung=Q_(unp.uarray(mittelwert,abweichung_des_mittelwertes),messreihe_einheit)
+    return mittel_und_abweichung
 
 #Standartabweichung und Mittelwert für Messreihe mit Intervallen
 
@@ -93,7 +93,7 @@ c_k=Q_(unp.uarray(c_k,c_k*0.2),'nanofarad')
 n=unp.uarray(n,0.5)
 print(type(n))
 #Verhältnis
-verhaeltnis=1/n
+verhaeltnis=((1/n)-1)*100
 print('Verhaeltnis Schwebung zu Schwingung', verhaeltnis)
 print('\n')
 
@@ -116,8 +116,8 @@ n_theo=(2*(v_mint-v_plut))/(v_plut+v_mint)
 
 print('Theoretisch Verhältnis',n_theo)
 
-latex.Latexdocument('teila_ck_n_mit_theo.tex').tabular([c_k.magnitude,n,verhaeltnis,n_theo],'{$C_k$ in $\si{\\nano\\farad}$$} & {Anzahl Schwingungsmaxima} & {Verhältnis $n$} & {theoretisches Verhältnis $n\\ua{theo}$}' ,[1,1,1,1],
-	caption=' Anzahl der Schwingungsmaxima bei verschiedenenen Kapazitäten $C_k$', label='teila_n_ck')
+latex.Latexdocument('teila_ck_n_mit_theo.tex').tabular([c_k.magnitude,n,verhaeltnis,n_theo],r'{$C\ua{k}$ in $\si{\nano\farad}$} & {Anzahl Schwingungsmaxima} & {rel. Verhältnis $n$ in \%} & {rel. Verhältnis $n\ua{theo}$ in \%}' ,[1,1,1,1],
+	caption=r'Anzahl der Schwingungsmaxima bei verschiedenenen Kapazitäten $C_k$', label='teila_n_ck')
 
 
 #for n in range(len(v_mint)):
@@ -132,18 +132,18 @@ v_ming=Q_(unp.uarray(v_ming,1),'kilohertz')
 v_plug=Q_(unp.uarray(v_plug,1),'kilohertz')
 
 ##Verhältniss Theorie und Praxis
-v_min_verhael=v_ming/v_mint
-v_plu_verhael=v_plug/v_plut
+v_min_verhael=(v_ming/v_mint-1)*100
+v_plu_verhael=(v_plug/v_plut-1)*100
 
 print('Verhältnis von v_m',v_min_verhael)
 print('Verhältnis von v_+',v_plu_verhael)
 print('\n')
 
 latex.Latexdocument('teilb_schwingungen_prak_gemessen_frequenzen.tex').tabular([c_k.magnitude,v_ming.magnitude,v_plug.magnitude,v_min_verhael.magnitude,v_plu_verhael.magnitude],
-	'{$C_k$ in $\si{\\nano\\farad}$} & {$Schwingungsfrequenz $\\nu_-$ in $\si{\kilo\hertz}$$} & {$Schwingungsfrequenz $\\nu_+$ in $\si{\kilo\hertz}$$ }& {$Verhältnis $\\nu_-$$ & $Verhältnis $\\nu_+$$}',[1,1,1,1,1],
-	caption=' Bestimme Fundamentalfrequenzen mit den Verhältnis zur Theorie', label='teilb_schwingungen_prak_theo')
+	r'$C\ua{k}$ in $\si{\nano\farad}$} & {Frequenz $\nu_-$ in $\si{\kilo\hertz}$} & {Frequenz $\nu_+$ in $\si{\kilo\hertz}$}& {rel. Verhältnis $n_-$ in \%} & {rel. Verhältnis $n_+$ in \%}',[1,1,1,1,1],
+	caption=' Gemessene Fundamentalfrequenzen bei einer erzwungenen Schwingungen und das relative Verhältnis zu den Theoriewerten', label='teilb_schwingungen_prak_theo')
 
-latex.Latexdocument('teilb_schwingungen_prak_theo_frequenzen.tex').tabular([c_k.magnitude,v_mint.magnitude],'{$C_k in $\si{\\nano\\farad}$$} &{$\\nu_{-\,\mathup{theo}}$ in $\si{\hertz}$$}&{$\\nu_{+\,\mathup{theo}}$ in $\si{\hertz}$$}',[1,1],
+latex.Latexdocument('teilb_schwingungen_prak_theo_frequenzen.tex').tabular([c_k.magnitude,v_mint.magnitude],r'{$C\ua{k} in $\si{\\nano\\farad}$} &{$\\nu_{-\,\mathup{theo}}$ in $\si{\kilo\hertz}$}',[1,1],
 	caption='Theoretisch bestimmte Fundamentalfrequenzen', label='teilb_frequenzen_theo')
 
 
@@ -171,27 +171,27 @@ t_2=Q_(unp.uarray(t_2,5),'millisecond')
 c_k=Q_(unp.uarray(c_k,c_k*0.2),'nanofarad')
 
 latex.Latexdocument('teilc_gemessene_zeitabstaende.tex').tabular([c_k.magnitude,t_2.magnitude,t_1.magnitude],
-	'{$C\\ua{k} in $\si{\\nano\\farad}$} & {Abstand $\\Delta t_+$} & {Abstand $\\Delta $}',
+	'{$C\\ua{k} in $\si{\\nano\\farad}$} & {Abstand $\\Delta t_+$ in \si{\milli\second}} & {Abstand $\\Delta t_-$ in \si{\milli\second}}',
 	[1,1,1], caption='Gemessene Zeitabstände bei unterschiedlichen $C\\ua{k}$', label='teilc_gemessene_zeit')
 
 frequenzen_t1=zeit_f_gerade(t_1).to('kilohertz')
 frequenzen_t2=zeit_f_gerade(t_2).to('kilohertz')
 print('Frequenz Teil c v+',frequenzen_t1)
 print('\n')
-v_pu_verhael_c=frequenzen_t1/v_plut
-v_plu_verhael_mittel_c=(sum(v_pu_verhael_c)/len(v_pu_verhael_c))
+v_pu_verhael_c=(frequenzen_t1/v_plut-1)*100
+v_plu_verhael_mittel_c=((sum(v_pu_verhael_c)/len(v_pu_verhael_c))-1)*100
 
 print('Verhältnis Teilc v+, gemittelt', v_pu_verhael_c,v_plu_verhael_mittel_c)
 print('\n')
 print('Frequenz Teil c v-',frequenzen_t2)
 print('\n')
-v_min_verhael_c=frequenzen_t2/v_mint
+v_min_verhael_c=(frequenzen_t2/v_mint-1)*100
 print('Verhältnis Teilc v-', v_min_verhael_c)
 print('\n')
 
 latex.Latexdocument('teilc_schwingungen_prak_gemessen_frequenzen.tex').tabular([c_k.magnitude,frequenzen_t2.magnitude,frequenzen_t1.magnitude,v_min_verhael_c.magnitude,v_pu_verhael_c.magnitude],
-	'{$C_k in $\si{\\nano\\farad}$$} & {$Schwingungsfrequenz $\\nu_-$ in $\si{\kilo\hertz}$$} & {$Schwingungsfrequenz $\\nu_+$ in $\si{\kilo\hertz}$$ }& {$Verhältnis $\\nu_-$$ & $Verhältnis $\\nu_+$$}',[1,1,1,1,1],
-	caption=' Bestimme Fundamentalfrequenzen im der \\textbf{Methodennamen einfügen} mit den Verhältnis zur Theorie', label='teilc_schwingungen_prak_theo')
+	'{$C\\ua{k}$ in $\\si{\\nano\\farad}$} & {Frequenz $\\nu_-$ in $\\si{\\kilo\\hertz}$} & {Frequenz $\\nu_+$ in $\\si{\\kilo\\hertz}$ }& {rel. Verhältnis $n_{-}$ in \%} & {rel. Verhältnis $n_+$ in \%}',[1,1,1,1,1],
+    caption='Bestimmung der Fundamentalfrequenzen mit der Sweep-Methode und zusätzlich das relatives Verhältnis zu den Theoriewerten.', label='teilc_schwingungen_prak_theo')
 
 
 
@@ -206,12 +206,22 @@ v_plutp=[]
 for n in range(len(c_k.magnitude)):
 	v_plutp.append(noms(v_plut.magnitude))
 
-plt.plot(noms(c_k.magnitude),noms(v_ming.magnitude),'rx',label='$ Teil \,b):\, \\nu_-$')
-plt.plot(noms(c_k.magnitude),noms(v_plug.magnitude),'gx',label=r'$Teil \,b):\, \nu_+$')
-plt.plot(noms(c_k.magnitude),noms(frequenzen_t2.magnitude),'yx',label='$ Teil \,c):\, \\nu_-$')
-plt.plot(noms(c_k.magnitude),noms(frequenzen_t1.magnitude),'bx',label=r'$Teil \,c):\, \nu_+$')
-plt.plot(noms(c_k.magnitude),noms(v_mint.magnitude),'cx',label=r'$Theoriewert: \, \nu_-$')
-plt.plot(noms(c_k.magnitude),v_plutp,'mx',label=r'$Theoriewert: \, \nu_+$')
+#v_mint=v_min(l,c,c_k).to('kilohertz')
+#v_plut=v_plu(l,c).to('kilohertz')
+c_kl=np.linspace(0.5,c_k[-1].magnitude+1,1000)
+#print('Liste C',c_kl)
+print(len(c_kl))
+v_theo_min_list=v_min((l.magnitude)*1e-3,(c.magnitude)*1e-9,c_kl*1e-9)*1e-3
+v_tho_plu_list=v_plu((l.magnitude)*1e-3,(c.magnitude)*1e-9)*1e-3
+v_plarray=noms(v_plut.magnitude)*np.ones(len(c_kl))
+print(v_plarray)
+
+plt.plot(noms(c_k.magnitude),noms(v_ming.magnitude),'rx',label='$Erzwungene \, Schwingung \, \\nu_-$')
+plt.plot(noms(c_k.magnitude),noms(v_plug.magnitude),'gx',label=r'$Erzwungene \, Schwingung \, \nu_+$')
+plt.plot(noms(c_k.magnitude),noms(frequenzen_t2.magnitude),'yx',label='$Sweep-Methode\, \\nu_-$')
+plt.plot(noms(c_k.magnitude),noms(frequenzen_t1.magnitude),'bx',label=r'$Sweep-Methode:\, \nu_+$')
+plt.plot(noms(c_kl),noms(v_theo_min_list),'c-',label=r'$Theoriewerte: \, \nu_-$')
+plt.plot(noms(c_kl),v_plarray,'m-',label=r'$Theoriewerte: \, \nu_+$')
 
 
 
