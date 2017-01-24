@@ -27,7 +27,7 @@ print(1/(einheitentst*einheitentst_2).to('second'))
 
 #variabel_1,variabel_2=np.genfromtxt('name.txt',unpack=True)
 
-#Standartabweichung und Mittelwert 
+#Standartabweichung und Mittelwert
 
 def mittel_und_abweichung(messreihe):
 	messreihe_einheit=messreihe.units
@@ -70,8 +70,9 @@ def linregress(x, y):
     return A, A_error, B, B_error
 
 
-#Angepasstes Programm 
+#Angepasstes Programm
 
+##teilb
 
 
 
