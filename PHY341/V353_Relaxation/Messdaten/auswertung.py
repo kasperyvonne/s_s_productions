@@ -16,13 +16,13 @@ a = ufloat(5, 2) * u.meter
 b = Q_(unp.uarray([5,4,3], [0.1, 0.2, 0.3]), 'ohm')
 c = Q_(0, 'degC')
 c.to('kelvin')
-print(c.to('kelvin'))
-print(a**2)
-print(b**2)
-einheitentst=Q_(1*1e-3,'farad')
-einheitentst_2=Q_(1,'ohm')
-print(einheitentst)
-print(1/(einheitentst*einheitentst_2).to('second'))
+#print(c.to('kelvin'))
+#print(a**2)
+#print(b**2)
+#einheitentst=Q_(1*1e-3,'farad')
+#einheitentst_2=Q_(1,'ohm')
+#print(einheitentst)
+#print(1/(einheitentst*einheitentst_2).to('second'))
 
 
 #variabel_1,variabel_2=np.genfromtxt('name.txt',unpack=True)
@@ -74,20 +74,75 @@ def linregress(x, y):
 
 ##teilb
 
+f, u_c, u_g = np.genfromtxt('u_c_und_u_g.txt',unpack=True)
+f= f*u.hertz
+u_c= 0.5*u_c* u.volt
+u_g =0.5*u_g* u.volt
 
+u_c_normierung=u_c/u_g
+print('Verhältnis Uc/Ug', u_c_normierung)
+print('\n')
 
+def fit(x,a):
+	return 1/(np.sqrt(1+(2*np.pi*x)**2*a**2))
+
+params_b,covariance_b=curve_fit(fit,f.magnitude,u_c_normierung.magnitude)
+error_params_b=np.sqrt(np.diag(covariance_b))
+params_b_u=ufloat(params_b,covariance_b)
+
+print('Paramter RC aus der Messung b',params_b_u)
+print('\n')
+
+#teilc
+f_c,a,b=np.genfromtxt('abstand.txt',unpack=True)
+a=a*1e-6*u.second
+b=b*u.millisecond
+print(b.to('second'))
+
+def phi(a,b):
+	return (a/b.to('second'))*2*np.pi
+phase=phi(a,b)
+
+print('Phase',phase)
+print('\n')
+
+def phi_fit (x,a):
+	return np.arctan(-(2*np.pi*x)*a)
+
+params_c,covariance_c=curve_fit(phi_fit,f_c,phase)
+error_params_c=np.sqrt(np.diag(covariance_c))
+params_c_u=ufloat(params_c,covariance_c)
 
 #Plotbereich
+##Plots zu b
 
-#plt.xlim()
-#plt.ylim()
-#aufvariabele=np.linsspace()
-#
-#plt.plot(,,'rx',label='')
-#
-#plt.grid()
-#plt.legend(loc='best')
-#plt.xlabel()
-#plt.ylabel()
+
+plt.clf()
+#loga
+plt.xlim(8,f[-1].magnitude+1000)
+plt.ylim(0,max(u_c_normierung)+0.025)
+aufvariabele=np.linspace(f[0].magnitude-10,f[-1].magnitude+1000,10000)
+plt.plot(f.magnitude,u_c_normierung,'rx',label=r'$\mathrm{berechnete} \, \mathrm{Werte}$')
+plt.plot(aufvariabele,fit(*params_b,aufvariabele),'b-',label=r'$\mathrm{Fit}$')
+plt.grid()
+plt.xscale('log')
+plt.legend(loc='best')
+plt.xlabel(r'$\mathrm{Frequenz}\, \mathrm{in} \,\mathrm{Hz}$')
+plt.ylabel(r'$ \mathrm{Verhältnis} \,\, \frac{U_c}{U_g}$')
 #plt.show()
-#plt.savefig('.pdf')
+#plt.savefig('u_cdurchu_g.pdf')
+
+##Plots zu c
+plt.clf()
+plt.xlim(8,f_c[-1]+1000)
+plt.ylim(0,max(phase)+0.025)
+laufvariabele=np.linspace(f_c[0]-10,f_c[-1]+1000,1000)
+plt.plot(f_c,phase,'bx',label=r'$\mathrm{Phase}$')
+plt.plot(laufvariabele,phi_fit(*params_c,laufvariabele),'r-',label=r'$\mathrm{Fit}$')
+plt.xscale('log')
+plt.legend(loc='best')
+plt.xlabel(r'$\mathrm{Frequenz}\, \mathrm{in} \,\mathrm{Hz}$')
+plt.ylabel(r'$ \mathrm{Verhältnis} \,\, \frac{U_c}{U_g}$')
+plt.show()
+
+##
