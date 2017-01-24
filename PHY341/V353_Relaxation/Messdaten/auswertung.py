@@ -123,7 +123,7 @@ plt.xlim(8,f[-1].magnitude+1000)
 plt.ylim(0,max(u_c_normierung)+0.025)
 aufvariabele=np.linspace(f[0].magnitude-10,f[-1].magnitude+1000,10000)
 plt.plot(f.magnitude,u_c_normierung,'rx',label=r'$\mathrm{berechnete} \, \mathrm{Werte}$')
-plt.plot(aufvariabele,fit(*params_b,aufvariabele),'b-',label=r'$\mathrm{Fit}$')
+plt.plot(aufvariabele,fit(aufvariabele,*params_b),'b-',label=r'$\mathrm{Fit}$')
 plt.grid()
 plt.xscale('log')
 plt.legend(loc='best')
@@ -143,6 +143,12 @@ plt.xscale('log')
 plt.legend(loc='best')
 plt.xlabel(r'$\mathrm{Frequenz}\, \mathrm{in} \,\mathrm{Hz}$')
 plt.ylabel(r'$ \mathrm{Verhältnis} \,\, \frac{U_c}{U_g}$')
-plt.show()
+#plt.show()
 
-##
+##Plots zu d
+plt.clf()
+
+plt.polar(phase,fit(f_c,*params_b) ,'rx',label=r'$\mathrm{Messdaten}$')
+winkel=np.linspace(0,phase[-1],1000)
+plt.polar(winkel,np.cos(winkel))
+plt.show()
