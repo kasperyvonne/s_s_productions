@@ -72,6 +72,33 @@ def linregress(x, y):
 
 #Angepasstes Programm
 
+##teila
+
+t,u_a=np.genfromtxt('eingabe_teila_neu.txt',unpack=True)
+t*=1e-3
+
+def g (x,a,b,c):
+	return a*np.exp(b*x)+c
+
+params_a,covariance_a=curve_fit(g,t,u_a)
+error_params_a=np.sqrt(np.diag(covariance_a))
+print(params_a)
+print(error_params_a)
+params_a_u=ufloat(params_a[1],error_params_a[1])
+print('RC in Teil a',1/params_a_u)
+print('\n')
+
+def ger (x,m,b):
+	return m*x+b
+
+params_a2,covariance_a2=curve_fit(ger,t,(u_a))
+error_params_a2=np.sqrt(np.diag(covariance_a2))
+print(params_a2)
+print(error_params_a2)
+params_a_u=ufloat(params_a2[0],error_params_a2[1])
+print('RC in Teil a, linearer Fit',1/params_a_u)
+print('\n')
+
 ##teilb
 
 f, u_c, u_g = np.genfromtxt('u_c_und_u_g.txt',unpack=True)
@@ -88,7 +115,7 @@ def fit(x,a):
 
 params_b,covariance_b=curve_fit(fit,f.magnitude,u_c_normierung.magnitude)
 error_params_b=np.sqrt(np.diag(covariance_b))
-params_b_u=ufloat(params_b,covariance_b)
+params_b_u=ufloat(params_b,error_params_b)
 
 print('Paramter RC aus der Messung b',params_b_u)
 print('\n')
@@ -111,7 +138,7 @@ def phi_fit (x,a):
 
 params_c,covariance_c=curve_fit(phi_fit,f_c,phase)
 error_params_c=np.sqrt(np.diag(covariance_c))
-params_c_u=ufloat(params_c,covariance_c)
+params_c_u=ufloat(params_c,error_params_c)
 
 #Plotbereich
 ##Plots zu b
@@ -147,7 +174,7 @@ plt.yticks([0,1/16*np.pi,1/8*np.pi,3/16*np.pi,1/4*np.pi,5/16*np.pi,3/8*np.pi,7/1
 ['0','$\\frac{1}{16}\\pi$', '$\\frac{1}{8}\\pi$','$\\frac{3}{16}\\pi$' ,'$\\frac{1}{4}\\pi$','$\\frac{5}{16}\\pi$','$\\frac{3}{8}\\pi$','$\\frac{7}{16}\\pi$','$\\frac{1}{2}\\pi$','$\\frac{9}{16}\\pi$','$\\frac{5}{8}\\pi$','$\\frac{11}{16}\\pi$','$\\frac{3}{4}\\pi$','$\\frac{13}{16}\\pi$'])
 plt.grid()
 #plt.show()
-plt.savefig('frequenz_phase.pdf')
+#plt.savefig('frequenz_phase.pdf')
 
 ##Plots zu d
 plt.clf()
@@ -158,4 +185,17 @@ plt.polar(winkel,np.cos(winkel),'b-',label=r'$\mathrm{Theoriekurve}$')
 plt.xticks([0,0.25*np.pi,0.5*np.pi,0.75*np.pi,np.pi,1.25*np.pi,1.5*np.pi,1.75*np.pi],['0','$\\frac{1}{4}\\pi$', '$\\frac{1}{2}\\pi$','$\\frac{3}{4}\\pi$' ,'$\\pi$','$\\frac{5}{4}\\pi$','$\\frac{3}{2}\\pi$','$\\frac{7}{4}\\pi$'])
 plt.legend(loc=[0.05,0.95])
 #plt.show()
-plt.savefig('polarplot.pdf')
+#plt.savefig('polarplot.pdf')
+
+plt.clf()
+plt.xlim(t[0]-1e-2,t[-1]+1e-2)
+plt.ylim(0.67,10)
+plt.plot(t,u_a,'bx',label=r'$\mathrm{Messwerte}$')
+plt.plot(t,g(t,*params_a),'r-',label=r'$\mathrm{Fit}$')
+plt.legend(loc='best')
+plt.xlabel(r'$t \, \mathrm{in} \, ms$')
+plt.ylabel(r'$ U_{\mathrm{ent}} \, \mathrm{in} \, V$')
+plt.yscale('log')
+plt.grid()
+#plt.show()
+plt.savefig('teil_a_entladung.pdf')
