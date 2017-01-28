@@ -76,7 +76,7 @@ def linregress(x, y):
 ##teila
 
 t,u_a=np.genfromtxt('eingabe_teila_neu.txt',unpack=True)
-t*=1e-3
+t*=1e-6
 
 def g (x,a,b,c):
 	return a*np.exp(b*x)+c
@@ -92,7 +92,7 @@ print('\n')
 def ger (x,m,b):
 	return m*x+b
 
-params_a2,covariance_a2=curve_fit(ger,t,(u_a))
+params_a2,covariance_a2=curve_fit(ger,t,np.log(u_a))
 error_params_a2=np.sqrt(np.diag(covariance_a2))
 print(params_a2)
 print(error_params_a2)
@@ -101,9 +101,8 @@ print('RC in Teil a, linearer Fit',1/params_a_u)
 print('\n')
 
 latex.Latexdocument('abgelesene_werte_teila.tex').tabular([t, u_a],
-r'{t in $\si{\milli\second}$} & {U\ua{ein} in $\si{\volt}$}', [1, 1],
-caption = r'Aus der Grafik \ref{} bestimmte Messwerte', label = 'tab:teil_a_spannungen')
-
+r'{$t$ in $\si{\milli\second}$} & {$U\ua{ein}$ in $\si{\volt}$}', [1, 1],
+caption = r'Aus der Grafik \ref{fig:entladekurve} bestimmte Messwerte', label = 'tab:teil_a_spannungen')
 ##teilb
 
 f, u_c, u_g = np.genfromtxt('u_c_und_u_g.txt',unpack=True)
@@ -125,8 +124,8 @@ params_b_u=ufloat(params_b,error_params_b)
 print('Paramter RC aus der Messung b',params_b_u)
 print('\n')
 
-latex.Latexdocument('teil_b.tex').tabular([f, u_g,u_c,u_c_normierung],
-r'{f in $\si{\hertz}$} & {U\ua{g} in $\si{\volt}$}& {U\ua{c} in $\si{\volt}$} & {\frac{U\ua{c}{U\ua{g}}$}', [1, 1, 1, 1],
+latex.Latexdocument('teil_b_ua_ub.tex').tabular([f.magnitude, u_g.magnitude,u_c.magnitude,u_c_normierung.magnitude],
+r'{$f$ in $\si{\hertz}$} & {$U\ua{g}$ in $\si{\volt}$}& {$U\ua{c}$ in $\si{\volt}$} & {$\frac{U\ua{c}}{U\ua{g}}$}', [0, 2, 2, 2],
 caption = r'Gemessene Generator- und Kondensatorspannungen bei unterschiedlichen Frequenzen ', label = 'tab:teil_b_spannungen')
 
 #teilc
@@ -148,9 +147,16 @@ def phi_fit (x,a):
 params_c,covariance_c=curve_fit(phi_fit,f_c,phase)
 error_params_c=np.sqrt(np.diag(covariance_c))
 params_c_u=ufloat(params_c,error_params_c)
+print('Teil c, Rc ohne Korrektur',params_c_u)
+print('\n')
+params_ck,covariance_ck=curve_fit(phi_fit,f_c[0:10],phase[0:10])
+error_params_ck=np.sqrt(np.diag(covariance_ck))
+params_ck_u=ufloat(params_ck,error_params_ck)
+print('Teil c, Rc mit Korrektur',params_ck_u)
+print('\n')
 
-latex.Latexdocument('teil_b.tex').tabular([f_c,a,b],
-r'{f in $\si{\hertz}$} & {a in $\si{\second}$}& {b in $\si{\milli\second}$}', [1, 1, 1],
+latex.Latexdocument('abstände.tex').tabular([f_c,a.magnitude*1e3,b.magnitude,phase.magnitude],
+r'{$f$ in $\si{\hertz}$} & {$a$ in $\si{\milli\second}$}& {$b$ in $\si{\milli\second}$ }& {$\varphi$}', [0, 3, 2,2],
 caption = r'Gemessene Abstände $a$ und $b$ ', label = 'tab:teil_c_abstände')
 
 #Plotbereich
@@ -162,7 +168,7 @@ plt.clf()
 plt.xlim(8,f[-1].magnitude+1000)
 plt.ylim(0,max(u_c_normierung)+0.025)
 aufvariabele=np.linspace(f[0].magnitude-10,f[-1].magnitude+1000,10000)
-plt.plot(f.magnitude,u_c_normierung,'rx',label=r'$\mathrm{berechnete} \, \mathrm{Werte}$')
+plt.plot(f.magnitude,u_c_normierung,'rx',label=r'$ \mathrm{Messwerte}$')
 plt.plot(aufvariabele,fit(aufvariabele,*params_b),'b-',label=r'$\mathrm{Fit}$')
 plt.grid()
 plt.xscale('log')
@@ -170,7 +176,7 @@ plt.legend(loc='best')
 plt.xlabel(r'$\mathrm{Frequenz}\, \mathrm{in} \,\mathrm{Hz}$')
 plt.ylabel(r'$ \mathrm{Verhältnis} \,\, \frac{U_c}{U_g}$')
 #plt.show()
-#plt.savefig('u_cdurchu_g.pdf')
+plt.savefig('u_cdurchu_g.pdf')
 
 ##Plots zu c
 plt.clf()
@@ -178,16 +184,17 @@ plt.xlim(8,f_c[-1]+1000)
 plt.ylim(0,max(phase)+0.025)
 laufvariabele=np.linspace(f_c[0]-10,f_c[-1]+1000,1000)
 plt.plot(f_c,phase,'bx',label=r'$\mathrm{Phase}$')
-plt.plot(laufvariabele,phi_fit(*params_c,laufvariabele),'r-',label=r'$\mathrm{Fit}$')
+plt.plot(laufvariabele,phi_fit(*params_c,laufvariabele),'g-',label=r'$\mathrm{Fit}\,\mathrm{mit}\,\mathrm{Korrektur}$')
+plt.plot(laufvariabele,phi_fit(*params_ck,laufvariabele),'r-',label=r'$\mathrm{Fit}\,\mathrm{ohne}\,\mathrm{Korrektur}$')
 plt.xscale('log')
 plt.legend(loc='best')
 plt.xlabel(r'$\nu \, \mathrm{in} \,\mathrm{Hz}$')
-plt.ylabel(r'$ \mathrm{Verhältnis} \,\, \frac{U_c}{U_g}$')
+plt.ylabel(r'$ \varphi$')
 plt.yticks([0,1/16*np.pi,1/8*np.pi,3/16*np.pi,1/4*np.pi,5/16*np.pi,3/8*np.pi,7/16*np.pi,1/2*np.pi,9/16*np.pi,5/8*np.pi,11/16*np.pi,3/4*np.pi,13/16*np.pi],
 ['0','$\\frac{1}{16}\\pi$', '$\\frac{1}{8}\\pi$','$\\frac{3}{16}\\pi$' ,'$\\frac{1}{4}\\pi$','$\\frac{5}{16}\\pi$','$\\frac{3}{8}\\pi$','$\\frac{7}{16}\\pi$','$\\frac{1}{2}\\pi$','$\\frac{9}{16}\\pi$','$\\frac{5}{8}\\pi$','$\\frac{11}{16}\\pi$','$\\frac{3}{4}\\pi$','$\\frac{13}{16}\\pi$'])
 plt.grid()
 #plt.show()
-#plt.savefig('frequenz_phase.pdf')
+plt.savefig('frequenz_phase.pdf')
 
 ##Plots zu d
 plt.clf()
@@ -201,12 +208,12 @@ plt.legend(loc=[0.05,0.95])
 #plt.savefig('polarplot.pdf')
 
 plt.clf()
-plt.xlim(t[0]-1e-2,t[-1]+1e-2)
+plt.xlim(t[0]-1e-5,t[-1]+1e-5)
 plt.ylim(0.67,10)
 plt.plot(t,u_a,'bx',label=r'$\mathrm{Messwerte}$')
 plt.plot(t,g(t,*params_a),'r-',label=r'$\mathrm{Fit}$')
 plt.legend(loc='best')
-plt.xlabel(r'$t \, \mathrm{in} \, ms$')
+plt.xlabel(r'$t \, \mathrm{in} \, s$')
 plt.ylabel(r'$ U_{\mathrm{ent}} \, \mathrm{in} \, V$')
 plt.yscale('log')
 plt.grid()

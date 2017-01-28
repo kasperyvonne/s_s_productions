@@ -1,1 +1,90 @@
 \section{Auswertung}
+Die in der Auswertung bestimmten Ausgleichsrechnungen werden mit
+dem Python Paket \emph{scipy.optimize} berechnet.
+
+\subsection{Bestimmung von RC mithilfe der Entladekurve}
+
+Das für die Berechnung benötigte Ozsilloskopenbild ist in Abbbildung \ref{fig:entladekurve} zusehen.
+
+\begin{figure}
+  \includegraphics[width=0.8\textwidth]{pics/bilda_508hz.png}
+  \caption{Vom Ozsillopskop gespeicherte Entladekurve.}
+  \label{fig:entladekurve}
+\end{figure}
+
+Von dem Graphen wurden $9$ Punkte vermessen.
+Diese sind in Tabelle \ref{} eingetragen.
+\input{table/abgelesene_werte_teila.tex}
+
+An die Messwerte wird ein Fit der Form
+
+\begin{equation*}
+  U(t)=a+\map{e}^{bt}+c.
+\end{equation*}
+
+gelegt.
+Als Parameter ergeben sich:
+\begin{equation}
+  \label{eq:parameter_teila}
+a=\SI{11.3\pm0.7}{\volt} \quad b=\num{-780.5\pm67.7} \quad c=\SI{-5.3\pm0.7}{\volt}.
+\end{equation}
+Aus der Formel  \eqref{eq:entlade_kurve} folgt weiter
+\begin{equation}
+  \frac{1}{b}=RC=\SI{1.12\pm0.1}{\milli\second}.
+\end{equation}
+Die Messwerte und der Fit sind in Abbildung \ref{fig:plot_teila} einmal grapisch
+dargestellt.
+
+\begin{figure}
+  \includegraphics [width=0.8\textwidth]{pics/teil_a_entladung.pdf}
+  \caption{Messwerte und Fit der Entladekurve}
+  \label{fig:plot_teila}
+\end{figure}
+
+\subsection{Bestimmung von RC mithilfe der Kondensatorspannung}
+Im Versuch wurden die in \ref{tab:teil_b_spannungen} dargestellten Werte gemesen.
+\input{table/teil_b_ua_ub.tex}
+In diesem ist zugleich die Nomierung $\frac{U\ua{c}}{U\ua{g}}$
+mitangegben.
+Mit der Formel \eqref{eq: amplitude_theorie} kann an die Messwerte eine Regressionsgerade
+errechnet werden. Hierbei wurde der Zusammenhang $\omega=2\pi f$ genutzt.
+Aus der Regerssionsrechung folgt für den Wert von $RC$:
+\begin{equation}
+  \label{eq:rc_teilb}
+  RC=\SI{1.49\pm0.02}{\milli\second}
+\end{equation}
+In der Abbildung \ref{fig:teilb} sind Messwerte und Regressionsgerade abgebildet.
+\begin{figure}
+  \includegraphics[width=0.8\textwidth]{pics/u_cdurchu_g.pdf}
+  \caption{Normierte Amplitude in Abhängigkeit von der Frequenz.}
+  \label{fig:teilb}
+\end{figure}
+
+\subsection{Bestimmung von RC mithilfe der Phasenverschiebung}
+Die im Versuch gemessenen Abstände $a$ und $b$ in Tabelle \ref{}
+dargestellt. Mithilfe von Formel \eqref{eq:phasenverschiebung} wurde die
+Phasenverschiebung bestimmt.
+\input{table/abstaende.tex}
+Es fällt auf das die Phase $\varphi$ größer als $\frac{\pi}{2}$ wird.
+Dies ist nach der Theorie nicht möglich.
+Es lässt sich also schon jetzt ein systematischer Fehler nicht ausschließen.
+Deshalb werden für die Berechnung von $RC$ die Messwerte weggelassen, an den
+$\varphi$ größer als $\frac{\pi}{2}$ ist.
+Mit der Gleichung \eqref{eq: phase_theorie} kann eine Regressionskurve für die
+Phase bestimmt werden.
+In Abbildung \ref{fig:plot_teil_c} sind Messwerte und Regressionskurve aufgetragen.
+Dabei wird einmal die Regressionskurve mit und einmal ohne Korrekur abgebildet.
+\begin{figure}
+  \includegraphics[width=0.8\textwidth]{pics/frequenz_phase.pdf}
+  \caption{Die von der RC-Kombination erzeugte Phasenverschiebung.}
+  \label{fig:plot_teil_c}
+\end{figure}
+Aus der Regressionsrechung ergibt sich als Wert für $RC$
+
+\begin{align}
+  \label{eq:teil_c_rc}
+  \begin{aligned}
+    RC&=\SI{1.7\pm0.5}{\milli\second} \quad \text{ohne Korrektur} \\
+    RC& =\SI{1.49\pm0.07}{\milli\second} \quad \text{mit Korrektur}
+\end{aligned}
+\end{align}
