@@ -159,6 +159,20 @@ latex.Latexdocument('abstände.tex').tabular([f_c,a.magnitude*1e3,b.magnitude,ph
 r'{$f$ in $\si{\hertz}$} & {$a$ in $\si{\milli\second}$}& {$b$ in $\si{\milli\second}$ }& {$\varphi$}', [0, 3, 2,2],
 caption = r'Gemessene Abstände $a$ und $b$ ', label = 'tab:teil_c_abstände')
 
+
+##Teil d
+def ampli(phase,frequenz):
+	return (np.sin(phase)/(2*np.pi*frequenz*0.00149))
+
+amplitude_teild=ampli(phase, f_c)
+
+latex.Latexdocument('amplitude_phase.tex').tabular([f_c,phase.magnitude,amplitude_teild.magnitude],
+r'{$f$ in $\si{\hertz}$} & {$\varphi$}& {$\frac{U\ua{c}}{U\ua{g}}$}' , [0, 2, 2],
+caption = r'Berechnete normierte Amplitude bei $RC =\SI{1.49}{\milli\second}$', label = 'tab:teil_d_amplitude')
+
+
+
+
 #Plotbereich
 ##Plots zu b
 
@@ -199,13 +213,18 @@ plt.savefig('frequenz_phase.pdf')
 ##Plots zu d
 plt.clf()
 
-plt.polar(phase,fit(f_c,*params_b) ,'rx',label=r'$\mathrm{Messdaten}$')
+#ax=plt.polar(phase,fit(f_c,*params_b) ,'rx',label=r'$\mathrm{Errechnete \, Werte}$')
+#plt.polar(phase,u_c_normierung ,'rx',label=r'$\mathrm{Messwerte}$')
+plt.polar(phase,amplitude_teild ,'yx',label=r'$\mathrm{Messwerte}$')
 winkel=np.linspace(0,phase[-1],1000)
 plt.polar(winkel,np.cos(winkel),'b-',label=r'$\mathrm{Theoriekurve}$')
 plt.xticks([0,0.25*np.pi,0.5*np.pi,0.75*np.pi,np.pi,1.25*np.pi,1.5*np.pi,1.75*np.pi],['0','$\\frac{1}{4}\\pi$', '$\\frac{1}{2}\\pi$','$\\frac{3}{4}\\pi$' ,'$\\pi$','$\\frac{5}{4}\\pi$','$\\frac{3}{2}\\pi$','$\\frac{7}{4}\\pi$'])
+#plt.xlabel(r'$\varphi$')
+#plt.ylabel(r'$\mathrm{Verhältnis} \,\, \frac{U_c}{U_g}$')
+plt.ylim(0,1.05)
 plt.legend(loc=[0.05,0.95])
 #plt.show()
-#plt.savefig('polarplot.pdf')
+plt.savefig('polarplot.pdf')
 
 plt.clf()
 plt.xlim(t[0]-1e-5,t[-1]+1e-5)
