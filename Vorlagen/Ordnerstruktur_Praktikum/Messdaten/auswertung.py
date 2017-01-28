@@ -5,6 +5,7 @@ import math
 from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
 from pint import UnitRegistry
+import latex
 
 u = UnitRegistry()
 Q_ = u.Quantity

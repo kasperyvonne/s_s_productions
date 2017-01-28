@@ -5,6 +5,7 @@ import math
 from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
 from pint import UnitRegistry
+import latex
 
 u = UnitRegistry()
 Q_ = u.Quantity
@@ -99,6 +100,10 @@ params_a_u=ufloat(params_a2[0],error_params_a2[1])
 print('RC in Teil a, linearer Fit',1/params_a_u)
 print('\n')
 
+latex.Latexdocument('abgelesene_werte_teila.tex').tabular([t, u_a],
+r'{t in $\si{\milli\second}$} & {U\ua{ein} in $\si{\volt}$}', [1, 1],
+caption = r'Aus der Grafik \ref{} bestimmte Messwerte', label = 'tab:teil_a_spannungen')
+
 ##teilb
 
 f, u_c, u_g = np.genfromtxt('u_c_und_u_g.txt',unpack=True)
@@ -120,6 +125,10 @@ params_b_u=ufloat(params_b,error_params_b)
 print('Paramter RC aus der Messung b',params_b_u)
 print('\n')
 
+latex.Latexdocument('teil_b.tex').tabular([f, u_g,u_c,u_c_normierung],
+r'{f in $\si{\hertz}$} & {U\ua{g} in $\si{\volt}$}& {U\ua{c} in $\si{\volt}$} & {\frac{U\ua{c}{U\ua{g}}$}', [1, 1, 1, 1],
+caption = r'Gemessene Generator- und Kondensatorspannungen bei unterschiedlichen Frequenzen ', label = 'tab:teil_b_spannungen')
+
 #teilc
 f_c,a,b=np.genfromtxt('abstand.txt',unpack=True)
 a=a*1e-6*u.second
@@ -139,6 +148,10 @@ def phi_fit (x,a):
 params_c,covariance_c=curve_fit(phi_fit,f_c,phase)
 error_params_c=np.sqrt(np.diag(covariance_c))
 params_c_u=ufloat(params_c,error_params_c)
+
+latex.Latexdocument('teil_b.tex').tabular([f_c,a,b],
+r'{f in $\si{\hertz}$} & {a in $\si{\second}$}& {b in $\si{\milli\second}$}', [1, 1, 1],
+caption = r'Gemessene Abstände $a$ und $b$ ', label = 'tab:teil_c_abstände')
 
 #Plotbereich
 ##Plots zu b
