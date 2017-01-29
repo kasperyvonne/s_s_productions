@@ -56,8 +56,8 @@ Für große Frequenzen hingegen nähert sich die Amplitude null an und die Phase
 im Versuch überprüft werden. Um die Ergebnisse später in einer Polarebene einzeichnen zu können, werden die Formeln \eqref{eq: phase_theorie} und
 \eqref{eq: amplitude_theorie} benutzt, um die Amplitude $A$ als Funktion von Frequenz und Phase darzustellen:
 \begin{equation}
-  \label{eq:phase}
-  A(\varphi, \omega) = -\frac{\sin{\varphi}}{\omega R C}U_0.
+\frac{A(\varphi, \omega)}{U_0} = \cos\left[\varphi(\omega)\right].
+  \label{eq: amplitude_phase}
 \end{equation}
 
 \subsection{Integratoreigenschaft des RC-Kreises}
@@ -68,6 +68,6 @@ Gemäß der Maschenregel gilt für die Spannungen im Stromkreis \ref{fig: aufbau
 Ist nun die Frequenz wesentlich höher als der Term $(RC)^{-1}$, so kann gemäß \eqref{eq: amplitude_theorie} der Term $U\ua{C}$ vernachlässigt werden, womit
 sich ergibt:
 \begin{equation}
-  U(t) = RC\,\frac{\dif{U\ua{c}(t)}}{\dif{t}} \quad \Leftrightarrow \quad U\ua{C}(t) = \frac{1}{RC}\int_0^t U(t')dt'.
+  U(t) = RC\,\frac{\dif{U\ua{c}(t)}}{\dif{t}} \quad \Leftrightarrow \quad U\ua{C}(t) = \frac{1}{RC}\int_0^t U(\bar{t})\dif{\bar{t}}.
 \end{equation}
 Die Aufbau kann also für hohe Frequenzen zur Integration der Spannung $U(t)$ verwendet werden.

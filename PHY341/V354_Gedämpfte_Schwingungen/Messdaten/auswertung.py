@@ -19,17 +19,7 @@ print(R_ap_theo)
 
 
 
-#Plotbereich
-
-#plt.xlim()
-#plt.ylim()
-#aufvariabele=np.linsspace()
-#
-#plt.plot(,,'rx',label='')
-#
-#plt.grid()
-#plt.legend(loc='best')
-#plt.xlabel()
-#plt.ylabel()
-#plt.show()
-#plt.savefig('.pdf')
+x = np.linspace(0, 2, 1000)
+plt.plot(x, np.exp(x))
+plt.yscale('log')
+plt.show()
