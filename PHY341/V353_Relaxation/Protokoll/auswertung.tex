@@ -17,6 +17,9 @@ Diese sind in Tabelle \ref{fig:plot_teila} eingetragen.
 \FloatBarrier
 \input{table/abgelesene_werte_teila.tex}
 \FloatBarrier
+In der Tablle ist zu erkenn, dass die Spannung zunächst mit $\SI{0.8}{\volt}$
+abfällt, aber zum ende hin nur noch mit $\SI{0.5}{\volt}$.
+Ein exponentieller Fit ist zu vermuten.
 An die Messwerte wird eine Regressionsgerade der Form
 
 \begin{equation*}
@@ -52,6 +55,9 @@ Im Versuch wurden die in \ref{tab:teil_b_spannungen} dargestellten Werten gemess
 
 In diesem ist zugleich die Normierung $\frac{U\ua{c}}{U\ua{g}}$
 mit angegeben.
+Es ist in der Tabelle eindeutig die Frequenzabhängigkeit der Spannung $U\ua{c}$ zu erkenne.
+Bei niedrigen Frequenz ist sie genau so groß, wie die Generatorspannung.
+Durch Erhöhung der Frequenz fällt sie auf das $0.03$ fache der Generatorspannung ab.
 Mit der Formel \eqref{eq: amplitude_theorie} kann an die Messwerte eine Regressionsgerade
 errechnet werden. Hierbei wird der Zusammenhang $\omega=2\pi f$ zusätzlich genutzt.
 Aus der Regressionsrechung erhält man als Wert von $RC$:
@@ -75,7 +81,9 @@ Phasenverschiebung bestimmt.
 
 \input{table/abstaende.tex}
 
-Es fällt auf das die Phase $\varphi$ größer als $\frac{\pi}{2}$ wird.
+Wie der Tabelle \ref{tab:teil_c_abstaende} zu entnehmen ist, vergrößert sich die Phase
+bei Erhöhung der Frequenz.
+Zusätzlich fällt auf das die Phase $\varphi$ größer als $\frac{\pi}{2}$ wird.
 Nach der Theorie ist das nicht möglich.
 Ein systematischer Fehler lässt sich schon jetzt nicht ausschließen.
 Aufgrund dessen werden für die Berechnung von $RC$ die Messwerte weggelassen, an den
@@ -120,7 +128,8 @@ Diese sind in Tabelle \ref{tab:teil_d_amplitude} aufgelistet und in Abbildung \r
   \label{fig:plot_teil_d}
 \end{figure}
 \FloatBarrier
-
+Es fällt auf das in Tabelle \ref{tab:teil_d_amplitude} das Amplitudenverhältnis
+antipropotional zur Phase geht.
 Die Theoriekurve wird Gleichung \eqref{} bestimmt.
 
 \subsection{Der RC-Kreis als Integrator}
