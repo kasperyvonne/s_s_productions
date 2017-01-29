@@ -26,7 +26,7 @@ die durch eine exponentielle Funktion gelöst wird.
   \label{eq:entlade_kurve}
   U\ua{C} = A \exp\left(-\frac{t}{RC}\right)
 \end{equation}
-Der Wert $RC$ wird wird als charakteristische Zeitkonstante des Relaxationsprozesses bezeichnet. Innerhalb dieser Zeitspanne ändert
+Der Wert $RC$ wird wird als charakteristische Zeitkonstante des Relaxationsprozesses bezeichnet. Innerhalb dieser Zeitspanne ändert %-wird
 sich die Spannung um den Faktor
 \begin{equation}
   \frac{U\ua{C}(t = RC)}{A} = \frac{1}{e}.
@@ -53,7 +53,7 @@ Des Weiteren ist ebenfalls die Amplitude $A(\omega)$ der Kondensatorspannung von
 \end{equation}
 Man erkennt also, dass für kleine Frequenzen sowohl Phasen- als auch Amplitudendifferenz zwischen Erregender und Angeregter Spannung verschwinden.
 Für große Frequenzen hingegen nähert sich die Amplitude null an und die Phasendifferenz geht gegen $\frac{\pi}{2}$. Diese Gegebenheiten sollen
-im Versuch überprüft werden. Um die Ergebnisse später in einer Polarebene einzeichnen zu können, werden die Formeln \eqref{eq: phase_theorie} und
+im Versuch überprüft werden. Um die Ergebnisse später in einer Polarebene einzeichnen zu können, werden die Formeln \eqref{eq: phase_theorie} und %ich würde nicht schreiben, um später in eine Polarebene einzeichen zukönne,den Fit könnte ich ja auch fr einen ganzen normalen Graphen nutzen
 \eqref{eq: amplitude_theorie} benutzt, um die Amplitude $A$ als Funktion von Frequenz und Phase darzustellen:
 \begin{equation}
 \frac{A(\varphi, \omega)}{U_0} = \cos\left[\varphi(\omega)\right].
@@ -63,11 +63,11 @@ im Versuch überprüft werden. Um die Ergebnisse später in einer Polarebene ein
 \subsection{Integratoreigenschaft des RC-Kreises}
 Gemäß der Maschenregel gilt für die Spannungen im Stromkreis \ref{fig: aufbau_2}:
 \begin{equation}
-  U(t) = RC\,\frac{\dif{U\ua{c}(t)}}{\dif{t}} + U\ua{C}(t).
+  U(t) = RC\,\frac{\dif{U\ua{c}(t)}}{\dif{t}} + U\ua{C}(t). %kleines c
 \end{equation}
 Ist nun die Frequenz wesentlich höher als der Term $(RC)^{-1}$, so kann gemäß \eqref{eq: amplitude_theorie} der Term $U\ua{C}$ vernachlässigt werden, womit
 sich ergibt:
 \begin{equation}
-  U(t) = RC\,\frac{\dif{U\ua{c}(t)}}{\dif{t}} \quad \Leftrightarrow \quad U\ua{C}(t) = \frac{1}{RC}\int_0^t U(\bar{t})\dif{\bar{t}}.
+  U(t) = RC\,\frac{\dif{U\ua{c}(t)}}{\dif{t}} \quad \Leftrightarrow \quad U\ua{C}(t) = \frac{1}{RC}\int_0^t U(\bar{t})\dif{\bar{t}}. %kleines c, nicht \bar sondern \overline
 \end{equation}
 Die Aufbau kann also für hohe Frequenzen zur Integration der Spannung $U(t)$ verwendet werden.
