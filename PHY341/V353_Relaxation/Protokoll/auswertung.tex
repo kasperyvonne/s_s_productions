@@ -1,10 +1,10 @@
 \section{Auswertung}
 Die in der Auswertung bestimmten Ausgleichsrechnungen werden mit
-dem Python Paket \emph{scipy.optimize} berechnet.
+dem Python Paket \emph{scipy.optimize} vollzogen.
 
 \subsection{Bestimmung von RC mithilfe der Entladekurve}
 
-Das für die Berechnung benötigte Ozsilloskopenbild ist in Abbbildung \ref{fig:entladekurve} zusehen.
+Aus dem Ozsilloskopenbild das in Abbildung \ref{fig:entladekurve} zusehen ist.
 
 \begin{figure}
   \centering
@@ -12,19 +12,19 @@ Das für die Berechnung benötigte Ozsilloskopenbild ist in Abbbildung \ref{fig:
   \caption{Vom Ozsillopskop gespeicherte Entladekurve.}
   \label{fig:entladekurve}
 \end{figure}
-Von dem Graphen wurden $9$ Punkte vermessen.
+werden  $9$ Punkte vermessen.
 Diese sind in Tabelle \ref{fig:plot_teila} eingetragen.
 \FloatBarrier
 \input{table/abgelesene_werte_teila.tex}
 \FloatBarrier
-An die Messwerte wird ein Fit der Form
+An die Messwerte wird eine Regressionsgerade der Form
 
 \begin{equation*}
   U(t)=a\map{e}^{bt}+c.
 \end{equation*}
 
 gelegt.
-Als Parameter ergeben sich:
+Für die Parameter ergeben sich die Werte:
 \begin{equation}
   \label{eq:parameter_teila}
 a=\SI{11.3\pm0.7}{\volt} \quad b=\num{-780.5\pm67.7} \quad c=\SI{-5.3\pm0.7}{\volt}.
@@ -33,7 +33,7 @@ Aus der Formel  \eqref{eq:entlade_kurve} folgt weiter
 \begin{equation}
   \frac{1}{b}=RC=\SI{1.12\pm0.1}{\milli\second}.
 \end{equation}
-Die Messwerte und der Fit sind in Abbildung \ref{fig:plot_teila}  graphisch
+Die Messwerte und der Fit sind in Abbildung \ref{fig:plot_teila} grafisch
 dargestellt.
 
 
@@ -43,16 +43,18 @@ dargestellt.
   \caption{Messwerte und Fit der Entladekurve}
   \label{fig:plot_teila}
 \end{figure}
+
+
 \subsection{Bestimmung von RC mithilfe der Kondensatorspannung}
-Im Versuch wurden die in \ref{tab:teil_b_spannungen} dargestellten Werte gemesen.
+Im Versuch wurden die in \ref{tab:teil_b_spannungen} dargestellten Werten gemessen.
 
 \input{table/teil_b_ua_ub.tex}
 
-In diesem ist zugleich die Nomierung $\frac{U\ua{c}}{U\ua{g}}$
-mitangegben.
+In diesem ist zugleich die Normierung $\frac{U\ua{c}}{U\ua{g}}$
+mit angegeben.
 Mit der Formel \eqref{eq: amplitude_theorie} kann an die Messwerte eine Regressionsgerade
-errechnet werden. Hierbei wurde der Zusammenhang $\omega=2\pi f$ genutzt.
-Aus der Regerssionsrechung folgt für den Wert von $RC$:
+errechnet werden. Hierbei wird der Zusammenhang $\omega=2\pi f$ zusätzlich genutzt.
+Aus der Regressionsrechung erhält man als Wert von $RC$:
 \begin{equation}
   \label{eq:rc_teilb}
   RC=\SI{1.49\pm0.02}{\milli\second}.
@@ -67,21 +69,21 @@ In der Abbildung \ref{fig:teilb} sind Messwerte und Regressionsgerade abgebildet
 \end{figure}
 
 \subsection{Bestimmung von RC mithilfe der Phasenverschiebung}
-Die im Versuch gemessenen Abstände $a$ und $b$ in Tabelle \ref{tab:teil_c_abstaende}
+Die im Versuch gemessenen Abstände $a$ und $b$ sind in Tabelle \ref{tab:teil_c_abstaende}
 dargestellt. Mithilfe von Formel \eqref{eq:phasenverschiebung} wurde die
 Phasenverschiebung bestimmt.
 
 \input{table/abstaende.tex}
 
 Es fällt auf das die Phase $\varphi$ größer als $\frac{\pi}{2}$ wird.
-Dies ist nach der Theorie nicht möglich.
-Es lässt sich also schon jetzt ein systematischer Fehler nicht ausschließen.
-Deshalb werden für die Berechnung von $RC$ die Messwerte weggelassen, an den
+Nach der Theorie ist das nicht möglich.
+Ein systematischer Fehler lässt sich schon jetzt nicht ausschließen.
+Aufgrund dessen werden für die Berechnung von $RC$ die Messwerte weggelassen, an den
 $\varphi$ größer als $\frac{\pi}{2}$ ist.
-Mit der Gleichung \eqref{eq: phase_theorie} kann eine Regressionskurve für die
-Phase bestimmt werden.
+Mit der Gleichung \eqref{eq: phase_theorie} kann, dann eine Regressionskurve für die
+Messwerte bestimmt werden.
 In Abbildung \ref{fig:plot_teil_c} sind Messwerte und Regressionskurve aufgetragen.
-Dabei wird einmal die Regressionskurve mit und einmal ohne Korrekur abgebildet.
+Dabei wird einmal die Regressionskurve mit und einmal ohne Korrektur abgebildet.
 
 \FloatBarrier
 \begin{figure}
@@ -105,7 +107,7 @@ Aus der Regressionsrechung ergibt sich als Wert für $RC$
 \subsection{Phasenabhängigkeit der Kondensatorsspanung}
 
 Für die Berechnung der Amplitude wird angenommen das $RC=\SI{1.49\pm0.07}{\milli\second}$
-groß ist. Es kann dann mithilfe von \eqref{eq:phase} die Amplitude aus den Messwerten bestimmt werden.
+beträgt. Es kann dann mithilfe von \eqref{eq:phase} die Amplitude aus den Messwerten bestimmt werden.
 Diese sind in Tabelle \ref{tab:teil_d_amplitude} aufgelistet und in Abbildung \ref{fig:plot_teil_d} dargestellt.
 \FloatBarrier
 \input{table/amplitude_phase.tex}
@@ -119,17 +121,17 @@ Diese sind in Tabelle \ref{tab:teil_d_amplitude} aufgelistet und in Abbildung \r
 \end{figure}
 \FloatBarrier
 
-Die Theoriekurve kann mit Gleichung \eqref{} bestimmt werden.
+Die Theoriekurve wird Gleichung \eqref{} bestimmt.
 
 \subsection{Der RC-Kreis als Integrator}
 
-Wie in der Theorie erwähnt kann ein $RC$-Kreis genutzt werden, um eine
+Wie schon in der Theorie erwähnt, kann ein $RC$-Kreis genutzt werden, um eine
 Spannung zu integrieren.
-Dieser Effekt wird an jeweils Rechteck-, Sinus- und Dreicksspannungen
-überprüft.
+Dieser Effekt soll jeweils an einer Rechteck-, Sinus- und Dreiecksspannungen
+überprüft werden.
 In den Abbildungen \ref{fig:rechteck}, \ref{fig:dreieck} und \ref{fig:sinus} sind die vom
-Generator erzeugten Spannung (blau) und die integrierte Spannung
-des RC-Gliedes (gelb) zusehen.
+Generator erzeugten Spannungen (blau) und die vom $RC$-Gliedes integrierten Spannungen
+(gelb) zusehen.
 \FloatBarrier
 \begin{figure}
   \centering
@@ -151,23 +153,24 @@ des RC-Gliedes (gelb) zusehen.
 \end{figure}
 \FloatBarrier
 
-Bei der in Abbildung \ref{fig:rechteck} zusehenden Rechteckspannung,
-handeld es sich um eine konstante Spannung. Folglich müsste das Integrieren
-eine Gerade hervor bringen:
+Bei der in Abbildung \ref{fig:rechteck} zusehende Rechteckspannung,
+handelt es sich um eine konstante Spannung. Folglich müsste das Integrieren
+eine Gerade als Resutat haben:
 \begin{equation*}
    \int\!\!\!c \dv{x}= cx+b \quad c,b\in\mathbb{R}.
 \end{equation*}
-Und in der Tat in der Abbildung ist als integriertse Spannung eine Gerade zu erkennen.
+Und in der Tat, in der Abbildung ist als integrierte Spannung eine Gerade zu erkennen.
 
-In Abbildung \ref{fig:dreieck} handelt es sich um eine Dreieckspannung (lineare Spannung),
+Bei dem Signal in Abbildung \ref{fig:dreieck} handelt es sich um eine Dreieckspannung
+(lineare Spannung),
 diese sollte integriert eine quadratische Funktion ergeben.
 \begin{equation*}
    \int\!\!\! mx+b \dv{x}= \frac{1}{2}mx^2+bx+c \quad m,b,c\in\mathbb{R}.
 \end{equation*}
 Die gelbe Spannung ist als eine solche identifizierbar.
-Zu letzt ist in Abbildung \ref{fig:sinus} die Generatorspannung sinusförmig.
-Die Stammfunktion vom Sinus ist:
+Zuletzt ist in Abbildung \ref{fig:sinus} die Generatorspannung sinusförmig.
+Die Stammfunktion von einem Sinus ist:
 \begin{equation*}
   \int\!\!\! \sin(x)\dv{x}=-\cos(x)+c \quad c\in \mathbb{R}.
 \end{equation*}
-Der gelbe Spannungsverlauf besitzt diese Form.
+Wie in dem Plot zu sehen hat der gelbe Spannungsverlauf diese Form.
