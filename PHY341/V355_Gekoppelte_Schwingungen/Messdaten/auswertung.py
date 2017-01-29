@@ -93,7 +93,7 @@ c_k=Q_(unp.uarray(c_k,c_k*0.2),'nanofarad')
 n=unp.uarray(n,0.5)
 print(type(n))
 #Verhältnis
-verhaeltnis=((1/n)-1)*100
+verhaeltnis=1/n
 print('Verhaeltnis Schwebung zu Schwingung', verhaeltnis)
 print('\n')
 
@@ -111,14 +111,15 @@ print('\n')
 
 
 
+verhaeltnis=(1/n)
 #n_theo=(v_plut+v_mint)/(2*(v_mint-v_plut))
 n_theo=(2*(v_mint-v_plut))/(v_plut+v_mint)
 
 print('Theoretisch Verhältnis',n_theo)
+n_verhl=((verhaeltnis/(n_theo))-1)*100
 
-latex.Latexdocument('teila_ck_n_mit_theo.tex').tabular([c_k.magnitude,n,verhaeltnis,n_theo],r'{$C\ua{k}$ in $\si{\nano\farad}$} & {Anzahl Schwingungsmaxima} & {rel. Verhältnis $n$ in \%} & {rel. Verhältnis $n\ua{theo}$ in \%}' ,[1,1,1,1],
-	caption=r'Anzahl der Schwingungsmaxima bei verschiedenenen Kapazitäten $C_k$', label='teila_n_ck')
-
+latex.Latexdocument('teila_ck_n_mit_theo.tex').tabular([c_k.magnitude,n,verhaeltnis,n_theo,n_verhl],r'{$C\ua{k}$ in $\si{\nano\farad}$} & {Anzahl Schwingungsmaxima} & {Verhäl. $n$ in \%} & { Verhäl. $n\ua{theo}$ in \%} & {rel. Abw. $\frac{n}{n\ua{theo}}$ in \%}' ,[1,1,2,2,1], caption=r'Anzahl der Schwingungsmaxima bei verschiedenenen Kapazitäten $C_k$', label='teila_n_ck')
+verhaeltnis=((1/n)-1)*100
 
 #for n in range(len(v_mint)):
 #	a[n]=v_plut.magnitude.noms
@@ -216,18 +217,18 @@ v_tho_plu_list=v_plu((l.magnitude)*1e-3,(c.magnitude)*1e-9)*1e-3
 v_plarray=noms(v_plut.magnitude)*np.ones(len(c_kl))
 print(v_plarray)
 
-plt.plot(noms(c_k.magnitude),noms(v_ming.magnitude),'rx',label='$Erzwungene \, Schwingung \, \\nu_-$')
+plt.plot(noms(c_k.magnitude),noms(v_ming.magnitude),'rx',label=r'$Erzwungene \, Schwingung \, \nu_-$')
 plt.plot(noms(c_k.magnitude),noms(v_plug.magnitude),'gx',label=r'$Erzwungene \, Schwingung \, \nu_+$')
-plt.plot(noms(c_k.magnitude),noms(frequenzen_t2.magnitude),'yx',label='$Sweep-Methode\, \\nu_-$')
-plt.plot(noms(c_k.magnitude),noms(frequenzen_t1.magnitude),'bx',label=r'$Sweep-Methode:\, \nu_+$')
-plt.plot(noms(c_kl),noms(v_theo_min_list),'c-',label=r'$Theoriewerte: \, \nu_-$')
-plt.plot(noms(c_kl),v_plarray,'m-',label=r'$Theoriewerte: \, \nu_+$')
+plt.plot(noms(c_k.magnitude),noms(frequenzen_t2.magnitude),'yx',label='$Sweep-Methode \\, \\nu_-$')
+plt.plot(noms(c_k.magnitude),noms(frequenzen_t1.magnitude),'bx',label=r'$Sweep-Methode\, \nu_+$')
+plt.plot(noms(c_kl),noms(v_theo_min_list),'c-',label=r'$Theoriekurve \, \nu_-$')
+plt.plot(noms(c_kl),v_plarray,'m-',label=r'$Theoriekurve \, \nu_+$')
 
 
 
 plt.grid()
 plt.legend(loc='best')
-plt.xlabel('$C_{\\mathrm{k}} \\, \\, in \\,\\, \\mathrm{nF}$')
-plt.ylabel('$\\nu \\, \\, in \\, \\,  \\mathrm{kHz}$')
+plt.xlabel('$C_{\\mathrm{k}} \\, \\, \\mathrm{in} \\,\\, \\mathrm{nF}$')
+plt.ylabel('$\\nu \\, \\, \\mathrm{in} \\, \\,  \\mathrm{kHz}$')
 #plt.show()
 plt.savefig('plot_frequenzen.pdf')
