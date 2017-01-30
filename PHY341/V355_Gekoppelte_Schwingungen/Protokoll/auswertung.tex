@@ -13,9 +13,9 @@ Für die erste Fundamentalfrequenz (gleichphasiges Schwingen) ergibt sich der
 theoretische Wert: %Doppelpunkt statt Punkt hinter formel
 \begin{equation}
 \label{eq:nu_plu_theo}
-\nu_{+\,\mathup{theo}}=\SI{36,5}{\kilo\hertz}
+\nu_{+\,\mathup{theo}}=\SI{36,5}{\kilo\hertz}.
 \end{equation}
-Und für die gegenphasigen Fundamentalfrequenzen ergibt sich in Abhängigkeit von $C\ua{k}$ die in Tabelle \ref{fig:teilb_frequenzen_theo}  dargestellten Werte. %ohne zu
+Und für die gegenphasigen Fundamentalfrequenzen ergibt sich in Abhängigkeit von $C\ua{k}$ die in Tabelle \ref{tab:teilb_frequenzen_theo}  dargestellten Werte. %ohne zu
 In der Tabelle \ref{tab:teila_n_ck} sieht man, dass je größer die Kapazität $C\ua{k}$ ist, desto
 mehr Schwingungsmaxima gibt es.
 \input{table/teilb_schwingungen_prak_theo_frequenzen.tex}
@@ -31,9 +31,8 @@ n=\frac{1}{\mathup{Anzahl \, Schwingungsmaxima}}.
 Für die sich aus der Theorie ergebenen relativen Abweichungen werden die aus der Theorie
 bekannten Formeln \eqref{eq: nu_schwebe} und \eqref{eq: nu_schwing} verwendet.
 Es ergibt sich der Zusammenhang:
-
 \begin{equation*}
-n\ua{theo}=\frac{2\left(\nu_{-\,\mathup{theo}}-\nu_{+\,\mathup{theo}}\right)}{\nu_{+\,\mathup{theo}}+\nu_{-\,\mathup{theo}}}
+n\ua{theo}=\frac{2\left(\nu_{-\,\mathup{theo}}-\nu_{+\,\mathup{theo}}\right)}{\nu_{+\,\mathup{theo}}+\nu_{-\,\mathup{theo}}}.
 \end{equation*}
 
 
@@ -46,7 +45,7 @@ mit der Kapazität $C\ua{k}$ zusammenhängt.
 \subsection{Bestimmung der Fundamentalfrequenzen mithilfe erzwungener Schwingungen}
 Die bei verschieden eingestellten $C\ua{k}$ bestimmten Fundamentalfrequenzen
 $\nu_+$ und $\nu_-$
-sind in Tabelle \ref{fig:teilb_schwingungen_prak_theo} zu finden.
+sind in Tabelle \ref{tab:teilb_schwingungen_prak_theo} zu finden.
 Zusätzlich ist in der Tabelle die relative Abweichung der gemessenen Frequenzen
 zu den theoretisch errechneten Frequenzen dargestellt.
 Die Abweichungen werden mit
@@ -68,28 +67,25 @@ Endfrequenz liegt bei $\nu\ua{end}=\SI{96.2}{\kilo\hertz}$.
 Aufgrund einer linearen Erhöhung der Frequenz kann eine Geradengleichung ermittelt werden.
 Mit dieser kann zu jedem Zeitpunkt ($t\in\left[0,1\right)\,\si{\second}$) auf die Frequenz geschlossen werden.
 Für die Parameter der Geradengleichung ergeben sich:
-
 \begin{equation*}
-b=\SI{15.7}{\kilo\hertz} \qquad m=\frac{\nu\ua{end}-\nu\ua{sta}}{P}=\SI{80.5}{\kilo\hertz\per\second}
+b=\SI{15.7}{\kilo\hertz} \qquad m=\frac{\nu\ua{end}-\nu\ua{sta}}{P}=\SI{80.5}{\kilo\hertz\per\second}.
 \end{equation*}
-Insgesamt folgt dann für die Gleichung %:
-
+Insgesamt folgt dann für die Gleichung: %:
 \begin{equation}
 \label{eq:geraden}
-\nu(t)=mt+b=80.5\,t\,\si{\hertz}+\SI{15.7}{\hertz}
+\nu(t)=mt+b=80.5\,t\,\si{\hertz}+\SI{15.7}{\hertz}.
 \end{equation}
 
-Die im Versuch gemessenen Zeitabstände sind in Tabelle \ref{fig:teilc_gemessene_zeit} dargestellt.
+Die im Versuch gemessenen Zeitabstände sind in Tabelle \ref{tab:teilc_gemessene_zeit} dargestellt.
 \input{table/teilc_gemessene_zeitabstaende.tex}
+Wie in der Tabelle \ref{tab:teilc_gemessene_zeit} zuerkennen ist, verringert sich der Abstand $\Delta t_-$ bei
+Erhöhung der Kapazität des Koppelkondensators. Der Abstand $\Delta t_+$ bleibt währenddessen konstant.
 
-Wie in der Tabelle \ref{fig:teilc_gemessene_zeit} zuerkennen, verringert sich der Abstand $\Delta t_-$ bei
-Erhöhung der Kapazität des Koppelkondensators. Der Abstand $\Delta t_+$ bleibt dabei konstant.
-
-Mithilfe von Formel \eqref{eq:geraden} können nun die Frequenz bestimmt werden (siehe Tabelle \ref{fig:teilc_schwingungen_prak_theo}).
-Äquivalent zu Formel \eqref{eq:verh} wurden die in Tab. \ref{fig:teilc_schwingungen_prak_theo} angebenden relative Abweichung berechnet.
+Mithilfe von Formel \eqref{eq:geraden} können nun die Frequenz bestimmt werden (siehe Tabelle \ref{tab:teilc_schwingungen_prak_theo}).
+Äquivalent zu Formel \eqref{eq:verh} wurden die in Tab. \ref{tab:teilc_schwingungen_prak_theo} angebenden relative Abweichung berechnet.
 \input{table/teilc_schwingungen_prak_gemessen_frequenzen.tex}
 Die Messwerte sind in der Abbildung \ref{fig: plot} aufgetragen.
-Auch die Sweep-Methode bestätigt (vgl. \ref{fig:teilc_schwingungen_prak_theo}) den antipropotionalen
+Auch die Sweep-Methode bestätigt (vgl. \ref{tab:teilc_schwingungen_prak_theo}) den antipropotionalen
 Zusammenhang zwischen $C\ua{k}$ und $\nu_-$. %Verb
 \begin{figure}
   \centering
