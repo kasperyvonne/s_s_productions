@@ -45,7 +45,7 @@ params = unp.uarray(params_raw, np.sqrt(np.diag(cov)))
 print(params)
 mu = -1/(2*np.pi) * params[0]
 print(mu)
-R_eff = (4*np.pi*L * mu)
+R_eff = -params[0] * 2 * L
 print(R_eff)
 
 #breite
