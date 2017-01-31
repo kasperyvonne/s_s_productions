@@ -10,7 +10,7 @@ Die Spannung $U\ua{C}$ an einem Kondensator stellt sich als Quotient zwischen de
   U\ua{C} = \frac{Q}{C} \quad \Leftrightarrow \quad Q = C\, U\ua{C}.
   \label{eq: ladung}
 \end{equation}
-Für den durch diese Potentialdifferenz hervorgerufenen Strom $I$ durch einen in Reihe geschalteten Widerstand $R$ gilt nach dem ohmschen Gesetz
+Für den durch diese Potentialdifferenz hervorgerufenen Strom $I$ an einen in Reihe geschalteten Widerstand $R$ folgt nach dem ohmschen Gesetz %durch durch, klingt blöd
 \begin{equation}
   I = -\frac{U\ua{C}}{R}.
   \label{eq: strom}
@@ -48,6 +48,11 @@ beschrieben wird:
 \end{figure}
 Des Weiteren ist ebenfalls die Amplitude $A(\omega)$ der Kondensatorspannung von der Frequenz abhängig. Hierfür ergibt sich der Zusammenhang:
 \begin{equation}
+  A(\omega) = -\frac{\sin(\varphi) U_0}{\omega RC}.
+  \label{eq: amplitude_sin}
+\end{equation}
+Mit der Beziehung \eqref{eq: phase_theorie}, erhält man die äquivalente Schreibweise:
+\begin{equation}
   A(\omega) = \frac{U_0}{\sqrt{1 +\omega^2R^2C^2}}.
   \label{eq: amplitude_theorie}
 \end{equation}
@@ -63,11 +68,11 @@ im Versuch überprüft werden. Um die Ergebnisse in einer Polarebene einzeichnen
 \subsection{Integratoreigenschaft des RC-Kreises}
 Gemäß der Maschenregel gilt für die Spannungen im Stromkreis \ref{fig: aufbau_2}:
 \begin{equation}
-  U(t) = RC\,\frac{\dif{U\ua{c}(t)}}{\dif{t}} + U\ua{C}(t). %kleines c
+  U(t) = RC\,\frac{\dif{U\ua{C}(t)}}{\dif{t}} + U\ua{C}(t). %kleines c
 \end{equation}
 Ist nun die Frequenz wesentlich höher als der Term $(RC)^{-1}$, so kann gemäß \eqref{eq: amplitude_theorie} der Term $U\ua{C}$ vernachlässigt werden, womit
 sich ergibt:
 \begin{equation}
-  U(t) = RC\,\frac{\dif{U\ua{c}(t)}}{\dif{t}} \quad \Leftrightarrow \quad U\ua{C}(t) = \frac{1}{RC}\int_0^t U(\bar{t})\dif{\bar{t}}. %kleines c, nicht \bar sondern \overline
+  U(t) = RC\,\frac{\dif{U\ua{C}(t)}}{\dif{t}} \quad \Leftrightarrow \quad U\ua{C}(t) = \frac{1}{RC}\int_0^t U(\bar{t})\dif{\bar{t}}. %kleines c, nicht \bar sondern \overline
 \end{equation}
 Die Aufbau kann also für hohe Frequenzen zur Integration der Spannung $U(t)$ verwendet werden.
