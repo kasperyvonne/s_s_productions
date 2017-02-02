@@ -16,7 +16,7 @@ if messdaten_txt.is_file():
     print('oder neu beginnen [alle daten gehen verloren](n)')
     eingabe=input()
     print('\n')
-    
+
     if eingabe == 'w':
         dateiname_txt=dateiname+'.txt'
         data_arra = np.genfromtxt(dateiname_txt,unpack=True,names=True)
@@ -35,7 +35,7 @@ if messdaten_txt.is_file():
                 elif u == 'pop':
                     for n in range(k):
                         data_list[n].pop()
-                    print(data_list[n])                    
+                    print(data_list[n])
                     break
                 elif u == 'popl':
                     if k!=0:
@@ -46,12 +46,12 @@ if messdaten_txt.is_file():
                         break
                     for n in range(len(data_list)):
                         data_list[n].pop()
-                        print(data_list[n]) 
-                    break               
-                try: 
+                        print(data_list[n])
+                    break
+                try:
                     float(u)
                 except ValueError:
-                    print('Fehler') 
+                    print('Fehler')
                     print('Sicherheitsspeicherung ? Ja(j) oder Nein (n)')
                     eingabe_sicher=input()
                     if eingabe_sicher=='j':
@@ -62,17 +62,17 @@ if messdaten_txt.is_file():
                         print('Sicherheitskopie erstellt')
                     else:
                         print('Programm beendet')
-                
+
                 data_list[k].append(float(u))
                 print(data_list[k])
             data_array=(data_list)
         np.savetxt(dateiname_txt, np.column_stack(data_array),header=str(head))
 
 
-                
-            #np.savetxt(dateiname + '.txt', np.column_stack(data.values()), header = head) ##Hier eine An           
-        
-    
+
+            #np.savetxt(dateiname + '.txt', np.column_stack(data.values()), header = head) ##Hier eine An
+
+
     else:
         print('Anzahl der Messgrößen eingeben')
         p = int(input())
@@ -107,12 +107,12 @@ if messdaten_txt.is_file():
                     else:
                         for n in range(p):
                             data[n].pop()
-                        print(data) 
+                        print(data)
                         break
-                try: 
+                try:
                     float(u)
                 except ValueError:
-                    print('Fehler') 
+                    print('Fehler')
                     print('Sicherheitsspeicherung ? Ja(j) oder Nein (n)')
                     eingabe_sicher=input()
                     if eingabe_sicher=='j':
@@ -137,7 +137,7 @@ else:
         data[i] = []
         head += v
         head += " "
-    
+
     print(head)
     print('Zeilenweise die Messwerte eingeben: ')
     u = 'a'
@@ -161,9 +161,9 @@ else:
                 else:
                     for n in range(p):
                         data[n].pop()
-                    print(data) 
+                    print(data)
                     break
-            try: 
+            try:
                 float(u)
             except ValueError:
                 print('fehlerhafte Eingabe: String')
@@ -179,6 +179,5 @@ else:
 
             data[k].append(float(u))
             print(data[k])
-    
-    np.savetxt(dateiname + '.txt', np.column_stack(data.values()), header = head)
 
+    np.savetxt(dateiname + '.txt', np.column_stack(data.values()), header = head)
