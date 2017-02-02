@@ -38,15 +38,19 @@ caption = 'Zeitlicher Verlauf der Amplitude des gedämpften Schwingkreises', lab
 
 def lin_function(t, m, b):
     return m * t + b
+
+def exp_function(t, A, B, C):
+    return A * np.exp(B*t) + C
 #x = np.linspace(0, 2, 100)
 ##Fits
-params_raw, cov = curve_fit(lin_function, time, np.log(amplitude))
-params = unp.uarray(params_raw, np.sqrt(np.diag(cov)))
-print('Parameter der linearen Rgression: ', params)
-print('A_0 = ', exp(params[1]))
-mu = -1/(2*np.pi) * params[0]
+#params_raw, cov = curve_fit(lin_function, time, np.log(amplitude))
+params2_raw, cov2 = curve_fit(exp_function, time, amplitude)
+params2 = unp.uarray(params2_raw, np.sqrt(np.diag(cov2)))
+print('Parameter der linearen Rgression: ', params2)
+print('A_0 = ', params2[0])
+mu = -1/(2*np.pi) * params2[0]
 #print(mu)
-R_eff = -params[0] * 2 * L
+R_eff = -(params2[1]) * 2 * L.n
 print('Effektivwiderstand: ', R_eff)
 
 #breite
@@ -58,20 +62,30 @@ breite_theo = (1/(2*np.pi) * R/L)
 d_breite = (breite_exp/breite_theo - 1) * 100
 print('Breite exp, theo, proz: ', breite_exp, breite_theo, d_breite)
 
+#breite aus Phase
+nu_plus_exp_p = 36500
+nu_minus_exp_p = 30000
+breite_exp_p = nu_plus_exp_p - nu_minus_exp_p
+breite_theo = (1/(2*np.pi) * R/L)
+d_breite_p = (breite_exp_p/breite_theo - 1) * 100
+print('Breite exp, theo, proz: ', breite_exp_p, breite_theo, d_breite_p)
+
 
 nu0_exp = 33000
 nu0_theo = (1/(2*np.pi) * sqrt(1/(L*C) - R**2/(2*L**2) ))
 d_nu0 = (nu0_exp/nu0_theo -1)*100
 print('Resonanzfrequenz exp, theo, proz: ', nu0_exp, nu0_theo, d_nu0)
+print('Abweichung Resonanzfrequenz aus Phase: ', (34000/nu0_theo -1)*100)
 print('Güte', nu0_exp/breite_exp)
+print('theoretische überhöhung: ', nu0_theo/breite_theo)
 
 R_ap_theo = sqrt(4 * L/C)
 R_ap_exp = ufloat(28, 1) * 1e3
 d_R_ap = (R_ap_exp/R_ap_theo -1)*100
 print('R_ap exp, theo, proz: ', R_ap_exp, R_ap_theo, d_R_ap)
 T_ex_theo = (2 * L / R)
-T_ex_exp = 1/(2*np.pi * mu)
-print('Abklingzeit, theo, exp, d: ', T_ex_theo, T_ex_exp, T_ex_exp/T_ex_theo - 1)
+T_ex_exp = 1/params2[1]
+print('Abklingzeit, theo, exp, d: ', T_ex_theo, T_ex_exp, (T_ex_exp/T_ex_theo - 1)*100 )
 #Plots
 #x = np.linspace(0, 2, 1000)
 #plt.plot(x, np.exp(x))
@@ -80,8 +94,9 @@ print('Abklingzeit, theo, exp, d: ', T_ex_theo, T_ex_exp, T_ex_exp/T_ex_theo - 1
 
 def phase_theo(f):
     w = 2 * np.pi * f
-    return np.arctan( (-w * (R*C).magnitude ) / (1 - (L * C).magnitude * w**2 ) )
+    return np.arctan( (-w * (R * C).n ) / (1 - (L * C).n * w**2 ) )
 
+print(U_C[9:]/U_G[9:])
 f = np.linspace(24000, 46000, 1000)
 u = np.linspace(1,4, 100)
 plt.plot(frequenz[9:]/1000, U_C[9:]/U_G[9:], 'rx', label='Messwerte')
@@ -101,11 +116,17 @@ plt.xscale('log')
 plt.xlim(frequenz[9:][0]/1000, frequenz[9:][-1]/1000)
 #plt.show()
 
+lin = np.linspace(24, 46, 100)
+pha = np.linspace(0, np.pi, 100)
 plt.clf()
 plt.plot(frequenz[9:]/1000, phase[9:], 'rx', label='Messwerte')
 plt.yticks([0, np.pi/4, np.pi / 2, 3*np.pi/4 , np.pi],
            [r"$0$", r"$\frac{\pi}{4}$", r"$\frac{\pi}{2}$", r"$\frac{3\pi}{4}$", r"$\pi$"], fontsize = 16)
 plt.xlim(24.5, 45.5)
+plt.plot(lin, np.ones(len(lin))* np.pi/4, '--b')
+plt.plot(np.ones(len(pha)) * 30.0, pha, '--g', label='Abgelesene Frequenzen $\\nu_{\pm}$')
+plt.plot(lin, np.ones(len(lin))* 3*np.pi/4, '--b')
+plt.plot(np.ones(len(pha)) * 36.5, pha, '--g')
 plt.grid()
 plt.legend(loc='best')
 plt.ylabel('Phasenverschiebung $\\varphi$ in rad')
@@ -116,12 +137,12 @@ plt.savefig('phase_f_linear.pdf')
 
 t = np.linspace(time[0]-0.00001, time[-1]+0.00001)
 plt.clf()
-plt.plot(t* 100000, lin_function(t, *params_raw), '-b', label='Regressionsgerade')
-plt.plot(time*100000, np.log(amplitude), 'rx', label = 'Messwerte')
+plt.plot(t* 100000, exp_function(t, *params2_raw) , '-b', label='Fit-Funktion')
+plt.plot(time*100000, amplitude, 'rx', label = 'Messwerte')
 plt.xlim(-1, 37)
 plt.ylim()
 plt.grid()
 plt.legend(loc='best')
 plt.xlabel('Zeit t in $10^{-5}$ s')
-plt.ylabel('$\log(A/V\,)$')
+plt.ylabel('$A(t)$ / V')
 plt.savefig('amplitude.pdf')
