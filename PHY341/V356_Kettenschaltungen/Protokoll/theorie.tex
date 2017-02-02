@@ -1,11 +1,11 @@
 \setcounter{page}{1}
-\section*{Zielsetzung}
+
+
+\section{Theorie}
 Die Untersuchung einer Kettenschaltung von LC-Gliedern lässt sich mit der Analogie
 zu einem eindimensionalen Festköper motivieren.
 Der Versuch ermöglicht somit Einblicke in das Schwingverhalten eines
-Festköpers. %redundant
-
-\section{Theorie}
+Festköpers. %redund
 
 \subsection{Bestimmung der Schwingungsgleichungen für eine $LC$-Kette} %würde nicht $LC$
 Die Schwingungsgleichung wird mit den Kirchhoffschen Regeln aufgestellt. %plural
@@ -101,19 +101,21 @@ Mit der Näherung $\sin(\theta)\approx\theta$ ergibt sich dann
 \omega_2\approx\sqrt{\frac{2}{L\left(C_1+C_2\right)}}\theta.
 \end{equation}
 Die Nullstelle von \eqref{eq:omega_2_lceins_czwei} liegt im Nullpunkt $\theta=0$.
-Für $\theta>0$ wächst die Kurve monoton an und erreicht bei $\omega_2(\frac{\pi}{2})=\sqrt{\frac{2}{LC_1}}$
-ihr Maximum. \newline
+Für $\theta>0$ wächst die Kurve monoton an.
+Die Frequenz erreicht an der Stelle $\frac{\pi}{2}$, bei nicht Betrachtung der Näherung,
+ein Maximum mit $\omega_2(\frac{\pi}{2})=\sqrt{\frac{2}{LC_1}}$.
+ \newline
 Hingegen beläuft sich bei $\omega_1$ die Lösung an der Stelle $\theta=0$ auf
 \begin{equation*}
 \omega_1(0)\approx\sqrt{\frac{2(C_1+C_2)}{LC_1C_2}}
 \end{equation*}
-Das Maximum von $\omega_1$ beträgt
+Das Minimum von $\omega_1$ beträgt
 
 \begin{equation}
 \label{eq:max_omega_1_ceins_czwei}
 \omega_1(\frac{\pi}{2})=\sqrt{\frac{2}{LC_2}}.
 \end{equation}
-Aufgrund des Unterschiedes der beiden Maxima, gibt es einen Frequenzbereich, in dem %aufgrund des Unterschiedes
+Aufgrund des Unterschiedes der beiden Extrema, gibt es einen Frequenzbereich, in dem %aufgrund des Unterschiedes
 die Kettenschaltung undurchlässig wird. Dieser ist auch in Abbildung \ref{fig: dispersion_LC1C2} %-auch
 zu erkennen.
 
@@ -129,7 +131,7 @@ für alle Zeiten $t$ festgelegt. Wellen, die sich mit der Phasengeschwindigkeit
 ausbreiten, sind aufgrund ihrer Unbeschränktheit in Raum und Zeit nicht zur %-komma
 Informationsübermittlung geeignet. Hierzu benötigt man Wellenpakete, die sich
 mit der Gruppengeschwindigkeit ausbreiten. Auf diese wird hier nicht eingegangen. %verb
-Speziell für den Versuch ergibt sich als Phasengeschwindigkeit:
+Für eine LC-Kette ergibt sich als Phasengeschwindigkeit:
 
 \begin{equation}
 \label{eq:phasen_esc}
@@ -143,10 +145,9 @@ Dabei geht die Phasengeschwindigkeit im Grenzfall in
 
 über.
 \subsection{Der Widerstand einer unendlichen langen Kette}
-Da es sich bei der Kettenschaltung um eine reale Schaltung handelt,
-besitzt diese einen elektrischen Widerstand $R$.
-Der Widerstand kann mittels der Eingangspannung $U_0$ und dem Strom $I_0$ bestimmt werden.
-Dazu wird mittels der Kirchhoffschen Knotenregel (vgl. Abbildung \ref{fig:bestimmung_impe}) %-punkt
+
+Um den elektrischen Widerstand $R$ der Kettenschaltung zu bestimmen,
+nutzt man die Kirchhoffschen Knotenregel (vgl. Abbildung \ref{fig:bestimmung_impe}) %-punkt
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{bilder/eigenimpendanz.png}
@@ -154,9 +155,8 @@ Dazu wird mittels der Kirchhoffschen Knotenregel (vgl. Abbildung \ref{fig:bestim
   \label{fig:bestimmung_impe}
 \end{figure}
 \begin{equation*}
-I_0 - \map{i}\omega\frac{C}{2}U_0+\frac{U_1-U_0}{\map{i}\omega L}=0
+I_0 - \map{i}\omega\frac{C}{2}U_0+\frac{U_1-U_0}{\map{i}\omega L}=0.
 \end{equation*}
-bestimmt.
 Es sei $\map{i}$ das komplexe i. %merkse selber
 Mit dem ohmschen Gesetz erhält man letztendlich %letztendlich
 
@@ -165,12 +165,15 @@ R(\omega)=Z\ua{LC}(\omega)=\sqrt{\frac{L}{C}}\frac{1}{\sqrt{1-\frac{1}{4}\omega^
 \label{eq: wellenwiderstand_LC}
 \end{equation}
 Es ist üblich $R$ bzw. $Z$ als frequenzabhängigen Wellenwiderstand zu bezeichnen.
-Für den Fall einer unendlich langen Kette wäre der Widerstand rein reell, das bedeutet, %das bedeutet, dass es weder zu einer Phasenverschiebung noch zu einer Reflexion kommt.
-dass es weder zu einer Phasenverschiebung noch zu einer Reflexion kommt.
+Für den Fall einer unendlich langen Kette ist der Widerstand rein reell, das bedeutet, %das bedeutet, dass es weder zu einer Phasenverschiebung noch zu einer Reflexion kommt.
+dass es zu keiner Phasenverschiebung kommt.
 Durch einen Abschlusswiderstand am Ende der Kette ist dieser Zustand auch bei einer endlichen Kette
 realisierbar. Der Abschlusswiderstand muss dazu lediglich den Betrag $Z$ besitzen.
-Obwohl $Z$ frequenzabhängig ist, kann für Frequenzen weit unterhalb der Grenzfrequenz $\nu{ua{G}}$
-$Z\ua{LC}\approx \sqrt{\frac{L}{C}}$ angenommen werden. Für den Wellenwiderstand $Z\ua{LC_1C_2}$ der $\mathup{LC_1C_2}$-Kette gilt
+Obwohl $Z$ frequenzabhängig ist, kann für Frequenzen weit unterhalb der Grenzfrequenz $\nu\ua{G}$
+\begin{equation*}
+Z\ua{LC}\approx \sqrt{\frac{L}{C}}
+\end{equation*}
+angenommen werden. Für den Wellenwiderstand $Z\ua{LC_1C_2}$ der $\mathup{LC_1C_2}$-Kette gilt
 in diesem Grenzfall:
 \begin{equation}
   Z\ua{LC_1C_2} = \sqrt{\frac{2L}{C_1 + C_2}}
@@ -213,10 +216,10 @@ Es gibt drei interessante Sonderfälle:
 \item{ $r=\infty$ (offenens Ende) \newline
 Betrachten wir ein offenes Ende, so ist $U\ua{ref}=U\ua{e}$ und die Welle wird am Kettenende ohne Phasensprung reflektiert.} %offenes Ende,
 \item{ $r=0$ (kurzgeschlossenes Ende) \newline
-In diesem Fall ist $U\ua{ref}=U\ua{e}$. Zusätzlich kommt es bei der reflektierten Welle zu einem Phasensprung von $\pi$.} %in diesem Fall
+In diesem Fall ist $U\ua{ref}=-U\ua{e}$. Zusätzlich kommt es bei der reflektierten Welle zu einem Phasensprung von $\pi$.} %in diesem Fall
 \item{ $r=Z$ \newline
-Ist der Abschlusswiederstand genauso groß wie der Wellenwiderstand, so wird eine unendlich lange Kette simuliert und
-es gilt $U_{ref}=0$. Es kommt zu keiner Reflexion.}
+Ist der Abschlusswiederstand genauso groß wie der Wellenwiderstand, entsteht keine Reflexion, folglich
+ist $U_{ref}=0$. Somit kann eine unendlich lange Kette simuliert.}
 \end{enumerate}
 
 In allen anderen Fällen kommt es zu Teilreflexionen.
