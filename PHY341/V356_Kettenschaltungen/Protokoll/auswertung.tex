@@ -32,7 +32,7 @@ Die Messwerte, sowie der Verlauf des Fits sind in Abbildung \ref{fig: plot_sweep
 mit dem Abstand $x\ua{G} = \SI{10.2(5)}{cm}$, der auf dem Millimeterpapier abgelesen wurde, ergibt sich
 für die Grenzfrequenz:
 \begin{equation}
-  \nu\ua{G, exp}\SI{5.1(11)e4}{\hertz}
+  \nu\ua{G, exp} = \SI{5.1e4}{\hertz}.
   \label{eq: nu_g_LC}
 \end{equation}
 Der angegebene Fehler von $\SI{5}{\milli\meter}$ wurde gewählt, um Ableseungenauigkeiten und die in den Durchlasskurven
@@ -66,18 +66,26 @@ Für die Fit-Parameter wurden folgende Werte berechnet:
 Die Messwerte, sowie der Verlauf des Fits sind in Abbildung \ref{fig: plot_sweep_LC1C2} dargestellt.
 Aus dem zur unteren Grenzfrequenz \eqref{eq:omega_2_lceins_czwei} gehörenden Abstand $x\ua{u} = \SI{6.5(5)}{\cm}$ ergibt sich die Frequenz:
 \begin{equation}
-  \nu\ua{G, u, exp} = \SI{4.0(12)e4}{\hertz}
+  \nu\ua{G, u, exp} = \SI{4.0e4}{\hertz}
 \end{equation}
-Die obere Grenzfrequenz \eqref{eq:max_omega_1_ceins_czwei} berechnet sich mit $x\ua{o} = \SI{10.7(5)}{\cm}$ zu:
+Die mittlere Grenzfrequenz \eqref{eq:max_omega_1_ceins_czwei} berechnet sich mit $x\ua{m} = \SI{10.7(5)}{\cm}$ zu:
 \begin{equation}
-    \nu\ua{G, o, exp} = \SI{5.3(15)e4}{\hertz}
+    \nu\ua{G, m, exp} = \SI{5.3(15)e4}{\hertz}
+\end{equation}
+Die obere Grenzfrequenz \eqref{eq: obere_grenfrequenz} berechnet sich schließlich mit $x\ua{o} = \SI{14.0(5)}{\cm}$ zu:
+\begin{equation}
+    \nu\ua{G, o, exp} = \SI{6.7e4}{\hertz}
 \end{equation}
 Hiermit können die mittleren prozentualen Abweichungen von den Theoriewerten bestimmt werden.
 \begin{align}
+  \begin{aligned}
   \nu\ua{G,u,th} &= \SI{3.63e4}{\hertz}\\
   d\ua{LC_1C_2,u} &= 11 \%\\
-  \nu\ua{G,o,th} &= \SI{5.55e4}{\hertz}\\
-  d\ua{LC_1C_2, o} &= 4 \%
+  \nu\ua{G,m,th} &= \SI{5.55e4}{\hertz}\\
+  d\ua{LC_1C_2, m} &= 4 \%\\
+  \nu\ua{G,o,th} &= \SI{6.63e4}{\hertz}\\
+  d\ua{LC_1C_2, o} &= 1 \%
+\end{aligned}
 \end{align}
 \FloatBarrier
 \begin{figure}
@@ -93,10 +101,12 @@ dargestellt. Die gemessenen Frequenzen $\nu$ bei den Gesamtphasenverschiebungen,
 sind in Tabelle \ref{tab: dispersion_LC} und \ref{tab: dispersion_LC1C2} aufgeführt. Hierbei wurde die Gesamtphasenverschiebung direkt durch die
 Anzahl der Kettenglieder $n = 16$ geteilt, um die Phasenverschiebung pro Glied zu erhalten. Im Falle der $\mathup{LC_1C_2}$-Kette
 wurden Ergebnisse mit $\theta > \pi/2$ so interpretiert, sodass sie gemäß der Periodizität der Funktion \eqref{eq:omega_ceins_czwei} im Intervall
-$[0, \pi/2]$ liegen. Die Wertepaare wurden ebenfalls in den Abbildungen \ref{fig: dispersion_LC} und \ref{fig: dispersion_LC1C2} visualisiert.
+$[0, \pi/2]$ liegen. Die Wertepaare wurden ebenfalls in den Abbildungen \ref{fig: dispersion_LC} und \ref{fig: dispersion_LC1C2} visualisiert. In beiden Fällen
+ist der aus der Theorie hervor gehende Dispersionsrelation deutlich zu erkennen. Bei der LC-Kette steigt die Frequenz zunächst mit der Phasenverschiebung und nähert
+sich dann einer Grenzfrequenz, die nicht überschritten wird. Darüber hinaus ist bei der $\mathup{LC_1C_2}$-Kette der endliche Frequenzbereich unterhalb der oberen Grenzfrequenz
+zu beobachten, der zu einer Undurchlässigkeit des Aufbaus führt.
 \input{tabs/eigenfrequenzen_dispersion_LC.tex}
 \input{tabs/eigenfrequenzen_dispersion_LC1C2.tex}
-
 \begin{figure}
   \centering
   \includegraphics[width = 0.8\textwidth]{../Messdaten/plots/dispersion.pdf}
@@ -116,9 +126,10 @@ $[0, \pi/2]$ liegen. Die Wertepaare wurden ebenfalls in den Abbildungen \ref{fig
 Die gemessenen Eigenfrequenzen, die die Spannung am Anfang bzw. Ende der beiderseits
 offenen Kette maximal werden lassen, sind in Tabelle \ref{tab: v_phase} eingetragen. Analog zum
 voran gegangenen Abschnitt wurden ihnen die Phasenverschiebungen pro Kettenglied $\theta$
-zugeordnet. Aus dem Quotienten $\nu / \theta$ ergeben sich die Phasengeschwindigkeiten $v\ua{ph}$.
+zugeordnet. Aus dem Quotienten $\omega / \theta$ ergeben sich die Phasengeschwindigkeiten $v\ua{ph}$.
 Die Wertepaare aus Phasengeschwindigkeit und zugehöriger Frequenz, sowie die gemäß \eqref{eq:phasen_esc} berechnete
-Theoriekurve sind in Abbildung \ref{fig: v_phase} dargestellt.
+Theoriekurve sind in Abbildung \ref{fig: v_phase} dargestellt. Auch hier zeigt sich der erwartete Verlauf. Die Phasengeschwindigkeit
+fällt mit der Frequenz unter zunehmendem Betrag der Steigung.
 \input{tabs/v_phase_LC.tex}
 \begin{figure}
   \centering
@@ -148,6 +159,7 @@ die Spannungsverläufe $U_{\nu_1}$ und $U_{\nu_2}$ der offenen LC-Kette entlang 
 Bei der Frequenz $\nu\ua{G} = \SI{7762}{\hertz}$ wurde der Verlauf der Spannung der geschlossenen LC-Kette untersucht. Hierzu wurde die Kette
 mit dem in \eqref{eq: wellenwiderstand_zahlenwert} berechneten Wellenwiderstand abgeschlossen. Die entlang der Kette gemessenen
 Spannungen $U\ua{G}$ sind ebenfalls in Tabelle \ref{tab: U_nu12} aufgetragen. Ein Diagramm der Werte findet sich in Abbildung \ref{fig: U_G}.
+Die Diagramme zeigen das Auftreten von stehenden in allen drei Fällen, in der Diskussion wird hierauf näher eingegangen.
 \begin{figure}
   \centering
   \includegraphics[width = 0.8\textwidth]{../Messdaten/plots/spannungsverlauf_geschlossen.pdf}
