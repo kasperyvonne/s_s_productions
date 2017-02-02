@@ -1,3 +1,54 @@
 \section{Auswertung}
 \input{../Messdaten/frequenzabhängigkeit.tex}
 \input{../Messdaten/amplitude.tex}
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width = \textwidth]{../Messdaten/amplitude.pdf}
+  \caption{Zeitlicher Verlauf der Amplitude (unter Anwendung des Logarithmus) des gedämpften Schwingkreises und Regressiongerade.}
+  \label{fig: amplitude}
+\end{figure}
+
+\subsection{Frequenzabhängigkeit der Kondensatorspannung}
+Die gemessenen Werte der Generator- und Kondensatorspannung unter variabler Frequenz sind in Tabelle \ref{tab: frequenzabhängigkeit} aufgeführt.
+Hierbei ist zu erkennen, dass bei den ersten neun Messwerten, die in kleinen Frequnezbereichen aufgenommen wurden, nur eine geringfügige
+Diskrepanz zwischen beiden Größen besteht. Die graphische Darstellung der Werte bei höheren Frequenzen ist in Abbildung \ref{fig: spannungsverlauf_U_C}
+einzusehen. Für die Resonanzfrequenz entnimmt man aus der Messreihe den Wert:
+\begin{equation}
+  \nu_{0, exp} = \SI{33}{\kilo\hertz}.
+  \label{eq: exp_resonanzfrequenz}
+\end{equation}
+Gemäß Formel \eqref{eq:} berechnet sich der Theoriewert der Resonanzfrequenz $\nu_{0, th}$, sowie die prozentuale Abweichung $d_{\nu}$ des gemessenen Wertes zu:
+\begin{align}
+  \nu_{0, th} &= \SI{3.409e4}{\hertz} \\
+  d_{\nu} &= \SI{-3.19}{\percent}.
+\label{eq: theo_resonanzfrequenz}
+\end{align}
+Des Weiteren entnimmt man aus der graphischen Darstellung die Größen $\nu_+$ und $\nu_-$, aus denen die Breite (...) bestimmt werden kann.
+\begin{align}
+  \nu_{+} &= \SI{3.745e4}{\hertz} \\
+  \nu_{-} &= \SI{2.860e4}{\hertz} \\
+  (\nu_{+}-\nu_{-})_{exp} &= \SI{8.85e3}{\hertz}.
+\label{eq: breite_exp}
+\end{align}
+Für den Theoriewert der Breite [gemäß \eqref{}] und die prozentuale Abweichung ergeben sich hieraus:
+\begin{align}
+  (\nu_{+}-\nu_{-})_{th} &= \SI{8.02e3}{\hertz}\\
+  d_{\nu_{+}-\nu_{-}} &= \SI{10.34}{\percent}.
+\label{eq: theo_breite}
+\end{align}
+
+\begin{figure}
+  \centering
+  \includegraphics[width = \textwidth]{../Messdaten/U_f_linear.pdf}
+  \caption{Verlauf der Spannung am Kondensator unter variabler Frequenz, sowie eingezeichnete Hilfslinien zum Ablesen der relevanten Größen.}
+  \label{fig: spannungsverlauf_U_C}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width = \textwidth]{../Messdaten/phase_f_linear.pdf}
+  \caption{Verlauf der Phasendifferenz zwischen Erreger- und Kondensatorspannung unter variabler Frequenz.}
+  \label{fig: phasenverlauf}
+\end{figure}

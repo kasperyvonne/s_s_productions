@@ -42,11 +42,12 @@ def lin_function(t, m, b):
 ##Fits
 params_raw, cov = curve_fit(lin_function, time, np.log(amplitude))
 params = unp.uarray(params_raw, np.sqrt(np.diag(cov)))
-print(params)
+print('Parameter der linearen Rgression: ', params)
+print('A_0 = ', exp(params[1]))
 mu = -1/(2*np.pi) * params[0]
-print(mu)
+#print(mu)
 R_eff = -params[0] * 2 * L
-print(R_eff)
+print('Effektivwiderstand: ', R_eff)
 
 #breite
 #nu_plus_theo = -R/(2*L) + sqrt(R**2/(4*L**2) + 1/(L*C))
@@ -61,7 +62,7 @@ print('Breite exp, theo, proz: ', breite_exp, breite_theo, d_breite)
 nu0_exp = 33000
 nu0_theo = (1/(2*np.pi) * sqrt(1/(L*C) - R**2/(2*L**2) ))
 d_nu0 = (nu0_exp/nu0_theo -1)*100
-print('nu0 exp, theo, proz: ', nu0_exp, nu0_theo, d_nu0)
+print('Resonanzfrequenz exp, theo, proz: ', nu0_exp, nu0_theo, d_nu0)
 print('Güte', nu0_exp/breite_exp)
 
 R_ap_theo = sqrt(4 * L/C)
@@ -70,7 +71,7 @@ d_R_ap = (R_ap_exp/R_ap_theo -1)*100
 print('R_ap exp, theo, proz: ', R_ap_exp, R_ap_theo, d_R_ap)
 T_ex_theo = (2 * L / R)
 T_ex_exp = 1/(2*np.pi * mu)
-print(T_ex_theo, T_ex_exp, T_ex_exp/T_ex_theo - 1)
+print('Abklingzeit, theo, exp, d: ', T_ex_theo, T_ex_exp, T_ex_exp/T_ex_theo - 1)
 #Plots
 #x = np.linspace(0, 2, 1000)
 #plt.plot(x, np.exp(x))
@@ -98,17 +99,29 @@ plt.clf()
 plt.plot(frequenz[9:]/1000, U_C[9:]/U_G[9:], 'rx', label='Messwerte')
 plt.xscale('log')
 plt.xlim(frequenz[9:][0]/1000, frequenz[9:][-1]/1000)
-plt.show()
+#plt.show()
 
 plt.clf()
-plt.plot(frequenz[9:]/1000, phase[9:], 'rx')
+plt.plot(frequenz[9:]/1000, phase[9:], 'rx', label='Messwerte')
+plt.yticks([0, np.pi/4, np.pi / 2, 3*np.pi/4 , np.pi],
+           [r"$0$", r"$\frac{\pi}{4}$", r"$\frac{\pi}{2}$", r"$\frac{3\pi}{4}$", r"$\pi$"], fontsize = 16)
+plt.xlim(24.5, 45.5)
+plt.grid()
+plt.legend(loc='best')
+plt.ylabel('Phasenverschiebung $\\varphi$ in rad')
+plt.xlabel('Frequenz $\\nu$ in kHz')
 #plt.yscale('log')
 plt.savefig('phase_f_linear.pdf')
 
 
-t = np.linspace(time[0], time[-1])
+t = np.linspace(time[0]-0.00001, time[-1]+0.00001)
 plt.clf()
-plt.plot(t* 100000, lin_function(t, *params_raw), '-b')
-plt.plot(time*100000, np.log(amplitude), 'rx')
+plt.plot(t* 100000, lin_function(t, *params_raw), '-b', label='Regressionsgerade')
+plt.plot(time*100000, np.log(amplitude), 'rx', label = 'Messwerte')
+plt.xlim(-1, 37)
+plt.ylim()
+plt.grid()
+plt.legend(loc='best')
 plt.xlabel('Zeit t in $10^{-5}$ s')
+plt.ylabel('$\log(A/V\,)$')
 plt.savefig('amplitude.pdf')
