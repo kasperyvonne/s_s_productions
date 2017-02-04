@@ -33,7 +33,7 @@ amplitude = np.genfromtxt('amplitude_schwingfall.txt', unpack=True)
 time = np.linspace(0, 12, 13) * 30e-6
 latex.Latexdocument('amplitude.tex').tabular([time*100000, amplitude],
 '{$t$ / $10^{-5}\si{\second}$} & {$A$ / $\si{\\volt}$}', [1, 2],
-caption = 'Zeitlicher Verlauf der Amplitude des gedämpften Schwingkreises', label = 'tab: amplitude')
+caption = 'Zeitlicher Verlauf der Amplitude des gedämpften Schwingkreises.', label = 'tab: amplitude')
 
 
 def lin_function(t, m, b):
@@ -83,8 +83,8 @@ R_ap_theo = sqrt(4 * L/C)
 R_ap_exp = ufloat(28, 1) * 1e3
 d_R_ap = (R_ap_exp/R_ap_theo -1)*100
 print('R_ap exp, theo, proz: ', R_ap_exp, R_ap_theo, d_R_ap)
-T_ex_theo = (2 * L / R)
-T_ex_exp = 1/params2[1]
+T_ex_theo = (2 * L / 48)
+T_ex_exp = -1/params2[1]
 print('Abklingzeit, theo, exp, d: ', T_ex_theo, T_ex_exp, (T_ex_exp/T_ex_theo - 1)*100 )
 #Plots
 #x = np.linspace(0, 2, 1000)
