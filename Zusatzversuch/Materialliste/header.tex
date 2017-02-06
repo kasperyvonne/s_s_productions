@@ -1,4 +1,4 @@
-\documentclass[ bibliography=totoc, captions=tableheading, titlepage=firstiscover]{scrartcl} %Ich habe [parskip=half] hinzugefügt
+\documentclass[parskip=half, bibliography=totoc, captions=tableheading, titlepage=firstiscover]{scrartcl} %Ich habe [parskip=half] hinzugefügt
 
 %\usepackage[calc]{picture}
 \usepackage{fixltx2e}
@@ -7,10 +7,11 @@
 
 %\pagestyle{headings}
 \usepackage{scrpage2}
+\ohead{\today}
 \pagestyle{scrheadings}
-\cfoot[\pagemark]{\pagemark}
-\ofoot[]{}
 \ifoot[]{}
+\ofoot[]{}
+\cfoot[\pagemark]{\pagemark}
 
 \usepackage{polyglossia}
 \setmainlanguage{german}
@@ -18,7 +19,6 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{mathtools}
-\parindent0mm
 
 \usepackage{fontspec}
 \defaultfontfeatures{Ligatures=TeX}
@@ -100,17 +100,8 @@
 \usepackage{subcaption}
 
 
-
 %\usepackage{showframe}
-\input{data.tex}
-\author{Steven Becker \\
-steven.becker@tu-dortmund.de \\
-und \\
-Stefan Grisard \\
-stefan.grisard@tu-dortmund.de}
 
-\title{\versuch}
-\subtitle{Versuch \vnr}
-
-\date{\vd \\
-\va}
+\author{
+Stefan Grisard \and Steven Becker}
+\date{\today}

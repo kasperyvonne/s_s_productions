@@ -23,11 +23,11 @@ Des Weiteren ergibt sich aus der Ausgleichsrechnenung für die Abklingzeit $T\ua
 \begin{equation}
   B = \frac{1}{T\ua{ex}} \quad \Rightarrow \quad T\ua{ex} =  \SI{2.04(11)e-4}{\second}.
 \end{equation}
-Mittels der Gleichung \eqref{} kann der entsprechende Theoriewert, sowie die prozentuale Abweichung bestimmt werden:
+Mittels der Gleichung \eqref{eq:ap_grenz} kann der entsprechende Theoriewert, sowie die prozentuale Abweichung bestimmt werden:
 \begin{align}
   \begin{aligned}
   T\ua{ex, th} &= \SI{4.21e-4}{\second}\\
-  d_{T\ua{ex}} &= \SI{-52}{\percent}.
+  d\ua{T\ua{ex}} &= \SI{-52}{\percent}.
 \end{aligned}
 \label{eq: theo_breite}
 \end{align}
@@ -49,14 +49,14 @@ Hierbei ist zu erkennen, dass bei den ersten neun Messwerten, die in kleinen Fre
 Diskrepanz zwischen beiden Größen besteht. Die graphische Darstellung der Werte bei höheren Frequenzen ist in Abbildung \ref{fig: spannungsverlauf_U_C}
 einzusehen. Für die Resonanzfrequenz entnimmt man aus der Messreihe den Wert:
 \begin{equation}
-  \nu_{0, exp} = \SI{33}{\kilo\hertz}.
+  \nu\ua{0, exp} = \SI{33}{\kilo\hertz}.
   \label{eq: exp_resonanzfrequenz}
 \end{equation}
 Gemäß Formel \eqref{eq:resonanzfrequenz} berechnet sich der Theoriewert der Resonanzfrequenz $\nu_{0, th}$, sowie die prozentuale Abweichung $d_{\nu}$ des gemessenen Wertes zu:
 \begin{align}
   \begin{aligned}
-  \nu_{0, th} &= \SI{3.409e4}{\hertz} \\
-  d_{\nu} &= \SI{-3.19}{\percent}.
+  \nu\ua{0, th} &= \SI{3.409e4}{\hertz} \\
+  d\ua{\nu} &= \SI{-3.19}{\percent}.
 \end{aligned}
 \label{eq: theo_resonanzfrequenz}
 \end{align}
@@ -65,14 +65,14 @@ Des Weiteren entnimmt man aus der graphischen Darstellung die Größen $\nu_+$ u
   \begin{aligned}
   \nu_{+} &= \SI{3.745e4}{\hertz} \\
   \nu_{-} &= \SI{2.860e4}{\hertz} \\
-  (\nu_{+}-\nu_{-})_{exp} &= \SI{8.85e3}{\hertz}.
+  (\nu_{+}-\nu_{-})\ua{exp} &= \SI{8.85e3}{\hertz}.
 \end{aligned}
 \label{eq: breite_exp}
 \end{align}
 Für den Theoriewert der Breite [gemäß \eqref{eq:omega_+_-}] und die prozentuale Abweichung ergeben sich hieraus:
 \begin{align}
   \begin{aligned}
-  (\nu_{+}-\nu_{-})_{th} &= \SI{8.02e3}{\hertz}\\
+  (\nu_{+}-\nu_{-})\ua{th} &= \SI{8.02e3}{\hertz}\\
   d_{\nu_{+}-\nu_{-}} &= \SI{10.34}{\percent}.
 \end{aligned}
 \label{eq: theo_breite}
@@ -103,7 +103,7 @@ errechnete Phasenverschiebung $\varphi$ sind ebenfalls in Tabelle \ref{tab: freq
 Frequenzen kein signifikanter Effekt. Eine graphische Darstellung der Werte bei hohen Frequenzen befindet sich in
 Abbildung \ref{fig: phasenverlauf}. Aus der Abbildung bzw. den Daten entnimmt man für den Wert, bei dem die Phasendifferenz $\frac{\pi}{2}$ beträgt:
 \begin{equation}
-  \nu_0 = \SI{34}{\kilo\hertz}
+  \nu_0 = \SI{34}{\kilo\hertz}.
 \end{equation}
 Dieser zweite experimentell bestimmte Wert für die Resonanzfrequenz weicht um
 \begin{equation}
@@ -111,13 +111,13 @@ Dieser zweite experimentell bestimmte Wert für die Resonanzfrequenz weicht um
 \end{equation}
 von dem in \eqref{eq: theo_resonanzfrequenz} berechneten Theoriewert ab.
 Weiter werden als Werte für $\nu_+$ und $\nu_-$ jene Frequenzen abgelesen, bei denen die Phasenverschiebung
-gerade $\frac{3\pi}{4}$ bzw. $\frac{\pi}{4}$ beträgt. Hieraus kann erneut die Breite und die Abweichung
+gerade $\frac{3\pi}{4}$ bzw. $\frac{\pi}{4}$ beträgt.\newpage Hieraus kann erneut die Breite und die Abweichung
 zum Theoriewert \eqref{eq: theo_breite} bestimmt werden:
 \begin{align}
   \begin{aligned}
   \nu_{+} &= \SI{30.0}{\kilo\hertz} \\
   \nu_{-} &= \SI{36.5}{\kilo\hertz} \\
-  (\nu_{+}-\nu_{-})_{exp} &= \SI{6.5e3}{\hertz} \\
+  (\nu_{+}-\nu_{-})\ua{exp} &= \SI{6.5e3}{\hertz} \\
   d_{\nu_{+}-\nu_{-}} &= \SI{-18.96}{\percent}.
 \end{aligned}
 \end{align}
@@ -130,13 +130,13 @@ zum Theoriewert \eqref{eq: theo_breite} bestimmt werden:
   \label{fig: phasenverlauf}
 \end{figure}
 
-
+\newpage
 \subsection{Bestimmung des Widerstandes $R\ua{AP}$}
 Aus der Messung wurde folgender Wert für den Widerstand $R\ua{AP}$ gewonnen:
 \begin{equation}
   R\ua{AP, exp} = \SI{28.0}{\kilo\ohm}.
 \end{equation}
-Mit Formel \eqref{} erhält man den theoretischen Wert:
+Mit Formel \eqref{eq:widerstand_aperiodischer_grenzfall} erhält man den theoretischen Wert:
 \begin{equation}
     R\ua{AP, th} = \SI{4.4}{\kilo\ohm}.
 \end{equation}
