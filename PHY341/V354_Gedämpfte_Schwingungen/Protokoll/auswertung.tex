@@ -2,39 +2,34 @@
 Zur qualtitativen Diskussion der Messergebnisse sollen im folgenden Abschnitt relevante Rechnungen mit den gefundenen
 Werten durchgeführt werden. Fehlerfortpflanzungen, sowie Ausgleichsrechnungen werden mit
 Hilfe der Python Bibliotheken \emph{uncertainties}\cite{uncertainties} und \emph{scipy}\cite{scipy} bestimmt.
-\subsection{1}
+\subsection{Untersuchung der Spannungsamplitude}
 Die Messwerte zur Untersuchung des zeitlichen Verlaufs der Kondensatorspannungsamplitude $A(t)$ sind in Tabelle \ref{tab: amplitude} aufgetragen. Wie in der Theorie erwähnt,
 lässt sich der Verlauf durch eine Funktion der Form
 \begin{equation}
   A(t) = A_0 \, \exp[-B\cdot t]
 \end{equation}
-darstellen. Für die Parameter ergeben sich die Werte:
-\begin{align}
-  B &= \SI{4907.68(26870)}{\second^{-1}}\\
-  A_0 &= \SI{5.16(13)}{\volt}.
-\end{align}
+darstellen. Durch Anwenden des Logarithmus erhält man einen linearen Zusammenhang der Form:
+\begin{equation}
+  log \left( \frac{A(t)}{A_0} \right) = - B\cdot t
+\end{equation}
+Der Wert $A_0$ wurde der Messreihe entnommen.
+\begin{equation}
+  A_0 = \SI{9.84}{\volt}.
+\end{equation}
+Mittels einer linearen Regressionsrechnung erhält man für den Parameter $B$:
+\begin{equation}
+  B = \SI{4.9(27)e3}{\second^{-1}}.
+\end{equation}
 Die Fit-Funktion, sowie die Messwerte sind in Abbildung \ref{fig: amplitude} dargestellt.
 Mit dem Parameter $B$ lässt sich der effektive Widerstand $R\ua{eff}$ bestimmen.
 \begin{equation}
-  B = \frac{R\ua{eff}}{2L} \quad \Rightarrow \quad R\ua{eff} =  \SI{99(5)}{\ohm}.
+  B = \frac{R\ua{eff}}{2 L} \quad \Rightarrow \quad R\ua{eff} =  \SI{99(5)}{\ohm}.
   \label{eq: Fitparameter}
 \end{equation}
-Des Weiteren ergibt sich aus der Ausgleichsrechnenung für die Abklingzeit $T\ua{ex}$:
+Des Weiteren ergibt sich aus der Ausgleichsrechnung für die Abklingzeit $T\ua{ex}$:
 \begin{equation}
   B = \frac{1}{T\ua{ex}} \quad \Rightarrow \quad T\ua{ex} =  \SI{2.04(11)e-4}{\second}.
 \end{equation}
-Mittels der Gleichung \eqref{eq:ap_grenz} kann der entsprechende Theoriewert, sowie die prozentuale Abweichung bestimmt werden:
-\begin{align}
-  \begin{aligned}
-  T\ua{ex, th} &= \SI{4.21e-4}{\second}\\
-  d\ua{T\ua{ex}} &= \SI{-52}{\percent}.
-\end{aligned}
-\label{eq: theo_breite}
-\end{align}
-Der gefundenen Wert für den
-Widerstand der Schaltung weicht um etwa $\SI{51}{\ohm}$ von dem verbauten Widerstand ($R =  \SI{48}{\ohm}$) ab. Dies kann
-auf nicht betrachtete Innenwiderstände des Generators bzw. anderer Bauteile zurückgeführt werden und stellt
-gleichzeitig eine Erklärung für die deutliche prozentuale Abweichung der charakteristischen Abklingzeit vom Theoriewert dar.
 \input{../Messdaten/amplitude.tex}
 \begin{figure}
   \centering
@@ -45,22 +40,14 @@ gleichzeitig eine Erklärung für die deutliche prozentuale Abweichung der chara
 
 \subsection{Frequenzabhängigkeit der Kondensatorspannung}
 Die gemessenen Werte der Generator- und Kondensatorspannung unter variabler Frequenz sind in Tabelle \ref{tab: frequenzabhängigkeit} aufgeführt.
-Hierbei ist zu erkennen, dass bei den ersten neun Messwerten, die in kleinen Frequnezbereichen aufgenommen wurden, nur eine geringfügige
-Diskrepanz zwischen beiden Größen besteht. Die graphische Darstellung der Werte bei höheren Frequenzen ist in Abbildung \ref{fig: spannungsverlauf_U_C}
-einzusehen. Für die Resonanzfrequenz entnimmt man aus der Messreihe den Wert:
+Die gesamte Messreihe ist in Abbildung \ref{fig: spannungsverlauf_U_C_log} mit logarithmischer $x$-Achse graphisch dargestellt. Eine lineare Darstellung
+der Werte um die Resonanzfrequenz ist in Abbildung \ref{fig: spannungsverlauf_U_C}
+einzusehen. Für die Resonanzfrequenz ergibt sich:
 \begin{equation}
   \nu\ua{0, exp} = \SI{33}{\kilo\hertz}.
   \label{eq: exp_resonanzfrequenz}
 \end{equation}
-Gemäß Formel \eqref{eq:resonanzfrequenz} berechnet sich der Theoriewert der Resonanzfrequenz $\nu_{0, th}$, sowie die prozentuale Abweichung $d_{\nu}$ des gemessenen Wertes zu:
-\begin{align}
-  \begin{aligned}
-  \nu\ua{0, th} &= \SI{3.409e4}{\hertz} \\
-  d\ua{\nu} &= \SI{-3.19}{\percent}.
-\end{aligned}
-\label{eq: theo_resonanzfrequenz}
-\end{align}
-Des Weiteren entnimmt man aus der graphischen Darstellung die Größen $\nu_+$ und $\nu_-$, aus denen die Breite der Resonanzkurve bestimmt werden kann.
+Des Weiteren werden aus der graphischen Darstellung die Größen $\nu_+$ und $\nu_-$ entnommen, aus denen die Breite der Resonanzkurve bestimmt werden kann.
 \begin{align}
   \begin{aligned}
   \nu_{+} &= \SI{3.745e4}{\hertz} \\
@@ -69,56 +56,40 @@ Des Weiteren entnimmt man aus der graphischen Darstellung die Größen $\nu_+$ u
 \end{aligned}
 \label{eq: breite_exp}
 \end{align}
-Für den Theoriewert der Breite [gemäß \eqref{eq:omega_+_-}] und die prozentuale Abweichung ergeben sich hieraus:
-\begin{align}
-  \begin{aligned}
-  (\nu_{+}-\nu_{-})\ua{th} &= \SI{8.02e3}{\hertz}\\
-  d_{\nu_{+}-\nu_{-}} &= \SI{10.34}{\percent}.
-\end{aligned}
-\label{eq: theo_breite}
-\end{align}
 \begin{figure}
   \centering
   \includegraphics[width = \textwidth]{../Messdaten/U_f_linear.pdf}
   \caption{Verlauf der normierten Spannung am Kondensator unter variabler Frequenz, sowie eingezeichnete Hilfslinien zum Ablesen der relevanten Größen.}
   \label{fig: spannungsverlauf_U_C}
 \end{figure}
-Die Resonanzüberhöhung berechnet sich theoretisch gemäß Formel \eqref{eq: resonanzüberhöhung} zu:
-\begin{equation}
-  q\ua{th} = \SI{4.25}.
-\end{equation}
-Aus der Messung gewinnt man den entsprechenden experimentellen Wert:
+
+\begin{figure}
+  \centering
+  \includegraphics[width = \textwidth]{../Messdaten/U_f_log.pdf}
+  \caption{Logarithmische Darstellung: Verlauf der normierten Spannung am Kondensator unter variabler Frequenz, sowie eingezeichnete Hilfslinien zum Ablesen der relevanten Größen.}
+  \label{fig: spannungsverlauf_U_C_log}
+\end{figure}
+
+Für die Resonanzüberhöhung $q$ wird folgender Wert aus den Ergebnissen entnommen:
 \begin{equation}
     q\ua{exp} = \SI{3.94}.
 \end{equation}
-Der gefundene Wert weicht somit um
-\begin{equation}
-  d\ua{q} = \SI{7}{\percent}
-\end{equation}
-vom theoretischen Wert ab.
 
 \subsection{Frequenzabhängigkeit der Phasenverschiebung}
 Die mit dem Oszilloskop bestimmten Werte für die Phasenlänge der Generatorspannung $b$ und den zeitlichen Versatz $a$ zur Kondensatorspannung, sowie die gemäß \eqref{eq:phasen_unterschied}
-errechnete Phasenverschiebung $\varphi$ sind ebenfalls in Tabelle \ref{tab: frequenzabhängigkeit} aufgetragen. Auch hier zeigt sich bei den niedrigen
-Frequenzen kein signifikanter Effekt. Eine graphische Darstellung der Werte bei hohen Frequenzen befindet sich in
-Abbildung \ref{fig: phasenverlauf}. Aus der Abbildung bzw. den Daten entnimmt man für den Wert, bei dem die Phasendifferenz $\frac{\pi}{2}$ beträgt:
+errechnete Phasenverschiebung $\varphi$ sind ebenfalls in Tabelle \ref{tab: frequenzabhängigkeit} aufgetragen. Auch hier wurde der Gesamte
+Messbereich logarithmisch dargestellt (siehe Abbildung \ref{fig: phasenverlauf_log}). Eine graphische Darstellung der Werte bei hohen Frequenzen befindet sich in
+Abbildung \ref{fig: phasenverlauf}. Aus der Abbildung bzw. den Daten wird folgender Wert, bei dem die Phasendifferenz $\frac{\pi}{2}$ beträgt, entnommen:
 \begin{equation}
   \nu_0 = \SI{34}{\kilo\hertz}.
 \end{equation}
-Dieser zweite experimentell bestimmte Wert für die Resonanzfrequenz weicht um
-\begin{equation}
-  d_{\nu} = \SI{-0.26}{\percent}
-\end{equation}
-von dem in \eqref{eq: theo_resonanzfrequenz} berechneten Theoriewert ab.
 Weiter werden als Werte für $\nu_+$ und $\nu_-$ jene Frequenzen abgelesen, bei denen die Phasenverschiebung
-gerade $\frac{3\pi}{4}$ bzw. $\frac{\pi}{4}$ beträgt.\newpage Hieraus kann erneut die Breite und die Abweichung
-zum Theoriewert \eqref{eq: theo_breite} bestimmt werden:
+gerade $\frac{3\pi}{4}$ bzw. $\frac{\pi}{4}$ beträgt. Hieraus kann erneut die Breite bestimmt werden:
 \begin{align}
   \begin{aligned}
   \nu_{+} &= \SI{30.0}{\kilo\hertz} \\
   \nu_{-} &= \SI{36.5}{\kilo\hertz} \\
   (\nu_{+}-\nu_{-})\ua{exp} &= \SI{6.5e3}{\hertz} \\
-  d_{\nu_{+}-\nu_{-}} &= \SI{-18.96}{\percent}.
 \end{aligned}
 \end{align}
 \input{tabs/frequenzabhängigkeit.tex}
@@ -129,21 +100,15 @@ zum Theoriewert \eqref{eq: theo_breite} bestimmt werden:
   \caption{Verlauf der Phasendifferenz zwischen Erreger- und Kondensatorspannung unter variabler Frequenz.}
   \label{fig: phasenverlauf}
 \end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width = \textwidth]{../Messdaten/phase_f_log.pdf}
+  \caption{Logaritmische Darstellung: Verlauf der Phasendifferenz zwischen Erreger- und Kondensatorspannung unter variabler Frequenz.}
+  \label{fig: phasenverlauf_log}
+\end{figure}
 
-\newpage
 \subsection{Bestimmung des Widerstandes $R\ua{AP}$}
 Aus der Messung wurde folgender Wert für den Widerstand $R\ua{AP}$ gewonnen:
 \begin{equation}
   R\ua{AP, exp} = \SI{28.0}{\kilo\ohm}.
 \end{equation}
-Mit Formel \eqref{eq:widerstand_aperiodischer_grenzfall} erhält man den theoretischen Wert:
-\begin{equation}
-    R\ua{AP, th} = \SI{4.4}{\kilo\ohm}.
-\end{equation}
-Als prozentuale Abweichung zwischen theoretischem und experimentellem Ergebnis berechnet sich:
-\begin{equation}
-  d\ua{R\ua{AP}} = \SI{538}{\percent}
-\end{equation}
-Diese große Abweichung lässt sich durch die ungenaue Messung des Widerstandes erklären. Einerseits kann der gesuchte Punkt,
-an dem es zu keinen Überschwingern mehr kommt, nur sehr schwer erkannt werden. Darüber hinaus stellt die Skala, an der der Widerstand
-letztendlich abgelesen wurde eine Quelle für systematische Fehler dar.
