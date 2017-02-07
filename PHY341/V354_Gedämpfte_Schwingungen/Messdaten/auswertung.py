@@ -164,7 +164,7 @@ plt.clf()
 plt.plot(frequenz, phase, 'rx', label='Messwerte')
 plt.yticks([0, np.pi/4, np.pi / 2, 3*np.pi/4 , np.pi],
            [r"$0$", r"$\frac{\pi}{4}$", r"$\frac{\pi}{2}$", r"$\frac{3\pi}{4}$", r"$\pi$"], fontsize = 16)
-#plt.xlim(24.5, 45.5)
+plt.xlim(10**(0.9), 10**5)
 plt.grid()
 plt.legend(loc='best')
 plt.ylabel('Phasenverschiebung $\\varphi$ in rad')
