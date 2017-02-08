@@ -1,13 +1,14 @@
 \setcounter{page}{1}
-%\section*{Zielsetzung}
-%Mit dem Versuch soll das Schwingverhalten eines elektrischen Schwingkreises,
-%bei Dämpfung oder äußerer Anregung, untersucht werden.
+
+\section*{Zielsetzung}
+Mit dem Versuch soll das Schwingverhalten eines elektrischen Schwingkreises,
+unter Dämpfung oder äußeren Anregung, analysiert werden.
+
 
 \section{Theorie}
-
 Ein elektrischer Schwingkreis besteht grundsätzlich
 aus Kondensatoren und Spulen. %stil
-Durch einmalige äußeren Anregung z.\,B. durch einen Nadelimpuls %einmaligen, einen Nadelimpuls
+Durch einmalige äußere Anregung z.\,B. durch einen Nadelimpuls %einmaligen, einen Nadelimpuls
 kann er zum Schwingen angeregt werden.  %kein Komma, Satz überarbeiten
 Wird zusätzlich noch ein Widerstand mit angeschlossen, ergibt sich ein
 gedämpfter elektrischer Schwingkreis. %gedämpfter,so wie es das steht
@@ -17,7 +18,9 @@ ihn erzwungenen Schwingkreis.
 \begin{figure}
   \centering
   \includegraphics[width = 0.5\textwidth]{bilder/gedaempfter_schwingkreis.png}
-  \caption{Schematischer Aufbau eines gedämpften Schwingkreises\cite{anleitung354}. }
+  \caption{Schematischer Aufbau eines gedämpften Schwingkreises.
+  Durch Zusammenschaltung von einem Kondensator $C$ und einer Spule $L$ entsteht ein Schwingkreis.
+  Der zusätzliche Widerstand $R$ dient zur Dämpfung\cite{anleitung354}.}
   \label{fig:gedaempft}
   \end{figure}
 Zunächst sollen mit Hilfe der zweiten %mit Hilfe
@@ -27,11 +30,13 @@ bestimmt werden:
   \label{eq:kirch}
 U\ua{R}(t)+U\ua{C}+U\ua{L}(t).
 \end{equation}
-Durch Hinzunahme der bekannten Zusammenhänge %Hinzunahme
+Zusätzlich werden die bekannten Zusammenhänge %Hinzunahme
 \begin{equation*}
-U\ua{R}(t)=RI(t) \quad U\ua{C}(t)=\frac{Q(t)}{C} \quad U\ua{L}(t)=L\frac{\map{d}}{\map{d}t}I
+U\ua{R}(t)=RI(t) \quad U\ua{C}(t)=\frac{Q(t)}{C} \quad U\ua{L}(t)=L\frac{\map{d}}{\map{d}t}I.
 \end{equation*}
-und der zeitlichen Ableitung von \eqref{eq:kirch}, kann auf eine Schwingungsdifferentialgleichung %Verb fehlt
+verwendet.
+Hierbei sei $R$ der Wiederstand, $Q$ die Ladung des Kondensators und $L$ die Induktivität der Spule.
+Wird nun die zeitlichen Ableitung von \eqref{eq:kirch} gebildet, kann auf eine Schwingungsdifferentialgleichung %Verb fehlt
 \begin{equation}
   \label{eq:differntialgleichung_1}
 \frac{\map{d}^2}{\map{d}t^2}I+\frac{R}{L}\frac{\map{d}}{\map{d}t}I+\frac{1}{LC}I=0
@@ -39,7 +44,7 @@ und der zeitlichen Ableitung von \eqref{eq:kirch}, kann auf eine Schwingungsdiff
 geschlossen werden.
 Als Lösungsansatz wählt man:
 \begin{equation*}
-  I(t)=A\,\map{e}^{-\map{i}\hat{\omega} t} \quad A,\omega\in\mathbb{C}.
+  I(t)=A\,\map{e}^{-\map{i}\hat{\omega} t} \quad A,\hat{\omega}\in\mathbb{C}.
 \end{equation*}
 Dabei ist $\omega$ die Frequenz mit der das System schwingen kann.
 Durch Einsetzen von $I(t)$ in \eqref{eq:differntialgleichung_1} ergibt sich %Einsetzen
@@ -48,7 +53,7 @@ für diese:
   \label{eq:omega_gedaempft}
   \hat{\omega}_{1,2}=\map{i}\frac{R}{2L}\pm\left(\,\underbrace{\frac{1}{LC}}_{:=\omega_0}-\underbrace{\frac{R^2}{4L^2}}_{:=\beta}\,\right)^{\frac{1}{2}}.
 \end{equation}
- Die Frequenz $\omega$ kann folglich drei mögliche Werte annehmen.
+ Die Frequenz $\omega$ kann folglich drei mögliche Wertemengen annehmen.
  Je nachdem, in welchem Verhältnis $\omega_0$ und $\beta$ zueinander stehen.  %'was' ist umgangssprachlich
 \\
 Bei einer, im Vergleich zur Dämpfung, kleinen Eigenfrequenz $\omega_0<\beta$,
@@ -91,7 +96,10 @@ erfüllt ist.
 \begin{figure}
   \centering
   \includegraphics[width = 0.5\textwidth]{bilder/erzwungener_kreis.png}
-  \caption{Schematischer Aufbau eines erzwungenen Schwingkreises\cite{anleitung354}. }
+  \caption{Schematischer Aufbau eines erzwungenen Schwingkreises.
+  Die Spule $L$ und der Kondensator $C$ ermöglichen eine Schwingung.
+  Der Widerstand $R$ sorgt für eine Dämpfung und der Sinusgenerator $U(t)$ regt das
+  System periodisch an\cite{anleitung354}. }
   \label{fig:erzwungen}
 \end{figure}
 Durch das Hinzuschalten einer externen Anregung $U(t)$ (vgl. Abb. \ref{fig:erzwungen}) %Hinzuschalten
@@ -101,16 +109,17 @@ Inhomogenität:
   \frac{\map{d}^2}{\map{d}t^2}I+\frac{R}{L}\frac{\map{d}}{\map{d}t}I+\frac{1}{LC}I=U(t)&=U_0\map{e}^{\map{i}\omega\, t}\notag \\
   LC\frac{\map{d}^2}{\map{d}t^2}U\ua{C}+\frac{R}{C}\frac{\map{d}}{\map{d}t}U\ua{C}+U\ua{C}&=U_0\map{e}^{\map{i}\omega\, t}. \label{eq:dgl_2}
 \end{align}
-Die Differntialgleichung \eqref{eq:dgl_2} wird gelöst durch
-\begin{equation}
-  \label{eq:uc_erzwung}
-  U\ua{C}(\omega)=U_0\left(\left(1-LC\omega\right)1^2+\omega^2R^2C^2\right)^{-\frac{1}{2}}.
-\end{equation}
-Die Spannung am Kondensator ist also abhängig von der Erregerfrequenz $\omega$.
 Die Untersuchung des Randverhaltens von \eqref{eq:uc_erzwung} liefert
 \begin{equation*}
   \lim_{\omega \to \infty} U\ua{C}(t)=0 \qquad \lim_{\omega \to 0} U\ua{C}(t)=U_0.
 \end{equation*}
+Mit dem Randverhalten ist das Lösen der Differentialgleichung \eqref{eq:dgl_2} durch
+\begin{equation}
+  \label{eq:uc_erzwung}
+  U\ua{C}(\omega)=U_0\left(\left(1-LC\omega\right)1^2+\omega^2R^2C^2\right)^{-\frac{1}{2}}
+\end{equation}
+möglich.
+Die Spannung am Kondensator ist also abhängig von der Erregerfrequenz $\omega$.
 Zusätzlich gibt es die sogenannte \emph{Resonanzfrequenz}.
 Bei dieser Frequenz erreicht $U_C$ ihren Maximalwert. Dies ist genau dann der Fall, wenn
 $\omega$ auf
@@ -125,7 +134,7 @@ Die Spannungsamplitude hat folglich den Betrag:
   U\ua{C,\, max}=\frac{1}{R}\sqrt{\frac{L}{C}}U_0=qU_0.
 \end{equation}
 Der Faktor $q$ wird auch als \emph{Güte des Schwingkreises} bezeichnet.
-Ist $U\ua{C}=U\ua{C,\, max}$ spicht man von \emph{Resonanz}.
+Ist $U\ua{C}>U_{0}$ spicht man von \emph{Resonanz}.
 Als Indikator für die Schärfe der Resonanz dienen die beiden
 Frequenzen $\omega_+$ und $\omega_-$. An diesen Frequenzen ist
 $U\ua{C}$ auf
