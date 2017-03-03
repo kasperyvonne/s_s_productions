@@ -1,9 +1,10 @@
 \documentclass[parskip=half, bibliography=totoc, captions=tableheading, titlepage=firstiscover]{scrartcl} %Ich habe [parskip=half] hinzugefügt
+\usepackage{scrpage2}
+\def\preambleloaded{Precompiled preamble loaded.}
 
-%\usepackage[calc]{picture}
 \usepackage{fixltx2e}
 
-\usepackage{tcolorbox}
+%\pagestyle{headings}
 
 %\pagestyle{headings}
 \usepackage{scrpage2}
@@ -12,27 +13,24 @@
 \ofoot[]{}
 \ifoot[]{}
 
-\usepackage{polyglossia}
-\setmainlanguage{german}
+%\usepackage{polyglossia}
+%\setmainlanguage{german}
+
 \usepackage{caption}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{mathtools}
 
-\usepackage{fontspec}
-\defaultfontfeatures{Ligatures=TeX}
+%\usepackage{fontspec}
+%\defaultfontfeatures{Ligatures=TeX}
 
-\usepackage[
-  math-style=ISO,
-  bold-style=ISO,
-  sans-style=italic,
-  nabla=upright,
-]{unicode-math}
-
-\setmathfont{Latin Modern Math}
-%\setmathfont[range={\mathscr, \mathbfscr}]{XITS Math}
-%\setmathfont[range=\coloneq]{XITS Math}
-%\setmathfont[range=\propto]{XITS Math}
+%\usepackage[
+%  math-style=ISO,
+%  bold-style=ISO,
+%  sans-style=italic,
+%  nabla=upright,
+%]{unicode-math}
+%\setmathfont{Latin Modern Math}
 
 \usepackage[autostyle]{csquotes}
 
@@ -41,7 +39,6 @@
   separate-uncertainty=true,   % Immer Fehler mit \pm
   per-mode=symbol-or-fraction, % m/s im Text, sonst Brüche
 ]{siunitx}
-%\sisetup{math-stylemicro=\text{µ},text-micro=µ}
 
 \usepackage{xfrac}
 
@@ -53,6 +50,7 @@
 ]{caption}
 
 \usepackage{subcaption}
+%\usepackage{subfig}
 
 \usepackage{graphicx}
 
@@ -70,7 +68,7 @@
 
 \usepackage[math]{blindtext}
 
-\usepackage{microtype}
+%\usepackage{microtype}
 
 \usepackage[
   backend=biber,
@@ -85,23 +83,40 @@
 \usepackage{makeidx} %Ich habe makeidx hinzugefügt + makeindex
 \makeindex
 
-
 \usepackage[version=3]{mhchem} % für Thermodynamik-chemische Elemente
 \usepackage{enumitem} %Ich habe enumitem hinzugefügt
 \usepackage{expl3}
 \usepackage{xparse}
-%\ExplSyntaxOn
+
+\RequirePackage{etoolbox}
+\AtEndPreamble{
+    \usepackage{fontspec}
+    \usepackage{microtype}
+    \usepackage{fontspec}
+    \defaultfontfeatures{Ligatures=TeX}
+    \usepackage{polyglossia}
+    \setmainlanguage{german}
+    \usepackage[
+      math-style=ISO,
+      bold-style=ISO,
+      sans-style=italic,
+      nabla=upright,
+      ]{unicode-math}
+    \setmathfont{Latin Modern Math}
+
+}
+
 
 \NewDocumentCommand \dif {m}
 {
 \mathinner{\symup{d} #1}
 }
-\usepackage{subcaption}
-
-
+%\usepackage{subcaption}
+\usepackage{yfonts}
+\def\preambleloaded{Precompiled preamble loaded.}
 
 %\usepackage{showframe}
-\input{data.tex}
+\input{../data.tex}
 \author{Steven Becker \\
 steven.becker@tu-dortmund.de \\
 und \\
