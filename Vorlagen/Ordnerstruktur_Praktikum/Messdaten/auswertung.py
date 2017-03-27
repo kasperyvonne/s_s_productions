@@ -6,7 +6,6 @@ from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
 from pint import UnitRegistry
 import latex as l
-import results as r
 
 u = UnitRegistry()
 Q_ = u.Quantity
@@ -29,7 +28,7 @@ print(1/(einheitentst*einheitentst_2).to('second'))
 
 #variabel_1,variabel_2=np.genfromtxt('name.txt',unpack=True)
 
-#Standartabweichung und Mittelwert 
+#Standartabweichung und Mittelwert
 
 def mittel_und_abweichung(messreihe):
 	messreihe_einheit=messreihe.units
@@ -72,7 +71,7 @@ def linregress(x, y):
     return A, A_error, B, B_error
 
 
-#Angepasstes Programm 
+#Angepasstes Programm
 
 
 
