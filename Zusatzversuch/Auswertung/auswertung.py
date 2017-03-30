@@ -1,14 +1,9 @@
 import numpy as np
 import uncertainties.unumpy as unp
 from uncertainties import ufloat
-import math
 import uncertainties
-from pandas import Series, DataFrame
-import pandas as pd
 from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
-from pint import UnitRegistry
-import scipy.constants as const
 
 U_T_K = np.genfromtxt('krit_temp.txt', unpack=True)
 ref_0 = 0.102
@@ -21,7 +16,7 @@ def f(x):
 T_K_theo = -180
 T_K_raw = f(U_T_K)
 T_K = ufloat(np.mean(T_K_raw), np.std(T_K_raw))
-print(T_K)
+print('Kritische Temperatur: ', T_K)
 
 u = np.linspace(-6, 1)
 plt.plot(u, f(u), label='T(U)')
