@@ -1,34 +1,9 @@
-\documentclass[aspectratio=1610]{beamer}
-\usefonttheme{professionalfonts}
-\usetheme{metropolis}
-\usepackage{polyglossia}
-\setmainlanguage{german}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{graphicx}
-\usepackage[
-  math-style=ISO,
-  bold-style=ISO,
-  sans-style=italic,
-  nabla=upright,
-]{unicode-math}
-
-\setmathfont{Latin Modern Math}
-
-\usepackage{blindtext}
-\usepackage{fontspec}
-\title[Short version]{Zusatzversuch \\ Untersuchung von Supraleitung}
-\subtitle[short version]{A subtitle}
-\date{\today}
-\author[M. Maier]{Stefan Grisard}
-
-
+\input{header.tex}
 \begin{document}
 
 \frame{\maketitle}
 
-
+\section{1. Teil}
 \begin{frame}{Blindtext}
 \blindtext
 
@@ -40,11 +15,13 @@
 \blindlist{enumerate}[6]
 \end{column}
 \begin{column}{0.45\textwidth}
+  \pause
 \blindlist{itemize}[6]
 \end{column}
 \end{columns}
 \end{frame}
 
+\section{2. Teil}
 \begin{frame}{oxford Blöcke}
 \begin{block}{Erster Block}
 \begin{itemize}
