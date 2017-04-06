@@ -19,6 +19,10 @@
       \text{\ce{TlCaBaCuO}} & \num{125}
 \end{tabular}
 \end{table}
+\begin{itemize}
+  \item Hochtemperatur-Supraleiter für Versuch geeignet
+\end{itemize}
+
 \end{column}
 \end{columns}
 \end{frame}
@@ -42,4 +46,27 @@
   \end{figure}
 \end{column}
 \end{columns}
+\end{frame}
+
+\begin{frame}{Quantitative Beschreibung}
+Londongleichungen ersetzen das ohmsche Gesetz
+\begin{equation}
+  \vec{\jmath} = \sigma \vec{E}\quad  \longrightarrow \quad
+  \begin{cases}
+    \frac{\partial }{\partial t}\vec{\jmath} = \frac{nq^2}{m}\vec{E} \\
+    \nabla \times \vec{\jmath} = - \frac{n q^2}{m} \vec{B}
+  \end{cases}
+\end{equation}
+\pause
+Mit Maxwell Gleichung $\nabla \times \vec{B} = \mu_0 \vec{\jmath}$
+\begin{equation}
+-\nabla \times (\nabla \times \vec{B}) = -\nabla\underbrace{(\nabla \cdot \vec{B})}_{= 0} + \Delta \vec{B} = \frac{\mu_0 n q^2}{m}\vec{B}
+\end{equation}
+\end{frame}
+
+\begin{frame}{Quantitative Beschreibung}
+Nun $\vec{B} = B_0 \vec{e}_z$, Grenzfläche $x$-$y$-Ebene
+\begin{equation}
+  \text{Lösung:}\quad \vec{B}_z = B_0 \exp[- \sqrt{\frac{\mu_0 n q^2}{m}}   x ]
+\end{equation}
 \end{frame}
