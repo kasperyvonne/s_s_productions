@@ -1,6 +1,6 @@
 all: build/presentation.pdf
 
-build/presentation.pdf: presentation.tex header.tex| build
+build/presentation.pdf: presentation.tex header.tex theorie.tex| build
 		lualatex --output-directory=build presentation.tex
 
 build:
