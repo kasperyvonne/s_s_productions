@@ -6,7 +6,9 @@ from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
 from pint import UnitRegistry
 import latex as l
-
+import result
+#import pandas as pd
+r = result.Results()
 u = UnitRegistry()
 Q_ = u.Quantity
 
@@ -16,14 +18,6 @@ Q_ = u.Quantity
 a = ufloat(5, 2) * u.meter
 b = Q_(unp.uarray([5,4,3], [0.1, 0.2, 0.3]), 'ohm')
 c = Q_(0, 'degC')
-c.to('kelvin')
-print(c.to('kelvin'))
-print(a**2)
-print(b**2)
-einheitentst=Q_(1*1e-3,'farad')
-einheitentst_2=Q_(1,'ohm')
-print(einheitentst)
-print(1/(einheitentst*einheitentst_2).to('second'))
 
 
 #variabel_1,variabel_2=np.genfromtxt('name.txt',unpack=True)
@@ -81,13 +75,14 @@ def linregress(x, y):
 
 #plt.xlim()
 #plt.ylim()
-#aufvariabele=np.linsspace()
-#
 #plt.plot(,,'rx',label='')
 #
 #plt.grid()
 #plt.legend(loc='best')
-#plt.xlabel()
-#plt.ylabel()
+#plt.xlabel('', fontsize=16)
+#plt.ylabel('', fontsize=16)
 #plt.show()
 #plt.savefig('.pdf')
+
+
+#r.makeresults()
