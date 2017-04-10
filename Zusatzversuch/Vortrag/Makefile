@@ -1,6 +1,6 @@
 all: build/presentation.pdf
 
-build/presentation.pdf: presentation.tex header.tex vierpunkt.tex theorie.tex durchfuehrung.tex versuchsziel.tex| build
+build/presentation.pdf: presentation.tex header.tex vierpunkt.tex theorie.tex durchfuehrung.tex diskussion.tex versuchsziel.tex| build
 		lualatex --output-directory=build presentation.tex
 
 full: presentation.tex header.tex theorie.tex versuchsziel.tex| build
