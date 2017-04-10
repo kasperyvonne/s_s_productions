@@ -16,7 +16,7 @@ def f(x):
 T_K_theo = -180
 T_K_raw = f(U_T_K)
 T_K = ufloat(np.mean(T_K_raw), np.std(T_K_raw))
-print('Kritische Temperatur: ', T_K)
+print('Kritische Temperatur: ', T_K, np.mean(T_K_raw) , np.std(T_K_raw))
 
 u = np.linspace(-6, 1)
 plt.plot(u, f(u), label='T(U)')

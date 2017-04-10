@@ -3,6 +3,7 @@
 \begin{figure}
   \centering
   \includegraphics[width=0.7\textwidth]{bilder/versuchsaufbau.jpg}
+\caption{Foto des Versuchsaufbau und des Meißner-Ochsen Effktes }
   \label{fig: versuchsaufbau}
 \end{figure}
 \end{frame}
@@ -10,7 +11,11 @@
 \begin{frame}
   \frametitle{Auswertung der kritischen Temperatur}
 \begin{columns}
-  \begin{column}{0.5\textwidth}
+  \begin{column}{0.52\textwidth}
+\begin{table}
+  \centering
+  \caption{Gemessene kritische Temperaturen}
+  \label{tab:messwerte}
   \begin{tabular}{SSS}
   \toprule
   {Messwert} & {Spannung in $\si{\milli\volt}$}  &  {Temperatur in $\si{\celsius}$}  \\
@@ -27,15 +32,16 @@
 
   \bottomrule
   \end{tabular}
-\end{column}
+\end{table}
 
-\begin{column}{0.5\textwidth}
-\begin{equation*}
-  T_{\mathrm{mittel}}=\SI{-194.5\pm0.7}{\celsius}
-\end{equation*}
-\begin{equation*}
-  \Delta T= \SI{14.5\pm0.7}{\celsius} \quad (-7\%)
-\end{equation*}
+\end{column}
+\pause
+\begin{column}{0.52\textwidth}
+\begin{align*}
+  T_{\mathrm{mittel}}&=-194.45 \pm 0.66 \,\si{\celsius}\\
+  \hfill \\
+  \Delta T&= 14.45\pm 0.66\,\si{\celsius} \quad (-7\%)
+\end{align*}
 \end{column}
 \end{columns}
 
