@@ -14,7 +14,7 @@
   \label{tab: sprungtemperaturen}
 \begin{tabular}{l S}
   & $T_{\mathup{C}} / \si{\kelvin}$ \\
-  \text{Queksilber} & \num{4.15} \\
+  \text{Quecksilber} & \num{4.15} \\
     \text{Aluminium} & \num{1.17} \\
       \text{\ce{TlCaBaCuO}} & \num{125}
 \end{tabular}
@@ -53,7 +53,7 @@
     \item idealer Leiter $R = 0$
     \item idealer Diamagnet (Suszeptibilität $\chi = -1$)
     \begin{equation}
-      \vec{M} = \chi \vec{H} \Rightarrow \vec{B} = \mu_0 (\vec{H} + \vec{M}) = 0
+      \vec{M} = \chi \vec{H} \quad \Rightarrow \quad \vec{B} = \mu_0 (\vec{H} + \vec{M}) = 0
     \end{equation}
     Kein Magnetfeld im Inneren des Supraleiters
   \end{enumerate}
@@ -62,10 +62,10 @@
 \begin{frame}{Quantitative Beschreibung}
 Londongleichungen ersetzen das ohmsche Gesetz
 \begin{equation}
-  \vec{\jmath} = \sigma \vec{E}\quad  \longrightarrow \quad
+  \vec{\jmath} = \frac{\tau n q^2}{m}\cdot \vec{E} = \sigma\cdot \vec{E}\quad  \longrightarrow \quad
   \begin{cases}
-    \frac{\partial }{\partial t}\vec{\jmath} = \frac{nq^2}{m}\vec{E} \\
-    \nabla \times \vec{\jmath} = - \frac{n q^2}{m} \vec{B}
+    \frac{\partial }{\partial t}\vec{\jmath} &= \frac{nq^2}{m}\vec{E} \\
+    \nabla \times \vec{\jmath} &= - \frac{n q^2}{m} \vec{B}
   \end{cases}
 \end{equation}
 \pause
@@ -91,7 +91,7 @@ Mit Maxwell Gleichung $\nabla \times \vec{B} = \mu_0 \vec{\jmath}$
    \vec{B} &= B_0 \exp\left[-\frac{x}{\lambda}\right]\vec{e}_z \\
    \Rightarrow \vec{\jmath} &= \frac{B_0}{\mu_0 \lambda}\exp \left[-\frac{x}{\lambda} \right] \vec{e}_y
 \end{align*}
-Eindringtiefe $\lambda$, Größenordnung 100nm
+Eindringtiefe $\lambda$, Größenordnung $\SI{100}{\nano\meter}$
 \end{column}
 \begin{column}{0.49\textwidth}
   \begin{figure}
@@ -107,5 +107,12 @@ Eindringtiefe $\lambda$, Größenordnung 100nm
   \end{figure}
 \end{column}
 \end{columns}
+
+\end{frame}
+
+
+\begin{frame}{Qualitative Erklärung für Supraleitung}
+  
+
 
 \end{frame}
