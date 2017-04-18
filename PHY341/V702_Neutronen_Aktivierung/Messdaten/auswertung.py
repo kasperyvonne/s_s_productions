@@ -95,10 +95,11 @@ anzahl-=nullrate
 anzahl_fehler=np.sqrt(anzahl)
 anzahlu=unp.uarray(anzahl,anzahl_fehler)
 
+
 fehlelog_indium=fehler_log(anzahl)
 
 l.Latexdocument('messwerte_indium.tex').tabular([zeit, anzahl, anzahl_fehler, fehlelog_indium[1], fehlelog_indium[0] ],
-'Jo', [1, 1, 1,1,1] ,
+'Jo', [0, 1, 1,2,2] ,
 caption = 'Gemessene Anzahl an Zerfällen bei Indium', label = 'tab: indium_messwerte')
 
 #latex.Latexdocument('messwerte_indium.tex').tabular([zeit, anzahl, anzhal_fehler, fehler_log[1], fehler_log[0] ],
@@ -119,24 +120,27 @@ print('\n')
 
 
 
+
+
+
 ##Isomer Rhodoium
 nullrate_rhodium=218
 nullrate_rhodium*=(15)/(900)
 zeit_rhodium, anzahl_rhodium=np.genfromtxt('zaehlreite_rhodium.txt', unpack=True)
 zeit_rhodium*=15
 anzahl_rhodium-=nullrate_rhodium
-print(zeit_rhodium[0:6])
+print(zeit_rhodium)
 
 anzahl_rhodium_fehler=np.sqrt(anzahl_rhodium)
 fehlerlog_rhodium=fehler_log(anzahl_rhodium)
 
 
-t_sternchen=200
-params_rho_lang, cov_rho_lang = curve_fit(g, zeit_rhodium[12:-1], np.log(anzahl_rhodium[12:-1]) )
+t_sternchen=500
+params_rho_lang, cov_rho_lang = curve_fit(g, zeit_rhodium[33:-1], np.log(anzahl_rhodium[33:-1]) )
 rho_lang_errors = np.sqrt(np.diag(cov_rho_lang))
 rho_lang_u =unp.uarray(params_rho_lang,rho_lang_errors)
 
-print('Steigung', rho_lang_u[0])
+print('Steigung rho lang', rho_lang_u[0])
 print('Achsenabschnitt', rho_lang_u[1])
 print('\n')
 
@@ -144,26 +148,45 @@ params_rho_gesamt, cov_rho_gesamt = curve_fit(g, zeit_rhodium, np.log(anzahl_rho
 rho_gesamt_errors = np.sqrt(np.diag(cov_rho_gesamt))
 rho_gesamt_u =unp.uarray(params_rho_gesamt,rho_gesamt_errors)
 
-print('Steigung', rho_gesamt_u[0])
+print('Steigung rho gesamt', rho_gesamt_u[0])
 print('Achsenabschnitt', rho_gesamt_u[1])
 print('\n')
 
-m_kurz=rho_gesamt_u[0]-rho_lang_u[0]
-b_kurz=rho_gesamt_u[1]-rho_lang_u[1]
 
-rho_lang=g(t_sternchen,params_rho_gesamt[0],params_rho_gesamt[1])
-rho_kurz=g(t_sternchen,m_kurz,b_kurz)
 
-print('RHO lang nach sternchen', rho_lang)
-print('rho kurz nach sternchen', rho_kurz)
+
+
+anzahl_rhodium_kurz_gesamt=anzahl_rhodium[0:10]
+anzahl_rhodium_lang_zumzeitpunkt_kurz=[]
+for t in zeit_rhodium[0:10]:
+	anzahl_rhodium_lang_zumzeitpunkt_kurz.append(g(t,params_rho_gesamt[0],params_rho_gesamt[1]))
+anzahl_rhodium_kurz=np.log(anzahl_rhodium_kurz_gesamt-anzahl_rhodium_lang_zumzeitpunkt_kurz)
+
+params_rho_kurz, cov_rho_kurz = curve_fit(g, zeit_rhodium[0:10], anzahl_rhodium_kurz )
+rho_kurz_errors = np.sqrt(np.diag(cov_rho_kurz))
+rho_kurz_u =unp.uarray(params_rho_kurz,rho_kurz_errors)
+
+print('Steigung rho kurz', rho_kurz_u[0])
+print('Achsenabschnitt', rho_kurz_u[1])
 print('\n')
 
 
-yerr=np.zeros(15)
-print(fehlelog_indium)
-print(type(fehlelog_indium))
-#Plotbereich
 
+rho_lang=g(t_sternchen,params_rho_lang[0],params_rho_lang[1])
+
+
+print('RHO lang nach sternchen', rho_lang)
+print('rho kurz nach sternchen', g(t_sternchen,params_rho_kurz[0],params_rho_kurz[1]))
+print('\n')
+
+
+l.Latexdocument('messwerte_rhodium.tex').tabular([zeit_rhodium, anzahl_rhodium, anzahl_rhodium_fehler, fehlerlog_rhodium[1], fehlerlog_rhodium[0] ],
+'Jo', [2, 2, 2,2,2] ,
+caption = 'Gemessene Anzahl an Zerfällen bei Rhodium', label = 'tab: rhodium_messwerte')
+
+
+#Plotbereich
+yerr=np.zeros(15)
 ##Plot indium nicht loga
 plt.clf()
 #plt.xlim()
@@ -182,14 +205,17 @@ plt.ylabel(r'Gemessene Zerfälle')
 #plt.savefig('.pdf')
 
 ##Plot indium loga
+t_indium=np.linspace(0,zeit[-1]+1000,1000)
 plt.clf()
 plt.errorbar( zeit, np.log(anzahl), yerr=fehlelog_indium, fmt='x',label=r'Gemessene Zerfälle')
+plt.plot(t_indium,g(t_indium, params_indium[0],params_indium[1]), 'r-', label=r'Regeressionsgerade')
 plt.grid()
 plt.legend(loc='best')
 plt.xlabel(r'Zeit in s')
 plt.ylabel(r'Gemesene Zerfälle, logarithmiert')
 #plt.show()
-#plt.savefig('logarithmiert_indium.pdf')
+plt.xlim(0,4000)
+plt.savefig('logarithmiert_indium.pdf')
 
 ##Plot rhodium
 
@@ -208,13 +234,18 @@ plt.ylabel(r'Gemessene Zerfälle')
 
 ##plot rhodium lang und kurz
 plt.clf()
-t_1=np.linspace(0,210,100)
-t_2=np.linspace(200,800,100)
-plt.plot(zeit_rhodium,np.log(anzahl_rhodium),'rx',label=r'Gemessene Zerfälle')
-plt.plot(t_1,g(t_1,params_rho_gesamt[0],params_rho_gesamt[1]),'r-',label=r'rho_kurz')
-plt.plot(t_2,g(t_2,m_kurz.n,b_kurz.n),'b-',label=r'rho_lang')
+t_1=np.linspace(0,zeit_rhodium[8],1000)
+t_2=np.linspace(490,800,1000)
+t_g=np.linspace(0,800,1000)
+y = np.linspace(0, 10, 10)
+plt.errorbar( zeit_rhodium, np.log(anzahl_rhodium), yerr=fehlerlog_rhodium, fmt='x',label=r'Gemessene Zerfälle')
+plt.plot(t_g,g(t_g,params_rho_gesamt[0],params_rho_gesamt[1]),'r-',label=r'Zerfallsfit für die gesamte Messung')
+plt.plot(t_2,g(t_2,params_rho_lang[0],params_rho_lang[1]),'y-',label=r'Zerfallsfit für Ra*')
+plt.plot(t_1,g(t_1,params_rho_kurz[0],params_rho_kurz[1]),'g-',label=r'Zerfallsfit für Ra')
+plt.plot([t_sternchen for i in y], y, 'c-',label=r't*=500s')
 plt.grid()
 plt.legend(loc='best')
 plt.xlabel(r'Zeit in s')
-plt.ylabel(r'Gemessene Zerfälle')
-plt.show()
+plt.ylabel(r'Gemessene Zerfälle, logarithmiert')
+#plt.show()
+plt.savefig('ra.pdf')
