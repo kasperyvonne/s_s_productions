@@ -136,7 +136,7 @@ fehlerlog_rhodium=fehler_log(anzahl_rhodium)
 
 
 t_sternchen=500
-params_rho_lang, cov_rho_lang = curve_fit(g, zeit_rhodium[33:-1], np.log(anzahl_rhodium[33:-1]) )
+params_rho_lang, cov_rho_lang = curve_fit(g, zeit_rhodium[31:-1], np.log(anzahl_rhodium[31:-1]) )
 rho_lang_errors = np.sqrt(np.diag(cov_rho_lang))
 rho_lang_u =unp.uarray(params_rho_lang,rho_lang_errors)
 
@@ -183,6 +183,16 @@ print('\n')
 l.Latexdocument('messwerte_rhodium.tex').tabular([zeit_rhodium, anzahl_rhodium, anzahl_rhodium_fehler, fehlerlog_rhodium[1], fehlerlog_rhodium[0] ],
 'Jo', [2, 2, 2,2,2] ,
 caption = 'Gemessene Anzahl an Zerfällen bei Rhodium', label = 'tab: rhodium_messwerte')
+
+def halbwertzeit(m):
+	return (np.log(2)/m)
+
+print('Halbwertszeit indium', halbwertzeit(-params_indium[0]))
+print('Halbwertszeit rhodium kurz', halbwertzeit(-params_rho_kurz[0]))
+print('Halbwertszeit rhodium lang', halbwertzeit(-params_rho_lang[0]))
+
+print('\n')
+
 
 
 #Plotbereich
