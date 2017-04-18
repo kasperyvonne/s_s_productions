@@ -17,15 +17,9 @@ a = ufloat(5, 2) * u.meter
 b = Q_(unp.uarray([5,4,3], [0.1, 0.2, 0.3]), 'ohm')
 c = Q_(0, 'degC')
 c.to('kelvin')
-print(c.to('kelvin'))
-print(a**2)
-print(b**2)
+
 einheitentst=Q_(1*1e-3,'farad')
 einheitentst_2=Q_(1,'ohm')
-print(einheitentst)
-print(1/(einheitentst*einheitentst_2).to('second'))
-
-
 #variabel_1,variabel_2=np.genfromtxt('name.txt',unpack=True)
 
 #Standartabweichung und Mittelwert
@@ -114,8 +108,10 @@ params_indium, cov_indium = curve_fit(g, zeit, np.log(anzahl) )
 indium_errors = np.sqrt(np.diag(cov_indium))
 indium_u =unp.uarray(params_indium,indium_errors)
 
-print('Steigung', indium_u[0])
+print('Steigung Indium', indium_u[0])
 print('Achsenabschnitt', indium_u[1])
+print('Achsenabschnitt exp', unp.exp(indium_u[1]))
+
 print('\n')
 
 
@@ -187,7 +183,7 @@ caption = 'Gemessene Anzahl an Zerfällen bei Rhodium', label = 'tab: rhodium_me
 def halbwertzeit(m):
 	return (np.log(2)/m)
 
-print('Halbwertszeit indium', halbwertzeit(-params_indium[0]))
+print('Halbwertszeit indium', halbwertzeit(-indium_u[0]))
 print('Halbwertszeit rhodium kurz', halbwertzeit(-params_rho_kurz[0]))
 print('Halbwertszeit rhodium lang', halbwertzeit(-params_rho_lang[0]))
 
