@@ -22,7 +22,7 @@ sich die kinetische Energie der beiden Teilchen aus dem Massendefekt $\Delta m$ 
 \begin{equation}
   E\ua{kin} = \Delta m \cdot c^2.
 \end{equation}
-Dieser Prozess wird als Beta-Strahlung bezeichnet. Im Versuch werden die Zerfälle von Indium und Rhodiumisotopen untersucht.
+Dieser Prozess wird als $\beta$-Strahlung bezeichnet. Im Versuch werden die Zerfälle von Indium und Rhodiumisotopen untersucht.
 Indium zerfällt nach der Aktivierung in Zinn gemäß folgender Gleichung
 \begin{equation}
   \ce{^115_49 In + ^1_0 n ->^116_49 In -> ^116_50 Sn} + \beta^- + \bar{\nu}\ua{e}.
@@ -82,6 +82,19 @@ aus der die Halbwertszeit $T$ berechnet werden kann.
 \end{align}
 Statt einer kontinuierlichen Messung der vorhandenen Kerne $N(t)$ wird die Anzahl der Zerfälle $N\ua{\Delta t}$ innerhalb eines
 konstanten Zeitintervalls $\Delta t$ aufgenommen.
-
+\begin{align}
+  N\ua{\Delta t} &= N(t) - N(t + \Delta t) \\
+  \Rightarrow \, \ln N\ua{\Delta t} &= \underbrace{\ln\left[N_0\left(1 - e^{-\lambda \Delta t} \right) \right]}_{b} - \lambda t\\
+  &= -\lambda t + b.
+\end{align}
 Der mit $b$ gekennzeichnete Term ist konstant. Durch lineare Ausgleichsrechnung kann somit die Zerfallskonstante und damit die
-Halbwertszeit aus einer Messung der Zerfallsrate ermittelt werden.
+Halbwertszeit aus einer Messung der Zerfallsrate ermittelt werden. \\
+Auch ohne Anwesenheit einer radioaktiven Probe kann stets eine natürliche Radioaktivität nachgewiesen werden. Dieser sogenannte
+Nulleffekt muss bei der Untersuchung der Halbwertszeit berücksichtigt werden.
+Bei bekanntem Nulleffekt gilt für $N\ua{\Delta t}$
+\begin{equation}
+  N\ua{\Delta t} = N\ua{\Delta t, ges} - N\ua{0, \Delta t}.
+  \label{eq: nullrate}
+\end{equation}
+Hierbei entspricht $N\ua{\Delta t, ges}$ der Gesamtzahl an gemessenen Impulsen und $N\ua{0, \Delta t}$ der Nullrate
+bezogen auf das Intervall $\Delta t$.
