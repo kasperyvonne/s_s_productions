@@ -10,7 +10,8 @@ auf einen Grundzustand zurück fällt:
 \begin{equation}
   \ce{^m_z A + ^1_0 n -> ^{m+1}_z A^* -> ^{m+1}_z A }+ \gamma.
 \end{equation}
-Dies geschieht etwa innerhalb der ersten $\SI{e-16}{\second}$. Ist der entstandene Kern \ce{^{m+1}_z A}
+Hierbei handelt es sich um Gamma-Strahlung und geschieht etwa innerhalb der ersten $\SI{e-16}{\second}$.
+Ist der entstandene Kern \ce{^{m+1}_z A}
 nicht stabil, sprich ist das Verhältnis aus Neutronen und Protonen nicht entsprechend jenem der Kerne
 gleicher Ordnungszahl, so zerfällt das Reaktionsprodukt weiter gemäß
 \begin{equation}
@@ -21,8 +22,25 @@ sich die kinetische Energie der beiden Teilchen aus dem Massendefekt $\Delta m$ 
 \begin{equation}
   E\ua{kin} = \Delta m \cdot c^2.
 \end{equation}
+Dieser Prozess wird als Beta-Strahlung bezeichnet. Im Versuch werden die Zerfälle von Indium und Rhodiumisotopen untersucht.
+Indium zerfällt nach der Aktivierung in Zinn gemäß folgender Gleichung
+\begin{equation}
+  \ce{^115_49 In + ^1_0 n ->^116_49 In -> ^116_50 Sn} + \beta^- + \bar{\nu}\ua{e}.
+\end{equation}
+Für das Rhodiumisotop treten mit verschiedenen Wahrscheinlichkeit zwei mögliche Zerfälle auf:
+\begin{equation}
+\ce{^103_45 Rh + ^1_0 n} \begin{cases}
+\overset{10\%}{\ce{->}} \ce{^{104i}_45 Rh -> ^{104}_45 Rh} + \gamma \ce{-> ^104_46 Pd} +  \beta^- + \bar{\nu}\ua{e}\\
+\overset{90\%}{\ce{->}} \ce{^{104}_45 Rh ->  ^104_46 Pd} +  \beta^- + \bar{\nu}\ua{e}.
+\end{cases}
+\end{equation}
+Hierbei ist anzumerken, dass der auftretende Zerfall des aus dem \ce{^{104i}_45 Rh} entstandenen \ce{^{104}_45 Rh} gegenüber dem
+Gamma-Zerfall des \ce{^{104i}_45 Rh} vernachlässigt werden kann. Der Versuch ermöglicht somit eine Untersuchung der Zerfallszeiten
+der zueinander isomeren Kerne \ce{^{104i}_45 Rh} und \ce{^{104}_45 Rh}.
+
+\subsection{Wirkungsquerschnitt}
 Ein Maß für die Wahrscheinlichkeit mit der es zur Reaktion zwischen Neutron und Kern kommt ist der Wirkungsquerschnitt
-$\sigma$\footnote{$[\sigma] = \SI{e-24}{\centi\meter^2} := \SI{1}{\barn}$}. Er entspricht
+$\sigma$\footnote{$[\sigma] = \SI{e-28}{\meter^2} := \SI{1}{\barn}$}. Er entspricht
 der Fläche eines Ziels (hier Kern), das alle ausgesandten Neutronen einfangen würde. Für $N\ua{F}$ Kerne innerhalb einer betrachteten Beschussfläche
 $F$ berechnet sich der Wirkungsquerschnitt also gemäß
 \begin{equation}
@@ -31,6 +49,43 @@ $F$ berechnet sich der Wirkungsquerschnitt also gemäß
 Mit dem Verhältnis aus Teilchen, die zur Reaktion geführt haben, $n\ua{r}$ und ausgesandten Teilchen $n\ua{a}$. Der Wirkungsquerschnitt steigt also
 mit der Wahrscheinlichkeit $P$. Im Fall der Neutronenaktivierung gilt für kleine Energien der Neutronen $E$ mit Geschwindigkeit $v$
 \begin{equation}
-  \sigma \propto \frac{1}{\sqrt{E}} \propto \frac{1}{\sqrt{v}}.
+  \sigma \propto \frac{1}{\sqrt{E}} \propto \frac{1}{v}.
 \end{equation}
 Für das Experiment eignen sich somit insbesondere langsame Neutronen, da sie die Wahrscheinlichkeit der Kernaktivierung erhöhen.
+
+\subsection{Erzeugung freier Neutronen}
+Um Neutronen freizusetzen, wird der Zerfall des \ce{^226 Ra}-Isotops genutzt.
+Die dabei frei werdenen $\alpha$-Teilchen (Helium-Kerne) lösen bei Beschuss auf eine Beryllium-Probe
+folgende Kernreaktion aus
+\begin{equation}
+  \ce{^9_4 Be + ^4_2}\alpha \ce{-> ^12_6C + ^1_0 n}.
+\end{equation}
+Durch den elastischen Stoß der Neutronen mit den Kernen einer Paraffin Ummantelung wird deren kinetische Energie
+auf etwa $\SI{0.025}{\eV}$ herabgesetzt. In diesem Zustand werden sie als thermische Neutronen bezeichnet. Ihre
+Energie entspricht jener der umliegenden Moleküle, welche diese durch thermische Bewegung erhalten.
+
+\subsection{Zerfallsgesetz}
+Die zeitliche Entwicklung der noch nicht zerfallenen Kerne $N(t)$ in einer Probe wird durch das sogenannte
+Zerfallsgesetz beschrieben.
+\begin{equation}
+  N(t) = N_0 \cdot \exp\left(-\lambda t  \right).
+  \label{eq: zerfallsgesetz}
+\end{equation}
+$N_0$ entspricht hierbei einem Startwert zur Zeit $t = 0$. Wesentlich entscheidender ist jedoch die sogenannte Zerfallskonstante $\lambda$,
+aus der die Halbwertszeit $T$ berechnet werden kann.
+\begin{align}
+  \begin{aligned}
+    \frac{1}{2} N_0 &= N_0 \exp\left(-\lambda T \right) \\
+    \Rightarrow \, T &= \ln\frac{2}{\lambda}.
+  \end{aligned}
+  \label{eq: halbwertszeit}
+\end{align}
+Statt einer kontinuierlichen Messung der vorhandenen Kerne $N(t)$ wird die Anzahl der Zerfälle $N\ua{\Delta t}$ innerhalb eines
+konstanten Zeitintervalls $\Delta t$ aufgenommen.
+\begin{align}
+  N\ua{\Delta t} &= N(t) - N(t + \Delta t) \\
+  \Rightarrow \, \ln N\ua{\Delta t} &= \underbrace{\ln\left[N_0\left(1 - e^{-\lambda \Delta t} \right) \right]}_{b} - \lambda t\\
+  &= -\lambda t + b.
+\end{align}
+Der mit $b$ gekennzeichnete Term ist konstant. Durch lineare Ausgleichsrechnung kann somit die Zerfallskonstante und damit die
+Halbwertszeit aus einer Messung der Zerfallsrate ermittelt werden.
