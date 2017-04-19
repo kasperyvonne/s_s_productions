@@ -92,3 +92,53 @@ Umgerechnet auf $1$ und $15$ Sekunde ergibt sich:
 Die gemessenen Werte sind in Tabelle \ref{tab: rhodium_messwerte} aufgelistet, dabei erfolgte
 der Abzug des Nulleffektes bereits.
 \input{./table/messwerte_rhodium.tex}
+
+Die Werte sind in Abbildung \ref{fig: plot_rhodium} dargestellt.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{pics/ra_all.pdf}
+  \caption{Logarmirierte Darstellung der gemessen Zählraten von Rhodium (unter Berücksichtigung des Nulleffektes).}
+  \label{fig: plot_rhodium}
+\end{figure}
+
+
+
+
+Wie in der Theorie erläutert ist Rhodium ein Isomer aus $\ce{^{104}_{45} Rh}$ (langlebig) und
+$\ce{^{104i}_{45} Rh}$ (kurzlebig). Beide Stofe besitzen eine unterschiedliche Halbwertszeits und
+beeinflussen so die in Abbildung \ref{} dargestellte Aktivitätskurve zu unterschiedlichen
+Zeiten.
+Ab einer bestimmten Zeit $t*$ wird also nur noch der Zerfall von $\ce{^{104}_{45} Rh}$
+gemessen.
+Wir deklarieren $t*=\SI{500}{\second}$ und berechnen dann mit einer linearen Regression,
+die Halbwertszeit von $\ce{^{104}_{45} Rh}$.
+Die Messwerte und die Regressionsgerade für $t>t*$ sind in \ref{fig: plot_rhodium_lang} abgebildet.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{pics/rhodium_lang.pdf}
+  \caption{Logarmirierte Darstellung der gemessen Zählraten von Rhodium und der linearer Fit, nach $t*$  (unter Berücksichtigung des Nulleffektes).}
+  \label{fig: plot_rhodium_lang}
+\end{figure}
+
+Die Resultate der Regressonsrechung lauten:
+
+\begin{align}
+  \label{eq:parameter_rhodium_lang}
+  \begin{aligned}
+    m\ua{rho,lang}&=\SI{-0.0021\pm0.0016}{\per\second}\\
+    a\ua{rho,lang}&=5.44\pm0.13.
+  \end{aligned}
+\end{align}
+
+
+Auch hier herrscht eine Verbindung zu Gleichung \eqref{eq: n_prozeitintervall}:
+
+\begin{align}
+  \label{eq:parameter_rhodium_lang_lambda}
+  \begin{aligned}
+    m\ua{rho,lang}&\Leftrightarrow -\lambda\ua{rho,lang} \quad \Rightarrow \quad \lambda\ua{rho,lang}=\SI{0.0021\pm0.0016}{\per\second}\\
+    a\ua{rho,lang}&\Leftrightarrow \ln(b)\ua{rho,lang} \quad \Rightarrow \quad b\ua{rho,lang} =50\pm 50.
+  \end{aligned}
+\end{align}
