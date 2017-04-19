@@ -1,23 +1,24 @@
 \setcounter{page}{1}
 \section*{Zielsetzung}
-Im Versuch 702 \textit{Aktivierung durch Neutronen} soll der Zerfall instabiler Atomkerne untersucht werden.
+Im Versuch 702 \textit{Aktivierung mit Neutronen} soll der Zerfall instabiler Atomkerne untersucht werden.
 Hierzu werden verschiedene Isotope durch Neutronenbeschuss angeregt und die anschließende Rückkehr in einen
 stabilen Zustand mittels der experimentellen Bestimmung der Halbwertszeit charakterisiert.
 \section{Theorie}
 Absorbiert der Kern \ce{^m_z A} ein Neutron \ce{^1_0 n}, so geht er aufgrund des Energiegewinns
-zunächst in einen angeregten Zustand über, der unter Aussendung eines $\gamma$-Quants wieder
+zunächst in einen angeregten Zustand (auch Zwischenkern oder Compound-Kern genannt) über, der unter Aussendung eines $\gamma$-Quants wieder
 auf einen Grundzustand zurück fällt:
 \begin{equation}
   \ce{^m_z A + ^1_0 n -> ^{m+1}_z A^* -> ^{m+1}_z A }+ \gamma.
 \end{equation}
 Hierbei handelt es sich um Gamma-Strahlung und geschieht etwa innerhalb der ersten $\SI{e-16}{\second}$.
 Ist der entstandene Kern \ce{^{m+1}_z A}
-nicht stabil, sprich ist das Verhältnis aus Neutronen und Protonen nicht entsprechend jenem der Kerne
-gleicher Ordnungszahl, so zerfällt das Reaktionsprodukt weiter gemäß
+nicht stabil, zerfällt das Reaktionsprodukt weiter gemäß
 \begin{equation}
   \ce{^{m+1}_z A -> ^{m+1}_{z+1} C }+ \beta^{-} + E\ua{kin} + \bar{\nu}\ua{e}.
 \end{equation}
-Der Kern wandelt sich also durch Aussendung eines ELektrons und eines Antineutrinos in einen Kern höherer Ordnungszahl $\mathup{z} + 1$, wobei
+Dies ist dann der Fall, wenn das Verhältnis aus Neutronen und Protonen nicht jenem der stabilen Kerne gleicher Ordnungszahl entspricht.
+Typischerweise liegt die Neutronenzahl 20-50\% höher als die Protonenzahl.
+Der Kern wandelt sich durch Aussendung eines Elektrons und eines Antineutrinos in einen Kern höherer Ordnungszahl $\mathup{z} + 1$, wobei
 sich die kinetische Energie der beiden Teilchen aus dem Massendefekt $\Delta m$ berechnet
 \begin{equation}
   E\ua{kin} = \Delta m \cdot c^2.
@@ -41,12 +42,12 @@ der zueinander isomeren Kerne \ce{^{104i}_45 Rh} und \ce{^{104}_45 Rh}.
 \subsection{Wirkungsquerschnitt}
 Ein Maß für die Wahrscheinlichkeit mit der es zur Reaktion zwischen Neutron und Kern kommt ist der Wirkungsquerschnitt
 $\sigma$\footnote{$[\sigma] = \SI{e-28}{\meter^2} := \SI{1}{\barn}$}. Er entspricht
-der Fläche eines Ziels (hier Kern), das alle ausgesandten Neutronen einfangen würde. Für $N\ua{F}$ Kerne innerhalb einer betrachteten Beschussfläche
+der Fläche eines Ziels (hier Kern), in welchem alle ausgesandten Neutronen zur Reaktion führen. Für $N\ua{F}$ Kerne innerhalb einer betrachteten Beschussfläche
 $F$ berechnet sich der Wirkungsquerschnitt also gemäß
 \begin{equation}
   \sigma = \frac{n\ua{r}}{n\ua{a}}\frac{F}{N\ua{F}} = P \,\frac{F}{n\ua{F}}.
 \end{equation}
-Mit dem Verhältnis aus Teilchen, die zur Reaktion geführt haben, $n\ua{r}$ und ausgesandten Teilchen $n\ua{a}$. Der Wirkungsquerschnitt steigt also
+Mit dem Verhältnis aus Teilchen, die zur Reaktion geführt haben $n\ua{r}$ und ausgesandten Teilchen $n\ua{a}$. Der Wirkungsquerschnitt steigt also
 mit der Wahrscheinlichkeit $P$. Im Fall der Neutronenaktivierung gilt für kleine Energien der Neutronen $E$ mit Geschwindigkeit $v$
 \begin{equation}
   \sigma \propto \frac{1}{\sqrt{E}} \propto \frac{1}{v}.
@@ -84,10 +85,10 @@ Statt einer kontinuierlichen Messung der vorhandenen Kerne $N(t)$ wird die Anzah
 konstanten Zeitintervalls $\Delta t$ aufgenommen.
 \begin{align}
   N\ua{\Delta t} &= N(t) - N(t + \Delta t) \\
-  \Rightarrow \, \ln N\ua{\Delta t} &= \underbrace{\ln\left[N_0\left(1 - e^{-\lambda \Delta t} \right) \right]}_{b} - \lambda t \label{eq: n_prozeitintervall}\\
+  \Rightarrow \, \ln N\ua{\Delta t} &= \underbrace{\ln\left[N_0\left(1 - e^{-\lambda \Delta t} \right) \right]}_{:=b} - \lambda t \label{eq: n_prozeitintervall}\\
   &= -\lambda t + b.
 \end{align}
-Der mit $b$ gekennzeichnete Term ist konstant. Durch lineare Ausgleichsrechnung kann somit die Zerfallskonstante und damit die
+Der mit $b$ gekenntzeichnete Term ist konstant. Durch lineare Ausgleichsrechnung kann somit die Zerfallskonstante und damit die
 Halbwertszeit aus einer Messung der Zerfallsrate ermittelt werden. \\
 Auch ohne Anwesenheit einer radioaktiven Probe kann stets eine natürliche Radioaktivität nachgewiesen werden. Dieser sogenannte
 Nulleffekt muss bei der Untersuchung der Halbwertszeit berücksichtigt werden.
