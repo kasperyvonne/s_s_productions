@@ -5,6 +5,15 @@ dem Python Paket \emph{scipy.optimize}\cite{scipy} durchgeführt.
 Desweiten werden die Fehler und insbesondere die Fehlerfortpflanzungen
 mit dem Python Paket \emph{uncertainties}\cite{uncertainties} berechnet.
 
+Die hier auftretenden logaritmischen Fehler werden, wie folgt berechnet:
+
+\begin{align}
+  \label{eq:log_fehler}
+  \begin{aligned}
+    \sigma\ua{ln,+}(N)=\ln{\left(N+\sigma\ua{N}\right)}-\ln{N}\\
+    \sigma\ua{ln,-}(N)=\ln{\left(N-\sigma\ua{N}\right)}-\ln{N}
+  \end{aligned}
+\end{align}
 \subsection{Untersuchung der Zerfallskurve von Indium}
 Zunächst muss der Nulleffekt der Umgebeung bestimmt werden.
 Nach einer Zeit von $\SI{900}{\second}$ wurden
@@ -30,7 +39,7 @@ die Anzahl $N$ logarithmiert, um einen linearen Zusammenhang aufzuzeigen (vgl. \
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{pics/logarithmiert_indium.pdf}
-  \caption{Logarmirierte Darstellung der gemessen Zählraten von Indium und linearer Fit  (unter Berücksichtigung des Nulleffektes).}
+  \caption{Logaritmierte Darstellung der gemessen Zählraten von Indium und linearer Fit  (unter Berücksichtigung des Nulleffektes).}
   \label{fig: plot_indium}
 \end{figure}
 
@@ -98,7 +107,7 @@ Die Werte sind in Abbildung \ref{fig: plot_rhodium} dargestellt.
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{pics/ra_all.pdf}
-  \caption{Logarmirierte Darstellung der gemessen Zählraten von Rhodium (unter Berücksichtigung des Nulleffektes).}
+  \caption{Logaritmierte Darstellung der gemessen Zählraten von Rhodium (unter Berücksichtigung des Nulleffektes).}
   \label{fig: plot_rhodium}
 \end{figure}
 
@@ -107,17 +116,18 @@ Die Werte sind in Abbildung \ref{fig: plot_rhodium} dargestellt.
 
 Wie in der Theorie erläutert ist Rhodium ein Isomer aus $\ce{^{104}_{45} Rh}$ (langlebig) und
 $\ce{^{104i}_{45} Rh}$ (kurzlebig). Beide Stofe besitzen eine unterschiedliche Halbwertszeits und
-beeinflussen so die in Abbildung \ref{} dargestellte Aktivitätskurve zu unterschiedlichen
+beeinflussen so die in Abbildung \ref{fig: plot_rhodium} dargestellte Aktivitätskurve zu unterschiedlichen
 Zeiten.
 Ab einer bestimmten Zeit $t*$ wird also nur noch der Zerfall von $\ce{^{104}_{45} Rh}$
 gemessen.
 Wir deklarieren $t*=\SI{500}{\second}$ und berechnen dann mit einer linearen Regression,
 die Halbwertszeit von $\ce{^{104}_{45} Rh}$.
-Die Messwerte und die Regressionsgerade für $t>t*$ sind in \ref{fig: plot_rhodium_lang} abgebildet.
+\input{./table/messwerte_rho_lang_log.tex}
+Die Messwerte (vgl. Tabelle \ref{tab:rho_lang_log}) und die Regressionsgerade für $t>t*$ sind in \ref{fig: plot_rhodium_lang} abgebildet.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{pics/rhodium_lang.pdf}
+  \includegraphics[width=0.8\textwidth]{pics/rhodium_lang_miterror.pdf}
   \caption{Logarmirierte Darstellung der gemessen Zählraten von Rhodium und der linearer Fit, nach $t*$  (unter Berücksichtigung des Nulleffektes).}
   \label{fig: plot_rhodium_lang}
 \end{figure}
@@ -142,3 +152,61 @@ Auch hier herrscht eine Verbindung zu Gleichung \eqref{eq: n_prozeitintervall}:
     a\ua{rho,lang}&\Leftrightarrow \ln(b)\ua{rho,lang} \quad \Rightarrow \quad b\ua{rho,lang} =50\pm 50.
   \end{aligned}
 \end{align}
+
+Um die Halbwertszeit von $\ce{^{104i}_{45} Rh}$ zu bestimmten, subtrahiert man von der
+Gesamtanzahl der Akivitäten die Zerfallsrate von $\ce{^{104}_{45} Rh}$ vor dem
+Zeitpunkt $t*$:
+
+\begin{equation*}
+  N_{\Delta \map{t}, \map{kurz}}(t_i)=N_{\Delta \map{t}, \map{ges}}(t_i)-N_{\Delta \map{t}, \map{lang}}(t_i) \qquad t_i<t*.
+\end{equation*}
+Die erechneten Werte sind in Tabelle \ref{tab: zerfälle_rhkurz} aufgelistet.
+\input{./table/messwerte_rho_kurz.tex}
+Zusätzlich findet sich in Abbildung \ref{ig: plot_rhodium_kurz} die graphische Darstellung
+und Regeressionsgerade der Messwerte.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{pics/rhodium_kurz_berechnet.pdf}
+  \caption{Logaritmierte Darstellung der berechnete Zählraten von Rhodium $\ce{^{104i}_{45} Rh}$ und der linearer Fit, vor $t*$ (unter Berücksichtigung des Nulleffektes).}
+  \label{fig: plot_rhodium_kurz}
+\end{figure}
+
+Aus der Regressionsrechung erhält man folgende Parameter
+
+\begin{align}
+  \label{eq:parameter_rhodium_kurz}
+  \begin{aligned}
+    m\ua{rho,kurz}&=\SI{-0.0128\pm0.0005}{\per\second}\\
+    a\ua{rho,kurz}&=6.50\pm0.04.
+  \end{aligned}
+\end{align}
+
+Wie bei den vorherigen Paramtern auch, kann auf die in \eqref{eq: n_prozeitintervall} auftretenden Größen
+schließen:
+\begin{align}
+  \label{eq:parameter_rhodium_kurz_lambda}
+  \begin{aligned}
+    m\ua{rho,kurz}&\Leftrightarrow -\lambda\ua{rho,kurz} \quad \Rightarrow \quad \lambda\ua{rho,kurz}=\SI{0.0128\pm0.0005}{\per\second}\\
+    a\ua{rho,kurz}&\Leftrightarrow \ln(b)\ua{rho,kurz} \quad \Rightarrow \quad b\ua{rho,kurz} =668\pm 30.
+  \end{aligned}
+\end{align}
+
+Um die Aussagekraft der Resultate zu stützen sollte allgemein gelten:
+
+\begin{equation*}
+  N_{\Delta \map{t}, \map{kurz}}(t*)\ll N_{\Delta \map{t}, \map{lang}}(t*).
+\end{equation*}
+
+Nach einsetzten in die Regressionsfunktion ergibt sich jeweils
+
+\begin{equation*}
+    N_{\Delta \map{t}, \map{kurz}}(t*)= 1\pm1 \quad  N_{\Delta \map{t}, \map{lang}}(t*)= 18\pm 4 \quad \Rightarrow \quad N_{\Delta \map{t}, \map{kurz}}(t*)\ll N_{\Delta \map{t}, \map{lang}}(t*).
+\end{equation*}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{pics/ra_addi.pdf}
+  \caption{ Darstellung der berechnete Zählraten von Rhodium mit Regressionsfunktion, (unter Berücksichtigung des Nulleffektes).}
+  \label{fig: plot_rhodium_addi}
+\end{figure}
