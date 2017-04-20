@@ -1,0 +1,118 @@
+\documentclass[parskip=half, bibliography=totoc, captions=tableheading, titlepage=firstiscover]{scrartcl} %Ich habe [parskip=half] hinzugefügt
+
+%\usepackage[calc]{picture}
+\usepackage{fixltx2e}
+\usepackage{longtable}
+\usepackage{tcolorbox}
+
+%\pagestyle{headings}
+\usepackage{scrpage2}
+\pagestyle{scrheadings}
+\addtolength{\footskip}{1cm}
+\ohead{}
+\cfoot[\pagemark]{\pagemark}
+\ofoot[]{}
+\ifoot[]{}
+
+
+\usepackage{polyglossia}
+\setmainlanguage{german}
+\usepackage{caption}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+
+\usepackage[
+  math-style=ISO,
+  bold-style=ISO,
+  sans-style=italic,
+  nabla=upright,
+]{unicode-math}
+
+\setmathfont{Latin Modern Math}
+%\setmathfont[range={\mathscr, \mathbfscr}]{XITS Math}
+%\setmathfont[range=\coloneq]{XITS Math}
+%\setmathfont[range=\propto]{XITS Math}
+
+\usepackage[autostyle]{csquotes}
+
+\usepackage[
+  locale=DE,                   % deutsche Einstellungen
+  separate-uncertainty=true,   % Immer Fehler mit \pm
+  per-mode=symbol-or-fraction, % m/s im Text, sonst Brüche
+]{siunitx}
+%\sisetup{math-stylemicro=\text{µ},text-micro=µ}
+
+\usepackage{xfrac}
+
+\usepackage[section, below]{placeins}
+\usepackage[
+  labelfont=bf,
+  font=small,
+  width=0.9\textwidth,
+]{caption}
+
+\usepackage{subcaption}
+
+\usepackage{graphicx}
+
+\usepackage{float}
+\floatplacement{figure}{h}
+\floatplacement{table}{h}
+
+\usepackage{booktabs}
+
+
+
+\usepackage{bookmark}
+
+\usepackage[shortcuts]{extdash}
+
+\usepackage[math]{blindtext}
+
+\usepackage{microtype}
+
+\usepackage[
+  backend=biber,
+]{biblatex}
+% Quellendatenbank
+\addbibresource{lit.bib}
+
+\usepackage{hyperref}
+
+\usepackage{color} % Das ist Geschmacksfrage
+
+\usepackage{makeidx} %Ich habe makeidx hinzugefügt + makeindex
+\makeindex
+
+
+\usepackage[version=3]{mhchem} % für Thermodynamik-chemische Elemente
+\usepackage{enumitem} %Ich habe enumitem hinzugefügt
+\usepackage{expl3}
+\usepackage{xparse}
+%\ExplSyntaxOn
+
+\NewDocumentCommand \dif {m}
+{
+\mathinner{\symup{d} #1}
+}
+\usepackage{subcaption}
+
+
+
+%\usepackage{showframe}
+\input{data.tex}
+\author{Steven Becker \\
+steven.becker@tu-dortmund.de \\
+und \\
+Stefan Grisard \\
+stefan.grisard@tu-dortmund.de}
+
+\title{\versuch}
+\subtitle{Versuch \vnr}
+
+\date{\vd \\
+\va}
