@@ -93,7 +93,7 @@ anzahlu=unp.uarray(anzahl,anzahl_fehler)
 fehlelog_indium=fehler_log(anzahl)
 
 l.Latexdocument('messwerte_indium.tex').tabular([zeit, anzahl, anzahl_fehler, fehlelog_indium[1], fehlelog_indium[0] ],
-'Jo', [0, 1, 1,2,2] ,
+'Jo', [0, 0, 0,2,2] ,
 caption = 'Gemessene Anzahl an Zerfällen bei Indium', label = 'tab: indium_messwerte')
 
 #latex.Latexdocument('messwerte_indium.tex').tabular([zeit, anzahl, anzhal_fehler, fehler_log[1], fehler_log[0] ],
@@ -197,6 +197,8 @@ print('Achsenabschnitt', rho_kurz_u[1])
 print('Achsenabschnitt exp', unp.exp(rho_kurz_u[1]))
 print('\n')
 
+l.Latexdocument('messwerte_rho_kurz_log.tex').tabular([zeit_rhodium[0:10],anzahl_rhodium[0:10],np.sqrt(anzahl_rhodium[0:10]), anzahl_rhodium_kurz_protou_log[0],anzahl_rhodium_kurz_protou_log[1] ],
+'Jo', [0, 0,0, 2,2],caption = 'Bestimmte logaritmische Fehler bei  ' ,label='rho_kurz_log')
 
 
 rho_lang=g(t_sternchen,params_rho_lang[0],params_rho_lang[1])
@@ -208,7 +210,7 @@ print('\n')
 
 
 l.Latexdocument('messwerte_rhodium.tex').tabular([zeit_rhodium, anzahl_rhodium, anzahl_rhodium_fehler, fehlerlog_rhodium[1], fehlerlog_rhodium[0] ],
-'Jo', [2, 2, 2,2,2] ,
+'Jo', [0, 0, 0,2,2] ,
 caption = 'Gemessene Anzahl an Zerfällen bei Rhodium', label = 'tab: rhodium_messwerte')
 
 def halbwertzeit(m):
@@ -323,15 +325,42 @@ plt.savefig('ra_all.pdf')
 
 ### rhodium zusammen
 plt.clf()
-t_1=np.linspace(0,zeit_rhodium[8],1000)
-t_2=np.linspace(490,800,1000)
+t_1=np.linspace(0,300,1000)
+t_2=np.linspace(400,800,1000)
 t_g=np.linspace(0,800,1000)
 time_all=np.linspace(0,zeit_rhodium[-1]+100)
-plt.errorbar( zeit_rhodium, anzahl_rhodium, yerr=np.sqrt(anzahl_rhodium), fmt='rx',label=r'Gemessene Zerfälle')
-plt.plot(time_all,np.exp(g(time_all,params_rho_kurz[0],params_rho_kurz[1]))+np.exp(g(time_all,params_rho_lang[0],params_rho_lang[1])), 'b-', label='r Addition beider Regressionsgeraden')
-plt.xlabel(r'Zeit in s')
-plt.ylabel(r'Gemessene Zerfälle')
+plt.errorbar( zeit_rhodium, anzahl_rhodium, yerr=np.sqrt(anzahl_rhodium), fmt='rx',label=r'$Gemessene \, Zerfälle$')
+plt.plot(time_all,np.exp(g(time_all,params_rho_kurz[0],params_rho_kurz[1]))+np.exp(g(time_all,params_rho_lang[0],params_rho_lang[1])), 'b-', label=r'$ Addition \, beider\, Regressionsgeraden$')
+plt.plot(t_1,np.exp(g(t_1,params_rho_kurz[0],params_rho_kurz[1])),'g-', label=r'$Regressonsgerade \, von \,  Ra$')
+plt.plot(t_2,np.exp(g(t_2,params_rho_lang[0],params_rho_lang[1])),'y-', label=r'$Regressonsgerade \,  von \, Ra*$')
+plt.axvline(x=t_sternchen,c='c',label=r'$t*=500 s$')
+plt.axvline(x=zeit_rhodium[10],c='m',label=r'$t_{\mathrm{kurz}}=165 s$')
+
+plt.legend(loc='best')
+plt.xlabel(r'$Zeit \, in \,  s$')
+plt.ylabel(r'$Gemessene\,  Zerfälle$')
 plt.xlim(0,720)
 plt.grid()
 #plt.show()
 plt.savefig('ra_addi.pdf')
+
+### rhodium zusammen log
+plt.clf()
+print('hier',zeit_rhodium[10])
+t_1=np.linspace(0,600,1000)
+t_2=np.linspace(0,800,1000)
+t_g=np.linspace(0,800,1000)
+time_all=np.linspace(0,zeit_rhodium[-1]+100)
+plt.errorbar( zeit_rhodium, np.log(anzahl_rhodium), yerr=fehlerlog_rhodium, fmt='rx',label=r'Gemessene Zerfälle')
+plt.plot(time_all,np.exp(g(time_all,params_rho_kurz[0],params_rho_kurz[1]))+np.exp(g(time_all,params_rho_lang[0],params_rho_lang[1])), 'b-', label='r Addition beider Regressionsgeraden')
+plt.plot(t_1,g(t_1,params_rho_kurz[0],params_rho_kurz[1]),'g-', label=r'Regressonsgerade von Ra')
+plt.plot(t_2,g(t_2,params_rho_lang[0],params_rho_lang[1]),'y-', label=r'Regressonsgerade von Ra*')
+plt.axvline(x=t_sternchen,c='c',label='t*=500\\,s')
+
+plt.legend(loc='best')
+plt.xlabel(r'Zeit in s')
+plt.ylabel(r'Gemessene Zerfälle, logarithmiert ')
+plt.xlim(0,720)
+plt.grid()
+#plt.show()
+#plt.savefig('ra_addi_log.pdf')
