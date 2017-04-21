@@ -334,7 +334,7 @@ plt.plot(time_all,np.exp(g(time_all,params_rho_kurz[0],params_rho_kurz[1]))+np.e
 plt.plot(t_1,np.exp(g(t_1,params_rho_kurz[0],params_rho_kurz[1])),'g-', label=r'$Regressonsgerade \, von \,  Ra$')
 plt.plot(t_2,np.exp(g(t_2,params_rho_lang[0],params_rho_lang[1])),'y-', label=r'$Regressonsgerade \,  von \, Ra*$')
 plt.axvline(x=t_sternchen,c='c',label=r'$t*=500 s$')
-plt.axvline(x=zeit_rhodium[10],c='m',label=r'$t_{\mathrm{kurz}}=165 s$')
+plt.axvline(x=zeit_rhodium[9],c='m',label=r'$t_{\mathrm{kurz}}=150 s$')
 
 plt.legend(loc='best')
 plt.xlabel(r'$Zeit \, in \,  s$')
