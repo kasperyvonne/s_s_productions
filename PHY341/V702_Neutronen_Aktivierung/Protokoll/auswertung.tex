@@ -4,53 +4,44 @@ Die in der Auswertung bestimmten Ausgleichsrechnungen werden mit
 dem Python Paket \emph{scipy.optimize}\cite{scipy} durchgeführt.
 Des Weiteren werden die Fehler und insbesondere die Fehlerfortpflanzungen
 mit dem Python Paket \emph{uncertainties}\cite{uncertainties} berechnet.
-%%Absatz
 Die auftretenden logarithmischen Fehler werden, wie folgt berechnet:
-%%Absatz
 \begin{align}
   \label{eq:log_fehler}
   \begin{aligned}
-    \sigma\ua{ln,+}(N)=\ln{\left(N+\sigma\ua{N}\right)}-\ln{N}\\%&
-    \sigma\ua{ln,-}(N)=\ln{\left(N-\sigma\ua{N}\right)}-\ln{N}.
+    \sigma\ua{ln,+}(N)&=\ln{\left(N+\sigma\ua{N}\right)}-\ln{N}\\%&
+    \sigma\ua{ln,-}(N)&=\ln{\left(N-\sigma\ua{N}\right)}-\ln{N}.
   \end{aligned}
 \end{align}
 \subsection{Untersuchung der Zerfallskurve von Indium}
 Zunächst wird der Nulleffekt der Umgebung gemessen.
 Nach einer Zeit von $\SI{900}{\second}$ wurden
-%%Absatz
 \begin{equation*}
   N\ua{indium,null}=167
 \end{equation*}
-%Absatz
 Zerfälle gemessen. Umgerechnet auf $240$ Sekunden ergibt sich:
-%Absatz
 \begin{equation}
   \label{eq:nulleffekt_indium}
    N\ua{indium,null,240}=\frac{668}{15}.
 \end{equation}
-%Absatz
-Anschließend wird die Aktivität von der Indium-Probe untersucht. %-von
-Als Resultat ergeben sich die in \ref{tab: indium_messwerte} aufgelisteten Messwerte. %Tabelle
+Anschließend wird die Aktivität der Indium-Probe untersucht. %-von
+Als Resultat ergeben sich die in der Tabelle \ref{tab: indium_messwerte} aufgelisteten Messwerte. %Tabelle
 In dieser wurde der Nulleffekt schon berücksichtigt.
 \input{./table/messwerte_indium.tex}
-%Absatz
-Die grafische Darstellung ist in Abbildung \ref{fig: plot_indium} zufinden. Bei dieser wurde%zu finden
+Die grafische Darstellung ist in Abbildung \ref{fig: plot_indium} zu finden. Bei dieser wurde%zu finden
 die Anzahl $N$ logarithmiert, um einen linearen Zusammenhang aufzuzeigen (vgl. \eqref{eq: zerfallsgesetz}).
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{pics/logarithmiert_indium.pdf}
-  \caption{Logaritmierte Darstellung der gemessen Zählraten von Indium und linearer Fit  (unter Berücksichtigung des Nulleffektes).} %Logarithmierte
+  \caption{Logarithmierte Darstellung der gemessen Zählraten von Indium und linearer Fit  (unter Berücksichtigung des Nulleffektes).} %Logarithmierte
   \label{fig: plot_indium}
 \end{figure}
-%Absatz
 Der lineare Zusammenhang kann mit Hilfe von
 \begin{equation*}
   g(x)=mx+a
 \end{equation*}
 notiert werden.
-Aus der Regressionsrechnung erhält man für die in \ref{fig: plot_indium} zusehende %Abbildung x zu sehende
+Aus der Regressionsrechnung erhält man für die in Abbildung \ref{fig: plot_indium} zu sehende %Abbildung x zu sehende
 Ausgleichsgerade die folgenden Parameter:
-%Absatz
 \begin{align}
   \label{eq:parameter_indium}
   \begin{aligned}
@@ -58,10 +49,8 @@ Ausgleichsgerade die folgenden Parameter:
     a\ua{indium}&=7.595\pm0.015.
   \end{aligned}
 \end{align}
-
 Die Parameter aus \eqref{eq:parameter_indium} können in dem direkt Zusammenhang mit
 \eqref{eq: n_prozeitintervall} gebracht werden. Und zwar gilt:
-
 \begin{align}
   \label{eq:parameter_indium_vergleich}
   \begin{aligned}
@@ -69,71 +58,55 @@ Die Parameter aus \eqref{eq:parameter_indium} können in dem direkt Zusammenhang
     a\ua{indium}&\Leftrightarrow \ln(b)\ua{indium} \quad \Rightarrow \quad b\ua{indium} =1989\pm 29.
   \end{aligned}
 \end{align}
-
 Mit dem Wert für $\lambda\ua{indium}$ und \eqref{eq: halbwertszeit} kann dann die Halbwertszeit von Indium
 berechnet weden:
-
 \begin{equation}
   \label{eq:halbwertzeit_indium}
   T\ua{indium}=\SI{3.53\pm0.12 e+3}{\second}.
 \end{equation}
-
 Im Gegensatz dazu liegt der Theoriewert für die Halbwertszeit von Indium\cite{indium_halb} bei
 \begin{equation}
   \label{eq:halbwertzeit_indium_theo}
   T\ua{indium,theo}=\SI{3.24 e+3}{\second}.
 \end{equation}
-
 \subsection{Untersuchung der Zerfallskurve von einem Rhodiumisomer}
-
 Der Nulleffekt, bei der Rhodium Untersuchung beträgt bei $\SI{900}{\second}$
-%Absatz
 \begin{equation*}
   N\ua{rhodium,null}=218.
 \end{equation*}
-
-Umgerechnet auf $15$ Sekunde ergibt sich: %Sekunden
-%Absatz
+Umgerechnet auf $15$ Sekunden ergibt sich: %Sekunden
 \begin{equation*}
      N\ua{rhodium,null,25}=\frac{109}{30}.
 \end{equation*}
-
-Die gemessenen Werte sind in Tabelle \ref{tab: rhodium_messwerte1} und \ref{tab: rhodium_messwerte2} aufgelistet, dabei erfolgte %sind in den Tabellen x und y
+Die gemessenen Werte sind in Tabellen \ref{tab: rhodium_messwerte1} und \ref{tab: rhodium_messwerte2} aufgelistet, dabei erfolgte %sind in den Tabellen x und y
 der Abzug des Nulleffektes bereits.
 \input{./table/messwerte_rhodium.tex}
-
 Die Werte sind in Abbildung \ref{fig: plot_rhodium} dargestellt.
-
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{pics/ra_all.pdf}
   \caption{Logarithmierte Darstellung der gemessen Zählraten von Rhodium (unter Berücksichtigung des Nulleffektes).}
   \label{fig: plot_rhodium}
 \end{figure}
-
-
-
-
-Wie in der Theorie erläutert ist Rhodium ein Isomer aus $\ce{^{104}_{45} Rh}$ (kurzlebig) und %erläutert,
+Wie in der Theorie erläutert, ist Rhodium ein Isomer aus $\ce{^{104}_{45} Rh}$ (kurzlebig) und %erläutert,
 $\ce{^{104i}_{45} Rh}$ (langlebig). Beide Stoffe besitzen eine unterschiedliche Halbwertszeit und
 beeinflussen so die in Abbildung \ref{fig: plot_rhodium} dargestellte Aktivitätskurve zu unterschiedlichen
 Zeiten.
 Ab einer bestimmten Zeit $t*$, wird also nur noch der Zerfall von $\ce{^{104i}_{45} Rh}$
 gemessen.
-Wir deklarieren $t*=\SI{500}{\second}$ und berechnen dann mit Hilfe einer linearen Regression, %-,
+Wir deklarieren $t*=\SI{500}{\second}$ und berechnen dann mit Hilfe einer linearen Regression %-,
 die Halbwertszeit von $\ce{^{104i}_{45} Rh}$.
+Zusätzlich legen wir eine Zeit $t\ua{kurz}=\SI{150}{\second}$ fest in der
+nur der Zerfall von $\ce{^{104}_{45} Rh}$ messbar ist.
 \input{./table/messwerte_rho_lang_log.tex}
 Die Messwerte (vgl. Tabelle \ref{tab:rho_lang_log}) und die Regressionsgerade für $t>t*$ sind in \ref{fig: plot_rhodium_lang} abgebildet.
-
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{pics/rhodium_lang_miterror.pdf}
-  \caption{Logarmirierte Darstellung der gemessen Zählraten von Rhodium und der linearer Fit, nach $t*$  (unter Berücksichtigung des Nulleffektes).} %Logarithmierte; lineare
+  \caption{Logarithmierte Darstellung der gemessen Zählraten von Rhodium und der lineare Fit, nach $t*$  (unter Berücksichtigung des Nulleffektes).} %Logarithmierte; lineare
   \label{fig: plot_rhodium_lang}
 \end{figure}
-
 Die Resultate der Regressionsrechung lauten:
-
 \begin{align}
   \label{eq:parameter_rhodium_lang}
   \begin{aligned}
@@ -141,10 +114,7 @@ Die Resultate der Regressionsrechung lauten:
     a\ua{rho,lang}&=5.44\pm0.13.
   \end{aligned}
 \end{align}
-
-
 Auch hier herrscht eine Verbindung zu Gleichung \eqref{eq: n_prozeitintervall}:
-
 \begin{align}
   \label{eq:parameter_rhodium_lang_lambda}
   \begin{aligned}
@@ -152,26 +122,19 @@ Auch hier herrscht eine Verbindung zu Gleichung \eqref{eq: n_prozeitintervall}:
     a\ua{rho,lang}&\Leftrightarrow \ln(b)\ua{rho,lang} \quad \Rightarrow \quad b\ua{rho,lang} =50\pm 50.
   \end{aligned}
 \end{align}
-
 Als Halbwertszeit ergibt sich mit \eqref{eq: halbwertszeit}:
-
 \begin{equation}
   \label{eq:halbwertzeit_rhodium}
   T\ua{rhodium, lang}=\SI{3.4\pm2.6 e+2}{\second}.
 \end{equation}
-
 Hingegen liegt der Theoriewert\cite{rhodium_lang_halb} bei:
-
 \begin{equation}
   \label{eq:halbwertzeit_rhodium_theo}
   T\ua{rhodium, lang, theo}=\SI{2.6 e+2}{\second}.
 \end{equation}
-
-
 Um die Halbwertszeit von $\ce{^{104}_{45} Rh}$ zu bestimmten, subtrahiert man von der
 Gesamtanzahl der Aktivitäten die Zerfallsrate von $\ce{^{104i}_{45} Rh}$ vor dem
 Zeitpunkt $t*$:
-
 \begin{equation*}
   N_{\Delta \map{t}, \map{kurz}}(t_i)=N_{\Delta \map{t}, \map{ges}}(t_i)-N_{\Delta \map{t}, \map{lang}}(t_i) \qquad t_i<t*.
 \end{equation*}
@@ -181,18 +144,13 @@ Die errechneten Werte sind in Tabelle \ref{tab: zerfälle_rhkurz} aufgelistet.
 Zusätzlich findet sich in Abbildung \ref{fig: plot_rhodium_kurz} die grafische Darstellung
 und Regeressionsgerade der Messwerte. Die logarithmischen Fehler der Grafik \ref{fig: plot_rhodium_kurz}
 sind in Tabelle \ref{tab:rho_kurz_log} zufinden.
-
-
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{pics/rhodium_kurz_berechnet.pdf}
   \caption{Logarithmierte Darstellung der berechnete Zählraten von Rhodium $\ce{^{104}_{45} Rh}$ und der linearer Fit, vor $t*$ (unter Berücksichtigung des Nulleffektes).}
   \label{fig: plot_rhodium_kurz}
 \end{figure}
-
-
 Aus der Regressionsrechung erhält man folgende Parameter
-
 \begin{align}
   \label{eq:parameter_rhodium_kurz}
   \begin{aligned}
@@ -200,9 +158,8 @@ Aus der Regressionsrechung erhält man folgende Parameter
     a\ua{rho,kurz}&=6.50\pm0.04.
   \end{aligned}
 \end{align}
-
-Wie bei den vorherigen Paramtern auch, kann auf die in \eqref{eq: n_prozeitintervall} auftretenden Größen %-auch; Parametern
-schließen: %geschlossen werden
+Wie bei den vorherigen Parametern kann auf die in \eqref{eq: n_prozeitintervall} auftretenden Größen %-auch; Parametern
+geschlossen werden: %geschlossen werden
 \begin{align}
   \label{eq:parameter_rhodium_kurz_lambda}
   \begin{aligned}
@@ -210,38 +167,28 @@ schließen: %geschlossen werden
     a\ua{rho,kurz}&\Leftrightarrow \ln(b)\ua{rho,kurz} \quad \Rightarrow \quad b\ua{rho,kurz} =668\pm 30.
   \end{aligned}
 \end{align}
-
 Die Halbwertszeit wird mit \eqref{eq: halbwertszeit} berechnet.
 Als Ergebnis erechnet sich:
 \begin{equation}
   \label{eq:halbwertzeit_rhodium_kurz}
   T\ua{rhodium, kurz}=\SI{54.3\pm2.0 }{\second}
 \end{equation}
-
 Hingegen liegt der Theoriewert\cite{rhodium_kurz_halb} bei:
-
 \begin{equation}
   \label{eq:halbwertzeit_rhodium_kurz_theo}
   T\ua{rhodium, kurz, theo}=\SI{42.3}{\second}.
 \end{equation}
-
-
-
 Um die Aussagekraft der Resultate zu stützen sollte allgemein gelten:
-
 \begin{equation*}
   N_{\Delta \map{t}, \map{kurz}}(t*)\ll N_{\Delta \map{t}, \map{lang}}(t*).
 \end{equation*}
-
-Nach einsetzten in die Regressionsfunktion ergibt sich jeweils %Einsetzen
+Nach Einsetzten in die Regressionsfunktion ergibt sich jeweils %Einsetzen
 \begin{equation*}
     N_{\Delta \map{t}, \map{kurz}}(t*)= 1\pm1 \quad  N_{\Delta \map{t}, \map{lang}}(t*)= 18\pm 4 \quad \Rightarrow \quad N_{\Delta \map{t}, \map{kurz}}(t*)\ll N_{\Delta \map{t}, \map{lang}}(t*).
 \end{equation*}
-
-Abschließend werden beide bestimmten Regressionsgerade ($\eqref{eq:parameter_rhodium_lang}$ und $\eqref{eq:parameter_rhodium_kurz}$) noch addiert, um so eine %-geraden
+Abschließend werden beide bestimmten Regressionsgeraden ($\eqref{eq:parameter_rhodium_lang}$ und $\eqref{eq:parameter_rhodium_kurz}$) noch addiert, um so eine %-geraden
 Regressionsgerade für die Messwerte \ref{tab: rhodium_messwerte1} und \ref{tab: rhodium_messwerte2} zu bilden.
-Die sich ergebende Darstellung ist in \ref{fig: plot_rhodium_addi} zusehen. %zu sehen
-
+Die sich ergebende Darstellung ist in \ref{fig: plot_rhodium_addi} zu sehen. %zu sehen
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{pics/ra_addi.pdf}
