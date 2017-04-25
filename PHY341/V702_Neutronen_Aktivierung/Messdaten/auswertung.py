@@ -359,7 +359,7 @@ plt.axvline(x=t_sternchen,c='c',label='t*=500\\,s')
 
 plt.legend(loc='best')
 plt.xlabel(r'Zeit in s')
-plt.ylabel(r'Gemessene Zerfälle, logarithmiert ')
+plt.ylabel(r'Gemessene Zerfälle, logarithmiert	 ')
 plt.xlim(0,720)
 plt.grid()
 #plt.show()
