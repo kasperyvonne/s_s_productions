@@ -10,9 +10,15 @@ Totzeit und die Untersuchung von Nachentladungen.
 
 \subsection{Funktionsweise eines Geiger-Müller-Zählrohr}
 Ein Geiger-Müller-Zähler besteht grundsätzlich aus einem
-Kathodenzylinder (negativ geladen) und einem Anodendraht (positiv geladen) (vgl. Abbildung \ref{}).
+Kathodenzylinder (negativ geladen) und einem Anodendraht (positiv geladen) (vgl. Abbildung \ref{fig: schematischer_aufbau}).
 Zwischen Anode und Kathode befindet sich ein Gasgemisch (bestehend aus einem Edelgas
-und Alkohldamf).
+und Alkohldampf).
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{bilder/geiger_.png}
+  \caption{Schematische Darstellung eines Geiger-Müller-Zählrohrs \cite{anleitung703}.}
+  \label{fig: schematischer_aufbau}
+  \end{figure}
 Durch Anlegen einer Spannung ($300-\SI{2000}{\volt}$) entsteht ein elektrisches
 Feld im inneren des Zylinders. Auf der Voderseiter eines Geiger-Müller-Zählrohrs
 befindet sich ein Eintrittsfenster aus Mylar. Dieses ermöglicht es selbst $\alpha$-
@@ -22,7 +28,14 @@ Elektronen, können je nach anliegender Spannung, weitere Atome ionisieren.
 Die dadurch entstehende Elektronenlawine (als Townsend-Lawine bezeichnet) gelangt zu der Anode und erzeugt so
 einen Strom. Der Strom wird mittels einem Verstärker verstärkt und an ein
 Zählgerät weitergeleitet. Wie Oben angesprochen hängt die Anzahl der regrestierten
-Elektronen von der anliegenden Spannung ab (vgl. Abbildung \ref{}). Denn bei einer zu geringen Spannung
+Elektronen von der anliegenden Spannung ab (vgl. Abbildung \ref{fig:teilchen_spannung}).
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{bilder/diagramm.png}
+  \caption{Anzahl der gemessen Teilchen pro Zeit bei unterschiedlichen Spannugen \cite{anleitung703}.}
+  \label{fig:teilchen_spannung}
+\end{figure}
+Denn bei einer zu geringen Spannung
 gehen die meisten Elektronen durch Rekombination verloren. Dreht man die Spannung weiter auf
 kommt man in den \emph{Arbeitsbereich einer Ionisationskammer}, dieser funktioniert aber nur bei
 bei Stahlungen mit hoher Intensitäten. Durch eine weiter Erhöhung der Spannung gelangt man
@@ -45,7 +58,14 @@ Regrestierung wieder möglich. Nach der Totzeit schließt sich
 noch eine \emph{Erholungszeit} an. In dieser Zeit erzeugen
 die an der Kathode eintrefenden Ionen neue Elektronen, die eine neue
 schwächere Elektronenlawine herrvorufen kann (Nachentladung gennant). Beide Zeiten sind
-in Abbildung \ref{} grafisch dargestellt. Der Alkoholdampf im Gasgemisch
+in Abbildung \ref{fig: tot_und_erholungszeit} grafisch dargestellt.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{bilder/totzeit.png}
+  \caption{Grafische Darstellung von Tot- und Erholungszeit \cite{anleitung703}.}
+  \label{fig: tot_und_erholungszeit}
+  \end{figure}
+Der Alkoholdampf im Gasgemisch
 soll die Erholungszeit verringern. Erklärbar ist es damit, dass
 die Edelgasionen die Alkoholmolekül ionisiern. Die Alkoholmoleküle
 besitzen eine geringere Ionisierungsenergie und können so keine Elektronen aus
@@ -57,6 +77,12 @@ weitere Energie (wegen $E=\map{h}f$).
 In dem Arbeitsbereich des Geiger-Müller-Zählers erhält man einheiten
 charkteristischen Verlauf der regrestierten Teilchen $N$.
 Diese \emph{Charakteristik} ist in Abbildung \ref{} dargestellt.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{bilder/plateau.png}
+  \caption{Vergrößerung des Geige-Müller-Bereichs \cite{anleitung703}.}
+  \label{fig: plateau}
+\end{figure}
 Ab der Spannung $U\ua{E}$ erreicht man den Spannungsbereich für ein
 ordentliches Arbeiten des Zählrohrs. Nach dieser erhält man einen
 linearen Zusammenhang zwischen $N$ und $V$, dieser wird auch als
