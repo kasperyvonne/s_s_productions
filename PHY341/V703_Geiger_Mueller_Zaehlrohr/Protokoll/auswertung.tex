@@ -1,3 +1,43 @@
 \section{Auswertung}
 
 
+\subsection{Untersuchung der Charakteristik des Zählrohres}
+Die aufgenommen Messwerte für die Zählrate $N$ unter variabler Betriebspspannung $U$ sind
+in Tabelle \ref{tab: zaelrate_strom} aufgeführt. Der angegebene Fehler wurde hierbei stets
+auf eine ganze Zahl gerundet. Eine Darstellung der Messwerte befindet sich in Abbildung \ref{fig: zählrate_ges}.
+Als obere und untere Schranke für die Betrachtung des Plateaus wurden die Werte zwischen $U = \SI{370}{\volt}$
+und $U = \SI{600}{\volt}$ gewählt, da an den Grenzen dieses Intervalls ein signifikanter Unterschied zu einem
+linearen Verlauf zu erkennen ist (vgl. die beiden benachbarten Werte in Abbildung \ref{}). Mittels linearer
+Regressionsrechnung ergeben sich für die Steigung $m$ und den Ordinatenabschnitt $b$ folgende Werte
+\begin{align}
+  m &= \SI{0.041 \pm 0.009}{\per\second\per\volt} \\
+  b &= \SI{412 \pm 4}{\per\second}
+\end{align}
+Eine graphische Darstellung der Messwerte im gewählten Plateaubereich, sowie die Regressiongerade sind in
+Abbildung \ref{fig: plateau} einzusehen.
+
+\subsection{Bestimmung der Totzeit}
+Mit Hilfe des Oszilloskops wurde die Totzeit fünf mal unter verschiedenen Betriebsspannungen ausgemessen. Die Messwerte
+sind in Tabelle \ref{} aufgetragen. Für den Mittelwert mit zugehöriger Standardabweichung ergibt sich
+\begin{equation}
+  T_1 = \SI{96 \pm 2}{\micro\second}.
+\end{equation}
+\input{../Messdaten/tabs/totzeit_oszi.tex}
+
+\input{../Messdaten/tabs/erholungszeit.tex}
+
+
+\newpage
+\input{table/zählrate_strom.tex}
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.8\textwidth]{../Messdaten/plots/all_counts.pdf}
+  \caption{Graphische Darstellung der Zählrohrcharakteristik, Abhängigkeit der Zählrate $N$ von der Betriebsspannung $U$.}
+  \label{fig: zählrate_ges}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.8\textwidth]{../Messdaten/plots/plateau.pdf}
+  \caption{Graphische Darstellung des Plateaubereichs.}
+  \label{fig: plateau}
+\end{figure}

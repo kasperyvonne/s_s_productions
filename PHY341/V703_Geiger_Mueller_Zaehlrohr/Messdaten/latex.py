@@ -18,7 +18,7 @@ class Latexdocument(object):
         self.data = DataFrame(columns=(['tex', 'var']))
     def tabular(self, spalten, header, places, caption, label):
         with open(self.name, 'w') as f:
-            f.write('\\begin{table} \n\\centering \n\\caption{' + caption + '} \n\\label{' + label + '} \n\\begin{tabular}{')
+            f.write('\\begin{table} \n\\centering \n\\caption{' + caption + '} \n\\label{tab: ' + label + '} \n\\begin{tabular}{')
             f.write(len(spalten) * 'S ')
             f.write('} \n\\toprule  \n')
             f.write(header + '  \\\ \n')
@@ -32,7 +32,7 @@ class Latexdocument(object):
             f.write('\\bottomrule \n\\end{tabular} \n\\end{table}')
 
     def app(self, name, value):
-            if (type(value.magnitude) == uncertainties.core.Variable):
+            if (type(value.magnitude) == uncertainties.core.Variable or type(value.magnitude) == uncertainties.core.AffineScalarFunc):
                 val = '{:.1u}'.format(value.magnitude)
                 s = '{:Lx}'.format(Q_(2, value.units)) + '~'
                 df = DataFrame(collections.OrderedDict({'var': pd.Series(value, index = [name] ),
