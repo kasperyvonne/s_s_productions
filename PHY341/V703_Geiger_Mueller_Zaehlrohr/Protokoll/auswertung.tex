@@ -7,7 +7,7 @@ in Tabelle \ref{tab: zaelrate_strom} aufgeführt. Der angegebene Fehler wurde hi
 auf eine ganze Zahl gerundet. Eine Darstellung der Messwerte befindet sich in Abbildung \ref{fig: zählrate_ges}.
 Als obere und untere Schranke für die Betrachtung des Plateaus wurden die Werte zwischen $U = \SI{370}{\volt}$
 und $U = \SI{600}{\volt}$ gewählt, da an den Grenzen dieses Intervalls ein signifikanter Unterschied zu einem
-linearen Verlauf zu erkennen ist (vgl. die beiden benachbarten Werte in Abbildung \ref{}). Mittels linearer %\ref
+linearen Verlauf zu erkennen ist (vgl. die beiden benachbarten Werte in Abbildung \ref{fig: zählrate_ges}). Mittels linearer %\ref
 Regressionsrechnung ergeben sich für die Steigung $m$ und den Ordinatenabschnitt $b$ folgende Werte
 \begin{align}
   m &= \SI{0.041 \pm 0.009}{(\second\volt)^-1} \\
@@ -25,33 +25,34 @@ sind in Tabelle \ref{tab: totzeit_oszi} aufgetragen. Für den Mittelwert mit zug
 Für die Anwendung der Zwei-Quellen-Methode wurden jeweils mit der Betriebsspannung $U = \SI{480}{\volt}$ die
 Impulszahlen $Z\ua{i}$ der Strahlung zweier einzelner Proben ($N_1,\, N_2$) und der Gesamtimpulszahl $Z\ua{1+2}$ aufgenommen.
 \begin{align}
-  Z_1 &= \SI{2.57(2)e+04}{}\\
-  Z_2 &= \SI{1.11(3)e+03}{}\\
-  Z_{1+2} &= \SI{2.68(2)e+04}{}
+  Z_1 &= \num{2.57(2)e+04}\\
+  Z_2 &= \num{1.11(3)e+03}\\
+  Z_{1+2} &= \num{2.68(2)e+04}.
 \end{align}%., da kann man auch num verwenden?
 Mit dem Messintervall $\Delta t = \SI{60}{\second}$ ergeben sich somit für die Zählraten
 \begin{align}
   N_1 &= \SI{428 \pm 3}{\per\second}\\
   N_2 &= \SI{19(0) }{\per\second}\\
-  N_{1+2} &= \SI{446 \pm 3}{\per\second}
+  N_{1+2} &= \SI{446 \pm 3}{\per\second}.
 \end{align}%.
-Auch hier wurde wieder auf eine ganze Zahl gerundet. Im Rahmen der Fehlertoleranz wird die Unleichung %Ungleichung
-\eqref{} als erfüllt angenommen. Einsetzen der ungerundeten Werte in Gleichung \eqref{eq:totzeit} liefert damit die Totzeit %eqref{}
+Auch hier wurde wieder auf eine ganze Zahl gerundet. Im Rahmen der Fehlertoleranz wird die Ungleichung %Ungleichung
+\eqref{eq:totzeit_summe} als erfüllt angenommen. Einsetzen der ungerundeten Werte in Gleichung \eqref{eq:totzeit} liefert damit die Totzeit %eqref{}
 \begin{equation}
   T_2 = \SI{0.3(24)e+02}{\micro\second}.
+  \label{eq: res_totzeit}
 \end{equation}
 \input{../Messdaten/tabs/totzeit_oszi.tex}
 \input{../Messdaten/tabs/erholungszeit.tex}
 
 \subsection{Bestimmung der Erholungszeit}
-Für die Erholungszeit $T\ua{E}$ wurden die in Tabelle \ref{} dokumentierten Werte mit dem Oszilloskop ausgemessen. Als %\ref{}
+Für die Erholungszeit $T\ua{E}$ wurden die in Tabelle \ref{tab: erholungszeit} dokumentierten Werte mit dem Oszilloskop ausgemessen. Als %\ref{}
 Mittelwert mit Standardabweichung berechnet sich
 \begin{equation}
   T_E = \SI{2.8(1)e+02}{\micro\second}.
 \end{equation}
 
 \subsection{Bestimmung der pro Teilchen vom Zählrohr freigesetzten Ladungsmenge}
-Die gemessenen mittleren Ströme $I$, sowie die gemäß \eqref{} berechneten Ladungsmengen $\Delta Q$, die pro %\eqref{}
+Die gemessenen mittleren Ströme $I$, sowie die gemäß \eqref{eq:lafung_pro_teilchen} berechneten Ladungsmengen $\Delta Q$, die pro %\eqref{}
 Teilchen im Zählrohr freigesetzt werden, sind in Tabelle \ref{tab: zaelrate_strom} eingetragen. In Abbildung
 \ref{fig: ladung} befindet sich eine Auftragung der Ladungsmenge gegen die Beschleunigungsspannung $U$.
 
@@ -60,7 +61,7 @@ Teilchen im Zählrohr freigesetzt werden, sind in Tabelle \ref{tab: zaelrate_str
 \input{table/zählrate_strom_ladung.tex}
 \begin{figure}
   \centering
-  \includegraphics[width = 0.8\textwidth]{../Messdaten/plots/all_counts.pdf}
+  \includegraphics[width = \textwidth]{../Messdaten/plots/all_counts.pdf}
   \caption{Graphische Darstellung der Zählrohrcharakteristik, Abhängigkeit der Zählrate $N$ von der Betriebsspannung $U$.}
   \label{fig: zählrate_ges}
 \end{figure}

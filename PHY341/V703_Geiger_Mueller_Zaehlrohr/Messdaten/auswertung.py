@@ -25,10 +25,10 @@ I = np.genfromtxt('strom.txt', unpack=True)
 delta_Q = Q_(I/N, 'microampere * second').to('gigacoulomb') / e
 
 
-#l.Latexdocument('tabs/zählrate_strom_ladung.tex').tabular([U.magnitude, N_raw, np.sqrt(N_raw), unp.nominal_values(N), unp.std_devs(N), I, unp.nominal_values(delta_Q), unp.std_devs(delta_Q)],
-#'{$U/ \si{\\volt}$} & x & y & {$I/\si{\micro\\ampere}$}', [0, 0, 0, 0, 0, 1, 2, 2],
-# caption = 'Gemessene Impulszahlen $Z$ und Ionisationsströme $I$ unter verschiedenen Beschleunigungsspannungen $U$ und berechnete Zählraten $N$ und pro einfallendem Teilchen freigesetzte Ladungsmenge $Q$',
-# label='zaelrate_strom')
+l.Latexdocument('tabs/zählrate_strom_ladung.tex').tabular([U.magnitude, N_raw, np.sqrt(N_raw), unp.nominal_values(N), unp.std_devs(N), I, unp.nominal_values(delta_Q), unp.std_devs(delta_Q)],
+'{$U/ \si{\\volt}$} & x & y & {$I/\si{\micro\\ampere}$}', [2, 2, 2, 2, 2, 2, 3, 2],
+ caption = 'Gemessene Impulszahlen $Z$ und Ionisationsströme $I$ unter verschiedenen Beschleunigungsspannungen $U$ und berechnete Zählraten $N$ und pro einfallendem Teilchen freigesetzte Ladungsmenge $Q$',
+ label='zaelrate_strom')
 
 
 
