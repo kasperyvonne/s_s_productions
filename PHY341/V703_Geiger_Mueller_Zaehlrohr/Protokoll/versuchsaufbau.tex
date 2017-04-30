@@ -1,12 +1,11 @@
 \section{Versuchsaufbau/-durchführung}
 
 \subsection{Versuchsaufbau}
-
 Der Versuchsaufbau ist in Abbildung \ref{fig: versuchsaufabu} dargestellt.
 Zusehen ist dort das Zählrohr und die nachgeschaltete Elektronik.
 Die Elektronik umfasst einen Verstärker, ein Oszilloskop und
-ein Zählwerk. Das Zählwerkt gibt die Anzahl der eintreffenden Teilchen
-an. Der vor dem Zählrohr geschaltete Kondensator $C$ koppelt den eintreffenden
+ein Zählwerk. Das Zählwerk gibt die Anzahl der eintreffenden Teilchen
+an. Der nach dem Zählrohr geschaltete Kondensator $C$ koppelt den eintreffenden
 Stromimpuls vom Zählrohr ab.
 \begin{figure}
   \centering
@@ -18,17 +17,23 @@ Stromimpuls vom Zählrohr ab.
 
 \subsubsection{Aufnahme der Charakteristika des Zählrohres}
 
-Nachdem eine $\beta$-Quelle vor das Fenster des Zährohers plaziert wurde
-kann die Zählrate in Abhängigkeit von der Betriebspannung $U$ gemessen.
-Es werden nun Zählraten für den Bereich $U\in\left[300, 700\right] \, \si{\volt}$
-untersucht. Die Zählrate wird in einem Zeitraum von $\SI{60}{\second}$ gemessen.
+Nachdem eine $\beta$-Quelle vor das Fenster des Zährohrs platziert wurde,
+kann die Zählrate in Abhängigkeit von der Betriebsspannung $U$ gemessen werden.
+Es werden Zählraten für den Bereich $U\in\left[300, 700\right] \, \si{\volt}$
+untersucht. Eine Messung umfasst einen Zeitraum von $\SI{60}{\second}$.
 
 
 \subsubsection{Ostillographische Messung Tot- und Erholungszeit}
 Man schließt zunächst das Geiger-Müller-Zählrohr an ein
-Oszilloskop an. Das Oszilloskop zeigt nun den in Abbildung \ref{}
+Oszilloskop an. Das Oszilloskop zeigt nun den in Abbildung \ref{fig: totzeit}
 dargestellten Spannungsverlauf an. Mit einer geeigneten Zeitskalierung am Oszilloskop
-liest man nun die Tot- und Erholungszeit ab.
+kann die Tot- und Erholungszeit abgelesen werden.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{bilder/totzeit.png}
+  \caption{Tot- und Erholungszeit von einem Geiger-Müller-Zähler \cite{anleitung703}.}
+  \label{fig: totzeit}
+  \end{figure}
 Die Prozedur wird für fünf verschiedene Spannungen durchgeführt.
 
 \subsection{Bestimmung der Totzeit mit der Zwei-Quellen-Methode}
@@ -40,12 +45,14 @@ wahren $N\ua{w}$ lautet:
   \label{eq:wahre_zaehlrate}
   N\ua{w}=\frac{N\ua{r}}{1-TN\ua{r}}.
 \end{equation}
-Betrachtet man nun zwei unterschiedliche Präparate ist eine
-Bestimmung der Totzeit möglich.Dazu werden, bei $\SI{480}{\volt}$ und in eiem Zeitraum $\SI{60}{\second}$ eine neue
+Die Verwendung zweier unterschiedlichen Präparate bietet eine Möglichkeit zu
+Bestimmung der Totzeit. Dazu wird bei $\SI{480}{\volt}$ und in eiem Zeitraum $\SI{60}{\second}$ eine neue
 $\ce{^{204}Tl}$ und einer alte $\ce{^{204}Tl}$ Probe untersucht.
-Zunächst wird die Zählrate der einzelnen bestimmt $N_1$ und $N_2$, danach die
-Summe aus beiden $N_1+N_2$. Beim einsetzen der zweiten Probe, darf die Position der
+Zunächst wird die Zählrate  $N_1$ einer Probe bestimmt, danach die
+Summe aus beiden $N_1+N_2$. Beim Einsetzen der zweiten Probe darf die Position der
 ersten Probe nicht verändert werden.
+Abschließend wird die erste Probe entfernt und die Zählrate $N_2$ für die zweite
+Probe notiert.
 Auf Grund der Totzeit gilt der Zusammenhang
 \begin{equation}
   \label{eq:totzeit_summe}
@@ -59,13 +66,13 @@ mit diesem kann dann die Totzeit zu
 genährt werden.
 
 \subsubsection{Messung der pro Teilchen vom Zählrohr feigesetzte Ladunfsmenge}
-Die vom eindrigenden Teilcehn vom Zählrohr freigesetzte Ladungsmenge kann mit
+Die vom eindringenden Teilchen im Zählrohr freigesetzte Ladungsmenge kann mit
 
 \begin{equation}
   \label{eq:lafung_pro_teilchen}
   I=\frac{\Delta Q}{\Delta t} N
 \end{equation}
 berechnet werden ($N$ ist die Anzahl der Teilchen).
-Durch Messung des Stroms mit Hilfe eines empfindlichen Messgerätes,
+Mit Hilfe eines empfindlichen Strommessgerätes
 kann die Ladungsenge in Abhängigkeit von der Spannung $U$ untersucht werden.
-Der Spannungbereich liegt bei $U\in\left[300, 700\right] \, \si{\volt}$.
+Der für den Versuch gewählte Spannungsbereich liegt bei $U\in\left[300, 700\right] \, \si{\volt}$.
