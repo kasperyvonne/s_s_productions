@@ -1,1 +1,50 @@
 \section{Auswertung}
+
+Die im Folgenden auftretenden Fehler werden mit dem
+Python-Paket \emph{uncertainties}\cite{uncertainties} berechnet.
+
+\subsection{Bestimmung der Wellenlänge}
+
+Die Wellenlänge wird mit Formel \eqref{} berechnet.
+Die Ergebnisse sind in Tabelle \ref{tab: tab: messwerte_abstand} aufgelistet.
+\input{./table/abstands_messung.tex}
+
+Die Wellenlänge wird gemittelt zu
+
+\begin{equation}
+  \label{eq:wellenlaenge}
+  \overline{\lambda}=\SI{}{\nano\meter}.
+\end{equation}
+
+Die Wellenlänge wird für Folgerechnung verwendet.
+
+\subsection{Untersuchung des Brechungsindex von Luft und Kohlenstoffdioxid}
+
+Die Brechungsindexänderung wird nach \eqref{} berechnet. Dabei wird
+für $b=\SI{0.05}{\meter}$ angenommen. Anschließend wird mit Formel \eqref{
+} der Brechungsindex bestimmt. Hierbei sind konstanten als $T=\SI{293.15}{\kelvin},\, T_0=\SI{273.15}{\kelvin} \,
+\text{und} \, p_0=\SI{1.0132}{\bar}$ gegeben. Die Messergebnisse sind in Tabelle \ref{tab: tab: messwerte_luft}
+dargestellt.
+\input{./table/brechung_luft.tex}
+Diese können gemittelt werden zu
+
+\begin{align}
+  \label{eq:mittelwerte_luft}
+  \begin{aligned}
+    \overline{\Delta n}\ua{luft}=\num{}\\
+    \overline{n}\ua{luft}=\num{}.
+  \end{aligned}
+\end{align}
+
+Die Messergebnisse für Kohlenstoff sind in Tabelle \ref{} aufgeführt.
+
+\input{./table/brechung_kohlenstoff.tex}
+Gemittelt ergibt sich:
+
+\begin{align}
+  \label{eq:mittelwerte_kohlenstoff}
+  \begin{aligned}
+    \overline{\Delta n}\ua{kohlenstoff}=\num{}\\
+    \overline{n}\ua{kohlenstoff}=\num{}.
+  \end{aligned}
+\end{align}

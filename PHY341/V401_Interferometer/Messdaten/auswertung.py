@@ -67,6 +67,60 @@ def linregress(x, y):
 
 #Angepasstes Programm
 
+##Wellenlänge-Verschiebung
+
+weg, anzahl_weg= np.genfromtxt('anzahl_weg.txt', unpack=True)
+weg*=1e-3
+
+
+def weg_lambda(weg,anzahl):
+	return (2*weg)/(anzahl)
+wellenlänge=weg_lambda(weg,anzahl_weg)
+wellenlänge_u=unp.uarray(np.mean(wellenlänge), np.std(wellenlänge)/np.sqrt(len(wellenlänge)) )
+print('Wellenlänge', wellenlänge_u)
+print(wellenlänge)
+print(anzahl_weg)
+
+l.Latexdocument('abstands_messung.tex').tabular([weg*1e3, anzahl_weg, wellenlänge*1000],
+'{Weg in $\si{\meter}$} &{Anzahl} & {Wellenlänge in $\si{\\nano\meter}$}', [2, 0, 9] ,
+caption = 'Messergebnisse bei der Abstandsmessung', label = 'tab: messwerte_abstand')
+
+##Brechungsindex_luft
+
+druck_luft,anzahl_luft=np.genfromtxt('anzahl_luft.txt',unpack=True)
+druck_kohlenstoff, anzahl_kohlenstoff=np.genfromtxt('anzahl_kohlenstoff.txt',unpack=True)
+def delta_brechungsindex(anzahl, wellenlaenge):
+	return (anzahl*wellenlaenge)/(2*0.05)
+
+def brechungsindex (deltadruck,deltabrechung):
+	return 1+deltabrechung*(1.0132*293.15)/(273.15*deltadruck)
+
+delta_brechungsindex_luft=delta_brechungsindex(anzahl_luft,wellenlänge_u)
+delta_brechungsindex_kohlenstoff=delta_brechungsindex(anzahl_kohlenstoff,wellenlänge_u)
+brechungsindex_luft=brechungsindex(druck_luft,delta_brechungsindex_luft)
+brechungsindex_kohlenstoff=brechungsindex(druck_kohlenstoff,delta_brechungsindex_kohlenstoff)
+
+delta_brechungsindex_luft_u=unp.uarray(np.mean(unp.nominal_values(delta_brechungsindex_luft)), np.std(unp.nominal_values(delta_brechungsindex_luft))/unp.sqrt(len(delta_brechungsindex_luft)) )
+delta_brechungsindex_kohlenstoff_u=unp.uarray(np.mean(unp.nominal_values(delta_brechungsindex_kohlenstoff)), np.std(unp.nominal_values(delta_brechungsindex_kohlenstoff))/unp.sqrt(len(delta_brechungsindex_kohlenstoff)) )
+brechungsindex_luft_u=unp.uarray(np.mean(unp.nominal_values(brechungsindex_luft)), np.std(unp.nominal_values(brechungsindex_luft))/unp.sqrt(len(brechungsindex_luft)) )
+brechungsindex_kohlenstoff_u=unp.uarray(np.mean(unp.nominal_values(brechungsindex_kohlenstoff)), np.std(unp.nominal_values(brechungsindex_kohlenstoff))/unp.sqrt(len(brechungsindex_kohlenstoff)) )
+
+l.Latexdocument('brechung_luft.tex').tabular([druck_luft, anzahl_luft, unp.nominal_values(delta_brechungsindex_luft),unp.std_devs(delta_brechungsindex_luft),unp.nominal_values(brechungsindex_luft),unp.std_devs(brechungsindex_luft)],
+'{$p-p\'$ in $\si{\\bar}$} &{Anzahl} & {$\Delta n$} & {$\sigma_{\Delta n}$} &{$n$} & {$\sigma_n$}', [1, 0,5,5,5 ,5] ,
+caption = 'Messergebnisse für die Brechungszahl bei Luft', label = 'tab: messwerte_luft')
+
+l.Latexdocument('brechung_kohlenstoff.tex').tabular([druck_kohlenstoff, anzahl_kohlenstoff, unp.nominal_values(delta_brechungsindex_kohlenstoff),unp.std_devs(delta_brechungsindex_kohlenstoff),unp.nominal_values(brechungsindex_kohlenstoff),unp.std_devs(brechungsindex_kohlenstoff)],
+'{$p-p\'$ in $\si{\\bar}$} &{Anzahl} & {$\Delta n$} & {$\sigma_{\Delta n}$} &{$n$} & {$\sigma_n$}', [1, 0,5,5,5 ,5] ,
+caption = 'Messergebnisse für die Brechungszahl bei Luft', label = 'tab: messwerte_luft')
+
+
+print('Delta brechungsindex_luft', delta_brechungsindex_luft_u)
+print('Delta brechungsindex_kohlenstoff', delta_brechungsindex_kohlenstoff_u)
+print('brechungsindex_luft', brechungsindex_luft_u)
+print('brechungsindex_kohlenstoff', brechungsindex_kohlenstoff_u)
+
+
+
 
 
 
