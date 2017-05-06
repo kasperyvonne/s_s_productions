@@ -4,47 +4,52 @@ Die im Folgenden auftretenden Fehler werden mit dem
 Python-Paket \emph{uncertainties}\cite{uncertainties} berechnet.
 
 \subsection{Bestimmung der Wellenlänge}
-
-Die Wellenlänge wird mit Formel \eqref{} berechnet.
+Zwischen dem Synchronmotor und dem Spiegel gibt es eine Übersetzungsfaktor $t$ von
+\begin{equation*}
+  t=5.046.
+\end{equation*}
+Mit Formel \eqref{eq: maxima_wellenlänge} wird die Wellenlänge berechnet.
 Die Ergebnisse sind in Tabelle \ref{tab: tab: messwerte_abstand} aufgelistet.
+Der Übersetzungsfaktor ist in den Abstandswerten bereits berücksichtigt.
+
 \input{./table/abstands_messung.tex}
 
 Die Wellenlänge wird gemittelt zu
 
 \begin{equation}
   \label{eq:wellenlaenge}
-  \overline{\lambda}=\SI{}{\nano\meter}.
+  \overline{\lambda}=\SI{604\pm 8}{\nano\meter}.
 \end{equation}
 
-Die Wellenlänge wird für Folgerechnung verwendet.
+Der ermittelte Wert für die Wellenlänge wird in Folgerechnungen verwendet.
 
-\subsection{Untersuchung des Brechungsindex von Luft und Kohlenstoffdioxid}
+\subsection{Untersuchung des Brechungsindexes von Luft und Kohlenstoffdioxid}
 
-Die Brechungsindexänderung wird nach \eqref{} berechnet. Dabei wird
-für $b=\SI{0.05}{\meter}$ angenommen. Anschließend wird mit Formel \eqref{
-} der Brechungsindex bestimmt. Hierbei sind konstanten als $T=\SI{293.15}{\kelvin},\, T_0=\SI{273.15}{\kelvin} \,
-\text{und} \, p_0=\SI{1.0132}{\bar}$ gegeben. Die Messergebnisse sind in Tabelle \ref{tab: tab: messwerte_luft}
-dargestellt.
+Die Brechungsindexänderung wird nach \eqref{eq: maxima_brechungsindex} berechnet. Dabei wird
+für $b=\SI{0.05}{\meter}$ angenommen. Anschließend kann mit Formel \eqref{eq: brechungsindex
+} der Brechungsindex bestimmt werden. Hierbei sind die Konstanten als $T=\SI{293.15}{\kelvin},\, T_0=\SI{273.15}{\kelvin} \,
+\text{und} \, p_0=\SI{1.0132}{\bar}$ gegeben.
+Die Messresultate sind in Tabelle \ref{tab: tab: messwerte_luft} aufgeführt.
 \input{./table/brechung_luft.tex}
 Diese können gemittelt werden zu
 
 \begin{align}
   \label{eq:mittelwerte_luft}
   \begin{aligned}
-    \overline{\Delta n}\ua{luft}=\num{}\\
-    \overline{n}\ua{luft}=\num{}.
+    \overline{\Delta n}\ua{luft}=\num{2.34\pm 0.17 e-4}\\
+    \overline{n}\ua{luft}=\num{1.00032}\pm\, \num{2e-5}.
   \end{aligned}
 \end{align}
 
-Die Messergebnisse für Kohlenstoff sind in Tabelle \ref{} aufgeführt.
+Die Messergebnisse für Kohlenstoff sind in Tabelle \ref{tab: messwerte_kohlenstoff} notiert.
 
 \input{./table/brechung_kohlenstoff.tex}
-Gemittelt ergibt sich:
 
+Die sich daraus folgenden Mittelwerte lauten
 \begin{align}
   \label{eq:mittelwerte_kohlenstoff}
   \begin{aligned}
-    \overline{\Delta n}\ua{kohlenstoff}=\num{}\\
-    \overline{n}\ua{kohlenstoff}=\num{}.
+    \overline{\Delta n}\ua{kohlenstoff}=\num{2.34\pm 0.16 e-4}\\
+    \overline{n}\ua{kohlenstoff}=\num{1.00044} \pm\,\num{1e-5}.
   \end{aligned}
 \end{align}
