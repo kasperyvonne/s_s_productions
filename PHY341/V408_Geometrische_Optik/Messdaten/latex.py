@@ -37,7 +37,7 @@ class Latexdocument(object):
                 s = '{:Lx}'.format(Q_(2, value.units)) + '~'
                 df = DataFrame(collections.OrderedDict({'var': pd.Series(value, index = [name] ),
                 #'tex': name + ' = \SI{' + val[:val.index('+')]+ ' \pm ' + val[val.index('-')+1:] + s[s.index('}{'):s.index('~')]}))
-                'tex': name + ' = \SI{' + val + '}{' + s[s.index('}{'):s.index('~')]}))
+                'tex': name + ' = \SI{' + val + '}{' + s[s.index('}{') + 2:s.index('~')]}))
                 self.data = self.data.append(df)
             else:
                 df = DataFrame({'var': pd.Series(value, index = [name] ),
