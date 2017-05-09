@@ -105,11 +105,11 @@ brechungsindex_luft_u=unp.uarray(np.mean(unp.nominal_values(brechungsindex_luft)
 brechungsindex_kohlenstoff_u=unp.uarray(np.mean(unp.nominal_values(brechungsindex_kohlenstoff)), np.std(unp.nominal_values(brechungsindex_kohlenstoff))/unp.sqrt(len(brechungsindex_kohlenstoff)) )
 
 l.Latexdocument('brechung_luft.tex').tabular([druck_luft, anzahl_luft, unp.nominal_values(delta_brechungsindex_luft),unp.std_devs(delta_brechungsindex_luft),unp.nominal_values(brechungsindex_luft),unp.std_devs(brechungsindex_luft)],
-'{$p-p\'$ in $\si{\\bar}$} &{Anzahl} & {$\Delta n$} & {$\sigma_{\Delta n}$} &{$n$} & {$\sigma_n$}', [1, 0,5,6,5 ,6] ,
+'{$p-p\'$ in $\si{\\bar}$} &{Anzahl} & {$\Delta n$} & {$\sigma_{\Delta n}$} &{$n$} & {$\sigma_n$}', [1, 0,6,6,6 ,6] ,
 caption = 'Messergebnisse für die Brechungszahl bei Luft.', label = 'tab: messwerte_luft')
 
 l.Latexdocument('brechung_kohlenstoff.tex').tabular([druck_kohlenstoff, anzahl_kohlenstoff, unp.nominal_values(delta_brechungsindex_kohlenstoff),unp.std_devs(delta_brechungsindex_kohlenstoff),unp.nominal_values(brechungsindex_kohlenstoff),unp.std_devs(brechungsindex_kohlenstoff)],
-'{$p-p\'$ in $\si{\\bar}$} &{Anzahl} & {$\Delta n$} & {$\sigma_{\Delta n}$} &{$n$} & {$\sigma_n$}', [1, 0,5,6,5 ,6] ,
+'{$p-p\'$ in $\si{\\bar}$} &{Anzahl} & {$\Delta n$} & {$\sigma_{\Delta n}$} &{$n$} & {$\sigma_n$}', [1, 0,6,6,6 ,6] ,
 caption = 'Messergebnisse für die Brechungszahl bei Kohlenstoff.', label = 'tab: messwerte_kohlenstoff')
 
 
