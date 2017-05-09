@@ -96,18 +96,22 @@ xerr = unp.std_devs(1 + 1/abbe_V), yerr = unp.std_devs(abbe_g), fmt='bx',
 ecolor = 'b', elinewidth = 1, capsize = 2, label='Messwerte')
 params_g = linfit(unp.nominal_values(1 + 1/abbe_V), unp.nominal_values(abbe_g))
 m_g = params_g[0]
+r.app(r'f\ua{a, 1}', Q_(m_g, 'centimeter'))
 b_g = params_g[1]
+r.app('h', Q_(b_g, 'centimeter'))
 plt.plot(x, lin(x, m_g.n, b_g.n))
 plt.grid()
 plt.savefig('plots/abbe_plot_g.pdf')
 plt.clf()
 
-plt.errorbar(unp.nominal_values(1 + 1/abbe_V), unp.nominal_values(abbe_b),
-xerr = unp.std_devs(1 + 1/abbe_V), yerr = unp.std_devs(abbe_b), fmt='bx',
+plt.errorbar(unp.nominal_values(1 + abbe_V), unp.nominal_values(abbe_b),
+xerr = unp.std_devs(1 + abbe_V), yerr = unp.std_devs(abbe_b), fmt='bx',
 ecolor = 'b', elinewidth = 1, capsize = 2, label='Messwerte')
-params_b = linfit(unp.nominal_values(1 + 1/abbe_V), unp.nominal_values(abbe_b))
+params_b = linfit(unp.nominal_values(1 + abbe_V), unp.nominal_values(abbe_b))
 m_b = params_b[0]
+r.app(r'f\ua{a, 2}', Q_(m_b, 'centimeter'))
 b_b = params_b[1]
+r.app('h-', Q_(b_b, 'centimeter'))
 plt.plot(x, lin(x, m_b.n, b_b.n))
 plt.grid()
 plt.savefig('plots/abbe_plot_b.pdf')
@@ -115,8 +119,15 @@ plt.clf()
 
 
 
-
-
+######WASSERLINSE
+wasser_g_raw, wasser_b_raw = np.genfromtxt('wasserlinse.txt', unpack=True)
+wasser_f = 1 / (1/wasser_g_raw + 1/wasser_b_raw)
+print(np.mean(wasser_f))
+for i in range(0, len(wasser_g_raw)):
+    plt.plot([wasser_g_raw[i], 0], [0,wasser_b_raw[i]], 'b-')
+plt.grid()
+plt.savefig('plots/schurz.pdf')
+plt.clf()
 
 
 ######PLOTS
