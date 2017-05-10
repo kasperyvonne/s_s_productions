@@ -93,7 +93,7 @@ plt.clf()
 
 plt.plot([noms(method_1_g[::-1])[0], 0], [0,noms(method_1_b)[0]], 'k-', label= 'Verbindungslinien der Wertepaare $(g_i, b_i)$')
 for i in range(1, 10):
-    plt.plot([noms(method_1_g[::-1])[i], 0], [0,noms(method_1_b)[i]], 'k-')
+    plt.plot([noms(method_1_g)[i], 0], [0,noms(method_1_b)[i]], 'k-')
 plt.grid()
 plt.axvline(x = 15, ls='-', color='r', label = 'Abgelesene Brennweite')
 plt.axvline(x = method_1_f.n, ls='--', color='b', label = 'Berechneter Mittelwert aus Linsenformel')

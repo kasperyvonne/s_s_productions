@@ -23,10 +23,6 @@ G = ufloat(3, 0.1)#Gegenstandsgröße
 method_1_g_raw, method_1_b_raw, method_1_B_raw = np.genfromtxt('method_1.txt', unpack=True)
 
 sort = np.argsort(method_1_g_raw)
-#test_a = np.sort(method_1_g_raw[:6])
-#test_c = np.sort(method_1_g_raw[6:])
-#test_g = np.concatenate((test_a, test_c))
-#test_b = method_1_b_raw[:len(test_g)]
 method_1_g = error_s(method_1_g_raw[sort])
 method_1_b = error_s(method_1_b_raw[sort])
 method_1_B = error_s(method_1_B_raw[sort])
