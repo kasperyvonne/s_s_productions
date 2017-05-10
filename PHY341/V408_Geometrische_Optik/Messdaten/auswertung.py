@@ -15,9 +15,9 @@ def linfit(x, y):
 
 ####MITTELWERT BRENNWEITE 1
 method_1_f = (1 / (1 / method_1_g + 1 / method_1_b)).mean()
-r.app(r'f\ua{1}', Q_(method_1_f, 'centimeter'))
-
-
+r.app(r'f\ua{1, mid}', Q_(method_1_f, 'centimeter'))
+brennweite_exp = ufloat(9.8, 0.1)
+r.app(r'f\ua{1, exp}', Q_(brennweite_exp, 'centimeter'))
 
 ######################
 
@@ -91,16 +91,16 @@ plt.clf()
 ######PLOTS
 ######METHODE 1
 
-plt.plot([noms(method_1_g[::-1])[0], 0], [0,noms(method_1_b)[0]], 'k-', label= 'Verbindungslinien der Wertepaare $(g_i, b_i)$')
+plt.plot([noms(method_1_g)[0], 0], [0,noms(method_1_b)[0]], 'k-', label= 'Verbindungslinien der Wertepaare $(g_i, b_i)$', linewidth=1)
 for i in range(1, 10):
-    plt.plot([noms(method_1_g)[i], 0], [0,noms(method_1_b)[i]], 'k-')
+    plt.plot([noms(method_1_g)[i], 0], [0,noms(method_1_b)[i]], 'k-', linewidth=1)
 plt.grid()
-plt.axvline(x = 15, ls='-', color='r', label = 'Abgelesene Brennweite')
-plt.axvline(x = method_1_f.n, ls='--', color='b', label = 'Berechneter Mittelwert aus Linsenformel')
+plt.axvline(x = brennweite_exp.n, ls='--', color='b', label = 'Berechneter Mittelwert aus Linsenformel', linewidth=1)
 plt.xlim(0, 38)
 plt.ylim(0, 23)
 plt.legend(loc='best')
 plt.savefig('plots/methode_1.pdf')
+#plt.show()
 plt.clf()
 
 #for i in range(0, len(test_g)):

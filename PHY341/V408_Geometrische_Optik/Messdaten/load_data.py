@@ -20,14 +20,14 @@ G = ufloat(3, 0.1)#Gegenstandsgröße
 
 
 ####METHODE 1
-method_1_g_raw, method_1_b_raw, method_1_B_raw = np.genfromtxt('method_1.txt', unpack=True)
+method_1_g_raw, method_1_b_raw, method_1_B_raw = np.genfromtxt('nachgemessen.txt', unpack=True)
 
 sort = np.argsort(method_1_g_raw)
 method_1_g = error_s(method_1_g_raw[sort])
 method_1_b = error_s(method_1_b_raw[sort])
 method_1_B = error_s(method_1_B_raw[sort])
-l.Latexdocument('tabs/methode_1.tex').tabular([noms(method_1_g[::-1]), stds(method_1_g[::-1]), noms(method_1_b), stds(method_1_b),
- noms(method_1_B), stds(method_1_B), noms(method_1_b/method_1_g[::-1]), stds(method_1_b/method_1_g[::-1]),
+l.Latexdocument('tabs/methode_1.tex').tabular([noms(method_1_g), stds(method_1_g), noms(method_1_b), stds(method_1_b),
+ noms(method_1_B), stds(method_1_B), noms(method_1_b/method_1_g), stds(method_1_b/method_1_g),
   noms(method_1_B[::-1]/G), stds(method_1_B[::-1]/G)],
 header = '{$g/\si{\centi\meter}$} & {$b/\si{\centi\meter}$} & {$B/\si{\centi\meter}$} & {$V_1$} & {$V_1$}', places = [1, 1, 1, 1, 1, 1,3,3,2,2],
 label='tab: methode_1', caption='Messdaten zur Überprüfung der Abbildungsgleichung \eqref{} und....')
