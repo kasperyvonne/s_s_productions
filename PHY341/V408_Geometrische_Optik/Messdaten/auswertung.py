@@ -16,8 +16,10 @@ def linfit(x, y):
 ####MITTELWERT BRENNWEITE 1
 method_1_f = (1 / (1 / method_1_g + 1 / method_1_b)).mean()
 r.app(r'f\ua{1, mid}', Q_(method_1_f, 'centimeter'))
-brennweite_exp = ufloat(9.8, 0.1)
+brennweite_exp = ufloat(9.7, 0.1)
 r.app(r'f\ua{1, exp}', Q_(brennweite_exp, 'centimeter'))
+V_1 = method_1_b/method_1_g
+V_2 = method_1_B/G
 
 ######################
 
@@ -95,9 +97,9 @@ plt.plot([noms(method_1_g)[0], 0], [0,noms(method_1_b)[0]], 'k-', label= 'Verbin
 for i in range(1, 10):
     plt.plot([noms(method_1_g)[i], 0], [0,noms(method_1_b)[i]], 'k-', linewidth=1)
 plt.grid()
-plt.axvline(x = brennweite_exp.n, ls='--', color='b', label = 'Berechneter Mittelwert aus Linsenformel', linewidth=1)
+plt.axvline(x = brennweite_exp.n, ls='--', color='b', label = 'Abgelesene Brennweite', linewidth=1)
 plt.xlim(0, 38)
-plt.ylim(0, 23)
+plt.ylim(0, 27)
 plt.legend(loc='best')
 plt.savefig('plots/methode_1.pdf')
 #plt.show()

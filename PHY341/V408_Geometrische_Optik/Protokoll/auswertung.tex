@@ -1,6 +1,6 @@
 \section{Auswertung}
 ...
-Für die gemessenen Strecken wurde jeweils ein Fehler von $\SI{1}{\mili\meter}$ angenommen.
+Für die gemessenen Strecken wurde jeweils ein Fehler von $\SI{1}{\milli\meter}$ angenommen.
 
 \subsection{Überprüfung der Linsen-/Abbildungsgleichung}
 Für die Messungen zur Verifizierung der Gleichungen \eqref{} und \eqref{} wird eine Linse
@@ -8,11 +8,54 @@ der bekannten Brennweite
 \begin{equation}
   f\ua{t} = \SI{10}{\centi\meter}
 \end{equation}
-verwendet. In Tabelle \ref{} sind die gemessenen Wertepaare der Gegenstands- bzw. Bildweite $(g\ua{i}, b\ua{i})$,
-sowie die jeweiligen Bildgrößen $B$ aufgeführt. Mit der konstanten Gegenstandsgröße $G = \SI{3}{\centi\meter}$
-werden die Vergrößerungen $V_1$ und $V_2$ gemäß
+verwendet. In Tabelle \ref{tab: methode_1} sind die gemessenen Wertepaare der Gegenstands- bzw. Bildweite $(g\ua{i}, b\ua{i})$,
+sowie die zugehörigen Bildgrößen $B$ aufgeführt. Für die Berechnung der Vergrößerung $V\ua{1}$
+wird die konstante Gegenstandsgröße $G = \SI{3.0(1)}{\centi\meter}$ verwendet. Neben den Ergebnissen ist jeweils
+eine mittlere Prozentuale Abweichung zwischen $V_1$ und $V_2$ in Tabelle \ref{tab: methode_1} eingefügt.
+Mittels Gleichung \eqref{} ergibt sich für den Mittelwert der Brennweite
 \begin{equation}
-  V_1 = \frac{b}{g} \quad \text{bzw.} \quad V_1 = \frac{B}{G}
+  f\ua{1, mid} = \SI{+9.68(1)}{\centi\meter}.
 \end{equation}
-berechnet. Neben den Ergebnissen ist jeweils eine mittlere Prozentuale Abweichung zwischen $V_1$ und $V_2$ in Tabelle \ref{}
-eingefügt.
+In Abbildung \ref{fig: methode_1} sind die Verbindungslinien der Punkte $(g\ua{i}, 0)-(0, b\ua{i})$ einzusehen. Als Schnittpunkt
+der Geraden, der der Brennweite $f\ua{1, exp}$ entspricht wurde folgender Wert abgelesen
+\begin{equation}
+  f\ua{1, exp} = \SI{+9.7(1)}{\centi\meter}.
+\end{equation}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{../Messdaten/plots/methode_1.pdf}
+  \caption{Darstellung der Verbindungsgeraden $(g\ua{i}, 0) - (0, b\ua{i})$ zur Bestimmung der Brennweite einer
+  Linse bekannter Brennweite $f = \SI{100}{\centi\meter}$.}
+  \label{fig: methode_1}
+\end{figure}
+\input{../Messdaten/tabs/methode_1.tex}
+
+\subsection{Bestimmung der Brennweite einer unbekannten Linse}
+Nach der selben Methode wie im vorangegangen Abschnitt wird die Brennweite einer unbekannten Linse bestimmt.
+Die aufgenommen Daten sind in Tabelle \ref{} eingefügt. Die Graphische Darstellung der Verbindungslinien ist
+in Abbildung \ref{fig: wasserlinse} einzusehen. Mit der Linsenformel ergibt sich durch Mittelung der Wert
+\begin{equation}
+  f\ua{u, mid} = \SI{+13.83(1)}{\centi\meter}
+\end{equation}
+Aus dem Graphen \ref{fig: wasserlinse} wird folgender Schnittpunkt abgelesen
+\begin{equation}
+  f\ua{u, exp} = \SI{14.1(1)}{\centi\meter}.
+\end{equation}
+\input{../Messdaten/tabs/wasserlinse.tex}
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.7\textwidth]{../Messdaten/plots/wasserlinse.pdf}
+  \caption{Darstellung der Verbindungsgeraden $(g\ua{i}, 0) - (0, b\ua{i})$ zur Bestimmung der Brennweite einer
+  Linse unbekannter Brennweite.}
+  \label{fig: wasserlinse}
+\end{figure}
+
+\subsection{Bestimmung der Brennweite nach der Methode von Bessel}
+Die gemessenen Werte für die beiden Punkte $(g_1, b_1)$ und $(g_2, b_2)$, bei denen unter konstantem Abstand
+zwischen Schirm und Gegenstand jeweils Bild und Gegenstandsweite
+vertauschen, sind in Tabelle \ref{tab: bessel} einzusehen. Mit Gleichung \eqref{} ergibt sich der Mittelwert für
+die Brennweite $f\ua{2, mid}$ zu
+\begin{equation}
+  f\ua{2, mid} = \SI{+9.90(1)}{\centi\meter}.
+\end{equation}
+\input{../Messdaten/tabs/bessel.tex}
