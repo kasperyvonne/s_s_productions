@@ -56,9 +56,49 @@ zwischen Schirm und Gegenstand jeweils Bild und Gegenstandsweite
 vertauschen, sind in Tabelle \ref{tab: bessel} einzusehen. Mit Gleichung \eqref{} ergibt sich der Mittelwert für
 die Brennweite $f\ua{2, mid}$ zu
 \begin{equation}
-  f\ua{2, mid} = \SI{+9.90(1)}{\centi\meter}.
+  f\ua{2, mid} = \SI{+9.90(1)}{\centi\meter}
+  \label{eq: f_bessel}
 \end{equation}
 \input{../Messdaten/tabs/bessel.tex}
-
+\subsection{Untersuchung der chromatisch Abberation}
+Ebenfalls nach der Methode von Bessel wird die Abhängigkeit der Lichtbrechung von der Wellenlänge bestimmt. Die aufgenommenen
+Daten sind in Tabelle \ref{tab: colors} eingetragen. Für rotes bzw. blaues Licht ($f\ua{r}$, $f\ua{b}$) berechnen sich gemäß \eqref{}
+folgende Brennweiten
+\begin{align}
+  f\ua{r} &= \SI{+9.98(2)}{\centi\meter} \label{eq: f_rot}\\
+  f\ua{b} &= \SI{+9.88(2)}{\centi\meter}. \label{eq: f_rot}
+\end{align}
 \input{../Messdaten/tabs/colors.tex}
+
+\subsection{Bestimmung der Brennweite und Lage der Hauptebenen einer Linsenanordnung}
+Neben den gemessenen Gegenstands- bzw. Bildweiten, sowie jeweiligen Bildgrößen sind in Tabelle \ref{tab: abbe} die
+berechneten Werte für $(1 + \frac{1}{V})$ und $(1 + V)$ einzusehen. Eine graphische Darstellung der Funktionen \eqref{}
+und \eqref{} befindet sich in den Abbildungen \ref{} und \ref{}. Für die Fitparameter der Funktion \eqref{} an die Daten
+berechnen sich
+\begin{align}
+  f\ua{a, 1} &= \SI{+16.2(3)}{\centi\meter} \\
+  h = \SI{-11.8(6)}{\centi\meter}.
+\end{align}
+Hierbei ist $f\ua{a, 1}$ die Steigung und $h$ der Ordinatenabschnitt.
+Diese entsprechen der Brennweite bzw. der relativen Lage der ersten Hauptebene. Analog ergeben sich für die Regression an
+die Funktion \ref{}
+\begin{align}
+  f\ua{a, 2} &= \SI{+15.5(6)}{\centi\meter} \\
+  h' &= \SI{+15(1)}{\centi\meter}.
+\end{align}
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.7\textwidth]{../Messdaten/plots/abbe_plot_b.pdf}
+  \caption{plot...}
+  \label{fig: abbe_b}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.7\textwidth]{../Messdaten/plots/abbe_plot_g.pdf}
+  \caption{plot...}
+  \label{fig: abbe_g}
+\end{figure}
+
 \input{../Messdaten/tabs/abbe.tex}
