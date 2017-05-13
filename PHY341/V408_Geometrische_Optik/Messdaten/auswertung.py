@@ -71,20 +71,26 @@ plt.xlim(1.5, 2.65)
 plt.legend(loc='best')
 plt.savefig('plots/abbe_plot_b.pdf')
 plt.clf()
+####THEORETISCHER WERT
+d = ufloat(6, 0.1)
+f_abbe_theo = 1 / (d / 100)
+r.app(r'f\ua{a, t}', Q_(f_abbe_theo, 'centimeter'))
 
 
 
 ######WASSERLINSE
 wasser_f = (1 / (1 / wasser_g + 1 / wasser_b) ).mean()
 r.app(r'f\ua{w}', Q_(wasser_f, 'centimeter'))
-plt.plot([wasser_g_raw[0], 0], [0, wasser_b_raw[0]], 'k-', label= 'Verbindungslinien der Wertepaare $(g_i, b_i)$')
+plt.plot([wasser_g_raw[0], 0], [0, wasser_b_raw[0]], 'k-', label= 'Verbindungslinien der Wertepaare $(g_i, b_i)$', linewidth = 0.8)
 for i in range(1, len(wasser_g_raw)):
-    plt.plot([wasser_g_raw[i], 0], [0,wasser_b_raw[i]], 'k-')
+    plt.plot([wasser_g_raw[i], 0], [0,wasser_b_raw[i]], 'k-', linewidth = 0.8)
 plt.grid()
 plt.xlim(0, 36)
 plt.ylim(0, 49)
-plt.axvline(x = 14.1, ls='-', color='r', label = 'Abgelesene Brennweite')
-plt.axvline(x = wasser_f.n, ls='--', color='b', label = 'Berechnete Brennweite')
+plt.axvline(x = 13.9, ls='-', color='r', label = 'Abgelesener Schnittpunkt $f_{u, exp}$', linewidth = 1)
+plt.axhline(y = 13.9, ls='-', color='r', linewidth= 1 )
+plt.xlabel('$g$ / cm')
+plt.ylabel('$b$ / cm')
 plt.legend(loc='best')
 plt.savefig('plots/wasserlinse.pdf')
 plt.clf()
@@ -93,11 +99,14 @@ plt.clf()
 ######PLOTS
 ######METHODE 1
 
-plt.plot([noms(method_1_g)[0], 0], [0,noms(method_1_b)[0]], 'k-', label= 'Verbindungslinien der Wertepaare $(g_i, b_i)$', linewidth=1)
+plt.plot([noms(method_1_g)[0], 0], [0,noms(method_1_b)[0]], 'k-', label= 'Verbindungslinien der Wertepaare $(g_i, b_i)$', linewidth=0.8)
 for i in range(1, 10):
-    plt.plot([noms(method_1_g)[i], 0], [0,noms(method_1_b)[i]], 'k-', linewidth=1)
+    plt.plot([noms(method_1_g)[i], 0], [0,noms(method_1_b)[i]], 'k-', linewidth=0.8)
 plt.grid()
-plt.axvline(x = brennweite_exp.n, ls='--', color='b', label = 'Abgelesene Brennweite', linewidth=1)
+plt.axvline(x = brennweite_exp.n, ls='-', color='r', label = 'Abgelesener Schnittpunkt $f_{1, exp}$', linewidth=1)
+plt.axhline(y = brennweite_exp.n, ls='-', color='r', linewidth= 1 )
+plt.xlabel('$g$ / cm')
+plt.ylabel('$b$ / cm')
 plt.xlim(0, 38)
 plt.ylim(0, 27)
 plt.legend(loc='best')
