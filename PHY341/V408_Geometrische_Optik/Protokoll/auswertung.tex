@@ -1,5 +1,5 @@
 \section{Auswertung}
-Für die gemessenen Strecken wurde jeweils ein Fehler von $\SI{1}{\milli\meter}$ angenommen.
+Für die gemessenen Strecken wurde jeweils ein Fehler von $\SI{1}{\milli\meter}$ angenommen. %Würde den Satz anders anfangen, zweimal für
 
 \subsection{Überprüfung der Linsen-/Abbildungsgleichung}
 Für die Messungen zur Verifizierung der Gleichungen \eqref{eq: abbildungsgesetz_gross} und \eqref{eq: linsengleichung} wird eine Linse
@@ -31,10 +31,10 @@ der Geraden, der der Brennweite $f\ua{1, exp}$ entspricht wurde folgender Wert a
 
 \subsection{Bestimmung der Brennweite einer unbekannten Linse}
 Nach der selben Methode wie im vorangegangen Abschnitt wird die Brennweite einer unbekannten Linse bestimmt.
-Die aufgenommen Daten sind in Tabelle \ref{tab: wasserlinse} eingefügt. Die graphische Darstellung der Verbindungslinien ist
+Die aufgenommen Daten sind in Tabelle \ref{tab: wasserlinse} eingefügt. Die graphische Darstellung der Verbindungslinien ist %aufgenommenen
 in Abbildung \ref{fig: wasserlinse} einzusehen. Mit der Linsenformel ergibt sich durch Mittelung der Wert
 \begin{equation}
-  f\ua{u, mid} = \SI{+13.83(1)}{\centi\meter}
+  f\ua{u, mid} = \SI{+13.83(1)}{\centi\meter} %.
 \end{equation}
 Aus dem Graphen \ref{fig: wasserlinse} wird folgender Schnittpunkt abgelesen
 \begin{equation}
@@ -55,7 +55,7 @@ zwischen Schirm und Gegenstand jeweils Bild und Gegenstandsweite
 vertauschen, sind in Tabelle \ref{tab: bessel} einzusehen. Mit Gleichung \eqref{eq: bessel_methode} ergibt sich der Mittelwert für
 die Brennweite $f\ua{2, mid}$ zu
 \begin{equation}
-  f\ua{2, mid} = \SI{+9.90(1)}{\centi\meter}
+  f\ua{2, mid} = \SI{+9.90(1)}{\centi\meter} %.
   \label{eq: f_bessel}
 \end{equation}
 \input{../Messdaten/tabs/bessel.tex}
@@ -71,22 +71,22 @@ folgende Brennweiten
 
 \subsection{Bestimmung der Brennweite und Lage der Hauptebenen einer Linsenanordnung}
 Neben den gemessenen Gegenstands- bzw. Bildweiten, sowie jeweiligen Bildgrößen sind in Tabelle \ref{tab: abbe} die
-berechneten Werte für $(1 + \frac{1}{V})$ und $(1 + V)$ einzusehen. Eine graphische Darstellung der Funktionen \eqref{eq: abstaende_abbe_g}
+berechneten Werte für $(1 + \frac{1}{V})$ und $(1 + V)$ einzusehen. Eine graphische Darstellung der Funktionen \eqref{eq: abstaende_abbe_g} %Kannst du noch vermerken das die weiten g' und b' von der Sammellinse asugemessen wurden
 und \eqref{eq: abstaende_abbe_b} befindet sich in den Abbildungen \ref{fig: abbe_g} und \ref{fig: abbe_b}. Für die Fitparameter der Funktion \eqref{fig: abbe_g} an die Daten
-$\left[ g\'\ua{i}, \left(1 + \frac{1}{V}\right)\ua{i}\right]$
+$\left[ g\'\ua{i}, \left(1 + \frac{1}{V}\right)\ua{i}\right]$ %guck dir hier nochmal die formatierung von g an
 berechnen sich
 \begin{align}
   f\ua{a, 1} &= \SI{+16.2(3)}{\centi\meter} \\
-  h = \SI{-11.8(6)}{\centi\meter}.
+  h = \SI{-11.8(6)}{\centi\meter}. %&
 \end{align}
 Hierbei ist $f\ua{a, 1}$ die Steigung und $h$ der Ordinatenabschnitt.
 Diese entsprechen der Brennweite bzw. der relativen Lage der ersten Hauptebene. Analog ergeben sich für die Regression der Wertepaare
-$\left[ b\'\ua{i}, \left(1 + V\right)\ua{i}\right]$ an die Funktion \ref{fig: abbe_b}
+$\left[ b\'\ua{i}, \left(1 + V\right)\ua{i}\right]$ an die Funktion \ref{fig: abbe_b} % selbe hier für b
 \begin{align}
   f\ua{a, 2} &= \SI{+15.5(6)}{\centi\meter} \\
   h' &= \SI{+15(1)}{\centi\meter}.
 \end{align}
-Mit den vom Hersteller angegebenen Brennweiten $f_{1, 2} = \SI{\pm10}{\centi\meter}$ und dem Abstand $d = \SI{6.0(1)}{\centi\meter}$ zwischen den Linsen ergibt sich
+Mit den vom Hersteller angegebenen Brennweiten $f_{1, 2} = \SI{\pm10}{\centi\meter}$ und dem Abstand $d = \SI{6.0(1)}{\centi\meter}$ zwischen den Linsen ergibt sich %dem
 durch Einsetzen in Gleichung \eqref{eq: gleichung_linsensystem} für die Brennweite der Anordnung
 \begin{equation}
   f\ua{a, t} = \SI{+16.7(3)}{\centi\meter}.
@@ -95,14 +95,14 @@ durch Einsetzen in Gleichung \eqref{eq: gleichung_linsensystem} für die Brennwe
 \begin{figure}
   \centering
   \includegraphics[width = 0.7\textwidth]{../Messdaten/plots/abbe_plot_b.pdf}
-  \caption{plot...}
+  \caption{plot...} %caption
   \label{fig: abbe_b}
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[width = 0.7\textwidth]{../Messdaten/plots/abbe_plot_g.pdf}
-  \caption{plot...}
+  \caption{plot...} %caption
   \label{fig: abbe_g}
 \end{figure}
 
