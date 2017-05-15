@@ -3,26 +3,28 @@
 In dem Versuch $V408$ soll die Brennweite unterschiedlicher Linsen und
 Linsensysteme untersucht werden.
 \section{Theorie}
-Für geometrische Optik werden \emph{Linsen} benötigt. %Klingt so als ob die geometrische Optik von Linsen abhängig ist. Schreib lieber unter welchen Bedingungen die geom. Optik Gültigkeit hat.
+Die geometrische Optik ist nur gültig und der Annahme, dass die Wellenlänge klein
+gegenüber der Apperaturabmessung ist. Das Licht wird nicht als Welle, sondern als
+Gerade betrachtet.  %Klingt so als ob die geometrische Optik von Linsen abhängig ist. Schreib lieber unter welchen Bedingungen die geom. Optik Gültigkeit hat.
 Eine Linse besitzt im Vergleich zum Umgebungsmedium einen anderen Brechungsindex $n$.
 Das bedeutet, dass das Licht nach dem Brechungsgesetz
 \begin{equation*}
   n_1\sin(\alpha)=n_2\sin(\beta)
 \end{equation*}
-beim erreichen und verlassen der Linse gebrochen wird. %Erreichen, Verlassen
+beim Erreichen und Verlassen der Linse gebrochen wird. %Erreichen, Verlassen
 
-Eine Linse kann weiter in \emph{Sammellinsen} und \emph{Zerstreungslinsen} %nicht eine Linse, Zerstreuungslinsen
-eingeteilt werden. Als Sammellinse bezeichnet man die Linsen, die zum Linsenrand %man
+Linsen können weiter in \emph{Sammellinsen} und \emph{Zerstreuungslinsen} %nicht eine Linse, Zerstreuungslinsen
+eingeteilt werden. Als Sammellinse werden die Linsen bezeichnet, die zum Linsenrand %man
 dünner werden (vgl. Abbildung \ref{fig: sammellinse}) und dadurch das Licht in einem Punkt, als \emph{Brennpunkt} $f$ bezeichnet,
 bündelt.
-Bei einer Sammellinse sind Brennpunkt (alias \emph{Brennweite}) %-alias
+Bei einer Sammellinse sind Brennpunkt (\emph{Brennweite}) %-alias
 und Bildweite $b$ (Abstand des Bildes zur Linse) positiv und es ergibt sich ein
 \emph{reelles} Bild. Ein Bild wird genau dann als reell bezeichnet, wenn
 ein Schirm es sichtbar macht.
 Hingegen wird eine Zerstreuungslinse nach außen hin dicker (vgl. Abb. \ref{fig: zerstreungslinse}) und
 defokusiert das Licht. Desweiteren sind Bildweite und Brennweite negativ.
-Bei beiden Linsentypen lässt sich die Berechnung von Abbildung auf die Mittelebene %wie kann sich eine Berechnung auf eine Ebene reduzieren?
-der jeweiligen Linsen reduzieren.
+Bei beiden Linsentypen werden Bild- und Gegenstandweite immer von der Mittelebene
+aus angegeben.
 
 Dem ist bei \emph{dicken Linsen} (vgl. Abb. \ref{fig: dicke_linse}) nicht so.
 Bei diesen werden zwei Hauptebenen ($H$ und $H'$) eingeführt. Der einlaufende Strahl
@@ -58,12 +60,12 @@ Der Parallelstrahl verläuft parallel zur optischen Achse und wird in der Haupte
 zum Brennpunkt gebrochen. Der Mittelpunktstrahl verläuft vom Gegenstand mittig durch die
 Linse. Zunächst läuft der Brennpunktstrahl durch den Brennpunkt der Linse, wird dann
 an der Hauptebene gebrochen und verläuft dann parallel zur optischen Achse.
-Aus der Bildkonstruktion erhält man das \emph{Abbildungsgesetz} %man
+Aus der Bildkonstruktion folgt das \emph{Abbildungsgesetz} %man
 \begin{align}
   V_1&=\frac{B}{G} \label{eq: abbildungsgesetz_gross} \\
   V_2&=\frac{b}{g} \label{eq: abbildungsgesetz_klein}.
 \end{align}
-Hierbei beschreibt $V$ den Abbildungsmaßstab, $B$ die Bildgröße, $G$ die Gegenstandsgröße
+Hierbei beschreibt $V$ den Abbildungsmaßstab, $B$ die Bildgröße, Bildweite $b$, $G$ die Gegenstandsgröße
 und $g$ die Gegenstandsweite. %was ist mit b?
 
 Aus Gleichung \eqref{eq: abbildungsgesetz_gross} bzw. \eqref{eq: abbildungsgesetz_klein}
@@ -74,7 +76,7 @@ kann die Linsengleichung für dünne Linsen abgeleitet werden:
 \end{equation}
 
 Wie oben erwähnt werden bei dicken Linsen zwei Hauptebenen verwendet, um das Brechverhalten
-zu beschreiben. Dieses Verfahren wir zusätzlich auch bei Linsensystem (vgl. Abbildung \ref{fig: linsensystem}) verwendet. %wird, systemen
+zu beschreiben. Dieses Verfahren wird zusätzlich auch bei Linsensystemen (vgl. Abbildung \ref{fig: linsensystem}) verwendet. %wird, systemen
 Um die Brennweite eines Linsensystems zu bestimmen, kann folgende Gleichung verwendet werden:
 \begin{equation}
   \label{eq: gleichung_linsensystem}
@@ -89,9 +91,12 @@ gilt es nur für achsennahe Strahlen. Bei achsenfernen Strahlen wird das Licht s
 gebrochen und es können \emph{Abbildungsfehler}, z.\,B. nicht mehr scharfes Abbilden eines Bildes,
 auftreten. Solche Fehler treten bei \emph{spährischer} und \emph{chromatischen} Abberration auf.
 Bei der sphärischen Abberration liegt der Brennweite von achsenfernen Strahlen näher zur
-Mittelebene als bei achsennahen Strahlen. Die chromatische Abberration bezeichnet die
-wellenlängeabhängige Brechung. Denn der Brennpunkt liegt bei blauem Licht näher als %wellenlängenabhängige, klingt unschön
-bei rotem Licht. Man spricht hier allgemein von Dispersion. %man
+Mittelebene als bei achsennahen Strahlen.
+Ist die Lichtbrechung Abhängig von der Frequenz,
+wird von der chromatische Abberration gesprochen.
+Der Brennpunkt von blauem Licht liegt näher an der Mittelebene, als %wellenlängenabhängige, klingt unschön
+bei rotem Licht. In der Optik wird dieses als Dispersion bezeichnet.
+ %man
 
 Eine weitere wichtige optische Größe ist die \emph{Brechkraft}
 \begin{equation}
@@ -99,8 +104,8 @@ Eine weitere wichtige optische Größe ist die \emph{Brechkraft}
   D=\frac{1}{f}
 \end{equation}
 mit der Einheit Dioptrie $\map{dpt}=\si{\per \meter}$.
-Bei einem Linsensystem, bestehend aus mehreren dünnen Linsen, erhält man die gesamte %man
-Brechkraft $D\ua{G}$ mittels Summation der einzelnen Brechkräften %Brecchkräft
+Bei einem Linsensystem, bestehend aus mehreren dünnen Linsen, die gesamte %man
+Brechkraft $D\ua{G}$ ergibt sich aus Summation der einzelnen Brechkräfte %Brecchkräft
 \begin{equation*}
   D\ua{G}=\sum_{i=1}^{N}D_i \qquad N\in\mathbb{N}.
 \end{equation*}
