@@ -1,7 +1,9 @@
 \section{Auswertung}
-
+Die in der Auswertung bestimmten Ausgleichsrechnungen werden mit
+dem Python Paket \emph{scipy.optimize}\cite{scipy} durchgeführt.
+Des Weiteren werden die Fehler und insbesondere die Fehlerfortpflanzungen
+mit dem Python Paket \emph{uncertainties}\cite{uncertainties} berechnet.
 Den gemessenen Strecken wurde jeweils ein Fehler von $\SI{1}{\milli\meter}$ zugeordnet. %Würde den Satz anders anfangen, zweimal für
-
 \subsection{Überprüfung der Linsen-/Abbildungsgleichung}
 Für die Messungen zur Verifizierung der Gleichungen \eqref{eq: abbildungsgesetz_gross} und \eqref{eq: linsengleichung} wird eine Linse
 der bekannten Brennweite
@@ -23,13 +25,12 @@ der Geraden, der der Brennweite $f\ua{1, exp}$ entspricht wurde folgender Wert a
 \end{equation}
 \begin{figure}
   \centering
-  \includegraphics[width=0.7\textwidth]{../Messdaten/plots/methode_1.pdf}
+  \includegraphics[width=0.8\textwidth]{../Messdaten/plots/methode_1.pdf}
   \caption{Darstellung der Verbindungsgeraden $(g\ua{i}, 0) - (0, b\ua{i})$ zur Bestimmung der Brennweite einer
   Linse bekannter Brennweite $f = \SI{10}{\centi\meter}$.}
   \label{fig: methode_1}
 \end{figure}
 \input{../Messdaten/tabs/methode_1.tex}
-
 \subsection{Bestimmung der Brennweite einer unbekannten Linse}
 Nach der selben Methode wie im vorangegangen Abschnitt wird die Brennweite einer unbekannten Linse bestimmt.
 Die aufgenommenen Daten sind in Tabelle \ref{tab: wasserlinse} eingefügt. Die graphische Darstellung der Verbindungslinien ist %aufgenommenen
@@ -49,7 +50,6 @@ Aus dem Graphen \ref{fig: wasserlinse} wird folgender Schnittpunkt abgelesen
   Linse unbekannter Brennweite.}
   \label{fig: wasserlinse}
 \end{figure}
-
 \subsection{Bestimmung der Brennweite nach der Methode von Bessel}
 Die gemessenen Werte für die beiden Punkte $(g_1, b_1)$ und $(g_2, b_2)$, bei denen unter konstantem Abstand
 zwischen Schirm und Gegenstand jeweils Bild und Gegenstandsweite
@@ -69,7 +69,6 @@ folgende Brennweiten
   f\ua{b} &= \SI{+9.88(2)}{\centi\meter}. \label{eq: f_rot}
 \end{align}
 \input{../Messdaten/tabs/colors.tex}
-
 \subsection{Bestimmung der Brennweite und Lage der Hauptebenen einer Linsenanordnung}
 Neben den gemessenen Gegenstands- bzw. Bildweiten, sowie Bildgrößen sind in Tabelle \ref{tab: abbe} die
 berechneten Werte für $(1 + \frac{1}{V})$ und $(1 + V)$ einzusehen. Die Entfernungen $b\'$ und $g\'$ sind relativ
@@ -93,19 +92,16 @@ durch Einsetzen in Gleichung \eqref{eq: gleichung_linsensystem} für die Brennwe
 \begin{equation}
   f\ua{a, t} = \SI{+16.7(3)}{\centi\meter}.
 \end{equation}
-
 \begin{figure}
   \centering
-  \includegraphics[width = \textwidth]{../Messdaten/plots/abbe_plot_b.pdf}
+  \includegraphics[width = 0.8\textwidth]{../Messdaten/plots/abbe_plot_b.pdf}
   \caption{Graphische Darstellung zur Untersuchung des Zusammenhangs \eqref{eq: abstaende_abbe_b}.}
   \label{fig: abbe_b}
 \end{figure}
-
 \begin{figure}
   \centering
-  \includegraphics[width = \textwidth]{../Messdaten/plots/abbe_plot_g.pdf}
+  \includegraphics[width = 0.8\textwidth]{../Messdaten/plots/abbe_plot_g.pdf}
   \caption{Graphische Darstellung zur Untersuchung des Zusammenhangs \eqref{eq: abstaende_abbe_g}.} %caption
   \label{fig: abbe_g}
 \end{figure}
-
 \input{../Messdaten/tabs/abbe.tex}
