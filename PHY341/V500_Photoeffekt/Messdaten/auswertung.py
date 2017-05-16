@@ -7,6 +7,9 @@ import matplotlib.pyplot as plt
 from pint import UnitRegistry
 import latex as l
 import result
+from scipy.constants import *
+elektronvolt = e
+print(elektronvolt)
 #import pandas as pd
 r = result.Results()
 u = UnitRegistry()
@@ -143,19 +146,56 @@ caption = 'Gemessener Photostrom beim zweiten ultravioletten licht', label = 'uv
 #'{Bremsspannung $U$ in $\si{\volt}$} & {Photostrom $I\ua{p}$ in $\si{\nano\ampere}$} & {Photostrom $\sqrt{I\ua{p}}$ in $\sqrt{\si{\nano\ampere}}$}', [3, 2, 2]
 
 
+
+####Tabelle mit den Messergebnissen
+
+steigungen=[unp.nominal_values(result_gelb['Steigung_u'].magnitude),unp.nominal_values(result_gruen['Steigung_u'].magnitude),unp.nominal_values(result_gruen_blau['Steigung_u'].magnitude),unp.nominal_values(result_violett['Steigung_u'].magnitude),unp.nominal_values(result_gelb['Steigung_u'].magnitude),unp.nominal_values(result_uv_2['Steigung_u'].magnitude)]
+steigungen_fehler=[unp.std_devs(result_gelb['Steigung_u'].magnitude),unp.std_devs(result_gruen['Steigung_u'].magnitude),unp.std_devs(result_gruen_blau['Steigung_u'].magnitude),unp.std_devs(result_violett['Steigung_u'].magnitude),unp.std_devs(result_gelb['Steigung_u'].magnitude),unp.std_devs(result_uv_2['Steigung_u'].magnitude)]
+
+
+y_abschnitt=[unp.nominal_values(result_gelb['y-achse_u'].magnitude),unp.nominal_values(result_gruen['y-achse_u'].magnitude),unp.nominal_values(result_gruen_blau['y-achse_u'].magnitude),unp.nominal_values(result_violett['y-achse_u'].magnitude),unp.nominal_values(result_gelb['y-achse_u'].magnitude),unp.nominal_values(result_uv_2['y-achse_u'].magnitude)]
+y_abschnitt_fehler=[unp.std_devs(result_gelb['y-achse_u'].magnitude),unp.std_devs(result_gruen['y-achse_u'].magnitude),unp.std_devs(result_gruen_blau['y-achse_u'].magnitude),unp.std_devs(result_violett['y-achse_u'].magnitude),unp.std_devs(result_gelb['y-achse_u'].magnitude),unp.std_devs(result_uv_2['y-achse_u'].magnitude)]
+
+spannungen=[result_gelb['Grenzspannung2'],result_gruen['Grenzspannung2'],result_gruen_blau['Grenzspannung2'],result_violett['Grenzspannung2'],result_uv['Grenzspannung2'],result_uv_2['Grenzspannung2']]
+spannungen_fehler=[unp.std_devs(result_gelb['Grenzspannung'].magnitude),unp.std_devs(result_gruen['Grenzspannung'].magnitude),unp.std_devs(result_gruen_blau['Grenzspannung'].magnitude),unp.std_devs(result_violett['Grenzspannung'].magnitude),unp.std_devs(result_gelb['Grenzspannung'].magnitude),unp.std_devs(result_uv_2['Grenzspannung'].magnitude)]
+print(spannungen_fehler)
+
+
+#l.Latexdocument('ergebnisse_kompakt.tex').tabular([steigungen, steigungen_fehler,y_abschnitt,y_abschnitt_fehler,spannungen,spannungen_fehler],
+#'Jo', [1, 1,1 ,1,1,1] ,
+#caption = 'Messergebnisse für die verschiedenen Wellenlängen', label = 'messergebnisse')
+
+
+
+
 ## wellenlänge Gegenspannung
 
 wellenlaenge=np.array([577*1e-9,546*1e-9,492*1e-9,434*1e-9,365*1e-9,366*1e-9])
 c=float(299792458)
 frequenz=c/wellenlaenge
 spannungen=[result_gelb['Grenzspannung2'],result_gruen['Grenzspannung2'],result_gruen_blau['Grenzspannung2'],result_violett['Grenzspannung2'],result_uv['Grenzspannung2'],result_uv_2['Grenzspannung2']]
+
+def g(m,x,b):
+	return m*x+b
+
+parms, cov = curve_fit(g,frequenz,spannungen)
+error= np.sqrt(np.diag(cov))
+m_u=Q_(ufloat(parms[0],error[0]),'joule second / coulomb')
+b_u=Q_(ufloat(parms[1],error[1]), 'volt / coulomb')
+
+
 plt.clf()
 plt.grid()
+lauf=np.linspace(frequenz[0]-1e14,frequenz[-1]+1.5e14,1000)
+plt.xlim(0.4*1e15,0.9*1e15)
+plt.ylim(0,2)
 plt.plot(frequenz,spannungen,'rx', label=r'$\mathrm{Bestimmte} \, \mathrm{Gegenspannung}}$')
+plt.plot(lauf,g(parms[0],lauf,parms[1]),'b-', label=r'$\mathrm{Regressionsgerade}$')
+plt.legend(loc='best')
 plt.xlabel(r'$\mathrm{f}\,\mathrm{in} \, \mathrm{s}^{-1}$')
 plt.ylabel(r'$U_{\mathrm{G}} \, \mathrm{in} \, \mathrm{V}$')
-plt.show()
-
+plt.savefig('wellenlaenge_gegen.pdf')
+#plt.show()
 
 #print(spannungen)
 
