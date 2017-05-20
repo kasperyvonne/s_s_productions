@@ -42,7 +42,17 @@ plt.plot(u_gelb,i_gelb,'yx',label='Gelbes Licht')
 plt.grid()
 plt.legend(loc='best')
 plt.xlabel(r'$\mathrm{Spannung} \, \mathrm{in} \, \mathrm{V}$')
-plt.ylabel(r'$\mathrm{Photostrom} \, \, \mathrm{in} \, \, \mathrm{nA}$')
+plt.ylabel(r'$\mathrm{Photostrom}  \, \, \mathrm{in} \, \, \mathrm{nA}$')
+
+plt.axes([0.487	,0.15, 0.32,0.32])
+plt.xlim(-0.35,0.01)
+plt.ylim(-0.0025,0.16)
+plt.plot(u_gelb[20:-1],i_gelb[20:-1],'yx', label=r'$Gelbes Licht - Messpunkt$')
+plt.xticks([0, -0.1 , -0.2, -0.3], ['0', '-0.1', '-0.2', '-0.3'])
+plt.yticks([0, 0.02 , 0.04 , 0.06,0.08, 0.1, 0.12, 0.14 ], ['0', '0.02', '0.04','0.06', '0.08' , '0.1', '0.12', '0.14'])
+
+plt.title(r'$\mathrm{Vergrößerung \,für \, negative \, Spannungen}$')
+plt.grid()
 #plt.show()
 plt.savefig('gelb.pdf')
 
@@ -75,14 +85,24 @@ def auswertung(spannungen, stromstaerke,name, plus_x, minus_x, plus_y):
 	plt.plot(variabel,g(parms[0],variabel,parms[1]),'b-',label=r'$\mathrm{Regressionsgerade}$ ')
 	plt.grid()
 	plt.legend(loc='best')
-	plt.xlabel(r'$\mathrm{Spannung} \, \mathrm{in} \, \mathrm{V}$')
+	plt.xlabel(r'$\mathrm{Bremsspannung} \, \mathrm{in} \, \mathrm{V}$')
 	plt.ylabel(r'$\sqrt{I_{\mathrm{p}}} \, \, \mathrm{in} \, \, \sqrt{\mathrm{nA}}$')
 	#plt.show()
 	plt.savefig( name +'.pdf')
 	return messwerte
 
 
-result_gelb=auswertung((-1)*u_gelb_brems,i_gelb_brems,'gelbem',0.08,0.01,0.1)
+###Gelb
+
+result_gelb=auswertung(u_gelb_brems,i_gelb_brems,'gelbem',0.08,0.01,0.1)
+
+l.Latexdocument('gelb.tex').tabular([(-1)*u_gelb_brems.magnitude, i_gelb_brems.magnitude, np.sqrt(i_gelb_brems.magnitude)],
+'{Bremsspannung $U$ in $\si{\\volt}$} & {Photostrom $I_{\map{p}}$ in $\si{\\nano\\ampere}$} & {Photostrom $\sqrt{I_{\map{p}}}$ in $\sqrt{\si{\\nano\\ampere}}$}', [3, 2, 2] ,
+caption = 'Gemessener Photostrom bei gelbem Licht', label = 'gelb')
+
+l.Latexdocument('gelb_all.tex').tabular([u_gelb.magnitude, i_gelb.magnitude],
+'{Spanung $U$ in $\si{\\volt}$} & {Photostrom $I_{\map{p}}$ in $\si{\\nano\\ampere}$}', [3, 2] ,
+caption = 'Gemessener Photostrom bei gelbem Licht', label = 'gelb_all')
 
 ### grün
 u_gruen, i_gruen = np.genfromtxt('grün.txt', unpack=True)
@@ -91,7 +111,7 @@ i_gruen=Q_(i_gruen,' nanoampere')
 result_gruen=auswertung(u_gruen,i_gruen,'grünem',  0.05,0.01,0.1)
 
 l.Latexdocument('grün.tex').tabular([u_gruen.magnitude, i_gruen.magnitude, np.sqrt(i_gruen.magnitude)],
-'Jo', [3, 2, 2] ,
+'{Bremsspannung $U$ in $\si{\\volt}$} & {Photostrom $I_{\map{p}}$ in $\si{\\nano\\ampere}$} & {Photostrom $\sqrt{I_{\map{p}}}$ in $\sqrt{\si{\\nano\\ampere}}$}', [3, 2, 2] ,
 caption = 'Gemessener Photostrom bei grünem licht', label = 'gruen')
 #'{Bremsspannung $U$ in $\si{\volt}$} & {Photostrom $I\ua{p}$ in $\si{\nano\ampere}$} & {Photostrom $\sqrt{I\ua{p}}$ in $\sqrt{\si{\nano\ampere}}$}', [3, 2, 2] ,
 
@@ -106,7 +126,7 @@ i_gb=Q_(i_gb,' nanoampere')
 result_gruen_blau=auswertung(u_gb,i_gb,'grün-blauem', 0.06,0.01,0.01)
 
 l.Latexdocument('grün_blau.tex').tabular([u_gb.magnitude, i_gb.magnitude, np.sqrt(i_gb.magnitude)],
-'Jo', [3, 2, 2] ,
+'{Bremsspannung $U$ in $\si{\\volt}$} & {Photostrom $I_{\map{p}}$ in $\si{\\nano\\ampere}$} & {Photostrom $\sqrt{I_{\map{p}}}$ in $\sqrt{\si{\\nano\\ampere}}$}', [3, 2, 2] ,
 caption = 'Gemessener Photostrom bei grün-blauem licht', label = 'gb')
 #'{Bremsspannung $U$ in $\si{\volt}$} & {Photostrom $I\ua{p}$ in $\si{\nano\ampere}$} & {Photostrom $\sqrt{I\ua{p}}$ in $\sqrt{\si{\nano\ampere}}$}', [3, 2, 2] ,
 
@@ -118,7 +138,7 @@ i_violett=Q_(i_violett,' nanoampere')
 result_violett=auswertung(u_violett,i_violett,'violettem', 0.05,0.1,0.1)
 
 l.Latexdocument('violett.tex').tabular([u_violett.magnitude, i_violett.magnitude, np.sqrt(i_violett.magnitude)],
-'Jo', [3, 2, 2] ,
+'{Bremsspannung $U$ in $\si{\\volt}$} & {Photostrom $I_{\map{p}}$ in $\si{\\nano\\ampere}$} & {Photostrom $\sqrt{I_{\map{p}}}$ in $\sqrt{\si{\\nano\\ampere}}$}', [3, 2, 2] ,
 caption = 'Gemessener Photostrom bei violettem licht', label = 'violett')
 #'{Bremsspannung $U$ in $\si{\volt}$} & {Photostrom $I\ua{p}$ in $\si{\nano\ampere}$} & {Photostrom $\sqrt{I\ua{p}}$ in $\sqrt{\si{\nano\ampere}}$}', [3, 2, 2] ,
 
@@ -130,7 +150,7 @@ i_uv1=Q_(i_uv1,' nanoampere')
 result_uv=auswertung(u_uv1,i_uv1,' UV 1 ', 0.2,0.1,0.1)
 
 l.Latexdocument('uv_1.tex').tabular([u_uv1.magnitude, i_uv1.magnitude, np.sqrt(i_uv1.magnitude)],
-'Jo', [3, 2, 2] ,
+'{Bremsspannung $U$ in $\si{\\volt}$} & {Photostrom $I_{\map{p}}$ in $\si{\\nano\\ampere}$} & {Photostrom $\sqrt{I_{\map{p}}}$ in $\sqrt{\si{\\nano\\ampere}}$}', [3, 2, 2] ,
 caption = 'Gemessener Photostrom beim ersten ultravioletten licht', label = 'uv_eins')
 #'{Bremsspannung $U$ in $\si{\volt}$} & {Photostrom $I\ua{p}$ in $\si{\nano\ampere}$} & {Photostrom $\sqrt{I\ua{p}}$ in $\sqrt{\si{\nano\ampere}}$}', [3, 2, 2] ,
 
@@ -141,7 +161,7 @@ u_uv2=Q_(u_uv2,'volt')
 i_uv2=Q_(i_uv2,' nanoampere')
 result_uv_2=auswertung(u_uv2,i_uv2,' UV 2 ', 0.2,0.1,0.1)
 l.Latexdocument('uv_2.tex').tabular([u_uv2.magnitude, i_uv2.magnitude, np.sqrt(i_uv2.magnitude)],
-'Jo', [3, 2, 2] ,
+'{Bremsspannung $U$ in $\si{\\volt}$} & {Photostrom $I_{\map{p}}$ in $\si{\\nano\\ampere}$} & {Photostrom $\sqrt{I_{\map{p}}}$ in $\sqrt{\si{\\nano\\ampere}}$}' 	, [3, 2, 2] ,
 caption = 'Gemessener Photostrom beim zweiten ultravioletten licht', label = 'uv_zwei')
 #'{Bremsspannung $U$ in $\si{\volt}$} & {Photostrom $I\ua{p}$ in $\si{\nano\ampere}$} & {Photostrom $\sqrt{I\ua{p}}$ in $\sqrt{\si{\nano\ampere}}$}', [3, 2, 2]
 
@@ -149,21 +169,20 @@ caption = 'Gemessener Photostrom beim zweiten ultravioletten licht', label = 'uv
 
 ####Tabelle mit den Messergebnissen
 
-steigungen=[unp.nominal_values(result_gelb['Steigung_u'].magnitude),unp.nominal_values(result_gruen['Steigung_u'].magnitude),unp.nominal_values(result_gruen_blau['Steigung_u'].magnitude),unp.nominal_values(result_violett['Steigung_u'].magnitude),unp.nominal_values(result_gelb['Steigung_u'].magnitude),unp.nominal_values(result_uv_2['Steigung_u'].magnitude)]
-steigungen_fehler=[unp.std_devs(result_gelb['Steigung_u'].magnitude),unp.std_devs(result_gruen['Steigung_u'].magnitude),unp.std_devs(result_gruen_blau['Steigung_u'].magnitude),unp.std_devs(result_violett['Steigung_u'].magnitude),unp.std_devs(result_gelb['Steigung_u'].magnitude),unp.std_devs(result_uv_2['Steigung_u'].magnitude)]
+steigungen=[float(unp.nominal_values(result_gelb['Steigung_u'].magnitude)),float(unp.nominal_values(result_gruen['Steigung_u'].magnitude)),float(unp.nominal_values(result_gruen_blau['Steigung_u'].magnitude)),float(unp.nominal_values(result_violett['Steigung_u'].magnitude)),float(unp.nominal_values(result_gelb['Steigung_u'].magnitude)),float(unp.nominal_values(result_uv_2['Steigung_u'].magnitude))]
+steigungen_fehler=[float(unp.std_devs(result_gelb['Steigung_u'].magnitude)),float(unp.std_devs(result_gruen['Steigung_u'].magnitude)),float(unp.std_devs(result_gruen_blau['Steigung_u'].magnitude)),float(unp.std_devs(result_violett['Steigung_u'].magnitude)),float(unp.std_devs(result_gelb['Steigung_u'].magnitude)),float(unp.std_devs(result_uv_2['Steigung_u'].magnitude))]
 
 
-y_abschnitt=[unp.nominal_values(result_gelb['y-achse_u'].magnitude),unp.nominal_values(result_gruen['y-achse_u'].magnitude),unp.nominal_values(result_gruen_blau['y-achse_u'].magnitude),unp.nominal_values(result_violett['y-achse_u'].magnitude),unp.nominal_values(result_gelb['y-achse_u'].magnitude),unp.nominal_values(result_uv_2['y-achse_u'].magnitude)]
-y_abschnitt_fehler=[unp.std_devs(result_gelb['y-achse_u'].magnitude),unp.std_devs(result_gruen['y-achse_u'].magnitude),unp.std_devs(result_gruen_blau['y-achse_u'].magnitude),unp.std_devs(result_violett['y-achse_u'].magnitude),unp.std_devs(result_gelb['y-achse_u'].magnitude),unp.std_devs(result_uv_2['y-achse_u'].magnitude)]
+y_abschnitt=[float(unp.nominal_values(result_gelb['y-achse_u'].magnitude)),float(unp.nominal_values(result_gruen['y-achse_u'].magnitude)),float(unp.nominal_values(result_gruen_blau['y-achse_u'].magnitude)),float(unp.nominal_values(result_violett['y-achse_u'].magnitude)),float(unp.nominal_values(result_gelb['y-achse_u'].magnitude)),float(unp.nominal_values(result_uv_2['y-achse_u'].magnitude))]
+y_abschnitt_fehler=[float(unp.std_devs(result_gelb['y-achse_u'].magnitude)),float(unp.std_devs(result_gruen['y-achse_u'].magnitude)),float(unp.std_devs(result_gruen_blau['y-achse_u'].magnitude)),float(unp.std_devs(result_violett['y-achse_u'].magnitude)),float(unp.std_devs(result_gelb['y-achse_u'].magnitude)),float(unp.std_devs(result_uv_2['y-achse_u'].magnitude))]
 
-spannungen=[result_gelb['Grenzspannung2'],result_gruen['Grenzspannung2'],result_gruen_blau['Grenzspannung2'],result_violett['Grenzspannung2'],result_uv['Grenzspannung2'],result_uv_2['Grenzspannung2']]
-spannungen_fehler=[unp.std_devs(result_gelb['Grenzspannung'].magnitude),unp.std_devs(result_gruen['Grenzspannung'].magnitude),unp.std_devs(result_gruen_blau['Grenzspannung'].magnitude),unp.std_devs(result_violett['Grenzspannung'].magnitude),unp.std_devs(result_gelb['Grenzspannung'].magnitude),unp.std_devs(result_uv_2['Grenzspannung'].magnitude)]
-print(spannungen_fehler)
+spannungen=[float(result_gelb['Grenzspannung2']),float(result_gruen['Grenzspannung2']),float(result_gruen_blau['Grenzspannung2']),float(result_violett['Grenzspannung2']),float(result_uv['Grenzspannung2']),float(result_uv_2['Grenzspannung2'])]
+spannungen_fehler=[float(unp.std_devs(result_gelb['Grenzspannung'].magnitude)),float(unp.std_devs(result_gruen['Grenzspannung'].magnitude)),float(unp.std_devs(result_gruen_blau['Grenzspannung'].magnitude)),float(unp.std_devs(result_violett['Grenzspannung'].magnitude)),float(unp.std_devs(result_gelb['Grenzspannung'].magnitude)),float(unp.std_devs(result_uv_2['Grenzspannung'].magnitude))]
 
 
-#l.Latexdocument('ergebnisse_kompakt.tex').tabular([steigungen, steigungen_fehler,y_abschnitt,y_abschnitt_fehler,spannungen,spannungen_fehler],
-#'Jo', [1, 1,1 ,1,1,1] ,
-#caption = 'Messergebnisse für die verschiedenen Wellenlängen', label = 'messergebnisse')
+l.Latexdocument('ergebnisse_kompakt.tex').tabular([steigungen, steigungen_fehler,y_abschnitt,y_abschnitt_fehler,spannungen,spannungen_fehler],
+'{Farbe} & {$m$ in $\si{\\ampere\per\\volt}$} & { $\sigma_{\map{m}}$ in $\si{\\ampere\per\\volt}$ } & { $b$ in $\si{\\ampere}$} & { $\sigma_{\map{b}}$ in $\si{\\ampere}$} & {$U_{\map{g}}$ in $\si{\\volt}$ } & { $\sigma_{U_{\map{g}}}$ in $\si{\\volt}$ }   ', [2, 2,2 ,2,2,2] ,
+caption = 'Messergebnisse für die verschiedenen Wellenlängen', label = 'messergebnisse')
 
 
 
@@ -173,7 +192,12 @@ print(spannungen_fehler)
 wellenlaenge=np.array([577*1e-9,546*1e-9,492*1e-9,434*1e-9,365*1e-9,366*1e-9])
 c=float(299792458)
 frequenz=c/wellenlaenge
-spannungen=[result_gelb['Grenzspannung2'],result_gruen['Grenzspannung2'],result_gruen_blau['Grenzspannung2'],result_violett['Grenzspannung2'],result_uv['Grenzspannung2'],result_uv_2['Grenzspannung2']]
+spannungen=[(-1)*result_gelb['Grenzspannung2'],result_gruen['Grenzspannung2'],result_gruen_blau['Grenzspannung2'],result_violett['Grenzspannung2'],result_uv['Grenzspannung2'],result_uv_2['Grenzspannung2']]
+
+l.Latexdocument('wellen.tex').tabular([wellenlaenge*1e9, frequenz*1e-12],
+'{Farbe} & {$\lambda$ in \si{\\nano\\meter}} & { $f$ in $\si{\THz}$}', [1,1] ,
+caption = 'Untersuchtes Lichtspektrum der $\map{HG}$-Lampe ', label = 'wellen')
+
 
 def g(m,x,b):
 	return m*x+b
@@ -182,17 +206,19 @@ parms, cov = curve_fit(g,frequenz,spannungen)
 error= np.sqrt(np.diag(cov))
 m_u=Q_(ufloat(parms[0],error[0]),'joule second / coulomb')
 b_u=Q_(ufloat(parms[1],error[1]), 'volt / coulomb')
+print('h durch e', m_u)
+print('Austrittsarbeit', b_u*e)
 
 
 plt.clf()
 plt.grid()
 lauf=np.linspace(frequenz[0]-1e14,frequenz[-1]+1.5e14,1000)
-plt.xlim(0.4*1e15,0.9*1e15)
+plt.xlim(0.5*1e15,0.85*1e15)
 plt.ylim(0,2)
 plt.plot(frequenz,spannungen,'rx', label=r'$\mathrm{Bestimmte} \, \mathrm{Gegenspannung}}$')
 plt.plot(lauf,g(parms[0],lauf,parms[1]),'b-', label=r'$\mathrm{Regressionsgerade}$')
 plt.legend(loc='best')
-plt.xlabel(r'$\mathrm{f}\,\mathrm{in} \, \mathrm{s}^{-1}$')
+plt.xlabel(r'$\mathrm{f}\,\mathrm{in} \, \mathrm{Hz}$')
 plt.ylabel(r'$U_{\mathrm{G}} \, \mathrm{in} \, \mathrm{V}$')
 plt.savefig('wellenlaenge_gegen.pdf')
 #plt.show()

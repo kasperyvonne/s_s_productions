@@ -1,1 +1,131 @@
 \section{Auswertung}
+
+Die im Folgenden durchgeführten Regressionsrechnung werden mit dem
+Python Paket \emph{scipy.optimize}\cite{scipy} durchgeführt.
+
+\subsection{Untersuchung der Gegenspannunng für verschieden farbiges Licht}
+Die Bremsspannung wird für sechs verschiedene Farben untersucht, es wird
+\emph{gelbes}, \emph{grünes}, \emph{blau-grünes}, \emph{violettes} und zwei \emph{ultaviolettes 1}
+Lichter untersucht. Erzeugt wird das Licht mit Hifle einer $\map{Hg}$-Lampe.
+Die Messwerte sind in den Tabellen \ref{tab: gelb} - \ref{tab:uv_1} aufgelistet.
+\input{../Messdaten/gelb.tex}
+\input{../Messdaten/grün.tex}
+\input{../Messdaten/grün_blau.tex}
+\input{../Messdaten/violett.tex}
+\input{../Messdaten/uv_1.tex}
+\input{../Messdaten/uv_2.tex}
+An die gemessene Spannung $U$ und an die Wurzel des Photostroms $I\ua{p}$ wird ein
+Regressionsgerade
+\begin{equation}
+  \label{eq:reg}
+  g(x)=mx+b
+\end{equation}
+gefittet.
+In den Darstellungen \ref{fig: darstellung_1} bis \ref{fig: darstellung_3} werden die Ergebnisse der Regressionsrechung
+illustriert.
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=1 \textwidth]{../Messdaten/gelbem.pdf}
+    \caption{Gelbes Licht.}
+    \label{fig: gelb}
+  \end{subfigure}
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=1 \textwidth]{../Messdaten/grünem.pdf}
+    \caption{Grünes Licht.}
+    \label{fig: grün}
+  \end{subfigure}
+  \caption{Darstellung der linearen Abhängigkeit von $\sqrt{I\ua{p}}$ zur Bremsspanung $U$.}
+  \label{fig: darstellung_1}
+\end{figure}
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=1 \textwidth]{../Messdaten/grün-blauem.pdf}
+    \caption{Grün-blaues Licht.}
+    \label{fig: grün-blau}
+  \end{subfigure}
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=1 \textwidth]{../Messdaten/violettem.pdf}
+    \caption{Violettem Licht.}
+    \label{fig: violett}
+  \end{subfigure}
+  \caption{Darstellung der linearen Abhängigkeit von $\sqrt{I\ua{p}}$ zur Bremsspannung $U$.}
+  \label{fig: darstellung_2}
+\end{figure}
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=1 \textwidth]{../Messdaten/uv_eins.pdf}
+    \caption{UV 1 Licht.}
+    \label{fig: uv_eins}
+  \end{subfigure}
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=1 \textwidth]{../Messdaten/uv_zwei.pdf}
+    \caption{UV 2 Licht.}
+    \label{fig: uv_zwei}
+  \end{subfigure}
+  \caption{Darstellung der linearen Abhängigkeit von $\sqrt{I\ua{p}}$ zur Bremsspannung $U$.}
+  \label{fig: darstellung_3}
+\end{figure}
+Die aus der Ausgleichsrechnung erhaltenden Parameter sind in Tabelle
+\ref{tab: messergebnisse} aufgelistet. Die Grenzspannung $U\ua{g}$ wird
+wie folgt berechnet:
+\begin{equation}
+  \label{eq:ug}
+  U\ua{g}\overset{\ref{eq:reg}}{=}-\frac{b}{m}.
+\end{equation}
+\input{../Messdaten/ergebnisse_kompakt_final.tex}
+
+\subsection{Bestimmung von $\frac{\map{h}}{\map{e}}$}
+
+Die im vorangeganegenden bestimmten Grenzspanunngen werden im
+Folgenden genutzt, um die Konstante $\frac{\map{h}}{\map{e}}$
+experiementell zu bestimmen. Dazu wird in einem Diagramm die Grenzspannung
+gegen die Lichtfrequenz aufgretragen.
+Aus der Versuchsanleitung können die Wellenlängen der verschieden Farben der $\map{Hg}$-Lampe (vgl. Tabelle \ref{tab: wellen})
+entnommen werden.
+\input{../Messdaten/wellen_final.tex}
+Die Umrechnung von der Wellenlänge $\lambda$ in die Frequenz $f$ erfolgt mit
+\begin{equation*}
+  \label{eq:umrech}
+  f=\frac{\map{c}}{\lambda}.
+\end{equation*}
+Hierbei sei $\map{c}$ die Vaakumlichtgeschwindigkeit.
+Mit Hilfe einer Regressionsgeraden (\eqref{eq:reg}) wird an die
+Grenzspannungen in Abhängigkeit von der zugehörigen Frequenz
+eine Ausgleichgerade bestimmt (vgl. Abbildung \ref{fig:grenz}).
+\begin{figure}
+    \centering
+    \includegraphics[width=1 \textwidth]{../Messdaten/wellenlaenge_gegen.pdf}
+    \caption{Bestimmten Grenzfrequenzen.}
+    \label{fig:grenz}
+  \end{figure}
+
+Aus der Regressionsrechnung folgt für die Austrittsarbeit $A\ua{k}$ und die
+Konstante $\frac{\map{h}}{\map{e}}$:
+\begin{align}
+  \label{eq:messergebnisse}
+  \begin{aligned}
+  \frac{\map{h}}{\map{e}}&= \num{3.8\pm 0.7}\,\num{e-15}\,\si{\eV} \\
+  A\ua{k}&=.
+  \end{aligned}
+\end{align}
+\subsection{Untersuchung des Photostroms bei gelbem Licht}
+Für die Untersuchung des Photostrom $I\ua{p}$ wurde die
+Stromstärke für Spannungen $U$ im Bereich $U\in\left(-20,20\right)\,\si{\volt}$
+notiert (vgl. Tab. \ref{tab: gelb_all}).
+\input{../Messdaten/gelb_all.tex}
+In Abbildung \ref{fig:gelb_all} ist der Stromverlauf dargestellt.
+\begin{figure}
+    \centering
+    \includegraphics[width=1 \textwidth]{../Messdaten/gelb.pdf}
+    \caption{Abhängigkeit des Photostroms von der Spannung.}
+    \label{fig:gelb_all}
+  \end{figure}
