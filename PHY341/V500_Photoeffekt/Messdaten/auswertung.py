@@ -94,14 +94,14 @@ def auswertung(spannungen, stromstaerke,name, plus_x, minus_x, plus_y):
 
 ###Gelb
 
-result_gelb=auswertung(u_gelb_brems,i_gelb_brems,'gelbem',0.08,0.01,0.1)
+result_gelb=auswertung((-1)*u_gelb_brems,i_gelb_brems,'gelbem',0.08,0.01,0.1)
 
 l.Latexdocument('gelb.tex').tabular([(-1)*u_gelb_brems.magnitude, i_gelb_brems.magnitude, np.sqrt(i_gelb_brems.magnitude)],
-'{Bremsspannung $U$ in $\si{\\volt}$} & {Photostrom $I_{\map{p}}$ in $\si{\\nano\\ampere}$} & {Photostrom $\sqrt{I_{\map{p}}}$ in $\sqrt{\si{\\nano\\ampere}}$}', [3, 2, 2] ,
+'{Bremsspannung $U$ in $\si{\\volt}$} & {Photostrom $I_{\map{p}}$ in $\si{\\nano\\ampere}$} & {Photostrom $\sqrt{I_{\map{p}}}$ in $\sqrt{\si{\\nano\\ampere}}$}', [3, 3, 3] ,
 caption = 'Gemessener Photostrom bei gelbem Licht', label = 'gelb')
 
 l.Latexdocument('gelb_all.tex').tabular([u_gelb.magnitude, i_gelb.magnitude],
-'{Spanung $U$ in $\si{\\volt}$} & {Photostrom $I_{\map{p}}$ in $\si{\\nano\\ampere}$}', [3, 2] ,
+'{Spanung $U$ in $\si{\\volt}$} & {Photostrom $I_{\map{p}}$ in $\si{\\nano\\ampere}$}', [3, 3] ,
 caption = 'Gemessener Photostrom bei gelbem Licht', label = 'gelb_all')
 
 ### grün
@@ -111,7 +111,7 @@ i_gruen=Q_(i_gruen,' nanoampere')
 result_gruen=auswertung(u_gruen,i_gruen,'grünem',  0.05,0.01,0.1)
 
 l.Latexdocument('grün.tex').tabular([u_gruen.magnitude, i_gruen.magnitude, np.sqrt(i_gruen.magnitude)],
-'{Bremsspannung $U$ in $\si{\\volt}$} & {Photostrom $I_{\map{p}}$ in $\si{\\nano\\ampere}$} & {Photostrom $\sqrt{I_{\map{p}}}$ in $\sqrt{\si{\\nano\\ampere}}$}', [3, 2, 2] ,
+'{Bremsspannung $U$ in $\si{\\volt}$} & {Photostrom $I_{\map{p}}$ in $\si{\\nano\\ampere}$} & {Photostrom $\sqrt{I_{\map{p}}}$ in $\sqrt{\si{\\nano\\ampere}}$}', [2, 2, 2] ,
 caption = 'Gemessener Photostrom bei grünem licht', label = 'gruen')
 #'{Bremsspannung $U$ in $\si{\volt}$} & {Photostrom $I\ua{p}$ in $\si{\nano\ampere}$} & {Photostrom $\sqrt{I\ua{p}}$ in $\sqrt{\si{\nano\ampere}}$}', [3, 2, 2] ,
 
@@ -126,7 +126,7 @@ i_gb=Q_(i_gb,' nanoampere')
 result_gruen_blau=auswertung(u_gb,i_gb,'grün-blauem', 0.06,0.01,0.01)
 
 l.Latexdocument('grün_blau.tex').tabular([u_gb.magnitude, i_gb.magnitude, np.sqrt(i_gb.magnitude)],
-'{Bremsspannung $U$ in $\si{\\volt}$} & {Photostrom $I_{\map{p}}$ in $\si{\\nano\\ampere}$} & {Photostrom $\sqrt{I_{\map{p}}}$ in $\sqrt{\si{\\nano\\ampere}}$}', [3, 2, 2] ,
+'{Bremsspannung $U$ in $\si{\\volt}$} & {Photostrom $I_{\map{p}}$ in $\si{\\nano\\ampere}$} & {Photostrom $\sqrt{I_{\map{p}}}$ in $\sqrt{\si{\\nano\\ampere}}$}', [3, 3, 3] ,
 caption = 'Gemessener Photostrom bei grün-blauem licht', label = 'gb')
 #'{Bremsspannung $U$ in $\si{\volt}$} & {Photostrom $I\ua{p}$ in $\si{\nano\ampere}$} & {Photostrom $\sqrt{I\ua{p}}$ in $\sqrt{\si{\nano\ampere}}$}', [3, 2, 2] ,
 
@@ -181,7 +181,7 @@ spannungen_fehler=[float(unp.std_devs(result_gelb['Grenzspannung'].magnitude)),f
 
 
 l.Latexdocument('ergebnisse_kompakt.tex').tabular([steigungen, steigungen_fehler,y_abschnitt,y_abschnitt_fehler,spannungen,spannungen_fehler],
-'{Farbe} & {$m$ in $\si{\\ampere\per\\volt}$} & { $\sigma_{\map{m}}$ in $\si{\\ampere\per\\volt}$ } & { $b$ in $\si{\\ampere}$} & { $\sigma_{\map{b}}$ in $\si{\\ampere}$} & {$U_{\map{g}}$ in $\si{\\volt}$ } & { $\sigma_{U_{\map{g}}}$ in $\si{\\volt}$ }   ', [2, 2,2 ,2,2,2] ,
+'{Farbe} & {$m$ in $\si{\\ampere\per\\volt}$} & { $\sigma_{\map{m}}$ in $\si{\\ampere\per\\volt}$ } & { $b$ in $\si{\\ampere}$} & { $\sigma_{\map{b}}$ in $\si{\\ampere}$} & {$U_{\map{g}}$ in $\si{\\volt}$ } & { $\sigma_{U_{\map{g}}}$ in $\si{\\volt}$ }   ', [2, 2,3 ,3,2,2] ,
 caption = 'Messergebnisse für die verschiedenen Wellenlängen', label = 'messergebnisse')
 
 
@@ -192,7 +192,7 @@ caption = 'Messergebnisse für die verschiedenen Wellenlängen', label = 'messer
 wellenlaenge=np.array([577*1e-9,546*1e-9,492*1e-9,434*1e-9,365*1e-9,366*1e-9])
 c=float(299792458)
 frequenz=c/wellenlaenge
-spannungen=[(-1)*result_gelb['Grenzspannung2'],result_gruen['Grenzspannung2'],result_gruen_blau['Grenzspannung2'],result_violett['Grenzspannung2'],result_uv['Grenzspannung2'],result_uv_2['Grenzspannung2']]
+spannungen=[result_gelb['Grenzspannung2'],result_gruen['Grenzspannung2'],result_gruen_blau['Grenzspannung2'],result_violett['Grenzspannung2'],result_uv['Grenzspannung2'],result_uv_2['Grenzspannung2']]
 
 l.Latexdocument('wellen.tex').tabular([wellenlaenge*1e9, frequenz*1e-12],
 '{Farbe} & {$\lambda$ in \si{\\nano\\meter}} & { $f$ in $\si{\THz}$}', [1,1] ,
@@ -202,26 +202,26 @@ caption = 'Untersuchtes Lichtspektrum der $\map{HG}$-Lampe ', label = 'wellen')
 def g(m,x,b):
 	return m*x+b
 
-parms, cov = curve_fit(g,frequenz,spannungen)
+parms, cov = curve_fit(g,frequenz*1e-12,spannungen)
 error= np.sqrt(np.diag(cov))
 m_u=Q_(ufloat(parms[0],error[0]),'joule second / coulomb')
-b_u=Q_(ufloat(parms[1],error[1]), 'volt / coulomb')
+b_u=Q_(ufloat(parms[1],error[1]), 'volt')
 print('h durch e', m_u)
-print('Austrittsarbeit', b_u*e)
+print('Austrittsarbeit', b_u)
 
 
 plt.clf()
 plt.grid()
 lauf=np.linspace(frequenz[0]-1e14,frequenz[-1]+1.5e14,1000)
-plt.xlim(0.5*1e15,0.85*1e15)
+plt.xlim(0.5*1e15*1e-12,0.85*1e15*1e-12)
 plt.ylim(0,2)
-plt.plot(frequenz,spannungen,'rx', label=r'$\mathrm{Bestimmte} \, \mathrm{Gegenspannung}}$')
-plt.plot(lauf,g(parms[0],lauf,parms[1]),'b-', label=r'$\mathrm{Regressionsgerade}$')
+plt.plot(frequenz*1e-12,spannungen,'rx', label=r'$\mathrm{Bestimmte} \, \mathrm{Gegenspannung}}$')
+plt.plot(lauf*1e-12,g(parms[0],lauf*1e-12,parms[1]),'b-', label=r'$\mathrm{Regressionsgerade}$')
 plt.legend(loc='best')
-plt.xlabel(r'$\mathrm{f}\,\mathrm{in} \, \mathrm{Hz}$')
+plt.xlabel(r'$\mathrm{f}\,\mathrm{in} \, \mathrm{THz}$')
 plt.ylabel(r'$U_{\mathrm{G}} \, \mathrm{in} \, \mathrm{V}$')
-plt.savefig('wellenlaenge_gegen.pdf')
 #plt.show()
+plt.savefig('wellenlaenge_gegen.pdf')
 
 #print(spannungen)
 

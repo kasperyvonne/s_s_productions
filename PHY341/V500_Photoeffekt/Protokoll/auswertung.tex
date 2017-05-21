@@ -1,20 +1,20 @@
 \section{Auswertung}
 
-Die im Folgenden durchgeführten Regressionsrechnung werden mit dem
+Die im Folgenden durchgeführten Regressionsrechnungen werden mit dem
 Python Paket \emph{scipy.optimize}\cite{scipy} durchgeführt.
 
 \subsection{Untersuchung der Gegenspannunng für verschieden farbiges Licht}
 Die Bremsspannung wird für sechs verschiedene Farben untersucht, es wird
-\emph{gelbes}, \emph{grünes}, \emph{blau-grünes}, \emph{violettes} und zwei \emph{ultaviolettes 1}
-Lichter untersucht. Erzeugt wird das Licht mit Hifle einer $\map{Hg}$-Lampe.
-Die Messwerte sind in den Tabellen \ref{tab: gelb} - \ref{tab:uv_1} aufgelistet.
+\emph{gelbes}, \emph{grünes}, \emph{blau-grünes}, \emph{violettes} und zwei \emph{ultaviolette}
+Lichter untersucht. Erzeugt wird das Licht mit Hilfe einer $\map{Hg}$-Lampe.
+Die Messwerte sind in den Tabellen \ref{tab: gelb} - \ref{tab: uv_zwei} aufgelistet.
 \input{../Messdaten/gelb.tex}
 \input{../Messdaten/grün.tex}
 \input{../Messdaten/grün_blau.tex}
 \input{../Messdaten/violett.tex}
 \input{../Messdaten/uv_1.tex}
 \input{../Messdaten/uv_2.tex}
-An die gemessene Spannung $U$ und an die Wurzel des Photostroms $I\ua{p}$ wird ein
+An die gemessenen Spannungen $U$ und an die Wurzel des Photostroms $I\ua{p}$ wird eine
 Regressionsgerade
 \begin{equation}
   \label{eq:reg}
@@ -83,40 +83,48 @@ wie folgt berechnet:
 \end{equation}
 \input{../Messdaten/ergebnisse_kompakt_final.tex}
 
-\subsection{Bestimmung von $\frac{\map{h}}{\map{e}}$}
+\subsection{Bestimmung von $\frac{\map{h}}{\map{e}}$ und der Austrittsarbeit}
 
-Die im vorangeganegenden bestimmten Grenzspanunngen werden im
-Folgenden genutzt, um die Konstante $\frac{\map{h}}{\map{e}}$
-experiementell zu bestimmen. Dazu wird in einem Diagramm die Grenzspannung
-gegen die Lichtfrequenz aufgretragen.
-Aus der Versuchsanleitung können die Wellenlängen der verschieden Farben der $\map{Hg}$-Lampe (vgl. Tabelle \ref{tab: wellen})
-entnommen werden.
+Die im vorangegangenden bestimmten Grenzspanunngen werden im
+Folgenden genutzt, um die Konstante $\frac{\map{h}}{\map{e}}$ und die Austrittsarbeit des Kathodenmaterials
+experimentell zu bestimmen.
+Es wird dazu eine Regressionrechnung für $U\ua{g}(f)$ durchgeführt.
+Aus der Versuchsanleitung\cite{anleitung500} werden die Wellenlängen der verschieden Farben der $\map{Hg}$-Lampe (vgl. Tabelle \ref{tab: wellen})
+entnommen.
 \input{../Messdaten/wellen_final.tex}
 Die Umrechnung von der Wellenlänge $\lambda$ in die Frequenz $f$ erfolgt mit
 \begin{equation*}
   \label{eq:umrech}
   f=\frac{\map{c}}{\lambda}.
 \end{equation*}
-Hierbei sei $\map{c}$ die Vaakumlichtgeschwindigkeit.
-Mit Hilfe einer Regressionsgeraden (\eqref{eq:reg}) wird an die
-Grenzspannungen in Abhängigkeit von der zugehörigen Frequenz
-eine Ausgleichgerade bestimmt (vgl. Abbildung \ref{fig:grenz}).
+Hierbei sei $\map{c}$ die Vaakumlichtgeschwindigkeit\cite{scipy}.
+Um $\frac{\map{h}}{\map{e}}$ und die Austrittsarbeit $A\ua{k}$ zu bestimmen, wird zunächst die
+Gleichung \eqref{eq:regress} umgestellt zu:
+\begin{equation*}
+  \Leftrightarrow \qquad U\ua{g}=\frac{\map{h}}{\map{e}} f - \frac{A\ua{k}}{\map{e}}.
+\end{equation*}
+An diese kann eine Regressionsgerade der Form \eqref{eq:reg} gefittet werden.
+Der Zusammenhang zwischen Fitparamtern und den gesuchten Größen lautet:
+\begin{align*}
+  \frac{\map{h}}{\map{e}}&=m\\
+  A\ua{k}&=-b \quad \left(\frac{1}{\map{e}}\,\text{liefert die Einheit} \, \si{\eV}\right)
+\end{align*}
 \begin{figure}
     \centering
     \includegraphics[width=1 \textwidth]{../Messdaten/wellenlaenge_gegen.pdf}
-    \caption{Bestimmten Grenzfrequenzen.}
+    \caption{Experimentell bestimmten Grenzfrequenzen.}
     \label{fig:grenz}
   \end{figure}
-
 Aus der Regressionsrechnung folgt für die Austrittsarbeit $A\ua{k}$ und die
 Konstante $\frac{\map{h}}{\map{e}}$:
 \begin{align}
   \label{eq:messergebnisse}
   \begin{aligned}
-  \frac{\map{h}}{\map{e}}&= \num{3.8\pm 0.7}\,\num{e-15}\,\si{\eV} \\
-  A\ua{k}&=.
+  \frac{\map{h}}{\map{e}}&= \left(\num{3.8\pm 0.7}\right)\,\num{e-15}\,\si{\eV} \\
+  A\ua{k}&=\SI{1.6\pm 0.5}{\eV}.
   \end{aligned}
 \end{align}
+Die Messwerte und die Regressionsgerade sind in Abbildung \ref{fig:grenz} dargestellt.
 \subsection{Untersuchung des Photostroms bei gelbem Licht}
 Für die Untersuchung des Photostrom $I\ua{p}$ wurde die
 Stromstärke für Spannungen $U$ im Bereich $U\in\left(-20,20\right)\,\si{\volt}$
@@ -128,4 +136,29 @@ In Abbildung \ref{fig:gelb_all} ist der Stromverlauf dargestellt.
     \includegraphics[width=1 \textwidth]{../Messdaten/gelb.pdf}
     \caption{Abhängigkeit des Photostroms von der Spannung.}
     \label{fig:gelb_all}
-  \end{figure}
+  \end{figure}.
+
+Die in der Abbildung \ref{fig:gelb_all} zu sehende Sättigung entsteht dadurch, dass
+ab einer bestimmten Beschleunigungsspannung alle Elektronen die Anode erreichen.
+Lediglich eine Erhöhung der Lichtintensität würde eine Vergrößerung der Stromstärke
+zu folge haben.
+Das asymptotische Verhalten der Stromstärke ist auf die Anode
+bzw. das Streuverhalten der Elektronen zurückzuführen, denn es ist bei der verwendeten
+Anode nicht sichergestellt, dass alle Elektronen regrestiert werden.
+Das Problem kann zum Beispiel mit einer Anode gelöst werden, die die Photokathode
+einhüllt.
+
+Die Stromstärke fällt nicht schlagartig gegen null, da die Elektronen in der Photokathode
+eine Energieverteilung besitzen. Auf Grund dessen besitzt nicht jedes ausgelöstes
+Elektron dieselbe Energie. Einige Elektronen können dadurch, bis zu einem bestimmten Spannungsbereich,
+die Bremsspannung überwinden.
+
+Bei dem Photoeffekt ist auch ein positiver Photostrom beobachtbar, das
+Phänomen ist erklärbar damit, dass auch bei der Anode ein lichtelektrischer Effekt
+auftritt. Jedoch besitzt die Anode eine höhere Austrittsarbeit, dies sorgt
+dafür dass nur einige wenige Elektronen ausgelöst werden.
+Verstärkt wird der positive Photostrom durch das Kathoden selber,
+denn das Kathodenmaterial verdampft schon für Temperaturen um
+$T=\SI{20}{\celsius}$. Das verdampfte Kathodenmaterial kann sich auf die
+Anode legen und so die Austrittsarbeit der Anode herabsetzen, folglich steigt der
+positive Photostrom.
