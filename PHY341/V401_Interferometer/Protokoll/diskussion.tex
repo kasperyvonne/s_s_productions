@@ -3,7 +3,7 @@ Im Folgenden sollen die Messergebnisse in Bezug auf die Messgenauigkeit des
 Versuchsaufbaus diskutiert werden.
 Zunächst ist die Empfindlichkeit des Versuchsaufbaus gegenüber Erschütterungen %zu aller erst umgangsspracjlich, Erschütterungen
 zu erwähnen. Selbst kleinste Erschütterungen sorgen für falsche Registrierungen von %Begleiter oder plural
-Maxima. Die Empfindlichkeit ist Grund für eine signifikante Ungenauigkeit in den
+Maxima sein. Die Empfindlichkeit könnte ein Grund für eine signifikante Ungenauigkeit in den
 Messergebnissen. Mit Hilfe zum Beispiel einer Dämpfung, ist es möglich die %schreib besser einfach dämpfung
 Erschütterungsempfindlichkeit erheblich zu verringern. %zu
 Eine weitere Fehlerquelle ist die Fotodiode, da diese bei einem zu schnellen
@@ -14,6 +14,21 @@ Wellenlänge \eqref{eq:wellenlaenge}, des roten Läsers, aus.
 In der Theorie liegt rotes Licht in einen Wellenlängenbereich von
 $\lambda \in \left[640,770\right]\,\si{\nano\meter}$\cite{tafelwerk}.
 Das macht eine Abweichungsintervall von $\Delta \lambda \in \left[-6, -22 \right]\,\%$.
+Beim Vergleich der Brechungsindexes mit der Theorie\cite{}
+\begin{table}
+  \centering
+  \label{tab: vergleich_table}
+  \begin{tabular}{S S[table-format=3.0] @{${}\pm{}$} S[table-format=2.0] S}
+    \toprule
+    {}  & \multicolumn{2}{c}{$n\ua{exp}$} & {$n\ua{theo}$} \\
+    \midrule
+    $\text{Luft}$ & 1.00032  &\num{2e-5} & 1.000292 \\
+    $\ce{CO_2}$ & 1.00044  & \num{1e-5} & 1.000449 \\
+  \bottomrule
+\end{tabular}
+\end{table}
+zeigt sich eine geringe Abweichung zwischen den experimentellen Resultaten und der
+Theorie.
 
 Abschließend ist zu sagen, dass die Messergebnisse, trotz der Empfindlichkeiten
 des Versuchsaufbaues, eine qualitative Aussage liefern.
