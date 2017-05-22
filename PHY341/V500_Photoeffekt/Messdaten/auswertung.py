@@ -41,8 +41,8 @@ plt.plot(u_gelb,i_gelb,'yx',label='Gelbes Licht')
 
 plt.grid()
 plt.legend(loc='best')
-plt.xlabel(r'$\mathrm{Spannung} \, \mathrm{in} \, \mathrm{V}$')
-plt.ylabel(r'$\mathrm{Photostrom}  \, \, \mathrm{in} \, \, \mathrm{nA}$')
+plt.xlabel(r'$\mathrm{Spannung} \, \mathrm{in} \, \mathrm{V}$',size=15)
+plt.ylabel(r'$\mathrm{Photostrom}  \, \, \mathrm{in} \, \, \mathrm{nA}$',size=15)
 
 plt.axes([0.487	,0.15, 0.32,0.32])
 plt.xlim(-0.35,0.01)
@@ -85,8 +85,8 @@ def auswertung(spannungen, stromstaerke,name, plus_x, minus_x, plus_y):
 	plt.plot(variabel,g(parms[0],variabel,parms[1]),'b-',label=r'$\mathrm{Regressionsgerade}$ ')
 	plt.grid()
 	plt.legend(loc='best')
-	plt.xlabel(r'$\mathrm{Bremsspannung} \, \mathrm{in} \, \mathrm{V}$')
-	plt.ylabel(r'$\sqrt{I_{\mathrm{p}}} \, \, \mathrm{in} \, \, \sqrt{\mathrm{nA}}$')
+	plt.xlabel(r'$\mathrm{Bremsspannung} \, \mathrm{in} \, \mathrm{V}$',size=15)
+	plt.ylabel(r'$\sqrt{I_{\mathrm{p}}} \, \, \mathrm{in} \, \, \sqrt{\mathrm{nA}}$',size=15)
 	#plt.show()
 	plt.savefig( name +'.pdf')
 	return messwerte
