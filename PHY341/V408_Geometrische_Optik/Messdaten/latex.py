@@ -18,7 +18,7 @@ class Latexdocument(object):
         self.data = DataFrame(columns=(['tex', 'var']))
     def tabular(self, spalten, header, places, caption, label):
         with open(self.name, 'w') as f:
-            f.write('\\begin{table} \n\\centering \n\\caption{' + caption + '} \n\\label{tab: ' + label + '} \n\\begin{tabular}{')
+            f.write('\\begin{table}[H] \n\\centering \n\\caption{' + caption + '} \n\\label{tab: ' + label + '} \n\\begin{tabular}{')
             f.write(len(spalten) * 'S ')
             f.write('} \n\\toprule  \n')
             f.write(header + '  \\\ \n')

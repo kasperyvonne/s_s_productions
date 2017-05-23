@@ -11,18 +11,19 @@ der bekannten Brennweite
   f\ua{t} = \SI{10}{\centi\meter}
 \end{equation}
 verwendet. In Tabelle \ref{tab: methode_1} sind die gemessenen Wertepaare der Gegenstands- bzw. Bildweite $(g\ua{i}, b\ua{i})$,
-sowie die zugehörigen Bildgrößen $B$ aufgeführt. Für die Berechnung der Vergrößerung $V\ua{1}$
+sowie die zugehörigen Bildgrößen $B$ und Brennweiten $f$ aufgeführt. Für die Berechnung der Vergrößerung $V\ua{1}$
 wird die konstante Gegenstandsgröße $G = \SI{3.0(1)}{\centi\meter}$ verwendet. Neben den Ergebnissen ist jeweils
 eine mittlere prozentuale Abweichung zwischen $V_1$ und $V_2$ in Tabelle \ref{tab: methode_1} eingefügt.
 Mittels Gleichung \eqref{eq: linsengleichung} ergibt sich für den Mittelwert der Brennweite
 \begin{equation}
-  f\ua{1, mid} = \SI{+9.68(1)}{\centi\meter}.
+  f\ua{1, mid} = \SI{+9.68(2)}{\centi\meter}.
 \end{equation}
 In Abbildung \ref{fig: methode_1} sind die Verbindungslinien der Punkte $(g\ua{i}, 0)-(0, b\ua{i})$ einzusehen. Als Schnittpunkt
-der Geraden, der der Brennweite $f\ua{1, exp}$ entspricht wurde folgender Wert abgelesen
+der Geraden, der der Brennweite $f\ua{1, exp}$ entspricht, wurde folgender Wert abgelesen
 \begin{equation}
-  f\ua{1, exp} = \SI{+9.7(1)}{\centi\meter}.
+  f\ua{1, exp} = \SI{+9.7(10)}{\centi\meter}.
 \end{equation}
+Der Fehler wurde hierbei angemessen groß gewählt um die starke Ungenauigkeit des Ablesens zu berücksichtigen.
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{../Messdaten/plots/methode_1.pdf}
@@ -36,11 +37,11 @@ Nach der selben Methode wie im vorangegangen Abschnitt wird die Brennweite einer
 Die aufgenommenen Daten sind in Tabelle \ref{tab: wasserlinse} eingefügt. Die graphische Darstellung der Verbindungslinien ist %aufgenommenen
 in Abbildung \ref{fig: wasserlinse} einzusehen. Mit der Linsenformel ergibt sich durch Mittelung der Wert
 \begin{equation}
-  f\ua{u, mid} = \SI{+13.83(1)}{\centi\meter}. %.
+  f\ua{u, mid} = \SI{+13.83(6)}{\centi\meter}. %.
 \end{equation}
 Aus dem Graphen \ref{fig: wasserlinse} wird folgender Schnittpunkt abgelesen
 \begin{equation}
-  f\ua{u, exp} = \SI{13.9(1)}{\centi\meter}.
+  f\ua{u, exp} = \SI{13.9(10)}{\centi\meter}.
 \end{equation}
 \input{../Messdaten/tabs/wasserlinse.tex}
 \begin{figure}
@@ -53,20 +54,23 @@ Aus dem Graphen \ref{fig: wasserlinse} wird folgender Schnittpunkt abgelesen
 \subsection{Bestimmung der Brennweite nach der Methode von Bessel}
 Die gemessenen Werte für die beiden Punkte $(g_1, b_1)$ und $(g_2, b_2)$, bei denen unter konstantem Abstand
 zwischen Schirm und Gegenstand jeweils Bild und Gegenstandsweite
-vertauschen, sind in Tabelle \ref{tab: bessel} einzusehen. Mit Gleichung \eqref{eq: bessel_methode} ergibt sich der Mittelwert für
+vertauschen, sind in Tabelle \ref{tab: bessel} einzusehen. Die Brennweite $f_1$
+wurde jeweils mit dem Wertepaar $(g_1, b_1)$, $f_2$
+mit $(g_2, b_2)$ berechnet. Mit Gleichung \eqref{eq: bessel_methode} ergibt sich der Mittelwert für
 die Brennweite $f\ua{2, mid}$ zu
 \begin{equation}
-  f\ua{2, mid} = \SI{+9.90(1)}{\centi\meter}. %.
+  f\ua{2, mid} = \SI{+9.90(3)}{\centi\meter}. %.
   \label{eq: f_bessel}
 \end{equation}
+Hierbei wurden die Brennweiten $f_1$ und $f_2$ gleichberechtigt zur Berechnung des Mittelwertes verwendet.
 \input{../Messdaten/tabs/bessel.tex}
 \subsection{Untersuchung der chromatisch Abberation}
 Ebenfalls nach der Methode von Bessel wird die Abhängigkeit der Lichtbrechung von der Wellenlänge bestimmt. Die aufgenommenen
-Daten sind in Tabelle \ref{tab: colors} eingetragen. Für rotes bzw. blaues Licht ($f\ua{r}$, $f\ua{b}$) berechnen sich gemäß \eqref{eq: bessel_methode}
+Daten und berechneten Brennweiten sind in Tabelle \ref{tab: colors} eingetragen. Für rotes bzw. blaues Licht ($f\ua{r}$, $f\ua{b}$) berechnen sich gemäß \eqref{eq: bessel_methode}
 folgende Brennweiten
 \begin{align}
-  f\ua{r} &= \SI{+9.98(2)}{\centi\meter} \label{eq: f_rot}\\
-  f\ua{b} &= \SI{+9.88(2)}{\centi\meter}. \label{eq: f_rot}
+  f\ua{r} &= \SI{+9.98(2)}{\centi\meter} \\
+  f\ua{b} &= \SI{+9.88(3)}{\centi\meter}.
 \end{align}
 \input{../Messdaten/tabs/colors.tex}
 \subsection{Bestimmung der Brennweite und Lage der Hauptebenen einer Linsenanordnung}
@@ -87,10 +91,10 @@ $\left[ b'\ua{i}, \left(1 + V\right)\ua{i}\right]$ an die Funktion \ref{fig: abb
   f\ua{a, 2} &= \SI{+15.5(6)}{\centi\meter} \\
   h' &= \SI{+15(1)}{\centi\meter}.
 \end{align}
-Mit den vom Hersteller angegebenen Brennweiten $f_{1, 2} = \SI{\pm10}{\centi\meter}$ und dem Abstand $d = \SI{6.0(1)}{\centi\meter}$ zwischen den Linsen ergibt sich %dem
+Mit den vom Hersteller angegebenen Brennweiten $f_{1, 2} = \SI{\pm10}{\centi\meter}$ und dem Abstand $d = \SI{6}{\centi\meter}$ zwischen den Linsen ergibt sich %dem
 durch Einsetzen in Gleichung \eqref{eq: gleichung_linsensystem} für die Brennweite der Anordnung
 \begin{equation}
-  f\ua{a, t} = \SI{+16.7(3)}{\centi\meter}.
+  f\ua{a, t} = \SI{+16.7}{\centi\meter}.
 \end{equation}
 \begin{figure}
   \centering

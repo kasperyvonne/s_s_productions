@@ -49,7 +49,7 @@ m_g = params_g[0]
 r.app(r'f\ua{a, 1}', Q_(m_g, 'centimeter'))
 b_g = params_g[1]
 r.app('h', Q_(b_g, 'centimeter'))
-plt.plot(x, lin(x, m_g.n, b_g.n), 'r-', label='Lineare Regression')
+plt.plot(x, lin(x, m_g.n, b_g.n), 'b-', label='Lineare Regression')
 plt.grid()
 plt.xlabel(r'$\left(1 + \frac{1}{V}\right)$')
 plt.ylabel(r'$g$/cm')
@@ -64,7 +64,7 @@ m_b = params_b[0]
 r.app(r'f\ua{a, 2}', Q_(m_b, 'centimeter'))
 b_b = params_b[1]
 r.app('h-', Q_(b_b, 'centimeter'))
-plt.plot(x, lin(x, m_b.n, b_b.n), 'r-', label='Lineare Regression')
+plt.plot(x, lin(x, m_b.n, b_b.n), 'b-', label='Lineare Regression')
 plt.grid()
 plt.xlabel(r'$\left(1 + V\right)$')
 plt.ylabel(r'$b$/cm ')
@@ -80,8 +80,8 @@ r.app(r'f\ua{a, t}', Q_(f_abbe_theo, 'centimeter'))
 
 
 ######WASSERLINSE
-wasser_f = (1 / (1 / wasser_g + 1 / wasser_b) ).mean()
-r.app(r'f\ua{w}', Q_(wasser_f, 'centimeter'))
+wasser_f = (1 / (1 / wasser_g + 1 / wasser_b) )
+r.app(r'f\ua{w}', Q_(mid(wasser_f), 'centimeter'))
 plt.plot([wasser_g_raw[0], 0], [0, wasser_b_raw[0]], 'k-', label= 'Verbindungslinien der Wertepaare $(g_i, b_i)$', linewidth = 0.8)
 for i in range(1, len(wasser_g_raw)):
     plt.plot([wasser_g_raw[i], 0], [0,wasser_b_raw[i]], 'k-', linewidth = 0.8)
