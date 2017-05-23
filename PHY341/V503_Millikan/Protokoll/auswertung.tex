@@ -1,1 +1,25 @@
 \section{Auswertung}
+Die gemessenen Thermowiderstände $R$, Fallzeiten $t$ und Spannungen $U$ sind in Tabelle \ref{} einzusehen.
+Die aus der Anleitung entnommenen Werte Paare $(R, T)$ (siehe Tabelle x) wurden benutzt um den Zusammenhang
+zwischen dem Thermowiderstand und und der Temperatur mittels Polynominterpolation zu approximieren. Die graphische
+Darstellung des gefundenen Polynoms befindet sich in Abbildung \ref{}. Die mit dem Interpolationspolynom berechneten
+Temperaturen sind ebenfalls in Tabelle \ref{} eingefügt. Der Zusammenhang zwischen der Viskosität von Luft und
+der Temperatur wurde der Anleitung \cite{} entsprechend als linear angenommen. Mit den Wertepaaren
+\begin{align}
+  \eta_1 &= \SI{1.85e-5}{\newton\second\meter^{-2}}, \quad T_1 = \SI{16}{\celsius} \\
+  \eta_2 &= \SI{1.88e-5}{\newton\second\meter^{-2}}, \quad T_2 = \SI{32}{\celsius},
+\end{align}
+die dem Graphen aus der Anleitung entnommen wurden, wird eine Geradengleichung bestimmt, die den bestimmten Temperaturen
+$T$ in $\si{\celsius}$ die Viskositäten $\eta$ in $\si{\newton\second\meter^{-2}}$ zuordnet.
+\begin{equation}
+  \eta(T) = \SI{0.001875}{\newton\second\meter^{-2} \celsius^{-1} } * T  + \SI{1.82}{\newton\second\meter^{-2}}.
+\end{equation}
+Die somit berechneten Viskositäten sind in Tabelle \ref{} aufgetragen.
+Die Fallgeschwindigkeiten der Tröpfchen berechnen sich gemäß \eqref{} und der Falldistanz $s = \SI{0.5}{\milli\meter}$.
+Mit Gleichung \eqref{} ergeben sich somit schließlich die Tröpfchenradien und die die Ladungen $q$. Hierbei wurde
+direkt die Korrektur \eqref{} angewandt. Alle Ergebnisse sind in Tabelle \ref{} eingetragen. \\
+Um nun 
+
+
+
+\input{../Messdaten/tabs/daten_V503.tex}

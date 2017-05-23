@@ -3,7 +3,7 @@ from import_data import *
 
 d = Q_(7.625, 'millimeter')
 s = Q_(0.5, 'millimeter')
-v = s/time
+v = (s/time).to('centimeter/second')
 rho_luft = Q_(886, 'kilogram/(meter)**3')
 rho_oel = Q_(886, 'kilogram/(meter)**3')
 T = temp(resistance.magnitude)
@@ -30,6 +30,7 @@ q_0 = (mass * g / E).to('coulomb')
 p_luft = Q_(1.0132, 'bar')
 B = Q_(6.17e-3, 'torr*cm')
 q = q_0 * (1 + B/(p_luft * radius))**(-3/2)
+print(q)
 
 
 q_test = np.linspace(1.0e-20, 3e-19, 1000)
