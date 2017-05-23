@@ -57,6 +57,6 @@ T_2 = 32
 m = (eta_1 - eta_2)/(T_1 - T_2)
 b = 0.5 * (eta_1 + eta_2 - m *(T_1 + T_2))
 def viskositaet(T):
-    return Q_( m * T + b, 'newton * second/(meter**2)' )
+    return Q_( m * T + b, 'newton * second/(meter**2)' ) * 1e-5
 
-print(m, b)    
+print(m, b)
