@@ -43,19 +43,28 @@ Unter diesen Einstellung lautet die Kräftegleichung
 Im Gegensatz dazu bewirkt eine negative Spannung eine elektrische Feldkraft die der Gravitationskraft
 entgegenwirkt. Folglich bremst es das fallende Tröpfchen ab oder
 lässt es, bei hinreichend großer Spannung, sogar nach oben beschleungigen.
-In dem letzteren Fall kann das Tröpfchen die maximale Geschwindigkeit $\vec{v}\ua{auf}$ erreichen.
-Die Kräftegleichung lautet
+Ab einer bestimmten Spannung erreicht das Tröpfchen eine Schwebezustand. An diesem
+Punkt gilt
 \begin{equation}
-  \label{eq:kraefte_zwei}
-    \frac{4\map{\pi}}{3}r^3\left(\rho\ua{oel}+\rho\ua{L}\right)\map{g}+\map{\pi}\eta\ua{L}r v\ua{auf}=qE.
+  \label{eq:krafte_gleich}
+  \vec{F}\ua{g}=\vec{F}\ua{elk} \quad \Leftrightarrow \quad m\map{g}=\rho V\map{g}=qE, \qquad V=\frac{4}{3}\pi r^3.
 \end{equation}
-Mit Hilfe der Gleichungen \eqref{eq:kraefte_eins} und \eqref{eq:kraefte_zwei} kann eine Gesetzmäßigkeit
-für die Ladung $q$ des Öltröpfchens gefunden werden:
+Mit der Gleichung \eqref{eq:krafte_gleich} ergibt sich eine Gesetzmäßigkeit für die Ladung $q$:
 \begin{equation}
-  \label{eq:ladung}
-  q=3\pi\eta\ua{L}r\frac{v\ua{ab}+v\ua{auf}}{E}=3\pi\eta\ua{L}\sqrt{\frac{9\eta\ua{L}v_0}{2\map{g}\left(\rho\ua{oel}-\rho\ua{L}\right)}}\frac{v\ua{ab}+v\ua{auf}}{E}.
+  \label{eq:q}
+  q_0=\frac{\frac{4}{3}\pi r^3 \map{g}}{E}.
 \end{equation}
+
+
 Bei der Verwendung des Stokschen Gesetz ist zu beachten, dass es nur für Teilchen gilt,
 deren Abmessung größer als die freie Weglänge in Luft $\ov{l}$.
 Da diese Voraussetzung beim verwendeten Versuchsaufbau nicht erfüllt, muss die Viskosität $\eta\ua{L}$
-angepasst
+angepasst zu
+\begin{equation*}
+  \eta\ua{eff}=\eta\ua{L}=\left(\frac{1}{1+B\frac{1}{pr}}\right). \quad B=\SI{9.17e-3}\,\si{\centi\meter}\map{Torr}
+\end{equation*}
+Hierbei ist $p$ der Druck. Mit der Korrektur ergibt sich ein korrigierter Wert für die Ladung
+\begin{equation}
+  \label{eq:q_korri}
+  q=q_0\left(1+\frac{B}{pr}\right)^{\frac{3}{2}}.
+\end{equation}
