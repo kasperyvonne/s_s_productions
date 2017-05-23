@@ -1,4 +1,61 @@
 \setcounter{page}{1}
 \section*{Zielsetzung}
-
+Der Versuch $V503$ soll die Elementarladung $\map{e}_0$ experimentell bestimmt werden.
 \section{Theorie}
+
+Um die Elemtarladung $\map{e}_0$ zu ermittelen, wird der nach Robert Andrews Millikan benannte
+Milikan-Versuchsaufbau verwendet. Millikan verwendete dazu zerstäubte Öltröpfchen in einem
+Plattenkondensator. Beim Zerstäubevorgang erhalten die Öltröpfchen eine elektrische
+Ladung, hierdurch stehen sie in Wechselwirkung mit dem elektrischen Feld $\vec{E}$ des
+Kondensators. Ein Öltröpfchen trägt immer ein ganzzahliges Vielfaches der Elemetarladung.
+Neben der elektrischen Feldkraft des Kondensators, wirkt auchd die Gravitaionskraft
+$\vec{F}\ua{g}=m\vec{\map{g}}$. Auf Grund dessen bewegt sich das Tröpfchen zum Boden
+des Kondensators. Beim Fallvorgang wirkt die Stoksche Reibungskraft
+\begin{equation*}
+  \vec{F}\ua{R}=-6\map{\pi}\eta\ua{L}\vec{v}
+\end{equation*}
+der Bewegung entgegen. Bei der Stoksche Reibungskraft bezeichnet $r$ den Radius der
+Tröpfchen und $\eta\ua{L}$ die Viskosität von Luft. Sobald ein Kräftegleichgewicht
+zwischen der Reibungskraft $\vec{F}\ua{R}\propto \vec{v}$ und der Gravitationskraft
+herrscht, bweget sich das Teilchen mit der konstanten Geschwindigkeit $v_0$ weiter.
+Beim kräftegleichgewicht gilt folgender Zusammenhang:
+\begin{equation}
+  \label{eq:kraeftegleich}
+  \frac{4\map{\pi}}{3}r^3\left(\rho\ua{oel}-\rho\ua{L}\right)\map{g}=6\map{\pi}\eta\ua{L}r v_0.
+\end{equation}
+Die linke Seite von \eqref{q:kraeftegleich} Berücksichtigt zusätzlich den Auftrieb des
+Tröpfchen in der Luft. Mit der obigen Gleichung lässt sich ein Ausdruck für den Radius
+des Teilchen
+\begin{equation}
+  \label{eq:radius_teilchen}
+  r=\sqrt{\frac{9\eta\ua{L}v_0}{2\map{g}\left(\rho\ua{oel}-\rho\ua{L}\right)}}
+\end{equation}
+
+Neben der Gravitations- und Reibungskraft wirkt auf das geladene Teilchen
+die elektrische Feldkraft $\vec{F}\ua{elk}=q\vec{E}$ des elektrischen Feldes.
+Bei positiver Spannung wirkt die elektrische Kraft in Richtung des der Gewichtskraft.
+Das Teilchen bewegt sich also mit einer gleichförmigen Sinkgeschwindigkeit $\vec{v}\ua{ab}$ ($\be{\vec{v}\ua{ab}}>v_0$).
+Unter diesen Einstellung lautet die Kräftegleichung
+\begin{equation}
+  \label{eq:kraefte_eins}
+    \frac{4\map{\pi}}{3}r^3\left(\rho\ua{oel}-\rho\ua{L}\right)\map{g}-\map{\pi}\eta\ua{L}r v\ua{ab}=-qE.
+\end{equation}
+Im Gegensatz dazu bewirkt eine negative Spannung eine elektrische Feldkraft die der Gravitationskraft
+entgegenwirkt. Folglich bremst es das fallende Tröpfchen ab oder
+lässt es, bei hinreichend großer Spannung, sogar nach oben beschleungigen.
+In dem letzteren Fall kann das Tröpfchen die maximale Geschwindigkeit $\vec{v}\ua{auf}$ erreichen.
+Die Kräftegleichung lautet
+\begin{equation}
+  \label{eq:kraefte_zwei}
+    \frac{4\map{\pi}}{3}r^3\left(\rho\ua{oel}+\rho\ua{L}\right)\map{g}+\map{\pi}\eta\ua{L}r v\ua{auf}=qE.
+\end{equation}
+Mit Hilfe der Gleichungen \eqref{eq:kraefte_eins} und \eqref{eq:kraefte_zwei} kann eine Gesetzmäßigkeit
+für die Ladung $q$ des Öltröpfchens gefunden werden:
+\begin{equation}
+  \label{eq:ladung}
+  q=3\pi\eta\ua{L}r\frac{v\ua{ab}+v\ua{auf}}{E}=3\pi\eta\ua{L}\sqrt{\frac{9\eta\ua{L}v_0}{2\map{g}\left(\rho\ua{oel}-\rho\ua{L}\right)}}\frac{v\ua{ab}+v\ua{auf}}{E}.
+\end{equation}
+Bei der Verwendung des Stokschen Gesetz ist zu beachten, dass es nur für Teilchen gilt,
+deren Abmessung größer als die freie Weglänge in Luft $\ov{l}$.
+Da diese Voraussetzung beim verwendeten Versuchsaufbau nicht erfüllt, muss die Viskosität $\eta\ua{L}$
+angepasst
