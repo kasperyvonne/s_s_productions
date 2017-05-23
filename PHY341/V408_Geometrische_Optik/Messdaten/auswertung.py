@@ -12,10 +12,14 @@ def linfit(x, y):
     params_raw, cov = curve_fit(lin, x, y)
     return correlated_values(params_raw, cov)
 
+def mid(x):
+    return ufloat(np.mean(x), 1/np.sqrt(len(x)) * np.std(x)  )
+
 
 ####MITTELWERT BRENNWEITE 1
-method_1_f = (1 / (1 / method_1_g + 1 / method_1_b)).mean()
-r.app(r'f\ua{1, mid}', Q_(method_1_f, 'centimeter'))
+method_1_f = (1 / (1 / method_1_g + 1 / method_1_b))
+method_1_f_mid = mid(method_1_f)
+r.app(r'f\ua{1, mid}', Q_(method_1_f_mid, 'centimeter'))
 brennweite_exp = ufloat(9.7, 0.1)
 r.app(r'f\ua{1, exp}', Q_(brennweite_exp, 'centimeter'))
 V_1 = method_1_b/method_1_g
@@ -25,23 +29,22 @@ V_2 = method_1_B/G
 
 
 ######BESSELMETHODE
-method_bessel_f = bessel(bessel_g, bessel_b).mean()
-r.app(r'f\ua{2}', Q_(method_bessel_f, 'centimeter') )
+method_bessel_f = bessel(bessel_g, bessel_b)
+method_bessel_f_mid = mid(method_bessel_f)
+r.app(r'f\ua{2}', Q_(method_bessel_f_mid, 'centimeter') )
 
 #######CHROMATISCHE ABBERATION
-brennweite_blau = bessel(blau_g, blau_b).mean()
-r.app(r'f\ua{b}', Q_(brennweite_blau, 'centimeter') )
+brennweite_blau = bessel(blau_g, blau_b)
+r.app(r'f\ua{b}', Q_(mid(brennweite_blau), 'centimeter') )
 
-brennweite_rot = bessel(rot_g, rot_b).mean()
-r.app(r'f\ua{r}', Q_(brennweite_rot, 'centimeter') )
+brennweite_rot = bessel(rot_g, rot_b)
+r.app(r'f\ua{r}', Q_(mid(brennweite_rot), 'centimeter') )
 
 
 #####ABBE
 x = np.linspace(1.4, 3, 1000)
-plt.errorbar(unp.nominal_values(1 + 1/abbe_V), unp.nominal_values(abbe_g),
-xerr = unp.std_devs(1 + 1/abbe_V), yerr = unp.std_devs(abbe_g), fmt='bx',
-ecolor = 'b', elinewidth = 1, capsize = 2, label='Messwerte')
-params_g = linfit(unp.nominal_values(1 + 1/abbe_V), unp.nominal_values(abbe_g))
+plt.plot(1 + 1/abbe_V, abbe_g, 'rx',label='Messwerte')
+params_g = linfit(1 + 1/abbe_V, abbe_g)
 m_g = params_g[0]
 r.app(r'f\ua{a, 1}', Q_(m_g, 'centimeter'))
 b_g = params_g[1]
@@ -55,9 +58,7 @@ plt.legend(loc='best')
 plt.savefig('plots/abbe_plot_g.pdf')
 plt.clf()
 
-plt.errorbar(unp.nominal_values(1 + abbe_V), unp.nominal_values(abbe_b),
-xerr = unp.std_devs(1 + abbe_V), yerr = unp.std_devs(abbe_b), fmt='bx',
-ecolor = 'b', elinewidth = 1, capsize = 2, label='Messwerte')
+plt.plot(1 + abbe_V, abbe_b,'rx',  label='Messwerte')
 params_b = linfit(unp.nominal_values(1 + abbe_V), unp.nominal_values(abbe_b))
 m_b = params_b[0]
 r.app(r'f\ua{a, 2}', Q_(m_b, 'centimeter'))
@@ -72,7 +73,7 @@ plt.legend(loc='best')
 plt.savefig('plots/abbe_plot_b.pdf')
 plt.clf()
 ####THEORETISCHER WERT
-d = ufloat(6, 0.1)
+d = 6
 f_abbe_theo = 1 / (d / 100)
 r.app(r'f\ua{a, t}', Q_(f_abbe_theo, 'centimeter'))
 
