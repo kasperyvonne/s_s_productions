@@ -15,7 +15,7 @@ An die gemessenen Spannungen $U$ und an die Wurzel des Photostroms $I\ua{p}$ wir
 Regressionsgerade
 \begin{equation}
   \label{eq:reg} %dann nenn x doch auch U und y wurzel I
-  g(x)=mx+b
+  g(x)=mx+b \quad \Leftrightarrow \quad \sqrt{I\ua{p}}=mU+b
 \end{equation}
 gefittet.
 In den Darstellungen \ref{fig: darstellung_1} bis \ref{fig: darstellung_3} werden die Ergebnisse der Regressionsrechung
@@ -48,7 +48,7 @@ illustriert.
   \begin{subfigure}{0.48\textwidth}
     \centering
     \includegraphics[width=1 \textwidth]{../Messdaten/violettem.pdf} %benenn die konsistent
-    \caption{Violettem Licht.}
+    \caption{Violettes Licht.}
     \label{fig: violett}
   \end{subfigure}
   \caption{Darstellung der linearen Abhängigkeit von $\sqrt{I\ua{p}}$ zur Bremsspannung $U$.}
@@ -71,7 +71,7 @@ illustriert.
   \caption{Darstellung der linearen Abhängigkeit von $\sqrt{I\ua{p}}$ zur Bremsspannung $U$.}
   \label{fig: darstellung_3}
 \end{figure}
-Die aus der Ausgleichsrechnung erhaltenden Parameter sind in Tabelle %doppelt aus;
+Die Parameter derAusgleichsrechnung sind in Tabelle %doppelt aus;
 \ref{tab: messergebnisse} aufgelistet. Die Grenzspannung $U\ua{g}$ wird
 wie folgt berechnet:
 \begin{equation}
@@ -82,7 +82,7 @@ wie folgt berechnet:
 
 \subsection{Bestimmung von $\frac{\map{h}}{\map{e}}$ und der Austrittsarbeit}
 
-Die im vorangegangenden bestimmten Grenzspanunngen werden im %vorangegangenden was?, benutz nicht so oft wörter die auf enden enden, klingt blöd
+Die oben bestimmten Grenzspanunngen werden im %vorangegangenden was?, benutz nicht so oft wörter die auf enden enden, klingt blöd
 Folgenden genutzt, um die Konstante $\frac{\map{h}}{\map{e}}$ und die Austrittsarbeit des Kathodenmaterials
 experimentell zu bestimmen.
 Es wird dazu eine Regressionrechnung für $U\ua{g}(f)$ durchgeführt.
@@ -94,7 +94,7 @@ Die Umrechnung von der Wellenlänge $\lambda$ in die Frequenz $f$ erfolgt mit
   \label{eq:umrech}
   f=\frac{\map{c}}{\lambda}.
 \end{equation*}
-Hierbei sei $\map{c}$ die Vaakumlichtgeschwindigkeit\cite{scipy}. %nicht sei, ist
+Hierbei ist$\map{c}$ die Vaakumlichtgeschwindigkeit\cite{scipy}. %nicht sei, ist
 Um $\frac{\map{h}}{\map{e}}$ und die Austrittsarbeit $A\ua{k}$ zu bestimmen, wird zunächst die
 Gleichung \eqref{eq:regress} umgestellt zu:
 \begin{equation*}
@@ -135,27 +135,3 @@ In Abbildung \ref{fig:gelb_all} ist der Stromverlauf dargestellt.
     \label{fig:gelb_all}
   \end{figure}.
 %Ist das ab hier nicht alles Diskussion?
-Die in der Abbildung \ref{fig:gelb_all} zu sehende Sättigung entsteht dadurch, dass
-ab einer bestimmten Beschleunigungsspannung alle Elektronen die Anode erreichen.
-Lediglich eine Erhöhung der Lichtintensität würde eine Vergrößerung der Stromstärke
-zu folge haben. %zur Folge
-Das asymptotische Verhalten der Stromstärke ist auf die Anode
-bzw. das Streuverhalten der Elektronen zurückzuführen, denn es ist bei der verwendeten %denn
-Anode nicht sichergestellt, dass alle Elektronen regrestiert werden. %registriert
-Das Problem kann zum Beispiel mit einer Anode gelöst werden, die die Photokathode
-einhüllt.
-
-Die Stromstärke fällt nicht schlagartig gegen null, da die Elektronen in der Photokathode
-eine Energieverteilung besitzen. Auf Grund dessen besitzt nicht jedes ausgelöstes
-Elektron dieselbe Energie. Einige Elektronen können dadurch, bis zu einem bestimmten Spannungsbereich,
-die Bremsspannung überwinden.
-
-Bei dem Photoeffekt ist auch ein positiver Photostrom beobachtbar, das
-Phänomen ist erklärbar damit, dass auch bei der Anode ein lichtelektrischer Effekt
-auftritt. Jedoch besitzt die Anode eine höhere Austrittsarbeit, dies sorgt
-dafür dass nur einige wenige Elektronen ausgelöst werden.
-Verstärkt wird der positive Photostrom durch das Kathoden selber, %das Kathoden?
-denn das Kathodenmaterial verdampft schon für Temperaturen um
-$T=\SI{20}{\celsius}$. Das verdampfte Kathodenmaterial kann sich auf die
-Anode legen und so die Austrittsarbeit der Anode herabsetzen, folglich steigt der
-positive Photostrom.
