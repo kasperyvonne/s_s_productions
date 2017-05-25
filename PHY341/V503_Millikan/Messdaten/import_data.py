@@ -37,11 +37,14 @@ resistance = Q_(resistance_raw, 'megaohm')
 T_fit = np.linspace(20, 39, 20)
 R_fit = np.genfromtxt('temp.txt', unpack=True)
 coeff = np.polyfit(R_fit, T_fit, deg = len(T_fit))
-plt.plot(R_fit, T_fit, 'rx')
+plt.plot(R_fit, T_fit, 'rx', label = 'Stützstellen')
 R_plot = np.linspace(1.470, 2.310, 1000)
-
-plt.plot(R_plot, np.polynomial.polynomial.polyval(R_plot, coeff[::-1]))
+plt.xlabel('R / M$\Omega$')
+plt.ylabel('T/ °C')
+plt.grid()
+plt.plot(R_plot, np.polynomial.polynomial.polyval(R_plot, coeff[::-1]), label = 'Interpolationspolynom')
 plt.xlim(R_plot[0], R_plot[-1])
+plt.legend(loc = 'best')
 plt.savefig('temperature_fit.pdf')
 
 
