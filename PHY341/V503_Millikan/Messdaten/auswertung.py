@@ -33,7 +33,7 @@ q = (q_0 * (1 + B/(p_luft * radius))**(-3/2)).to('coulomb')
 
 #sp StartPunkt der Beachtung der Messwerte
 sp = 5
-q_sort = np.sort(q[sp:])
+q_sort = np.sort(q)[sp:]
 print(pd.Series(q_sort))
 
 # dist, Liste mit allen möglichen Differenezen
@@ -49,9 +49,9 @@ N = np.arange(1, len(dist) + 1)
 
 dist = np.sort(dist)
 len(dist)
-dist_min = dist[sp/25 * len(dist)]
-
-range_d = 1.0e-19
+dist_min = dist[1.5*sp/25 * len(dist)]
+print(dist_min)
+range_d = 1e-19
 
 q_e = dist_min
 r.app(r'q\ua{e}', Q_(q_e, 'coulomb'))

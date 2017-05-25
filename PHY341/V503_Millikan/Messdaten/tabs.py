@@ -10,7 +10,7 @@ from auswertung import *
 #places = [2, 0, 2, 0],
 #label = 'thermowiderstand', caption = 'Wertepaare zur Interpolation des Zusammenhangs zwischen $R$ und $T$.')
 
-#l.Latexdocument('tabs/q_best.tex').tabular([np.sort(q)[5:]*1e19, q_test_best*1e19],
-#header = '{$q_{i} /\SI{e-19}{\coulomb}$} & {$e_{i} /\SI{e-19}{\coulomb}$}',
-#places = [2, 2],
-#label = 'q_best', caption = 'Verwendete Tröpfchenladungen $q_{i}$ zur Bestimmung der Elementarladung und jeweils berechnete Minimalstelle $e_{i}$ der Gleichung \eqref{eq: rundung}.')
+l.Latexdocument('tabs/q_best.tex').tabular([q_sort*1e19, q_test_best*1e19],
+header = '{$q_{i} /\SI{e-19}{\coulomb}$} & {$e_{i} /\SI{e-19}{\coulomb}$}',
+places = [2, 2],
+label = 'q_best', caption = 'Verwendete Tröpfchenladungen $q_{i}$ zur Bestimmung der Elementarladung und jeweils berechnete Minimalstelle $e_{i}$ der Gleichung \eqref{eq: rundung}.')
