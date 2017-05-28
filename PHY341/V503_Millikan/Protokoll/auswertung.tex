@@ -4,9 +4,9 @@ Die aus der Anleitung entnommenen Werte Paare $(R, T)$ (siehe Tabelle \ref{tab: 
 zwischen dem Thermowiderstand und und der Temperatur mittels Polynominterpolation zu approximieren. Die graphische
 Darstellung des gefundenen Polynoms befindet sich in Abbildung \ref{fig: poly}.
 \input{../Messdaten/tabs/thermowiderstand.tex}
-\begin{figure}
+\begin{figure}[H]
   \centering
-  \includegraphics[width = \textwidth]{../Messdaten/temperature_fit.pdf}
+  \includegraphics[width = 0.8\textwidth]{../Messdaten/temperature_fit.pdf}
   \caption{Graphische Darstellung der Polynominterpolation des Zusammenhangs zwischen Thermowiderstand $R$ und Temperatur $T$.}
   \label{fig: poly}
 \end{figure}
@@ -33,14 +33,14 @@ Um nun die Elementarladung aus den gewonnen Daten zu ermitteln wird wie folgt vo
 Ladungen sollten der Theorie zur Folge ein ganzzahliges Vielfachhes von $e\ua{0}$ sein, das heißt für die
 Tröpfenladungen $q\ua{i}$ muss gelten
 \begin{equation}
-  \mathup{rd}\ua{0}\left(\frac{q\ua{i}}{e\ua{0}}\right) - \frac{q\ua{i}}{e\ua{0}} = 0 \quad \forall\, i.
+  \mathup{rd}\ua{0}\left(\frac{q\ua{i}}{\mathup{e}\ua{0}}\right) - \frac{q\ua{i}}{\mathup{e}\ua{0}} = 0 \quad \forall\, \mathup{i}.
   \label{eq: rundung}
 \end{equation}
 Hierbei entspricht $\mathup{rd}\ua{0}$ der Rundung auf eine ganze Zahl. Für jede ermittelte Ladung wird nun diejenige
 Ladung berechnet, die \eqref{eq: rundung} minimal werden lässt. Dazu werden aus einer diskreten Menge $q\ua{e}$ Werte entnommen
 und jeweils in \eqref{eq: rundung} eingesetzt. Für jede Ladung $q\ua{i}$ ergibt sich somit eine Ladung
 \begin{equation}
-  e_i = \underset{q \in q_e}{\mathup{min}}\, \left|\mathup{rd}\ua{0}\left(\frac{q\ua{i}}{q}\right) - \frac{q\ua{i}}{q}\right|.
+  \mathup{e}\ua{i} = \underset{q\, \in \,q\ua{e}}{\mathup{min}}\, \left|\mathup{rd}\ua{0}\left(\frac{q\ua{i}}{q}\right) - \frac{q\ua{i}}{q}\right|.
 \end{equation}
 Der Mittwert über alle so bestimmten Ladungen liefert eine Näherung für die Elementarladung.\\
 Zunächst muss eine grobe Abschätzung für das Intervall $q\ua{e}$ gefunden werden. Hierzu wird ausgenutzt, dass die Elementarladung
@@ -49,7 +49,7 @@ der Datensatz der bestimmten Tröpfchenladungen Zahlenwerte enthält, die aufgru
 der unbekannten Elementarladung liegen, werden die kleinsten $\SI{20}{\percent}$ (hier also die 5 kleinsten Ladungen in \ref{tab: data}, rot dargestellt)
 aus der Betrachtung ausgeschlossen. Es wird mit den verbliebenen Ladungen das Minimum der Menge
 \begin{equation}
-  d\ua{q} = \left\{ \left| q\ua{i} - q\ua{j}\right| \quad \forall  i, j \, \quad i \neq j   \right\}
+  d\ua{q} = \left\{ \left| q\ua{i} - q\ua{j}\right| \quad \forall  \mathup{i}, \mathup{j} \, \quad \mathup{i} \neq \mathup{j}   \right\}
 \end{equation}
 bestimmt. Um auszuschließen, dass diese diskrete Menge auch solche Ladungsdifferenzen enthält, die im Rahmen der Messungenauigkeit
 kleiner als die Elementarladung sind (etwa weil zwei Tröpchen die selbe Ladung tragen), werden auch hier die kleinsten $\SI{20}{\percent}$ der möglichen Differenezn ausgeschlossen.
@@ -59,23 +59,23 @@ Es berechnet sich oberhalb dieser Schranke die kleinste Differenz zu
 \end{equation}
 Als diskrete Menge $q\ua{e}$ wird nun folgendes feines Raster angesetzt
 \begin{equation}
-  q\ua{e} = \left\{ d\ua{min} - \SI{e-19}{\coulomb}  +  \frac{2i \cdot \SI{e-19}{\coulomb}}{m}, \quad i = 0, \dots, m     \right\}\quad \text{mit} \, m = 1000.
+  q\ua{e} = \left\{ d\ua{min} - \SI{e-19}{\coulomb}  +  \frac{2\mathup{i} \cdot \SI{e-19}{\coulomb}}{\mathup{m}}, \quad \mathup{i} = 0, \dots, \mathup{m}     \right\}\quad \text{mit} \, \,\mathup{m} = 1000.
 \end{equation}
 Das Intervall erstreckt sich also in einem Abstand von $\SI{e-19}{\coulomb}$ um die kleinste Ladungsdifferenz und sollte deshalb die Elementarladung enthalten.
 Nun werden alle Ladungen des Intervalls für jede Ladung $q\ua{i}$ in Gleichung \eqref{eq: rundung} eingesetzt und jeweils die jenige Ladung bestimmt,
 die die Rundungsdifferenz minimal werden lässt. Die Ergebnisse sind in Tabelle \ref{tab: q_best} eingetragen. Abbildung \ref{fig: streuung} zeigt die Streuung
 der so ermittelten Ladungen um die Elementarladung. Als Mittelwert mit zugehöriger Standardabweichung ergibt sich
 \begin{equation}
-  e\ua{exp} = \SI{+1.7(1)e-19}{\coulomb}.
+  \mathup{e}\ua{exp} = \SI{+1.7(1)e-19}{\coulomb}.
 \end{equation}
 Dieses Ergebnis weicht vom Literaturwert
 \begin{equation}
-  e\ua{0} = \SI{1.6021766208e-19}{\coulomb}
+  \mathup{e}\ua{0} = \SI{1.6021766208e-19}{\coulomb}
 \end{equation}
 im Mittel um $\SI{4}{\percent}$ ab. Zum Abschluss der Auswertung sei angemerkt, dass eine volle Betrachtung des Datensatzes ohne
 die gewählten Aussparungen folgenden Wert für die Elementarladung liefert
 \begin{equation}
-   e'\ua{exp} = \SI{+1.2(11)e-19}{\coulomb}.
+   \mathup{e}'\ua{exp} = \SI{+1.2(11)e-19}{\coulomb}.
 \end{equation}
 \input{../Messdaten/tabs/q_best.tex}
 \begin{figure}
