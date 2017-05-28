@@ -12,7 +12,7 @@ Darstellung des gefundenen Polynoms befindet sich in Abbildung \ref{fig: poly}.
 \end{figure}
  Die mit dem Interpolationspolynom berechneten
 Temperaturen sind ebenfalls in Tabelle \ref{tab: data} eingefügt. Der Zusammenhang zwischen der Viskosität von Luft $\eta$ und
-der Temperatur $T$ wurde der Anleitung \cite{} entsprechend als linear angenommen. Mit den Wertepaaren
+der Temperatur $T$ wurde der Anleitung \cite{anleitung503} entsprechend als linear angenommen. Mit den Wertepaaren
 \begin{align}
   \eta_1 &= \SI{1.85e-5}{\newton\second\meter^{-2}}, \quad T_1 = \SI{16}{\celsius} \\
   \eta_2 &= \SI{1.88e-5}{\newton\second\meter^{-2}}, \quad T_2 = \SI{32}{\celsius},
@@ -23,9 +23,9 @@ $T$ in $\si{\celsius}$ die Viskositäten $\eta$ in $\si{\newton\second\meter^{-2
   \eta(T) = \SI{0.0019}{\newton\second\meter^{-2} \celsius^{-1} } \cdot  T  + \SI{1.82}{\newton\second\meter^{-2}}.
 \end{equation}
 Die somit berechneten Viskositäten sind in Tabelle \ref{tab: data} aufgetragen.
-Die Fallgeschwindigkeiten der Tröpfchen berechnen sich gemäß \eqref{} und der Falldistanz $s = \SI{0.5}{\milli\meter}$.
-Mit Gleichung \eqref{} ergeben sich somit schließlich die Tröpfchenradien $r$ und Ladungen $q$. Hierbei wurde
-direkt die Korrektur \eqref{} angewandt. Alle Ergebnisse sind in Tabelle \ref{tab: data} eingetragen. \\
+Die Fallgeschwindigkeiten der Tröpfchen berechnen sich gemäß $v = s/t$ und der Falldistanz $s = \SI{0.5}{\milli\meter}$.
+Mit den Gleichungen \eqref{eq:radius_teilchen} und \eqref{eq:q} ergeben sich somit schließlich die Tröpfchenradien $r$ und Ladungen $q$. Hierbei wurde
+direkt die Korrektur \eqref{eq:q_korri} angewandt. Alle Ergebnisse sind in Tabelle \ref{tab: data} eingetragen. \\
 \input{../Messdaten/tabs/daten_V503.tex}
 
 \subsection{Bestimmung der Elementarladung}
@@ -52,7 +52,7 @@ aus der Betrachtung ausgeschlossen. Es wird mit den verbliebenen Ladungen das Mi
   d\ua{q} = \left\{ \left| q\ua{i} - q\ua{j}\right| \quad \forall  i, j \, \quad i \neq j   \right\}
 \end{equation}
 bestimmt. Um auszuschließen, dass diese diskrete Menge auch solche Ladungsdifferenzen enthält, die im Rahmen der Messungenauigkeit
-kleiner als die Elementarladung sind, werden auch hier die kleinsten $\SI{20}{\percent}$ der möglichen Differenezn ausgeschlossen.
+kleiner als die Elementarladung sind (etwa weil zwei Tröpchen die selbe Ladung tragen), werden auch hier die kleinsten $\SI{20}{\percent}$ der möglichen Differenezn ausgeschlossen.
 Es berechnet sich oberhalb dieser Schranke die kleinste Differenz zu
 \begin{equation}
   d\ua{min} = \SI{1.54e-19}{\coulomb}.
