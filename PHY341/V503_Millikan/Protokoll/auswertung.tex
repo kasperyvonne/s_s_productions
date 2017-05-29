@@ -1,6 +1,6 @@
 \section{Auswertung}
 Die gemessenen Thermowiderstände $R$, Fallzeiten $t$ und Spannungen $U$ sind in Tabelle \ref{tab: data} einzusehen.
-Die aus der Anleitung entnommenen Werte Paare $(R, T)$ (siehe Tabelle \ref{tab: theromwiderstand}) wurden benutzt um den Zusammenhang %ref
+Die aus der Anleitung entnommenen Werte Paare $(R, T)$ (siehe Tabelle \ref{tab: thermowiderstand}) wurden benutzt um den Zusammenhang %ref
 zwischen dem Thermowiderstand und und der Temperatur mittels Polynominterpolation zu approximieren. Die graphische
 Darstellung des gefundenen Polynoms befindet sich in Abbildung \ref{fig: poly}.
 \input{../Messdaten/tabs/thermowiderstand.tex}
@@ -31,7 +31,7 @@ $\SI{1.0132}{\bar}$ angenommen. Alle Ergebnisse sind in Tabelle \ref{tab: data} 
 
 \subsection{Bestimmung der Elementarladung}
 Um nun die Elementarladung aus den gewonnen Daten zu ermitteln wird wie folgt vorgegangen. Alle bestimmten
-Ladungen sollten der Theorie zur Folge ein ganzzahliges Vielfachhes von $e\ua{0}$ sein, das heißt für die %\map{e}
+Ladungen sollten der Theorie zur Folge ein ganzzahliges Vielfachhes von $\mathup{e}\ua{0}$ sein, das heißt für die %\map{e}
 Tröpfenladungen $q\ua{i}$ muss gelten
 \begin{equation}
   \mathup{rd}\ua{0}\left(\frac{q\ua{i}}{\mathup{e}\ua{0}}\right) - \frac{q\ua{i}}{\mathup{e}\ua{0}} = 0 \quad \forall\, \mathup{i}.
@@ -39,9 +39,10 @@ Tröpfenladungen $q\ua{i}$ muss gelten
 \end{equation}
 Hierbei entspricht $\mathup{rd}\ua{0}$ der Rundung auf eine ganze Zahl. Für jede ermittelte Ladung wird nun diejenige
 Ladung berechnet, die \eqref{eq: rundung} minimal werden lässt. Dazu werden aus einer diskreten Menge $q\ua{e}$ Werte entnommen
-und jeweils in \eqref{eq: rundung} eingesetzt. Für jede Ladung $q\ua{i}$ ergibt sich somit eine Ladung
+und jeweils in \eqref{eq: rundung} eingesetzt. Für jede Ladung $q\ua{i}$ ergibt sich somit eine Ladung $\mathup{e}\ua{i} \in q\ua{e}$ mit
 \begin{equation}
-  \mathup{e}\ua{i} = \underset{q\, \in \,q\ua{e}}{\mathup{min}}\, \left|\mathup{rd}\ua{0}\left(\frac{q\ua{i}}{q}\right) - \frac{q\ua{i}}{q}\right|.
+  \left|\mathup{rd}\ua{0}\left(\frac{q\ua{i}}{\mathup{e}\ua{i}}\right) - \frac{q\ua{i}}{\mathup{e}\ua{i}}\right| \,\leq\,
+  \left|\mathup{rd}\ua{0}\left(\frac{q\ua{i}}{q}\right) - \frac{q\ua{i}}{q} \right| \quad \forall q \in q\ua{e}.
 \end{equation}
 Der Mittwert über alle so bestimmten Ladungen liefert eine Näherung für die Elementarladung.\\
 Zunächst muss eine grobe Abschätzung für das Intervall $q\ua{e}$ gefunden werden. Hierzu wird ausgenutzt, dass die Elementarladung
@@ -53,7 +54,7 @@ aus der Betrachtung ausgeschlossen. Es wird mit den verbliebenen Ladungen das Mi
   d\ua{q} = \left\{ \left| q\ua{i} - q\ua{j}\right| \quad \forall  \mathup{i}, \mathup{j} \, \quad \mathup{i} \neq \mathup{j}   \right\}
 \end{equation}
 bestimmt. Um auszuschließen, dass diese diskrete Menge auch solche Ladungsdifferenzen enthält, die im Rahmen der Messungenauigkeit
-kleiner als die Elementarladung sind (etwa weil zwei Tröpchen die selbe Ladung tragen), werden auch hier die kleinsten $\SI{20}{\percent}$ der möglichen Differenezn ausgeschlossen.
+kleiner als die Elementarladung sind (etwa weil zwei Tröpchen die selbe Ladung tragen), werden auch hier die kleinsten $\SI{20}{\percent}$ der möglichen Differenzen ausgeschlossen.
 Es berechnet sich oberhalb dieser Schranke die kleinste Differenz zu
 \begin{equation}
   d\ua{min} = \SI{1.54e-19}{\coulomb}.
@@ -82,6 +83,6 @@ die gewählten Aussparungen folgenden Wert für die Elementarladung liefert
 \begin{figure}[H]
   \centering
   \includegraphics[width = 0.8\textwidth]{../Messdaten/scattering.pdf}
-  \caption{Graphische Darstellung der Streung der ermittelten Bestwerte $e\ua{i}$ zu jeder Ladung $q\ua{i}$ um die Elementarladung $e_0$.}
+  \caption{Graphische Darstellung der Streung der ermittelten Bestwerte $\mathup{e}\ua{i}$ zu jeder Ladung $q\ua{i}$ um die Elementarladung $\mathup{e}_0$.}
   \label{fig: streuung}
 \end{figure}
