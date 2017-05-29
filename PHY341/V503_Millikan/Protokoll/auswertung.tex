@@ -25,7 +25,8 @@ $T$ in $\si{\celsius}$ die Viskositäten $\eta$ in $\si{\newton\second\meter^{-2
 Die somit berechneten Viskositäten sind in Tabelle \ref{tab: data} aufgetragen.
 Die Fallgeschwindigkeiten der Tröpfchen berechnen sich gemäß $v = s/t$ und der Falldistanz $s = \SI{0.5}{\milli\meter}$.
 Mit den Gleichungen \eqref{eq:radius_teilchen} und \eqref{eq:q} ergeben sich somit schließlich die Tröpfchenradien $r$ und Ladungen $q$. Hierbei wurde
-direkt die Korrektur \eqref{eq:q_korri} angewandt. Alle Ergebnisse sind in Tabelle \ref{tab: data} eingetragen. \\
+direkt die Korrektur \eqref{eq:q_korri} angewandt. Für den Luftdruck wird konstant der Atmosphärendruck von
+$\SI{1.0132}{\bar}$ angenommen. Alle Ergebnisse sind in Tabelle \ref{tab: data} eingetragen. \\
 \input{../Messdaten/tabs/daten_V503.tex}
 
 \subsection{Bestimmung der Elementarladung}
@@ -78,9 +79,9 @@ die gewählten Aussparungen folgenden Wert für die Elementarladung liefert
    \mathup{e}'\ua{exp} = \SI{+1.2(11)e-19}{\coulomb}.
 \end{equation}
 \input{../Messdaten/tabs/q_best.tex}
-\begin{figure}
+\begin{figure}[H]
   \centering
-  \includegraphics{../Messdaten/scattering.pdf}
-  \caption{Graphische Darstellung der Streung der ermittelten Bestwerte $e_i$ zu jeder Ladung $q_i$ um die Elementarladung $e_0$.}
+  \includegraphics[width = 0.8\textwidth]{../Messdaten/scattering.pdf}
+  \caption{Graphische Darstellung der Streung der ermittelten Bestwerte $e\ua{i}$ zu jeder Ladung $q\ua{i}$ um die Elementarladung $e_0$.}
   \label{fig: streuung}
 \end{figure}
