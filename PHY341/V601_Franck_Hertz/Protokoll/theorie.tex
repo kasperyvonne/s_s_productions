@@ -2,7 +2,7 @@
 \section*{Zielsetzung}
 Im Versuch 601 soll die Quantelung der Energieniveaus von Queksilber-Atomen beobachtet werden.
 Hierzu wird der nach James Franck und Gustav Hertz benannte Aufbau verwendet, der im Wesentlichen
-den Energieverlust beschleunigter Elektronen beim elastischen Stoß mit Quecksilberatomen zur ausnutzt.
+den Energieverlust beschleunigter Elektronen beim elastischen Stoß mit Quecksilberatomen ausnutzt.
 
 \section{Theorie}
 Der prinzipielle Aufbau des Franck-Hertz-Versuches ist in Abbildung \ref{fig: schema_aufbau} dargestellt. Innerhalb
@@ -12,11 +12,11 @@ erhitzt, was zur Elektronenemession führt (Glühelektrischer Effekt).
 \begin{figure}
   \centering
   \includegraphics[width = 0.5\textwidth]{pics/schema_aufbau.png}
-  \caption{Schematische Darstellung des Franck-Hertz-Aufbaus \cite{}.}
+  \caption{Schematische Darstellung des Franck-Hertz-Aufbaus \cite{anleitung601}.}
   \label{fig: schema_aufbau}
 \end{figure}
 Die nun freien Elektronen werden durch die Spannung $U\ua{B}$ in Richtung der Beschleunigungselektrode
-beschleunigt. Hinter Beschleuinigungselektrode ist eine Gegenspannung $U\ua{A}$ angelegt, die zum Abbremsen
+beschleunigt. Hinter der Gitterförmigen Beschleuinigungselektrode ist eine Gegenspannung $U\ua{A}$ angelegt, die zum Abbremsen
 der Elektronen führt. Es gelangen nur solche Elektronen zur Auffängerelektrode, für deren kinetische Energie $E\ua{kin}$
 gilt
 \begin{equation}
@@ -43,13 +43,15 @@ Hierbei entspricht $\Delta E\ua{kin}$ dem Energiverlust des Elektrons und $\ce{H
   h\nu = E\ua{2} - E\ua{1}
 \end{equation}
 in seinen Grundzustand zurück. Unter steigender Beschleunigungsspannung $U\ua{B}$ wird also immer dann ein
-Abfall des Anodenstroms $I\ua{A}$ erwartet, wenn die Energie der Elektronen nach dem $n$-ten Stoß mit einem
-\ce{Hg}-Atom zu klein ist um die Gegenspannung zu überwinden. Der theoretische Verlauf des Zusammenhang zwischen
-$U\ua{B}$ und $I\ua{A}$ ist in Abbildung \ref{fig: theo_verlauf} widergegeben.
+abrupter Abfall des Anodenstroms $I\ua{A}$ erwartet, wenn die Energie der Elektronen nach dem $n$-ten Stoß gerade
+ausreicht um zum $(n+1)$ten mal erneut ein \ce{Hg}-Atom anzuregen. Bei weiterer Erhöhung der Beschleunigungsspannung
+steigt der Strom erneut bis zu einem Maximum an, nachdem $U\ua{B}$ mindestens um $U\ua{A}$ erhöht wurde.
+Der theoretische Verlauf des Zusammenhangs zwischen
+$U\ua{B}$ und $I\ua{A}$ ist in Abbildung \ref{fig: theo_verlauf} wiedergegeben.
 \begin{figure}
   \centering
   \includegraphics[width = 0.5\textwidth]{pics/theo_verlauf.png}
-  \caption{Idealisierter Zusammenhang zwischen Beschleunigungsspannung $U\ua{B}$ und Anodenstrom $I\ua{A}$ \cite{}.}
+  \caption{Idealisierter Zusammenhang zwischen Beschleunigungsspannung $U\ua{B}$ und Anodenstrom $I\ua{A}$ \cite{anleitung601}.}
   \label{fig: theo_verlauf}
 \end{figure}
 Die zur Spannungsdifferenz $U\ua{1}$ gehörige
@@ -83,11 +85,11 @@ freie Weglänge $w$ im Gas
   \label{eq: weglaenge}
   w = 0.0029 \frac{1}{p} \quad \left\{[w] = \si{\centi\meter}, \, [p] = \si{\milli\bar} \right\}
 \end{equation}
-klein im Vergleich zum Abstand $a$ zwischen Draht und Beschleunigungselektrode sein. \\
+klein im Vergleich zum Abstand $a$ zwischen Draht und Beschleunigungselektrode sein (etwa um Faktor $1000$ bis $4000$). \\
 Weiter genügen die Energien der Elektronen im Draht einer statistischen Verteilung. Daher finden die ineleastischen
 Stöße nicht wie in \ref{fig: theo_verlauf} unter diskreten Spannungen $U\ua{B}$ statt. Der Anodenstrom fällt nicht abrupt
 auf null sondern nähert sich stetig einem Minimum, wenn das Maximum der Energieverteilung einem Vielfachen der Energiedifferenz
 zwischen Grund- und erstem angeregtem Zustand des $\ce{Hg}$-Atoms entspricht. \\
 Wie bereits erwähnt finden neben den inelastischen auch elastische Stöße statt, die zwar keine signifikanten Energieverlust
-bewirken jedoch zu starken Richtungsänderungen der Elektronen führen können. Finden also elastische Stöße zwischen Beschleunigungselektrode
-und Anode statt, so führt dies zu einem Abflachen der Franck-Hertz-Kurve.
+bewirken jedoch zu starken Richtungsänderungen der Elektronen führen können. Finden elastische Stöße zwischen Beschleunigungselektrode
+und Anode statt, führt dies zu einem Abflachen der Franck-Hertz-Kurve, da weniger Elektronen die Anode erreichen.
