@@ -59,12 +59,20 @@ def linfit (x,y,x_min,x_plus,y_min,y_plus,name):
     return messwerte
 
 
+
+
+
+
 def weglange (temp):
     temp_k=temp+237.15  #kelvin
     p=5.5*1e7*np.exp(-6876/temp_k) #mbar
     w=0.0029/p #cm
     verhaeltnis=1/w
     return {'Temperatur_k':temp_k,'Druck':p,'Weglange':w,'verhaeltnis':verhaeltnis}
+
+
+
+
 
 
 ####### Frank-Hertz-Kurve
@@ -90,9 +98,11 @@ weglange_frank=weglange(188.0)
 print('Verhaltnis w/a Frank-Hertz, 188',weglange_frank['verhaeltnis'])
 print('\n \n \n')
 
+
+
 ##Tabelle Abstand Spannung für Frank Hertz
-l.Latexdocument('spannungen_abstand_energie_hot.tex').tabular([abstand_frank_hertz,spannung_frank_hertz],
-'{Abstand in $\si{\\centi\\meter}$} & {Spannung in $\si{\\volt}$}', [1, 1] ,
+l.Latexdocument('spannungen_abstand_frank.tex').tabular([abstand_frank_hertz,spannung_frank_hertz],
+'{Abstand in $\si{\\centi\\meter}$} & {Spannung in $\si{\\volt}$}', [1, 0] ,
 caption = 'Aus Abbildung \\ref{} abgelesene Spannung-Abstandspare.', label = 'spannung_abstand_frank')
 
 ##Tabelle Abstand zwischen zwei Maxima
@@ -103,8 +113,6 @@ caption = 'Aus Abbildung \\ref{} abgelesene Abstände der Maxima.', label = 'abs
 
 
 
-
-
 #### Steigungsdreieckauswertung für die Energieverteilung bei T=28 Grad
 def steigung(x_1,x_2,dy):
     dx=x_2-x_1
@@ -112,6 +120,8 @@ def steigung(x_1,x_2,dy):
     steigung=dy/dx
     #print(pd.DataFrame({'X1':x_1,'X2':x_2, 'dY':dy, 'Steigung':steigung}))
     return {'Messpunkt': messpunkt, 'Steigung': steigung}
+
+
 
 x_1_zim,x_2_zim,dy_zim=np.genfromtxt('steigung_energieverteilung_28grad.txt',unpack=True)
 
@@ -137,7 +147,7 @@ plt.savefig('energie_zim.pdf')
 
 ##Tabelle Spannungen-Abstände Energerverteilung bei  Zimmertemp
 l.Latexdocument('spannungen_abstand_energie_zimmer.tex').tabular([abstand_zim,spanung_zim],
-'{Abstand in $\si{\\centi\\meter}$} & {Spannung in $\si{\\volt}$}', [1, 1] ,
+'{Abstand in $\si{\\centi\\meter}$} & {Spannung in $\si{\\volt}$}', [1, 0] ,
 caption = 'Aus Abbildung \\ref{} abgelesene Spannung-Abstandspaare.', label = 'spannung_abstand_zim')
 
 ##Tabelle ResultatSteigungsdreiecke für die Energieverteilung bei Zimmertemp
@@ -171,7 +181,7 @@ print('\n\n\n')
 
 ##Tabelle Abstand-Spannung für Ionisationspannung
 l.Latexdocument('spannungen_abstand_ioni.tex').tabular([abstand_ioni,spannung_ioni],
-'{Abstand in $\si{\\centi\\meter}$} & {Spannung in $\si{\\volt}$}', [1, 1] ,
+'{Abstand in $\si{\\centi\\meter}$} & {Spannung in $\si{\\volt}$}', [1, 0] ,
 caption = 'Aus Abbildung \\ref{} abgelesene Spannung-Abstandspaare.', label = 'spannung_abstand_ioni')
 
 
@@ -197,7 +207,7 @@ plt.savefig('energie_hot.pdf')
 
 ##Tabelle Spannungen-Abstände Energerverteilung bei  150 Grad
 l.Latexdocument('spannungen_abstand_energie_hot.tex').tabular([abstand_hot,spanung_hot],
-'{Abstand in $\si{\\centi\\meter}$} & {Spannung in $\si{\\volt}$}', [1, 1] ,
+'{Abstand in $\si{\\centi\\meter}$} & {Spannung in $\si{\\volt}$}', [1, 0] ,
 caption = 'Aus Abbildung \\ref{} abgelesene Spannung-Abstandspaare.', label = 'spannung_abstand_hot')
 
 ##Tabelle ResultatSteigungsdreiecke für die Energieverteilung bei 150 Grad
@@ -212,10 +222,22 @@ caption = 'Aus Abbildung \\ref{} abgelesene Steigungen.', label = 'steigungen_ho
 #########Tabellen
 
 ##Sapnnugnsfit
-liste_steigungen=[float(noms(parmeter_frank_hertz['Steigung'])),float(noms(parmeter_zim ['Steigung'])),float(noms(parmeter_hot ['Steigung'])),float(noms(parmeter_frank_hertz['Steigung'])),float(noms(parmeter_ioni['Steigung']))]
-liste_steigungen_fehler=[float(stds(parmeter_frank_hertz['Steigung'])),float(stds(parmeter_zim ['Steigung'])),float(stds(parmeter_hot ['Steigung'])),float(stds(parmeter_frank_hertz['Steigung'])),float(stds(parmeter_ioni['Steigung']))]
-liste_abschnitt=[float(noms(parmeter_frank_hertz['Achsenabschnitt'])),float(noms(parmeter_zim ['Achsenabschnitt'])),float(noms(parmeter_zim ['Achsenabschnitt'])),float(noms(parmeter_frank_hertz['Achsenabschnitt'])),float(noms(parmeter_ioni['Achsenabschnitt']))]
-liste_abschnitt_fehler=[float(stds(parmeter_frank_hertz['Achsenabschnitt'])),float(stds(parmeter_zim ['Achsenabschnitt'])),float(stds(parmeter_hot ['Achsenabschnitt'])),float(stds(parmeter_frank_hertz['Achsenabschnitt'])),float(stds(parmeter_ioni['Achsenabschnitt']))]
-l.Latexdocument('spannungsparameter.tex').tabular([liste_steigungen,liste_steigungen_fehler,liste_abschnitt,liste_abschnitt_fehler],
-'{Versuchsteil} & { $m$ in $\si{\\volt\\centi\\meter\\per}$} & {$\sigma_\mathrm{m}$ in $\si{\\volt\\centi\\meter\\per}$} & {$b$ in \si{\\volt}} & {$\simga_\mathmr{b}$ in \si{\\volt}', [3, 3, 2,2] ,
-caption = 'Regressiongerade für die Abstand in Spannungs Umrechnung', label = 'umrech')
+liste_steigungen=[ float(noms(parmeter_zim ['Steigung'])), float(noms(parmeter_hot ['Steigung'])), float(noms(parmeter_frank_hertz['Steigung'])),float(noms(parmeter_ioni['Steigung']))]
+liste_steigungen_fehler=[float(stds(parmeter_zim ['Steigung'])),float(stds(parmeter_hot ['Steigung'])),float(stds(parmeter_frank_hertz['Steigung'])),float(stds(parmeter_ioni['Steigung']))]
+liste_abschnitt=[float(noms(parmeter_zim ['Achsenabschnitt'])),float(noms(parmeter_zim ['Achsenabschnitt'])),float(noms(parmeter_frank_hertz['Achsenabschnitt'])),float(noms(parmeter_ioni['Achsenabschnitt']))]
+liste_abschnitt_fehler=[float(stds(parmeter_zim ['Achsenabschnitt'])),float(stds(parmeter_hot ['Achsenabschnitt'])),float(stds(parmeter_frank_hertz['Achsenabschnitt'])),float(stds(parmeter_ioni['Achsenabschnitt']))]
+liste=[1,2,3,4]
+l.Latexdocument('spannungsparameter.tex').tabular([liste,liste_steigungen,liste_steigungen_fehler,liste_abschnitt,liste_abschnitt_fehler],
+'{Versuchsteil} & { $m$ in $\si{\\volt\\centi\\meter\\per}$} & {$\sigma_\mathrm{m}$ in $\si{\\volt\\centi\\per\\meter}$} & {$b$ in $\si{\\volt}$} & {$\sigma_\mathrm{b}$ in $\si{\\volt}$}', [0,3, 3, 2,2] ,
+caption = 'Regressiongerade für die Abstand in Spannungs Umrechnung. Im Versuchsteil $1$ wird die Energieverteilung bei $T=\SI{28}{\\celsius}$ untersucht, $2$ umfassst die Untersuchung der Energieverteilung bei $T=\SI{155}{\\celsius}$, der dritte Abschnitt $(3)$ beschäftigt sich mit der Analyse der Frank-Hertz-Kurve und im Abschnitt $4$ wird die Ionisierungsspannung bestimmt.', label = 'umrech')
+
+### Freieweglängen
+T=[28.0,104.0,150.0,188.0]
+T_k=T+273.15*np.ones(len(T))
+p=5.5*1e7*np.exp(-6876/T_k)
+
+
+
+l.Latexdocument('weglange.tex').tabular([T,T+273.15*np.ones(len(T)),p,0.0029/p,p/0.0029],
+'{$T$ in $\si{\\celsius}$} & {$T$ in $\si{\\kelvin}$} & {$p_{\mathrm{sät}} in $\si{\\milli\\bar}$} & {$\overline{w}$ in $\si{\\centi\\meter}$} & {$\\frac{a/w}$}', [0, 2, 3,4, 0] ,
+caption = 'Ergebnisse für die Verhältnisberechenung $a\/w$.', label = 'weg')

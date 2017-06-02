@@ -1,1 +1,59 @@
 \section{Auswertung}
+Die in der Auswertung bestimmten Ausgleichsrechnungen werden mit
+dem Python Paket \emph{scipy.optimize}\cite{scipy} durchgeführt.
+Des Weiteren werden die Fehler und insbesondere die Fehlerfortpflanzungen
+mit dem Python Paket \emph{uncertainties}\cite{uncertainties} berechnet.
+
+\subsection{Regressionsberechnung zur Bestimmung der Spannung im Verhältnis zum Abstand}
+
+Für die verschiedenen Auswertungsteile wird immer eine Umrechnung von gemessenen Abständen
+in die Spannung $U$ benötigt. Dazu wird an die Messwerte die in den Tabellen \ref{}- \ref{} dargestellt sind,
+eine Gerade der Form
+\begin{equation*}
+  g(x)=mx+b
+\end{equation*}
+berechnet.
+\input{../Messdaten/spannungen_abstand_energie_zimmer.tex}
+\input{../Messdaten/spannungen_abstand_energie_hot.tex}
+\input{../Messdaten/spannungen_abstand_frank.tex}
+\input{../Messdaten/spannungen_abstand_ioni.tex}
+Die sich daraus ergebenenen Regressionparameter sind in Tabelle \ref{tab: umrech} aufgelistet.
+\input{../Messdaten/spannungsparameter.tex}
+
+Die Messwerte aus den Tabellen \ref{}- \ref{} und die dazugehörigen Ausgleichsgeraden sind in
+den Abbildungen \ref{} und \ref{} illustriert.
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=1 \textwidth]{../Messdaten/zim.pdf}
+    \caption{Graphische Darstellung des Ausgleichgraden für die Energieverteilung bei $\SI{28}{\degree}$.}
+    \label{fig: energie_zim}
+  \end{subfigure}
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=1 \textwidth]{../Messdaten/spannungsfit_energieverteilung_150grad.pdf}
+    \caption{Graphische Darstellung des Ausgleichgraden für die Energieverteilung bei $\SI{155}{\degree}$.}
+    \label{fig: enrgie_hot}
+  \end{subfigure}
+  \caption{Darstellung der Ausgleichsgeraden für $(1)$ und $(2)$}
+  \label{fig: darstellung_1}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=1 \textwidth]{../Messdaten/frank_hertz_kuvre.pdf}
+    \caption{Graphische Darstellung des Ausgleichgraden für Frank-Hertz-Kurve.}
+    \label{fig: frank_hertz}
+  \end{subfigure}
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=1 \textwidth]{../Messdaten/ioni.pdf}
+    \caption{Graphische Darstellung des Ausgleichgraden für die Untrersuchung der Ionisierungsspannung.}
+    \label{fig: enrgie_hot}
+  \end{subfigure}
+  \caption{Darstellung der Ausgleichsgeraden für $(3)$ und $(4)$}
+  \label{fig: darstellung_2}
+\end{figure}
