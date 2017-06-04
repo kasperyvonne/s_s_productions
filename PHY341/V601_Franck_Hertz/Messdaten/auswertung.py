@@ -244,7 +244,7 @@ liste_abschnitt_fehler=[float(stds(parmeter_zim ['Achsenabschnitt'])),float(stds
 liste=[1,2,3,4]
 l.Latexdocument('spannungsparameter.tex').tabular([liste,liste_steigungen,liste_steigungen_fehler,liste_abschnitt,liste_abschnitt_fehler],
 '{Versuchsteil} & { $m$ in $\si{\\volt\\centi\\meter\\per}$} & {$\sigma_\mathrm{m}$ in $\si{\\volt\\centi\\per\\meter}$} & {$b$ in $\si{\\volt}$} & {$\sigma_\mathrm{b}$ in $\si{\\volt}$}', [0,3, 3, 2,2] ,
-caption = 'Regressiongerade für die Abstand in Spannungs Umrechnung. Im Versuchsteil $1$ wird die Energieverteilung bei $T=\SI{28}{\\celsius}$ untersucht, $2$ umfassst die Untersuchung der Energieverteilung bei $T=\SI{155}{\\celsius}$, der dritte Abschnitt $(3)$ beschäftigt sich mit der Analyse der Frank-Hertz-Kurve und im Abschnitt $4$ wird die Ionisierungsspannung bestimmt.', label = 'umrech')
+caption = 'Regressiongerade für die Abstand in Spannungs Umrechnung. Im Versuchsteil $1$ wird die Energieverteilung bei $T=\SI{28}{\\celsius}$ untersucht, in $2$ bei $T=\SI{155}{\\celsius}$, der Abschnitt $3$ beschäftigt sich mit der Analyse der Frank-Hertz-Kurve und im Abschnitt $4$ wird die Ionisierungsspannung bestimmt.', label = 'umrech')
 
 ### Freieweglängen
 T=[28.0,104.0,150.0,188.0]

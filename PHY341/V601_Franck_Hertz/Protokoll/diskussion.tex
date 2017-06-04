@@ -1,1 +1,43 @@
 \section{Diskussion}
+Im Folgenden sollen die Messergebnisse in Bezug auf die Messgenauigkeit des %Messergebnisse in Bezug
+Vesuchsaufbaus diskutiert werden.
+
+Zu einer signifikaten Ungenauigkeit in dem Versuchsaufbau sorgt der verwendete
+X-Y Schreiber, denn ein Teil der fein Justierung war defekt. Dadurch mussten teilweise
+ungenauere Skalierungen verwendet werden. Bei nicht vorhanden sein dieses Problems
+wäre zum Beispiel, bei der Frank-Hertz-Kurve das erste Maxima deutlicher und
+verwendbar.
+
+Neben dem X-Y Schreiber besitz die Spannungsquelle für $U\ua{A}$ und $U\ua{B}$
+noch eine wichtige Rolle. Auf Grund von analogen Anzeigen, war das genaue ablesen
+der Spannung erschwert und hätte durch eine digitale Vorrichtung verbessert werden
+können. Das Problem mit der analoge Anzeige wirkt sich insbesondere bei der Messung
+der Energieverteilung negativ aus. Dort war eine Spannung von $U\ua{A}=\SI{11}{\volt}$
+verlangt, jedoch reicht die analoge Skala nur bis $\SI{10}{\volt}$, hier durch müssen
+die $\SI{11}{\volt}$ abgeschätzt werden.
+Hinzu kommt die beschädigte Isolierung des Kabels für das Picoampermeter.
+Durch die Beschädigung sorgten schon kleine Magnetfelder z.B. erzeugt von der Heizung
+zu einer Strommessung.
+Dies könnte auch der Grund für den unphysikalischen Spannugnsverlauf in Abbildung
+\ref{fig: messkurve_ioni} sein.
+
+Als letzte entscheidene Fehlerquelle ist die für den Versuch verwendete Heizung
+zu erwähnen. Da diese keine Funktion besaß, um die Temerpatur konstant zu halten, war
+es bei den Messungen kaum möglich eine gleichbleibende Temperatatur zu gewährleisten.
+
+ \begin{table}
+   \centering
+   \caption{Vergleich der Messergbnisse mit Literaturwerten}
+   \label{tab: results}
+   \begin{tabular} {S S[table-format=1.2] @{${}\pm{}$} S[table-format=1.2] S}
+     \toprule
+     {Messgröße} & \multicolumn{2}{c}{Exp. Wert}& {Literaturwert} \\
+     \midrule
+     $\text{E}_{\mathrm{anr}} \,/ \, \si{\eV}\, \, \text{\cite{anreg}}$  &  4.65 & 0.12  & 4.9\\
+     $\text{U}_{\mathrm{ion}} \, / \si{\volt } \, \, \text{\cite{ioni}}$ & 9.74 & 0.14 &  10.4\\
+     \bottomrule
+   \end{tabular}
+ \end{table}
+
+Beim Vergleich der Messergebnisse mit der Literatur (vgl. Tabelle  \ref{tab: results})
+zeigt sich, dass der Versuch trotz der oben aufgeführten Mängel gute Resultate liefert.
