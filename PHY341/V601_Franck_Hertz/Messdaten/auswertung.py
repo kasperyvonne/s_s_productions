@@ -52,7 +52,7 @@ def linfit (x,y,x_min,x_plus,y_min,y_plus,name):
     plt.plot(variabel,g(parms[0],variabel,parms[1]),'b-',label=r'$\mathrm{Regressionsgerade}$ ')
     plt.grid()
     plt.legend(loc='best')
-    plt.xlabel(r'$\mathrm{Abstand \, in \, \mathrm{cm}} $',size=25)
+    plt.xlabel(r'$\mathrm{Abstand \, \mathrm{in} \, \mathrm{cm}} $',size=25)
     plt.ylabel(r'$\mathrm{Spannung} \,\,  U_{\mathrm{B}} \, \,\mathrm{in \, V}$',size=25)
     #plt.show()
     plt.savefig( name +'.pdf')
@@ -64,7 +64,7 @@ def linfit (x,y,x_min,x_plus,y_min,y_plus,name):
 
 
 def weglange (temp):
-    temp_k=temp+237.15  #kelvin
+    temp_k=temp+273.15  #kelvin
     p=5.5*1e7*np.exp(-6876/temp_k) #mbar
     w=0.0029/p #cm
     verhaeltnis=1/w
@@ -93,7 +93,11 @@ wellenlaenge=(h*speed_of_light)/(anregungsenergie*e)
 
 print('Wellenlänge',wellenlaenge)
 K_frank=2*anregungspannung_u-g(noms(parmeter_frank_hertz['Steigung']),3.1,noms(parmeter_frank_hertz['Achsenabschnitt']))
-print('K frankherz',K_frank)
+K_frank_drei=3*anregungspannung_u-g(noms(parmeter_frank_hertz['Steigung']),4.8,noms(parmeter_frank_hertz['Achsenabschnitt']))
+
+print('K frankherz n=2',K_frank,g(noms(parmeter_frank_hertz['Steigung']),3.1,noms(parmeter_frank_hertz['Achsenabschnitt'])))
+print('K frankherz n=3',K_frank_drei)
+
 weglange_frank=weglange(188.0)
 print('Verhaltnis w/a Frank-Hertz, 188',weglange_frank['verhaeltnis'])
 print('\n \n \n')
@@ -103,13 +107,13 @@ print('\n \n \n')
 ##Tabelle Abstand Spannung für Frank Hertz
 l.Latexdocument('spannungen_abstand_frank.tex').tabular([abstand_frank_hertz,spannung_frank_hertz],
 '{Abstand in $\si{\\centi\\meter}$} & {Spannung in $\si{\\volt}$}', [1, 0] ,
-caption = 'Aus Abbildung \\ref{} abgelesene Spannung-Abstandspare.', label = 'spannung_abstand_frank')
+caption = 'Aus Abbildung \\ref{fig: messkurve_frank_hertz} abgelesene Spannung-Abstandspare.', label = 'spannung_abstand_frank')
 
 ##Tabelle Abstand zwischen zwei Maxima
 
 l.Latexdocument('abstaende_frank.tex').tabular([anzahl,abstaende_maxima,anregungsspannung],
 '{Nummerierung} & {Abstand in $\si{\\centi\\meter}$} & {Abstand in $\si{\\eV}$}', [0, 1,2] ,
-caption = 'Aus Abbildung \\ref{} abgelesene Abstände der Maxima.', label = 'abstand_maxima')
+caption = 'Aus Abbildung \\ref{fig: messkurve_frank_hertz} abgelesene Abstände der Maxima.', label = 'abstand_maxima')
 
 
 
@@ -133,27 +137,30 @@ spannung_zim=g(noms(parmeter_zim['Steigung']),steigungen_zim['Messpunkt'],noms(p
 
 K_zimmer=11-spannung_zim[np.argmax(steigungen_zim['Steigung'])]
 weglange_zim=weglange(28.0)
+print('Spannung des Maximums', spannung_zim[np.argmax(steigungen_zim['Steigung'])])
 print('Bestimmtes K_zimmer',K_zimmer)
 print('Verhältnis w/a Zimmertemp, 28', weglange_zim['verhaeltnis'])
 print('\n\n\n')
 
 plt.clf()
 plt.ylim(0,170)
+plt.xlim(0,11)
 plt.ylabel(r'$\mathrm{Steigung}$')
 plt.xlabel(r'$U_{\mathrm{a}}\,\mathrm{in \, V}$')
 plt.plot(spannung_zim,steigungen_zim['Steigung'],'rx',label=r'$\mathrm{\mathrm{Wert\, des\, Steigungsdreieckes}}$')
 plt.legend(loc='best')
+plt.grid()
 plt.savefig('energie_zim.pdf')
 
 ##Tabelle Spannungen-Abstände Energerverteilung bei  Zimmertemp
 l.Latexdocument('spannungen_abstand_energie_zimmer.tex').tabular([abstand_zim,spanung_zim],
 '{Abstand in $\si{\\centi\\meter}$} & {Spannung in $\si{\\volt}$}', [1, 0] ,
-caption = 'Aus Abbildung \\ref{} abgelesene Spannung-Abstandspaare.', label = 'spannung_abstand_zim')
+caption = 'Aus Abbildung \\ref{fig: messkurve_energie_zim} abgelesene Spannung-Abstandspaare.', label = 'spannung_abstand_zim')
 
 ##Tabelle ResultatSteigungsdreiecke für die Energieverteilung bei Zimmertemp
 l.Latexdocument('steigungen_energie_zimmer.tex').tabular([x_1_zim,x_2_zim,dy_zim,steigungen_zim['Steigung'],steigungen_zim['Messpunkt'],spannung_zim],
-'{$x_1$ in $\si{\\centi\\meter}$} & {$x_2$ in $\si{\\centi\\meter}$} & { ${\Delta y}$ in $\si{\\milli\\meter}$} & {$\\frac{\Delta y}{\Delta x}$ in \si{\\centi\\meter\per\\milli\\meter}} & {Messpunkt in $\si{\\centi\\meter}$} & {Messpunkt in $\si{\\volt}$}', [1, 1,1,2,2,2] ,
-caption = 'Aus Abbildung \\ref{} abgelesene Steigungen.', label = 'steigungen_zim')
+'{$x_1$ in $\si{\\centi\\meter}$} & {$x_2$ in $\si{\\centi\\meter}$} & { ${\Delta y}$ in $\si{\\milli\\meter}$} & {$\\frac{\Delta y}{\Delta x}$ in \si{\\milli\\meter\per\\centi\\meter}} & {Messpunkt in $\si{\\centi\\meter}$} & {Messpunkt in $\si{\\volt}$}', [1, 1,1,2,2,2] ,
+caption = 'Aus Abbildung \\ref{fig: messkurve_energie_zim} abgelesene Steigungen.', label = 'steigungen_zim')
 
 
 
@@ -168,7 +175,9 @@ Y=[3.5,7.0,9.7,10.9]
 
 
 k_u=ufloat(np.mean(np.array([float(noms(K_frank)),K_zimmer])), np.std(np.array([float(noms(K_frank)),K_zimmer]), ddof=1) / np.sqrt(len(np.array([float(noms(K_frank)),K_zimmer]))))
-params_gerade_io=linfit(X,Y,1,1,1,1,'gerade_io')
+params_gerade_io=linfit(X,Y,3,1,4,1,'gerade_io')
+print('Ioni Steigung',params_gerade_io['Steigung'])
+print('Ioni y_achsenabschnitt',params_gerade_io['Achsenabschnitt'])
 nulldurchgang=-params_gerade_io['Achsenabschnitt']/params_gerade_io['Steigung']-k_u
 weglange_ioni=weglange(104.0)
 
@@ -176,15 +185,19 @@ weglange_ioni=weglange(104.0)
 print('K Mittelwert ',k_u)
 print('Verhaltnis w/a Frank-Hertz, 104',weglange_ioni['verhaeltnis'])
 print('Ionisierungsenergie ',nulldurchgang)
+print('Ionisierungsenergie verschoben ',nulldurchgang+k_u)
+
 print('\n\n\n')
 
 
 ##Tabelle Abstand-Spannung für Ionisationspannung
 l.Latexdocument('spannungen_abstand_ioni.tex').tabular([abstand_ioni,spannung_ioni],
 '{Abstand in $\si{\\centi\\meter}$} & {Spannung in $\si{\\volt}$}', [1, 0] ,
-caption = 'Aus Abbildung \\ref{} abgelesene Spannung-Abstandspaare.', label = 'spannung_abstand_ioni')
+caption = 'Aus Abbildung \\ref{fig: messkurve_ioni} abgelesene Punkte, durch die eine Ausgleichgerade gelegt wird.', label = 'kodi_ioni')
 
-
+l.Latexdocument('fit_punkte_ioni.tex').tabular([X,Y],
+'{$x$-Koordinate in $\si{\centi\meter}$} & {$y$-Koordinate in $\si{\centi\meter}$}', [1, 1] ,
+caption = 'Aus Abbildung \\ref{fig: messkurve_ioni} abgelesene Spannung-Abstandspaare.', label = 'spannung_abstand_ioni')
 
 
 #### Steigungsdreieckauswertung für die Energieverteilung bei T=150 Grad
@@ -197,23 +210,25 @@ weglange_hot=weglange(150.0)
 parmeter_hot=linfit(abstand_hot,spanung_hot,1,1,1,1,'spannungsfit_energieverteilung_150grad')
 spannung_hot=g(noms(parmeter_hot['Steigung']),steigungen_hot['Messpunkt'],noms(parmeter_hot['Achsenabschnitt']))
 print('Verhätnis w/a Hot, 150',weglange_hot['verhaeltnis'])
+print('Beginn Steigungsdreieck',g(noms(parmeter_hot['Steigung']),x_1_hot,noms(parmeter_hot['Achsenabschnitt'])))
 
 plt.clf()
 plt.ylabel(r'$\mathrm{Steigung}$')
 plt.xlabel(r'$U_{\mathrm{a}}\,\mathrm{in \, V}$')
 plt.plot(spannung_hot,steigungen_hot['Steigung'],'rx',label=r'$\mathrm{Wert\, des\, Steigungsdreieckes}$')
 plt.legend(loc='best')
+plt.grid()
 plt.savefig('energie_hot.pdf')
 
 ##Tabelle Spannungen-Abstände Energerverteilung bei  150 Grad
 l.Latexdocument('spannungen_abstand_energie_hot.tex').tabular([abstand_hot,spanung_hot],
 '{Abstand in $\si{\\centi\\meter}$} & {Spannung in $\si{\\volt}$}', [1, 0] ,
-caption = 'Aus Abbildung \\ref{} abgelesene Spannung-Abstandspaare.', label = 'spannung_abstand_hot')
+caption = 'Aus Abbildung \\ref{fig: messkurve_energie_hot} abgelesene Spannung-Abstandspaare.', label = 'spannung_abstand_hot')
 
 ##Tabelle ResultatSteigungsdreiecke für die Energieverteilung bei 150 Grad
 l.Latexdocument('steigungen_energie_150grad.tex').tabular([x_1_hot,x_2_hot,dy_hot,steigungen_hot['Steigung'],steigungen_hot['Messpunkt'],spannung_hot],
-'{$x_1$ in $\si{\\centi\\meter}$} & {$x_2$ in $\si{\\centi\\meter}$} & { ${\Delta y}$ in $\si{\\milli\\meter}$} & {$\\frac{\Delta y}{\Delta x}$ in \si{\\centi\\meter\per\\milli\\meter}} & {Messpunkt in $\si{\\centi\\meter}$} & {Messpunkt in $\si{\\volt}$}', [1, 1,1,2,2,2] ,
-caption = 'Aus Abbildung \\ref{} abgelesene Steigungen.', label = 'steigungen_hot')
+'{$x_1$ in $\si{\\centi\\meter}$} & {$x_2$ in $\si{\\centi\\meter}$} & { ${\Delta y}$ in $\si{\\milli\\meter}$} & {$\\frac{\Delta y}{\Delta x}$ in \si{\\milli\\meter\per\\centi\\meter}} & {Messpunkt in $\si{\\centi\\meter}$} & {Messpunkt in $\si{\\volt}$}', [1, 1,1,2,2,2] ,
+caption = 'Aus Abbildung \\ref{fig: messkurve_energie_hot} abgelesene Steigungen.', label = 'steigungen_hot')
 
 
 
@@ -237,7 +252,6 @@ T_k=T+273.15*np.ones(len(T))
 p=5.5*1e7*np.exp(-6876/T_k)
 
 
-
 l.Latexdocument('weglange.tex').tabular([T,T+273.15*np.ones(len(T)),p,0.0029/p,p/0.0029],
-'{$T$ in $\si{\\celsius}$} & {$T$ in $\si{\\kelvin}$} & {$p_{\mathrm{sät}} in $\si{\\milli\\bar}$} & {$\overline{w}$ in $\si{\\centi\\meter}$} & {$\\frac{a/w}$}', [0, 2, 3,4, 0] ,
-caption = 'Ergebnisse für die Verhältnisberechenung $a\/w$.', label = 'weg')
+'{$T$ in $\si{\\celsius}$} & {$T$ in $\si{\\kelvin}$} & {$p_{\mathrm{sät}}$ in $\si{\\milli\\bar}$} & {$\overline{w}$ in $\si{\\centi\\meter}$} & {$\\frac{a}{w}$}', [0, 2, 3,4, 0] ,
+caption = 'Ergebnisse für die Verhältnisberechenung $a/w$.', label = 'weg')

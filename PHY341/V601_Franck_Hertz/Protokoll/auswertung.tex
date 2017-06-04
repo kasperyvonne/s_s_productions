@@ -4,24 +4,25 @@ dem Python Paket \emph{scipy.optimize}\cite{scipy} durchgeführt.
 Des Weiteren werden die Fehler und insbesondere die Fehlerfortpflanzungen
 mit dem Python Paket \emph{uncertainties}\cite{uncertainties} berechnet.
 
-\subsection{Regressionsberechnung zur Bestimmung der Spannung im Verhältnis zum Abstand}
+\subsection{Regressionsberechnung zur Bestimmung der Spannung im Verhältnis zum Abstand}\label{sec: ausgleich}
 
 Für die verschiedenen Auswertungsteile wird immer eine Umrechnung von gemessenen Abständen
-in die Spannung $U$ benötigt. Dazu wird an die Messwerte die in den Tabellen \ref{}- \ref{} dargestellt sind,
+in die Spannung $U$ benötigt. Dazu wird an die Messwerte die in den Tabellen \ref{tab: spannung_abstand_zim}- \ref{tab: spannung_abstand_ioni} dargestellt sind,
 eine Gerade der Form
-\begin{equation*}
+\begin{equation}
+  \label{eq: gerade}
   g(x)=mx+b
-\end{equation*}
+\end{equation}
 berechnet.
+Die sich daraus ergebenenen Regressionparameter sind in Tabelle \ref{tab: umrech} aufgelistet.
+\FloatBarrier
 \input{../Messdaten/spannungen_abstand_energie_zimmer.tex}
 \input{../Messdaten/spannungen_abstand_energie_hot.tex}
 \input{../Messdaten/spannungen_abstand_frank.tex}
 \input{../Messdaten/spannungen_abstand_ioni.tex}
-Die sich daraus ergebenenen Regressionparameter sind in Tabelle \ref{tab: umrech} aufgelistet.
 \input{../Messdaten/spannungsparameter.tex}
-
-Die Messwerte aus den Tabellen \ref{}- \ref{} und die dazugehörigen Ausgleichsgeraden sind in
-den Abbildungen \ref{} und \ref{} illustriert.
+Die Messwerte aus den Tabellen \ref{tab: spannung_abstand_zim}- \ref{tab: spannung_abstand_ioni} und die dazugehörigen Ausgleichsgeraden sind in
+den Abbildungen \ref{fig: darstellung_1} und \ref{fig: darstellung_2} illustriert.
 \begin{figure}
   \centering
   \begin{subfigure}{0.48\textwidth}
@@ -39,7 +40,6 @@ den Abbildungen \ref{} und \ref{} illustriert.
   \caption{Darstellung der Ausgleichsgeraden für $(1)$ und $(2)$}
   \label{fig: darstellung_1}
 \end{figure}
-
 \begin{figure}
   \centering
   \begin{subfigure}{0.48\textwidth}
@@ -57,3 +57,158 @@ den Abbildungen \ref{} und \ref{} illustriert.
   \caption{Darstellung der Ausgleichsgeraden für $(3)$ und $(4)$}
   \label{fig: darstellung_2}
 \end{figure}
+Die Fehler der Steigung und des y-Achsenabschnitt (vgl. \ref{tab: umrech}) werden
+im Folgenden, auf Grund der geringen Größe im Vergleich zum eigentlichen Ablesefehler, nicht weiter betrachtet.
+Somit erfolgt die Umrechnung von einem Abstand in eine Spannung
+fehlerfrei.
+\FloatBarrier
+
+\subsection{Untersuchung der mittleren freien Weglänge}
+\FloatBarrier
+Wie in der Theorie erwähnt sollte die mittlere freie Weglänge $\ov{w}$ im Vergleich zum
+Abstand $a$ zwischen Kathode und Beschleunigungselektode für Untersuchung der Frank-Hertz-Kurve (Abschnitt \ref{sec: frank})
+etwa um den Faktor $1000-4000$ kleiner sein. Die freie Weglänge hängt über dem Druck mit der Temperatur zusammen.
+Der Versuchsteil $1$ wurde bei einer Temperatur von $T=\SI{28}{\celsius}$ untersucht, $2$ bei $T=\SI{155}{\celsius}$,
+$3$ bei $T=\SI{188}{\celsius}$ und $4$ bei $T=\SI{104}{\celsius}$ betrachtet (selbe Nummerierung wie in Tab. \ref{tab: umrech}).
+Die Resultate sind in Tabelle \ref{tab: weg} zusammengefassst.
+\input{../Messdaten/weglange.tex}
+
+\subsection{Analyse der Energierverteilung bei $T=\SI{28}{\celsius}$}
+
+Die aufgenommene Messkurve ist in Abbildung \ref{fig: messkurve_energie_zim} dargestellt.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8 \textwidth]{./pics/energieverteilung_zimmer.png}
+  \caption{Aufgenommene Energieverteilung bei $T=\SI{28}{\celsius}$. Auf der $x$-Achse ist die Spannung $U\ua{a}$ in $\si{\volt}$ aufgetragen.
+          Hingegen gibt die $y$-Achse die Stromstärke $I\ua{A}$ an. Zusätzlich sind in der Abbidung die für die Auswertugn entscheidenen Steigungsdreiecke zuer erkennen.}
+  \label{fig: messkurve_energie_zim}
+\end{figure}
+Die in Abbildung \ref{fig: messkurve_energie_zim} Kurve gibt die Energieverteilung in \emph{integraler} Form an, durch anlegen von Steigugnsdreiecken der Form
+\begin{equation}
+  \label{eq:steigung}
+    M=\frac{\Delta y}{\Delta x}=\frac{\Delta y}{x_2-x_1}
+\end{equation}
+kann die Kurve in ihre \emph{differntielle} Form transformiert werden.
+Damit eine graphische Darstellung der differnetielle Kurve möglich ist, wird für jedes Koordiaaten Paar $(\Delta x,\Delta y)$ der Mittelpunkt
+von $\Delta x$ als Messpunkt gesetzt. An diesem Messpunkt soll die Steigung $\frac{\Delta y}{\Delta x}$ genährt vorliegen.
+Die Messpunkte werden mit den Ergebnissen aus Abschnitt \ref{sec: ausgleich} umgerechnet
+Die aus dem Graph abgelsenen Werte sind in Tabelle \ref{tab: steigungen_zim} aufgelistet.
+\input{../Messdaten/steigungen_energie_zimmer.tex}
+Die Darstellung der differntiellen Kurve ist in Abb. \ref{fig: energie_zim_diff} zu finden.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8 \textwidth]{../Messdaten/energie_zim.pdf}
+  \caption{Die Energiervertielung bei $T=\SI{28}{\celsius}$ in differentieller Form.}
+  \label{fig: energie_zim_diff}
+\end{figure}
+Das Maximum der Abbildung liegt bei $U\ua{max}=\SI{9.67}{\volt}$. Zum Zeipunkt der Messung
+lag eine Beschleunigungsspannung $U\ua{b}=\SI{11}{\volt}$ an.
+Das Kontaktpotential $K$ kannn somit bestimmt werden:
+\begin{equation}
+\label{eq:k_energie_zim}
+  K\ua{en}=U\ua{B}-U\ua{max}=\SI{1.33}{\volt}
+\end{equation}
+\FloatBarrier
+\subsection{Analyse der Energierverteilung bei $T=\SI{150}{\celsius}$}
+\FloatBarrier
+Die aus dem Experiment resultierende Messkurve ist in Abbildung \ref{fig: messkurve_energie_hot} dargestellt.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8 \textwidth]{./pics/energieverteilung_hot.png}
+  \caption{Aufgenommene Energieverteilung bei $T=\SI{150}{\celsius}$. Auf der $x$-Achse ist die Spannung $U\ua{a}$ in $\si{\volt}$ aufgetragen.
+          Hingegen gibt die $y$-Achse die Stromstärke $I\ua{A}$ an. Zusätzlich sind in der Abbidung die für die Auswertugn entscheidenen Steigungsdreiecke zuer erkennen.}
+  \label{fig: messkurve_energie_hot}
+\end{figure}
+Um die Kurve in die differntiele Form zu transformieren, wird wie im vorherigen Kaptiel vorgegangen.
+Die Steigungen wurden mit Formel \eqref{eq:steigung} berechnet und sind in Tabelle \ref{tab: steigungen_hot} notiert.
+\input{../Messdaten/steigungen_energie_150grad.tex}
+Die Spannungen wurden wieder mit den Resultaten aus Kapitel \ref{sec: ausgleich} errechnet.
+Eine Illustration der differentiellen Kurve ist in Abbildung \ref{fig: energie_hot_diff} präsentiert
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8 \textwidth]{../Messdaten/energie_hot.pdf}
+  \caption{Die Energiervertielung bei $T=\SI{150}{\celsius}$ in differentieller Form.}
+  \label{fig: energie_hot_diff}
+\end{figure}
+Wie in Abbildung \ref{fig: messkurve_energie_hot} zu erkennen, beginnen die Steigungsdreiecke erst ab
+einer Spannung von $U\ua{anf}=\SI{1.24}{\volt}$, dies ist damit zu Begründen das für Spannungen $U<U\ua{ua}$
+der Kurvenverlauf keinen physikallischen Zusammenhang beschreibt.
+Zusätzlich lässt sich in der differentiellen Kurve kein klares Maximum ausmachen, die dazugehörige Ursache wird in
+der Diskussion besprochen.
+\FloatBarrier
+\subsection{Untersuhung der Frank-Hertz-Kurve}\label{sec: frank}
+\FloatBarrier
+Die vom X-Y Schreiber aufgezeichnete Frank-Hertz-Kurve ist in der Illustration \ref{fig: messkurve_frank_hertz} abgebildet.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8 \textwidth]{./pics/frank_hertz_kurve.png}
+  \caption{Aufgenommene Frank-Hertz-Kurve bei $T=\SI{188}{\celsius}$. Auf der $x$-Achse ist die Spannung $U\ua{B}$ in $\si{\volt}$ aufgetragen.
+          Hingegen gibt die $y$-Achse die Stromstärke $I\ua{A}$ an. Zusätzlich sind die erkennbaren Maxima nummeriert.}
+  \label{fig: messkurve_frank_hertz}
+\end{figure}
+Die aus der Abbbildung abgelesenen Abstände der Maxima sind in der Tabelle \ref{tab: abstand_maxima} gelistet.
+Dabei ist die angegebene Nummerierung so zu verstehen, $1$ bezeichnet den Abstand zwischen dem Maxima $2$ und $3$ (vgl. \ref{fig: messkurve_frank_hertz}) usw..
+\input{../Messdaten/abstaende_frank.tex}
+Die Umrechnung von $\si{\centi\meter}$ zu $\si{\eV}$ erfolgt mit den Ergebnissen aus Kapitel \ref{sec: ausgleich}.
+Der bestimmte Abstand entspricht dann der Größe $E_2-E_1$, gemittelt folgt
+\begin{equation}
+  \label{eq:austrittarbeit}
+\ov{E_2-E_1}=\SI{4.65\pm0.12}{\eV}.
+\end{equation}
+Mit Gleichung \eqref{} kann dann die Wellenlänge des emetierten Licht bestimmt werden:
+\begin{equation}
+  \label{eq: lambda}
+  \lambda=\SI{267\pm7}{\nano\meter}
+\end{equation}
+Mit Hilfe der Frank-Hertz-Kurve ist auch eine Bestimmung des Kontaktpotentials
+möglich. Hierzu wird das dritte Maximum ($n=2$) verwendet, da das vorherige Maxima
+nicht eindeutig erkennbar ist. Der Abstand beträgt
+\begin{equation*}
+  d\ua{cm}=\SI{3.1}{\centi\meter} \qquad d\ua{V}=\SI{7.7}{\volt}.
+\end{equation*}
+Mit Formel \eqref{} ergibt sich dann für das Kontaktpotential:
+\begin{equation}
+  \label{eq:k_frank}
+  K\ua{frank}= \SI{1.59\pm0.25}{\volt}.
+\end{equation}
+\FloatBarrier
+\subsection{Bestimmung der Ionisuerungsspannung}
+\FloatBarrier
+Die Messkurve ist in Abbildung \ref{fig: messkurve_ioni} dargestellt.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8 \textwidth]{./pics/ionisierungsenergie.png}
+  \caption{Aufgenommene Kurve für die Bestimmung der Ionisierungsspannung $U\ua{ion}$ bei $T=\SI{104}{\celsius}$. Auf der $x$-Achse ist die Spannung $U\ua{B}$ in $\si{\volt}$ aufgetragen.
+          Hingegen gibt die $y$-Achse die Stromstärke $I\ua{A}$ an. Zusätzlich sind die vier Punkte makiert die für die Bestimmung der Ionisierungsspannung verwedent werden.}
+  \label{fig: messkurve_ioni}
+\end{figure}
+Die Bestimmung der Ionisierungsspannung $U\ua{ion}$ erfolgt mit Hilfe einer Ausgleichsrechnung an den Teil der Kurve mit einer positiven Steigung.
+Gewählt wurden die in der Tabelle \ref{tab: spannung_abstand_ioni} notierten Punkte.
+\input{../Messdaten/fit_punkte_ioni.tex}
+An diese wurde eine Ausgleichgerade der Form \eqref{eq: gerade} berechnet.
+Aus der Regressionsrechnung ergeben sich die Folgenden Parameter
+\begin{equation*}
+  m=\num{1.296\pm0.004} \qquad b=\SI{-14.52\pm0.07}{\centi\meter}.
+\end{equation*}
+Das Ergebnis ist zusätzlich in Abbildung \ref{fig: ioni_fit} dargestellt.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8 \textwidth]{../Messdaten/gerade_io_final.pdf}
+  \caption{Ausgleichsgerade der aus Abbildung \ref{fig: messkurve_ioni} abgelesenen Punkte.}
+  \label{fig: ioni_fit}
+\end{figure}
+Der Nullpunkt der Ausgleichsgeraden entspricht dann gerade der verschobenen
+Ionsiationsspannung:
+\begin{equation*}
+  U\ua{ion,v}=-\frac{m}{b}=\SI{11.20\pm0.06}{\volt}
+\end{equation*}
+Die Umrechnung von $\si{\centi\meter}$ zu $\si{\volt}$ erfolgt mit den Ergebnissen aus
+Abschnitt \ref{sec: ausgleich}.
+Mit Hilfe der zuvor bestimmten Kontakpotentiale $K$ (vgl. \eqref{eq:k_energie_zim} und \eqref{eq:k_frank})
+kann $U\ua{ion}$ bestimmt werden. Es ergibt sich für die Ioniersungsspannung:
+\begin{equation}
+  \label{eq: u_ion}
+  U\ua{ion}= U\ua{ion,v}-\ov{K}=\SI{9.74\pm0.14}{\volt} \quad \text{mit} \quad \ov{K}=\SI{1.46\pm0.13}{\volt}.
+\end{equation}
+Hierbei ist $\ov{K}$ der Mittelwert aus den zuvor bestimmten Kontaktpotentialen.
+\FloatBarrier
