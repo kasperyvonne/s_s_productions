@@ -3,22 +3,25 @@ Im Folgenden sollen die Messergebnisse in Bezug auf die Messgenauigkeit des
 Vesuchsaufbaus diskutiert werden.
 
 Zu einer signifikaten Ungenauigkeit in dem Versuchsaufbau sorgt der verwendete
-X-Y Schreiber, weil ein Teil der fein Justierung defekt war. Mussten teilweise %$XY$, Satzzeichen
-ungenauere Skalierungen verwendet werden. Dadurch wurde zum Beispiel die Aufnahme
-der Frank-Hertz-Kurve beeinflusst, da in dieser das erste Maxima auf Grund der groben Skalierung
-nicht eindeutig erkennbar ist. %Formulierung
+$XY$ Schreiber, weil ein Teil der fein Justierung defekt war mussten teilweise %$XY$, Satzzeichen
+ungenauere Skalierungen verwendet werden.
+Dies beeinflusste vor allem die gemssene Franck-Hertz-Kurve, denn dort war das
+erste Maxima, vermutlich auf Grund der groben Skalierung, nicht eindeutig erkennbar.
+ %Formulierung
 
-Neben dem X-Y Schreiber sind die Spannungsquelle für $U\ua{A}$ und $U\ua{B}$ %s.o., Plural, singular beachten
-eine Fehlerquelle. Die Spannungsquelle verwendet eine analoge Anzeige, hierdurch war das genaue Ablesen
-der Spannung erschwert. Eine digitale Vorrichtung verbessert kann die Messergebnisse verbessern. %wort zu viel
-Das Problem mit der analogen Anzeige, wirkt sich insbesondere bei der Messung %kein komma
-der Energieverteilung negativ aus. Dort war eine Spannung von $U\ua{A}=\SI{11}{\volt}$
-verlangt, jedoch reicht die analoge Skala nur bis $\SI{10}{\volt}$, hier musste
-die $\SI{11}{\volt}$ somit abgeschätzt werden. %Satz
+Neben dem $XY$ Schreiber sind die Spannungsquellen für $U\ua{A}$ und $U\ua{B}$ %s.o., Plural, singular beachten
+Fehlerquellen. Die Spannungsquelle verwendet eine analoge Anzeige, hierdurch war das genaue Ablesen
+der Spannung erschwert. Eine digitale Vorrichtung kann die Messergebnisse verbessern. %wort zu viel
+Das Problem mit der analogen Anzeige wirkt sich insbesondere bei der Messung %kein komma
+der Energieverteilung negativ aus.
+Dies erwies sich besonders bei der Untersuchung der Energieverteilung als Problem,
+denn dort wurde eine Spannung $U\ua{A}=\SI{11}{\volt}$ benötigt. Jedoch reichte die analoge
+Skala nur bis einer Spannung von $\SI{10}{\volt}$.Hierdurch war ein genaues
+einstellen der Spannung $U\ua{A}$ erschwert.
 Hinzu kommt die beschädigte Isolierung des Kabels für das Picoampermeter.
 Durch die Beschädigung ist das Messgerät sehr anfällig gegen Induktionsströme
 z.\,B. verursacht durch die Heizung.
-Die Induktionsströme kann auch der Grund für den unphysikalischen Spannugnsverlauf in Abbildung
+Die Induktionsströme können auch ein Grund für den unphysikalischen Spannugnsverlauf in Abbildung
 \ref{fig: messkurve_ioni} sein.%Plural Singular beachten
 
 Als letzte Fehlerquelle ist die für den Versuch verwendete Heizung
@@ -29,12 +32,12 @@ es bei den Messungen kaum möglich eine gleichbleibende Temperatur zu gewährlei
    \centering
    \caption{Vergleich der Messergbnisse mit Literaturwerten}
    \label{tab: results}
-   \begin{tabular} {S S[table-format=1.2] @{${}\pm{}$} S[table-format=1.2] S}
+   \begin{tabular} {S S[table-format=1.2] @{${}\pm{}$} S[table-format=1.2] S S}
      \toprule
-     {Messgröße} & \multicolumn{2}{c}{Exp. Wert}& {Literaturwert} \\
+     {Messgröße} & \multicolumn{2}{c}{Exp. Wert}& {Literaturwert} & {Abweichung}\\
      \midrule
-     $\text{E}_{\mathrm{anr}} \,/ \, \si{\eV}\, \, \text{\cite{anreg}}$  &  4.65 & 0.12  & 4.9\\
-     $\text{U}_{\mathrm{ion}} \, / \si{\volt } \, \, \text{\cite{ioni}}$ & 9.74 & 0.14 &  10.4\\
+     $\text{E}_{\mathrm{anr}} \,/ \, \si{\eV}\, \, \text{\cite{anreg}}$  &  4.65 & 0.12  & 4.9 & -5\!\!\!\!\!\!\!\%\\
+     $\text{U}_{\mathrm{ion}} \, / \si{\volt } \, \, \text{\cite{ioni}}$ & 9.74 & 0.14 &  10.4 & -6\!\!\!\!\!\!\!\% \\
      \bottomrule
    \end{tabular}
  \end{table}
