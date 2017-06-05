@@ -51,7 +51,7 @@ def linfit (x,y,x_min,x_plus,y_min,y_plus,name):
     plt.plot(x,y,'rx',label= r'$\mathrm{Spannungspunkte}$')
     plt.plot(variabel,g(parms[0],variabel,parms[1]),'b-',label=r'$\mathrm{Regressionsgerade}$ ')
     plt.grid()
-    plt.legend(loc='best')
+    plt.legend(loc='best',fontsize=20)
     plt.xlabel(r'$\mathrm{Abstand \, \mathrm{in} \, \mathrm{cm}} $',size=25)
     plt.ylabel(r'$\mathrm{Spannung} \,\,  U_{\mathrm{B}} \, \,\mathrm{in \, V}$',size=25)
     #plt.show()
