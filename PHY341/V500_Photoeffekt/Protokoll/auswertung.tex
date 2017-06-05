@@ -1,9 +1,10 @@
-\section{Auswertung}
+to\section{Auswertung}
 
 Die im Folgenden durchgeführten Regressionsrechnungen werden mit dem
 Python Paket \emph{scipy.optimize}\cite{scipy} durchgeführt. %iwas klappt mit dem zitieren nich
 
 \subsection{Untersuchung der Gegenspannunng für verschieden farbiges Licht}
+\FloatBarrier
 Die aufgenommenen Messwerte sind in den Tabellen \ref{tab: gelb} - \ref{tab: uv_zwei} aufgelistet.
 \input{../Messdaten/gelb.tex}
 \input{../Messdaten/grün.tex}
@@ -79,9 +80,9 @@ wie folgt berechnet:
   U\ua{g}\overset{\ref{eq:reg}}{=}-\frac{b}{m}.
 \end{equation}
 \input{../Messdaten/ergebnisse_kompakt_final.tex}
-
+\FloatBarrier
 \subsection{Bestimmung von $\frac{\map{h}}{\map{e}}$ und der Austrittsarbeit}
-
+\FloatBarrier
 Die oben bestimmten Grenzspanunngen werden im %vorangegangenden was?, benutz nicht so oft wörter die auf enden enden, klingt blöd
 Folgenden genutzt, um die Konstante $\frac{\map{h}}{\map{e}}$ und die Austrittsarbeit des Kathodenmaterials
 experimentell zu bestimmen.
@@ -122,7 +123,9 @@ Konstante $\frac{\map{h}}{\map{e}}$:
   \end{aligned}
 \end{align}
 Die Messwerte und die Regressionsgerade sind in Abbildung \ref{fig:grenz} dargestellt.
+\FloatBarrier
 \subsection{Untersuchung des Photostroms bei gelbem Licht}
+\FloatBarrier
 Für die Untersuchung des Photostrom $I\ua{p}$ wurde die
 Stromstärke für Spannungen $U$ im Bereich $U\in\left(-20,20\right)\,\si{\volt}$
 notiert (vgl. Tab. \ref{tab: gelb_all}).
@@ -133,5 +136,21 @@ In Abbildung \ref{fig:gelb_all} ist der Stromverlauf dargestellt.
     \includegraphics[width=1 \textwidth]{../Messdaten/gelb.pdf}
     \caption{Abhängigkeit des Photostroms von der Spannung.}
     \label{fig:gelb_all}
-  \end{figure}.
+  \end{figure}
+
+Die in der Abbildung \ref{fig:gelb_all} zu sehende Sättigung entsteht dadurch, dass
+ab einer bestimmten Beschleunigungsspannung alle Elektronen die Anode erreichen.
+Lediglich eine Erhöhung der Lichtintensität würde eine Vergrößerung der Stromstärke
+zur Folge haben. %zur Folge
+Das asymptotische Verhalten der Stromstärke ist auf die Anode
+bzw. das Streuverhalten der Elektronen zurückzuführen, denn bei der verwendeten %denn
+Anode ist nicht sichergestellt, dass alle Elektronen registriert werden. %registriert
+Das Problem kann zum Beispiel mit einer Anode gelöst werden, die die Photokathode
+einhüllt.
+
+Die Stromstärke fällt nicht schlagartig gegen null, da die Elektronen in der Photokathode
+eine Energieverteilung besitzen. Auf Grund dessen besitzt nicht jedes ausgelöstes
+Elektron dieselbe Energie. Einige Elektronen können dadurch, bis zu einem bestimmten Spannungsbereich,
+die Bremsspannung überwinden.
+\FloatBarrier
 %Ist das ab hier nicht alles Diskussion?
