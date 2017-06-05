@@ -193,7 +193,7 @@ print('\n\n\n')
 ##Tabelle Abstand-Spannung für Ionisationspannung
 l.Latexdocument('spannungen_abstand_ioni.tex').tabular([abstand_ioni,spannung_ioni],
 '{Abstand in $\si{\\centi\\meter}$} & {Spannung in $\si{\\volt}$}', [1, 0] ,
-caption = 'Aus Abbildung \\ref{fig: messkurve_ioni} abgelesene Punkte, durch die eine Ausgleichgerade gelegt wird.', label = 'kodi_ioni')
+caption = 'Aus Abbildung \\ref{fig: messkurve_ioni} abgelesene Spannung-Abstandspare.', label = 'kodi_ioni')
 
 l.Latexdocument('fit_punkte_ioni.tex').tabular([X,Y],
 '{$x$-Koordinate in $\si{\centi\meter}$} & {$y$-Koordinate in $\si{\centi\meter}$}', [1, 1] ,
