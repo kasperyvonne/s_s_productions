@@ -73,8 +73,9 @@ Der Versuchsteil $1$ wurde bei einer Temperatur von $T=\SI{28}{\celsius}$ unters
 $3$ bei $T=\SI{188}{\celsius}$ und $4$ bei $T=\SI{104}{\celsius}$ betrachtet (selbe Nummerierung wie in Tab. \ref{tab: umrech}).
 Die Resultate der Berechnungen wurden mit den Gleichungen \eqref{eq: dampfdruck} und \eqref{eq: weglaenge} erbracht und
 sind in der Tabelle \ref{tab: weg} aufgeführt.
-\input{../Messdaten/weglange.tex}
 Für die Franck-Hertz-Kurve ist die Foderung somit erfüllt.
+\input{../Messdaten/weglange.tex}
+
 
 \subsection{Analyse der Energierverteilung bei $T=\SI{28}{\celsius}$}
 
@@ -96,7 +97,6 @@ kann die Kurve in ihre \emph{differnzielle} Form transformiert werden.
 
 Damit eine graphische Darstellung der differnezielle Kurve möglich ist, wird für jedes Koordinaten Paar $(\Delta x,\Delta y)$ der Mittelpunkt
 von $\Delta x$ als Messpunkt festgelegt. An diesem Messpunkt soll die Steigung $\frac{\Delta y}{\Delta x}$ genährt vorliegen.
-Die Messpunkte werden mit den Ergebnissen aus Abschnitt \ref{sec: ausgleich} umgerechnet.
 In Tabelle \ref{tab: steigungen_zim} sind die abgelsenen Werte für die Steigungsberechnung aufgelistet.
 \input{../Messdaten/steigungen_energie_zimmer.tex}
 Die Darstellung der differnziellen Kurve ist in Abb. \ref{fig: energie_zim_diff} zu finden.
@@ -149,7 +149,7 @@ Eine Aussage über die Energieverteilung der Elektronen ist somit nicht möglich
 \FloatBarrier
 \subsection{Untersuhung der Franck-Hertz-Kurve}\label{sec: frank}
 \FloatBarrier
-Die vom X-Y Schreiber aufgezeichnete Franck-Hertz-Kurve ist in der Illustration \ref{fig: messkurve_frank_hertz} dargestellt.
+Die vom XY Schreiber aufgezeichnete Franck-Hertz-Kurve ist in der Illustration \ref{fig: messkurve_frank_hertz} dargestellt.
 \begin{figure}
   \centering
   \includegraphics[width=0.8 \textwidth]{./pics/frank_hertz_kurve.png}
@@ -161,10 +161,10 @@ Die aus der Abbildung abgelesenen Abstände der Maxima sind in der Tabelle \ref{
 Dabei ist die angegebene Nummerierung so zu verstehen, $1$ bezeichnet den Abstand zwischen dem Maxima $2$ und $3$, $2$ den Abstand zwischen $3$ und $4$ usw. (vgl. \ref{fig: messkurve_frank_hertz}).
 \input{../Messdaten/abstaende_frank.tex}
 Die Umrechnung von $\si{\centi\meter}$ zu $\si{\eV}$ erfolgt mit den Ergebnissen aus Kapitel \ref{sec: ausgleich}.
-Der bestimmte Abstand entspricht dann der Anregungsenergie $E_2-E_1$, gemittelt folgt
+Der bestimmte Abstand entspricht dann der Anregungsenergie $E_1-E_0$, gemittelt folgt
 \begin{equation}
   \label{eq:austrittarbeit}
-E\ua{anr}=\ov{E_2-E_1}=\SI{4.65\pm0.12}{\eV}.
+E\ua{anr}=\ov{E_1-E_0}=\SI{4.65\pm0.12}{\eV}.
 \end{equation}
 Mit Gleichung \eqref{eq: wellenlänge} und dem Ergebnis \eqref{eq:austrittarbeit} kann die Wellenlänge des emetierten Licht untersucht werden:
 \begin{equation}
@@ -196,7 +196,10 @@ Die Messkurve ist in Abbildung \ref{fig: messkurve_ioni} dargestellt.
   \label{fig: messkurve_ioni}
 \end{figure}
 Die Bestimmung der Ionisierungsspannung $U\ua{ion}$ erfolgt mit Hilfe einer Ausgleichsrechnung. Dazu werden an dem Abschnitt der Kurve mit einer positiven Steigung,
-solche Punkte ausgewählt, die auf einer Geraden liegen. Für diese Punkte wird anschließend die Regressionsrechnung durchgeführt.
+Punkte ausgewählt. Für diese Punkte wird anschließend die Regressionsrechnung durchgeführt.
+Nach der Theorie (vgl. Abb. \ref{}) sollte die Kurve ein asymptopisches Verhalten aufweisen.
+Liegt man an die Asymptope die Gerade an so ist der Schnittpunkt mit der $x$-Achse die verschobene
+Ionisationspannung.
 Gewählt wurden die in der Tabelle \ref{tab: spannung_abstand_ioni} notierten Punkte.
 \input{../Messdaten/fit_punkte_ioni.tex}
 An diese wurde eine Ausgleichgerade der Form \eqref{eq: gerade} berechnet.

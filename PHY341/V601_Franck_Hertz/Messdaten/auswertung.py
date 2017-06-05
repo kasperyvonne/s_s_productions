@@ -133,7 +133,8 @@ abstand_zim, spanung_zim=np.genfromtxt('spannungen_abstand_energievert_28_grad.t
 parmeter_zim=linfit(abstand_zim,spanung_zim,1,1,1,1,'zim')
 
 steigungen_zim=steigung(x_1_zim,x_2_zim,dy_zim)
-spannung_zim=g(noms(parmeter_zim['Steigung']),steigungen_zim['Messpunkt'],noms(parmeter_zim['Achsenabschnitt']))
+#spannung_zim=g(noms(parmeter_zim['Steigung']),steigungen_zim['Messpunkt'],noms(parmeter_zim['Achsenabschnitt']))
+spannung_zim=g(noms(parmeter_zim['Steigung']),x_1_zim,noms(parmeter_zim['Achsenabschnitt']))
 
 K_zimmer=11-spannung_zim[np.argmax(steigungen_zim['Steigung'])]
 weglange_zim=weglange(28.0)
@@ -143,9 +144,9 @@ print('Verhältnis w/a Zimmertemp, 28', weglange_zim['verhaeltnis'])
 print('\n\n\n')
 
 plt.clf()
-plt.ylim(0,170)
+plt.ylim(-1,170)
 plt.xlim(0,11)
-plt.ylabel(r'$\mathrm{Steigung}$')
+plt.ylabel(r'$\frac{\Delta y}{\Delta x}$')
 plt.xlabel(r'$U_{\mathrm{a}}\,\mathrm{in \, V}$')
 plt.plot(spannung_zim,steigungen_zim['Steigung'],'rx',label=r'$\mathrm{\mathrm{Wert\, des\, Steigungsdreieckes}}$')
 plt.legend(loc='best')
@@ -158,8 +159,8 @@ l.Latexdocument('spannungen_abstand_energie_zimmer.tex').tabular([abstand_zim,sp
 caption = 'Aus Abbildung \\ref{fig: messkurve_energie_zim} abgelesene Spannung-Abstandspaare.', label = 'spannung_abstand_zim')
 
 ##Tabelle ResultatSteigungsdreiecke für die Energieverteilung bei Zimmertemp
-l.Latexdocument('steigungen_energie_zimmer.tex').tabular([x_1_zim,x_2_zim,dy_zim,steigungen_zim['Steigung'],steigungen_zim['Messpunkt'],spannung_zim],
-'{$x_1$ in $\si{\\centi\\meter}$} & {$x_2$ in $\si{\\centi\\meter}$} & { ${\Delta y}$ in $\si{\\milli\\meter}$} & {$\\frac{\Delta y}{\Delta x}$ in \si{\\milli\\meter\per\\centi\\meter}} & {Messpunkt in $\si{\\centi\\meter}$} & {Messpunkt in $\si{\\volt}$}', [1, 1,1,2,2,2] ,
+l.Latexdocument('steigungen_energie_zimmer.tex').tabular([x_1_zim,x_2_zim,dy_zim,steigungen_zim['Steigung'],spannung_zim],
+    '{$x_1$ in $\si{\\centi\\meter}$} & {$x_2$ in $\si{\\centi\\meter}$} & { ${\Delta y}$ in $\si{\\milli\\meter}$} & {$\\frac{\Delta y}{\Delta x}$ in \si{\\milli\\meter\per\\centi\\meter}} &  {$x_1$ in $\si{\\volt}$}', [1, 1,1,2,2] ,
 caption = 'Aus Abbildung \\ref{fig: messkurve_energie_zim} abgelesene Steigungen.', label = 'steigungen_zim')
 
 
@@ -208,15 +209,15 @@ x_1_hot,x_2_hot,dy_hot=np.genfromtxt('steigung_energieverteilung_150grad.txt',un
 steigungen_hot=steigung(x_1_hot,x_2_hot,dy_hot)
 weglange_hot=weglange(150.0)
 parmeter_hot=linfit(abstand_hot,spanung_hot,1,1,1,1,'spannungsfit_energieverteilung_150grad')
-spannung_hot=g(noms(parmeter_hot['Steigung']),steigungen_hot['Messpunkt'],noms(parmeter_hot['Achsenabschnitt']))
+spannung_hot=g(noms(parmeter_hot['Steigung']),x_1_hot,noms(parmeter_hot['Achsenabschnitt']))
 print('Verhätnis w/a Hot, 150',weglange_hot['verhaeltnis'])
 print('Beginn Steigungsdreieck',g(noms(parmeter_hot['Steigung']),x_1_hot,noms(parmeter_hot['Achsenabschnitt'])))
 
 plt.clf()
-plt.ylabel(r'$\mathrm{Steigung}$')
+plt.ylabel(r'$\frac{\Delta y}{\Delta x}$')
 plt.xlabel(r'$U_{\mathrm{a}}\,\mathrm{in \, V}$')
 plt.plot(spannung_hot,steigungen_hot['Steigung'],'rx',label=r'$\mathrm{Wert\, des\, Steigungsdreieckes}$')
-plt.legend(loc='best')
+plt.legend(loc='lower lefts')
 plt.grid()
 plt.savefig('energie_hot.pdf')
 
@@ -226,8 +227,8 @@ l.Latexdocument('spannungen_abstand_energie_hot.tex').tabular([abstand_hot,spanu
 caption = 'Aus Abbildung \\ref{fig: messkurve_energie_hot} abgelesene Spannung-Abstandspaare.', label = 'spannung_abstand_hot')
 
 ##Tabelle ResultatSteigungsdreiecke für die Energieverteilung bei 150 Grad
-l.Latexdocument('steigungen_energie_150grad.tex').tabular([x_1_hot,x_2_hot,dy_hot,steigungen_hot['Steigung'],steigungen_hot['Messpunkt'],spannung_hot],
-'{$x_1$ in $\si{\\centi\\meter}$} & {$x_2$ in $\si{\\centi\\meter}$} & { ${\Delta y}$ in $\si{\\milli\\meter}$} & {$\\frac{\Delta y}{\Delta x}$ in \si{\\milli\\meter\per\\centi\\meter}} & {Messpunkt in $\si{\\centi\\meter}$} & {Messpunkt in $\si{\\volt}$}', [1, 1,1,2,2,2] ,
+l.Latexdocument('steigungen_energie_150grad.tex').tabular([x_1_hot,x_2_hot,dy_hot,steigungen_hot['Steigung'],spannung_hot],
+'{$x_1$ in $\si{\\centi\\meter}$} & {$x_2$ in $\si{\\centi\\meter}$} & { ${\Delta y}$ in $\si{\\milli\\meter}$} & {$\\frac{\Delta y}{\Delta x}$ in \si{\\milli\\meter\per\\centi\\meter}} &{$x_1$ in $\si{\\volt}$}', [1, 1,1,2,2] ,
 caption = 'Aus Abbildung \\ref{fig: messkurve_energie_hot} abgelesene Steigungen.', label = 'steigungen_hot')
 
 
