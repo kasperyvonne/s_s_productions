@@ -56,6 +56,49 @@ Er kann mittels der in den anliegenden Materialien vorliegdenden Impendanzen $Z_
 berechnet werden.
 Der Transmittierte Anteil $T$ lässt sich mit $T=1-R$ ermitteln.
 
-\subsection{Erzeugung von Ultraschall}
+\subsection{Erzeugung und Empfangen von Ultraschall}
 
 Eine Möglichkeit Ultraschallwellen zu erzeugen bietet der \emph{piezo-elektrischen Efffekt}.
+Befindet sich ein \emph{piezoelektrischer} Kristall in einem elektrischenz Feld und steht
+zusätzlich eine polare Achse des Krirstalles parrallel zum E-Feld, so wird dieser
+zum Schwingen angeregt. Bei den abgestrahlten Wellen handelt es sich um Ultraschallwellen.
+Insbesondere ist das erzeugen von Schwingungen mit hohen Schallenergiiendichten möglich,
+wenn der Kristall mit seiner Resonanzfrequenz angeregt wird.
+Neben dem Erzeugen bietet der piezoelektrischer Kristall auch die Möglichkeit
+als Empfänger zu fungieren.
+
+\subsection{Methoden der Ultraschallmessung}
+Bei der Ultraschalluntersuchungen verwendet man das \emph{Durchschallungs-Verfahren} oder
+das \emph{Impuls-Echo-Verfahren}.
+
+Die schematische Darstellung des Durchschallungs-Verfahren ist in Abbildung
+\ref{} illustriert. Vor und hinter der Probe werden ein Ultraschallsender bzw. -empfänger
+plaziert. Der Sender erzeugt kurzzeitige Schallimpulse, das vom Empfänger
+regrestriert wird. Befindet sich eine Fehlstelle in der Probe, so misst der Empfänger
+eine verringerte Intensität. Jedoch bietet dieses Verfahren keine Möglichkeit die
+Fehlstelle zu lokalisieren.
+
+Beim Impuls-Echo-Verfahren ist der Sender zeitgleich der Empfänger (vgl. Abb. \ref{}).
+Die erzeugte Schallwelle wird bei der Grenzfläche reflektiert und von der Sonde
+empfangen. Mit Hilfe dieses Verfahren können auch die Orte der Fehlstellen bestimmt
+werden. Ist die materialabhängige Schallgeschwindigkeit bekannt, so kann die
+Lage der Fehlstelle mit
+\begin{equation}
+  \label{eq:lage_fehl}
+  s=\frac{1}{2}ct
+\end{equation}
+bestimmt werden.
+
+Um die Ergebnisse einer Ultraschallmessung zu veranschaulichen, werden drei verschiedene
+Darstellungsmöglichkeiten verwendet.
+
+Eine Möglichkeit bietet der \emph{A-Scan} (A für Amplitude), in diesem
+wird die Zeit gegen die empfangenen Amplitude aufgetragen.
+Ein beispielhafter Verlauf ist in Abbildung \ref{} dargestellt.
+
+Neben dem \emph{A-Scan} gibt es noch den \emph{B-Scan} (B für Brightness).
+Bei einem B-Scan wird die Größe der gemessene Amplitude als Heligkeit
+angegeben. Dadurch ist es möglich ein 2 dim. Bild von der Probe zu erzeugen.
+
+Abschließend bietet der \emph{TM-Scan} (TM bedeutet time motion) die Möglichkeit
+Bewegungen in der zu untersuchende Probe darzustellen.
