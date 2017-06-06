@@ -34,4 +34,28 @@ besitzt.
 Ähnlich wie bei elektromagnetischen Wellen, können bei Schallwellen auch
 Phänomene wie zum Beispiel Reflexion oder Brechung auftreten.
 
-Wie bei mechanischen Wellen 
+Wie bei mechanischen Wellen, gibt es bei Schallwellen dissipative Effekte.
+Hierdurch verliert die Welle ein Teil der Energie bei Schallausbreitung:
+\begin{equation}
+  \label{eq:abfall}
+  I(x)=I_0\map{e}^{-\alpha x}.
+\end{equation}
+Die Größe $\alpha$ ist der Absorptionskoeffizient der Schallamplitude und $I_0$ ist die
+Intensität.
+Besonders bei Luft ist $\alpha$ groß, deshalb wird immer ein Kontaktpotential
+zwischen Schallgeber und zu untersuchendem Material verwendet.
+
+Beim Auftrefen einer Schallwelle auf eine Grenzfläche, wird nur ein Teil der
+Welle transmitiert. Der andere Teil wird reflektiert.
+Ein Maß für die Reflexion bietet der Reflexionskoeffizient $R$.
+Dieser gibt das Intensitätverhältnis zwischen einfallender und reflektierten Welle an.
+Er kann mittels der in den anliegenden Materialien vorliegdenden Impendanzen $Z_1$ und $Z_2$
+\begin{equation*}
+  R=\left(\frac{Z_1-Z_2}{Z_1+Z_2}\right)^2
+\end{equation*}
+berechnet werden.
+Der Transmittierte Anteil $T$ lässt sich mit $T=1-R$ ermitteln.
+
+\subsection{Erzeugung von Ultraschall}
+
+Eine Möglichkeit Ultraschallwellen zu erzeugen bietet der \emph{piezo-elektrischen Efffekt}.
