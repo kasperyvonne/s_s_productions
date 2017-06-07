@@ -29,7 +29,7 @@ def linfit(x, y):
     return (ufloat(params_raw[0], errors[0]), ufloat(params_raw[1], errors[1]))
 
 #BESTIMMUNG DER SCHALLGESCHWINDIGKEIT MIT DER IMPUS-ECHO METHODE, BEZEICHNER _e
-s_e, t_1_e, t_2_e = np.genfromtxt('run_time.txt', unpack = True)
+s_e, t_1_e, t_2_e = np.genfromtxt('data/run_time.txt', unpack = True)
 delta_t = t_2_e - t_1_e
 m_e, b_e = linfit(delta_t/2, s_e)
 v_e = Q_(m_e, 'millimeter/(microsecond)').to('meter/second')
@@ -48,7 +48,7 @@ plt.savefig('plots/schallgeschwindigkeit.pdf')
 plt.clf()
 
 #SCHALLGESCHWINDIGKEIT MIT DURCHSCHALLUNGSVERFAHREN
-s_d, t_d = np.genfromtxt('run_time_durchschallung.txt', unpack = True)
+s_d, t_d = np.genfromtxt('data/run_time_durchschallung.txt', unpack = True)
 m_d, b_d = linfit(t_d, s_d)
 v_d = Q_(m_d, 'millimeter/(microsecond)').to('meter/second')
 z_d = Q_(b_d, 'millimeter')
@@ -67,7 +67,7 @@ plt.clf()
 
 
 #BESTIMMUNG DER DÄMPFUNG
-L, U_1, U_2 = np.genfromtxt('dämpfung.txt', unpack = True)
+L, U_1, U_2 = np.genfromtxt('data/dämpfung.txt', unpack = True)
 plt.plot(L, U_2/U_1, 'rx', label = 'Messwerte')
 #DÄMPFUNGSFAKTOR a
 a = exp_fit(L, U_2/U_1)
@@ -86,9 +86,9 @@ v_mid = np.mean([v_e, v_d])
 r.app(r'v\ua{mid}', v_mid)
 
 #PLATTEN
-t = np.genfromtxt('platten.txt', unpack = True)
-t_1_p = Q_(t[1] - t[0], 'microsecond')
-t_2_p = Q_(t[2] - t[1], 'microsecond')
+t_p = np.genfromtxt('data/platten.txt', unpack = True)
+t_1_p = Q_(t_p[1] - t_p[0], 'microsecond')
+t_2_p = Q_(t_p[2] - t_p[1], 'microsecond')
 p_1 = (t_1_p/2 * v_mid).to('millimeter')
 p_2 = (t_2_p/2 * v_mid).to('millimeter')
 r.app('p_1', p_1)
@@ -96,11 +96,11 @@ r.app('p_2', p_2)
 
 
 #AUGE
-t = np.genfromtxt('auge.txt', unpack = True)
-t_1_a = Q_(t[1] - t[0], 'microsecond')
-t_2_a = Q_(t[2] - t[1], 'microsecond')
-t_3_a = Q_(t[3] - t[2], 'microsecond')
-t_4_a = Q_(t[4] - t[3], 'microsecond')
+t_a = np.genfromtxt('data/auge.txt', unpack = True)
+t_1_a = Q_(t_a[1] - t_a[0], 'microsecond')
+t_2_a = Q_(t_a[2] - t_a[1], 'microsecond')
+t_3_a = Q_(t_a[3] - t_a[2], 'microsecond')
+t_4_a = Q_(t_a[4] - t_a[3], 'microsecond')
 a_1 = (t_1_a/2 * v_mid).to('millimeter')
 a_2 = (t_2_a/2 * v_mid).to('millimeter')
 a_3 = (t_3_a/2 * v_mid).to('millimeter')
@@ -111,6 +111,49 @@ r.app('a_3', a_3)
 r.app('a_4', a_4)
 
 
+
+#CEPSTRUM
+x, y = np.genfromtxt('data/cepstrum_data.txt', unpack = True)
+plt.clf()
+plt.plot(x[x > 26], y[x > 26], 'k-', label = 'Messdaten', linewidth = 1.5)
+plt.axvline(x = t_p[0], ls='--', color='r', label = 'Abgelesene Zeitdifferenzen')
+plt.axvline(x = t_p[1], ls='--', color='r')
+plt.axvline(x = t_p[2], ls='--', color='r')
+plt.xlabel('$t/\mu$s')
+plt.ylabel('$U/$V')
+plt.legend(loc='best')
+plt.grid()
+plt.xlim(26, 50)
+plt.savefig('plots/cepstrum.pdf')
+
+
+#SPECTRUM
+x, y = np.genfromtxt('data/spectrum_data.txt', unpack = True)
+plt.clf()
+plt.plot(x, y, 'k-', label = 'Messdaten', linewidth = 0.5)
+plt.xlabel(r'$\nu/$MHz')
+plt.ylabel('FFT')
+plt.legend(loc='best')
+plt.grid()
+plt.xlim(0, 20)
+plt.savefig('plots/spectrum.pdf')
+plt.show()
+
+#AUGE
+x, y = np.genfromtxt('data/auge_data.txt', unpack = True)
+plt.clf()
+plt.plot(x, y, 'k-', label = 'Messdaten')
+plt.axvline(x = t_a[0], ls='--', color='r', label = 'Abgelesene Zeitdifferenzen')
+plt.axvline(x = t_a[1], ls='--', color='r')
+plt.axvline(x = t_a[2], ls='--', color='r')
+plt.axvline(x = t_a[3], ls='--', color='r')
+plt.axvline(x = t_a[4], ls='--', color='r')
+plt.xlabel('$t/\mu$s')
+plt.ylabel('$U/$V')
+plt.legend(loc='best')
+plt.grid()
+plt.xlim(0, 80)
+plt.savefig('plots/auge.pdf')
 
 
 
