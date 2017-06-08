@@ -1,11 +1,10 @@
 \setcounter{page}{1}
 \section*{Zielsetzung}
-
-\subsection{Schall und Schallausbreitung}
 Der Versuch US $1$ dient als Einführung in die Ultraschalltechnik.
 Mit ihm sollen grundlegende physikalsische Eigenschaften der
 Ultraschallechographie beobachtet und untersucht werden.
 \section{Theorie}
+\subsection{Schall und Schallausbreitung}
 Liegt Schall in einem Frequenzbereich von $\SI{20}{\kilo\hertz}$ bis $\SI{1}{\giga\hertz}$,
 wird als \emph{Ultraschall} bezeichnet. Er ist vom Menschen nicht wahrnehmbar.
 Schall breitet sich als longitudinale Druckwelle $p(x,t)$ der Form
@@ -72,13 +71,27 @@ Bei der Ultraschalluntersuchungen verwendet man das \emph{Durchschallungs-Verfah
 das \emph{Impuls-Echo-Verfahren}.
 
 Die schematische Darstellung des Durchschallungs-Verfahren ist in Abbildung
-\ref{} illustriert. Vor und hinter der Probe werden ein Ultraschallsender bzw. -empfänger
-plaziert. Der Sender erzeugt kurzzeitige Schallimpulse, das vom Empfänger
+\ref{fig: durch} illustriert. Vor und hinter der Probe werden ein Ultraschallsender bzw. -empfänger
+plaziert.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.4\textwidth]{pics/durchsall.png}
+  \caption{Schematische Darstellung des Durchschallungs-Verfahren \cite{anleitungus1}.}
+  \label{fig: durch}
+  \end{figure}
+Der Sender erzeugt kurzzeitige Schallimpulse, das vom Empfänger
 regrestriert wird. Befindet sich eine Fehlstelle in der Probe, so misst der Empfänger
 eine verringerte Intensität. Jedoch bietet dieses Verfahren keine Möglichkeit die
 Fehlstelle zu lokalisieren.
 
-Beim Impuls-Echo-Verfahren ist der Sender zeitgleich der Empfänger (vgl. Abb. \ref{}).
+
+Beim Impuls-Echo-Verfahren ist der Sender zeitgleich der Empfänger (vgl. Abb. \ref{fig: echo}).
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.4\textwidth]{pics/impuls_echo.png}
+  \caption{Schematische Darstellung Impuls-Echo-Verfahren \cite{anleitungus1}.}
+  \label{fig: echo}
+  \end{figure}
 Die erzeugte Schallwelle wird bei der Grenzfläche reflektiert und von der Sonde
 empfangen. Mit Hilfe dieses Verfahren können auch die Orte der Fehlstellen bestimmt
 werden. Ist die materialabhängige Schallgeschwindigkeit bekannt, so kann die
