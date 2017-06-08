@@ -113,6 +113,8 @@ a_1 = (t_1_a/2 * v_GK).to('millimeter')
 a_2 = (t_2_a/2 * v_GK).to('millimeter')
 a_3 = (t_3_a/2 * v_L).to('millimeter')
 a_4 = (t_4_a/2 * v_GK).to('millimeter')
+l_exp = a_1 + a_2 + a_3 + a_4
+r.app(r'l\ua{exp}', l_exp/3)
 r.app('a_1', a_1)
 r.app('a_2', a_2)
 r.app('a_3', a_3)
