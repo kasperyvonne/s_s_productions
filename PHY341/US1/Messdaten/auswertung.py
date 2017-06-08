@@ -71,40 +71,48 @@ L, U_1, U_2 = np.genfromtxt('data/dämpfung.txt', unpack = True)
 plt.plot(L, U_2/U_1, 'rx', label = 'Messwerte')
 #DÄMPFUNGSFAKTOR a
 a = exp_fit(L, U_2/U_1)
-r.app(r'\alpha' ,Q_(a, '1/millimeter'))
+r.app(r'\alpha' ,-Q_(a, '1/millimeter'))
+
 x_plot = np.linspace(30, 65, 1000)
-plt.plot(x_plot, exp(x_plot, a.n), 'b-', label = 'Fit')
+plt.plot(x_plot, exp(x_plot, a.n), 'b-', label = 'Interpolation')
 plt.xlim(x_plot[0], x_plot[-1])
 plt.xlabel('$x$ / mm', fontsize = 12)
 plt.grid()
 plt.legend(loc = 'best')
-plt.ylabel(r'$\frac{U}{U_0}$', fontsize = 14)
+plt.ylabel(r'$\frac{U_2}{U_1}$', fontsize = 14)
 plt.savefig('plots/dämpfung.pdf')
 
 #MITTELWERT DER GESCHWINDIGKEITEN
+v_theo = Q_(2730, 'meter/second')
 v_mid = np.mean([v_e, v_d])
+b_mid = np.mean([z_e, z_d])
+r.app(r'b\ua{mid}', b_mid)
+
 r.app(r'v\ua{mid}', v_mid)
+r.app(r'd\ua{v}', v_mid/v_theo - 1)
 
 #PLATTEN
 t_p = np.genfromtxt('data/platten.txt', unpack = True)
 t_1_p = Q_(t_p[1] - t_p[0], 'microsecond')
 t_2_p = Q_(t_p[2] - t_p[1], 'microsecond')
-p_1 = (t_1_p/2 * v_mid).to('millimeter')
-p_2 = (t_2_p/2 * v_mid).to('millimeter')
+p_1 = (lin(t_1_p/2, v_e, z_e)).to('millimeter')
+p_2 = (lin(t_2_p/2, v_e, z_e)).to('millimeter')
 r.app('p_1', p_1)
 r.app('p_2', p_2)
 
 
 #AUGE
+v_L = Q_(2500, 'meter/second')
+v_GK = Q_(1410, 'meter/second')
 t_a = np.genfromtxt('data/auge.txt', unpack = True)
 t_1_a = Q_(t_a[1] - t_a[0], 'microsecond')
 t_2_a = Q_(t_a[2] - t_a[1], 'microsecond')
 t_3_a = Q_(t_a[3] - t_a[2], 'microsecond')
 t_4_a = Q_(t_a[4] - t_a[3], 'microsecond')
-a_1 = (t_1_a/2 * v_mid).to('millimeter')
-a_2 = (t_2_a/2 * v_mid).to('millimeter')
-a_3 = (t_3_a/2 * v_mid).to('millimeter')
-a_4 = (t_4_a/2 * v_mid).to('millimeter')
+a_1 = (t_1_a/2 * v_GK).to('millimeter')
+a_2 = (t_2_a/2 * v_GK).to('millimeter')
+a_3 = (t_3_a/2 * v_L).to('millimeter')
+a_4 = (t_4_a/2 * v_GK).to('millimeter')
 r.app('a_1', a_1)
 r.app('a_2', a_2)
 r.app('a_3', a_3)
@@ -137,7 +145,7 @@ plt.legend(loc='best')
 plt.grid()
 plt.xlim(0, 20)
 plt.savefig('plots/spectrum.pdf')
-plt.show()
+
 
 #AUGE
 x, y = np.genfromtxt('data/auge_data.txt', unpack = True)
