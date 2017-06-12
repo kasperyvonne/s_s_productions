@@ -29,6 +29,6 @@ label = 'auge')
 
 #DÄMPFUNG
 l.Latexdocument('tabs/dämpfung.tex').tabular([np.sort(L), U_1[np.argsort(L)], U_2[np.argsort(L)], U_2[np.argsort(L)]/U_1[np.argsort(L)]],
-header = r'{$x/\si{\milli\meter}$} & {$U_1 / \si{\volt}$} & {$U_2 / \si{\volt}$} & {$\frac{U_1}{U_1}$}',
+header = r'{$x/\si{\milli\meter}$} & {$U_1 / \si{\volt}$} & {$U_2 / \si{\volt}$} & {$\frac{U_2}{U_1}$}',
 places = [1, 3, 3, 3], caption = r'Daten zur Bestimmung der Dämpfungskonstanten $\alpha$. Länge der Acrylzylinder $x$ und Spannungsamplituden des ersten bzw. zweiten Pulses $U_1$ und $U_2$.',
 label = 'dämpfung')
