@@ -196,6 +196,51 @@ def absorb(a,b,Z,winkel,imp ,x_p,x_m,y_p,y_m,name):
     ####grenzwinkel
 
 
+#####Sonder Funktion Zink für subplot
+
+def absorb_zink(a,b,Z,winkel,imp ,x_p,x_m,y_p,y_m,name):
+    ###Peak detect
+    maxi=max(imp[a:b])
+    winkel_max=winkel[a:b][np.where(imp[a:b]==maxi)]
+
+    mini=min(imp[a:b])
+    winkel_min=winkel[a:b][np.where(imp[a:b]==mini)]
+    kante=0.5*(winkel_max-winkel_min)
+    energie_k=brag_ener(kante,1)
+    print(winkel_min,winkel_max)
+    print(mini,maxi)
+    sigma=absorbkoe(energie_k,Z)
+
+    print('Betrachte: ', name)
+    print('\n')
+    print('Winkel K Kante', kante)
+    print('Energie K Kante', energie_k)
+    print('Abschirmkoef', sigma)
+    print('\n\n\n')
+
+    plt.clf()
+    plt.plot(winkel,imp,'rx',label=r'$Intensität$')
+    plt.axvline(winkel_max,ls='--', color='b',label=r'$\theta_{\mathrm{max}}$')
+    plt.axvline(winkel_min,ls='--', color='g',label=r'$\theta_{\mathrm{min}}$')
+    plt.grid()
+    plt.xlabel(r'$\theta \, \mathrm{in} \, \mathrm{rad}$')
+    plt.ylabel(r'$I \, \mathrm{in} \, \mathrm{Imp}/\mathrm{s}$')
+    
+
+
+
+    plt.xlim(winkel[0]-x_m,winkel[-1]+x_p)
+    plt.ylim(min(imp)-y_m,max(imp)+y_p)
+    plt.legend(loc='best')
+    plt.savefig(name + '.pdf')
+
+    l.Latexdocument(name+'.tex').tabular([winkel,imp],
+    '{$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathmrm{Imp}/\mathrm{s}$}', [1, 1] ,
+    caption = 'Messwerte bei der Untersuchung des Emmissionspektrum von $\ce{Cu}$.', label = 'emi_cu')
+    return energie_k
+
+
+
 ##Dateneinlesen
 
 winkel_zirkonium, int_zirkonium = np.genfromtxt('zirkonium_ab.txt',unpack=True)
@@ -211,21 +256,21 @@ winkel_stom, int_strom = np.genfromtxt('strontium_ab.txt',unpack=True)
 ##Auswertung
 
 absorb(12,18,40,0.5*winkel_zirkonium,int_zirkonium,0.5,0.5,10,1,'zr')
-absorb(1,2,32,0.5*winkel_germanium,int_germanium,1,1,1,1,'germanium')
+absorb(5,10,32,0.5*winkel_germanium,int_germanium,0.5,0.5,1,1,'germanium')
 #absorb(1,2,30,0.5*winkel_zink,int_zink,1,1,1,1,'zink')
-#absorb(1,2,35,0.5*winkel_brom,int_brom,1,1,1,1,'brom')
-#absorb(1,2,38,0.5*winkel_stom,int_strom,1,1,1,1,'strom')
+absorb(15,21,35,0.5*winkel_brom,int_brom,0.5,0.5,1,1,'brom')
+absorb(14,20,38,0.5*winkel_stom,int_strom,0.25,0.25,10,1,'strom')
 
 plt.clf()
 
 #plt.plot(0.5*winkel_zirkonium,int_zirkonium,'rx')
 
-plt.plot(0.5*winkel_germanium,int_germanium)
+#plt.plot(0.5*winkel_germanium,int_germanium,'rx')
 
-##plt.plot(0.5*winkel_zink,int_zink)
+#plt.plot(0.5*winkel_zink,int_zink,'rx')
 
-##plt.plot(0.5*winkel_brom,int_brom)
+#plt.plot(0.5*winkel_brom,int_brom,'rx')
 
-##plt.plot(0.5*winkel_stom,int_strom)
+plt.plot(0.5*winkel_stom,int_strom,'rx')
 
 plt.show()
