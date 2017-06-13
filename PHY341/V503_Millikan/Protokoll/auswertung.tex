@@ -1,6 +1,6 @@
 \section{Auswertung}
 Die gemessenen Thermowiderstände $R$, Fallzeiten $t$ und Spannungen $U$ sind in Tabelle \ref{tab: data} einzusehen.
-Die aus der Anleitung entnommenen Werte Paare $(R, T)$ (siehe Tabelle \ref{tab: thermowiderstand}) wurden benutzt um den Zusammenhang %ref
+Die aus der Anleitung entnommenen Werte Paare $(R, T)$ (siehe Tabelle \ref{tab: thermowiderstand}) werden benutzt um den Zusammenhang %ref
 zwischen dem Thermowiderstand und und der Temperatur mittels Polynominterpolation zu approximieren. Die graphische
 Darstellung des gefundenen Polynoms befindet sich in Abbildung \ref{fig: poly}.
 \input{../Messdaten/tabs/thermowiderstand.tex}
@@ -12,26 +12,26 @@ Darstellung des gefundenen Polynoms befindet sich in Abbildung \ref{fig: poly}.
 \end{figure}
  Die mit dem Interpolationspolynom berechneten
 Temperaturen sind ebenfalls in Tabelle \ref{tab: data} eingefügt. Der Zusammenhang zwischen der Viskosität von Luft $\eta$ und
-der Temperatur $T$ wurde der Anleitung \cite{anleitung503} entsprechend als linear angenommen. Mit den Wertepaaren
+der Temperatur $T$ wird der Anleitung \cite{anleitung503} entsprechend als linear angenommen. Mit den Wertepaaren
 \begin{align}
   \eta_1 &= \SI{1.85e-5}{\newton\second\meter^{-2}}, \quad T_1 = \SI{16}{\celsius} \\
   \eta_2 &= \SI{1.88e-5}{\newton\second\meter^{-2}}, \quad T_2 = \SI{32}{\celsius},
 \end{align}
-die dem Graphen aus der Anleitung entnommen wurden, wird eine Geradengleichung bestimmt, die den Temperaturen
+die dem Graphen aus der Anleitung entnommen werden, wird eine Geradengleichung bestimmt, die den Temperaturen
 $T$ in $\si{\celsius}$ die Viskositäten $\eta$ in $\si{\newton\second\meter^{-2}}$ zuordnet.
 \begin{equation}
   \eta(T) = \SI{0.0019}{\newton\second\meter^{-2} \celsius^{-1} } \cdot  T  + \SI{1.82}{\newton\second\meter^{-2}}.
 \end{equation}
 Die somit berechneten Viskositäten sind in Tabelle \ref{tab: data} aufgetragen.
 Die Fallgeschwindigkeiten der Tröpfchen berechnen sich gemäß $v = s/t$ und der Falldistanz $s = \SI{0.5}{\milli\meter}$.
-Mit den Gleichungen \eqref{eq:radius_teilchen} und \eqref{eq:q} ergeben sich somit schließlich die Tröpfchenradien $r$ und Ladungen $q$. Hierbei wurde
+Mit den Gleichungen \eqref{eq:radius_teilchen} und \eqref{eq:q} ergeben sich somit schließlich die Tröpfchenradien $r$ und Ladungen $q$. Hierbei wird
 direkt die Korrektur \eqref{eq:q_korri} angewandt. Für den Luftdruck wird konstant der Atmosphärendruck von
 $\SI{1.0132}{\bar}$ angenommen. Alle Ergebnisse sind in Tabelle \ref{tab: data} eingetragen. \\
 \input{../Messdaten/tabs/daten_V503.tex}
 
 \subsection{Bestimmung der Elementarladung}
 Um nun die Elementarladung aus den gewonnen Daten zu ermitteln wird wie folgt vorgegangen. Alle bestimmten
-Ladungen sollten der Theorie zur Folge ein ganzzahliges Vielfachhes von $\mathup{e}\ua{0}$ sein, das heißt für die %\map{e}
+Ladungen sollten der Theorie zur Folge ein ganzzahliges Vielfaches von $\mathup{e}\ua{0}$ sein, das heißt für die %\map{e}
 Tröpfenladungen $q\ua{i}$ muss gelten
 \begin{equation}
   \mathup{rd}\ua{0}\left(\frac{q\ua{i}}{\mathup{e}\ua{0}}\right) - \frac{q\ua{i}}{\mathup{e}\ua{0}} = 0 \quad \forall\, \mathup{i}.
@@ -57,7 +57,7 @@ bestimmt. Um auszuschließen, dass diese diskrete Menge auch solche Ladungsdiffe
 kleiner als die Elementarladung sind (etwa weil zwei Tröpchen die selbe Ladung tragen), werden auch hier die kleinsten $\SI{20}{\percent}$ der möglichen Differenzen ausgeschlossen.
 Es berechnet sich oberhalb dieser Schranke die kleinste Differenz zu
 \begin{equation}
-  d\ua{min} = \SI{1.54e-19}{\coulomb}.
+  d\ua{min} = \SI{1.67e-19}{\coulomb}.
 \end{equation}
 Als diskrete Menge $q\ua{e}$ wird nun folgendes feines Raster angesetzt
 \begin{equation}
@@ -68,16 +68,16 @@ Nun werden alle Ladungen des Intervalls für jede Ladung $q\ua{i}$ in Gleichung 
 die die Rundungsdifferenz minimal werden lässt. Die Ergebnisse sind in Tabelle \ref{tab: q_best} eingetragen. Abbildung \ref{fig: streuung} zeigt die Streuung
 der so ermittelten Ladungen um die Elementarladung. Als Mittelwert mit zugehöriger Standardabweichung ergibt sich
 \begin{equation}
-  \mathup{e}\ua{exp} = \SI{+1.7(1)e-19}{\coulomb}.
+  \mathup{e}\ua{exp} = \SI{+1.8(1)e-19}{\coulomb}.
 \end{equation}
 Dieses Ergebnis weicht vom Literaturwert
 \begin{equation}
   \mathup{e}\ua{0} = \SI{1.6021766208e-19}{\coulomb}
 \end{equation}
-im Mittel um $\SI{4}{\percent}$ ab. Zum Abschluss der Auswertung sei angemerkt, dass eine volle Betrachtung des Datensatzes ohne
+im Mittel um $\SI{11}{\percent}$ ab. Zum Abschluss der Auswertung sei angemerkt, dass eine volle Betrachtung des Datensatzes ohne
 die gewählten Aussparungen folgenden Wert für die Elementarladung liefert
 \begin{equation}
-   \mathup{e}'\ua{exp} = \SI{+1.2(11)e-19}{\coulomb}.
+   \mathup{e}'\ua{exp} = \SI{+0.8(11)e-19}{\coulomb}.
 \end{equation}
 \input{../Messdaten/tabs/q_best.tex}
 \begin{figure}[H]

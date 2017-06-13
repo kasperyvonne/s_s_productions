@@ -29,12 +29,25 @@ q_0 = (mass * g / E).to('coulomb')
 #KORRIGIERTE LADUNG
 p_luft = Q_(1.0132, 'bar')
 B = Q_(6.17e-3, 'torr*cm')
-q = (q_0 * (1 + B/(p_luft * radius))**(-3/2)).to('coulomb')
+#q = (q_0 * (1 + B/(p_luft * radius))**(-3/2)).to('coulomb')
+
+r_korr = np.sqrt((B/(2 * p_luft))**2  +  ((9 * eta*v)/(2 * g * rho_oel))) - B/(2 * p_luft)
+volume = 4/3 * np.pi * r_korr**3
+
+#TRÖPFCHENMASSE
+mass = (volume * rho_oel)
+
+#ELEKTRISCHE FELDSTÄRKE
+E = (voltage/d)
+
+q =(mass * g / E).to('coulomb')
+
+
+
 
 #sp StartPunkt der Beachtung der Messwerte
 sp = 5
 q_sort = np.sort(q)[sp:]
-print(pd.Series(q_sort))
 
 # dist, Liste mit allen möglichen Differenezen
 dist = list()
@@ -48,8 +61,8 @@ N = np.arange(1, len(dist) + 1)
 #plt.show()
 
 dist = np.sort(dist)
-len(dist)
-dist_min = dist[1.5*sp/25 * len(dist)]
+
+dist_min = dist[1.5 * sp/25 * len(dist)]
 print(dist_min)
 range_d = 1e-19
 
@@ -58,7 +71,7 @@ r.app(r'q\ua{e}', Q_(q_e, 'coulomb'))
 #1e-20, 3e-19
 q_test = np.linspace(dist_min - range_d, dist_min + range_d, 1000)
 
-print(dist_min -range_d, dist_min +range_d)
+
 F = np.empty((len(q_sort), len(q_test)))
 for i in range(0, len(q_sort)):
     F[i] = abs(np.rint(q_sort[i]/q_test) - q_sort[i]/q_test)
