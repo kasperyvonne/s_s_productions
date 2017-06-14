@@ -37,7 +37,7 @@ def brag_well (winkel, n):
 
 def brag_ener (winkel, n):
     lam= 2*201.4e-12 * np.sin( m.radians(winkel) ) / n #Eventuell rad to deg
-    return h* c/ (lam*e)
+    return h*c / (e*lam)
 
 
 def abschirm(Z, delta_E):
@@ -95,11 +95,6 @@ print('Bragg Winkel',auswertung_brag(winkel,inten,0.5,0.5,10,1,'bragbed'))
 ##Eingabe der Messwerte
 winkel_emi, inten_emi= np.genfromtxt('emission_cu.txt',unpack=True)
 
-print(len(winkel_emi))
-plt.clf()
-plt.plot(winkel_emi, inten_emi)
-
-
 ##Auswertung
 def peak(int_1,int_2,winkel,imp ,x_p,x_m,y_p,y_m,name):
     dic={}
@@ -138,7 +133,6 @@ def peak(int_1,int_2,winkel,imp ,x_p,x_m,y_p,y_m,name):
     sigma_2=absorbkoe(-e_2+e_1 ,29)
 
     print('Betrachte: ', name)
-    print('\n')
     print('Energie k_beta', e_1)
     print('Energie k_beta', e_2)
     print('Sigma 1', sigma_1)
@@ -166,12 +160,9 @@ def absorb(a,b,Z,winkel,imp ,x_p,x_m,y_p,y_m,name):
     winkel_min=winkel[a:b][np.where(imp[a:b]==mini)]
     kante=0.5*(winkel_max-winkel_min)
     energie_k=brag_ener(kante,1)
-    print(winkel_min,winkel_max)
-    print(mini,maxi)
     sigma=absorbkoe(energie_k,Z)
 
     print('Betrachte: ', name)
-    print('\n')
     print('Winkel K Kante', kante)
     print('Energie K Kante', energie_k)
     print('Abschirmkoef', sigma)
@@ -182,7 +173,7 @@ def absorb(a,b,Z,winkel,imp ,x_p,x_m,y_p,y_m,name):
     plt.axvline(winkel_max,ls='--', color='b',label=r'$\theta_{\mathrm{max}}$')
     plt.axvline(winkel_min,ls='--', color='g',label=r'$\theta_{\mathrm{min}}$')
     plt.grid()
-    plt.xlabel(r'$\theta \, \mathrm{in} \, \mathrm{rad}$')
+    plt.xlabel(r'$\theta \, \mathrm{in} \, \mathrm{deg}$')
     plt.ylabel(r'$I \, \mathrm{in} \, \mathrm{Imp}/\mathrm{s}$')
     plt.xlim(winkel[0]-x_m,winkel[-1]+x_p)
     plt.ylim(min(imp)-y_m,max(imp)+y_p)
@@ -191,28 +182,21 @@ def absorb(a,b,Z,winkel,imp ,x_p,x_m,y_p,y_m,name):
 
     l.Latexdocument(name+'.tex').tabular([winkel,imp],
     '{$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathmrm{Imp}/\mathrm{s}$}', [1, 1] ,
-    caption = 'Messwerte bei der Untersuchung des Emmissionspektrum von $\ce{Cu}$.', label = 'emi_cu')
+    caption = 'Messwerte bei der Untersuchung des Emmissionspektrum von $\ce{Cu}$.', label = name)
     return energie_k
     ####grenzwinkel
 
 
 #####Sonder Funktion Zink für subplot
 
-def absorb_zink(a,b,Z,winkel,imp ,x_p,x_m,y_p,y_m,name):
+def absorb_zink(a,b,c,d,Z,winkel,imp ,x_p,x_m,y_p,y_m,name):
     ###Peak detect
-    maxi=max(imp[a:b])
-    winkel_max=winkel[a:b][np.where(imp[a:b]==maxi)]
 
-    mini=min(imp[a:b])
-    winkel_min=winkel[a:b][np.where(imp[a:b]==mini)]
-    kante=0.5*(winkel_max-winkel_min)
+    kante=0.5*(winkel[c+6]-winkel[c+2])
     energie_k=brag_ener(kante,1)
-    print(winkel_min,winkel_max)
-    print(mini,maxi)
     sigma=absorbkoe(energie_k,Z)
 
     print('Betrachte: ', name)
-    print('\n')
     print('Winkel K Kante', kante)
     print('Energie K Kante', energie_k)
     print('Abschirmkoef', sigma)
@@ -220,24 +204,73 @@ def absorb_zink(a,b,Z,winkel,imp ,x_p,x_m,y_p,y_m,name):
 
     plt.clf()
     plt.plot(winkel,imp,'rx',label=r'$Intensität$')
-    plt.axvline(winkel_max,ls='--', color='b',label=r'$\theta_{\mathrm{max}}$')
-    plt.axvline(winkel_min,ls='--', color='g',label=r'$\theta_{\mathrm{min}}$')
-    plt.grid()
-    plt.xlabel(r'$\theta \, \mathrm{in} \, \mathrm{rad}$')
+    #plt.axvline(winkel_max,ls='--', color='b',label=r'$\theta_{\mathrm{max}}$')
+    #plt.axvline(winkel_min,ls='--', color='g',label=r'$\theta_{\mathrm{min}}$')
+    plt.xlabel(r'$\theta \, \mathrm{in} \, \mathrm{deg}$')
     plt.ylabel(r'$I \, \mathrm{in} \, \mathrm{Imp}/\mathrm{s}$')
-    
-
-
-
+    plt.grid()
     plt.xlim(winkel[0]-x_m,winkel[-1]+x_p)
     plt.ylim(min(imp)-y_m,max(imp)+y_p)
-    plt.legend(loc='best')
+    plt.legend(loc='best',)
+
+    plt.axes([0.207,0.3, 0.3,0.3])
+    plt.plot(winkel[c:d],imp[c:d],'rx')
+    plt.title(r'$\mathrm{Vergrößerung \, der \, K Kante}$')
+    plt.xlim(winkel[c]-x_m,winkel[d]+x_p)
+    plt.axvline(winkel[c+6],ls='--', color='b',label=r'$\theta_{\mathrm{max}}$')
+    plt.axvline(winkel[c+2],ls='--', color='g',label=r'$\theta_{\mathrm{min}}$')
+    plt.ylim(imp[c]-15,imp[d]-20)
+    plt.legend(loc='best',fontsize=12)
+    plt.grid()
+
+    #plt.xticks([0, -0.1 , -0.2, -0.3], ['0', '-0.1', '-0.2', '-0.3'])
+    #plt.yticks([0, 0.02 , 0.04 , 0.06,0.08, 0.1, 0.12, 0.14 ], ['0', '0.02', '0.04','0.06', '0.08' , '0.1', '0.12', '0.14'])
+
+
     plt.savefig(name + '.pdf')
 
     l.Latexdocument(name+'.tex').tabular([winkel,imp],
     '{$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathmrm{Imp}/\mathrm{s}$}', [1, 1] ,
-    caption = 'Messwerte bei der Untersuchung des Emmissionspektrum von $\ce{Cu}$.', label = 'emi_cu')
+    caption = 'Messwerte bei der Untersuchung des Emmissionspektrum von $\ce{Cu}$.', label = name)
     return energie_k
+
+
+### Sonder Funktion gold
+
+def absorb_gold(a,b,Z,winkel,imp ,x_p,x_m,y_p,y_m,name):
+    ###Peak detect
+    winkel_l3=winkel[17]
+    winkel_l2=winkel[39]
+
+    energie_l3=absorbkoe(winkel_l2,Z)
+    energie_l2=absorbkoe(winkel_l3,Z)
+    delta_e=energie_l2-energie_l3
+    abschirm_kosnt=abschirm(Z,delta_e)
+    print('Betrachte: ', name)
+    print('Energie L2 Kante',energie_l2)
+    print('Energie L3 kante', energie_l3)
+    print('Abschirm Konstante', abschirm_kosnt)
+    print('\n\n\n')
+
+    plt.clf()
+    plt.plot(winkel,imp,'rx',label=r'$Intensität$')
+    plt.axvline(winkel_l3,ls='--', color='b',label=r'$L_3 \, \mathrm{Kante}$')
+    plt.axvline(winkel_l2,ls='--', color='g',label=r'$L_2 \, \mathrm{Kante}$')
+    plt.xlabel(r'$\theta \, \mathrm{in} \, \mathrm{deg}$')
+    plt.ylabel(r'$I \, \mathrm{in} \, \mathrm{Imp}/\mathrm{s}$')
+    plt.grid()
+    plt.xlim(winkel[0]-x_m,winkel[-1]+x_p)
+    plt.ylim(min(imp)-y_m,max(imp)+y_p)
+    plt.legend(loc='best',)
+    plt.savefig(name + '.pdf')
+
+    l.Latexdocument(name+'.tex').tabular([winkel,imp],
+    '{$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathmrm{Imp}/\mathrm{s}$}', [1, 1] ,
+    caption = 'Messwerte bei der Untersuchung des Emmissionspektrum von $\ce{Cu}$.', label = name)
+    #return energie_k
+
+
+
 
 
 
@@ -248,6 +281,7 @@ winkel_germanium, int_germanium = np.genfromtxt('germanium_ab.txt',unpack=True)
 winkel_zink, int_zink = np.genfromtxt('zink_ab.txt',unpack=True)
 winkel_brom, int_brom = np.genfromtxt('brom_ab.txt',unpack=True)
 winkel_stom, int_strom = np.genfromtxt('strontium_ab.txt',unpack=True)
+winkel_gold, int_gold = np.genfromtxt('gold.txt',unpack=True)
 
 ##Plots
 
@@ -257,20 +291,7 @@ winkel_stom, int_strom = np.genfromtxt('strontium_ab.txt',unpack=True)
 
 absorb(12,18,40,0.5*winkel_zirkonium,int_zirkonium,0.5,0.5,10,1,'zr')
 absorb(5,10,32,0.5*winkel_germanium,int_germanium,0.5,0.5,1,1,'germanium')
-#absorb(1,2,30,0.5*winkel_zink,int_zink,1,1,1,1,'zink')
 absorb(15,21,35,0.5*winkel_brom,int_brom,0.5,0.5,1,1,'brom')
 absorb(14,20,38,0.5*winkel_stom,int_strom,0.25,0.25,10,1,'strom')
-
-plt.clf()
-
-#plt.plot(0.5*winkel_zirkonium,int_zirkonium,'rx')
-
-#plt.plot(0.5*winkel_germanium,int_germanium,'rx')
-
-#plt.plot(0.5*winkel_zink,int_zink,'rx')
-
-#plt.plot(0.5*winkel_brom,int_brom,'rx')
-
-plt.plot(0.5*winkel_stom,int_strom,'rx')
-
-plt.show()
+absorb_zink(14,20,8,25,38,0.5*winkel_zink,int_zink,0.25,0.25,20,10,'zink')
+absorb_gold(14,20,79,0.5*winkel_gold,int_gold,0.25,0.25,10,1,'gold')
