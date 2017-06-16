@@ -10,7 +10,7 @@ Ladung, hierdurch stehen sie in Wechselwirkung mit dem elektrischen Feld $\vec{E
 Kondensators. Ein Öltröpfchen trägt immer ein ganzzahliges Vielfaches der Elementarladung. %Satz an andere Stelle
 Neben der elektrischen Feldkraft des Kondensators, wirkt auch die Gravitationskraft %Gravitation
 $\vec{F}\ua{g}=m\vec{\map{g}}$ auf ein Tröpfchen. %Tröpchen
-Auf Grund dessen bewegt sich das Tröpfchen zum Boden
+Auf grund dessen bewegt sich das Tröpfchen zum Boden
 des Kondensators. Beim Fallvorgang wirkt die Stokesche Reibungskraft %Stokesche
 \begin{equation*}
   \vec{F}\ua{R}=-6\map{\pi}\eta\ua{L}\vec{v}
@@ -26,7 +26,7 @@ Beim Kräftegleichgewicht gilt folgender Zusammenhang:
 \end{equation}
 Die linke Seite von \eqref{eq:kraeftegleich} berücksichtigt zusätzlich den Auftrieb des %berücksichtigt, Prinzip des Archimedes
 Tröpfchens in der Luft. Mit der obigen Gleichung lässt sich ein Ausdruck für den Radius %Tröpfchens
-des Teilchens finden %Teilchens finden
+des Teilchens finden: %Teilchens finden
 \begin{equation}
   \label{eq:radius_teilchen}
   r=\sqrt{\frac{9\eta\ua{L}v_0}{2\map{g}\left(\rho\ua{oel}-\rho\ua{L}\right)}}
@@ -47,10 +47,16 @@ Punkt gilt
   \label{eq:krafte_gleich}
   \vec{F}\ua{g}=\vec{F}\ua{elk} \quad \Leftrightarrow \quad m\map{g}=\rho V\map{g}=qE, \qquad V=\frac{4}{3}\pi r^3.
 \end{equation}
+Der Ausdruck in Gleichung \eqref{eq:radius_teilchen} muss zusätzlich korrigiert werden zu:
+\begin{equation}
+    \label{eq:q_korri}
+    r\ua{kor}=\sqrt{\left(\frac{B}{2p}\right)^2+\frac{9\eta v_0}{2\map{g}\rho\ua{oel}}}-\frac{B}{2 p}
+\end{equation}
+Die Größe $p$ entspricht dem Luftdruck.
 Mit der Gleichung \eqref{eq:krafte_gleich} ergibt sich eine Gesetzmäßigkeit für die Ladung $q$:
 \begin{equation}%Formel unschön formatiert
   \label{eq:q}
-  q_0=\frac{\frac{4}{3}\pi r^3 \map{g}}{E} = \frac{4U\map{g}\pi}{3d}\left( \frac{9\eta\ua{L}v_0}{2\map{g}\left(\rho\ua{oel}-\rho\ua{L}\right)}\right)^{\frac{3}{2}} .
+  q_0=\frac{\frac{4}{3}\pi r\ua{kor}^3 \map{g}}{E} = \frac{4U\map{g}\pi}{3d}\left( \frac{9\eta\ua{L}v_0}{2\map{g}\left(\rho\ua{oel}-\rho\ua{L}\right)}\right)^{\frac{3}{2}} .
 \end{equation}
 Mit $d$ wird der Abstand der beiden Kondensatorplatten bezeichnet.%Absatz entfernen
 Bei der Verwendung des Stokeschen Gesetz ist zu beachten, dass es nur für Teilchen gilt,%Stokeschen Gesetzes
@@ -58,10 +64,6 @@ deren Abmessung größer als die freie Weglänge in Luft $\ov{l}$ ist. %Verb feh
 Da diese Voraussetzung beim verwendeten Versuchsaufbau nicht erfüllt ist, muss die Viskosität $\eta\ua{L}$ %Verb fehlt
 angepasst werden %angepasst werden
 \begin{equation*}
-  \eta\ua{eff}=\eta\ua{L}=\left(\frac{1}{1+B\frac{1}{pr}}\right). \quad B=\SI{9.17e-3}\,\si{\centi\meter}\map{Torr}
+  \eta\ua{eff}=\eta\ua{L}=\left(\frac{1}{1+B\frac{1}{pr\ua{kor}}}\right). \quad B=\SI{9.17e-3}\,\si{\centi\meter}\map{Torr}
 \end{equation*}
-Hierbei ist $p$ der Luftdruck. Mit der Korrektur errchnet sich die Ladung $q$ mit %Luftdruck, redundanter Satz
-\begin{equation}
-  \label{eq:q_korri}
-  q=q_0\left(1+\frac{B}{pr}\right)^{\frac{3}{2}}.
-\end{equation}
+Hierbei ist $p$ der Luftdruck.

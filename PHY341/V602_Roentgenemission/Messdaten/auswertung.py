@@ -39,7 +39,6 @@ def brag_ener (winkel, n):
     lam= 2*201.4e-12 * np.sin( m.radians(winkel) ) / n #Eventuell rad to deg
     return h*c / (e*lam)
 
-
 def abschirm(Z, delta_E):
     return Z - ( np.sqrt( (4 /fine_structure ) * np.sqrt( delta_E / Ryd) -  ( 5 * delta_E ) / Ryd ) ) * ( np.sqrt( 1 + (19/32) * ( fine_structure )**2 * ( delta_E / Ryd ) ) )
 
@@ -50,11 +49,16 @@ energien=np.array([9.65,10.37,13.48,15.21,16.12,18.00,19.00,11.925,13.739])*1e3 
 Z= np.array([30,32,35,37,38,40,41,79,79])  ## (Zink, Germanium, Brom, Rubiidium, Stotium, Niobium)
 
 
-
+winkeli=brag_wink(energien,1)
 print('\n')
 print(' Abschirmung', abschirm(Z,energien))
 print('\n')
 print('Bragg Winkel',brag_wink(energien,1))
+print('\n')
+print('Bragg Winkel',brag_ener(winkeli[3],1))
+print('\n')
+print('abschirm', absorbkoe(energien,Z))
+
 print('\n \n \n')
 
 
@@ -145,10 +149,6 @@ peak( [74,87], [86,99], 0.5*winkel_emi,inten_emi,1,1,100,100,'emission_cu')
 
 
 
-
-
-
-
 ### Absorptionsspektrum
 
 def absorb(a,b,Z,winkel,imp ,x_p,x_m,y_p,y_m,name):
@@ -158,9 +158,9 @@ def absorb(a,b,Z,winkel,imp ,x_p,x_m,y_p,y_m,name):
 
     mini=min(imp[a:b])
     winkel_min=winkel[a:b][np.where(imp[a:b]==mini)]
-    kante=0.5*(winkel_max-winkel_min)
-    energie_k=brag_ener(kante,1)
-    sigma=absorbkoe(energie_k,Z)
+    kante=winkel_min+0.5*(winkel_max-winkel_min)
+    energie_k=brag_ener(kante,1)*1e-3
+    sigma=absorbkoe(energie_k*1e3,Z)
 
     print('Betrachte: ', name)
     print('Winkel K Kante', kante)
@@ -192,9 +192,9 @@ def absorb(a,b,Z,winkel,imp ,x_p,x_m,y_p,y_m,name):
 def absorb_zink(a,b,c,d,Z,winkel,imp ,x_p,x_m,y_p,y_m,name):
     ###Peak detect
 
-    kante=0.5*(winkel[c+6]-winkel[c+2])
-    energie_k=brag_ener(kante,1)
-    sigma=absorbkoe(energie_k,Z)
+    kante=winkel[c+6]+0.5*(winkel[c+6]-winkel[c+2])
+    energie_k=brag_ener(kante,1)*1e-3
+    sigma=absorbkoe(energie_k*1e3,Z)
 
     print('Betrachte: ', name)
     print('Winkel K Kante', kante)
@@ -213,7 +213,7 @@ def absorb_zink(a,b,c,d,Z,winkel,imp ,x_p,x_m,y_p,y_m,name):
     plt.ylim(min(imp)-y_m,max(imp)+y_p)
     plt.legend(loc='best',)
 
-    plt.axes([0.207,0.3, 0.3,0.3])
+    plt.axes([0.207,0.35, 0.3,0.3])
     plt.plot(winkel[c:d],imp[c:d],'rx')
     plt.title(r'$\mathrm{Vergrößerung \, der \, K Kante}$')
     plt.xlim(winkel[c]-x_m,winkel[d]+x_p)
@@ -242,10 +242,10 @@ def absorb_gold(a,b,Z,winkel,imp ,x_p,x_m,y_p,y_m,name):
     winkel_l3=winkel[17]
     winkel_l2=winkel[39]
 
-    energie_l3=absorbkoe(winkel_l2,Z)
-    energie_l2=absorbkoe(winkel_l3,Z)
+    energie_l3=brag_ener(winkel_l2,1)*1e-3
+    energie_l2=brag_ener(winkel_l3,1)*1e-3
     delta_e=energie_l2-energie_l3
-    abschirm_kosnt=abschirm(Z,delta_e)
+    abschirm_kosnt=abschirm(Z,delta_e*1e3)
     print('Betrachte: ', name)
     print('Energie L2 Kante',energie_l2)
     print('Energie L3 kante', energie_l3)
@@ -288,10 +288,38 @@ winkel_gold, int_gold = np.genfromtxt('gold.txt',unpack=True)
 
 
 ##Auswertung
-
-absorb(12,18,40,0.5*winkel_zirkonium,int_zirkonium,0.5,0.5,10,1,'zr')
-absorb(5,10,32,0.5*winkel_germanium,int_germanium,0.5,0.5,1,1,'germanium')
-absorb(15,21,35,0.5*winkel_brom,int_brom,0.5,0.5,1,1,'brom')
-absorb(14,20,38,0.5*winkel_stom,int_strom,0.25,0.25,10,1,'strom')
-absorb_zink(14,20,8,25,38,0.5*winkel_zink,int_zink,0.25,0.25,20,10,'zink')
+energie_k=[]
+energie_k.append(absorb(12,18,40,0.5*winkel_zirkonium,int_zirkonium,0.5,0.5,10,1,'zr'))
+energie_k.append(absorb(5,10,32,0.5*winkel_germanium,int_germanium,0.5,0.5,1,1,'germanium'))
+energie_k.append(absorb(15,21,35,0.5*winkel_brom,int_brom,0.5,0.5,1,1,'brom'))
+energie_k.append(absorb(14,20,38,0.5*winkel_stom,int_strom,0.25,0.25,10,1,'strom'))
+energie_k.append(absorb_zink(14,20,8,25,30,0.5*winkel_zink,int_zink,0.25,0.25,20,10,'zink'))
 absorb_gold(14,20,79,0.5*winkel_gold,int_gold,0.25,0.25,10,1,'gold')
+
+
+
+### Bestimmung der Rydbergenergie
+Z=[40,32,35,38,30]
+
+def g(m,x,b):
+    return m*x+b
+
+parms, cov = curve_fit(g,Z,np.sqrt( energie_k) )
+error= np.sqrt(np.diag(cov))
+m_u=ufloat(parms[0],error[0])
+b_u=ufloat(parms[1],error[1])
+print('Regressionsrechnugng E_k und Z')
+print('Steigung/Rydberggenerie',m_u**2)
+print('y_achsenabschnitt', b_u)
+print('\n\n\n')
+lauf=np.linspace(28,45,10000)
+plt.clf()
+plt.xlim(28,42)
+#plt.ylim(np.sqrt(8),np.sqrt(20))
+plt.plot(Z,np.sqrt(energie_k),'rx',label=r'$\mathrm{Energiewert}$')
+plt.plot(lauf,parms[0]*lauf+parms[1], 'b-', label=r'$\mathrm{Regressiongerade}$')
+plt.grid()
+plt.xlabel(r'$\mathrm{Z}$')
+plt.ylabel(r'$\sqrt{E_{\mathrm{K}}} \, \mathrm{in} \, \mathrm{eV}$')
+plt.legend(loc='best')
+plt.show()
