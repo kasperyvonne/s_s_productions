@@ -289,16 +289,17 @@ winkel_gold, int_gold = np.genfromtxt('gold.txt',unpack=True)
 
 ##Auswertung
 energie_k=[]
-energie_k.append(absorb(12,18,40,0.5*winkel_zirkonium,int_zirkonium,0.5,0.5,10,1,'zr'))
-energie_k.append(absorb(5,10,32,0.5*winkel_germanium,int_germanium,0.5,0.5,1,1,'germanium'))
-energie_k.append(absorb(15,21,35,0.5*winkel_brom,int_brom,0.5,0.5,1,1,'brom'))
-energie_k.append(absorb(14,20,38,0.5*winkel_stom,int_strom,0.25,0.25,10,1,'strom'))
-energie_k.append(absorb_zink(14,20,8,25,30,0.5*winkel_zink,int_zink,0.25,0.25,20,10,'zink'))
+energie_k.append(1e3*absorb(12,18,40,0.5*winkel_zirkonium,int_zirkonium,0.5,0.5,10,1,'zr'))
+energie_k.append(1e3*absorb(5,10,32,0.5*winkel_germanium,int_germanium,0.5,0.5,1,1,'germanium'))
+energie_k.append(1e3*absorb(15,21,35,0.5*winkel_brom,int_brom,0.5,0.5,1,1,'brom'))
+energie_k.append(1e3*absorb(14,20,38,0.5*winkel_stom,int_strom,0.25,0.25,10,1,'strom'))
+energie_k.append(1e3*absorb_zink(14,20,8,25,30,0.5*winkel_zink,int_zink,0.25,0.25,20,10,'zink'))
 absorb_gold(14,20,79,0.5*winkel_gold,int_gold,0.25,0.25,10,1,'gold')
 
 
 
 ### Bestimmung der Rydbergenergie
+#Z=[40-2.88,32-3.09,35-2.98,38-2.98,30-3.37]
 Z=[40,32,35,38,30]
 
 def g(m,x,b):
