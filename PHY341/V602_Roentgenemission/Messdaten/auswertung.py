@@ -75,7 +75,7 @@ winkel, inten=np.genfromtxt('braggbed.txt',unpack=True)
 ## Funktion
 def auswertung_brag(winkel, inten,x_p,x_m,y_p,y_m,name):
     l.Latexdocument(name+'.tex').tabular([winkel,inten],
-    '{$\\alpha_{\mathrm{Gl}} \, / \, \si{\\degree}$} & {$I \, / \, \mathmrm{Imp}/\mathrm{s}$}', [1, 1] ,
+    '{$\\alpha_{\mathrm{Gl}} \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$}', [1, 1] ,
     caption = 'Messwerte bei der Untersuchung der Bragg Bedingung.', label = 'bragg_test')
     plt.clf()
     plt.plot(winkel,inten,'rx',label=r'$Intensität$')
@@ -87,7 +87,6 @@ def auswertung_brag(winkel, inten,x_p,x_m,y_p,y_m,name):
     plt.ylim(min(inten)-y_m,max(inten)+y_p)
     plt.legend(loc='best')
     plt.savefig(name + '.pdf')
-
     return winkel[np.argmax(inten)]
 
 print('Bragg Winkel',auswertung_brag(winkel,inten,0.5,0.5,10,1,'bragbed'))
@@ -136,13 +135,72 @@ def peak(int_1,int_2,winkel,imp ,x_p,x_m,y_p,y_m,name):
     sigma_1=absorbkoe(e_1,29)
     sigma_2=absorbkoe(-e_2+e_1 ,29)
 
+
     print('Betrachte: ', name)
     print('Energie k_beta', e_1)
-    print('Energie k_beta', e_2)
+    print('Energie k_alpha', e_2)
     print('Sigma 1', sigma_1)
     print('Sigma 2', sigma_2)
+    print('Maximale Energie',brag_ener(winkel[0],1))
     print('\n\n\n')
-    ##Es fehlt die Halbwertsbreite und Abschirmkonstante
+
+
+    ## Bestimmung der Halbwertsbreite
+
+    #K_alpha peak, Winkel 1
+
+    def g(m,x,b):
+        return m*x+b
+
+    imp_winkel1_partner=imp[np.where(imp==max_1)[0][0]-1]
+    winkel_1_fit_partner=winkel[np.where(imp==max_1)[0][0]-1]
+
+    parms_winkel1, cov_winkel1 = curve_fit( g ,[winkel_1_fit_partner,winkel_1[0],winkel[np.where(imp==max_1)[0][0]-2]], [imp_winkel1_partner,imp[np.where(imp==max_1)][0],imp[np.where(imp==max_1)[0][0]-2]] )
+    print(cov_winkel1)
+    error_winkel1= np.sqrt(np.diag(cov_winkel1))
+    m_uwinkel1 =ufloat(parms_winkel1[0],error_winkel1[0])
+    b_uwinkel1 =ufloat(parms_winkel1[1],error_winkel1[1])
+
+    breite_winkel1=winkel_1-(max_1*0.5-b_uwinkel1)/m_uwinkel1
+
+    print('K_beta fit Steigung',m_uwinkel1)
+    print('k_beta fit y_achsenabschnitt', b_uwinkel1)
+    print('k_beta Breite', breite_winkel1)
+    print('\n\n\n')
+
+    ###k_alpha peak
+    imp_winkel2_partner=imp[np.where(imp==max_2)[0][0]-1]
+    winkel_2_fit_partner=winkel[np.where(imp==max_2)[0][0]-1]
+    parms_winkel2, cov_winkel2 = curve_fit( g ,[winkel_2_fit_partner,winkel_2[0],winkel[np.where(imp==max_2)[0][0]-2]], [imp_winkel2_partner,imp[np.where(imp==max_2)][0],imp[np.where(imp==max_2)[0][0]-2]] )
+    error_winkel2= np.sqrt(np.diag(cov_winkel2))
+    m_uwinkel2 =ufloat(parms_winkel2[0],error_winkel2[0])
+    b_uwinkel2 =ufloat(parms_winkel2[1],error_winkel2[1])
+
+    breite_winkel2=winkel_2-(max_2*0.5-b_uwinkel2)/m_uwinkel2
+
+    print('K_alpha fit Steigung',m_uwinkel2)
+    print('k_alpha fit y_achsenabschnitt', b_uwinkel2)
+    print('k_alpha Breite', breite_winkel2)
+    print('\n\n\n')
+
+
+    ## Plots für die Halbwertsbrete
+    lauf1=np.linspace(19,22,1000)
+    lauf2=np.linspace(21,23,1000)
+
+    plt.clf()
+    plt.plot(winkel,imp,'rx',label=r'$Intensität$')
+    plt.plot(lauf1,g(parms_winkel1[0],lauf1,parms_winkel1[1]),'c-',label=r'$Ausgleichgerade K_{\beta}$')
+    plt.plot(lauf2,g(parms_winkel2[0],lauf2,parms_winkel2[1]),'y-',label=r'$Ausgleichgerade K_{\alpha}$')
+    plt.axvline(winkel_2,ls='--', color='b',label=r'$K_{\alpha}$')
+    plt.axvline(winkel_1,ls='--', color='g',label=r'$K_{\beta}$')
+    plt.grid()
+    plt.xlabel(r'$\theta \, \mathrm{in} \, \mathrm{deg}$')
+    plt.ylabel(r'$I \, \mathrm{in} \, \mathrm{Imp}/\mathrm{s}$')
+    plt.xlim(17.5,23.5)
+    plt.ylim(0,4400)
+    plt.legend(loc='best')
+    plt.savefig(name + '_zoom.pdf')
 
 peak( [74,87], [86,99], 0.5*winkel_emi,inten_emi,1,1,100,100,'emission_cu')
 
@@ -301,10 +359,8 @@ absorb_gold(14,20,79,0.5*winkel_gold,int_gold,0.25,0.25,10,1,'gold')
 ### Bestimmung der Rydbergenergie
 #Z=[40-2.88,32-3.09,35-2.98,38-2.98,30-3.37]
 Z=[40,32,35,38,30]
-
 def g(m,x,b):
     return m*x+b
-
 parms, cov = curve_fit(g,Z,np.sqrt( energie_k) )
 error= np.sqrt(np.diag(cov))
 m_u=ufloat(parms[0],error[0])
@@ -323,4 +379,4 @@ plt.grid()
 plt.xlabel(r'$\mathrm{Z}$')
 plt.ylabel(r'$\sqrt{E_{\mathrm{K}}} \, \mathrm{in} \, \mathrm{eV}$')
 plt.legend(loc='best')
-plt.show()
+plt.savefig('energie_z.pdf')

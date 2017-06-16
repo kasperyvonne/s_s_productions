@@ -1,1 +1,61 @@
 \section{Auswertung}
+Die in der Auswertung bestimmten Ausgleichsrechnungen werden mit
+dem Python Paket \emph{scipy.optimize}\cite{scipy} durchgeführt.
+Des Weiteren werden die Fehler und insbesondere die Fehlerfortpflanzungen
+mit dem Python Paket \emph{uncertainties}\cite{uncertainties} berechnet.
+Zusätzlich werden die benötigten Naturkonstanten dem Python Paket \emph{scipy.constants}\cite{scipy.constants}
+entommen.
+
+\subsection{Untersuchung der Bragg-Bedingung}
+Die an der Messapperatur eingestellten Konfiguration lauten:
+\begin{equation*}
+  \theta=\SI{14}{\degree}, \quad \alpha\ua{GM}\in\left[26,30\right]\,\si{\degree},\quad \Delta\alpha\ua{GM}=\SI{0.1}{\degree}, \quad \Delta t=\SI{10}{\second}.
+\end{equation*}
+Eine Liste mit den gemessenen Werten ist in Tabelle \ref{} zu finden und in Abbildung \ref{fig: bragg_plot} abgebildet.
+\input{../Messdaten/bragbed.tex}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8 \textwidth]{../Messdaten/bragbed.pdf}
+  \caption{Messwerte zur Untersuchung der Bragg-Bedingung.} %Hingegen passt nicht
+  \label{fig: bragg_plot}
+\end{figure}
+Das Maximum der Messwerte ist der bestimmte Bragg-Winkel:
+\begin{equation}
+  \label{eq:bestimmt_bragg_winkel}
+  2\theta\ua{bragg}=\SI{28.5}{\degree} \quad \Leftrightarrow \quad \theta\ua{bragg}=\SI{14.25}{\degree}.
+\end{equation}
+
+\subsection{Untersuchung des Emissionspektrum von $\ce{Cu}$}
+Zu Beginn wird der $2:1$ Kopplungsmodus der Apperatur gewählt und folgende Parameter eingestellt:
+\begin{equation*}
+  \theta\in\left[4,26\right]\,\si{\degree},\quad \Delta\theta\ua{GM}=\SI{0.2}{\degree}, \quad \Delta t=\SI{5}{\second}.
+\end{equation*}
+Die aufgenommen Werte sind in Tabelle \ref{} aufgelistet und in Abbildung \ref{fig: emission_cu} dargestellt.
+\input{../Messdaten/emission_cu.tex}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8 \textwidth]{../Messdaten/emission_cu.pdf}
+  \caption{Messsung des Emmissionspektrums von $\ce{Cu}$.} %Hingegen passt nicht
+  \label{fig: emission_cu}
+\end{figure}
+In der Abbildung sind die $K_\alpha$ und $K_\beta$ Kante mit eingezeichnet.
+Aus dem Experiment ergebens sich die folgenden Werte:
+\begin{equation}
+  \label{eq:k_alpha,k_beta}
+  K_\alpha=\SI{8.2}{\kilo\eV} \qquad   K_\beta=\SI{9.1}{\kilo\eV}.
+\end{equation}
+Die maximale Energie beläuft sich auf:
+\begin{equation}
+  \label{eq: maximale_energie}
+  E\ua{max}=\SI{44.1}{\kilo\eV}
+\end{equation}
+Die Winkel werden dabei mit Gleichung \eqref{} umgerechnet.
+Mit Hilfe der Energien \eqref{eq:k_alpha,k_beta}, können die Abschirmkonstanten
+für die einzelnen K- Linien bestimmt werden.
+Aus den Formeln \eqref{} errechnet sich:
+\begin{equation}
+   \label{eq:abschirm}
+   \sigma_1=3.13 \qquad \simga_2=20.9.
+\end{equation}
+
+\textbf{Es fehlt noch die Halbwertsbreite}
