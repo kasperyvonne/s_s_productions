@@ -26,12 +26,14 @@ Energie verlieren kann. Die Maximale Energie der Photonen $E\ua{ph, max}$ wird d
 wenn ein Elektron gänzlich abgebremst wird
 \begin{equation}
   E\ua{ph, max} = \frac{h c}{\map{e}\ua{0}U\ua{B}}.
+  \label{eq: E_max}
 \end{equation}
 Das sogenannte charakteristische Röntgenspektrum entsteht durch Ionisation des Anodenmaterials.
 Wird ein Elektron aus einer der unteren Schalen ionisiert, rückt ein Elektron unter Aussendung eines
 Photons, dessen Energie $E\ua{ph}$ genau der Energiedifferenz zwischen den Schalen entspricht, in die Fehlstelle nach.
 \begin{equation}
-  E\ua{ph} = h\nu = E\ua{m} - E\ua{n}.
+  E\ua{ph} = h\nu = \frac{h c}{\lambda} = E\ua{m} - E\ua{n}.
+  \label{eq: photonenenergie}
 \end{equation}
 Die Ionisation kann nur dann stattfinden, wenn die Energie des Elektrons mindestens der Ionisationsenergie der betreffenden Schale entspricht.
 Das Spektrum weist daher für das Anodenmaterial charakteristische diskrete Linien auf. Die Linien werden durch zwei Buchstaben
@@ -41,11 +43,13 @@ $K\ua{\alpha}$ die Linie, die entsteht, wenn ein Elktron aus der $K$-Schale ioni
 nachrückt. Für die Bindungsenergien $E\ua{n}$ gilt
 \begin{equation}
   E\ua{n} = -R\ua{\infty} z\ua{eff}^2 \frac{1}{n^2}.
+  \label{eq: E_niveaus}
 \end{equation}
 Hierbei entspricht $R\ua{\infty} = \SI{13.6}{\eV}$ der Rydbergenergie und $z\ua{eff}$ der effektiven Kernladung. Die effektive
 Kernladung berücksichtigt die Abschirmung des Coulombpotentials in einem Mehrelektronenatom. Es gilt näherungsweise
 \begin{equation}
   z\ua{eff} = z - \sigma\ua{n}.
+  \label{eq: abschirmkonstante}
 \end{equation}
 Mit der Kernladung $z$ und der Abschirmkonstante $\sigma\ua{n}$, deren Wert für alle Elektonen einer Schale als konstant angenommen wird.
 Es ist zu beachten, dass die Elektronen eines Energieniveaus
@@ -54,7 +58,7 @@ Spektrum eine Feinstruktur eng beianander liegender Linien.
 
 \subsection{Absorption}
 Die Absorption von Röntgenstrahlung wird im Wesentlichen durch den Photo- und den Compton-Effekt hervorgerufen. Die Absorption
-fällt mit steigender Energie der Röntgenspannung. Bei diskreten Energien kommt es jedoch sprunghaft zu einem Anstieg. Diese
+fällt monoton mit steigender Energie der Röntgenstrahlung. Bei diskreten Energien kommt es jedoch sprunghaft zu einem Anstieg. Diese
 sogenannten Absorptionskanten treten genau bei den Ionisierungsenergien der Energieniveaus auf. Graphik \ref{fig: absorption} zeigt einen charakteristischen
 Verlauf der Absorption unter variabler Wellenlänge ($E \propto \frac{1}{\lambda}$) der einfallenden Strahlung.
 Die Absorptionskanten werden entsprechend der Schale bezeichnet, die ionisiert wird.
@@ -68,9 +72,15 @@ führt, dass für Schalen mit mehr als einem Elektron mehrere Kanten zu beobacht
 \end{figure}
 
 \subsection{Bragg-Bedingung}
-Zur Analyse des Röntgenenergiespektrums wird ausgenutzt, dass die Beugung elektromagnetischerstrahlung an christallinen
+Zur Analyse des Röntgenenergiespektrums wird ausgenutzt, dass die Beugung elektromagnetischerstrahlung an kristallinen
 Oberflächen von der Wellenlänge abhängt. Für die erste Beugungsordnung gilt nach der Bragg-Bedingung
 \begin{equation}
   2 d \sin\theta = \lambda.
+  \label{eq: bragg}
 \end{equation}
-Hierbei entspricht $d$ der Gitterkonstanten und $\theta$ dem Glanzwinkel.
+Hierbei entspricht $d$ der Gitterkonstanten und $\theta$ dem Glanzwinkel. Damit lässt sich jedem Winkel $\theta$ eindeutig eine
+Energie der am Gitter gebeugten Photonen zuordnen
+\begin{equation}
+  E(\theta) \overset{\eqref{eq: photonenenergie}}{=} \frac{h c}{2 d \sin \theta}.
+  \label{eq: E_beugungswinkel}
+\end{equation}
