@@ -121,7 +121,7 @@ def peak(int_1,int_2,winkel,imp ,x_p,x_m,y_p,y_m,name):
     plt.savefig(name + '.pdf')
 
     l.Latexdocument(name+'.tex').tabular([winkel,imp],
-    '{$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathmrm{Imp}/\mathrm{s}$}', [1, 1] ,
+    '{$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$}', [1, 1] ,
     caption = 'Messwerte bei der Untersuchung des Emmissionspektrum von $\ce{Cu}$.', label = 'emi_cu')
 
     ###grenzwinkel
@@ -221,6 +221,8 @@ def absorb(a,b,Z,winkel,imp ,x_p,x_m,y_p,y_m,name):
     sigma=absorbkoe(energie_k*1e3,Z)
 
     print('Betrachte: ', name)
+    print('winekl min',winkel_min)
+    print('winkel_max',winkel_max)
     print('Winkel K Kante', kante)
     print('Energie K Kante', energie_k)
     print('Abschirmkoef', sigma)
@@ -231,15 +233,15 @@ def absorb(a,b,Z,winkel,imp ,x_p,x_m,y_p,y_m,name):
     plt.axvline(winkel_max,ls='--', color='b',label=r'$\theta_{\mathrm{max}}$')
     plt.axvline(winkel_min,ls='--', color='g',label=r'$\theta_{\mathrm{min}}$')
     plt.grid()
-    plt.xlabel(r'$\theta \, \mathrm{in} \, \mathrm{deg}$')
-    plt.ylabel(r'$I \, \mathrm{in} \, \mathrm{Imp}/\mathrm{s}$')
+    plt.xlabel(r'$\theta \, \mathrm{in} \, \mathrm{deg}$',size=25)
+    plt.ylabel(r'$I \, \mathrm{in} \, \mathrm{Imp}/\mathrm{s}$',size=25)
     plt.xlim(winkel[0]-x_m,winkel[-1]+x_p)
     plt.ylim(min(imp)-y_m,max(imp)+y_p)
-    plt.legend(loc='best')
+    plt.legend(loc='best',fontsize=20)
     plt.savefig(name + '.pdf')
 
     l.Latexdocument(name+'.tex').tabular([winkel,imp],
-    '{$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathmrm{Imp}/\mathrm{s}$}', [1, 1] ,
+    '{$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$}', [1, 1] ,
     caption = 'Messwerte bei der Untersuchung des Emmissionspektrum von $\ce{Cu}$.', label = name)
     return energie_k
     ####grenzwinkel
@@ -250,11 +252,13 @@ def absorb(a,b,Z,winkel,imp ,x_p,x_m,y_p,y_m,name):
 def absorb_zink(a,b,c,d,Z,winkel,imp ,x_p,x_m,y_p,y_m,name):
     ###Peak detect
 
-    kante=winkel[c+6]+0.5*(winkel[c+6]-winkel[c+2])
+    kante=winkel[c+2]+0.5*(winkel[c+6]-winkel[c+2])
     energie_k=brag_ener(kante,1)*1e-3
     sigma=absorbkoe(energie_k*1e3,Z)
 
     print('Betrachte: ', name)
+    print('winkel_min',winkel[c+2])
+    print('winkel_max',winkel[c+6])
     print('Winkel K Kante', kante)
     print('Energie K Kante', energie_k)
     print('Abschirmkoef', sigma)
@@ -271,9 +275,9 @@ def absorb_zink(a,b,c,d,Z,winkel,imp ,x_p,x_m,y_p,y_m,name):
     plt.ylim(min(imp)-y_m,max(imp)+y_p)
     plt.legend(loc='best',)
 
-    plt.axes([0.207,0.35, 0.3,0.3])
+    plt.axes([0.207,0.375, 0.3,0.3])
     plt.plot(winkel[c:d],imp[c:d],'rx')
-    plt.title(r'$\mathrm{Vergrößerung \, der \, K Kante}$')
+    plt.title(r'$\mathrm{Vergrößerung \, der \, K-Kante}$')
     plt.xlim(winkel[c]-x_m,winkel[d]+x_p)
     plt.axvline(winkel[c+6],ls='--', color='b',label=r'$\theta_{\mathrm{max}}$')
     plt.axvline(winkel[c+2],ls='--', color='g',label=r'$\theta_{\mathrm{min}}$')
@@ -288,7 +292,7 @@ def absorb_zink(a,b,c,d,Z,winkel,imp ,x_p,x_m,y_p,y_m,name):
     plt.savefig(name + '.pdf')
 
     l.Latexdocument(name+'.tex').tabular([winkel,imp],
-    '{$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathmrm{Imp}/\mathrm{s}$}', [1, 1] ,
+    '{$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$}', [1, 1] ,
     caption = 'Messwerte bei der Untersuchung des Emmissionspektrum von $\ce{Cu}$.', label = name)
     return energie_k
 
@@ -323,7 +327,7 @@ def absorb_gold(a,b,Z,winkel,imp ,x_p,x_m,y_p,y_m,name):
     plt.savefig(name + '.pdf')
 
     l.Latexdocument(name+'.tex').tabular([winkel,imp],
-    '{$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathmrm{Imp}/\mathrm{s}$}', [1, 1] ,
+    '{$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$}', [1, 1] ,
     caption = 'Messwerte bei der Untersuchung des Emmissionspektrum von $\ce{Cu}$.', label = name)
     #return energie_k
 
