@@ -74,8 +74,8 @@ winkel, inten=np.genfromtxt('braggbed.txt',unpack=True)
 
 ## Funktion
 def auswertung_brag(winkel, inten,x_p,x_m,y_p,y_m,name):
-    l.Latexdocument(name+'.tex').tabular([winkel,inten],
-    '{$\\alpha_{\mathrm{Gl}} \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$}', [1, 1] ,
+    l.Latexdocument(name+'.tex').tabular([winkel[0:len(winkel)//2],inten[0:len(winkel)//2], winkel[len(winkel)//2+1:],inten[len(winkel)//2+1:]],
+    '{$\\alpha_{\mathrm{Gl}} \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$} & {$\\alpha_{\mathrm{Gl}} \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$}', [1, 0, 1,0] ,
     caption = 'Messwerte bei der Untersuchung der Bragg Bedingung.', label = 'bragg_test')
     plt.clf()
     plt.plot(winkel,inten,'rx',label=r'$Intensität$')
@@ -115,13 +115,13 @@ def peak(int_1,int_2,winkel,imp ,x_p,x_m,y_p,y_m,name):
     plt.grid()
     plt.xlabel(r'$\theta \, \mathrm{in} \, \mathrm{deg}$')
     plt.ylabel(r'$I \, \mathrm{in} \, \mathrm{Imp}/\mathrm{s}$')
-    plt.xlim(winkel[0]-x_m,winkel[-1]+x_p)
+    plt.xlim(winkel[0]-x_m,winkel[-2]+x_p)
     plt.ylim(min(imp)-y_m,max(imp)+y_p)
     plt.legend(loc='best')
     plt.savefig(name + '.pdf')
-
-    l.Latexdocument(name+'.tex').tabular([winkel,imp],
-    '{$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$}', [1, 1] ,
+    print(len(winkel)//3)
+    l.Latexdocument(name+'.tex').tabular([winkel[0:len(winkel)//3],imp[0:len(winkel)//3], winkel[len(winkel)//3:len(winkel)//3*2],imp[len(winkel)//3:len(winkel)//3 *2],winkel[len(winkel)//3*2:],imp[len(winkel)//3 *2:]],
+    '{$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$} & {$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$} &{$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$}', [1, 0 ,1, 0, 1, 0] ,
     caption = 'Messwerte bei der Untersuchung des Emmissionspektrum von $\ce{Cu}$.', label = 'emi_cu')
 
     ###grenzwinkel
@@ -292,7 +292,7 @@ def absorb_zink(a,b,c,d,Z,winkel,imp ,x_p,x_m,y_p,y_m,name):
     plt.savefig(name + '.pdf')
 
     l.Latexdocument(name+'.tex').tabular([winkel,imp],
-    '{$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$}', [1, 1] ,
+    '{$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$}', [1, 0] ,
     caption = 'Messwerte bei der Untersuchung des Emmissionspektrum von $\ce{Cu}$.', label = name)
     return energie_k
 
@@ -301,12 +301,12 @@ def absorb_zink(a,b,c,d,Z,winkel,imp ,x_p,x_m,y_p,y_m,name):
 
 def absorb_gold(a,b,Z,winkel,imp ,x_p,x_m,y_p,y_m,name):
     ###Peak detect
-    winkel_l3=winkel[17]
-    winkel_l2=winkel[39]
+    winkel_l2=winkel[17]
+    winkel_l3=winkel[39]
 
-    energie_l3=brag_ener(winkel_l2,1)*1e-3
-    energie_l2=brag_ener(winkel_l3,1)*1e-3
-    delta_e=energie_l2-energie_l3
+    energie_l2=brag_ener(winkel_l2,1)*1e-3
+    energie_l3=brag_ener(winkel_l3,1)*1e-3
+    delta_e=(energie_l2-energie_l3)
     abschirm_kosnt=abschirm(Z,delta_e*1e3)
     print('Betrachte: ', name)
     print('Energie L2 Kante',energie_l2)
@@ -315,24 +315,20 @@ def absorb_gold(a,b,Z,winkel,imp ,x_p,x_m,y_p,y_m,name):
     print('\n\n\n')
 
     plt.clf()
-    plt.plot(winkel,imp,'rx',label=r'$Intensität$')
+    plt.plot(winkel[:-1],imp[:-1],'rx',label=r'$Intensität$')
     plt.axvline(winkel_l3,ls='--', color='b',label=r'$L_3 \, \mathrm{Kante}$')
     plt.axvline(winkel_l2,ls='--', color='g',label=r'$L_2 \, \mathrm{Kante}$')
     plt.xlabel(r'$\theta \, \mathrm{in} \, \mathrm{deg}$')
     plt.ylabel(r'$I \, \mathrm{in} \, \mathrm{Imp}/\mathrm{s}$')
     plt.grid()
-    plt.xlim(winkel[0]-x_m,winkel[-1]+x_p)
-    plt.ylim(min(imp)-y_m,max(imp)+y_p)
+    plt.xlim(winkel[0]-x_m,winkel[-2]+x_p)
+    plt.ylim(min(imp[:-1])-y_m,max(imp[:-1])+y_p)
     plt.legend(loc='best',)
     plt.savefig(name + '.pdf')
-
-    l.Latexdocument(name+'.tex').tabular([winkel,imp],
-    '{$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$}', [1, 1] ,
-    caption = 'Messwerte bei der Untersuchung des Emmissionspektrum von $\ce{Cu}$.', label = name)
+    l.Latexdocument(name+'.tex').tabular([winkel[:len(winkel)//2],imp[:len(winkel)//2],winkel[len(winkel)//2:],imp[len(winkel)//2:]],
+    '{$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$} & {$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$}', [1, 0,1,0] ,
+    caption = 'Messwerte bei der Untersuchung des Emmissionspektrum von $\ce{Au}$.', label = name)
     #return energie_k
-
-
-
 
 
 
@@ -363,6 +359,11 @@ absorb_gold(14,20,79,0.5*winkel_gold,int_gold,0.25,0.25,10,1,'gold')
 ### Bestimmung der Rydbergenergie
 #Z=[40-2.88,32-3.09,35-2.98,38-2.98,30-3.37]
 Z=[40,32,35,38,30]
+Element=['$\ce{Zr}$', '$\ce{Ge}$', '$\ce{Br}$', '$\ce{Sr}$', '$\ce{Zn}$']
+l.Latexdocument('ryd.tex').tabular([Z,np.sqrt(energie_k)],
+'{Element} & {Z} & {$E_{\mathrm{K}}$}', [ 0,1] ,
+caption = 'Experimentell bestimmten Energie $E_{\mathrm{K}}$', label = 'ener_ryd')
+
 def g(m,x,b):
     return m*x+b
 parms, cov = curve_fit(g,Z,np.sqrt( energie_k) )
@@ -370,6 +371,7 @@ error= np.sqrt(np.diag(cov))
 m_u=ufloat(parms[0],error[0])
 b_u=ufloat(parms[1],error[1])
 print('Regressionsrechnugng E_k und Z')
+print('Steigung/Rydberggenerie',m_u)
 print('Steigung/Rydberggenerie',m_u**2)
 print('y_achsenabschnitt', b_u)
 print('\n\n\n')

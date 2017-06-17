@@ -11,7 +11,7 @@ Die an der Messapperatur eingestellten Konfiguration lauten:
 \begin{equation*}
   \theta=\SI{14}{\degree}, \quad \alpha\ua{GM}\in\left[26,30\right]\,\si{\degree},\quad \Delta\alpha\ua{GM}=\SI{0.1}{\degree}, \quad \Delta t=\SI{10}{\second}.
 \end{equation*}
-Eine Liste mit den gemessenen Werten ist in Tabelle \ref{} zu finden und in Abbildung \ref{fig: bragg_plot} abgebildet.
+Eine Liste mit den gemessenen Werten ist in Tabelle \ref{tab: bragg_test} zu finden und in Abbildung \ref{fig: bragg_plot} abgebildet.
 \input{../Messdaten/bragbed.tex}
 \begin{figure}
   \centering
@@ -30,7 +30,7 @@ Zu Beginn wird der $2:1$ Kopplungsmodus der Apperatur gewählt und folgende Para
 \begin{equation*}
   \theta\in\left[4,26\right]\,\si{\degree},\quad \Delta\theta=\SI{0.2}{\degree}, \quad \Delta t=\SI{5}{\second}.
 \end{equation*}
-Die aufgenommen Werte sind in Tabelle \ref{} aufgelistet und in Abbildung \ref{fig: emission_cu} dargestellt.
+Die aufgenommen Werte sind in Tabelle \ref{tab: emi_cu} aufgelistet und in Abbildung \ref{fig: emission_cu} dargestellt.
 \input{../Messdaten/emission_cu.tex}
 \begin{figure}
   \centering
@@ -71,7 +71,7 @@ wird. Die Liste mit allen zu untersuchenden Materialen und Winkel ist in Tabelle
 \ref{tab: theta_k} zu finden.
 \begin{table}
   \centering
-  \caption{Untersuchte Elemente und deren Grenzwinkel $\theta\ua{K}$}
+  \caption{Untersuchte Elemente und deren Grenzwinkel $\theta\ua{K,lit}$\cite{}.}
   \label{tab: theta_k}
   \begin{tabular}{S S S}
     \toprule
@@ -86,12 +86,12 @@ wird. Die Liste mit allen zu untersuchenden Materialen und Winkel ist in Tabelle
   \end{tabular}
 \end{table}
 \subsubsection{Untersuchung von Zink $\ce{Zn}$}\label{sec: zink}
-Die bei Zink gemessenen Werte sind in Tabelle \ref{} aufgeführt.
+Die bei Zink gemessenen Werte sind in Tabelle \ref{tab: zink} aufgeführt.
 \input{../Messdaten/zink.tex}
 In der Abbildung \ref{fig: absotp_zink} befindet sich die graphische Abbildung der Messdaten.
 \begin{figure}
   \centering
-  \includegraphics[width=1.2\textwidth]{../Messdaten/zink.pdf}
+  \includegraphics[width=1\textwidth]{../Messdaten/zink.pdf}
   \caption{Gemessenes Absorptionsspektrum für Zink. Zusätzlich ist in dem Plot eine Vergrößerung der K-Kante zu sehen.} %Hingegen passt nicht
   \label{fig: absotp_zink}
 \end{figure}
@@ -115,19 +115,19 @@ Für Zink ergibt sich
 \end{equation}
 \subsubsection{Untersuchung von $\ce{Ge}$,$\ce{Zr}$,$\ce{Br}$,$\ce{Sr}$}
 Die für die einzelenen Elemente gemessenen Spektren sind in Abbildung \ref{fig: spektrum_brom_germanium} und
-\ref{fig: spektrum_strontium_zirconium} dargestellt. Die zugehörogen Messwerte befinden sich in den Tabellen \ref{}- \ref{}.
+\ref{fig: spektrum_strontium_zirconium} dargestellt. Die zugehörogen Messwerte befinden sich in den Tabellen \ref{tab: zr}- \ref{tab: strom}.
 \begin{figure}
   \centering
   \begin{subfigure}{0.48\textwidth}
     \centering
     \includegraphics[width=1 \textwidth]{../Messdaten/brom.pdf}
-    \caption{Gemessenes Spektrum für Brom $\ce{Br}$. Die zugehörigen Messwerte sind in Tabelle \ref{} zu finden.} %der, geraden
+    \caption{Gemessenes Spektrum für Brom $\ce{Br}$. Die zugehörigen Messwerte sind in Tabelle \ref{tab: brom} zu finden.} %der, geraden
     \label{fig: brom_spektrum}
   \end{subfigure}
   \begin{subfigure}{0.48\textwidth}
     \centering
     \includegraphics[width=1 \textwidth]{../Messdaten/germanium.pdf}
-    \caption{Gemessenes Spektrum für Brom $\ce{Ge}$. Die zugehörigen Messwerte sind in Tabelle \ref{} zu finden.} %s.o.
+    \caption{Gemessenes Spektrum für Brom $\ce{Ge}$. Die zugehörigen Messwerte sind in Tabelle \ref{tab: germanium} zu finden.} %s.o.
     \label{fig: germaium_spektrum}
   \end{subfigure}
   \caption{Gemessene Absorptionsspektrum für Brom und Germanium.}
@@ -138,13 +138,13 @@ Die für die einzelenen Elemente gemessenen Spektren sind in Abbildung \ref{fig:
   \begin{subfigure}{0.48\textwidth}
     \centering
     \includegraphics[width=1 \textwidth]{../Messdaten/strom.pdf}
-    \caption{Gemessenes Spektrum für Strontium $\ce{Sr}$. Die zugehörigen Messwerte sind in Tabelle \ref{} zu finden.}
+    \caption{Gemessenes Spektrum für Strontium $\ce{Sr}$. Die zugehörigen Messwerte sind in Tabelle \ref{tab: strom} zu finden.}
     \label{fig: frank_hertz}
   \end{subfigure}
   \begin{subfigure}{0.48\textwidth}
     \centering
     \includegraphics[width=1 \textwidth]{../Messdaten/zr.pdf}
-    \caption{Gemessenes Spektrum für Zirconium $\ce{Zr}$. Die zugehörigen Messwerte sind in Tabelle \ref{} zu finden.  } %s.o.
+    \caption{Gemessenes Spektrum für Zirconium $\ce{Zr}$. Die zugehörigen Messwerte sind in Tabelle \ref{tab: zr} zu finden.  } %s.o.
     \label{fig: enrgie_hot}
   \end{subfigure}
   \caption{Gemessene Absorptionsspektrum für Strontium und Zirconium.}
@@ -167,3 +167,70 @@ bestimmt. Die sich Ergebnisse werden in Tabelle \ref{tab: messergebnisse} aufgef
     \bottomrule
   \end{tabular}
 \end{table}
+\input{../Messdaten/zr_final.tex}
+\input{../Messdaten/brom_final.tex}
+\input{../Messdaten/germanium_final.tex}
+\input{../Messdaten/strom_final.tex}
+
+\subsubsection{Untersuchung des Absorptionsspektrum von Gold $\ce{Au}$}
+Bei der Untersuchung der beiden L-Kanten ($L_2$ und $L_3$) wird die Apperatur, wie folgt
+konfiguriert:
+\begin{equation*}
+  \theta\in\left[\theta\ua{\theta\ua{L_3}}-2,\ua{\theta\ua{L_2}}+2\right]\,\si{\degree},\quad \Delta\theta=\SI{0.1}{\degree}, \quad \Delta t=\SI{20}{\second}.
+\end{equation*}
+Dabei wurden die Winkel
+\begin{equation*}
+  \ua{\theta\ua{L_2}}=\SI{12.95}{\degree} \qquad  \ua{\theta\ua{L_3}}=\SI{14.95}{\degree}
+\end{equation*}
+aus der Literatur \cite{} notiert.
+Die aufgenommenen Messwerte sind in Tabelle \ref{tab: gold} aufgelistet und in Abbildung
+\ref{fig: absotp_gold} aufgetragen. In dieser sind die abgelesenen $L_2$ und $L_2$ Kanten eingezeichnet.
+\input{../Messdaten/gold_final.tex}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{../Messdaten/gold.pdf}
+  \caption{Gemessenes Absorptionsspektrum für Gold. In der Graphik sind die abgelesenen $L_2$ und $L_2$ Kanten farblich markiert.} %Hingegen passt nicht
+  \label{fig: absotp_gold}
+\end{figure}
+Die abgelesenen Winkel werden mit Gleichung \eqref{} auf die Energie umgerechnet:
+\begin{equation}
+  \label{eq:l_kanten_gold}
+  E\ua{L_2}=\SI{14.0}{\kilo\eV}  \qquad   E\ua{L_3}=\SI{12.0}{\kilo\eV}.
+\end{equation}
+Mit den Energiewerten und der Kernladungszahl $Z\ua{Au}=79$ kann die Abschirmkonstante
+von Gold bestimmt werden. Unter Verwendung von Gleichung \eqref{} ergibt sich
+\begin{equation*}
+    \sigma\ua{L}=1.7.
+\end{equation*}
+
+\subsection{Bestimmung der Rydbergenergie}
+Für die Bestimmung Rydbergenerigie $R_\infty$ wird durch die zuvor
+bestimmten Energien $E\ua{K}$ eine Regeressionsgerade der Form
+\begin{equation*}
+  g(x)=mx+b=
+\end{equation*}
+gelegt. Mit der Ausgleichsrechnung sollen die Parameter der Gleichung \eqref{}
+bestimmt werden. Beim Koeffizientenvergleich ergibt sich das die Rydberggenergie
+gerade
+\begin{equation*}
+  R_\infty=m^2
+\end{equation*}
+ist.
+Die Energien sind in Tabelle \ref{tab: ener_ryd} gelistet
+und in der Abbildung \ref{fig: ryd_ener} gezeichnet. In der Abbildung ist
+die resultierende Regressionsgerade mit aufgetragen.
+\input{../Messdaten/ryd_final.tex}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{../Messdaten/energie_z.pdf}
+  \caption{Auftagung der experimentell berechneten Energien $E\ua{K}$ gegen die Kernladungszahl $Z$. Zusätzlich ist in der Abbildung die zugehöroge Ausgleichsgerade zu sehen. } %Hingegen passt nicht
+  \label{fig: ryd_ener}
+\end{figure}
+Die Ausgleichsrechnung liefert folgende Parameter:
+\begin{equation*}
+m=\num{3.76\pm0.02}\,\sqrt{\si{\eV}} \qquad b=\num{-13.5\pm0.7}\,\sqrt{\si{\eV}}.
+\end{equation*}
+Damit wird die Rydbergenergie bestimmt zu:
+\begin{equation}
+  R_\infty=\SI{14.11\pm0.15}{\eV}
+\end{equation}
