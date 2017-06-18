@@ -5,21 +5,22 @@ Dies ermöglicht grundlegende Aussagen über den Atomaufbau und insbesondere die
 der betrachteten Stoffe.
 \section{Theorie}
 Als Röntgenstrahlung bezeichnet man elektromagnetische Strahlung im Energiebereich $\SI{10}{\kilo\eV}$
-bis $\SI{100}{\kilo\eV}$. Röngenstrahlung befindet sich daher energetisch betrachtet zwischen oberhalb des sichtbaren Lichtes und
+bis $\SI{100}{\kilo\eV}$. Röngenstrahlung befindet sich daher energetisch betrachtet oberhalb des sichtbaren Lichtes und
 unterhalb von $\gamma$-Strahlung. Die hohe Energie ermöglicht eine Untersuchung von niedrigen Energieniveaus.
 \subsection{Emission}
 Zur Erzeugung von Röngenstrahlung wird eine Röntgenröhre nach Abbildung \ref{fig: röhre} verwendet. In einem
 evakuierten Behälter werden aus einem Glühdraht Elektronen emittiert (Glühelektrischer Effekt) und durch eine
-anliegende Spannung $U\ua{B}$ zu einer Kupferanode beschleunigt. Durch das Auftrefen an der Anode
+anliegende Spannung $U\ua{B}$ zu einer Kupferanode beschleunigt. Durch das Auftreffen an der Anode
 entsteht die Röngenstrahlung. Hierbei setzt sich das entstehene Strahlungsspektrum aus zwei
 Bestandteilen zusammen.\\
 \begin{figure}
   \centering
   \includegraphics[width = 0.7\textwidth]{pics/röhre.png}
-  \caption{Schematische Darstellung einer Röntgenröhre \cite{anleitung602i}.}
+  \caption{Schematische Darstellung einer Röntgenröhre\cite{anleitung602i}.}
   \label{fig: röhre}
 \end{figure}
-Durch die Wechselwirkung mit dem Coulombfeld der Kerne des Anodenmaterials werden die Elektronen abgebremst. Da beschleunigte Ladungen strahlen, wird bei diesem
+Durch die Wechselwirkung mit dem Coulombfeld der Kerne des Anodenmaterials werden die Elektronen abgebremst. Da beschleunigte Ladungen strahlen,
+wird bei diesem
 Vorgang ein Röntgenquant ausgesendet, dessen Energie $E\ua{ph} = h\nu$ genau dem Energieverlust des Elektrons
 entspricht. Das hierdurch entstehende Spektrum ist kontinuierlich, da das Elektron auch nur Teile seiner
 Energie verlieren kann. Die Maximale Energie der Photonen $E\ua{ph, max}$ wird dann erreicht,
@@ -81,13 +82,17 @@ Spektrum für Schalen mit mehr als einem Elektron über eine Feinstruktur eng be
 
 \subsection{Absorption}
 Die Absorption von Röntgenstrahlung wird im Wesentlichen durch den Photo- und den Comptoneffekt hervorgerufen.
+Als Photeffekt bezeichnet man das Auslösen eines in einem Atom gebundenen Elektrons unter Absorption eines Photons. Die
+Energie des einfallenden Photons muss also mindestens der Bindungsenergie des Elektrons entsprechen.
 Aufgrund der hohen Strahlungsenergie kann der Photoeffekt insbesondere durch Wechselwirkung mit Elektronen der unteren
-Schalen stattfinden (innerer Photoeffekt).  Der Compton-Effekt, der den Energieverlust der Röngenquanten duch Wechselwirkung
-mit schwach gebundenen Elektronen beschreibt, bewirkt einen kleinen Energieverlust bzw. Richtungsänderungen. Hierdurch wird das
-Spektrum in seiner Intensität abgeschwächt.
+Schalen stattfinden (innerer Photoeffekt). Der Compton-Effekt, der den Energieverlust der Röngenquanten duch Wechselwirkung
+mit schwach gebundenen Elektronen beschreibt (quasi-freie Teilchen), bewirkt gemäß den Gesetzen des elastischen Stoßes
+einen kleinen Energieverlust bzw. Richtungsänderungen.
+Hierdurch wird das Spektrum in seiner Intensität abgeschwächt.
 Die Absorption
 fällt monoton mit steigender Energie der Röntgenstrahlung. Bei diskreten Energien kommt es jedoch sprunghaft zu einem Anstieg. Diese
-sogenannten Absorptionskanten treten genau bei den Ionisierungsenergien der Energieniveaus auf. Graphik \ref{fig: absorption} zeigt einen charakteristischen
+sogenannten Absorptionskanten treten genau bei den Ionisierungsenergien der Energieniveaus auf.
+Graphik \ref{fig: absorption} zeigt einen charakteristischen
 Verlauf der Absorption unter variabler Wellenlänge ($E \propto \frac{1}{\lambda}$) der einfallenden Strahlung.
 Die Absorptionskanten werden entsprechend der Schale bezeichnet, die ionisiert wird. Die Untersuchung der Lage der Kanten
 ermöglicht eine Bestimmung der Ionisierungsenergien bzw. der Abschirmkonstanten.
@@ -103,20 +108,20 @@ $\sigma\ua{L}$ der $L$-Schale
 \begin{figure}[H]
   \centering
   \includegraphics[width = 0.4\textwidth]{pics/absorption.png}
-  \caption{Charakteristisches Röntgenabsorptionsspektrum für Blei \cite{dem}.}
+  \caption{Charakteristisches Röntgenabsorptionsspektrum für Blei\cite{dem}.}
   \label{fig: absorption}
 \end{figure}
 
 \subsection{Bragg-Bedingung}
 Zur Analyse des Röntgenenergiespektrums wird ausgenutzt, dass die Beugung elektromagnetischer Strahlung an kristallinen
-Oberflächen von der Wellenlänge abhängt. Für die erste Beugungsordnung gilt nach der Bragg-Bedingung
+Oberflächen von der Wellenlänge abhängt. Für die $n$-te Beugungsordnung gilt nach der Bragg-Bedingung
 \begin{equation}
-  2 d \sin\theta = \lambda.
+  2 d \sin\theta = n \lambda.
   \label{eq: bragg}
 \end{equation}
 Hierbei entspricht $d$ der Gitterkonstanten und $\theta$ dem Glanzwinkel. Damit lässt sich jedem Winkel $\theta$ eindeutig eine
 Energie der am Gitter gebeugten Photonen zuordnen
 \begin{equation}
-  E(\theta) \overset{\eqref{eq: photonenenergie}}{=} \frac{h c}{2 d \sin \theta}.
+  E(\theta) \overset{\eqref{eq: photonenenergie} }{\underset{n = 1}{=}} \frac{h c}{2 d \sin \theta}.
   \label{eq: E_beugungswinkel}
 \end{equation}
