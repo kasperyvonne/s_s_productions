@@ -52,18 +52,54 @@ Kernladung berücksichtigt die Abschirmung des Coulombpotentials in einem Mehrel
   \label{eq: abschirmkonstante}
 \end{equation}
 Mit der Kernladung $z$ und der Abschirmkonstante $\sigma\ua{n}$, deren Wert für alle Elektonen einer Schale als konstant angenommen wird.
-Es ist zu beachten, dass die Elektronen eines Energieniveaus
-aufgrund des individuellen Bahndrehimpulses bzw. Spins nicht alle die selbe Ionisierungsenergie besitzen. Daher besitzt das charakteristische
-Spektrum eine Feinstruktur eng beianander liegender Linien.
+Für die Energie der $K\ua{\alpha}$-Linie gilt damit
+\begin{equation}
+  E\ua{K\ua{\alpha}}(\sigma_1, \sigma_2) = R\ua{\infty} \left[\left(z - \sigma_1\right)^2 -  \frac{1}{4}\left(z - \sigma_2\right)^2\right].
+  \label{eq: E_K_alpha}
+\end{equation}
+Entsprechend ergibt sich $E\ua{K\ua{\beta}}$ zu
+\begin{equation}
+  E\ua{K\ua{\beta}}(\sigma_1, \sigma_3) = R\ua{\infty} \left[\left(z - \sigma_1\right)^2 -  \frac{1}{9}\left(z - \sigma_3\right)^2\right].
+  \label{eq: E_K_beta}
+\end{equation}
+Um Audrücke für die Abschirmkonstanten $\sigma_1$ und $\sigma_2$ zu erhalten wird diese Energiedifferenz
+näherungsweise mit der Ionisierungsenergie $E\ua{K}$ gleichgesetzt.
+\begin{align}
+  \begin{aligned}
+  E\ua{K\ua{\beta}}(\sigma_1, \sigma_3) &\approx E\ua{K}(\sigma_1) = R\ua{\infty} \left(z - \sigma_1\right)^2 \\
+  \Rightarrow \quad \sigma_1 &= z - \sqrt{\frac{E\ua{K\ua{\beta}}}{R\ua{\infty}}}.
+\end{aligned}
+\end{align}
+Die Lösung mit positivem Vorzeichen ist unphysikalisch und wird ignoriert. Einsetzen in \eqref{eq: E_K_alpha} ergibt für $\sigma_2$
+\begin{equation}
+  \sigma_2 = z - 2\sqrt{\frac{ E\ua{K\ua{\beta}} - E\ua{K\ua{\alpha}} }{ R\ua{\infty} } }.
+\end{equation}
+
+Es ist weiter zu beachten, dass die Elektronen eines Energieniveaus
+aufgrund des individuellen Bahndrehimpulses bzw. Spins nicht alle die selbe Ionisierungsenergie besitzen. Daher verfügt das charakteristische
+Spektrum für Schalen mit mehr als einem Elektron über eine Feinstruktur eng beianander liegender Linien.
 
 \subsection{Absorption}
-Die Absorption von Röntgenstrahlung wird im Wesentlichen durch den Photo- und den Compton-Effekt hervorgerufen. Die Absorption
+Die Absorption von Röntgenstrahlung wird im Wesentlichen durch den Photo- und den Comptoneffekt hervorgerufen.
+Aufgrund der hohen Strahlungsenergie kann der Photoeffekt insbesondere durch Wechselwirkung mit Elektronen der unteren
+Schalen stattfinden (innerer Photoeffekt).  Der Compton-Effekt, der den Energieverlust der Röngenquanten duch Wechselwirkung
+mit schwach gebundenen Elektronen beschreibt, bewirkt einen kleinen Energieverlust bzw. Richtungsänderungen. Hierdurch wird das
+Spektrum in seiner Intensität abgeschwächt.
+Die Absorption
 fällt monoton mit steigender Energie der Röntgenstrahlung. Bei diskreten Energien kommt es jedoch sprunghaft zu einem Anstieg. Diese
 sogenannten Absorptionskanten treten genau bei den Ionisierungsenergien der Energieniveaus auf. Graphik \ref{fig: absorption} zeigt einen charakteristischen
 Verlauf der Absorption unter variabler Wellenlänge ($E \propto \frac{1}{\lambda}$) der einfallenden Strahlung.
-Die Absorptionskanten werden entsprechend der Schale bezeichnet, die ionisiert wird.
+Die Absorptionskanten werden entsprechend der Schale bezeichnet, die ionisiert wird. Die Untersuchung der Lage der Kanten
+ermöglicht eine Bestimmung der Ionisierungsenergien bzw. der Abschirmkonstanten.
 Auch hier ist die Feinstruktur zu beachten, die dazu
 führt, dass für Schalen mit mehr als einem Elektron mehrere Kanten zu beobachten sind (z.B. $L\ua{I}$, $L\ua{II}$, $L\ua{III}$).
+Die Kanten $L\ua{I}$ und $L\ua{II}$ können in diesem Versuch nicht aufgelöst werden. Eine Untersuchung der Energiedifferenz
+$\Delta E\ua{L} = E\ua{L\ua{II}} - E\ua{L\ua{III}}$ ermöglicht gemäß folgender Formel eine Bestimmung der Abschirmkonstanten
+$\sigma\ua{L}$ der $L$-Schale
+\begin{equation}
+  \sigma\ua{L} = z - \left\{ \left(\frac{4}{\alpha}\sqrt{\frac{\Delta E\ua{L}}{R\ua{\infty}}} -\frac{5\Delta E\ua{L}}{R\ua{\infty}} \right)
+  \left(1 + \frac{19}{32}\alpha^2\frac{\Delta E\ua{L}}{R\ua{\infty}} \right)  \right\}^{1/2}.
+\end{equation}
 \begin{figure}[H]
   \centering
   \includegraphics[width = 0.4\textwidth]{pics/absorption.png}
@@ -72,7 +108,7 @@ führt, dass für Schalen mit mehr als einem Elektron mehrere Kanten zu beobacht
 \end{figure}
 
 \subsection{Bragg-Bedingung}
-Zur Analyse des Röntgenenergiespektrums wird ausgenutzt, dass die Beugung elektromagnetischerstrahlung an kristallinen
+Zur Analyse des Röntgenenergiespektrums wird ausgenutzt, dass die Beugung elektromagnetischer Strahlung an kristallinen
 Oberflächen von der Wellenlänge abhängt. Für die erste Beugungsordnung gilt nach der Bragg-Bedingung
 \begin{equation}
   2 d \sin\theta = \lambda.
