@@ -155,7 +155,7 @@ def peak(int_1,int_2,winkel,imp ,x_p,x_m,y_p,y_m,name):
     imp_winkel1_partner=imp[np.where(imp==max_1)[0][0]-1]
     winkel_1_fit_partner=winkel[np.where(imp==max_1)[0][0]-1]
 
-    parms_winkel1, cov_winkel1 = curve_fit( g ,[winkel_1_fit_partner,winkel_1[0],winkel[np.where(imp==max_1)[0][0]-2]], [imp_winkel1_partner,imp[np.where(imp==max_1)][0],imp[np.where(imp==max_1)[0][0]-2]] )
+    parms_winkel1, cov_winkel1 = curve_fit( g ,[winkel_1_fit_partner,winkel_1[0]], [imp_winkel1_partner,imp[np.where(imp==max_1)][0]] )
     print(cov_winkel1)
     error_winkel1= np.sqrt(np.diag(cov_winkel1))
     m_uwinkel1 =ufloat(parms_winkel1[0],error_winkel1[0])
@@ -165,13 +165,18 @@ def peak(int_1,int_2,winkel,imp ,x_p,x_m,y_p,y_m,name):
 
     print('K_beta fit Steigung',m_uwinkel1)
     print('k_beta fit y_achsenabschnitt', b_uwinkel1)
-    print('k_beta Breite', breite_winkel1)
+    print('ort des Maximums', winkel_1)
+    print('Höhe des Maximums', max_1)
+    print('Partner Ort' ,winkel_1_fit_partner)
+    print('partner Höhe',imp_winkel1_partner )
+    print('Ort der Halben beta', (max_1*0.5-b_uwinkel1)/m_uwinkel1)
+    print('k_beta Breite 1', breite_winkel1)
     print('\n\n\n')
 
     ###k_alpha peak
     imp_winkel2_partner=imp[np.where(imp==max_2)[0][0]-1]
     winkel_2_fit_partner=winkel[np.where(imp==max_2)[0][0]-1]
-    parms_winkel2, cov_winkel2 = curve_fit( g ,[winkel_2_fit_partner,winkel_2[0],winkel[np.where(imp==max_2)[0][0]-2]], [imp_winkel2_partner,imp[np.where(imp==max_2)][0],imp[np.where(imp==max_2)[0][0]-2]] )
+    parms_winkel2, cov_winkel2 = curve_fit( g ,[winkel_2_fit_partner,winkel_2[0]], [imp_winkel2_partner,imp[np.where(imp==max_2)][0]])
     error_winkel2= np.sqrt(np.diag(cov_winkel2))
     m_uwinkel2 =ufloat(parms_winkel2[0],error_winkel2[0])
     b_uwinkel2 =ufloat(parms_winkel2[1],error_winkel2[1])
@@ -180,7 +185,12 @@ def peak(int_1,int_2,winkel,imp ,x_p,x_m,y_p,y_m,name):
 
     print('K_alpha fit Steigung',m_uwinkel2)
     print('k_alpha fit y_achsenabschnitt', b_uwinkel2)
-    print('k_alpha Breite', breite_winkel2)
+    print('ort des Maximums', winkel_2)
+    print('Höhe des Maximums', max_2)
+    print('Partner Ort' ,winkel_2_fit_partner)
+    print('partner Höhe',imp_winkel2_partner )
+    print('Ort der Halben alpha', (max_2*0.5-b_uwinkel2)/m_uwinkel2)
+    print('k_alpha Breite 2', breite_winkel2)
     print('\n\n\n')
 
 

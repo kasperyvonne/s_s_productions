@@ -4,7 +4,7 @@ dem Python Paket \emph{scipy.optimize}\cite{scipy} durchgeführt.
 Des Weiteren werden die Fehler und insbesondere die Fehlerfortpflanzungen
 mit dem Python Paket \emph{uncertainties}\cite{uncertainties} berechnet.
 Zusätzlich werden die benötigten Naturkonstanten dem Python Paket \emph{scipy.constants}\cite{scipy}
-entommen.
+entnommen.
 \FloatBarrier
 \subsection{Untersuchung der Bragg-Bedingung}
 Eine Liste mit den gemessenen Werten ist in Tabelle \ref{tab: bragg_test} zu finden und in Abbildung \ref{fig: bragg_plot} abgebildet.
@@ -12,7 +12,7 @@ Eine Liste mit den gemessenen Werten ist in Tabelle \ref{tab: bragg_test} zu fin
 \begin{figure}
   \centering
   \includegraphics[width=0.8 \textwidth]{../Messdaten/bragbed.pdf}
-  \caption{Messwerte zur Untersuchung der Bragg-Bedingung.} %Hingegen passt nicht
+  \caption{Messwerte zur Untersuchung der Bragg-Bedingung.}
   \label{fig: bragg_plot}
 \end{figure}
 Das Maximum der Messwerte ist gleich dem zweifachen Bragg-Winkel:
@@ -25,7 +25,7 @@ Das Maximum der Messwerte ist gleich dem zweifachen Bragg-Winkel:
 \FloatBarrier
 \subsection{Untersuchung des Emissionspektrum von $\ce{Cu}$}
 Die aufgenommen Werte sind in Tabelle \ref{tab: emi_cu} aufgelistet und in Abbildung \ref{fig: emission_cu} dargestellt.
-Die abgelesenen Winkel werden mit Gleichung \eqref{eq: E_beugungswinkel} in die entsprechende Energie umgerechnet.
+Mit Gleichung \eqref{eq: E_beugungswinkel} werden die abgelesenen Winkel in die entsprechende Energie umgerechnet.
 \input{../Messdaten/emission_cu.tex}
 \begin{figure}
   \centering
@@ -39,7 +39,7 @@ Aus dem Experiment resultieren die folgenden Energien:
   \label{eq:k_alpha,k_beta}
   K_\alpha=\SI{8.2}{\kilo\eV} \qquad   K_\beta=\SI{9.1}{\kilo\eV}.
 \end{equation}
-Die maximale Energie bzw die minmale Wellenlänge kann durch Umrechnung des minimalen
+Die maximale Energie bzw. die minimale Wellenlänge kann durch Umrechnung des minimalen
 Winkels $\theta\ua{min}=\SI{4}{\degree}$ angegeben werden:
 \begin{equation}
   \label{eq: maximale_energie}
@@ -47,13 +47,42 @@ Winkels $\theta\ua{min}=\SI{4}{\degree}$ angegeben werden:
 \end{equation}
 Mit Hilfe der Energien \eqref{eq:k_alpha,k_beta}, können die Abschirmkonstanten
 für die einzelnen K- Linien bestimmt werden.
-Aus den Formeln \eqref{eq:sigma_1} und \eqref{eq:sigma_2} errechnet sich:
+Aus den Formeln \eqref{eq: sigma_1} und \eqref{eq: sigma_2} errechnet sich:
 \begin{equation}
    \label{eq:abschirm}
    \sigma_1=3.13 \qquad \sigma_2=12.8.
 \end{equation}
-
-\textbf{Es fehlt noch die Halbwertsbreite}
+Abschließend soll noch die Halbwertsbreite der beiden Peaks untersucht werden.
+Dazu wird der Hochpunkt des jeweiligen Peaks mit einem naheliegenden Punkt $\theta'$
+durch eine Gerade $g(x)=mx+b$ verbunden. Mit dieser Geraden wird dann der Punkt $\theta\ua{half}$
+bestimmt, wo die Maximalwert des Peaks gerade halbiert ist. Damit kann dann die Halbwertsbreite
+berrechnet werden:
+\begin{equation}
+  \label{eq:halbwertsbreite}
+  \sigma\theta=\theta\ua{max}-\theta\ua{half} \qquad \theta\ua{half}=\frac{0.5*\map{Imp}\ua{max}-b}{m}.
+\end{equation}
+Die resultierenden Geraden sind in Abbildung \ref{fig: halbwert} zu erkennen.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{../Messdaten/emission_cu_zoom.pdf}
+  \caption{Bestimmung der Halbwertsbreite von $K_\alpha$ und $K_\beta$ mit Hilfe von Geraden.} %Hingegen passt nicht
+  \label{fig: halbwert}
+\end{figure}
+Die Ergebnisse sind in Tabelle \ref{tab: Halbwertsbreite} aufgelistet.
+\begin{table}
+  \centering
+  \caption{Untersuchte Elemente und deren Grenzwinkel $\theta\ua{K,lit}$\cite{k_kante}.}
+  \label{tab: Halbwertsbreite}
+  \begin{tabular}{S S S S S S S S}
+    \toprule
+    {Kante} & {$\theta\ua{max}$ in $\si{\degree}$} & {$\map{Imp}\ua{max}$}& {$\theta'$ in $\si{\degree}$} & {$\map{Imp}'$} & {$m$ in $\si{\degree}^{-1}$} & {$b$}& {$\sigma_\theta$ in $\si{\degree}^{-1}$} \\
+    \midrule
+    $K_{\alpha}$ & 22.00 & 4140 & 21.75 & 316 & 15296 & -332372 & 0.14 \\
+    $K_{\beta}$ & 19.75 & 1194 & 19.60 & 464 & 4867 & -94922 & 0.12\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+Eine qualitative Diskussion der Halbwertsbreite erfolgt in der Diskussion.
 \FloatBarrier
 
 \FloatBarrier
@@ -85,7 +114,7 @@ Die Liste mit allen zu untersuchenden Materialen und den zugehörogen Winkel ist
 \FloatBarrier
 \subsubsection{Untersuchung von Zink $\ce{Zn}$}\label{sec: zink}
 Die bei Zink gemessenen Werte sind in Tabelle \ref{tab: zink} aufgeführt.
-\input{../Messdaten/zink.tex}
+\input{../Messdaten/zink_final.tex}
 In der Abbildung \ref{fig: absotp_zink} befindet sich die graphische Abbildung der Messdaten.
 \begin{figure}
   \centering
@@ -94,7 +123,7 @@ In der Abbildung \ref{fig: absotp_zink} befindet sich die graphische Abbildung d
   \label{fig: absotp_zink}
 \end{figure}
 In der Abbildung sind zusätzlich auch die beiden Winkel $\theta\ua{min}$ und $\theta\ua{max}$
-eingezeichnet. Mit Hilfe dieser beiden Winkel soll der Winkel für die K-Kante genährt werden zu
+eingezeichnet. Mit Hilfe dieser beiden Winkel soll der Winkel, für die K-Kante genährt werden zu
 \begin{equation}
   \label{eq:theta_k}
   \theta\ua{K}=\theta\ua{min}+\left(\theta\ua{max}-\theta\ua{min}\right).
@@ -104,7 +133,7 @@ Für Zink ergibt sich als Energie der K-Kante
 \begin{equation*}
   E\ua{K,zink}=\SI{9.9}{\kilo\eV} \quad \text{mit}\quad \theta\ua{min}=\SI{18.0}{\degree},\, \,   \theta\ua{max}=\SI{18.4}{\degree}
 \end{equation*}
-Mit der Gleichung \eqref{eq:sigma_1} kann aus der Energien $E\ua{K}$ allgemein die Abschirmzahl
+Mit der Gleichung \eqref{eq: sigma_1} kann aus der Energien $E\ua{K}$ allgemein die Abschirmzahl
 bestimmt werden.
 Für Zink ergibt sich
 \begin{equation}
@@ -174,7 +203,7 @@ bestimmt. Die Ergebnisse werden in Tabelle \ref{tab: messergebnisse} aufgeführt
 \FloatBarrier
 \FloatBarrier
 \subsubsection{Untersuchung des Absorptionsspektrum von Gold $\ce{Au}$}
-Bei der Untersuchung der beiden L-Kanten ($L_2$ und $L_3$) wird die Apperatur, wie folgt
+Bei der Untersuchung der beiden L-Kanten ($L_2$ und $L_3$) wird die Apparatur, wie folgt
 konfiguriert:
 \begin{equation*}
   \theta\in\left[\theta\ua{{L_3}}-2,\theta\ua{{L_2}}+2\right]\,\si{\degree},\quad \Delta\theta=\SI{0.1}{\degree}, \quad \Delta t=\SI{20}{\second}.
@@ -199,7 +228,7 @@ Die abgelesenen Winkel werden mit Gleichung \eqref{eq: E_beugungswinkel} in Ener
   E\ua{L_2}=\SI{14.0}{\kilo\eV}  \qquad   E\ua{L_3}=\SI{12.0}{\kilo\eV}.
 \end{equation}
 Mit den Energiewerten und der Kernladungszahl $Z\ua{Au}=79$ kann die Abschirmkonstante
-von Gold bestimmt werden. Unter Verwendung von Gleichung \eqref{eq:simga_l} ergibt sich
+von Gold bestimmt werden. Unter Verwendung von Gleichung \eqref{eq: sigma_L} ergibt sich
 \begin{equation*}
     \sigma\ua{L}=1.7.
 \end{equation*}
@@ -208,7 +237,7 @@ von Gold bestimmt werden. Unter Verwendung von Gleichung \eqref{eq:simga_l} ergi
 \FloatBarrier
 \subsection{Bestimmung der Rydbergenergie}
 Für die Bestimmung Rydbergenerigie $R_\infty$ wird durch die zuvor
-bestimmten Energien $E\ua{K}$ eine Regeressionsgerade der Form
+bestimmten Energien $E\ua{K}$ eine Regressionsgerade der Form
 \begin{equation*}
   g(x)=mx+b
 \end{equation*}
@@ -226,7 +255,7 @@ die resultierende Regressionsgerade mit aufgetragen.
 \begin{figure}
   \centering
   \includegraphics[width=0.7\textwidth]{../Messdaten/energie_z.pdf}
-  \caption{Auftagung der experimentell berechneten Energien $E\ua{K}$ gegen die Kernladungszahl $Z$. Zusätzlich ist in der Abbildung die zugehöroge Ausgleichsgerade zu sehen. } %Hingegen passt nicht
+  \caption{Auftagung der experimentell berechneten Energien $E\ua{K}$ gegen die Kernladungszahl $Z$. Zusätzlich ist in der Abbildung die zugehöroge Ausgleichsgerade zu sehen.}
   \label{fig: ryd_ener}
 \end{figure}
 Die Ausgleichsrechnung liefert folgende Parameter:
