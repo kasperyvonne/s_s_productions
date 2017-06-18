@@ -133,7 +133,7 @@ def peak(int_1,int_2,winkel,imp ,x_p,x_m,y_p,y_m,name):
     dic['Energie_k_beta']=e_1
     dic['Energie_k_alpha']=e_2
     sigma_1=absorbkoe(e_1,29)
-    sigma_2=absorbkoe(-e_2+e_1 ,29)
+    sigma_2=absorbkoe(4*(-e_2+e_1) ,29)
 
 
     print('Betrachte: ', name)

@@ -3,14 +3,10 @@ Die in der Auswertung bestimmten Ausgleichsrechnungen werden mit
 dem Python Paket \emph{scipy.optimize}\cite{scipy} durchgeführt.
 Des Weiteren werden die Fehler und insbesondere die Fehlerfortpflanzungen
 mit dem Python Paket \emph{uncertainties}\cite{uncertainties} berechnet.
-Zusätzlich werden die benötigten Naturkonstanten dem Python Paket \emph{scipy.constants}\cite{scipy.constants}
+Zusätzlich werden die benötigten Naturkonstanten dem Python Paket \emph{scipy.constants}\cite{scipy}
 entommen.
 
 \subsection{Untersuchung der Bragg-Bedingung}
-Die an der Messapperatur eingestellten Konfiguration lauten:
-\begin{equation*}
-  \theta=\SI{14}{\degree}, \quad \alpha\ua{GM}\in\left[26,30\right]\,\si{\degree},\quad \Delta\alpha\ua{GM}=\SI{0.1}{\degree}, \quad \Delta t=\SI{10}{\second}.
-\end{equation*}
 Eine Liste mit den gemessenen Werten ist in Tabelle \ref{tab: bragg_test} zu finden und in Abbildung \ref{fig: bragg_plot} abgebildet.
 \input{../Messdaten/bragbed.tex}
 \begin{figure}
@@ -26,10 +22,6 @@ Das Maximum der Messwerte ist der bestimmte Bragg-Winkel:
 \end{equation}
 
 \subsection{Untersuchung des Emissionspektrum von $\ce{Cu}$}
-Zu Beginn wird der $2:1$ Kopplungsmodus der Apperatur gewählt und folgende Parameter eingestellt:
-\begin{equation*}
-  \theta\in\left[4,26\right]\,\si{\degree},\quad \Delta\theta=\SI{0.2}{\degree}, \quad \Delta t=\SI{5}{\second}.
-\end{equation*}
 Die aufgenommen Werte sind in Tabelle \ref{tab: emi_cu} aufgelistet und in Abbildung \ref{fig: emission_cu} dargestellt.
 \input{../Messdaten/emission_cu.tex}
 \begin{figure}
@@ -47,21 +39,20 @@ Aus dem Experiment ergebens sich die folgenden Werte:
 Die maximale Energie beläuft sich auf:
 \begin{equation}
   \label{eq: maximale_energie}
-  E\ua{max}=\SI{44.1}{\kilo\eV}
+  E\ua{max}=\SI{44.1}{\kilo\eV} \quad \overset{\eqref{eq: photonenenergie}}{\Leftrightarrow} \quad \lambda\ua{min}=\SI{2.81e-11}{\meter}
 \end{equation}
-Die Winkel werden dabei mit Gleichung \eqref{} umgerechnet.
+Die Winkel werden mit Gleichung \eqref{eq: E_beugungswinkel} in die entsprechende Energie umgerechnet.
 Mit Hilfe der Energien \eqref{eq:k_alpha,k_beta}, können die Abschirmkonstanten
 für die einzelnen K- Linien bestimmt werden.
 Aus den Formeln \eqref{} errechnet sich:
 \begin{equation}
    \label{eq:abschirm}
-   \sigma_1=3.13 \qquad \sigma_2=20.9.
+   \sigma_1=3.13 \qquad \sigma_2=12.8.
 \end{equation}
 
 \textbf{Es fehlt noch die Halbwertsbreite}
 
 \subsection{Analyse von Absorptionsspektren}
-
 Die im $2:1$ Kopplungsmodus betriebene Versuchsapperatur wurde wie folgt eingestellt:
 \begin{equation*}
   \theta\in\left[\theta\ua{K}-2,\theta\ua{K}+2\right]\,\si{\degree},\quad \Delta\theta=\SI{0.1}{\degree}, \quad \Delta t=\SI{20}{\second}.
@@ -71,14 +62,14 @@ wird. Die Liste mit allen zu untersuchenden Materialen und Winkel ist in Tabelle
 \ref{tab: theta_k} zu finden.
 \begin{table}
   \centering
-  \caption{Untersuchte Elemente und deren Grenzwinkel $\theta\ua{K,lit}$\cite{}.}
+  \caption{Untersuchte Elemente und deren Grenzwinkel $\theta\ua{K,lit}$\cite{k_kante}.}
   \label{tab: theta_k}
   \begin{tabular}{S S S}
     \toprule
     {Element}& {$Z$} & {$\theta\ua{K,lit}$} \\
     \midrule
-    $\ce{Zn}$& 30  & 9.65 \\
     $\ce{Zr}$&40 & 9.85 \\
+    $\ce{Zn}$& 30  & 18.6 \\
     $\ce{Ge}$&32 & 17.3 \\
     $\ce{Br}$&35 & 13.2 \\
     $\ce{Sr}$&38 & 11.0 \\
@@ -101,7 +92,7 @@ eingezeichnet. Um die Energie der K-Kante zu bestimmen wird der Mittelwert der b
   \label{eq:theta_k}
   \theta\ua{K}=\theta\ua{min}+\left(\theta\ua{max}-\theta\ua{min}\right)
 \end{equation}
-und anschließend mit Gleichung \eqref{} in die entsprechende Energie umgerechnet.
+und anschließend mit Gleichung \eqref{eq: E_beugungswinkel} in die entsprechende Energie umgerechnet.
 Für Zink ergibt sich als Energie der K-Kante
 \begin{equation*}
   E\ua{K,zink}=\SI{9.9}{\kilo\eV} \quad \text{mit}\quad \theta\ua{min}=\SI{18.0}{\degree},\,\theta\ua{max}=\SI{18.4}{\degree}
@@ -167,7 +158,7 @@ bestimmt. Die sich Ergebnisse werden in Tabelle \ref{tab: messergebnisse} aufgef
     \bottomrule
   \end{tabular}
 \end{table}
-\input{../Messdaten/zr_final.tex}
+  \input{../Messdaten/zr_final.tex}
 \input{../Messdaten/brom_final.tex}
 \input{../Messdaten/germanium_final.tex}
 \input{../Messdaten/strom_final.tex}
@@ -182,7 +173,7 @@ Dabei wurden die Winkel
 \begin{equation*}
   \ua{\theta\ua{L_2}}=\SI{12.95}{\degree} \qquad  \ua{\theta\ua{L_3}}=\SI{14.95}{\degree}
 \end{equation*}
-aus der Literatur \cite{} notiert.
+aus der Literatur \cite{l_kante} notiert.
 Die aufgenommenen Messwerte sind in Tabelle \ref{tab: gold} aufgelistet und in Abbildung
 \ref{fig: absotp_gold} aufgetragen. In dieser sind die abgelesenen $L_2$ und $L_2$ Kanten eingezeichnet.
 \input{../Messdaten/gold_final.tex}
@@ -192,7 +183,7 @@ Die aufgenommenen Messwerte sind in Tabelle \ref{tab: gold} aufgelistet und in A
   \caption{Gemessenes Absorptionsspektrum für Gold. In der Graphik sind die abgelesenen $L_2$ und $L_2$ Kanten farblich markiert.} %Hingegen passt nicht
   \label{fig: absotp_gold}
 \end{figure}
-Die abgelesenen Winkel werden mit Gleichung \eqref{} auf die Energie umgerechnet:
+Die abgelesenen Winkel werden mit Gleichung \eqref{eq: E_beugungswinkel} auf die Energie umgerechnet:
 \begin{equation}
   \label{eq:l_kanten_gold}
   E\ua{L_2}=\SI{14.0}{\kilo\eV}  \qquad   E\ua{L_3}=\SI{12.0}{\kilo\eV}.
@@ -209,7 +200,7 @@ bestimmten Energien $E\ua{K}$ eine Regeressionsgerade der Form
 \begin{equation*}
   g(x)=mx+b=
 \end{equation*}
-gelegt. Mit der Ausgleichsrechnung sollen die Parameter der Gleichung \eqref{}
+gelegt. Mit der Ausgleichsrechnung sollen die Parameter der Gleichung \eqref{eq: E_niveaus} ($n=1$)
 bestimmt werden. Beim Koeffizientenvergleich ergibt sich das die Rydberggenergie
 gerade
 \begin{equation*}
