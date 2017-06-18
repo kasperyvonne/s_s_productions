@@ -121,8 +121,8 @@ def peak(int_1,int_2,winkel,imp ,x_p,x_m,y_p,y_m,name):
     plt.savefig(name + '.pdf')
     print(len(winkel)//3)
     l.Latexdocument(name+'.tex').tabular([winkel[0:len(winkel)//3],imp[0:len(winkel)//3], winkel[len(winkel)//3:len(winkel)//3*2],imp[len(winkel)//3:len(winkel)//3 *2],winkel[len(winkel)//3*2:],imp[len(winkel)//3 *2:]],
-    '{$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$} & {$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$} &{$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$}', [1, 0 ,1, 0, 1, 0] ,
-    caption = 'Messwerte bei der Untersuchung des Emmissionspektrum von $\ce{Cu}$.', label = 'emi_cu')
+    '{$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$} & {$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$} &{$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$}', [2, 0 ,2, 0, 2, 0] ,
+    caption = 'Messwerte bei der Untersuchung des Emmissionspektrums von $\ce{Cu}$.', label = 'emi_cu')
 
     ###grenzwinkel
     lam_1=brag_well(winkel_1,1)
@@ -241,8 +241,8 @@ def absorb(a,b,Z,winkel,imp ,x_p,x_m,y_p,y_m,name):
     plt.savefig(name + '.pdf')
 
     l.Latexdocument(name+'.tex').tabular([winkel,imp],
-    '{$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$}', [1, 1] ,
-    caption = 'Messwerte bei der Untersuchung des Emmissionspektrum von $\ce{Cu}$.', label = name)
+    '{$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$}', [2, 0] ,
+    caption = 'Messwerte bei der Untersuchung des Emmissionspektrums von $\ce{Cu}$.', label = name)
     return energie_k
     ####grenzwinkel
 
@@ -292,8 +292,8 @@ def absorb_zink(a,b,c,d,Z,winkel,imp ,x_p,x_m,y_p,y_m,name):
     plt.savefig(name + '.pdf')
 
     l.Latexdocument(name+'.tex').tabular([winkel,imp],
-    '{$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$}', [1, 0] ,
-    caption = 'Messwerte bei der Untersuchung des Emmissionspektrum von $\ce{Cu}$.', label = name)
+    '{$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$}', [2, 0] ,
+    caption = 'Messwerte bei der Untersuchung des Absorptionsspektrums von $\ce{Zn}$.', label = name)
     return energie_k
 
 
@@ -326,8 +326,8 @@ def absorb_gold(a,b,Z,winkel,imp ,x_p,x_m,y_p,y_m,name):
     plt.legend(loc='best',)
     plt.savefig(name + '.pdf')
     l.Latexdocument(name+'.tex').tabular([winkel[:len(winkel)//2],imp[:len(winkel)//2],winkel[len(winkel)//2:],imp[len(winkel)//2:]],
-    '{$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$} & {$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$}', [1, 0,1,0] ,
-    caption = 'Messwerte bei der Untersuchung des Emmissionspektrum von $\ce{Au}$.', label = name)
+    '{$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$} & {$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$}', [2, 0,2,0] ,
+    caption = 'Messwerte bei der Untersuchung des Absorptionsspektrums von $\ce{Au}$..', label = name)
     #return energie_k
 
 
