@@ -120,6 +120,7 @@ def peak(int_1,int_2,winkel,imp ,x_p,x_m,y_p,y_m,name):
     plt.legend(loc='best')
     plt.savefig(name + '.pdf')
     print(len(winkel)//3)
+
     l.Latexdocument(name+'.tex').tabular([winkel[0:len(winkel)//3],imp[0:len(winkel)//3], winkel[len(winkel)//3:len(winkel)//3*2],imp[len(winkel)//3:len(winkel)//3 *2],winkel[len(winkel)//3*2:],imp[len(winkel)//3 *2:]],
     '{$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$} & {$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$} &{$\\theta \, / \, \si{\\degree}$} & {$I \, / \, \mathrm{Imp}/\mathrm{s}$}', [2, 0 ,2, 0, 2, 0] ,
     caption = 'Messwerte bei der Untersuchung des Emmissionspektrums von $\ce{Cu}$.', label = 'emi_cu')
@@ -156,12 +157,13 @@ def peak(int_1,int_2,winkel,imp ,x_p,x_m,y_p,y_m,name):
     winkel_1_fit_partner=winkel[np.where(imp==max_1)[0][0]-1]
 
     parms_winkel1, cov_winkel1 = curve_fit( g ,[winkel_1_fit_partner,winkel_1[0]], [imp_winkel1_partner,imp[np.where(imp==max_1)][0]] )
-    print(cov_winkel1)
     error_winkel1= np.sqrt(np.diag(cov_winkel1))
     m_uwinkel1 =ufloat(parms_winkel1[0],error_winkel1[0])
     b_uwinkel1 =ufloat(parms_winkel1[1],error_winkel1[1])
 
-    breite_winkel1=winkel_1-(max_1*0.5-b_uwinkel1)/m_uwinkel1
+    breite_winkel1= winkel_1-(max_1*0.5-b_uwinkel1)/m_uwinkel1
+    delta_energie_1=brag_ener( noms((max_1*0.5-b_uwinkel1)/m_uwinkel1),1)-brag_ener( noms( (max_1*0.5-b_uwinkel1)/m_uwinkel1+breite_winkel1), 1 )
+
 
     print('K_beta fit Steigung',m_uwinkel1)
     print('k_beta fit y_achsenabschnitt', b_uwinkel1)
@@ -171,6 +173,8 @@ def peak(int_1,int_2,winkel,imp ,x_p,x_m,y_p,y_m,name):
     print('partner Höhe',imp_winkel1_partner )
     print('Ort der Halben beta', (max_1*0.5-b_uwinkel1)/m_uwinkel1)
     print('k_beta Breite 1', breite_winkel1)
+    print('k_beta Breite 1 in ev', delta_energie_1)
+
     print('\n\n\n')
 
     ###k_alpha peak
@@ -182,6 +186,7 @@ def peak(int_1,int_2,winkel,imp ,x_p,x_m,y_p,y_m,name):
     b_uwinkel2 =ufloat(parms_winkel2[1],error_winkel2[1])
 
     breite_winkel2=winkel_2-(max_2*0.5-b_uwinkel2)/m_uwinkel2
+    delta_energie_2=brag_ener( noms((max_2*0.5-b_uwinkel2)/m_uwinkel2+breite_winkel2) , 1)-brag_ener(noms((max_2*0.5-b_uwinkel2)/m_uwinkel2),1)
 
     print('K_alpha fit Steigung',m_uwinkel2)
     print('k_alpha fit y_achsenabschnitt', b_uwinkel2)
@@ -191,6 +196,7 @@ def peak(int_1,int_2,winkel,imp ,x_p,x_m,y_p,y_m,name):
     print('partner Höhe',imp_winkel2_partner )
     print('Ort der Halben alpha', (max_2*0.5-b_uwinkel2)/m_uwinkel2)
     print('k_alpha Breite 2', breite_winkel2)
+    print('k_beta Breite 2 in ev', delta_energie_2)
     print('\n\n\n')
 
 
@@ -314,20 +320,47 @@ def absorb_gold(a,b,Z,winkel,imp ,x_p,x_m,y_p,y_m,name):
     winkel_l2=winkel[17]
     winkel_l3=winkel[39]
 
+
+    maxi_l2=winkel[17]
+    mini_l2=winkel[12]
+
+    maxi_l3=winkel[39]
+    mini_l3=winkel[33]
+
+
+
+    kante_l2=mini_l2+0.5*(maxi_l2-mini_l2)
+    energie_l2_neu=brag_ener(kante_l2,1)*1e-3
+
+    kante_l3=mini_l3+0.5*(maxi_l3-mini_l3)
+    energie_l3_neu=brag_ener(kante_l3,1)*1e-3
+
+
+
+
     energie_l2=brag_ener(winkel_l2,1)*1e-3
     energie_l3=brag_ener(winkel_l3,1)*1e-3
     delta_e=(energie_l2-energie_l3)
     abschirm_kosnt=abschirm(Z,delta_e*1e3)
+    abschirm_kosnt_neu=abschirm(Z,(energie_l2_neu-energie_l3_neu)*1e3)
+
     print('Betrachte: ', name)
-    print('Energie L2 Kante',energie_l2)
-    print('Energie L3 kante', energie_l3)
-    print('Abschirm Konstante', abschirm_kosnt)
+    print('Winkel L2 Kante',kante_l2)
+    print('Winkel L3 Kante',kante_l3)
+    print('Energie L2 Kante',energie_l2,energie_l2_neu)
+    print('Energie L3 kante', energie_l3,energie_l3_neu)
+    print('Abschirm Konstante', abschirm_kosnt,abschirm_kosnt_neu)
     print('\n\n\n')
 
     plt.clf()
     plt.plot(winkel[:-1],imp[:-1],'rx',label=r'$Intensität$')
-    plt.axvline(winkel_l3,ls='--', color='b',label=r'$L_3 \, \mathrm{Kante}$')
-    plt.axvline(winkel_l2,ls='--', color='g',label=r'$L_2 \, \mathrm{Kante}$')
+
+    plt.axvline(winkel_l3,ls='--', color='b',label=r'$L_3 \, \theta_{\mathrm{max}}$')
+    plt.axvline(mini_l3,ls='--', color='b',label=r'$L_3 \, \theta_{\mathrm{min}}$')
+
+    plt.axvline(winkel_l2,ls='--', color='g',label=r'$L_2 \, \theta_{\mathrm{max}}$')
+    plt.axvline(mini_l2,ls='--', color='y',label=r'$L_2 \, \theta_{\mathrm{min}}$')
+
     plt.xlabel(r'$\theta \, \mathrm{in} \, \mathrm{deg}$')
     plt.ylabel(r'$I \, \mathrm{in} \, \mathrm{Imp}/\mathrm{s}$')
     plt.grid()
