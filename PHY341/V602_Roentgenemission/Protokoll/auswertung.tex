@@ -20,6 +20,9 @@ Das Maximum der Messwerte ist gleich dem zweifachen Bragg-Winkel:
   \label{eq:bestimmt_bragg_winkel}
   2\theta\ua{bragg}=\SI{28.5}{\degree} \quad \Leftrightarrow \quad \theta\ua{bragg}=\SI{14.25}{\degree}.
 \end{equation} %hier noch Theoriewert
+Aus der Anleitung \cite{} ist zu entehmen das der Bragg-Winkel bei $\theta\ua{bragg,lit}=\SI{14}{\degree}$ liegen sollte.
+Damit ist die von der Anleitung gestellte Bedingung, dass der gemessene Bragg-Winkel nicht mehr
+als $\SI{1}{\degree}$ abweichen darf erfüllt.
 \FloatBarrier
 
 \FloatBarrier
@@ -33,7 +36,7 @@ Mit Gleichung \eqref{eq: E_beugungswinkel} werden die abgelesenen Winkel in die 
   \caption{Messsung des Emmissionspektrums von $\ce{Cu}$.}
   \label{fig: emission_cu}
 \end{figure}
-In der Abbildung sind die $K_\alpha$ und $K_\beta$ Kanten mit eingezeichnet. %ref
+In der Abbildung \ref{fig: emission_cu} sind die $K_\alpha$ und $K_\beta$ Kanten mit eingezeichnet. %ref
 Aus dem Experiment resultieren die folgenden Energien:
 \begin{equation}
   \label{eq:k_alpha,k_beta}
@@ -45,9 +48,9 @@ Winkels $\theta\ua{min}=\SI{4}{\degree}$ angegeben werden:
   \label{eq: maximale_energie}
   E\ua{max}=\SI{44.1}{\kilo\eV} \quad \overset{\eqref{eq: photonenenergie}}{\Leftrightarrow} \quad \lambda\ua{min}=\SI{2.81e-11}{\meter}.
 \end{equation}
-Mit Hilfe der Energien \eqref{eq:k_alpha,k_beta}, können die Abschirmkonstanten %kein Komma
-für die einzelnen K- Linien bestimmt werden. %K-Linien
-Aus den Formeln \eqref{eq: sigma_1} und \eqref{eq: sigma_2} errechnet sich: %errechnen
+Mit Hilfe der Energien \eqref{eq:k_alpha,k_beta} können die Abschirmkonstanten %kein Komma
+für die einzelnen K-Linien bestimmt werden. %K-Linien
+Aus den Formeln \eqref{eq: sigma_1} und \eqref{eq: sigma_2} errechnen sich: %errechnen
 \begin{equation}
    \label{eq:abschirm}
    \sigma_1=3.13 \qquad \sigma_2=12.8.
@@ -55,11 +58,11 @@ Aus den Formeln \eqref{eq: sigma_1} und \eqref{eq: sigma_2} errechnet sich: %err
 Abschließend soll noch die Halbwertsbreite der beiden Peaks untersucht werden.
 Dazu wird der Hochpunkt des jeweiligen Peaks mit einem naheliegenden Punkt $\theta'$
 durch eine Gerade $g(x)=mx+b$ verbunden. Mit dieser Geraden wird dann der Punkt $\theta\ua{half}$
-bestimmt, wo die Maximalwert des Peaks gerade halbiert ist. Damit kann dann die Halbwertsbreite
-berrechnet werden: %berechnet
+bestimmt, wo die Maximalwert des Peaks gerade halbiert ist. Damit kann dann die Halbwertsbreite $\delta$
+berechnet werden: %berechnet
 \begin{equation}
   \label{eq:halbwertsbreite}
-  \sigma\theta=\theta\ua{max}-\theta\ua{half} \qquad \theta\ua{half}=\frac{0.5*\map{Imp}\ua{max}-b}{m}.
+  \delta_\theta=2\left(\theta\ua{max}-\theta\ua{half}\right) \qquad \theta\ua{half}=\frac{\map{Imp}\ua{max}-2b}{2m}.
 \end{equation}
 Die resultierenden Geraden sind in Abbildung \ref{fig: halbwert} zu erkennen.
 \begin{figure}
@@ -71,28 +74,37 @@ Die resultierenden Geraden sind in Abbildung \ref{fig: halbwert} zu erkennen.
 Die Ergebnisse sind in Tabelle \ref{tab: Halbwertsbreite} aufgelistet.
 \begin{table}
   \centering
-  \caption{Untersuchte Elemente und deren Grenzwinkel $\theta\ua{K,lit}$\cite{k_kante}.}
+  \caption{Bestimmung der Halbwertsbreite des gemessenen $\ce{Cu}$-Emmissionspektrums.}
   \label{tab: Halbwertsbreite}
   \begin{tabular}{S S S S S S S S}
     \toprule
-    {Kante} & {$\theta\ua{max}$ in $\si{\degree}$} & {$\map{Imp}\ua{max}$}& {$\theta'$ in $\si{\degree}$} & {$\map{Imp}'$} & {$m$ in $\si{\degree}^{-1}$} & {$b$}& {$\sigma_\theta$ in $\si{\degree}^{-1}$} \\
+    {Kante} & {$\theta\ua{max}$ in $\si{\degree}$} & {$\map{Imp}\ua{max}$}& {$\theta'$ in $\si{\degree}$} & {$\map{Imp}'$} & {$m$ in $\frac{1}{\map{deg}}$} & {$b$}& {$\delta_\theta$ in $\si{\degree}$} \\
     \midrule
-    $K_{\alpha}$ & 22.00 & 4140 & 21.75 & 316 & 15296 & -332372 & 0.14 \\
-    $K_{\beta}$ & 19.75 & 1194 & 19.60 & 464 & 4867 & -94922 & 0.12\\
+    $K_{\alpha}$ & 22.00 & 4140 & 21.75 & 316 & 15296 & -332372 & 0.27 \\
+    $K_{\beta}$ & 19.75 & 1194 & 19.60 & 464 & 4867 & -94922 & 0.25\\
     \bottomrule
   \end{tabular}
 \end{table}
+Auf Grund des nicht linearen Verhaltens von Gleichung \eqref{eq: E_beugungswinkel} können die Werte $\delta_\theta$
+nicht direkt umgerechnet werden. Eine Umrechnung ermöglicht:
+\begin{equation*}
+  \delta\ua{E}=E(\theta\ua{half})-E(\theta\ua{half}+\delta_\theta).
+\end{equation*}
+Die umgerechneten Energien lauten:
+\begin{equation*}
+  \delta\ua{E,\alpha}=\SI{96.1}{\eV}\qquad  \delta\ua{E,\beta}=\SI{108.6}{\eV}
+\end{equation*}
 Eine qualitative Diskussion der Halbwertsbreite erfolgt in der Diskussion.
 \FloatBarrier
 
 \FloatBarrier
 \subsection{Analyse von Absorptionsspektren}
-Die im $2:1$ Kopplungsmodus betriebene Versuchsapperatur wurde wie folgt eingestellt: %präsenz
+Die im $2:1$ Kopplungsmodus betriebene Versuchsapperatur werden wie folgt eingestellt \cite{anleitung602}: %präsenz
 \begin{equation*}
-  \theta\in\left[\theta\ua{K}-2,\theta\ua{K}+2\right]\,\si{\degree},\quad \Delta\theta=\SI{0.1}{\degree}, \quad \Delta t=\SI{20}{\second}. %lit
+  \theta\in\left[\theta\ua{K,lit}-2,\theta\ua{K,lit}+2\right]\,\si{\degree},\quad \Delta\theta=\SI{0.1}{\degree}, \quad \Delta t=\SI{20}{\second}. %lit
 \end{equation*}
 Bei dem Winkel $\theta\ua{K}$ erwartet man für die jeweilige Probe das Impulsmaximum.
-Die Liste mit allen zu untersuchenden Materialen und den zugehörogen Winkel ist in Tabelle %Materialien, zugehörigen, Winkeln
+Die Liste mit allen zu untersuchenden Materialien und den zugehörigen Winkeln ist in Tabelle %Materialien, zugehörigen, Winkeln
 \ref{tab: theta_k} zu finden.
 \begin{table}
   \centering
@@ -123,7 +135,7 @@ In der Abbildung \ref{fig: absotp_zink} befindet sich die graphische Abbildung d
   \label{fig: absotp_zink}
 \end{figure}
 In der Abbildung sind zusätzlich auch die beiden Winkel $\theta\ua{min}$ und $\theta\ua{max}$
-eingezeichnet. Mit Hilfe dieser beiden Winkel soll der Winkel, für die K-Kante genährt werden zu %kein Komma
+eingezeichnet. Mit Hilfe dieser beiden Winkel soll der Winkel für die K-Kante genährt werden zu %kein Komma
 \begin{equation}
   \label{eq:theta_k}
   \theta\ua{K}=\theta\ua{min}+\left(\theta\ua{max}-\theta\ua{min}\right).
@@ -142,21 +154,21 @@ Für Zink ergibt sich
 \end{equation}
 \FloatBarrier
 \FloatBarrier
-\subsubsection{Untersuchung von $\ce{Ge}$,$\ce{Zr}$,$\ce{Br}$,$\ce{Sr}$} %Platz lassen
-Die jeweils gemessenen Spektren sind in Abbildung \ref{fig: spektrum_brom_germanium} und %in den Abbildungen
-\ref{fig: spektrum_strontium_zirconium} dargestellt. Die zugehörogen Messwerte befinden sich in den Tabellen \ref{tab: zr}- \ref{tab: strom}. %zugehörigen
+\subsubsection{Untersuchung von $\ce{Ge}$, $\ce{Zr}$, $\ce{Br}$, $\ce{Sr}$} %Platz lassen
+Die jeweils gemessenen Spektren sind in den Abbildungen \ref{fig: spektrum_brom_germanium} und %in den Abbildungen
+\ref{fig: spektrum_strontium_zirconium} dargestellt. Die zugehörigen Messwerte befinden sich in den Tabellen \ref{tab: zr}- \ref{tab: strom}. %zugehörigen
 \begin{figure}
   \centering
   \begin{subfigure}{0.48\textwidth}
     \centering
     \includegraphics[width=1 \textwidth]{../Messdaten/brom.pdf}
-    \caption{Gemessenes Spektrum für Brom $\ce{Br}$. Die zugehörigen Messwerte sind in Tabelle \ref{tab: brom} zu finden.} %der, geraden
+    \caption{Gemessenes Spektrum für Brom $\ce{Br}$. Die zugehörigen Messwerte sind in der Tabelle \ref{tab: brom} zu finden.} %der, geraden
     \label{fig: brom_spektrum}
   \end{subfigure}
   \begin{subfigure}{0.48\textwidth}
     \centering
     \includegraphics[width=1 \textwidth]{../Messdaten/germanium.pdf}
-    \caption{Gemessenes Spektrum für Brom $\ce{Ge}$. Die zugehörigen Messwerte sind in Tabelle \ref{tab: germanium} zu finden.} %Germanium
+    \caption{Gemessenes Spektrum für Germanium $\ce{Ge}$. Die zugehörigen Messwerte sind in der Tabelle \ref{tab: germanium} zu finden.} %Germanium
     \label{fig: germaium_spektrum}
   \end{subfigure}
   \caption{Gemessene Absorptionsspektrum für Brom und Germanium.}
@@ -167,20 +179,20 @@ Die jeweils gemessenen Spektren sind in Abbildung \ref{fig: spektrum_brom_german
   \begin{subfigure}{0.48\textwidth}
     \centering
     \includegraphics[width=1 \textwidth]{../Messdaten/strom.pdf}
-    \caption{Gemessenes Spektrum für Strontium $\ce{Sr}$. Die zugehörigen Messwerte sind in Tabelle \ref{tab: strom} zu finden.}
+    \caption{Gemessenes Spektrum für Strontium $\ce{Sr}$. Die zugehörigen Messwerte sind in der Tabelle \ref{tab: strom} zu finden.}
     \label{fig: frank_hertz}
   \end{subfigure}
   \begin{subfigure}{0.48\textwidth}
     \centering
     \includegraphics[width=1 \textwidth]{../Messdaten/zr.pdf}
-    \caption{Gemessenes Spektrum für Zirconium $\ce{Zr}$. Die zugehörigen Messwerte sind in Tabelle \ref{tab: zr} zu finden.  } %s.o.
+    \caption{Gemessenes Spektrum für Zirconium $\ce{Zr}$. Die zugehörigen Messwerte sind in der Tabelle \ref{tab: zr} zu finden.} %s.o.
     \label{fig: enrgie_hot}
   \end{subfigure}
   \caption{Gemessene Absorptionsspektrum für Strontium und Zirconium.}
   \label{fig: spektrum_strontium_zirconium}
 \end{figure}
-Analog zu Kapitel \ref{sec: zink} werden die Enegerien $E\ua{K}$ und Abschirmkonstanten $\sigma\ua{K}$ %Energien
-bestimmt. Die Ergebnisse werden in Tabelle \ref{tab: messergebnisse} aufgeführt. %präsenz
+Analog zu Kapitel \ref{sec: zink} werden die Energien $E\ua{K}$ und Abschirmkonstanten $\sigma\ua{K}$ %Energien
+bestimmt. Die Ergebnisse sind in Tabelle \ref{tab: messergebnisse} aufgeführt. %präsenz
 \begin{table}
   \centering
   \caption{Messergebnisse}
@@ -203,59 +215,64 @@ bestimmt. Die Ergebnisse werden in Tabelle \ref{tab: messergebnisse} aufgeführt
 \FloatBarrier
 \FloatBarrier
 \subsubsection{Untersuchung des Absorptionsspektrum von Gold $\ce{Au}$}
-Bei der Untersuchung der beiden L-Kanten ($L_2$ und $L_3$) wird die Apparatur, wie folgt %Apperatur, kein Komma
-konfiguriert:
+Bei der Untersuchung der beiden L-Kanten ($L_2$ und $L_3$) wird die Apparatur wie folgt %Apperatur, kein Komma
+konfiguriert \cite{anleitung602}:
 \begin{equation*}
-  \theta\in\left[\theta\ua{{L_3}}-2,\theta\ua{{L_2}}+2\right]\,\si{\degree},\quad \Delta\theta=\SI{0.1}{\degree}, \quad \Delta t=\SI{20}{\second}. %L vertauscht
+  \theta\in\left[\theta\ua{{L_2}}-2,\theta\ua{{L_3}}+2\right]\,\si{\degree},\quad \Delta\theta=\SI{0.1}{\degree}, \quad \Delta t=\SI{20}{\second}. %L vertauscht
 \end{equation*}
-Dabei wurden die Winkel %präsenz
+Dabei werden die Winkel %präsenz
 \begin{equation*}
-  \ua{\theta\ua{L_2}}=\SI{12.95}{\degree} \qquad  \ua{\theta\ua{L_3}}=\SI{14.95}{\degree}
+  \theta\ua{L_2}=\SI{12.95}{\degree} \qquad  \theta\ua{L_3}=\SI{14.95}{\degree}
 \end{equation*}
-aus der Literatur \cite{l_kante} notiert. %wieso notiert?
+aus der Literatur \cite{l_kante} abgelesen. %wieso notiert?
 Die aufgenommenen Messwerte sind in Tabelle \ref{tab: gold} aufgelistet und in Abbildung
-\ref{fig: absotp_gold} aufgetragen. In dieser ist die abgelesene $L_2$ und $L_3$ Kante mit eingezeichnet.
-
+\ref{fig: absotp_gold} aufgetragen. In dieser sind die abgelesenen Winkel zur Bestimmung der $L_2$ und $L_3$ Kante mit eingezeichnet.
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{../Messdaten/gold.pdf}
   \caption{Gemessenes Absorptionsspektrum für Gold. In der Graphik sind die abgelesenen $L_2$ und $L_2$ Kanten farblich markiert.} %Hingegen passt nicht
   \label{fig: absotp_gold}
 \end{figure}
-Die abgelesenen Winkel werden mit Gleichung \eqref{eq: E_beugungswinkel} in Energien umgerechnet:
+Die jeweils abgelesenen Winkel lauten
+\begin{align*}
+  \theta\ua{L_2,max}&=\SI{12.45}{\degree} &   \theta\ua{L_2,min}&=\SI{12.2}{\degree} \\
+  \theta\ua{L_3,max}&=\SI{14.6}{\degree} &   \theta\ua{L_3,max}&=\SI{14.3}{\degree}.
+\end{align*}
+Die Winkel werden genau wie in Kaptiel \ref{sec: zink} in die entsprechende Energie
+umgerechnet:
 \begin{equation}
   \label{eq:l_kanten_gold}
-  E\ua{L_2}=\SI{14.0}{\kilo\eV}  \qquad   E\ua{L_3}=\SI{12.0}{\kilo\eV}.
+  E\ua{L_2}=\SI{14.3}{\kilo\eV}  \qquad   E\ua{L_3}=\SI{12.2}{\kilo\eV}.
 \end{equation}
 Mit den Energiewerten und der Kernladungszahl $Z\ua{Au}=79$ kann die Abschirmkonstante
 von Gold bestimmt werden. Unter Verwendung von Gleichung \eqref{eq: sigma_L} ergibt sich
 \begin{equation*}
-    \sigma\ua{L}=1.7.
+    \sigma\ua{L}=1.4.
 \end{equation*}
 \input{../Messdaten/gold_final.tex}
 \FloatBarrier
 \FloatBarrier
 \subsection{Bestimmung der Rydbergenergie}
-Für die Bestimmung Rydbergenerigie $R_\infty$ wird durch die zuvor %der, energie
+Für die Bestimmung der Rydbergenergie $R_\infty$ wird durch die zuvor %der, energie
 bestimmten Energien $E\ua{K}$ eine Regressionsgerade der Form
 \begin{equation*}
   g(x)=mx+b
 \end{equation*}
 gelegt. Mit der Ausgleichsrechnung sollen die Parameter der Gleichung \eqref{eq: E_niveaus} ($n=1$)
-bestimmt werden. Beim Koeffizientenvergleich ergibt sich das die Rydbergenergie
-gerade, %dass ..., Satz besser umformulierenn
+bestimmt werden.
+Die Rydbergenergie kann dann mittels Koeffizientenvergleich bestimmt werden:
 \begin{equation*}
   R_\infty=m^2
 \end{equation*}
 ist. %s.o.
-Die in den vorherigen Kapiteln bestimmten Energien sind in Tabelle \ref{tab: ener_ryd} gelistet %auf
-und in der Abbildung \ref{fig: ryd_ener} gezeichnet. In der Abbildung ist %ein
+Die in den vorherigen Kapiteln bestimmten Energien sind in Tabelle \ref{tab: ener_ryd} aufgelistet %auf
+und in der Abbildung \ref{fig: ryd_ener} eingezeichnet. In der Abbildung ist %ein
 die resultierende Regressionsgerade mit aufgetragen.
 \input{../Messdaten/ryd_final.tex}
 \begin{figure}
   \centering
   \includegraphics[width=0.7\textwidth]{../Messdaten/energie_z.pdf}
-  \caption{Auftagung der experimentell berechneten Energien $E\ua{K}$ gegen die Kernladungszahl $Z$. Zusätzlich ist in der Abbildung die zugehöroge Ausgleichsgerade zu sehen.} %tragung
+  \caption{Auftragung der experimentell berechneten Energien $E\ua{K}$ gegen die Kernladungszahl $Z$. Zusätzlich ist in der Abbildung die zugehöroge Ausgleichsgerade zu sehen.} %tragung
   \label{fig: ryd_ener}
 \end{figure}
 Die Ausgleichsrechnung liefert folgende Parameter:

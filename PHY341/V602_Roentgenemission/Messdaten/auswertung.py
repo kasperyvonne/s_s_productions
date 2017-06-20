@@ -161,7 +161,7 @@ def peak(int_1,int_2,winkel,imp ,x_p,x_m,y_p,y_m,name):
     m_uwinkel1 =ufloat(parms_winkel1[0],error_winkel1[0])
     b_uwinkel1 =ufloat(parms_winkel1[1],error_winkel1[1])
 
-    breite_winkel1= winkel_1-(max_1*0.5-b_uwinkel1)/m_uwinkel1
+    breite_winkel1= 2*(winkel_1-(max_1*0.5-b_uwinkel1)/m_uwinkel1)
     delta_energie_1=brag_ener( noms((max_1*0.5-b_uwinkel1)/m_uwinkel1),1)-brag_ener( noms( (max_1*0.5-b_uwinkel1)/m_uwinkel1+breite_winkel1), 1 )
 
 
@@ -185,9 +185,9 @@ def peak(int_1,int_2,winkel,imp ,x_p,x_m,y_p,y_m,name):
     m_uwinkel2 =ufloat(parms_winkel2[0],error_winkel2[0])
     b_uwinkel2 =ufloat(parms_winkel2[1],error_winkel2[1])
 
-    breite_winkel2=winkel_2-(max_2*0.5-b_uwinkel2)/m_uwinkel2
+    breite_winkel2=2*(winkel_2-(max_2*0.5-b_uwinkel2)/m_uwinkel2)
     delta_energie_2=brag_ener( noms((max_2*0.5-b_uwinkel2)/m_uwinkel2+breite_winkel2) , 1)-brag_ener(noms((max_2*0.5-b_uwinkel2)/m_uwinkel2),1)
-
+    print(brag_ener(noms(breite_winkel2),1))
     print('K_alpha fit Steigung',m_uwinkel2)
     print('k_alpha fit y_achsenabschnitt', b_uwinkel2)
     print('ort des Maximums', winkel_2)
@@ -196,7 +196,7 @@ def peak(int_1,int_2,winkel,imp ,x_p,x_m,y_p,y_m,name):
     print('partner Höhe',imp_winkel2_partner )
     print('Ort der Halben alpha', (max_2*0.5-b_uwinkel2)/m_uwinkel2)
     print('k_alpha Breite 2', breite_winkel2)
-    print('k_beta Breite 2 in ev', delta_energie_2)
+    print('k_alpha Breite 2 in ev', delta_energie_2)
     print('\n\n\n')
 
 
@@ -345,8 +345,8 @@ def absorb_gold(a,b,Z,winkel,imp ,x_p,x_m,y_p,y_m,name):
     abschirm_kosnt_neu=abschirm(Z,(energie_l2_neu-energie_l3_neu)*1e3)
 
     print('Betrachte: ', name)
-    print('Winkel L2 Kante',kante_l2)
-    print('Winkel L3 Kante',kante_l3)
+    print('Winkel L2 Kante,max / min',kante_l2, mini_l2)
+    print('Winkel L3 Kante, max / min',kante_l3, mini_l3)
     print('Energie L2 Kante',energie_l2,energie_l2_neu)
     print('Energie L3 kante', energie_l3,energie_l3_neu)
     print('Abschirm Konstante', abschirm_kosnt,abschirm_kosnt_neu)
