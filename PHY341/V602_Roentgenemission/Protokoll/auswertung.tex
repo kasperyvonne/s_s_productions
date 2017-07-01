@@ -18,9 +18,9 @@ qw  \caption{Messwerte zur Untersuchung der Bragg-Bedingung.}
 Das Maximum der Messwerte ist gleich dem zweifachen Bragg-Winkel:
 \begin{equation}
   \label{eq:bestimmt_bragg_winkel}
-  2\theta\ua{bragg}=\SI{28.5}{\degree} \quad \Leftrightarrow \quad \theta\ua{bragg}=\SI{14.25}{\degree}.
+  2\theta\ua{bragg}=\SI{28.5}{\degree}.
 \end{equation} %hier noch Theoriewert
-Aus der Anleitung \cite{} ist zu entehmen das der Bragg-Winkel bei $\theta\ua{bragg,lit}=\SI{14}{\degree}$ liegen sollte.
+Aus der Anleitung \cite{anleitung602} ist zu entehmen das der Bragg-Winkel bei $\theta\ua{bragg,lit}=\SI{2}{\degree}$ liegen sollte.
 Damit ist die von der Anleitung gestellte Bedingung, dass der gemessene Bragg-Winkel nicht mehr
 als $\SI{1}{\degree}$ abweichen darf erfüllt.
 \FloatBarrier
@@ -52,7 +52,7 @@ Aus den Formeln \eqref{eq: sigma_1} und \eqref{eq: sigma_2} errechnen sich: %err
 \end{equation}
 
 Um die maximale Energie bzw. die minimale Wellenlänge zu bestimmen wird der linke
-Bereich des Plots \ref{ig: emission_cu} vergrößert und dort der minimale Winkel bestimmt (vgl. Abbildung \ref{ig: emission_cu_max_energie}).
+Bereich des Plots \ref{fig: emission_cu} vergrößert und dort der minimale Winkel bestimmt (vgl. Abbildung \ref{fig: emission_cu_max_energie}).
 \begin{figure}
   \centering
   \includegraphics[width=1 \textwidth]{../Messdaten/emission_cu_maximale_energies.pdf}
@@ -73,7 +73,7 @@ Für den minimale Winkel $\theta\ua{min}=\SI{5.0}{\degree}$ ergibt sich:
 Abschließend soll noch die Halbwertsbreite der beiden Peaks untersucht werden.
 Dazu wird der Hochpunkt des jeweiligen Peaks mit einem naheliegenden Punkt $\theta'$
 durch eine Gerade $g(x)=mx+b$ verbunden. Mit dieser Geraden wird dann der Punkt $\theta\ua{half}$
-bestimmt, wo die Maximalwert des Peaks gerade halbiert ist. Damit kann dann die Halbwertsbreite $\delta$
+bestimmt, wo die Maximalwert des Peaks gerade halbiert ist. Unter der Annahme eines symetrischen Peaks, kann damit kann dann die Halbwertsbreite $\delta$
 berechnet werden: %berechnet
 \begin{equation}
   \label{eq:halbwertsbreite}
@@ -129,11 +129,11 @@ Die Liste mit allen zu untersuchenden Materialien und den zugehörigen Winkeln i
     \toprule
     {Element}& {$Z$} & {$\theta\ua{K,lit}$} \\
     \midrule
-    $\ce{Zr}$&40 & 9.85 \\
     $\ce{Zn}$& 30  & 18.6 \\
     $\ce{Ge}$&32 & 17.3 \\
     $\ce{Br}$&35 & 13.2 \\
     $\ce{Sr}$&38 & 11.0 \\
+    $\ce{Zr}$&40 & 9.85 \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -214,7 +214,7 @@ bestimmt. Die Ergebnisse sind in Tabelle \ref{tab: messergebnisse} aufgeführt. 
   \label{tab: messergebnisse}
   \begin{tabular}{S S S S S S}
     \toprule
-    {Element}&   {$\theta\ua{min}$ in $\si{\degree}$ } & {$\theta\ua{max}$ in $\si{\degree}$} & {$E\ua{K}$ in $\si{\kilo\eV}$} &{$\sigma\ua{K}$}  \\
+    {Element}&   {$\theta\ua{min} \, / \, \si{\degree}$ } & {$\theta\ua{max} \, / \,\si{\degree}$} & {$E\ua{K} \, / \, \si{\kilo\eV}$} &{$\sigma\ua{K}$}  \\
     \midrule
     $\ce{Zr}$ & 9.2 & 9.7 & 18.8 & 2.88\\
     $\ce{Ge}$  & 15.5 & 15.9 & 11.4 & 3.09\\
@@ -287,7 +287,7 @@ die resultierende Regressionsgerade mit aufgetragen.
 \begin{figure}
   \centering
   \includegraphics[width=0.7\textwidth]{../Messdaten/energie_z.pdf}
-  \caption{Auftragung der experimentell berechneten Energien $E\ua{K}$ gegen die Kernladungszahl $Z$. Zusätzlich ist in der Abbildung die zugehöroge Ausgleichsgerade zu sehen.} %tragung
+  \caption{Auftragung der experimentell berechneten Energien $E\ua{K}$ gegen die Kernladungszahl $Z$. Zusätzlich ist in der Abbildung die zugehörige Ausgleichsgerade zu sehen.} %tragung
   \label{fig: ryd_ener}
 \end{figure}
 Die Ausgleichsrechnung liefert folgende Parameter:
