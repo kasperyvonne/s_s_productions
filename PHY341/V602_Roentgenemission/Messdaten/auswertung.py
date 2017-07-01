@@ -218,6 +218,30 @@ def peak(int_1,int_2,winkel,imp ,x_p,x_m,y_p,y_m,name):
     plt.legend(loc='best')
     plt.savefig(name + '_zoom.pdf')
 
+    ##Auswertung der maximalen Energie
+
+    plt.clf()
+    plt.plot(winkel[0:10],imp[0:10],'rx',label=r'$Intensität$')
+    plt.grid()
+    plt.xlabel(r'$\theta \, \mathrm{in} \, \mathrm{deg}$')
+    plt.ylabel(r'$I \, \mathrm{in} \, \mathrm{Imp}/\mathrm{s}$')
+    plt.axvline(winkel[3],ls='--', color='b',label=r'$\theta_{\mathrm{min,u}} \, untere \, Schranke}$')
+    plt.axvline(winkel[7],ls='--', color='g',label=r'$\theta_{\mathrm{min,o}} \,obere\, Schranke}$')
+    plt.legend(loc='best')
+    plt.xlim(3.8,6)
+    plt.ylim(20,80)
+    #plt.show()
+    plt.savefig(name + '_maximale_energies.pdf')
+
+    winkel_min=winkel[3]+0.5*(winkel[7]-winkel[3])
+    print('Minimaler Winkel', winkel_min)
+    print('Maximale Energie',brag_ener(winkel_min,1)*1e-3)
+    print('Wellenlänge',brag_well(winkel_min,1))
+    print('\n\n\n')
+
+
+
+
 peak( [74,87], [86,99], 0.5*winkel_emi,inten_emi,1,1,100,100,'emission_cu')
 
 

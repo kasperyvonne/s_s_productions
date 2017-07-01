@@ -12,7 +12,7 @@ Eine Liste mit den gemessenen Werten ist in Tabelle \ref{tab: bragg_test} zu fin
 \begin{figure}
   \centering
   \includegraphics[width=0.8 \textwidth]{../Messdaten/bragbed.pdf}
-  \caption{Messwerte zur Untersuchung der Bragg-Bedingung.}
+qw  \caption{Messwerte zur Untersuchung der Bragg-Bedingung.}
   \label{fig: bragg_plot}
 \end{figure}
 Das Maximum der Messwerte ist gleich dem zweifachen Bragg-Winkel:
@@ -42,12 +42,7 @@ Aus dem Experiment resultieren die folgenden Energien:
   \label{eq:k_alpha,k_beta}
   K_\alpha=\SI{8.2}{\kilo\eV} \qquad   K_\beta=\SI{9.1}{\kilo\eV}.
 \end{equation}
-Die maximale Energie bzw. die minimale Wellenlänge kann durch Umrechnung des minimalen %sollten wir das angeben?
-Winkels $\theta\ua{min}=\SI{4}{\degree}$ angegeben werden:
-\begin{equation}
-  \label{eq: maximale_energie}
-  E\ua{max}=\SI{44.1}{\kilo\eV} \quad \overset{\eqref{eq: photonenenergie}}{\Leftrightarrow} \quad \lambda\ua{min}=\SI{2.81e-11}{\meter}.
-\end{equation}
+
 Mit Hilfe der Energien \eqref{eq:k_alpha,k_beta} können die Abschirmkonstanten %kein Komma
 für die einzelnen K-Linien bestimmt werden. %K-Linien
 Aus den Formeln \eqref{eq: sigma_1} und \eqref{eq: sigma_2} errechnen sich: %errechnen
@@ -55,6 +50,26 @@ Aus den Formeln \eqref{eq: sigma_1} und \eqref{eq: sigma_2} errechnen sich: %err
    \label{eq:abschirm}
    \sigma_1=3.13 \qquad \sigma_2=12.8.
 \end{equation}
+
+Um die maximale Energie bzw. die minimale Wellenlänge zu bestimmen wird der linke
+Bereich des Plots \ref{ig: emission_cu} vergrößert und dort der minimale Winkel bestimmt (vgl. Abbildung \ref{ig: emission_cu_max_energie}).
+\begin{figure}
+  \centering
+  \includegraphics[width=1 \textwidth]{../Messdaten/emission_cu_maximale_energies.pdf}
+  \caption{Vergrößerung des Emmissionspektrums von $\ce{Cu}$ zur Bestimmung der maximalen Energie. Zusätzlich ist in der Abbildung die gewählten oberen und unteren Schranken zu sehen.}
+  \label{fig: emission_cu_max_energie}
+\end{figure}
+Hierbei wird der Grenzwinkel durch eine untere und obere Schranke abgeschätzt.
+Der minimale Winkel wird dann mit folgendem Zusammenhang berechnet:
+\begin{equation*}
+  \theta\ua{min}=\theta\ua{min,u}+\frac{\theta\ua{min,o}-\theta\ua{min,u}}{2}.
+\end{equation*}
+Für den minimale Winkel $\theta\ua{min}=\SI{5.0}{\degree}$ ergibt sich:
+\begin{equation}
+  \label{eq: maximale_energie}
+  E\ua{max}=\SI{35.32}{\kilo\eV} \quad \overset{\eqref{eq: photonenenergie}}{\Leftrightarrow} \quad \lambda\ua{min}=\SI{3.51e-11}{\meter}.
+\end{equation}
+
 Abschließend soll noch die Halbwertsbreite der beiden Peaks untersucht werden.
 Dazu wird der Hochpunkt des jeweiligen Peaks mit einem naheliegenden Punkt $\theta'$
 durch eine Gerade $g(x)=mx+b$ verbunden. Mit dieser Geraden wird dann der Punkt $\theta\ua{half}$
@@ -138,7 +153,7 @@ In der Abbildung sind zusätzlich auch die beiden Winkel $\theta\ua{min}$ und $\
 eingezeichnet. Mit Hilfe dieser beiden Winkel soll der Winkel für die K-Kante genährt werden zu %kein Komma
 \begin{equation}
   \label{eq:theta_k}
-  \theta\ua{K}=\theta\ua{min}+\left(\theta\ua{max}-\theta\ua{min}\right).
+  \theta\ua{K}=\theta\ua{min}+\frac{\theta\ua{max}-\theta\ua{min}}{2}.
 \end{equation}
 Die Energie $E\ua{K}$ ergibt sich dann aus der Umrechnung des Winkels mittels \eqref{eq: E_beugungswinkel}.
 Für Zink ergibt sich als Energie der K-Kante
