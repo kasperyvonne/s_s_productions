@@ -10,25 +10,43 @@ from pint import UnitRegistry
 import string
 ureg = UnitRegistry()
 Q_ = ureg.Quantity
+def return_int(num):
+    num_str = str(num)
+    num_str = num_str.split('.')[1]
+    num_str = num_str[0:1]
+    return int(num_str)
 
 
 class Latexdocument(object):
     def __init__(self, filename):
         self.name = filename
         self.data = DataFrame(columns=(['tex', 'var']))
-    def tabular(self, spalten, header, places, caption, label):
+    def tabular(self, data, header, places, caption, label):
         with open(self.name, 'w') as f:
             f.write('\\begin{table} \n\\centering \n\\caption{' + caption + '} \n\\label{tab: ' + label + '} \n\\begin{tabular}{')
-            f.write(len(spalten) * 'S ')
+            for i in range(0, len(data)):
+                if type(data[i][0]) == uncertainties.core.Variable:
+                    f.write('S[table-format=' + str(places[i][0]) + ']@{${}\pm{}$} S[table-format=' + str(places[i][1]) + '] ')
+                else:
+                    f.write('S ')
+
+
+
             f.write('} \n\\toprule  \n')
             f.write(header + '  \\\ \n')
-            f.write('\\midrule  \n ')
-            for i in range(0, len(spalten[0])):
-                for j in range(0, len(spalten)):
-                    if j == len(spalten) - 1:
-                        f.write(('{:.' + str(places[j]) + 'f}' + '\\\ \n').format(spalten[j][i]))
+            f.write('\\midrule  \n')
+            for i in range(0, len(data[0])):
+                for j in range(0, len(data)):
+                    if type(data[j][0]) == uncertainties.core.Variable:
+                        if j == len(data) - 1:
+                            f.write(('{:.' + str(return_int(places[j][0])) + 'f} ' + '& {:.' + str(return_int(places[j][1])) + 'f}' + '\\\ \n').format(data[j][i].n, data[j][i].s))
+                        else:
+                            f.write(('{:.' + str(return_int(places[j])) + 'f} ' + '& {:.' + str(return_int(places[j][1])) + 'f}'+ ' & ').format(data[j][i].n, data[j][i].s))
                     else:
-                        f.write(('{:.' + str(places[j]) + 'f} ' + ' & ').format(spalten[j][i]))
+                        if j == len(data) - 1:
+                            f.write(('{:.' + str(places[j]) + 'f}' + '\\\ \n').format(data[j][i]))
+                        else:
+                            f.write(('{:.' + str(places[j]) + 'f}' + ' & ').format(data[j][i]))
             f.write('\\bottomrule \n\\end{tabular} \n\\end{table}')
 
     def app(self, name, value):
