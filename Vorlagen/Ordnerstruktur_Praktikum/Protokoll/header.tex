@@ -1,20 +1,14 @@
-\documentclass[parskip=half, bibliography=totoc, captions=tableheading, titlepage=firstiscover]{scrartcl} %Ich habe [parskip=half] hinzugefügt
-\usepackage{scrpage2}
-\def\preambleloaded{Precompiled preamble loaded.}
+\documentclass[parskip=half, bibliography=totoc, captions=tableheading, titlepage=firstiscover]{scrartcl}
+\usepackage{polyglossia}
+\setmainlanguage{german}
 
-\usepackage{fixltx2e}
 
-%\pagestyle{headings}
 
-%\pagestyle{headings}
 \usepackage{scrpage2}
 \pagestyle{scrheadings}
-\cfoot[\pagemark]{\pagemark}
-\ofoot[]{}
-\ifoot[]{}
 
 %\usepackage{polyglossia}
-%\setmainlanguage{german}
+
 
 \usepackage{caption}
 \usepackage{amsmath}
@@ -78,13 +72,13 @@
 
 \usepackage{hyperref}
 
-\usepackage{color} % Das ist Geschmacksfrage
+\usepackage{color}
 
-\usepackage{makeidx} %Ich habe makeidx hinzugefügt + makeindex
+\usepackage{makeidx}
 \makeindex
 
-\usepackage[version=3]{mhchem} % für Thermodynamik-chemische Elemente
-\usepackage{enumitem} %Ich habe enumitem hinzugefügt
+\usepackage[version=3]{mhchem}
+\usepackage{enumitem}
 \usepackage{expl3}
 \usepackage{xparse}
 
@@ -106,14 +100,8 @@
 
 }
 
-
-\NewDocumentCommand \dif {m}
-{
-\mathinner{\symup{d} #1}
-}
-%\usepackage{subcaption}
 \usepackage{yfonts}
-\def\preambleloaded{Precompiled preamble loaded.}
+
 
 %\usepackage{showframe}
 \input{../data.tex}
@@ -122,9 +110,14 @@ steven.becker@tu-dortmund.de \\
 und \\
 Stefan Grisard \\
 stefan.grisard@tu-dortmund.de}
-
 \title{\versuch}
-\subtitle{Versuch \vnr}
+\subtitle{PHY641 Versuch \vnr}
 
 \date{\vd \\
 \va}
+\ohead{\today}
+\cfoot{\pagemark}
+
+
+
+%\usepackage{scrlayer-scrpage}
