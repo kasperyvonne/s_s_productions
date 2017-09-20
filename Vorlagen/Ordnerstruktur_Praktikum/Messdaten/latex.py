@@ -30,10 +30,21 @@ class Latexdocument(object):
                 else:
                     f.write('S ')
 
-
-
             f.write('} \n\\toprule  \n')
-            f.write(header + '  \\\ \n')
+
+            for i in range(0, len(data)):
+                if i == len(data) - 1:
+                    if type(data[i][0]) == uncertainties.core.Variable:
+                        f.write('\multicolumn{2}{c}{$' + header[i][0:header[i].find('/')] +  '\:/\: \si{' + header[i][header[i].find('/')+1:] + '}$} \\\ \n')
+                    else:
+                        f.write('{$' + header[i][0:header[i].find('/')] +  '/ \si{' + header[i][header[i].find('/')+1:] + '}$} \\\ \n')
+                else:
+                    if type(data[i][0]) == uncertainties.core.Variable:
+                        f.write('\multicolumn{2}{c}{$' + header[i][0:header[i].find('/')] +  '\:/\: \si{' + header[i][header[i].find('/')+1:] + '}$} & ')
+                    else:
+                        f.write('{$' + header[i][0:header[i].find('/')] +  '/ \si{' + header[i][header[i].find('/')+1:] + '}$} & ')
+
+
             f.write('\\midrule  \n')
             for i in range(0, len(data[0])):
                 for j in range(0, len(data)):

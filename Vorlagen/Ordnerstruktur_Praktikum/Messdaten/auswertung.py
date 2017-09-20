@@ -27,12 +27,11 @@ d = [6, 7, 8] #EXAMPLE ARRAYS
 f = unp.uarray(a, b) #EXAMPLE UARRAY
 
 l.Latexdocument('latex_example.tex').tabular(
-data = [f, c, d], #data incl. unpuarray
-header = '\multicolumn{2}{c}{$\Delta Q \:/\: \si{\giga\elementarycharge}$} & {$T/ \si{\\micro\second}$} & {$T/ \si{\\micro\second}$}',
-places = [(1.1, 1.1), 1, 1],
+data = [c, d, f], #Data incl. unpuarray
+header = ['\Delta Q / \giga\elementarycharge', 'T_1 / \micro\second', 'T_1 / \micro\second'],
+places = [1, 1, (1.1, 1.1)],
 caption = 'testcaption.',
 label = 'testlabel')
 ##############################################
-
 
 #r.makeresults()
