@@ -23,10 +23,10 @@ Die aus der Theorie resultierenden Momente sind proptotional zum Bohrschen Magne
 \end{equation}
 definiert ist. Die in Gleichung \eqref{eq:bohrsche_magneton} auftretende Größe $\map{m}_0$ ist die Elektronenmasse.
 Für die magnetischen Momente ergibt sich:
-\begin{align}
+\begin{align*}
   \vec{\mu}\ua{l}&=-\map{\mu_B}\frac{\vec{l}}{\hbar}=-\map{\mu_B}\sqrt{l(l+1)}\vec{e}\ua{\vec{l}} \\
   \vec{\mu}\ua{s}&=-\map{g_S}\map{\mu_B}\frac{\vec{s}}{\hbar}=-\map{g_S}\map{\mu_B}\sqrt{s(s+1)}\vec{e}\ua{\vec{s}}
-\end{align}
+\end{align*}
 Mit $\map{g_S}$ wird der Landé-Faktor des Elektrons bezeichnet und hat den Wert $\map{g_S}\approx 2$.
 Es fällt auf, dass das magnetische Spinmoment $\vec{\mu}\ua{s}$ des Elektrons in etwa doppelt
 so groß ist wie das magentische Bahnmoment $\vec{\mu}\ua{l}$.
@@ -37,10 +37,44 @@ Bei dem Übergang zu Mehrelektronatomen müssen die Wechselwirkungen der Momente
 deren der einzelnen Elektronen untereinander unterschieden werden. Die Wechselwirkungen hängen im wesentlichen
 von der Kernladungszahl $Z$ ab.
 Bei Atomen mit einer niedrigen Kernladungszahl ist die Wechselwirkung der Bahndrehimpulse $\vec{l}_i$ so groß das diese zu einem
-Geasamtdrehimpuls $\vec{L}$ zusammengefasst werden können. Dieser wird definiert durch
+Geasamtbahndrehimpuls $\vec{L}$ zusammengefasst werden können. Dieser wird definiert durch
 \begin{equation*}
-  \vec{L}=\sum_{i=1}^{Z} \vec{l}_i \qquad \be{\vec{L}}=\sqrt{L(L+1)}\hbar
+  \vec{L}=\sum_{i=1}^{Z} \vec{l}_i \qquad \be{\vec{L}}=\sqrt{L(L+1)}\hbar.
 \end{equation*}
+Genauso gilt für den Gesamtspin
+\begin{equation*}
+  \vec{S}=\sum_{i=1}^{Z} \vec{s}_i \qquad \be{\vec{S}}=\sqrt{S(S+1)}\hbar.
+\end{equation*}
+Da der einzelne Spin $\vec{s}_i$ halbzahlig ist, kann auch $\vec{S}$ halbzahlige Werte annehmen.
+Die jeweiligen Impulsen legen wiederum auch ein magnetische Momente fest:
+\begin{align*}
+  \be{\vec{\mu}\ua{L}}&=\map{\mu_B}\frac{\vec{L}}\\
+  \be{\vec{\mu}\ua{S}}&=\map{g_S}\map{\mu_B}\frac{\vec{s}}.
+\end{align*}
+
+Unter der Prämisse, dass sich die Atome in keinen großen Magnetfeld befinden ist es möglich einen Gesamtdrehimpuls $\vec{J}$ zu
+definieren
+\begin{align*}
+  \vec{J}&=\vec{L}+\vec{S}\\
+\shortintertext{mit}
+\be{\vec{J}}&=\sqrt{J(J+1)}\hbar.
+\end{align*}
+In diesem Fall wird von \emph{LS-Kopplung} gesprochen.
+Neben der LS-Kopplung gibt es noch die \emph{jj-Kopplung}, diese wird bei Atomen mit hoher Kernladungszahlen beobachtet.
+Bei der jj-Kopplung ist die Wechselwirkung zwischen Spin und Bahndrehimpuls des Elektrons groß gegenüber der Wechselwirkung der $\vec{l}_i$ und
+$\vec{s}_i$. Auf Grund dessen wird die Größe
+\begin{equation*}
+  \vec{j}_i=  \vec{l}_i+  \vec{s}_i
+\end{equation*}
+eingeführt, somit sind $\vec{L}$ und $\vec{S}$ nicht mehr definiert.
+Stattdessen exestiert
+\begin{equation*}
+  \vec{J}=\sum_{i=1}^{Z} \vec{j}_i
+\end{equation*}
+der Gesamtdrehimpuls der Hülle.
+Zwischen der LS-Kopplung und der jj-Kopplung gibt es einen kontinuirlichen Übergang. 
+
+
 
 
 
