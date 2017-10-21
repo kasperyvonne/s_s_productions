@@ -51,7 +51,7 @@ params_down = correlated_values(params_down, cov_down)
 #Rechnungen mit den Positionen der Aufspaltung
 peaks_blau_0 = np.genfromtxt('../data/peaks_blau_sigma_I_0.txt', unpack = True)
 peaks_blau_6 = np.genfromtxt('../data/peaks_blau_sigma_I_6.txt', unpack = True)
-#l.Latexdocument('../tabs/peaks_blau.tex').tabular(
+#l.Latexdocument('../tabs/peaks_blau_sigma.tex').tabular(
 #data = [peaks_blau_0, unp.uarray(peaks_blau_6[:10], peaks_blau_6[10:])],
 #header = ['x_0 / px', 'x_{6} / px'],
 #places = [0, (4.0, 4.0)],
@@ -79,11 +79,11 @@ g_blau_mid = np.mean(g_blau)
 g_blau = unp.uarray(noms(g_blau), stds(g_blau))
 print(g_blau_mid)
 
-#l.Latexdocument('../tabs/abstände_blau.tex').tabular(
+#l.Latexdocument('../tabs/abstände_blau_sigma.tex').tabular(
 #data = [delta_s_blau, del_s_mid, del_lambda_blau.magnitude, delta_E_blau.magnitude*1e5, g_blau], #Data incl. unpuarray
 #header = [r'\Delta s_i / px', r'\frac{\delta s_i + \delta s_{i+1}}{2} / px', r'\Delta \lambda / \pico\meter',
 #        r'\Delta E / 10^{-5}\electronvolt', 'g / '],
 #places = [0, 0, 1, 1, (1.2, 1.2)],
-#caption = r'Abstände zwichen den unaufgespaltenen blauen Linien $\Delta s_i$ und gemittelte Abstände \frac{\delta s_i + \delta s_{i+1}}{2}. Wellenlängenverschiebung $\Delta \lambda$, '
-# 'Energieaufspaltung $\Delta E$ und berechnete Übergangs-Landé-Faktor g.',
-#label = 'hysterese')
+#caption = r'Blaue Sigma Aufspaltung: Abstände zwichen den unaufgespaltenen Linien $\Delta s_i$ und gemittelte Abstände \frac{\delta s_i + \delta s_{i+1}}{2}. Wellenlängenverschiebung $\Delta \lambda$, '
+# + 'Energieaufspaltung $\Delta E$ und berechneter Übergangs-Landé-Faktor g.',
+#label = 'abstände_blau_sigma')
