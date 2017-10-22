@@ -96,7 +96,7 @@ $\map{g_J}\map{\mu_B}$ sind
   \mu\ua{J_z}=-m\map{g_J}\map{\mu_B}.
 \end{equation}
 Die ganzzahligkeit wird in der Gleichung \eqref{eq:quantelung_mu} durch die Quantenzahl
-$m\in\left{-J,-J+1,\dots,1,\dotsJ\right}$ sichergestellt.
+$m=-J,-J+1,\dots,1,\dots, J$ sichergestellt.
 Mit der Definiton von $\mu\ua{J}$ ist es nun Möglich die Energie die vom Magnetfeld
 übertragen wird
 \begin{equation}
@@ -104,13 +104,44 @@ Mit der Definiton von $\mu\ua{J}$ ist es nun Möglich die Energie die vom Magnet
   E\ua{mag}=-\vec{\mu}\ua{J}\vec{\vec{B}}=m\map{g_J}\map{\mu_B}\vec{B}.
 \end{equation}
 Das bedeutet das sich die Energieniveaus $E_0$ eines sich im Magnetfeld befindlichen Atoms
-in $2J+1$ äquidistante Niveaus aufspaltet.
+in $2J+1$ äquidistante Niveaus aufspaltet (vgl. Abbildung \ref{fig: energie_magnet}).
 
-%%% Hier ein Bild
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.6\textwidth]{pics/energieaufspaltung_magnetfeld.png}
+  \caption{Energieaufspaltung der Energieniveaus unter Einfluss eines äußeren Magnetfeldes $\vec{B}$ \cite{anleitung27}.}
+  \label{fig: energie_magnet}
+\end{figure}
 
-
-
-
-
+Durch die Aufspaltungen entstehen neue mögliche Übergange im Atom, die durch Auswahlregeln festgelegt werden.
 
 \subsection{Auswahlregel und Polarisation}
+
+\subsubsection{Auswahlregeln für die Energieübergänge}
+Die Herleitung der Auswahlregeln soll im Folgenden kurz skizziert werden.
+Ausgehend von der zeitabhängigen Schrödingergleichung
+\begin{equation}
+  \label{eq:s_gleichung}
+  -\frac{\hbar^2}{2m}\Delta \Psi\left(\vec{r},t\right) + U  \Psi\left(\vec{r},t\right) + \frac{\hbar}{\map{i}} \frac{\partial}{\partial t}  \Psi\left(\vec{r},t\right)=0.
+\end{equation}
+Gelöst wird die Differentialgleichung \eqref{eq:s_gleichung} durch eine Ebene-Welle
+\begin{equation*}
+  \Psi_{\alpha}\left(\vec{r},t\right)=\Psi_{\alpha}\left(\vec{r}=0,t=0\right)\map{exp}\left(-\frac{\map{i}}{\hbar}E_\alpha t\right).
+\end{equation*}
+mit den Energiewerten $E_\alpha$. Der Index $alpha$ bei soll andeuten das die Wellenfunktion
+$\Psi_\alpha$ von den Quantenzahlen $n_\alpha$, $l_\alpha$ und $m_\alpha$ abhängt.
+Um den Zustandübergang von zwei einzelnen Energieniveaus $E_\alpha$ bzw. $E_\beta$ zu betrachten,
+superpositionieren wir die jweiligen Wellengleichungen
+\begin{equation*}
+    \Psi\ua{ges}(\vec{r},t)=C_\alpha\Psi_{\alpha}\left(\vec{r}=0\right)\map{exp}\left(-\frac{\map{i}}{\hbar}E_\alpha t\right)+C_\beta\Psi_{\beta}\left(\vec{r}=0\right)\map{exp}\left(-\frac{\map{i}}{\hbar}E_\beta t\right)
+\end{equation*}
+Nun wird das Dipolment $D_i$ für die verschidenen Raumrichtungen $x_i, i=1,2,3$ ausgerechnet
+\begin{equation*}
+  D_i=-\map{e_0}\int x_i \Psi\*\ua{ges}\Psi\ua{ges} \dv{V} \qquad i=1,2,3
+\end{equation*}
+Aus hier nicht aufgeführten Rechnungen folgen dann die Auswahlregeln und zwar darf sich die Quantenzahl $m$ zweier Energieniveuas
+nur wie folgt unterscheiden:
+\begin{equation}
+  \label{eq:auswahlregeln}
+  \Delta m=0 , \pm 1
+\end{equation}
