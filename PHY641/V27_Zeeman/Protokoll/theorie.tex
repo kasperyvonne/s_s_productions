@@ -116,8 +116,6 @@ in $2J+1$ äquidistante Niveaus aufspaltet (vgl. Abbildung \ref{fig: energie_mag
 Durch die Aufspaltungen entstehen neue mögliche Übergange im Atom, die durch Auswahlregeln festgelegt werden.
 
 \subsection{Auswahlregel und Polarisation}
-
-\subsubsection{Auswahlregeln für die Energieübergänge}
 Die Herleitung der Auswahlregeln soll im Folgenden kurz skizziert werden.
 Ausgehend von der zeitabhängigen Schrödingergleichung
 \begin{equation}
@@ -145,3 +143,55 @@ nur wie folgt unterscheiden:
   \label{eq:auswahlregeln}
   \Delta m=0 , \pm 1
 \end{equation}
+Weiter kann eine Aussage über die Polarisation des emitierten Lichts getroffen werden.
+Ist $\Delta m=0$ so schwingt der Dipol parallel zum Magnetfeldrichtung, dadurch wird \emph{linear polarisiertes} Licht
+ausgestrahlt. Bei $\Delta m=\pm 1$ wird ziruklarpolarisiertes Licht emitiert, ebenfalls prallel zum Magnetfeld.
+
+\section{Der normale und annomale Zeeman-Effekt}
+
+\subsection{Der normale Zeeman-Effekt}
+Es wird immer dann vom \emph{normalen} Zeeman-Effekt gesprochen, wenn der Elektronspin $S=0$ ist.
+Für diesen Spezialfall ist der Lande-Faktor $\map{g_J}=1$ für alle Quantenzahlen $L$ und $J$.
+Die Verschiebung der Energieniveaus ist gegeben durch
+\begin{equation}
+  \label{eq: energie_normaler_zeeman}
+  \Delta E=m\map{\mu_B}B \qquad m\in\left[-J,J\right].
+\end{equation}
+Ein Beispiel dazu ist in Abbildung \ref{fig: energie_normaler_zeeman} zu sehen.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.6\textwidth]{pics/enerieaufspaltung_normaler_zeeman.png}
+  \caption{Beispiel einer Energieaufspaltung beim normalen Zeemaneffekt \cite{anleitung27}.}
+  \label{fig: energie_normaler_zeeman}
+\end{figure}
+Ebenfalls ist in der Abbildung die Polarisationskonvention vermerkt.
+Übergänge mit einem $\sigma$ emitieren zirkulär polarisiertes Licht, die mit einem
+$\pi$ linear polarisiertes Licht. Soll das ausgestrahlte Licht untersucht werden so ist die Polarisation zu beachten (vgl. Abbildung \ref{fig: beobachtung_energie}).
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.6\textwidth]{pics/beobachtung_energie.png}
+  \caption{Unterschiedliche Aufspaltungsbilder bei verschiedenen Beobachtungswinkel, auf Grund der Polasirations des emitierten Lichtes \cite{anleitung27}.}
+  \label{fig: beobachtung_energie}
+\end{figure}
+
+\subsubsection{Der anomale Zeeman-Effekt}
+Ist der Elektronspin ungleich null so spricht man vom \emph{anomalen} Zeeman-Effekt.
+Ebenso wie beim normalen Zeeman-Effekt gelten die Auswahlregeln $\Delta m=0, \pm 1$.
+Jedoch ist hier die Energiedifferent, bei einem Übergang von $E_2$ nach $E_1$,
+abhängig von den Quantenzahlen $J$, $L$ und $m$
+\begin{align}
+  E&=\left(m_1\map{g}\left(J_1,L_1,m_1\right)-m_2\map{g}\left(J_2,L_2,m_2\right)\right)\map{\mu_B}B+E_0 \notag \\
+  E&=g_{i,j}\map{\mu_B}B \label{eq:energie_anomale_zemman}\\
+\shortintertext{mit}
+g_{i,j}:\!\!&=m_1\map{g}\left(J_1,L_1,m_1\right)-m_2\map{g}\left(J_2,L_2,m_2\right)\label{eq: faktor_gij}
+\end{align}
+Eine beispielhafte Aufspaltung ist in Abbildung \ref{fig: energie_aufspaltung_annomaler} dargestellt.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{pics/energieaufspaltung_annomaler.png}
+  \caption{Energieaufspaltung beim anomalen Zeeman-Effekt am Beispiel eines Alkali-Duplets \cite{anleitung27}.}
+  \label{fig: energie_aufspaltung_annomaler}
+\end{figure}
