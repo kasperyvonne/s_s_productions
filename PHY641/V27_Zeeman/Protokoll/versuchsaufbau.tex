@@ -58,6 +58,96 @@ einer Längendifferenz von
 unterscheidbar aufgelöst. Die Größe $\delta \lambda\ua{D}$ wird auch als Dispersionsgebiet
 bezeichnet.
 
+\subsection{Versuchsvorbereitung}
+
+Im folgenden soll der Übergang  $^1P_1\leftrightarrow ^1\!\!D_2$ genauer betrachtet werden.
+Das Termschema ist in Abbildung \ref{fig: termschema_rot} zu sehen. Die berchneten Lande-Faktoren
+sind in Tabelle \ref{tab:Lande_rot} aufgelistet.
+
+\FloatBarrier
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.6\textwidth]{pics/termschema_rot.pdf}
+  \caption{Termschema für den Übergang $^1P_1\leftrightarrow ^1\!\!D_2$ \cite{luckyjosh}.}
+  \label{fig: termschema_rot}
+\end{figure}
+\FloatBarrier
+\FloatBarrier
+\begin{table}
+	\centering
+  \caption{Lande-Faktoren für den Übergang $^1P_1\leftrightarrow ^1\!\!D_2$.}
+	\label{tab:Lande_rot}
+	\begin{tabular}{cccccc}
+		\toprule
+		{} & \multicolumn{2}{c}{${}^1P_1$}  & \multicolumn{2}{c}{${}^1D_2$}  & $^1P_1\leftrightarrow ^1\!\!D_2$ \\
+		\midrule
+		 Übergang &   $m_1$  & $g_{1}$ & $m_2$ & $ g_2$  & $g_{12}$  \\
+		\midrule
+		& 2 & 1 & 1 & 1 & 1\\
+		$\sigma$& 1 & 1 & 0 & 1 & 1\\
+		& 0 & 1 & -1 & 1 & 1\\
+		\midrule
+		& 1 & 1 & 1 & 1 & 0\\
+		$\pi$ & 0 & 1 & 0 & 1 & 0\\
+		& -1 & 1 & -1 & 1 & 0\\
+		\midrule
+		& 0 & 1 & 1 & 1 & -1\\
+		$\sigma$ & -1 & 1 & 0 & 1 & -1\\
+		& -2 & 1 & -1 & 1 & -1\\\bottomrule
+	\end{tabular}
+
+\end{table}
+\FloatBarrier
+Der Übergang $^3S_1\leftrightarrow ^3\!\!P_1$ besitzt das in Abbildung \ref{fig: termschema_blau} gezeigte
+Termschema. Die zugehörgen Lande-Faktoren sind in Tabelle \ref{tab:Lande_blau} zusehen.
+
+
+\FloatBarrier
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.6\textwidth]{pics/termschema_blau.pdf}
+  \caption{Termschema für den Übergang $3S_1\leftrightarrow ^3\!\!P_1$ \cite{luckyjosh}.}
+  \label{fig: termschema_blau}
+\end{figure}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}
+
+  \caption{Lande-Faktoren für den Übergang $^3S_1\leftrightarrow ^3\!\!P_1$.}
+	\label{tab:Lande_blau}
+	\centering
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{cccccc}
+		\toprule
+    & \multicolumn{2}{c}{${}^3S_1$}  & \multicolumn{2}{c}{${}^3P_2$} \\
+		\midrule
+    Übergang & $m_1$  & $g_{1}$ & $m_2$ & $ g_2$ & $g_{12}$\\
+		\midrule
+		$\sigma$ & +1 & 2 & 0 & $\frac{3}{2}$& 2\\
+		& 0 & 2 & -1 & $\frac{3}{2}$ & $\frac{3}{2}$\\
+		\midrule
+		& +1 & 2 & +1 & $\frac{3}{2}$ & $\frac{1}{2}$\\
+		$\pi$ & 2 & 2 & 0 & $\frac{3}{2}$ & 0 \\
+		& -1 & 2 & -1 & $\frac{3}{2}$ & -$\frac{1}{2}$\\
+		\midrule
+		& 0 & 2 & 1 & $\frac{3}{2}$ & -$\frac{3}{2}$\\
+		$\sigma$ & -1 & 2 & 0 & $\frac{3}{2}$& -2\\
+		\bottomrule
+	\end{tabular}
+\end{table}
+\FloatBarrier
+
+Als abschließende Vorbereitung wird noch das Auflösungsvermögen und das Dispersionsgebiet
+für die beiden Übergänge berechnet.
+\begin{align}
+\text{rotes Licht}\quad  \lambda&=\SI{643.8}{\nano\meter} \notag\\
+   A(\SI{643.8}{\nano\meter})&\approx 209128.6 \quad \Delta \lambda(\SI{643.8}{\nano\meter})\approx\SI{4.98e-11}{\meter} \label{eq: auf_dis_rot} \\
+\text{blaues Licht}  \quad \lambda&=\SI{480.0}{\nano\meter}\notag \\
+ A(\SI{480.0}{\nano\meter})&\approx 285458 \quad \Delta \lambda(\SI{480.0}{\nano\meter})\approx \SI{2.7e-11}{\meter} \label{eq: auf_dis_blau}
+\end{align}
+
+
 \subsubsection{Versuchsdurchführung}
 Zu nächst muss die optische Apperatur so eingestellt werden das Licht mit einer hohen Helligkeit
 an der Lummer-Gehrcke Platte ankommt. Die einzelen Spalte werden so angepasst das die
@@ -96,5 +186,11 @@ so eingestellt werden, dass entweder nur der $\sigma$ oder $\pi$ Übergang beoba
 und einstellen des Polarisationsfilter wird ein Bild von dem aufgespalteten Interferenzmuster geschossen. Die Durchführung wird jeweils für
 einmal für den $\sigma$ Übergang und einmal für den $\pi$ Übergang vollzogen.
 
+Aus den einzelen Fotos können dann die Größen $\Delta s$ und $\delta s$ (vgl. \ref{fig: bsp_foto}) abgelesen werden.
+Die Werte werden dann mit dem Dispersiongebiet in die Gleichung
 
-\subsection{Versuchsvorbereitung}
+\begin{equation}
+  \label{eq: wellen_änderung}
+  \delta \lambda=\frac{\delta s}{2\Delta s} \Delta \lambda\ua{D}
+\end{equation}
+eingesetz um die Wellenlängenänderung des Lichtes zu bestimmen.
