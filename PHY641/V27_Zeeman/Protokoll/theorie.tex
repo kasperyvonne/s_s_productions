@@ -9,26 +9,26 @@ unter Einwirkung eines äußeren Magnetfeldes untersucht.
 \subsection{Magnetisches Moment und Energieaufspaltung}
 \subsubsection{Magnetische Momente}
 Aus der Quantenmechanik geht hervor das Elektronen neben ihrem Drehimpuls $\vec{l}$ auch einen
-Eigendrehimpuls oder auch Spin gennant $\vec{s}$ besitzen. Charakterisiert werden diese beiden Größen durch die
-Quantenzahlen $l$ und $s$ mit den aus den Eigenwertgleichung resultierenden Werten:
+Eigendrehimpuls oder auch Spin gennant $\vec{s}$ besitzen. Charakterisiert werden die beiden Größen durch die
+Quantenzahlen $l$ und $s$. Aus der Eigenweetgleich resultiert:
 \begin{align*}
 \be{\vec{l}}&=\sqrt{l(l+1)}\hbar & l&=0,1,2,\dots,n-1\\
 \be{\vec{s}}&=\sqrt{s(s+1)}\hbar & s&=\frac{1}{2}.
 \end{align*}
-Auf Grund der Ladung des Elektrons $\map{e}_0$ entstehen magnetische Momente.
-Die aus der Theorie resultierenden Momente sind proptotional zum Bohrschen Magneton $\map{\mu}_B$, welches durch
+Auf Grund der Ladung des Elektrons $\map{e}_0$ entstehen magnetische Momente, die
+proptotional zum Bohrschen Magneton $\map{\mu}_B$, welches durch
 \begin{equation}
   \label{eq:bohrsche_magneton}
   \map{\mu_B}:=-\frac{1}{2}\map{e}\ua{0} \frac{\hbar}{\map{m}\ua{0}}
 \end{equation}
-definiert ist. Die in Gleichung \eqref{eq:bohrsche_magneton} auftretende Größe $\map{m}_0$ ist die Elektronenmasse.
-Für die magnetischen Momente ergibt sich:
+gegeben ist. Die in Gleichung \eqref{eq:bohrsche_magneton} auftretende Größe $\map{m}_0$ ist die Elektronenmasse.
+Für die magnetischen Momente ergeben sich:
 \begin{align*}
   \vec{\mu}\ua{l}&=-\map{\mu_B}\frac{\vec{l}}{\hbar}=-\map{\mu_B}\sqrt{l(l+1)}\vec{e}\ua{\vec{l}} \\
-  \vec{\mu}\ua{s}&=-\map{g_S}\map{\mu_B}\frac{\vec{s}}{\hbar}=-\map{g_S}\map{\mu_B}\sqrt{s(s+1)}\vec{e}\ua{\vec{s}}
+  \vec{\mu}\ua{s}&=-\map{g_S}\map{\mu_B}\frac{\vec{s}}{\hbar}=-\map{g_S}\map{\mu_B}\sqrt{s(s+1)}\vec{e}\ua{\vec{s}}.
 \end{align*}
-Mit $\map{g_S}$ wird der Landé-Faktor des Elektrons bezeichnet und hat den Wert $\map{g_S}\approx 2$.
-Es fällt auf, dass das magnetische Spinmoment $\vec{\mu}\ua{s}$ des Elektrons in etwa doppelt
+Mit $\map{g_S}$ wird der Landé-Faktor des Elektrons bezeichnet und es trägt den Wert $\map{g_S}\approx 2$.
+Auf fallend ist, dass das magnetische Spinmoment $\vec{\mu}\ua{s}$ des Elektrons in etwa doppelt
 so groß ist wie das magentische Bahnmoment $\vec{\mu}\ua{l}$.
 
 \subsubsection{Wechselwirkung der Magnetischen Momente}
@@ -105,13 +105,14 @@ Mit der Definiton von $\mu\ua{J}$ ist es nun Möglich die Energie die vom Magnet
 \end{equation}
 Das bedeutet das sich die Energieniveaus $E_0$ eines sich im Magnetfeld befindlichen Atoms
 in $2J+1$ äquidistante Niveaus aufspaltet (vgl. Abbildung \ref{fig: energie_magnet}).
-
+\FloatBarrier
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.6\textwidth]{pics/energieaufspaltung_magnetfeld.png}
   \caption{Energieaufspaltung der Energieniveaus unter Einfluss eines äußeren Magnetfeldes $\vec{B}$ \cite{anleitung27}.}
   \label{fig: energie_magnet}
 \end{figure}
+\FloatBarrier
 
 Durch die Aufspaltungen entstehen neue mögliche Übergange im Atom, die durch Auswahlregeln festgelegt werden.
 
@@ -135,7 +136,7 @@ superpositionieren wir die jweiligen Wellengleichungen
 \end{equation*}
 Nun wird das Dipolment $D_i$ für die verschidenen Raumrichtungen $x_i, i=1,2,3$ ausgerechnet
 \begin{equation*}
-  D_i=-\map{e_0}\int x_i \Psi\*\ua{ges}\Psi\ua{ges} \dv{V} \qquad i=1,2,3
+  D_i=-\map{e_0}\int x_i \Psi^*\ua{ges}\Psi\ua{ges} \dv{V} \qquad i=1,2,3
 \end{equation*}
 Aus hier nicht aufgeführten Rechnungen folgen dann die Auswahlregeln und zwar darf sich die Quantenzahl $m$ zweier Energieniveuas
 nur wie folgt unterscheiden:
@@ -158,23 +159,25 @@ Die Verschiebung der Energieniveaus ist gegeben durch
   \Delta E=m\map{\mu_B}B \qquad m\in\left[-J,J\right].
 \end{equation}
 Ein Beispiel dazu ist in Abbildung \ref{fig: energie_normaler_zeeman} zu sehen.
-
+\FloatBarrier
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.6\textwidth]{pics/enerieaufspaltung_normaler_zeeman.png}
   \caption{Beispiel einer Energieaufspaltung beim normalen Zeemaneffekt \cite{anleitung27}.}
   \label{fig: energie_normaler_zeeman}
 \end{figure}
+\FloatBarrier
 Ebenfalls ist in der Abbildung die Polarisationskonvention vermerkt.
 Übergänge mit einem $\sigma$ emitieren zirkulär polarisiertes Licht, die mit einem
 $\pi$ linear polarisiertes Licht. Soll das ausgestrahlte Licht untersucht werden so ist die Polarisation zu beachten (vgl. Abbildung \ref{fig: beobachtung_energie}).
-
+\FloatBarrier
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.6\textwidth]{pics/beobachtung_energie.png}
   \caption{Unterschiedliche Aufspaltungsbilder bei verschiedenen Beobachtungswinkel, auf Grund der Polasirations des emitierten Lichtes \cite{anleitung27}.}
   \label{fig: beobachtung_energie}
 \end{figure}
+\FloatBarrier
 
 \subsubsection{Der anomale Zeeman-Effekt}
 Ist der Elektronspin ungleich null so spricht man vom \emph{anomalen} Zeeman-Effekt.
@@ -188,10 +191,11 @@ abhängig von den Quantenzahlen $J$, $L$ und $m$
 g_{i,j}:\!\!&=m_1\map{g}\left(J_1,L_1,m_1\right)-m_2\map{g}\left(J_2,L_2,m_2\right)\label{eq: faktor_gij}
 \end{align}
 Eine beispielhafte Aufspaltung ist in Abbildung \ref{fig: energie_aufspaltung_annomaler} dargestellt.
-
+\FloatBarrier
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.8\textwidth]{pics/energieaufspaltung_annomaler.png}
   \caption{Energieaufspaltung beim anomalen Zeeman-Effekt am Beispiel eines Alkali-Duplets \cite{anleitung27}.}
   \label{fig: energie_aufspaltung_annomaler}
 \end{figure}
+\FloatBarrier
