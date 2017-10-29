@@ -33,14 +33,14 @@ def hysterese(I, a, b, c, d):
 
 
 #######LOAD DATA#########
-B_up, B_down = np.genfromtxt('data/hysterese.txt', unpack=True) #Flussdichte bei auf und absteigendem Spulenstrom
+B_up, B_down = np.genfromtxt('../data/hysterese.txt', unpack=True) #Flussdichte bei auf und absteigendem Spulenstrom
 I = np.linspace(0, 20, 21) # Stromstärke von 0 bis 20A in 1A Schritten
-l.Latexdocument('tabs/hysterese.tex').tabular(
-data = [I, B_up, B_down], #Data incl. unpuarray
-header = [r'I / \ampere', r'B\ua{auf} / \milli\tesla', r'B\ua{ab} / \milli\tesla'],
-places = [1, 0, 0],
-caption = r'Gemessene magnetische Flussdichten $B\ua{i}$ bei auf- bzw. absteigenden Strom $I$.',
-label = 'hysterese')
+#l.Latexdocument('tabs/hysterese.tex').tabular(
+#data = [I, B_up, B_down], #Data incl. unpuarray
+#header = [r'I / \ampere', r'B\ua{auf} / \milli\tesla', r'B\ua{ab} / \milli\tesla'],
+#places = [1, 0, 0],
+#caption = r'Gemessene magnetische Flussdichten $B\ua{i}$ bei auf- bzw. absteigenden Strom $I$.',
+#label = 'hysterese')
 
 ###FIT DER HYSTERESE######
 params_up, cov_up = curve_fit(hysterese, I, B_up)
@@ -57,21 +57,21 @@ plt.plot(I, B_up, 'rx', label = 'Messwerte')
 I_plot = np.linspace(-1, 21, 100)
 plt.plot(I_plot, hysterese(I_plot, *params_up), label = 'Fit')
 plt.xlim(-1, 21)
-plt.xlabel('$I/$A')
-plt.ylabel('$B/$mT')
-plt.legend()
+plt.xlabel('$I/$A', fontsize = 16)
+plt.ylabel('$B/$mT', fontsize = 16)
+plt.legend(fontsize = 16)
 plt.grid()
-plt.savefig('plots/hysterese_aufsteigend.pdf')
+plt.savefig('../plots/hysterese_aufsteigend.pdf')
 
 plt.clf()
 plt.plot(I, B_down, 'rx', label = 'Messwerte')
 plt.plot(I_plot, hysterese(I_plot, *params_down), label = 'Fit')
 plt.xlim(-1, 21)
-plt.xlabel('$I/$A')
-plt.ylabel('$B/$mT')
-plt.legend()
+plt.xlabel('$I/$A', fontsize = 16)
+plt.ylabel('$B/$mT', fontsize = 16)
+plt.legend(fontsize = 16)
 plt.grid()
-plt.savefig('plots/hysterese_absteigend.pdf')
+plt.savefig('../plots/hysterese_absteigend.pdf')
 
 plt.clf()
 plt.plot(I, B_up, 'rx', label = 'Messwerte aufsteigender Strom')
@@ -81,18 +81,17 @@ plt.xlabel('$I/$A')
 plt.ylabel('$B/$mT')
 plt.legend()
 plt.grid()
-plt.savefig('plots/hysterese_data.pdf')
+plt.savefig('../plots/hysterese_data.pdf')
 plt.clf()
 params_up = correlated_values(params_up, cov_up)
 params_down = correlated_values(params_down, cov_down)
-print(params_up)
-print(params_down)
+
 
 
 
 #Rechnungen mit den Positionen der Aufspaltung
-peaks_rot_0 = np.genfromtxt('data/peaks_rot_sigma_I_0.txt', unpack = True)
-peaks_rot_10 = np.genfromtxt('data/peaks_rot_sigma_I_10.txt', unpack = True)
+peaks_rot_0 = np.genfromtxt('../data/peaks_rot_sigma_I_0.txt', unpack = True)
+peaks_rot_10 = np.genfromtxt('../data/peaks_rot_sigma_I_10.txt', unpack = True)
 #l.Latexdocument('tabs/peaks_rot.tex').tabular(
 #data = [peaks_rot_0, unp.uarray(peaks_rot_10[:12], peaks_rot_10[12:])],
 #header = ['x_0 / px', 'x_{10} / px'],
