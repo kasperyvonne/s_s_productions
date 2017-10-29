@@ -22,22 +22,8 @@ import scipy.constants as const
 
 #############################################
 #EXAMPLE FOR LATEX TABLE WITH UNP ARRAYS
-a = [1.1, 2.2, 3.3]
-b = [0.1, 0.2, 0.3]
-c = [3, 4, 5]
-d = [6, 7, 8] #EXAMPLE ARRAYS
-
-f = unp.uarray(a, b) #EXAMPLE UARRAY
 
 
-
-l.Latexdocument('latex_example.tex').tabular(
-data = [c, d, f], #Data incl. unpuarray
-header = ['\Delta Q / \giga\elementarycharge', 'T_1 / \micro\second', 'T_1 / \micro\second'],
-places = [1, 1, (1.1, 1.1)],
-caption = 'testcaption.',
-label = 'testlabel')
-##############################################
 
 #FITFUNKTIONEN
 def hysterese(I, a, b, c, d):
@@ -133,7 +119,8 @@ delta_E_rot = (h * c / lambda_rot**2 * del_lambda_rot).to('eV')
 g_rot = (delta_E_rot / (mu_B * Q_(hysterese(10, *params_up), 'millitesla'))).to('dimensionless')
 g_rot_mid = np.mean(g_rot)
 g_rot = unp.uarray(noms(g_rot), stds(g_rot))
-print(g_rot_mid)
+print('Mittelwert Lande-Faktor: ', g_rot_mid)
+print('B-Feldstärken: ', hysterese(0, *params_up), hysterese(10, *params_up))
 
 #l.Latexdocument('tabs/abstände_rot.tex').tabular(
 #data = [delta_s_rot, del_s_mid, del_lambda_rot.magnitude, delta_E_rot.magnitude*1e5, g_rot], #Data incl. unpuarray

@@ -76,6 +76,7 @@ g_blau = (delta_E_blau / (mu_B * Q_(hysterese(17, *params_up), 'millitesla'))).t
 g_blau_mid = np.mean(g_blau)
 g_blau = unp.uarray(noms(g_blau), stds(g_blau))
 print(g_blau_mid)
+print('B-Feldstärken: ', hysterese(0, *params_up), hysterese(17, *params_up))
 
 #l.Latexdocument('../tabs/abstände_blau_pi.tex').tabular(
 #data = [delta_s_blau, del_s_mid, del_lambda_blau.magnitude, delta_E_blau.magnitude*1e5, g_blau], #Data incl. unpuarray
