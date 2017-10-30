@@ -1,7 +1,11 @@
 \section{Auswertung}
 Die in der Auswertung bestimmten Ausgleichsrechnungen werden mit
 dem Python Paket \emph{scipy.optimize}\cite{scipy} durchgeführt. Zur Analyse der aufgenommen Fotos
-wird das Paket \emph{scipy.misc}\cite{scipy} verwendet.
+wird das Paket \emph{scipy.misc}\cite{scipy} verwendet. Dieses ermöglicht jedem Pixel der Fotos einen
+Wert in Abhängigkeit von der Helligkeit zuzuordnen. Dieser Wert ist quantitativ irrelevant für die
+Auswertung des Versuches, da lediglich die Lage der Intensitätsmaxima bestimmt werden soll. Hierzu wird
+jeweils exakt in der Mitte der Bilder eine Reihe aus den eingelesenen Pixeln entnommen und die Helligkeit
+in Abhängigkeit von der horizontalen Lage graphisch dargestellt.  
 \input{subsections_auswertung/hysterese.tex}
 \FloatBarrier
 \input{subsections_auswertung/rot_sigma.tex}
