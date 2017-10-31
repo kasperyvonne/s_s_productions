@@ -1,17 +1,26 @@
 \subsection{Analyse der roten $\sigma$-Linien}
-Die Aufspaltung der roten Spektrallinie ist in Abbildung \ref{fig: aufspaltung_rot} dargestellt. Zur quantitativen Analyse der Auspaltung wird das
-Resultat unter anliegendem Strom von $I = \SI{10}{\ampere}$ verwendet. Gemäß Formel \eqref{eq: fitfuntion_hysterese} bedingt dieser
+Die Aufspaltung der roten Spektrallinie ist in \autoref{fig: aufspaltung_rot} dargestellt. Zur quantitativen Analyse der Auspaltung wird das
+Resultat unter anliegendem Strom von $I = \SI{10}{\ampere}$ verwendet. Gemäß Formel~\eqref{eq: fitfuntion_hysterese} bedingt dieser
 eine magnetische Flussdichte von $B = \SI{587(3)}{\milli\tesla}$.
+
+Die Helligkeit in Abhängigkeit von der horizontalen Position auf den aufgenommenen Bilder ist in \autoref{fig: rot_intensität} für das unaufgespaltene
+und aufgespaltene Beugungsbild dargestellt. Anhand dessen werden die Positionen von $12$ Intensitätsmaxima und ihrer Aufspaltungen
+vermessen. Die Daten sind in \autoref{tab: peaks_rot} aufgeführt. Eine graphische Darstellung der abgelesenen Intensitätsmaxima befindet sich in
+den Abbildungen~\ref{fig: peaks_rot_0} und~\ref{fig: peaks_rot_10}.
+
+Die für die Berechnung der Wellenlängenänderung relevanten Abstände $\symup{\Delta} s_i$ und $\symup{\Delta} s_i$ sind in \autoref{tab: abstände_rot}
+aufgeführt. Mit Hilfe der Gleichungen~\eqref{} berechnen sich hieraus die Wellenlängenaufspaltung $\symup{\Delta} \lambda$, die
+Energieaufspaltung $\symup{\Delta} E$ und schließlich die Werte für die Übergangs-Landé-Faktoren $g$. Alle Ergebnisse sind ebenfalls in
+\autoref{tab: abstände_rot} eingetragen. Als Mittelwert für den Landé-Faktor ergibt sich
+\begin{equation}
+  g = \num{1.045(5)}.
+\end{equation}
 \begin{figure}
   \centering
   \includegraphics[width = 0.7\textwidth]{../Messdaten/bilder_v27/messung_1_rot_sigma/aufspaltung_rot.png}
   \caption{Aufgenommene Intensitätsstreifen des roten Lichtes unter (von oben nach unten) $\SI{0}{\ampere}$, $\SI{7.5}{\ampere}$ und $\SI{10}{\ampere}$.}
   \label{fig: aufspaltung_rot}
 \end{figure}
-Die Helligkeit in Abhängigkeit von der horizontalen Position auf den aufgenommenen Bilder ist in Abbildung \ref{fig: rot_intensität} für das unaufgespaltene
-und aufgespaltene Beugungsbild dargestellt. Anhand dessen werden die Positionen von $12$ Intensitätsmaxima und ihrer Aufspaltungen
-vermessen. Die Daten sind in Tabelle \ref{tab: peaks_rot} aufgeführt. Eine graphische Darstellung der abgelesenen Intensitätsmaxima befindet sich in
-den Abbildungen \ref{fig: peaks_rot_0} und \ref{fig: peaks_rot_10}.
 \begin{figure}
   \centering
   \includegraphics[width = 0.7\textwidth]{../Messdaten/plots/rot_sigma_intensitaet.pdf}
@@ -22,20 +31,13 @@ den Abbildungen \ref{fig: peaks_rot_0} und \ref{fig: peaks_rot_10}.
 \begin{figure}
   \centering
   \includegraphics[width = 0.7\textwidth]{../Messdaten/plots/peaks_rot_sigma_0.pdf}
-  \caption{Darstellung der abgelesenen Lagen der Intesitätsmaxima für das Beugungsbild unter $I =0$A.}
+  \caption{Darstellung der abgelesenen Lagen der Intesitätsmaxima für das Beugungsbild unter $I =\SI{0}{\ampere}$.}
   \label{fig: peaks_rot_0}
 \end{figure}
 \begin{figure}
   \centering
   \includegraphics[width = 0.7\textwidth]{../Messdaten/plots/peaks_rot_sigma_10.pdf}
-  \caption{Darstellung der abgelesenen Lagen der Intesitätsmaxima für das Beugungsbild unter $I =10$A.}
+  \caption{Darstellung der abgelesenen Lagen der Intesitätsmaxima für das Beugungsbild unter $I =\SI{10}{\ampere}$.}
   \label{fig: peaks_rot_10}
 \end{figure}
-Die für die Berechnung der Wellenlängenänderung relevanten Abstände $\Delta s_i$ und $\delta s_i$ sind in Tabelle \ref{tab: abstände_rot}
-aufgeführt. Mit Hilfe der Gleichungen \eqref{} berechnen sich hieraus die Wellenlängenaufspaltung $\Delta \lambda$, die
-Energieaufspaltung $\Delta E$ und schließlich die Werte für die Übergangs-Landé-Faktoren $g$. Alle Ergebnisse sind ebenfalls in
-Tabelle \ref{tab: abstände_rot} eingetragen. Als Mittelwert für den Landé-Faktor ergibt sich
-\begin{equation}
-  g = \num{1.045(5)}.
-\end{equation}
 \input{../Messdaten/tabs/abstände_rot.tex}

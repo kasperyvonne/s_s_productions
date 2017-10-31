@@ -1,6 +1,9 @@
 \documentclass[parskip=half, bibliography=totoc, captions=tableheading, titlepage=firstiscover]{scrartcl}
+\usepackage[aux]{rerunfilecheck}
+\usepackage[ngerman]{babel}
 \usepackage{polyglossia}
 \setmainlanguage{german}
+\usepackage{fontspec}
 
 
 
@@ -40,7 +43,7 @@
 \usepackage[
   labelfont=bf,
   font=small,
-  width=0.9\textwidth,
+  width=0.8\textwidth,
 ]{caption}
 
 \usepackage{subcaption}
@@ -62,7 +65,7 @@
 
 \usepackage[math]{blindtext}
 
-%\usepackage{microtype}
+\usepackage{microtype}
 
 \usepackage[
   backend=biber,
@@ -84,12 +87,9 @@
 
 \RequirePackage{etoolbox}
 \AtEndPreamble{
-    \usepackage{fontspec}
-    \usepackage{microtype}
-    \usepackage{fontspec}
-    \defaultfontfeatures{Ligatures=TeX}
     \usepackage{polyglossia}
     \setmainlanguage{german}
+        \usepackage{fontspec}
     \usepackage[
       math-style=ISO,
       bold-style=ISO,
@@ -117,6 +117,7 @@ stefan.grisard@tu-dortmund.de}
 \ohead{\today}
 \cfoot{\pagemark}
 
+\usepackage{pdfpages}
 
 
 %\usepackage{scrlayer-scrpage}

@@ -8,8 +8,8 @@ import math
 from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
 from pint import UnitRegistry
-import latex as l
-r = l.Latexdocument('results.tex')
+#import latex as l
+#r = l.Latexdocument('results.tex')
 u = UnitRegistry()
 Q_ = u.Quantity
 #import pandas as pd
@@ -56,6 +56,8 @@ params_down, cov_down = curve_fit(hysterese, I, B_down)
 plt.plot(I, B_up, 'rx', label = 'Messwerte')
 I_plot = np.linspace(-1, 21, 100)
 plt.plot(I_plot, hysterese(I_plot, *params_up), label = 'Fit')
+plt.xticks(fontsize = 12)
+plt.yticks(fontsize = 12)
 plt.xlim(-1, 21)
 plt.xlabel('$I/$A', fontsize = 16)
 plt.ylabel('$B/$mT', fontsize = 16)
@@ -67,6 +69,8 @@ plt.clf()
 plt.plot(I, B_down, 'rx', label = 'Messwerte')
 plt.plot(I_plot, hysterese(I_plot, *params_down), label = 'Fit')
 plt.xlim(-1, 21)
+plt.xticks(fontsize = 12)
+plt.yticks(fontsize = 12)
 plt.xlabel('$I/$A', fontsize = 16)
 plt.ylabel('$B/$mT', fontsize = 16)
 plt.legend(fontsize = 16)
@@ -130,4 +134,4 @@ print('B-Feldstärken: ', hysterese(0, *params_up), hysterese(10, *params_up))
 # 'Energieaufspaltung $\Delta E$ und berechnete Übergangs-Lande-Faktoren g.',
 #label = 'hysterese')
 
-r.makeresults()
+#r.makeresults()

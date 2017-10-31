@@ -40,7 +40,7 @@ plt.savefig('../plots/peaks_blau_sigma_0.pdf')
 
 plt.clf()
 plt.subplot(211)
-plt.plot(range(0, 4000), blau_sigma_I_6[450], 'r-', linewidth = 0.5)
+plt.plot(range(0, 4000), blau_sigma_I_6[450], 'b-', linewidth = 0.5)
 peaks_blau_6 = np.genfromtxt('../data/peaks_blau_sigma_I_6.txt', unpack = True)
 for i in peaks_blau_6:
     plt.axvline(x = i, linewidth=0.7, color='k')
