@@ -34,7 +34,7 @@ plt.subplot(212)
 img = mpimg.imread('../bilder_v27/messung_2_blau_sigma/m2_I_0_cut.png')
 plt.imshow(img)
 for i in peaks_blau_0:
-    plt.axvline(x = i, linewidth=1.2, color='w')
+    plt.axvline(x = i, linewidth=0.7, color='w')
 plt.xlabel('$x$/px')
 plt.savefig('../plots/peaks_blau_sigma_0.pdf')
 
@@ -52,6 +52,6 @@ plt.subplot(212)
 img = mpimg.imread('../bilder_v27/messung_2_blau_sigma/m2_I_6_cut.png')
 plt.imshow(img)
 for i in peaks_blau_6:
-    plt.axvline(x = i, linewidth=1.2, color='w')
+    plt.axvline(x = i, linewidth=0.7, color='w')
 plt.xlabel('$x$/px')
 plt.savefig('../plots/peaks_blau_sigma_6.pdf')

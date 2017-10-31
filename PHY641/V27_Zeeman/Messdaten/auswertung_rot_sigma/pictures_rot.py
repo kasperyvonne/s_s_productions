@@ -54,6 +54,6 @@ plt.subplot(212)
 img = mpimg.imread('../bilder_v27/messung_1_rot_sigma/m1_I_10_cut.png')
 plt.imshow(img)
 for i in peaks_rot_10:
-    plt.axvline(x = i, linewidth=1.2, color='w')
+    plt.axvline(x = i, linewidth=0.7, color='w')
 plt.xlabel('$x$/px')
 plt.savefig('../plots/peaks_rot_sigma_10.pdf')
