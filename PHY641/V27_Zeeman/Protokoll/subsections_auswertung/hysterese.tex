@@ -4,7 +4,7 @@ sind in \autoref{tab: hysterese} aufgetragen. Eine graphische Darstellung befind
 \ref{fig: hysterese_gesamt}. Mittels der Messwerte wird eine Regression nach dem Prinzip der kleinsten Quadrate
 an eine Funktion der Form
 \begin{equation}
-  B(I) = a_1 I^3 + a_2 I^2 + a_3 I ^2 + a_4
+  B(I) = a_1 I^3 + a_2 I^2 + a_3 I + a_4
   \label{eq: fitfuntion_hysterese}
 \end{equation}
 bestimmt. Für den austeigenden Ast der Hysterese ergeben sich folgende Parameter
@@ -50,6 +50,7 @@ Eine graphische Darstellung der Fitfunktionen befindet sich in \autoref{fig: hys
 \label{fig: hysterese_fit}
 \end{figure}
 Im Folgenden wird Gleichung \eqref{eq: fitfuntion_hysterese} mit den Parametern \eqref{eq: params_up} % im Pdf hast du hier ein doppelt des Leerzeichen vor dem Im
-verwendet um den notwendigen Zusammenhang zwischen angelegtem Strom $I$ und magnetischer Flussdichte $B$ herzustellen. Der sehr geringe
-$y$-Achsenabschnitt von $a_4 = \SI{3(6)}{\milli\tesla }$ wird vernachlässigt, sodass bei $I = \SI{0}{\ampere}$ von $B = \SI{0}{\tesla}$
-ausgegangen werden kann.
+verwendet um den notwendigen Zusammenhang zwischen angelegtem Strom $I$ und magnetischer Flussdichte $B$ herzustellen. Der
+$y$-Achsenabschnitt von $\SI{3(6)}{\milli\tesla}$ ist auf Restmagnetisierungen des Magneten zurückzuführen. Da dieser
+Wert im Vergleich zu denen im Versuch auftretenden Magnetfeldstärken $\sim \SI{100}{\milli\tesla}$ sehr gering ist, wird
+die theoretische Annahme $B(I = 0) \approx 0$ im Folgenden akzeptiert.
