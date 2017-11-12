@@ -66,8 +66,50 @@ $\Lambda \gg d$, so werden Stöße der Moleküle mit den Wänden relevant. In di
 
 
 \subsubsection{Pumpentypen}
+Vakuumpumpen lassen sich in ihrer Funktionsweise in drei Kategorien einteilen: Mechanische Pumpen (z.B. Hubkolbenpumpen,
+Drehschieberpumpen, Turbomolekularpumpen), Treibmittelpumpen (z.B. Flüssigkeitsstrahlpumpen, Diffusionspumpen) und
+Kondensationspumpen (z.B. Kühlfallen, Kryopumpen). Eine Einordnung der jeweiligen Druckeinsatzbereiche befindet sich in
+Abbildung~\ref{fig: einordnung_pumpen}. Im Folgenden sollen die Drehschieberpumpe und die Turbomolekularpumpe
+näher vorgestellt werden.
+
+Der Aufbau einer Drehschieberpumpe ist in Abbildung~\ref{fig: drehschieber} schematisch dargestellt. Innherhalb
+eines zylinderförmigen Hohlraumes dreht sich ein exzentrisch gelagerter Rotor $R_1$, an dem zwei mit Federn gelagerte
+Schieber befestigt sind. Diese haben ständig Kontakt mit der Zylinderwand und sorgen bei Rotation Systems dafür, dass
+Gas aus der Saugöffnung $S_1$ komprimiert zum Auslass $A_1$ transportiert wird. Hierdurch entsteht das gewünschte
+Druckgefälle zwischen Saugöffnung und Auslass, das zur Evakuierung verwendet werden kann. Mit Drehschieberpumpen
+ist es möglich Gleichgewichtsdrücke im Bereich $\num{e-1} - \SI{e-3}{\milli\bar}$ zu erzeugen. Ein Nachteil des
+Systems liegt in der unvollkommenen Dichtheit zwischen Schieber und Zylinderwand. Komplexere Drehschieberpumpen
+erreichen bessere Resultate durch mehrstufige Pumpvorgänge, die einen Druckerlust
+zwischen Auslass und Saugöffnung minimieren.
+
+Der Rotor einer Molekularpumpe ist in Abbildung~\ref{fig: turbu} zu sehen.  
 
 
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.5\textwidth]{theorie_plots/einsatzbereich_pumpen.png}
+  \caption{Einsatzbereiche der verschiedenen Pumpentypen in Abhängigkeit des Drucks $P$ \cite{dem1}.}
+  \label{fig: einordnung_pumpen}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.49\textwidth}
+    \centering
+    \includegraphics[height = \textwidth]{theorie_plots/drehschieber.png}
+    \caption{Funktion der Drehschieberpumpe \cite{dem1}.}
+    \label{fig: drehschieber}
+\end{subfigure}
+\begin{subfigure}{0.49\textwidth}
+  \centering
+  \includegraphics[height = \textwidth]{theorie_plots/turbo_pumpe.png}
+  \caption{Rotor einer Turbomolekularpumpe \cite{dem1}.}
+  \label{fig: turbo}
+\end{subfigure}
+\caption{Grafiken zur Erläuterung der Funktionsweise einer Drehschieber und einer Turbomolekularpumpe.}
+\label{fig: turbo_drehschieber}
+\end{figure}
+\FloatBarrier
 
 \subsection{Zeitlicher Verlauf des Drucks}
 Zur Herleitung eines Zusammenhangs für den zeitlichen Verlauf des Drucks $p(t)$, der durch eine Pumpe
