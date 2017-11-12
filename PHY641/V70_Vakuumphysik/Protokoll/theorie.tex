@@ -62,10 +62,11 @@ Mit dem Saugvermögen $S_0$ ohne Leitungen (Herstellerangabe).
 Der erzeugte Strom durch ein Rohr zwischen Pumpe und Rezipient korreliert mit der mittleren freien Weglänge
 und ist damit vom Typ des Vakuums abhängig. Ist $\Lambda$ wesentlich
 kleiner als der Durchmesser der verwendeten Bauteile, so kann von \emph{laminaren} bzw. \emph{turbulenten Strömungen} ausgegangen werden. Gilt andersherum
-$\Lambda \gg d$, so werden Stöße der Moleküle mit den Wänden relevant. In diesem Fall wird von einer \emph{molekularen Strömung} gesprochen.
+$\Lambda \gg d$, so werden Stöße der Moleküle mit den Wänden relevant.
+In diesem Fall wird von einer \emph{molekularen Strömung} gesprochen.
 
 
-\subsubsection{Pumpentypen}
+\subsubsection{Vakuumpumpen}
 Vakuumpumpen lassen sich in ihrer Funktionsweise in drei Kategorien einteilen: Mechanische Pumpen (z.B. Hubkolbenpumpen,
 Drehschieberpumpen, Turbomolekularpumpen), Treibmittelpumpen (z.B. Flüssigkeitsstrahlpumpen, Diffusionspumpen) und
 Kondensationspumpen (z.B. Kühlfallen, Kryopumpen). Eine Einordnung der jeweiligen Druckeinsatzbereiche befindet sich in
@@ -77,13 +78,22 @@ eines zylinderförmigen Hohlraumes dreht sich ein exzentrisch gelagerter Rotor $
 Schieber befestigt sind. Diese haben ständig Kontakt mit der Zylinderwand und sorgen bei Rotation Systems dafür, dass
 Gas aus der Saugöffnung $S_1$ komprimiert zum Auslass $A_1$ transportiert wird. Hierdurch entsteht das gewünschte
 Druckgefälle zwischen Saugöffnung und Auslass, das zur Evakuierung verwendet werden kann. Mit Drehschieberpumpen
-ist es möglich Gleichgewichtsdrücke im Bereich $\num{e-1} - \SI{e-3}{\milli\bar}$ zu erzeugen. Ein Nachteil des
-Systems liegt in der unvollkommenen Dichtheit zwischen Schieber und Zylinderwand. Komplexere Drehschieberpumpen
-erreichen bessere Resultate durch mehrstufige Pumpvorgänge, die einen Druckerlust
+ist es möglich Gleichgewichtsdrücke im Bereich $\num{e-1}$-$\SI{e-3}{\milli\bar}$ zu erzeugen. Ein Nachteil des
+Systems liegt in der unvollkommenen Dichtung zwischen Schieber und Zylinderwand. Komplexere Drehschieberpumpen
+erreichen bessere Resultate durch mehrstufige Pumpvorgänge, die einen Druckverlust
 zwischen Auslass und Saugöffnung minimieren.
 
-Der Rotor einer Molekularpumpe ist in Abbildung~\ref{fig: turbu} zu sehen.  
-
+Der Rotor einer Turbomolekularpumpe ist in Abbildung~\ref{fig: turbu} zu sehen. Dieser besteht im Wesentlichen aus einer
+alternierenden Abfolge von sich drehenden Rotoren und fest montierten Statoren. Die Pumpe nutzt aus, dass die
+Desorbtion von Molekülen durch die Bewegung einer Oberfläche im Mittel einen Richtungstrend aufweist. Die Rotorblätter
+sind gekippt angebracht. Wird nun ein Gasmolekül von der Rotoroberfläche adsorbiert, so verlässt es die Oberfläche
+nach einer gewissen Verweildauer mit einer durch den Rotor erzeugten Geschwindigkeitkomponente nach schäg unten. Hier
+wird es von einem Stator aufgefangen und gelangt somit in einen weiter unten gelegenen Rotoreinfangbereich.
+Hierdurh entsteht eine Molekularströmung, mit der ein Vakuum erzeugt werden kann. Voraussetzung für den beschriebenen
+Effekt ist, dass sich der Rotor so schnell dreht, dass die Moleküle nur an einer Seite der Rotorblätter haften können.
+Die hohen Zentrifugalbeschleunigungen erfordern die Verwendung von leichten und gleichzeitig robusten Materialien, wie z.B.
+Titan-Aluminium-Legierungen. Mit Turbomolekularpumpen sind Gleihgewichtsdrücke im Bereich von $\num{e-8}$-$\SI{e-9}{\milli\bar}$
+zu erreichen.
 
 \begin{figure}
   \centering
@@ -111,6 +121,27 @@ Der Rotor einer Molekularpumpe ist in Abbildung~\ref{fig: turbu} zu sehen.
 \end{figure}
 \FloatBarrier
 
+\subsubsection{Messgeräte}
+Zur Druckmessung werden im vorliegenden Versuch ein Ionisationsmannometer nach Bayard-Alpert und ein Penning Vakuummeter verwendet. Eine
+alggemeiner Übersicht zu anderen Messgeräten und ihren Einsatzberichen befindet sich in Abbildung \ref{fig: messgeräte}.
+
+Im Ionisationsmannometer werden Elektronen aus einer Glühkathode ausgelöst und mit einer Spannung zu einer Anode beschleunigt.
+Im Zwischenraum können sie die
+Gasmoleküle des Rezipientengases ionisieren. Ist nun die mittlere freie Weglänge der Elektronen klein gegenüber der
+Gesamtbeschleunigerstrecke (kleine Teilchenzahldichte respektive kleiner Druck) so besteht eine direkte Proportionalität
+zwischen Anzahl der Ionen und der Teilchendichte und damit ein Zusammenhang zwischen Ionenstrom und Gasdruck.
+
+Das Penning-Vakuummeter verwendet hohe Spannungen zwischen Kathode und Anode, sodass keine Glühemission benötigt wird.
+Um die Ionisationswahrscheinlichkeit der Gasmoleküle zwischen Kathode und Anode zu erhöhen werden die Elektronen
+durch ein Magnetfeld $B$ auf eine Spiralbahn gelenkt.
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.5\textwidth]{theorie_plots/einsatzbereich_messgeräte.png}
+  \caption{Einsatzbereiche der verschiedenen Druckmessgeräte in Abhängigkeit des Drucks $P$ \cite{dem1}.}
+  \label{fig: messgeräte}
+\end{figure}
+\FloatBarrier
 \subsection{Zeitlicher Verlauf des Drucks}
 Zur Herleitung eines Zusammenhangs für den zeitlichen Verlauf des Drucks $p(t)$, der durch eine Pumpe
 hervorgerufen wird, werden im Folgenden einige vereinfachende Annahmen getroffen. Zunächst soll das
