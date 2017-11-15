@@ -75,11 +75,15 @@ näher vorgestellt werden.
 
 Der Aufbau einer Drehschieberpumpe ist in Abbildung~\ref{fig: drehschieber} schematisch dargestellt. Innherhalb
 eines zylinderförmigen Hohlraumes dreht sich ein exzentrisch gelagerter Rotor $R_1$, an dem zwei mit Federn gelagerte
-Schieber befestigt sind. Diese haben ständig Kontakt mit der Zylinderwand und sorgen bei Rotation Systems dafür, dass
-Gas aus der Saugöffnung $S_1$ komprimiert zum Auslass $A_1$ transportiert wird. Hierdurch entsteht das gewünschte
+Schieber befestigt sind, die somit ständig Kontakt mit der Zylinderwand haben. Passiert nun der erste Schieber den
+Einlass $S_1$, so wird das Volumen des Rezipienten so lange vergrößert, bis der zweite Schieber $S_1$ passiert.
+Hierdurch kommt es zu einem Druckabfall \footnote{Gemäß der idealen Gasgleichung gilt für $T=const$: $p\propto 1/V$}.
+Entsprechend wird der Druck am Auslass $A_1$ durch den entgegengesetzten Prozess erhöht.
+Es entsteht das gewünschte
 Druckgefälle zwischen Saugöffnung und Auslass, das zur Evakuierung verwendet werden kann. Mit Drehschieberpumpen
-ist es möglich Gleichgewichtsdrücke im Bereich $\num{e-1}$-$\SI{e-3}{\milli\bar}$ zu erzeugen. Ein Nachteil des
-Systems liegt in der unvollkommenen Dichtung zwischen Schieber und Zylinderwand. Komplexere Drehschieberpumpen
+ist es möglich Enddrücke im Bereich $\num{e-1}$-$\SI{e-3}{\milli\bar}$ zu erzeugen. Ein Nachteil des
+Systems liegt in der Unvollkommenheit der Dichtung zwischen Schieber und Zylinderwand, die mit steigendem
+Druckgradienten stärker wird. Komplexere Drehschieberpumpen
 erreichen bessere Resultate durch mehrstufige Pumpvorgänge, die einen Druckverlust
 zwischen Auslass und Saugöffnung minimieren.
 
@@ -87,13 +91,14 @@ Der Rotor einer Turbomolekularpumpe ist in Abbildung~\ref{fig: turbu} zu sehen. 
 alternierenden Abfolge von sich drehenden Rotoren und fest montierten Statoren. Die Pumpe nutzt aus, dass die
 Desorbtion von Molekülen durch die Bewegung einer Oberfläche im Mittel einen Richtungstrend aufweist. Die Rotorblätter
 sind gekippt angebracht. Wird nun ein Gasmolekül von der Rotoroberfläche adsorbiert, so verlässt es die Oberfläche
-nach einer gewissen Verweildauer mit einer durch den Rotor erzeugten Geschwindigkeitkomponente nach schäg unten. Hier
+nach einer gewissen Verweildauer mit einer durch den Rotor erzeugten Geschwindigkeitkomponente nach schräg unten. Hier
 wird es von einem Stator aufgefangen und gelangt somit in einen weiter unten gelegenen Rotoreinfangbereich.
 Hierdurh entsteht eine Molekularströmung, mit der ein Vakuum erzeugt werden kann. Voraussetzung für den beschriebenen
 Effekt ist, dass sich der Rotor so schnell dreht, dass die Moleküle nur an einer Seite der Rotorblätter haften können.
 Die hohen Zentrifugalbeschleunigungen erfordern die Verwendung von leichten und gleichzeitig robusten Materialien, wie z.B.
-Titan-Aluminium-Legierungen. Mit Turbomolekularpumpen sind Gleihgewichtsdrücke im Bereich von $\num{e-8}$-$\SI{e-9}{\milli\bar}$
-zu erreichen.
+Titan-Aluminium-Legierungen. Mit Turbomolekularpumpen sind Enddrücke im Bereich von $\num{e-8}$-$\SI{e-9}{\milli\bar}$
+zu erreichen. Aufgrund von zu hohen Reibungsverlusten ist der Einsatz von Turbomolekularpumpen erst im Feinvakuum
+sinnvoll. Daher wird im Versuch eine Drehschieberpumpe zur Erzeugung eines Vorvakuums verwendet.
 
 \begin{figure}
   \centering
@@ -122,8 +127,8 @@ zu erreichen.
 \FloatBarrier
 
 \subsubsection{Messgeräte}
-Zur Druckmessung werden im vorliegenden Versuch ein Ionisationsmannometer nach Bayard-Alpert und ein Penning Vakuummeter verwendet. Eine
-alggemeiner Übersicht zu anderen Messgeräten und ihren Einsatzberichen befindet sich in Abbildung \ref{fig: messgeräte}.
+Zur Druckmessung werden im vorliegenden Versuch ein Ionisationsmannometer nach Bayard-Alpert und ein Perini Vakuummeter verwendet. Eine
+alggemeiner Übersicht zu anderen Messgeräten und ihren Einsatzberichen befindet sich in Abbildung~\ref{fig: messgeräte}.
 
 Im Ionisationsmannometer werden Elektronen aus einer Glühkathode ausgelöst und mit einer Spannung zu einer Anode beschleunigt.
 Im Zwischenraum können sie die
@@ -164,16 +169,16 @@ Die zeitliche Änderung des Volumens wird als Saugvermögen $S$ der Pumpe angeno
   \dot{p} = - \frac{S}{V}\, p,
 \end{equation}
 die durch Separation der Variablen gelöst werden kann. Zur Zeit $t = 0$ soll der Druck einen Wert $p_0$ haben und für große
-Zeiten soll die Funktion gegen einen Grenzwert $p\ua{G} > 0$ laufen. Letzteres wird durch eine Inhomogenität in der DGL berücksichtigt
+Zeiten soll die Funktion gegen Endwert $p\ua{E} > 0$ laufen. Letzteres wird durch eine Inhomogenität in der DGL berücksichtigt
 \begin{equation}
-  \dot{p}(t) = - \frac{S}{V} \left(p(t) + p\ua{G}\right).
+  \dot{p}(t) = - \frac{S}{V} \left(p(t) - p\ua{E}\right).
 \end{equation}
 Hieraus ergibt sich schließlich
 \begin{equation}
-  p(t) = (p_0 - p\ua{G})\exp\left(- \frac{S}{V} t \right) + p\ua{G}.
+  p(t) = (p_0 - p\ua{E})\exp\left(- \frac{S}{V} t \right) + p\ua{E}.
   \label{eq: evakuierungskurve}
 \end{equation}
-Der Grenzwert $p\ua{G}$ tritt auf, da eine reale Apparatur nicht ideal abgedichtet werden kann.
+Der Endwert $p\ua{E}$ tritt auf, da eine reale Apparatur nicht ideal abgedichtet werden kann.
 Eine grafische Darstellung des theoretischen Druckverlaufs $p(t)$ befindet sich in Abbildung~\ref{fig: theo_p_t}.
 Über eine Untersuchung von $p(t)$, kann das Saugvermögen mittels
 linearer Regression bestimmt werden
@@ -197,7 +202,7 @@ die Definition einer \emph{Leckrate} $Q$ nahe legt
 \begin{equation}
   Q = V \frac{\dif{}}{\dif{t}} p.
 \end{equation}
-Der Gleichgewichtsdruck stellt sich ein, wenn Leckrate und Saugleistung einander ausgleichen
+Ein Gleichgewichtsdruck $p\ua{G}$ stellt sich ein, wenn Leckrate und Saugleistung einander ausgleichen
 \begin{equation}
   p\ua{G} S\ua{eff} =  V \frac{\dif{}}{\dif{t}} p \, \Leftrightarrow \,
   S\ua{eff} =  \frac{V}{p\ua{G}} \frac{\dif{}}{\dif{t}} p.
