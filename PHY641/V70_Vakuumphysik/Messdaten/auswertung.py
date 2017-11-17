@@ -130,12 +130,12 @@ plt.legend()
 plt.savefig('./plots/dreh/druckplot_drehschieber.pdf')
 
 # Tabelle für die Druckkurve mit den Fitgeraden
-l.Latexdocument('./table/dreh/druck_messdaten.tex').tabular(
-data = [p_druck, lograritmierter_druck,t_ddruck_1, t_ddruck_2, t_ddruck3, t_ddruck4, t_ddruck5, zeiten_dreh_druck_gemittelt], #Data incl. unpuarray
-header = ['p(t) / \milli\bar', '\ln( \frac{p(t)-p_{\mathrm{g}} }{p_0-p_{\mathrm{g}}}', 't_1 / \second', 't_2 / \second',  't_3 / \second',  't_4 / \second',  't_5 / \second', '\overline{t} / \second'],
-places = [1, (1.1, 1.1), 1, 1, 1, 1, 1, (1.1, 1.1)],
-caption = 'Für die Bestimmung des Saugvermögens $S$ der Drehschieberpumpe gemessene Drücke. Die Messung wurde bei Raumtemperatur durchgeführt. Es ist $p_{\mathrm{g}}=\SI{1e-2\pm 2e-4}{\milli\bar}$ der Enddruck und  $p_{\mathrm{g}}=\SI{1e3}{\milli\bar}$',
-label = 'druck_dreh')
+#l.Latexdocument('./table/dreh/druck_messdaten.tex').tabular(
+#data = [p_druck, lograritmierter_druck, t_ddruck_1, t_ddruck_2, t_ddruck3, t_ddruck4, t_ddruck5, zeiten_dreh_druck_gemittelt], #Data incl. unpuarray
+#header = ['p(t) / \milli\bar', '\ln( \frac{p(t)-p_{\mathrm{g}} }{p_0-p_{\mathrm{g}}}', 't_1 / \second', 't_2 / \second',  't_3 / \second',  't_4 / \second',  't_5 / \second', '\overline{t} / \second'],
+#places = [1, (1.1, 1.1), 1, 1, 1, 1, 1, (1.1, 1.1)],
+#caption = 'Für die Bestimmung des Saugvermögens $S$ der Drehschieberpumpe gemessene Drücke. Die Messung wurde bei Raumtemperatur durchgeführt. Es ist $p_{\mathrm{g}}=\SI{1e-2\pm 2e-4}{\milli\bar}$ der Enddruck und  $p_{\mathrm{g}}=\SI{1e3}{\milli\bar}$',
+#label = 'druck_dreh')
 
 ## Leckkurve
 
@@ -143,12 +143,6 @@ label = 'druck_dreh')
 
 p_dreh_leck_1, t_1_dreh_leck_1, t_2_dreh_leck_2, t_1_dreh_leck_3 = np.genfromtxt('./messdaten/drehshieber/drehschieber_leck_1.txt',unpack=True)
 
-t_gemittel_dreh_leck_1=mittelwert_zeit_leck(t_1_dreh_leck_1,t_2_dreh_leck_2,t_1_dreh_leck_3)
-
-
-plt.clf()
-plt.plot(noms(t_gemittel_dreh_leck_1),p_dreh_leck_1,'.')
-#plt.show()
 
 def auswertung_leck(p, t_1, t_2, t_3,name):
     t_gemittelt=mittelwert_zeit_leck(t_1,t_2,t_3)
@@ -160,19 +154,21 @@ def auswertung_leck(p, t_1, t_2, t_3,name):
     b_u=ufloat(parms[1],error[1])
     print(' Steigung der Druckkurve für die Drehsch im Bereich ', p[0], 'ist: ',m_u )
     print(' y-Achsen der Druckkurve für die Drehsch im Bereich ', p[0], 'ist: ',b_u )
+    print('\n \n \n')
     messwerte['Steigung']=m_u
     messwerte['Achsenabschnitt']=b_u
 
     laufvariabele=np.linspace(noms(t_gemittelt[0])-1, noms(t_gemittelt[-1])+1,10000)
+    plt.clf()
     plt.grid()
     plt.errorbar(noms(t_gemittelt),p, xerr=stds(t_gemittelt), yerr=None,fmt='.',label='Messwerte')
     plt.plot(laufvariabele, noms(m_u)* laufvariabele+ noms(b_u), label='Regressionsgerade')
     plt.xlabel(r'$ t \, / \, s $')
     plt.ylabel(r'$ p \, / \, mbar $')
     plt.legend()
-    plt.savefig('./plots/dreh/leckrate_' + name +'_'+ str(p[0]) + '.pdf')
+    plt.savefig('./plots/'+ name + '/leckrate_' + name +'_'+ str(p[0]) + '.pdf')
 
-    l.Latexdocument('./table/'+name+'_tabelle.tex').tabular(
+    l.Latexdocument('./table/'+name+'/'+name+'_tabelle_' +str(p[0])+ '.tex').tabular(
     data = [p, t_1,t_2,t_3, t_gemittelt], #Data incl. unpuarray
     header = ['p / \milli\bar', 't_1 / \second', 't_2 / \second','t_3 / \second', '\overline{t} / \second'],
     places = [1, 1, 1, 1, (1.1, 1.1)],
@@ -183,11 +179,23 @@ def auswertung_leck(p, t_1, t_2, t_3,name):
 
 auswertung_leck(p_dreh_leck_1, t_1_dreh_leck_1, t_2_dreh_leck_2, t_1_dreh_leck_3,'dreh')
 
+# Auswertung der Leckkurve für p_0=0.8mbar
 
+p_dreh_leck_2, t_1_dreh_leck_2, t_2_dreh_leck_2, t_1_dreh_leck_2 = np.genfromtxt('./messdaten/drehshieber/drehschieber_leck_0.8.txt',unpack=True)
 
+auswertung_leck(p_dreh_leck_2, t_1_dreh_leck_2, t_2_dreh_leck_2, t_1_dreh_leck_2,'dreh')
 
+# Auswertung der Leckkurve für p_0=0.4mbar
 
+p_dreh_leck_3, t_1_dreh_leck_3, t_2_dreh_leck_3, t_1_dreh_leck_3 = np.genfromtxt('./messdaten/drehshieber/drehschieber_leck_0.4.txt',unpack=True)
 
+auswertung_leck(p_dreh_leck_3, t_1_dreh_leck_3, t_2_dreh_leck_3, t_1_dreh_leck_3,'dreh')
+
+# Auswertung der Leckkurve für p_0=0.1mbar /drehschieber
+
+p_dreh_leck_4, t_1_dreh_leck_4, t_2_dreh_leck_4, t_1_dreh_leck_4 = np.genfromtxt('./messdaten/drehshieber/drehschieber_leck_0.1.txt',unpack=True)
+
+auswertung_leck(p_dreh_leck_4, t_1_dreh_leck_4, t_2_dreh_leck_4, t_1_dreh_leck_4,'dreh')
 
 
 
@@ -199,3 +207,9 @@ auswertung_leck(p_dreh_leck_1, t_1_dreh_leck_1, t_2_dreh_leck_2, t_1_dreh_leck_3
 ## Druckkurve
 
 ## Leckkurve
+
+# Auswertung der Leckkurve für p_0=1e-4mbar
+
+p_turbo_leck_1, t_1_dreh_leck_1, t_2_dreh_leck_1, t_1_dreh_leck_1 = np.genfromtxt('./messdaten/turbo/turbo_leck_1e-04.txt',unpack=True)
+
+auswertung_leck(p_dreh_leck_4, t_1_dreh_leck_4, t_2_dreh_leck_4, t_1_dreh_leck_4,'turbo')
