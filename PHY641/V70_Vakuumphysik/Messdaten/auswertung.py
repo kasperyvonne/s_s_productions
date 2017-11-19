@@ -62,12 +62,26 @@ def mittelwert_zeit_leck(t_1,t_2,t_3): ## Funktion um die Zeitmittelwerte der Me
 
     return unp.uarray(mittel,fehler)
 
-
 def g(m,x,b):
     return m*x+b
 
+def saufkraft_leck(p_g,V,m):
+    return p_0/V *m
+
+def saukraft_druck(m,V):
+    return -m*V
+
+### Volumenbestimmung
+## Volumen Drehschieber
+
+print('-----------------------------------------------------------------')
+print(' Volumen Drehschieber \n-----------------------------------------------------------------\n')
 
 
+## Volumen Turbo
+
+print('-----------------------------------------------------------------')
+print('Volumen Turbo \n-----------------------------------------------------------------\n')
 
 
 ###  Drehschieber
@@ -132,11 +146,23 @@ plt.savefig('./plots/dreh/druckplot_drehschieber.pdf')
 
 # Tabelle für die Druckkurve mit den Fitgeraden
 #l.Latexdocument('./table/dreh/druck_messdaten.tex').tabular(
-#data = [p_druck, lograritmierter_druck, t_ddruck_1, t_ddruck_2, t_ddruck3, t_ddruck4, t_ddruck5, zeiten_dreh_druck_gemittelt], #Data incl. unpuarray
+#data = [preasure_druck, lograritmierter_druck, t_ddruck_1, t_ddruck_2, t_ddruck3, t_ddruck4, t_ddruck5, zeiten_dreh_druck_gemittelt], #Data incl. unpuarray
 #header = ['p(t) / \milli\bar', '\ln( \frac{p(t)-p_{\mathrm{g}} }{p_0-p_{\mathrm{g}}}', 't_1 / \second', 't_2 / \second',  't_3 / \second',  't_4 / \second',  't_5 / \second', '\overline{t} / \second'],
-#places = [1, (1.1, 1.1), 1, 1, 1, 1, 1, (1.1, 1.1)],
+#places = [(1.1,1.1), (1.1, 1.1), 1, 1, 1, 1, 1, (1.1, 1.1)],
 #caption = 'Für die Bestimmung des Saugvermögens $S$ der Drehschieberpumpe gemessene Drücke. Die Messung wurde bei Raumtemperatur durchgeführt. Es ist $p_{\mathrm{g}}=\SI{1e-2\pm 2e-4}{\milli\bar}$ der Enddruck und  $p_{\mathrm{g}}=\SI{1e3}{\milli\bar}$',
 #label = 'druck_dreh')
+
+
+
+print(type(lograritmierter_druck), type(preasure_druck), type(zeiten_dreh_druck_gemittelt))
+l.Latexdocument('latex_example.tex').tabular(
+data = [preasure_druck,lograritmierter_druck,zeiten_dreh_druck_gemittelt], #Data incl. unpuarray
+header = ['\Delta Q / \giga\elementarycharge', 'T_1 / \micro\second', 'T_1 / \micro\second'],
+places = [(1.1,1.1),(1.1,1.1),(1.1,1.1)],
+caption = 'Für die Bestimmung des Saugvermögens $S$ der Drehschieberpumpe gemessene Drücke. Die Messung wurde bei Raumtemperatur durchgeführt. Es ist $p_{\mathrm{g}}=\SI{1e-2\pm 2e-4}{\milli\bar}$ der Enddruck und  $p_{\mathrm{g}}=\SI{1e3}{\milli\bar}$',
+label = 'testlabel')
+
+
 
 ## Leckkurve
 
@@ -212,52 +238,75 @@ print('Ab hier Auswertung für die Tubopumpe \n---------------------------------
 
 ## Druckkurve
 
-enddruck_turbo=ufloat(2e-6, 2e-6*0.2)
+enddruck_turbo=ufloat(2e-6, 2e-6*0.1)
 
 
 p_druck_turbo, t_tdruck_1, t_tdruck_2, t_tdruck3, t_tdruck4, t_tdruck5 = np.genfromtxt('./messdaten/turbo/turbo_druck.txt', unpack=True)
 
-preasure_druck_turbo=unp.uarray(p_druck_turbo,p_druck_turbo*0.4)
+preasure_druck_turbo=unp.uarray(p_druck_turbo,p_druck_turbo*0.1)
 
-zeiten_dreh_druck_gemittelt_turbo=mittelwert_zeit( t_tdruck_1, t_tdruck_2, t_tdruck3, t_tdruck4, t_tdruck5)
+zeiten_druck_gemittelt_turbo=mittelwert_zeit( t_tdruck_1, t_tdruck_2, t_tdruck3, t_tdruck4, t_tdruck5)
 
 lograritmierter_druck_turbo=unp.log( (preasure_druck_turbo-enddruck_turbo )/ (preasure_druck_turbo[0]-enddruck_turbo))
-print(len(noms(preasure_druck_turbo)), len(noms(zeiten_dreh_druck_gemittelt_turbo)))
+print(len(noms(preasure_druck_turbo)), len(noms(zeiten_druck_gemittelt_turbo)))
 
 plt.clf()
-plt.errorbar(noms(zeiten_dreh_druck_gemittelt_turbo), noms(lograritmierter_druck_turbo),xerr=stds(zeiten_dreh_druck_gemittelt_turbo), yerr=stds(preasure_druck_turbo),fmt='.')
-#plt.errorbar(noms(zeiten_dreh_druck_gemittelt_turbo[:-2]), noms(lograritmierter_druck_turbo[:-2]),xerr=stds(zeiten_dreh_druck_gemittelt_turbo[:-2]), yerr=stds(preasure_druck_turbo[:-2]),fmt='.')
-
-#plt.plot(noms(zeiten_dreh_druck_gemittelt_turbo),noms(preasure_druck_turbo),'.')
-plt.show()
+plt.errorbar(noms(zeiten_druck_gemittelt_turbo), noms(lograritmierter_druck_turbo),xerr=stds(zeiten_druck_gemittelt_turbo), yerr=stds(preasure_druck_turbo),fmt='.')
+#plt.show()
 
 ## zeibereiche 1: [0:7, 2:[6:11], 3:[10:-1]
 
-parms_druck_schiber_1_turbo, cov_druck_schieber_1_turbo= curve_fit(g,noms(zeiten_dreh_druck_gemittelt_turbo[0:7]), noms(lograritmierter_druck_turbo[0:7]) )
-error_druck_schieber_1_turbo= np.sqrt(np.diag(cov_druck_schieber_1_turbo))
-m_u_druck_schieber_1_turbo=ufloat(parms_druck_schiber_1_turbo[0],error_druck_schieber_1_turbo[0])
-b_u_druck_schieber_1_turbo=ufloat(parms_druck_schiber_1_turbo[1],error_druck_schieber_1_turbo[1])
-print(' Steigung der Druckkurve für die Drehsch im Bereich 1', m_u_druck_schieber_1_turbo)
-print(' y-Achsen der Druckkurve für die Drehsch im Bereich 1', b_u_druck_schieber_1_turbo)
+parms_druck_turbo_1, cov_druck_turbo_1= curve_fit(g,noms(zeiten_druck_gemittelt_turbo[0:7]), noms(lograritmierter_druck_turbo[0:7]) )
+error_druck_turbo_1= np.sqrt(np.diag(cov_druck_turbo_1))
+m_u_druck_turbo_1=ufloat(parms_druck_turbo_1[0],error_druck_turbo_1[0])
+b_u_druck_turbo_1=ufloat(parms_druck_turbo_1[1],error_druck_turbo_1[1])
+print(' Steigung der Druckkurve für die Drehsch im Bereich 1', m_u_druck_turbo_1)
+print(' y-Achsen der Druckkurve für die Drehsch im Bereich 1', b_u_druck_turbo_1)
 print('\n')
 # Geradenfit Bereich 2
-parms_druck_schiber_2_turbo, cov_druck_schieber_2_turbo = curve_fit(g,noms(zeiten_dreh_druck_gemittelt_turbo[6:11]), noms(lograritmierter_druck_turbo[6:11]) )
-error_druck_schieber_2_turbo= np.sqrt(np.diag(cov_druck_schieber_2_turbo))
-m_u_druck_schieber_2_turbo=ufloat(parms_druck_schiber_2_turbo[0],error_druck_schieber_2_turbo[0])
-b_u_druck_schieber_2_turbo=ufloat(parms_druck_schiber_2[1],error_druck_schieber_2[1])
-print(' Steigung der Druckkurve für die Drehsch im Bereich 2', m_u_druck_schieber_2)
-print(' y-Achsen der Druckkurve für die Drehsch im Bereich 2', b_u_druck_schieber_2)
+parms_druck_turbo_2, cov_druck_turbo_2 = curve_fit(g,noms(zeiten_druck_gemittelt_turbo[6:11]), noms(lograritmierter_druck_turbo[6:11]) )
+error_druck_turbo_2= np.sqrt(np.diag(cov_druck_turbo_2))
+m_u_druck_turbo_2=ufloat(parms_druck_turbo_2[0],error_druck_turbo_2[0])
+b_u_druck_turbo_2=ufloat(parms_druck_turbo_2[1],error_druck_schieber_2[1])
+print(' Steigung der Druckkurve für die Drehsch im Bereich 2', m_u_druck_turbo_2)
+print(' y-Achsen der Druckkurve für die Drehsch im Bereich 2', b_u_druck_turbo_2)
 print(' \n')
 # Geradenfit Bereich 3
-parms_druck_schiber_3, cov_druck_schieber_3 = curve_fit(g,noms(zeiten_dreh_druck_gemittelt[12:15]), noms(lograritmierter_druck[12:15]) )
-error_druck_schieber_3= np.sqrt(np.diag(cov_druck_schieber_3))
-m_u_druck_schieber_3=ufloat(parms_druck_schiber_3[0],error_druck_schieber_3[0])
-b_u_druck_schieber_3=ufloat(parms_druck_schiber_3[1],error_druck_schieber_3[1])
-print(' Steigung der Druckkurve für die Drehsch im Bereich 3', m_u_druck_schieber_3)
-print(' y-Achsen der Druckkurve für die Drehsch im Bereich 3', b_u_druck_schieber_3)
+parms_druck_turbo_3, cov_druck_turbo_3 = curve_fit(g,noms(zeiten_druck_gemittelt_turbo[-3:14]), noms(lograritmierter_druck_turbo[-3:14]) )
+error_druck_turbo_3= np.sqrt(np.diag(cov_druck_turbo_3))
+m_u_druck_turbo_3=ufloat(parms_druck_turbo_3[0],error_druck_turbo_3[0])
+b_u_druck_turbo_3=ufloat(parms_druck_turbo_3[1],error_druck_turbo_3[1])
+print(' Steigung der Druckkurve für die Drehsch im Bereich 3', m_u_druck_turbo_3)
+print(' y-Achsen der Druckkurve für die Drehsch im Bereich 3', b_u_druck_turbo_3)
 print('\n \n \n')
 
+t_1=np.linspace(noms(zeiten_druck_gemittelt_turbo[0])-1,noms(zeiten_druck_gemittelt_turbo[6]+1/2),1000)
+t_2=np.linspace(noms(zeiten_druck_gemittelt_turbo[6])-1,noms(zeiten_druck_gemittelt_turbo[10]+1),1000)
+t_3=np.linspace(noms(zeiten_druck_gemittelt_turbo[-3])-1,noms(zeiten_druck_gemittelt_turbo[-1]+1),1000)
 
+plt.clf()
+plt.grid()
+plt.errorbar(noms(zeiten_druck_gemittelt_turbo),noms(lograritmierter_druck_turbo), xerr=stds(zeiten_druck_gemittelt_turbo), yerr=stds(lograritmierter_druck_turbo),fmt='.',label='Messwerte')
+plt.plot(t_1, noms(m_u_druck_turbo_1)* t_1+ noms(b_u_druck_turbo_1), label='Regressionsgerade 1')
+plt.plot(t_2, noms(m_u_druck_turbo_2)* t_2+ noms(b_u_druck_turbo_2), label='Regressionsgerade 2')
+plt.plot(t_3, noms(m_u_druck_turbo_3)* t_3+ noms(b_u_druck_turbo_3), label='Regressionsgerade 3')
+plt.xlabel(r'$ t \, / \, s $')
+plt.ylabel(r'$ \ln\left( \frac{ p(t)-p_{\mathrm{g}} }{p_0-p_{\mathrm{g}} } \right) $')
+plt.legend()
+#plt.show()
+plt.savefig('./plots/turbo/druckplot_turbo.pdf')
+
+plt.clf()
+plt.grid()
+plt.errorbar(noms(zeiten_druck_gemittelt_turbo[:-3]),noms(lograritmierter_druck_turbo[:-3]), xerr=stds(zeiten_druck_gemittelt_turbo[:-3]), yerr=stds(lograritmierter_druck_turbo[:-3]),fmt='.',label='Messwerte')
+plt.plot(t_1, noms(m_u_druck_turbo_1)* t_1+ noms(b_u_druck_turbo_1), label='Regressionsgerade 1')
+plt.plot(t_2, noms(m_u_druck_turbo_2)* t_2+ noms(b_u_druck_turbo_2), label='Regressionsgerade 2')
+#plt.plot(t_3, noms(m_u_druck_turbo_3)* t_3+ noms(b_u_druck_turbo_3), label='Regressionsgerade 3')
+plt.xlabel(r'$ t \, / \, s $')
+plt.ylabel(r'$ \ln\left( \frac{ p(t)-p_{\mathrm{g}} }{p_0-p_{\mathrm{g}} } \right) $')
+plt.legend()
+#plt.show()
+plt.savefig('./plots/turbo/druckplot_turbo_zoom.pdf')
 
 
 
