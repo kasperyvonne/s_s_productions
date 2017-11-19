@@ -71,19 +71,143 @@ def saufkraft_leck(p_g,V,m):
 def saukraft_druck(m,V):
     return -m*V
 
-### Volumenbestimmung
-## Volumen Drehschieber
+def volu(r,h):
+    return np.pi*r**2*h
+
+### Volumenbestimmung alle einheiten in m
+
+## Volumen von beiden
+print('-----------------------------------------------------------------')
+print(' Volumen beider Pumpen \n-----------------------------------------------------------------\n')
+#Volumen Tank
+r_t_1=ufloat(7.6e-2-3e-3,(3/2)*1e-3)
+h_t_1=ufloat(49.5e-2, 0.5e-3)
+v_t_1=volu(r_t_1,h_t_1)
+
+r_t_2=ufloat((1/2*38.15)*1e-3 - 3e-3,(3/2)*1e-3)
+h_t_2=ufloat(8.5e-2,(0.5)*1e-3)
+v_t_2=volu(r_t_2,h_t_2)
+
+r_t_3=ufloat((1/2*2.9)*1e-2-3e-3, (3/2)*1e-3)
+h_t_3=ufloat(6.1e-2, 0.5*1e-3)
+v_t_3=volu(r_t_3,h_t_3)
+
+v_t=v_t_1+v_t_2+v_t_3
+v_t*=1e3 # Umrechnung in Liter
+print('Volumen Tank: ',v_t,'\n')
+
+# Volumen Verbindung Tank
+r_vt=ufloat((1/2*61.9)*1e-3,0.5*1e-3)
+h_vt=ufloat(60.2e-3, (1/2)*1e-3)
+v_vt=volu(r_vt,h_vt)*1e3 # Umrechnung in liter
+print('Volumen Verbindung zum Tank: ',v_vt,'\n')
+
+#Volumen 2 Verbindung Tank
+
+r_v2t=ufloat((1/2*61.9)*1e-3,0.5*1e-3)
+h_v2t=ufloat(46.4e-3, (1/2)*1e-3)
+v_v2t=volu(r_v2t,h_v2t)*1e3 # Umrechnung in liter
+print('Volumen Verbindung zum Tank 2: ', v_v2t,'\n')
+
+#Volumen Kugelventil
+
+r_kv=ufloat((1/2*11.7)*1e-3,0.5*1e-3)
+h_kv=ufloat(74.6e-3, (1/2)*1e-3)
+v_kv=volu(r_kv,h_kv)*1e3 # Umrechnung in liter
+print('Volumen eines Kugelventils: ', v_kv,'\n')
+
+#Volumen Kreuzung beim Tank
+
+r_kbt_1=ufloat((1/2*39.2)*1e-3,0.5*1e-3)
+h_kbt_1=ufloat(130.2e-3, 0.5*1e-3)
+v_kbt_1=volu(r_kbt_1,h_kbt_1)
+
+r_kbt_2=ufloat((1/2*15.6)*1e-3,0.5*1e-3)
+h_kbt_2=ufloat((2*27.6)*1e-3,0.5*1e-3)
+v_kbt_2=volu(r_kbt_2,h_kbt_2)
+
+v_kbt=(v_kbt_1+v_kbt_2)*1e3 #Umrechnung in Liter
+print('Volumen der Kreuzung beim Tank: ', v_kbt, '\n')
+
+#Volumen Glühkathode
+r_gk_1=ufloat((1/2*39.2)*1e-3,0.5*1e-3)
+h_gk_1=ufloat(47.9e-3,0.5*1e-3)
+v_gk_1=volu(r_gk_1,h_gk_1)
+
+r_gk_2=ufloat((1/2*39)*1e-3,0.5*1e-3)
+h_gk_2=ufloat(164.8e-3,0.5*1e-3)
+v_gk_2=volu(r_gk_2,h_gk_2)
+v_gk=(v_gk_1+v_gk_2)*1e3 #Umrechnung in Liter
+
+print('Volumen der Glühkathode: ', v_gk, '\n')
+
+# Volumen Schlauch zur zweiten Kreuzung
+
+r_sk=ufloat((1/2*17)*1e-3,(0.5)*1e-3)
+h_sk=ufloat(43e-2,0.5*1e-3)
+v_sk=volu(r_sk,h_sk)*1e3
+
+print('Volumen Schlauch zur Kreuzung: ', v_sk, '\n')
+
+# Volumen Kreuzung zur Drehschieberpumpe
+
+r_dk=ufloat((1/2*12.3)*1e-3, (0.5)*1e-3)
+h_dk=ufloat( 2*80.3e-3, (0.5)*1e-3)
+v_dk=volu(r_dk,h_sk)*1e3 #Umrechnung in Liter
+
+print('Volumen des Kreuzungsstück zur Drehschieberpumpe: ', v_dk, '\n')
+
+# Volumen des T-Stücks zum Messgeräts
+
+r_tm=ufloat( (1/2*12.5)*1e-3, (0.5)*1e-3)
+h_tm=ufloat( 110e-3, (0.5)*1e-3)
+v_tm=volu(r_tm, h_tm)*1e3 #Umrechnung in Liter
+
+print(' Volumen vom T-Stück welches zum messgerät geht: ', v_tm, '\n')
+
+# Volumen Verbindungsstück zum Messgerät:
+
+r_vm=ufloat( (1/2*12.5)*1e-3, (0.5)*1e-3)
+h_vm=ufloat( 60e-3, (0.5)*1e-3)
+v_vm=volu( r_vm, h_vm)*1e3 #Umrechnung in Liter
+
+print(' Volumen des Verbindungsstück zum Messgerät', v_vm, '\n')
+
+# Zwischen Volumen mit zwei Kugelventielen
+v_zwischen= v_vm + v_tm + v_dk + v_sk + v_gk + v_kbt + 2*v_kv + v_v2t + v_vt + v_t
+
+print(v_zwischen)
+## Volumen Drehschieber ( zwei Kugelventile)
 
 print('-----------------------------------------------------------------')
-print(' Volumen Drehschieber \n-----------------------------------------------------------------\n')
+print(' spezifisches Volumen Drehschieber \n-----------------------------------------------------------------\n')
 
+# Volumen großer Schlauch
 
-## Volumen Turbo
+r_gs=ufloat( (1/2* 23.2)*1e-3, (1/2)*1e-3)
+h_gs=ufloat( 118e-2, (1/2)*1e-3)
+v_gs=volu(r_gs, h_gs)*1e3 #Umrechnung in Liter
+
+v_dreh= v_gs+v_zwischen
+
+print('Volumen des großen Schlauch (D): ', v_gs, '\n')
+print('Gesamtvolumen Drehschieber Methode: ',v_dreh, '\n')
+
+## Volumen Turbo ( drei Kugelventile)
 
 print('-----------------------------------------------------------------')
-print('Volumen Turbo \n-----------------------------------------------------------------\n')
+print('spezifisches Volumen Turbo \n-----------------------------------------------------------------\n')
 
+#Volumen Schlauch zwischen M-Pumpe und Kreuzung
+r_st=ufloat( (1/2*17)*1e-3, (1/2)*1e-3)
+h_st=ufloat( (21*1e-2), (1/2*1e-3))
+v_st=volu(r_st,h_st)*1e3 #Umrechnung in Liter
 
+v_turbo=v_st+v_kv+v_zwischen
+
+print('Volumen Schlauch zur M-Pumpe', v_st ,'\n')
+
+print('Volumen Turbopumpe: ', v_turbo, '\n')
 ###  Drehschieber
 #Konstanten
 enddruck=ufloat(1e-2, 1e-2*0.2)
@@ -94,7 +218,6 @@ p_druck, t_ddruck_1, t_ddruck_2, t_ddruck3, t_ddruck4, t_ddruck5 = np.genfromtxt
 preasure_druck=unp.uarray(p_druck,p_druck*0.2)
 
 zeiten_dreh_druck_gemittelt=mittelwert_zeit( t_ddruck_1, t_ddruck_2, t_ddruck3, t_ddruck4, t_ddruck5)
-
 lograritmierter_druck=unp.log( (preasure_druck-enddruck )/ (preasure_druck[0]-enddruck) )
 
 
@@ -144,24 +267,16 @@ plt.ylabel(r'$ \ln\left( \frac{ p(t)-p_{\mathrm{g}} }{p_0-p_{\mathrm{g}} } \righ
 plt.legend()
 plt.savefig('./plots/dreh/druckplot_drehschieber.pdf')
 
+test=unp.uarray( noms(lograritmierter_druck), stds(lograritmierter_druck)) # Umschreibung damit es kein Problem mit dem Datentyp gibt: AffineScalarFunc -> Variable
 # Tabelle für die Druckkurve mit den Fitgeraden
-#l.Latexdocument('./table/dreh/druck_messdaten.tex').tabular(
-#data = [preasure_druck, lograritmierter_druck, t_ddruck_1, t_ddruck_2, t_ddruck3, t_ddruck4, t_ddruck5, zeiten_dreh_druck_gemittelt], #Data incl. unpuarray
-#header = ['p(t) / \milli\bar', '\ln( \frac{p(t)-p_{\mathrm{g}} }{p_0-p_{\mathrm{g}}}', 't_1 / \second', 't_2 / \second',  't_3 / \second',  't_4 / \second',  't_5 / \second', '\overline{t} / \second'],
-#places = [(1.1,1.1), (1.1, 1.1), 1, 1, 1, 1, 1, (1.1, 1.1)],
-#caption = 'Für die Bestimmung des Saugvermögens $S$ der Drehschieberpumpe gemessene Drücke. Die Messung wurde bei Raumtemperatur durchgeführt. Es ist $p_{\mathrm{g}}=\SI{1e-2\pm 2e-4}{\milli\bar}$ der Enddruck und  $p_{\mathrm{g}}=\SI{1e3}{\milli\bar}$',
-#label = 'druck_dreh')
-
-
-
-print(type(lograritmierter_druck), type(preasure_druck), type(zeiten_dreh_druck_gemittelt))
-l.Latexdocument('latex_example.tex').tabular(
-data = [preasure_druck,lograritmierter_druck,zeiten_dreh_druck_gemittelt], #Data incl. unpuarray
-header = ['\Delta Q / \giga\elementarycharge', 'T_1 / \micro\second', 'T_1 / \micro\second'],
-places = [(1.1,1.1),(1.1,1.1),(1.1,1.1)],
+l.Latexdocument('./table/dreh/druck_messdaten.tex').tabular(
+data = [preasure_druck, test, t_ddruck_1, t_ddruck_2, t_ddruck3, t_ddruck4, t_ddruck5, zeiten_dreh_druck_gemittelt], #Data incl. unpuarray
+header = [r'p(t) / \milli\bar', r'\ln( \frac{p(t)-p_{\mathrm{g}} }{p_0-p_{\mathrm{g}}}', 't_1 / \second', 't_2 / \second',  't_3 / \second',  't_4 / \second',  't_5 / \second', '\overline{t} / \second'],
+places = [(1.1,1.1), (1.1, 1.1), 1, 1, 1, 1, 1, (1.1, 1.1)],
 caption = 'Für die Bestimmung des Saugvermögens $S$ der Drehschieberpumpe gemessene Drücke. Die Messung wurde bei Raumtemperatur durchgeführt. Es ist $p_{\mathrm{g}}=\SI{1e-2\pm 2e-4}{\milli\bar}$ der Enddruck und  $p_{\mathrm{g}}=\SI{1e3}{\milli\bar}$',
-label = 'testlabel')
+label = 'druck_dreh')
 
+print(type(lograritmierter_druck[0]), type(test[0]))
 
 
 ## Leckkurve
@@ -198,7 +313,7 @@ def auswertung_leck(p, t_1, t_2, t_3,name):
 
     l.Latexdocument('./table/'+name+'/'+name+'_tabelle_' +str(noms(p[0]))+ '.tex').tabular(
     data = [preasure, t_1,t_2,t_3, t_gemittelt], #Data incl. unpuarray
-    header = ['p / \milli\bar', 't_1 / \second', 't_2 / \second','t_3 / \second', '\overline{t} / \second'],
+    header = [r'p / \milli\bar', 't_1 / \second', 't_2 / \second','t_3 / \second', '\overline{t} / \second'],
     places = [(1.1,1.1), 1, 1, 1, (1.1, 1.1)],
     caption = 'Gemessene Drücke bei der Leckkratenmethode für die Drehschieberpumpe mit $p_{\mathrm{l}}=' +str(p[0]) +'$. Messung bei Raumtemperatur.',
     label = 'leck_' + name + '_leck_'+ str(noms(p[0])) + '.pdf' )
@@ -248,11 +363,7 @@ preasure_druck_turbo=unp.uarray(p_druck_turbo,p_druck_turbo*0.1)
 zeiten_druck_gemittelt_turbo=mittelwert_zeit( t_tdruck_1, t_tdruck_2, t_tdruck3, t_tdruck4, t_tdruck5)
 
 lograritmierter_druck_turbo=unp.log( (preasure_druck_turbo-enddruck_turbo )/ (preasure_druck_turbo[0]-enddruck_turbo))
-print(len(noms(preasure_druck_turbo)), len(noms(zeiten_druck_gemittelt_turbo)))
 
-plt.clf()
-plt.errorbar(noms(zeiten_druck_gemittelt_turbo), noms(lograritmierter_druck_turbo),xerr=stds(zeiten_druck_gemittelt_turbo), yerr=stds(preasure_druck_turbo),fmt='.')
-#plt.show()
 
 ## zeibereiche 1: [0:7, 2:[6:11], 3:[10:-1]
 
@@ -308,6 +419,13 @@ plt.legend()
 #plt.show()
 plt.savefig('./plots/turbo/druckplot_turbo_zoom.pdf')
 
+test=unp.uarray( noms(lograritmierter_druck_turbo), stds(lograritmierter_druck_turbo)) # Umschreibung damit es kein Problem mit dem Datentyp gibt: AffineScalarFunc -> Variable
+l.Latexdocument('./table/turbo/druck_messdaten.tex').tabular(
+data = [preasure_druck_turbo, test, t_tdruck_1, t_tdruck_2, t_tdruck3, t_tdruck4, t_tdruck5, zeiten_druck_gemittelt_turbo], #Data incl. unpuarray
+header = [r'p(t) / \bar', r'\ln( \frac{p(t)-p_{\mathrm{g}} }{p_0-p_{\mathrm{g}}}', 't_1 / \second', 't_2 / \second',  't_3 / \second',  't_4 / \second',  't_5 / \second', '\overline{t} / \second'],
+places = [(1.1,1.1), (1.1, 1.1), 1, 1, 1, 1, 1, (1.1, 1.1)],
+caption = 'Für die Bestimmung des Saugvermögens $S$ der Turbopumpe gemessene Drücke. Die Messung wurde bei Raumtemperatur durchgeführt. Es ist $p_{\mathrm{g}}=\SI{2e-6\pm 2e-7}{\milli\bar}$ der Enddruck und  $p_{\mathrm{g}}=\SI{1e-2}{\milli\bar}$',
+label = 'druck_turbo')
 
 
 
