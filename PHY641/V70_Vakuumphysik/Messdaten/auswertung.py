@@ -65,8 +65,8 @@ def mittelwert_zeit_leck(t_1,t_2,t_3): ## Funktion um die Zeitmittelwerte der Me
 def g(m,x,b):
     return m*x+b
 
-def saufkraft_leck(p_g,V,m):
-    return p_0/V *m
+def saugkraft_leck(p_g,V,m):
+    return V/p_g *m
 
 def saukraft_druck(m,V):
     return -m*V
@@ -217,6 +217,7 @@ p_druck, t_ddruck_1, t_ddruck_2, t_ddruck3, t_ddruck4, t_ddruck5 = np.genfromtxt
 
 preasure_druck=unp.uarray(p_druck,p_druck*0.2)
 
+
 zeiten_dreh_druck_gemittelt=mittelwert_zeit( t_ddruck_1, t_ddruck_2, t_ddruck3, t_ddruck4, t_ddruck5)
 lograritmierter_druck=unp.log( (preasure_druck-enddruck )/ (preasure_druck[0]-enddruck) )
 
@@ -234,6 +235,7 @@ b_u_druck_schieber_1=ufloat(parms_druck_schiber_1[1],error_druck_schieber_1[1])
 print(' Steigung der Druckkurve für die Drehsch im Bereich 1', m_u_druck_schieber_1)
 print(' y-Achsen der Druckkurve für die Drehsch im Bereich 1', b_u_druck_schieber_1)
 print('\n')
+
 # Geradenfit Bereich 2
 parms_druck_schiber_2, cov_druck_schieber_2 = curve_fit(g,noms(zeiten_dreh_druck_gemittelt[4:12]), noms(lograritmierter_druck[4:12]) )
 error_druck_schieber_2= np.sqrt(np.diag(cov_druck_schieber_2))
@@ -242,6 +244,7 @@ b_u_druck_schieber_2=ufloat(parms_druck_schiber_2[1],error_druck_schieber_2[1])
 print(' Steigung der Druckkurve für die Drehsch im Bereich 2', m_u_druck_schieber_2)
 print(' y-Achsen der Druckkurve für die Drehsch im Bereich 2', b_u_druck_schieber_2)
 print(' \n')
+
 # Geradenfit Bereich 3
 parms_druck_schiber_3, cov_druck_schieber_3 = curve_fit(g,noms(zeiten_dreh_druck_gemittelt[12:15]), noms(lograritmierter_druck[12:15]) )
 error_druck_schieber_3= np.sqrt(np.diag(cov_druck_schieber_3))
@@ -276,14 +279,28 @@ places = [(1.1,1.1), (1.1, 1.1), 1, 1, 1, 1, 1, (1.1, 1.1)],
 caption = 'Für die Bestimmung des Saugvermögens $S$ der Drehschieberpumpe gemessene Drücke. Die Messung wurde bei Raumtemperatur durchgeführt. Es ist $p_{\mathrm{g}}=\SI{1e-2\pm 2e-4}{\milli\bar}$ der Enddruck und  $p_{\mathrm{g}}=\SI{1e3}{\milli\bar}$',
 label = 'druck_dreh')
 
-print(type(lograritmierter_druck[0]), type(test[0]))
+
+#Bestimmung der Saugkraft
+
+
+print('-----------------------------------------------------------------')
+print(' Auswertung Drehschieber Saugvermögen aus der Druckkurve \n-----------------------------------------------------------------\n')
+
+saug_dreh_1=saukraft_druck(m_u_druck_schieber_1,v_dreh)
+print('Saugvermögen Bereich 1: ', saug_dreh_1,'\n')
+
+saug_dreh_2=saukraft_druck(m_u_druck_schieber_2,v_dreh)
+print('Saugvermögen Bereich 2: ', saug_dreh_2,'\n')
+
+saug_dreh_3=saukraft_druck(m_u_druck_schieber_3,v_dreh)
+print('Saugvermögen Bereich 3: ', saug_dreh_3,'\n')
 
 
 ## Leckkurve
 
 #Leckkurve für den druck 1mbar
 
-p_dreh_leck_1, t_1_dreh_leck_1, t_2_dreh_leck_2, t_1_dreh_leck_3 = np.genfromtxt('./messdaten/drehshieber/drehschieber_leck_1.txt',unpack=True)
+
 
 
 def auswertung_leck(p, t_1, t_2, t_3,name):
@@ -320,28 +337,77 @@ def auswertung_leck(p, t_1, t_2, t_3,name):
 
     return messwerte
 
-auswertung_leck(p_dreh_leck_1, t_1_dreh_leck_1, t_2_dreh_leck_2, t_1_dreh_leck_3,'dreh')
 
 print('-----------------------------------------------------------------')
 print('Auswertug Drehschieber Leckkratenmessung\n-----------------------------------------------------------------\n')
 
-# Auswertung der Leckkurve für p_0=0.8mbar
-
-p_dreh_leck_2, t_1_dreh_leck_2, t_2_dreh_leck_2, t_1_dreh_leck_2 = np.genfromtxt('./messdaten/drehshieber/drehschieber_leck_0.8.txt',unpack=True)
-
-auswertung_leck(p_dreh_leck_2, t_1_dreh_leck_2, t_2_dreh_leck_2, t_1_dreh_leck_2,'dreh')
-
+p_dreh_leck_1, t_1_dreh_leck_1, t_2_dreh_leck_2, t_1_dreh_leck_3 = np.genfromtxt('./messdaten/drehshieber/drehschieber_leck_0.1.txt',unpack=True)
+leck_1=auswertung_leck(p_dreh_leck_1, t_1_dreh_leck_1, t_2_dreh_leck_2, t_1_dreh_leck_3,'dreh')
 # Auswertung der Leckkurve für p_0=0.4mbar
 
-p_dreh_leck_3, t_1_dreh_leck_3, t_2_dreh_leck_3, t_1_dreh_leck_3 = np.genfromtxt('./messdaten/drehshieber/drehschieber_leck_0.4.txt',unpack=True)
+p_dreh_leck_2, t_1_dreh_leck_2, t_2_dreh_leck_2, t_1_dreh_leck_2 = np.genfromtxt('./messdaten/drehshieber/drehschieber_leck_0.4.txt',unpack=True)
+leck_2=auswertung_leck(p_dreh_leck_2, t_1_dreh_leck_2, t_2_dreh_leck_2, t_1_dreh_leck_2,'dreh')
 
-auswertung_leck(p_dreh_leck_3, t_1_dreh_leck_3, t_2_dreh_leck_3, t_1_dreh_leck_3,'dreh')
+# Auswertung der Leckkurve für p_0=0.8
 
-# Auswertung der Leckkurve für p_0=0.1mbar /drehschieber
+p_dreh_leck_3, t_1_dreh_leck_3, t_2_dreh_leck_3, t_1_dreh_leck_3 = np.genfromtxt('./messdaten/drehshieber/drehschieber_leck_0.8.txt',unpack=True)
 
-p_dreh_leck_4, t_1_dreh_leck_4, t_2_dreh_leck_4, t_1_dreh_leck_4 = np.genfromtxt('./messdaten/drehshieber/drehschieber_leck_0.1.txt',unpack=True)
+leck_3=auswertung_leck(p_dreh_leck_3, t_1_dreh_leck_3, t_2_dreh_leck_3, t_1_dreh_leck_3,'dreh')
 
-auswertung_leck(p_dreh_leck_4, t_1_dreh_leck_4, t_2_dreh_leck_4, t_1_dreh_leck_4,'dreh')
+# Auswertung der Leckkurve für p_0=1mbar /drehschieber
+
+p_dreh_leck_4, t_1_dreh_leck_4, t_2_dreh_leck_4, t_1_dreh_leck_4 = np.genfromtxt('./messdaten/drehshieber/drehschieber_leck_1.txt',unpack=True)
+
+leck_4=auswertung_leck(p_dreh_leck_4, t_1_dreh_leck_4, t_2_dreh_leck_4, t_1_dreh_leck_4,'dreh')
+
+
+print('-----------------------------------------------------------------')
+print(' Auswertung Drehschieber Saugvermögen aus der Leckkurve\n-----------------------------------------------------------------\n')
+
+
+saug_dreh_leck_1=saugkraft_leck(ufloat(p_dreh_leck_1[0], 0.2*p_dreh_leck_1[0]),v_dreh, leck_1['Steigung'])
+print('Saugvermögen Leck 1: ', saug_dreh_leck_1,'\n', 'Gleichgewichtsdruck: ', p_dreh_leck_1[0] ,'\n')
+
+saug_dreh_leck_2=saugkraft_leck(ufloat(p_dreh_leck_2[0], 0.2*p_dreh_leck_2[0]),v_dreh, leck_2['Steigung'])
+print('Saugvermögen Leck 2: ', saug_dreh_leck_2,'\n', 'Gleichgewichtsdruck: ', p_dreh_leck_2[0] ,'\n')
+
+saug_dreh_leck_3=saugkraft_leck(ufloat(p_dreh_leck_3[0], 0.2*p_dreh_leck_3[0]),v_dreh, leck_3['Steigung'])
+print('Saugvermögen Leck 3: ', saug_dreh_leck_3,'\n', 'Gleichgewichtsdruck: ', p_dreh_leck_3[0] ,'\n')
+
+saug_dreh_leck_4=saugkraft_leck(ufloat(p_dreh_leck_4[0], 0.2*p_dreh_leck_4[0]),v_dreh, leck_4['Steigung'])
+print('Saugvermögen Leck 4: ', saug_dreh_leck_4,'\n', 'Gleichgewichtsdruck: ', p_dreh_leck_4[0] ,'\n')
+
+
+# Plot der Saugvermögen Leck und Durck zusammen
+
+plt.clf()
+druckbereich_1_dreh=[p_druck[1],p_druck[4]]
+druckbereich_2_dreh=[p_druck[4],p_druck[12]]
+druckbereich_3_dreh=p_druck[12:15]
+
+saug_1_dreh=saug_dreh_1*np.ones(len(druckbereich_1_dreh))
+saug_2_dreh=saug_dreh_2*np.ones(len(druckbereich_2_dreh))
+saug_3_dreh=saug_dreh_3*np.ones(len(druckbereich_3_dreh))
+
+
+plt.errorbar(noms(druckbereich_1_dreh),noms(saug_1_dreh), xerr=None, yerr=stds(saug_1_dreh),fmt='-b', label=r'$\mathrm{Saugvermögen \, Druckkuvre}$')
+plt.errorbar(noms(druckbereich_2_dreh),noms(saug_2_dreh), xerr=None, yerr=stds(saug_2_dreh), fmt='-b')
+plt.errorbar(noms(druckbereich_3_dreh),noms(saug_3_dreh), xerr=None, yerr=stds(saug_3_dreh), fmt='-b')
+
+plt.errorbar(noms(p_dreh_leck_1[0]), noms(saug_dreh_leck_1), xerr=None, yerr=stds(saug_dreh_leck_1),fmt='.r', label=r'$\mathrm{Saugvermögen \, Leckrate}$')
+plt.errorbar(noms(p_dreh_leck_2[0]), noms(saug_dreh_leck_2), xerr=None, yerr=stds(saug_dreh_leck_2),fmt='.r')
+plt.errorbar(noms(p_dreh_leck_3[0]), noms(saug_dreh_leck_3), xerr=None, yerr=stds(saug_dreh_leck_3),fmt='.r')
+plt.errorbar(noms(p_dreh_leck_4[0]), noms(saug_dreh_leck_4), xerr=None, yerr=stds(saug_dreh_leck_4),fmt='.r')
+
+plt.axhline(1.1, linewidth=0.8, linestyle='--', label=r'$\mathrm{Herstellerangabe}$')
+plt.grid()
+plt.ylabel(r'$ S\, \, /\,  \,l/s$')
+plt.xlabel(r'$ p \, \, / \, \, mbar$')
+plt.legend()
+plt.show()
+
+
+
 
 
 
@@ -430,6 +496,20 @@ label = 'druck_turbo')
 
 
 
+# Bestimmung des Saugvermögens der Turbopumpe
+
+print('-----------------------------------------------------------------')
+print(' Auswertung Turbopumpe Saugvermögen aus der Druckkurve \n-----------------------------------------------------------------\n')
+
+saug_turbo_1=saukraft_druck(m_u_druck_turbo_1,v_turbo)
+print('Saugvermögen Turbo Bereich 1 : ', saug_turbo_1,'\n')
+
+saug_turbo_2=saukraft_druck(m_u_druck_turbo_2,v_turbo)
+print('Saugvermögen Turbo Bereich 2 : ', saug_turbo_2,'\n')
+
+saug_turbo_3=saukraft_druck(m_u_druck_turbo_3,v_turbo)
+print('Saugvermögen Turbo Bereich 3 : ', saug_turbo_3,'\n')
+
 
 
 ## Leckkurve
@@ -474,23 +554,40 @@ def auswertung_leck_turbo(p, t_1, t_2, t_3,name):
 
 p_turbo_leck_1, t_1_turbo_leck_1, t_2_turbo_leck_1, t_3_turbo_leck_1 = np.genfromtxt('./messdaten/turbo/turbo_leck_1e-04.txt',unpack=True)
 
-auswertung_leck_turbo(p_turbo_leck_1,t_1_turbo_leck_1, t_2_turbo_leck_1, t_3_turbo_leck_1,'turbo')
+turbo_1=auswertung_leck_turbo(p_turbo_leck_1,t_1_turbo_leck_1, t_2_turbo_leck_1, t_3_turbo_leck_1,'turbo')
 
 # Auswertung der Leckkurve für p_0=2e-4mbar
 
 p_turbo_leck_2, t_1_turbo_leck_2, t_2_turbo_leck_2, t_3_turbo_leck_2 = np.genfromtxt('./messdaten/turbo/turbo_leck_2e-4.txt',unpack=True)
 
-auswertung_leck_turbo(p_turbo_leck_2,t_1_turbo_leck_2, t_2_turbo_leck_2, t_3_turbo_leck_2,'turbo')
+turbo_2=auswertung_leck_turbo(p_turbo_leck_2,t_1_turbo_leck_2, t_2_turbo_leck_2, t_3_turbo_leck_2,'turbo')
 
 # Auswertung der Leckkurve für p_0=3e-4mbar
 
 p_turbo_leck_3, t_1_turbo_leck_3, t_2_turbo_leck_3, t_3_turbo_leck_3 = np.genfromtxt('./messdaten/turbo/turbo_leck_3e-4.txt',unpack=True)
 
-auswertung_leck_turbo(p_turbo_leck_3,t_1_turbo_leck_3, t_2_turbo_leck_3, t_3_turbo_leck_3,'turbo')
+turbo_3=auswertung_leck_turbo(p_turbo_leck_3,t_1_turbo_leck_3, t_2_turbo_leck_3, t_3_turbo_leck_3,'turbo')
 
 
 # Auswertung der Leckkurve für p_0=5e-5mbar
 
 p_turbo_leck_4, t_1_turbo_leck_4, t_2_turbo_leck_4, t_3_turbo_leck_4 = np.genfromtxt('./messdaten/turbo/turbo_leck_5e-05.txt',unpack=True)
 
-auswertung_leck_turbo(p_turbo_leck_4,t_1_turbo_leck_4, t_2_turbo_leck_4, t_3_turbo_leck_4,'turbo')
+turbo_4=auswertung_leck_turbo(p_turbo_leck_4,t_1_turbo_leck_4, t_2_turbo_leck_4, t_3_turbo_leck_4,'turbo')
+
+
+print('-----------------------------------------------------------------')
+print(' Auswertung Turbo Saugvermögen aus der Leckkurve\n-----------------------------------------------------------------\n')
+
+
+saug_turbo_leck_1=saugkraft_leck(ufloat(p_turbo_leck_1[0], 0.2*p_turbo_leck_1[0]),v_dreh, turbo_1['Steigung'])
+print('Saugvermögen Turbo 1: ', saug_turbo_leck_1,'\n' , 'Gleichgewichtsdruck in microbar: ', p_turbo_leck_1[0] ,'\n')
+
+saug_turbo_leck_2=saugkraft_leck(ufloat(p_turbo_leck_2[0], 0.2*p_turbo_leck_2[0]),v_dreh, turbo_2['Steigung'])
+print('Saugvermögen Turbo 2: ', saug_turbo_leck_2,'\n', 'Gleichgewichtsdruck in microbar: ', p_turbo_leck_2[0] ,'\n')
+
+saug_turbo_leck_3=saugkraft_leck(ufloat(p_turbo_leck_3[0], 0.2*p_turbo_leck_3[0]),v_dreh, turbo_3['Steigung'])
+print('Saugvermögen Turbo 1: ', saug_turbo_leck_3,'\n', 'Gleichgewichtsdruck in microbar: ', p_turbo_leck_3[0] ,'\n')
+
+saug_turbo_leck_4=saugkraft_leck(ufloat(p_turbo_leck_4[0], 0.2*p_turbo_leck_4[0]),v_dreh, turbo_4['Steigung'])
+print('Saugvermögen Turbo 4: ', saug_turbo_leck_4,'\n', 'Gleichgewichtsdruck in microbar: ', p_turbo_leck_4[0] ,'\n')
