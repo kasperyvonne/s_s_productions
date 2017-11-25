@@ -74,6 +74,9 @@ def saukraft_druck(m,V):
 def volu(r,h):
     return np.pi*r**2*h
 
+def leit(s,s_eff):
+    return s_eff*s/(s-s_eff)
+
 ### Volumenbestimmung alle einheiten in m
 
 ## Volumen von beiden
@@ -406,7 +409,15 @@ plt.xlabel(r'$ p \, \, / \, \, mbar$')
 plt.legend()
 #plt.show()
 
-
+## Bestimmung des Leitwerts
+print('-----------------------------------------------------------------')
+print(' Auswertung Leitwert Drehschieber \n-----------------------------------------------------------------\n')
+leitwert_dreh_1=leit(1.1, saug_dreh_1)
+leitwert_dreh_2=leit(1.1, saug_dreh_2)
+leitwert_dreh_3=leit(1.1, saug_dreh_3)
+print('Leitwert Drehschieber Druckbereich 1: ', leitwert_dreh_1 , '\n')
+print('Leitwert Drehschieber Druckbereich 2: ', leitwert_dreh_2 , '\n')
+print('Leitwert Drehschieber Druckbereich 3: ', leitwert_dreh_3 , '\n')
 
 
 
@@ -594,7 +605,6 @@ print('Saugvermögen Turbo 4: ', saug_turbo_leck_4,'\n', 'Gleichgewichtsdruck in
 
 
 plt.clf()
-print(p_druck_turbo)
 druckbereich_1_turbo=[p_druck_turbo[0],p_druck_turbo[7]]
 druckbereich_2_turbo=[p_druck_turbo[6],p_druck_turbo[11]]
 druckbereich_3_turbo=[p_druck_turbo[-3],p_druck_turbo[-1]]
@@ -618,3 +628,14 @@ plt.ylabel(r'$ S\, \, /\,  \,l/s$')
 plt.xlabel(r'$ p \, \, / \, \, \mu bar$')
 plt.legend()
 #plt.show()
+
+# Leitwert Turbopumpe
+
+print('-----------------------------------------------------------------')
+print(' Auswertung Leitwert Turbopumpe \n-----------------------------------------------------------------\n')
+leitwert_turbo_1=leit(77, saug_turbo_1)
+leitwert_turbo_2=leit(77, saug_turbo_2)
+leitwert_turbo_3=leit(77, saug_turbo_3)
+print('Leitwert Drehschieber Druckbereich 1: ', leitwert_turbo_1 , '\n')
+print('Leitwert Drehschieber Druckbereich 2: ', leitwert_turbo_2 , '\n')
+print('Leitwert Drehschieber Druckbereich 3: ', leitwert_turbo_3 , '\n')
