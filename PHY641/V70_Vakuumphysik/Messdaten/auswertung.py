@@ -404,7 +404,7 @@ plt.grid()
 plt.ylabel(r'$ S\, \, /\,  \,l/s$')
 plt.xlabel(r'$ p \, \, / \, \, mbar$')
 plt.legend()
-plt.show()
+#plt.show()
 
 
 
@@ -591,3 +591,30 @@ print('Saugvermögen Turbo 1: ', saug_turbo_leck_3,'\n', 'Gleichgewichtsdruck in
 
 saug_turbo_leck_4=saugkraft_leck(ufloat(p_turbo_leck_4[0], 0.2*p_turbo_leck_4[0]),v_dreh, turbo_4['Steigung'])
 print('Saugvermögen Turbo 4: ', saug_turbo_leck_4,'\n', 'Gleichgewichtsdruck in microbar: ', p_turbo_leck_4[0] ,'\n')
+
+
+plt.clf()
+print(p_druck_turbo)
+druckbereich_1_turbo=[p_druck_turbo[0],p_druck_turbo[7]]
+druckbereich_2_turbo=[p_druck_turbo[6],p_druck_turbo[11]]
+druckbereich_3_turbo=[p_druck_turbo[-3],p_druck_turbo[-1]]
+saug_1_turbo=saug_turbo_1*np.ones(len(druckbereich_1_turbo))
+saug_2_turbo=saug_turbo_2*np.ones(len(druckbereich_2_turbo))
+saug_3_turbo=saug_turbo_3*np.ones(len(druckbereich_3_turbo))
+
+
+plt.errorbar(noms(druckbereich_1_turbo),noms(saug_1_turbo), xerr=None, yerr=stds(saug_1_turbo),fmt='-b', label=r'$\mathrm{Saugvermögen \, Druckkuvre}$')
+plt.errorbar(noms(druckbereich_2_turbo),noms(saug_2_turbo), xerr=None, yerr=stds(saug_2_turbo), fmt='-b')
+plt.errorbar(noms(druckbereich_3_turbo),noms(saug_3_turbo), xerr=None, yerr=stds(saug_3_turbo), fmt='-b')
+
+plt.errorbar(noms(p_turbo_leck_1[0]*1e-3), noms(saug_turbo_leck_1), xerr=None, yerr=stds(saug_turbo_leck_1),fmt='.r', label=r'$\mathrm{Saugvermögen \, Leckrate}$')
+plt.errorbar(noms(p_turbo_leck_2[0]*1e-3), noms(saug_turbo_leck_2), xerr=None, yerr=stds(saug_turbo_leck_2),fmt='.r')
+plt.errorbar(noms(p_turbo_leck_3[0]*1e-3), noms(saug_turbo_leck_3), xerr=None, yerr=stds(saug_turbo_leck_3),fmt='.r')
+plt.errorbar(noms(p_turbo_leck_4[0]*1e-3), noms(saug_turbo_leck_4), xerr=None, yerr=stds(saug_turbo_leck_4),fmt='.r')
+
+plt.axhline(77, linewidth=0.8, linestyle='--', label=r'$\mathrm{Herstellerangabe}$')
+plt.grid()
+plt.ylabel(r'$ S\, \, /\,  \,l/s$')
+plt.xlabel(r'$ p \, \, / \, \, \mu bar$')
+plt.legend()
+#plt.show()
