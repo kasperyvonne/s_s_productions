@@ -59,8 +59,8 @@ print('--------------------\n')
 
 ##Fehlerfortpflazung vom Saugvermögen der Leckkrate
 
-m, p, v = sympy.var('m p v')
-s_l= p/v *m
+m, p_g, V = sympy.var('m p_g V')
+s_l= V *m/p_g
 
 
 print('-------------------- \n Fehlerformel von: \n ',s_l, '\n')
