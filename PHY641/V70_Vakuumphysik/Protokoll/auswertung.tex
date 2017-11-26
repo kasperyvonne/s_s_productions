@@ -71,7 +71,7 @@ Zunächst werden die Bauteile aufgeführt die für beide Versuchsaufbauten benö
   \\
   \shortintertext{Kreuzung beim Tank:}
   r_1&=\SI{19.6\pm 0.5}{\milli\meter}, \quad h_1=\SI{130.2\pm0.5}{\milli\meter}\\
-  r_2&=\SI{7.8\pm 0.5}{\milli\meter}, \quad h_2=2*\SI{27.6\pm0.5}{\milli\meter}, \quad V=\SI{ 16.8\pm0.8 e-2}{\litre}\\
+  r_2&=\SI{7.8\pm 0.5}{\milli\meter}, \quad h_2=2\cdot  \SI{27.6\pm0.5}{\milli\meter}, \quad V=\SI{ 16.8\pm0.8 e-2}{\litre}\\
   \\
   \shortintertext{1 Kugelventil}
   r&=\SI{5.85\pm 0.5}{\milli\meter}, \quad h=\SI{74.6\pm0.5}{\milli\meter}, \quad V=\SI{ 8.0\pm1.4 e-3}{\litre}\\
@@ -84,7 +84,7 @@ Zunächst werden die Bauteile aufgeführt die für beide Versuchsaufbauten benö
   r&=\SI{8.5\pm 0.5}{\milli\meter}, \quad h=\SI{430\pm0.5}{\milli\meter}, \quad V=\SI{ 9.8\pm1.1 e-2}{\litre}\\
   \\
   \shortintertext{Kreuzungsstück zur Drehschieberpumpe}
-  r&=\SI{6.15\pm 0.5}{\milli\meter}, \quad h=2*\SI{80.3\pm0.5}{\milli\meter}, \quad V=\SI{ 5.1\pm0.8 e-2}{\litre}\\
+  r&=\SI{6.15\pm 0.5}{\milli\meter}, \quad h=2\cdot\SI{80.3\pm0.5}{\milli\meter}, \quad V=\SI{ 5.1\pm0.8 e-2}{\litre}\\
   \\
   \shortintertext{T-Stück Messgerät}
   r&=\SI{6.25\pm 0.5}{\milli\meter}, \quad h=\SI{110\pm0.5}{\milli\meter}, \quad V=\SI{ 13.5\pm2.2 e-3}{\litre}\\
@@ -93,7 +93,7 @@ Zunächst werden die Bauteile aufgeführt die für beide Versuchsaufbauten benö
   r&=\SI{6.25\pm 0.5}{\milli\meter}, \quad h=\SI{60\pm0.5}{\milli\meter}, \quad V=\SI{ 7.4\pm1.2 e-3}{\litre}\\
   \\
   \shortintertext{Addiertes Volumen}
-  V&=\SI{ 9.3\pm0.6}{\litre}, \text{enthält das Volumen von zwei Kugelventilen}
+  V&=\SI{ 9.3\pm0.6}{\litre},\,  \text{enthält das Volumen von zwei Kugelventilen}
 \end{align*}
 Hierbei wurde der Fehler des addierten Volumen analog wie in Formel \ref{eq:fehler_addi} berechnet.
 
@@ -119,5 +119,68 @@ Das Gesamtvolumen des Turbopumpenaufbaus addiert sich zu
   V\ua{turbo}=\SI{9.4\pm0.6}{\litre}.
 \end{equation}
 \subsection{Drehschieberpumpe}
+Auf Grund der Messungenauigkeit des Pirani Messgerätes wird der gemessene
+Druck mit einem Fehler von $20\%$ behaftet.
+Der Enddruck bei der Drehschieberpumpe liegt bei
+\begin{equation}
+  \label{eq:enddruck_drehschieber}
+  p_{\mathrm{g}}=\SI{10 \pm 2 e-3}{\milli\bar}
+\end{equation}
 
 \subsubsection{Auswertung der Druckkurve}
+
+Die aufgenommenen Werte sind in Tabelle \ref{tab: druck_dreh} aufgelistet.
+\input{../Messdaten/table/dreh/druck_messdaten_final.tex}
+Die Mittelwerte und die Fehler der Zeitrechnung wurden mit Gleichungen \eqref{eq: mittel} und
+\eqref{eq: standartabweichung} bestimmt. Um den Fehler von $\ln(\frac{ p(t)-p_{ \mathrm{g} } }{ p_0-p_{ \mathrm{g} } })$
+zu bestimmen wurde die Gaußsche Fehlerfortpflanzung verwendet:
+
+\begin{equation}
+  \label{eq: fehler_ln_druck}
+  \sigma_{ln(p')}=\sqrt{\frac{\sigma_{p}^{2}}{\left(p - p_{g}\right)^{2}} + \frac{\sigma_{p_{0}}^{2}}{\left(p_{0} - p_{g}\right)^{2}} + \frac{\sigma_{p_{g}}^{2} \left(p_{0} - p_{g}\right)^{2}}{\left(p - p_{g}\right)^{2}} \left(\frac{p - p_{g}}{\left(p_{0} - p_{g}\right)^{2}} - \frac{1}{p_{0} - p_{g}}\right)^{2}}.
+\end{equation}
+
+Eine graphische Darstellung der Messwerte ist in Abbildung \ref{fig: druck_dreh} zu erkennen.
+
+\FloatBarrier
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.85\textwidth]{../Messdaten/plots/dreh/druckplot_drehschieber.pdf}
+  \caption{Plot der in Tabelle \ref{tab: druck_dreh} gelisteten Messwerte. Zusätzlich sind in der Grafik die bestimmten Ausgleichsgeraden zu sehen.}
+  \label{fig: druck_dreh}
+\end{figure}
+\FloatBarrier
+
+Wie in der Abbildung \ref{fig: druck_dreh} zu erkennen gibt es drei lineare Bereiche.
+In diesen Bereichen wird and die Messdaten eine Gerade
+\begin{equation}
+  \label{eq: geradengleichung}
+  g(x)=mx+b
+\end{equation}
+gefittet. Mit Hilfe einer Regressionsrechnung werden die Parameter der einzelnen Geraden bestimmt:
+\begin{align}
+  \label{eq: regression_dreh_druck_1}
+  \begin{aligned}
+  \text{Druckbereich 1} &\text{: 100 - 20 mbar}& \\
+  m&=\SI{-0.0598\pm0.0032}{\per\second} \\
+  b&=\num{-1.24 \pm0.08 }
+\end{aligned}
+\end{align}
+
+\begin{align}
+  \label{eq: regression_dreh_druck_2}
+  \begin{aligned}
+  \text{Druckbereich 2} &\text{: 20 - 0.2 mbar}& \\
+  m&=\SI{-0.0936\pm0.0029}{\per\second} \\
+  b&=\num{-0.19 \pm0.18 }
+\end{aligned}
+\end{align}
+
+\begin{align}
+  \label{eq: regression_dreh_druck_3}
+  \begin{aligned}
+  \text{Druckbereich 3} &\text{: 0.2 - 0.04 mbar}& \\
+  m&=\SI{-0.041\pm0.007}{\per\second} \\
+  b&=\num{-4.7 \pm0.8 }
+\end{aligned}
+\end{align}

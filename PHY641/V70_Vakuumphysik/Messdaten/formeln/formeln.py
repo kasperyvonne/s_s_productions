@@ -28,8 +28,8 @@ print('--------------------\n')
 
 ##Fehlerfortpflazung lograitmierter Druck
 
-p, p_0, p_e = sympy.var('p p_0 p_e')
-g = sympy.log( (p - p_e)/ (p_0-p_e))
+p, p_0, p_g = sympy.var('p p_0 p_g')
+g = sympy.log( (p - p_g)/ (p_0-p_g))
 
 
 print('-------------------- \n Fehlerformel von: \n ',g, '\n')
