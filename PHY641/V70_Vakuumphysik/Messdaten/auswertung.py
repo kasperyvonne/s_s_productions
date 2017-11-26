@@ -434,8 +434,8 @@ print('Ab hier Auswertung für die Tubopumpe \n---------------------------------
 
 ## Druckkurve
 
-enddruck_turbo=ufloat(2e-6, 2e-6*0.1)
-
+enddruck_turbo=ufloat(9e-6, 9e-6*0.1)
+print(enddruck_turbo)
 
 p_druck_turbo, t_tdruck_1, t_tdruck_2, t_tdruck3, t_tdruck4, t_tdruck5 = np.genfromtxt('./messdaten/turbo/turbo_druck.txt', unpack=True)
 
@@ -500,11 +500,13 @@ plt.legend()
 #plt.show()
 plt.savefig('./plots/turbo/druckplot_turbo_zoom.pdf')
 
+preasure_druck_turbo=unp.uarray(p_druck_turbo*1e3,p_druck_turbo*1e3*0.1)
+print(lograritmierter_druck_turbo)
 test=unp.uarray( noms(lograritmierter_druck_turbo), stds(lograritmierter_druck_turbo)) # Umschreibung damit es kein Problem mit dem Datentyp gibt: AffineScalarFunc -> Variable
 l.Latexdocument('./table/turbo/druck_messdaten.tex').tabular(
 data = [preasure_druck_turbo, test, t_tdruck_1, t_tdruck_2, t_tdruck3, t_tdruck4, t_tdruck5, zeiten_druck_gemittelt_turbo], #Data incl. unpuarray
-header = [r'p(t) / \bar', r'\ln( \frac{p(t)-p_{\mathrm{g}} }{p_0-p_{\mathrm{g}}}', 't_1 / \second', 't_2 / \second',  't_3 / \second',  't_4 / \second',  't_5 / \second', '\overline{t} / \second'],
-places = [(1.1,1.1), (1.1, 1.1), 1, 1, 1, 1, 1, (1.1, 1.1)],
+header = [r'p(t) / \micro\bar', r'\ln( \frac{p(t)-p_{\mathrm{g}} }{p_0-p_{\mathrm{g}}}', 't_1 / \second', 't_2 / \second',  't_3 / \second',  't_4 / \second',  't_5 / \second', '\overline{t} / \second'],
+places = [(1.3,1.3), (1.1, 1.1), 1, 1, 1, 1, 1, (1.1, 1.1)],
 caption = 'Für die Bestimmung des Saugvermögens $S$ der Turbopumpe gemessene Drücke. Die Messung wurde bei Raumtemperatur durchgeführt. Es ist $p_{\mathrm{g}}=\SI{2e-6\pm 2e-7}{\milli\bar}$ der Enddruck und  $p_{\mathrm{g}}=\SI{1e-2}{\milli\bar}$',
 label = 'druck_turbo')
 
