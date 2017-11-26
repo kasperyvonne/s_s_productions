@@ -1,1 +1,33 @@
 \section{Auswertung}
+
+Die in der Auswertung bestimmten Ausgleichsrechnungen werden mit
+dem Python Paket \emph{scipy.optimize}\cite{scipy} durchgeführt.
+
+\subsection{Fehlerrechnung}
+
+Die für die Auswertung benötigt Mittelwerte werden mit
+
+\begin{equation}
+  \label{eq: mittel}
+  \ov{x}=\frac{1}{N}\sum_i^N x_i
+\end{equation}
+berechnet. Die zugehörige Standartabweichung des Mittelwertes lautet:
+
+\begin{equation}
+  \label{eq: standartabweichung}
+  \sigma_{\ov{x}}=\sqrt{ \frac{1}{N(N-1)} \sum_i^N (x_i-\ov{x})^2}.
+\end{equation}
+
+Weiterhin werden die Fehler mit der Gaußschenfehlerfortpflanzung fortgepflanzt:
+
+\begin{equation}
+  \label{eq: gauss_fehler}
+  \sigma_f= \sqrt{ \sum_i^M \left(\frac{\partial f}{\partial x_i} \sigma_{x_i}\right)^2}.
+\end{equation}
+
+\subsection{Volumenbestimung}
+
+
+\subsection{Drehschieberpumpe}
+
+\subsubsection{Auswertung der Druckkurve}
