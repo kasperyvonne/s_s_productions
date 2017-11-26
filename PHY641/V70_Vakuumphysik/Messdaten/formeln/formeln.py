@@ -66,3 +66,14 @@ s_l= p/v *m
 print('-------------------- \n Fehlerformel von: \n ',s_l, '\n')
 print(error(s_l))
 print('--------------------\n')
+
+
+## Fehlerfortpflanzung für den Leitwert
+
+S_0,S_eff= sympy.var('S_0 S_eff')
+l= S_eff*S_0/(S_0-S_eff)
+
+
+print('-------------------- \n Fehlerformel von: \n ',l, '\n')
+print(error(l))
+print('--------------------\n')

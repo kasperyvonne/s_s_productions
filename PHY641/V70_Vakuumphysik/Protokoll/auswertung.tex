@@ -162,7 +162,7 @@ gefittet. Mit Hilfe einer Regressionsrechnung werden die Parameter der einzelnen
   \label{eq: regression_dreh_druck_1}
   \begin{aligned}
   \text{Druckbereich 1} &\text{: 100 - 20 mbar}& \\
-  m&=\SI{-0.0598\pm0.0032}{\per\second} \\
+  m&=\SI{-5.98\pm0.32 e-2}{\per\second} \\
   b&=\num{-1.24 \pm0.08 }
 \end{aligned}
 \end{align}
@@ -171,7 +171,7 @@ gefittet. Mit Hilfe einer Regressionsrechnung werden die Parameter der einzelnen
   \label{eq: regression_dreh_druck_2}
   \begin{aligned}
   \text{Druckbereich 2} &\text{: 20 - 0.2 mbar}& \\
-  m&=\SI{-0.0936\pm0.0029}{\per\second} \\
+  m&=\SI{-9.36\pm0.29 e-2}{\per\second} \\
   b&=\num{-0.19 \pm0.18 }
 \end{aligned}
 \end{align}
@@ -180,7 +180,134 @@ gefittet. Mit Hilfe einer Regressionsrechnung werden die Parameter der einzelnen
   \label{eq: regression_dreh_druck_3}
   \begin{aligned}
   \text{Druckbereich 3} &\text{: 0.2 - 0.04 mbar}& \\
-  m&=\SI{-0.041\pm0.007}{\per\second} \\
+  m&=\SI{-4.1\pm0.7 e-2}{\per\second} \\
   b&=\num{-4.7 \pm0.8 }
 \end{aligned}
 \end{align}
+
+Aus der Steigung und dem Volumen kann dann die Saugleistung ermittlt werden:
+\begin{equation}
+  \label{eq: saug_druck}
+  S\ua{eff}=-mV, \qquad \sigma_{S}=\sqrt{\sigma_{m}^{2} V^{2} + \sigma_{V}^{2} m^{2}}.
+\end{equation}
+Für die Saugleistung der Dreheschieberpumpe ergigbt sich:
+\begin{align}
+  \label{eq:dreh_saug_1}
+  \begin{aligned}
+  \text{Druckbereich 1} &\text{: 100 - 20 mbar}& \\
+   S\ua{eff}&=\SI{0.59\pm 0.05}{\litre\per\second}
+\end{aligned}
+\end{align}
+
+\begin{align}
+  \label{eq:dreh_saug_2}
+  \begin{aligned}
+  \text{Druckbereich 2} &\text{: 20 - 0.2 mbar}& \\
+   S\ua{eff}&=\SI{0.92\pm 0.06}{\litre\per\second}
+\end{aligned}
+\end{align}
+
+\begin{align}
+  \label{eq:dreh_saug_3}
+  \begin{aligned}
+  \text{Druckbereich 3} &\text{: 0.2 - 0.04 mbar}& \\
+   S\ua{eff}&=\SI{0.40\pm 0.08}{\litre\per\second}
+\end{aligned}
+\end{align}
+
+Nach Herstellerangabe besitzt die Drehschieberpumpe ein Saugvermögen von $S_0=\SI{1.1}{\litre\per\second}$.
+Aus dem experiementell bestimmten Saugvermögen und den Herstellerangabe kann ein Leitwert $L$ errechnet werden.
+Gegeben ist der Leitwert durch
+\begin{equation*}
+  L=\frac{S\ua{eff} S_0}{S_0-S\ua{eff}}, \qquad \sigma_L=\sqrt{ \sigma_{S\ua{eff}}^{2} \left(\frac{S_{0} S\ua{eff}}{\left(S_{0} - S\ua{eff}\right)^{2}} + \frac{S_{0}}{S_{0} - S\ua{eff}}\right)^{2}}.
+\end{equation*}
+Somit ist der Leitwert für die verschiedenen Druckbereiche:
+\begin{align}
+  \label{eq:dreh_leit_1}
+  \begin{aligned}
+  \text{Druckbereich 1} &\text{: 100 - 20 mbar}& \\
+   L&=\SI{1.26\pm 0.21}{\litre\per\second}
+\end{aligned}
+\end{align}
+
+\begin{align}
+  \label{eq:dreh_leit_2}
+  \begin{aligned}
+  \text{Druckbereich 2} &\text{: 20 - 0.2 mbar}& \\
+   L&=\SI{5.6\pm 2.2}{\litre\per\second}
+\end{aligned}
+\end{align}
+
+\begin{align}
+  \label{eq:dreh_leit_3}
+  \begin{aligned}
+  \text{Druckbereich 3} &\text{: 0.2 - 0.04 mbar}& \\
+   L&=\SI{0.64\pm 0.19}{\litre\per\second}
+\end{aligned}
+\end{align}
+
+\subsection{Auswertung Leckkratenmethode}
+
+Die Aufgenommenen Messwerte sind in den Tabellen \ref{tab: leck_dreh_leck_0.1.pdf} - \ref{tab: leck_dreh_leck_1.0.pdf} aufgelistet.
+\input{../Messdaten/table/dreh/dreh_tabelle_01.tex}
+\input{../Messdaten/table/dreh/dreh_tabelle_04.tex}
+\input{../Messdaten/table/dreh/dreh_tabelle_08.tex}
+\input{../Messdaten/table/dreh/dreh_tabelle_10.tex}
+
+Die gemittelten Zeiten wurden mit \eqref{eq: mittel} und \eqref{eq: standartabweichung} bestimmt
+Eine graphische Darstellung der Werte ist in den Abbildung \ref{fig: leck_dreh_1} und \ref{fig: leck_dreh_2} dargestellt.
+
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.4\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{../Messdaten/plots/dreh/leckrate_dreh_01.pdf}
+        \caption{Grafische Darstellung der Tabelle \ref{tab: leck_dreh_leck_0.1.pdf}. Zusätzlich ist die Ausgleichsgerade zu erkennen.}
+        \label{fig: drehs_leck_1}
+    \end{subfigure}
+    \begin{subfigure}{0.4\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{../Messdaten/plots/dreh/leckrate_dreh_04.pdf}
+        \caption{Grafische Darstellung der Tabelle \ref{tab: leck_dreh_leck_0.4.pdf}. Zusätzlich ist die Ausgleichsgerade zu erkennen.}
+    \end{subfigure}
+    \caption{Leckratenmessung für die Drehschieberpumpe}
+      \label{fig: leck_dreh_1}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.4\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{../Messdaten/plots/dreh/leckrate_dreh_08.pdf}
+        \caption{Grafische Darstellung der Tabelle \ref{tab: leck_dreh_leck_0.8.pdf}. Zusätzlich ist die Ausgleichsgerade zu erkennen.}
+        \label{fig: drehs_leck_1}
+    \end{subfigure}
+    \begin{subfigure}{0.4\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{../Messdaten/plots/dreh/leckrate_dreh_10.pdf}
+        \caption{Grafische Darstellung der Tabelle \ref{tab: leck_dreh_leck_1.0.pdf}. Zusätzlich ist die Ausgleichsgerade zu erkennen.}
+    \end{subfigure}
+    \caption{Leckratenmessung für die Drehschieberpumpe}
+      \label{fig: leck_dreh_2}
+\end{figure}
+Mittels Regressionsrechnunge wurden die in den Abbildung eingezeichneten Ausgleichsgeraden ermittelt.
+Dabei werden die Messwerte an eine Gerade (vgl. \eqref{eq: geradengleichung}) gefittet.
+Aus der Regressionsrechnung ergeben sich die folgenden Parameter
+
+\begin{align*}
+  \text{Gleichgewichtsdruck:} &\, p_g=\SI{0.1}{\milli\bar} \\
+  m&= \SI{4.31\pm 0.17 e-3 }{\milli\bar\per\second}\\
+  b&=\SI{14.1\pm1.9 e-2}{\milli\bar}\\
+  \\
+  \text{Gleichgewichtsdruck:} &\, p_g=\SI{0.4}{\milli\bar} \\
+  m&= \SI{3.07\pm 0.09 e-2 }{\milli\bar\per\second}\\
+  b&=\SI{32\pm5 e-2}{\milli\bar}\\
+  \\
+  \text{Gleichgewichtsdruck:} &\, p_g=\SI{0.8}{\milli\bar}\\
+  m&= \SI{9.05\pm 0.15 e-2 }{\milli\bar\per\second}\\
+  b&=\SI{70\pm7 e-2}{\milli\bar}\\
+  \\
+  \text{Gleichgewichtsdruck:} &\, p_g=\SI{1}{\milli\bar}\\
+  m&= \SI{11.43\pm 0.13 e-2 }{\milli\bar\per\second}\\
+  b&=\SI{89\pm 6 e-2}{\milli\bar}
+\end{align*}
