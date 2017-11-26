@@ -27,6 +27,75 @@ Weiterhin werden die Fehler mit der Gaußschenfehlerfortpflanzung fortgepflanzt:
 
 \subsection{Volumenbestimung}
 
+Um die Saugvermögen der Drehschieber- bzw. Tubropumpe zu bestimmen, wird das Gesamtvolumend des Aufbaus benötigt.
+Hierbei ist zu beachten das sich die Volumina vom Drehschieber- und Turboaufbau jeweils voneinander unterscheiden.
+Als Messfehler wird $\SI{0.5}{\milli\meter}$ angenommen, außer beim Volumen des Tankes. Dort werden die
+Bauteile mit einem Fehler von $\SI{2.5}{\milli\meter}$ behaftet. Der vergrößerte Fehler kommt dadurch zustande, dass die
+Dicke des Tankes abgeschätzt werden muss und Teilweise die Durchmesser der Bauteile nur schlecht vermessen werden können.
+Für die Volumensberechnung wurde jedes Bauteil als Zylinder genährt. Mit Gleichung \eqref{eq: gauss_fehler} wurde der
+der Fehler von Volumen bestimmt. Für Volumen und Fehler werden die folgenden Gleichungen verwendet
+
+\begin{equation}
+  \label{eq: volumen_fehler_zylinder}
+  V=\pi r^2 h, \qquad \sigma_{V}=\sqrt{4 \pi^{2} h^{2} r^{2} \sigma_{r}^{2}  + \pi^{2} r^{4} \sigma_{h}^{2} }
+\end{equation}
+Die Gleichung \ref{eq: volumen_fehler_zylinder} wird ohne weitere Kommentar im Kapitel verwendet.
+
+Der Tank der aus drei Zylinder zusammengesetzt besitzt die Abmessungen:
+
+\begin{align*}
+h_1&=\SI{495 \pm 2.5}{\milli\meter}, \quad r_1=\SI{37.7\pm2.5}{\milli\meter} \\
+h_2&=\SI{85 \pm 2.5}{\milli\meter}, \quad r_2=\SI{16.1\pm 2.5}{\milli\meter} \\
+h_3&=\SI{61 \pm 2.5}{\milli\meter}, \quad r_3=\SI{14.2\pm 2.5}{\milli\meter} \\
+\end{align*}
+Von den Angegeben Radien wurde bereites die Dicke des Tankes $d=\SI{3\pm1}{\milli\meter}$ abgezogen.
+Für das Volumen des Tankes ergibt sich
+\begin{equation}
+  \label{eq:volumen Tank}
+  V\ua{tank}=\SI{8.4\pm0.6}{\litre}
+\end{equation}
+Die Fehler der Einzelvolumen wurden mit
+\begin{equation}
+  \label{eq:fehler_addi}
+  \sigma_{V\ua{tank}}=\sqrt{\sigma_{V_{1}}^{2} + \sigma_{V_{2}}^{2}+\sigma_{V_{3}}^{2}}
+\end{equation}
+fortgepflanzt.
+
+Zunächst werden die Bauteile aufgeführt die für beide Versuchsaufbauten benötigt werden.
+\begin{align*}
+  \shortintertext{Verbindung zum Tank:}
+  r&=\SI{30.95\pm 0.5}{\milli\meter}, \quad h=\SI{60.2\pm0.5}{\milli\meter}, \quad V=\SI{ 18.1\pm0.6 e-2}{\litre}\\
+  \\
+  \shortintertext{2. Verbindung zum Tank:}
+  r&=\SI{30.95\pm 0.5}{\milli\meter}, \quad h=\SI{46.4\pm0.5}{\milli\meter}, \quad V=\SI{ 14.0\pm0.5 e-2}{\litre}\\
+  \\
+  \shortintertext{Kreuzung beim Tank:}
+  r_1&=\SI{19.6\pm 0.5}{\milli\meter}, \quad h_1=\SI{130.2\pm0.5}{\milli\meter}\\
+  r_2&=\SI{7.8\pm 0.5}{\milli\meter}, \quad h_2=2*\SI{27.6\pm0.5}{\milli\meter}, \quad V=\SI{ 16.8\pm0.8 e-2}{\litre}\\
+  \\
+  \shortintertext{1 Kugelventil}
+  r&=\SI{5.85\pm 0.5}{\milli\meter}, \quad h=\SI{74.6\pm0.5}{\milli\meter}, \quad V=\SI{ 8.0\pm1.4 e-3}{\litre}\\
+  \\
+  \shortintertext{Glühkathode}
+  r_1&=\SI{19.6\pm 0.5}{\milli\meter}, \quad h_1=\SI{47.9\pm0.5}{\milli\meter}\\
+  r_2&=\SI{19.6\pm 0.5}{\milli\meter}, \quad h_2=\SI{164.8\pm0.5}{\milli\meter}, \quad V=\SI{ 25.5\pm1.1 e-2}{\litre}\\
+  \\
+  \shortintertext{Schlauch zur unteren Kreuzung}
+  r&=\SI{8.5\pm 0.5}{\milli\meter}, \quad h=\SI{430\pm0.5}{\milli\meter}, \quad V=\SI{ 9.8\pm1.1 e-2}{\litre}\\
+  \\
+  \shortintertext{Kreuzungsstück zur Drehschieberpumpe}
+  r&=\SI{6.15\pm 0.5}{\milli\meter}, \quad h=2*\SI{80.3\pm0.5}{\milli\meter}, \quad V=\SI{ 5.1\pm0.8 e-2}{\litre}\\
+  \\
+  \shortintertext{T-Stück Messgerät}
+  r&=\SI{6.25\pm 0.5}{\milli\meter}, \quad h=\SI{110\pm0.5}{\milli\meter}, \quad V=\SI{ 13.5\pm2.2 e-3}{\litre}\\
+  \\
+  \shortintertext{Verbindungsstück zum Messgerät}
+  r&=\SI{6.25\pm 0.5}{\milli\meter}, \quad h=\SI{60\pm0.5}{\milli\meter}, \quad V=\SI{ 7.4\pm1.2 e-3}{\litre}\\
+  \\
+  \shortintertext{Addiertes Volumen}
+  V&=\SI{ 9.3\pm0.6}{\litre}
+\end{align*}
+Hierbei wurde der Fehler des addierten Volumen analog wie in Formel \ref{eq:fehler_addi} berechnet.
 
 \subsection{Drehschieberpumpe}
 
