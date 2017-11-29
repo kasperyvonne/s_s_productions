@@ -218,9 +218,10 @@ Für die Saugleistung der Dreheschieberpumpe ergigbt sich:
 Nach Herstellerangabe besitzt die Drehschieberpumpe ein Saugvermögen von $S_0=\SI{1.1}{\litre\per\second}$.
 Aus dem experiementell bestimmten Saugvermögen und den Herstellerangabe kann ein Leitwert $L$ errechnet werden.
 Gegeben ist der Leitwert durch
-\begin{equation*}
+\begin{equation}
+  \label{eq: leitwert}
   L=\frac{S\ua{eff} S_0}{S_0-S\ua{eff}}, \qquad \sigma_L=\sqrt{ \sigma_{S\ua{eff}}^{2} \left(\frac{S_{0} S\ua{eff}}{\left(S_{0} - S\ua{eff}\right)^{2}} + \frac{S_{0}}{S_{0} - S\ua{eff}}\right)^{2}}.
-\end{equation*}
+\end{equation}
 Somit ist der Leitwert für die verschiedenen Druckbereiche:
 \begin{align}
   \label{eq:dreh_leit_1}
@@ -295,19 +296,19 @@ Dabei werden die Messwerte an eine Gerade (vgl. \eqref{eq: geradengleichung}) ge
 Aus der Regressionsrechnung ergeben sich die folgenden Parameter
 
 \begin{align*}
-  \text{Gleichgewichtsdruck:} &\, p_g=\SI{0.1}{\milli\bar} \\
+  \text{Gleichgewichtsdruck: } &\, p_g=\SI{0.1}{\milli\bar} \\
   m&= \SI{4.31\pm 0.17 e-3 }{\milli\bar\per\second}\\
   b&=\SI{14.1\pm1.9 e-2}{\milli\bar}\\
   \\
-  \text{Gleichgewichtsdruck:} &\, p_g=\SI{0.4}{\milli\bar} \\
+  \text{Gleichgewichtsdruck: } &\, p_g=\SI{0.4}{\milli\bar} \\
   m&= \SI{3.07\pm 0.09 e-2 }{\milli\bar\per\second}\\
   b&=\SI{32\pm5 e-2}{\milli\bar}\\
   \\
-  \text{Gleichgewichtsdruck:} &\, p_g=\SI{0.8}{\milli\bar}\\
+  \text{Gleichgewichtsdruck: } &\, p_g=\SI{0.8}{\milli\bar}\\
   m&= \SI{9.05\pm 0.15 e-2 }{\milli\bar\per\second}\\
   b&=\SI{70\pm7 e-2}{\milli\bar}\\
   \\
-  \text{Gleichgewichtsdruck:} &\, p_g=\SI{1}{\milli\bar}\\
+  \text{Gleichgewichtsdruck: } &\, p_g=\SI{1}{\milli\bar}\\
   m&= \SI{11.43\pm 0.13 e-2 }{\milli\bar\per\second}\\
   b&=\SI{89\pm 6 e-2}{\milli\bar}
 \end{align*}
@@ -319,16 +320,16 @@ Das Saugvermögen kann aus Gleichung
 \end{equation}
 bestimmt werden.
 \begin{align*}
-  \text{Gleichgewichtsdruck:} &\, p_g=\SI{0.1}{\milli\bar} \\
+  \text{Gleichgewichtsdruck:} &\quad p_g=\SI{0.1}{\milli\bar} \\
   S&=\SI{0.42\pm 0.09}{\litre\per\second}
   \\
-  \text{Gleichgewichtsdruck:} &\, p_g=\SI{0.4}{\milli\bar} \\
+  \text{Gleichgewichtsdruck:} &\quad p_g=\SI{0.4}{\milli\bar} \\
   S&=\SI{0.75\pm 0.16}{\litre\per\second}
   \\
-  \text{Gleichgewichtsdruck:} &\, p_g=\SI{0.8}{\milli\bar}\\
+  \text{Gleichgewichtsdruck:} &\quad p_g=\SI{0.8}{\milli\bar}\\
   S&=\SI{1.11\pm 0.23}{\litre\per\second}
   \\
-  \text{Gleichgewichtsdruck:} &\, p_g=\SI{1}{\milli\bar}\\
+  \text{Gleichgewichtsdruck: } &\quad p_g=\SI{1}{\milli\bar}\\
   S&=\SI{1.12\pm 0.23}{\litre\per\second}
 \end{align*}
 
@@ -344,7 +345,112 @@ Der Enddruck bei der Turbopumpe liegt bei
 \end{equation}
 
 \subsubsection{Auswertung der Druckkurve}
-Die aufgenommenen Messwerte für die Druckkurve sind in Tabelle \ref{}
-aufgeführt.
-
+Die aufgenommenen Messwerte für die Druckkurve sind in Tabelle \ref{tab: druck_turbo}
+aufgeführt. Die Fehler der lograritmierten Werte wurden mit Gleichung \eqref{eq: fehler_ln_druck} errechnet.
 \input{../Messdaten/table/turbo/druck_messdaten_final.tex}
+
+Die grafische Darstellung der Messwerte sind in Abbildung \ref{fig: druck_turbo} zufinden.
+
+\FloatBarrier
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.85\textwidth]{../Messdaten/plots/turbo/druckplot_turbo.pdf}
+  \caption{Grafische Darstellung der in Tabelle \ref{tab: druck_turbo} gelisteten Messwerte. Zusätzlich sind in dem Plot die berechneten Ausgleichsgeraden zu erkennen.}
+  \label{fig: druck_turbo}
+\end{figure}
+\FloatBarrier
+In der Abbildung \ref{fig: druck_turbo_zoom} wird ein Teil der Abbildung \ref{fig: druck_turbo} vergrößert dargestellt.
+
+\FloatBarrier
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.85\textwidth]{../Messdaten/plots/turbo/druckplot_turbo_zoom.pdf}
+  \caption{Vergößerung des Plots \ref{fig: druck_turbo}.}
+  \label{fig: druck_turbo_zoom}
+\end{figure}
+\FloatBarrier
+Bei der Ausgleichsrechnugn wurde analog wie bei der Drehschieberpumpe vorgegangen.
+Aus den Berechnungen ergebn sich für die einzelnen Druckbereiche bzw. Regressionsgeraden die
+folgenden Parameter:
+
+\begin{align}
+  \label{eq: regression_turbo_druck_1}
+  \begin{aligned}
+  \text{Druckbereich 1} &\text{:}\quad \num{1e-2} - \num{2e-4} \, \text{mbar}& \\
+  m&=\SI{-1.135\pm0.029 }{\per\second} \\
+  b&=\num{ 6 \pm 6 e-2 }
+\end{aligned}
+\end{align}
+
+\begin{align}
+  \label{eq: regression_turbo_druck_2}
+  \begin{aligned}
+  \text{Druckbereich 2} &\text{:}\quad \num{6e-5} - \num{4e-05} \, \text{mbar}& \\
+  m&=\SI{-41.3\pm1.5 e-2}{\per\second} \\
+  b&=\num{-2.92 \pm0.18 }
+\end{aligned}
+\end{align}
+
+\begin{align}
+  \label{eq: regression_turbo_druck_3}
+  \begin{aligned}
+  \text{Druckbereich 3} &\text{:}\quad \num{3e-5} - \num{1e-05} \, \text{mbar}& \\
+  m&=\SI{-3.9\pm0.4 e-2}{\per\second} \\
+  b&=\num{-5.99 \pm0.20 }
+\end{aligned}
+\end{align}
+Mit Hilfe der Gleichung \eqref{eq: saug_druck} ist eine Saugkraftbestimmung möglich.
+Unter Verwendung der gerade bestimmten Parameter und dem Volumen des Versuchsaufbaus
+(vgl. \eqref{eq:volume_turbo}) ergeben sich die folgenden Werte für das Saugvermögen der Turbopumpe:
+\begin{align}
+  \label{eq:turbo_saug_1}
+  \begin{aligned}
+    \text{Druckbereich 1} &\text{:}\quad \num{1e-2} - \num{2e-4} \, \text{mbar}& \\
+   S\ua{eff}&=\SI{10.6\pm 0.7}{\litre\per\second}
+\end{aligned}
+\end{align}
+
+\begin{align}
+  \label{eq:turbo_saug_2}
+  \begin{aligned}
+  \text{Druckbereich 2} &\text{:}\quad \num{6e-5} - \num{4e-05} \, \text{mbar}& \\
+   S\ua{eff}&=\SI{3.86\pm 0.28}{\litre\per\second}
+\end{aligned}
+\end{align}
+
+\begin{align}
+  \label{eq:turbo_saug_3}
+  \begin{aligned}
+    \text{Druckbereich 3} &\text{:}\quad \num{3e-5} - \num{1e-05} \, \text{mbar}& \\
+   S\ua{eff}&=\SI{0.37\pm 0.04}{\litre\per\second}
+\end{aligned}
+\end{align}
+
+Die Herstellerangabe für das Saugvermögen liegt bei $S_0=\SI{77}{\liter\per\second}$.
+Mit diesem kann unter Verwendung von \eqref{eq: leitwert} der Leitwert bestimmt werden:
+
+\begin{align}
+  \label{eq:turbo_leit_1}
+  \begin{aligned}
+    \text{Druckbereich 1} &\text{:}\quad \num{1e-2} - \num{2e-4} \, \text{mbar}& \\
+   L&=\SI{12.3\pm 0.9}{\litre\per\second}
+\end{aligned}
+\end{align}
+
+\begin{align}
+  \label{eq:turbo_leit_2}
+  \begin{aligned}
+    \text{Druckbereich 2} &\text{:}\quad \num{6e-5} - \num{4e-05} \, \text{mbar}& \\
+   L&=\SI{4.07\pm 0.30}{\litre\per\second}
+\end{aligned}
+\end{align}
+
+\begin{align}
+  \label{eq:turbo_leit_3}
+  \begin{aligned}
+    \text{Druckbereich 3} &\text{:}\quad \num{3e-5} - \num{1e-05} \, \text{mbar}& \\
+   L&=\SI{0.37\pm 0.04}{\litre\per\second}
+\end{aligned}
+\end{align}
+
+\subsubsection{Auswertung der Leckratenmessung}
