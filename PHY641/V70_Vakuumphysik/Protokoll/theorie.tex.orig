@@ -138,10 +138,16 @@ Im Ionisationsmannometer werden Elektronen aus einer Glühkathode ausgelöst und
 Im Zwischenraum können sie die
 Gasmoleküle des Rezipientengases ionisieren. Ist nun die mittlere freie Weglänge der Elektronen klein gegenüber der
 Gesamtbeschleunigerstrecke (kleine Teilchenzahldichte respektive kleiner Druck) so besteht eine direkte Proportionalität
+<<<<<<< 4f6028f3b7d290436f65b78bc021421af1752bfa
 zwischen Anzahl der Ionen und der Teilchendichte und damit ein Zusammenhang zwischen Ionenstrom und Gasdruck. Unerwünschte
 Ionisationsvorgänge des Anodenmaterials werden durch optimierte Geräte gering gehalten. Das verwendete Gerät verfügt über
 eine spiralförmige Anode, in derem Zentrum ein Glühdraht positioniert ist. Der Einsatz des Gerätes ist erst ab einem
 Grobvakuum möglich, da sonst eine Entzündung durch den in der Luft enthaltenen Sauerstoff nicht auszuschließen ist.
+||||||| merged common ancestors
+zwischen Anzahl der Ionen und der Teilchendichte und damit ein Zusammenhang zwischen Ionenstrom und Gasdruck. 
+=======
+zwischen Anzahl der Ionen und der Teilchendichte und damit ein Zusammenhang zwischen Ionenstrom und Gasdruck.
+>>>>>>> korrekturen
 
 Das Piranivakuummeter nutzt die Abhängigkeit zwischen Druck und Wärmeleitfähigkeit eines Gases. Innerhalb eines mit dem
 zu vermessenen Gas gefüllten Gehäuses befindet sich ein Draht, der durch einen Strom beheizt wird. Die Heizleistung
