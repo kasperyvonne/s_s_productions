@@ -145,7 +145,7 @@ Eine graphische Darstellung der Messwerte ist in Abbildung \ref{fig: druck_dreh}
 \FloatBarrier
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.85\textwidth]{../Messdaten/plots/dreh/druckplot_drehschieber.pdf}
+  \includegraphics[width=0.7\textwidth]{../Messdaten/plots/dreh/druckplot_drehschieber.pdf}
   \caption{Plot der in Tabelle \ref{tab: druck_dreh} gelisteten Messwerte. Zusätzlich sind in der Grafik die bestimmten Ausgleichsgeraden zu sehen.}
   \label{fig: druck_dreh}
 \end{figure}
@@ -333,7 +333,15 @@ bestimmt.
   S&=\SI{1.12\pm 0.23}{\litre\per\second}.
 \end{align*}
 
-\textbf{Vergleichs Plot fehlt noch}
+Abschließend werden die sich aus der Druckkurve und Leckkratenmessung bestimmen
+Saugvermögen in einem Plot (vgl. Abb. \ref{fig: dreh_druck_leck}) illustriert.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.7\textwidth]{../Messdaten/plots/dreh/dreh_leck_und_druck.pdf}
+  \caption{Ergebnisse für das Saugvermögen aus der Auswertung der Druckkurve und der Leckkratenmessung.}
+  \label{fig: dreh_druck_leck}
+\end{figure}
 
 \subsection{Turbopumpe}
 Auf Grund der Messungenauigkeit de Glühkathode wird der gemessene
@@ -354,7 +362,7 @@ Die grafische Darstellung der Messwerte sind in Abbildung \ref{fig: druck_turbo}
 \FloatBarrier
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.85\textwidth]{../Messdaten/plots/turbo/druckplot_turbo.pdf}
+  \includegraphics[width=0.7\textwidth]{../Messdaten/plots/turbo/druckplot_turbo.pdf}
   \caption{Grafische Darstellung der in Tabelle \ref{tab: druck_turbo} gelisteten Messwerte. Zusätzlich sind in dem Plot die berechneten Ausgleichsgeraden zu erkennen.}
   \label{fig: druck_turbo}
 \end{figure}
@@ -364,7 +372,7 @@ In der Abbildung \ref{fig: druck_turbo_zoom} wird ein Teil der Abbildung \ref{fi
 \FloatBarrier
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.85\textwidth]{../Messdaten/plots/turbo/druckplot_turbo_zoom.pdf}
+  \includegraphics[width=0.7\textwidth]{../Messdaten/plots/turbo/druckplot_turbo_zoom.pdf}
   \caption{Vergößerung des Plots \ref{fig: druck_turbo}.}
   \label{fig: druck_turbo_zoom}
 \end{figure}
@@ -536,3 +544,21 @@ das Saugvermögen berechnet.
   \text{Gleichgewichtsdruck: } &\, p_g=\SI{0.3}{\micro\bar}. \\
   S&=\SI{3.6\pm 00.8}{\litre\per\second}
 \end{align*}
+
+Zusammenfassend wird in den Abbildungen \ref{fig: dreh_druck_leck_ohne} und \ref{fig: dreh_druck_leck_mit} die experimentell bestimmten Messwerte
+dargestellt. Die Herstellerangabe für das Saugvermögen der Turbopumpe ist in dem Plot \ref{fig: dreh_druck_leck_mit}
+mit eingezeichnet.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.65\textwidth]{../Messdaten/plots/turbo/turbo_leck_und_druck_ohne_hersteller.pdf}
+  \caption{Ergebnisse für das Saugvermögen aus der Auswertung der Druckkurve und der Leckkratenmessung, ohne Herstellerangabe.}
+  \label{fig: dreh_druck_leck_ohne}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.65\textwidth]{../Messdaten/plots/turbo/turbo_leck_und_druck_mit_hersteller.pdf}
+  \caption{Ergebnisse für das Saugvermögen aus der Auswertung der Druckkurve und der Leckkratenmessung, mit Herstellerangabe.}
+  \label{fig: dreh_druck_leck_mit}
+\end{figure}

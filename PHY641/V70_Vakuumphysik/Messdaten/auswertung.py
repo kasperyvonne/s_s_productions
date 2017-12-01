@@ -279,10 +279,11 @@ plt.savefig('./plots/dreh/druckplot_drehschieber.pdf')
 
 test=unp.uarray( noms(lograritmierter_druck), stds(lograritmierter_druck)) # Umschreibung damit es kein Problem mit dem Datentyp gibt: AffineScalarFunc -> Variable
 # Tabelle für die Druckkurve mit den Fitgeraden
+print(preasure_druck)
 l.Latexdocument('./table/dreh/druck_messdaten.tex').tabular(
 data = [preasure_druck, test, t_ddruck_1, t_ddruck_2, t_ddruck3, t_ddruck4, t_ddruck5, zeiten_dreh_druck_gemittelt], #Data incl. unpuarray
 header = [r'p(t) / \milli \bar', r'\ln( \frac{p(t)-p_{\mathrm{g}} }{p_0-p_{\mathrm{g}}}', 't_1 / \second', 't_2 / \second',  't_3 / \second',  't_4 / \second',  't_5 / \second', '\overline{t} / \second'],
-places = [(1.1,1.1), (1.1, 1.1), 1, 1, 1, 1, 1, (1.1, 1.1)],
+places = [(1.2,1.3), (1.1, 1.1), 1, 1, 1, 1, 1, (1.1, 1.1)],
 caption = 'Für die Bestimmung des Saugvermögens $S$ der Drehschieberpumpe gemessene Drücke. Die Messung wurde bei Raumtemperatur durchgeführt. Es ist $p_{\mathrm{g}}=\SI{10 \pm 2 e-3}{\milli\\bar}$ der Enddruck und  $p_{\mathrm{g}}=\SI{1e3}{\milli\\bar}$',
 label = 'druck_dreh')
 
@@ -419,7 +420,7 @@ plt.ylabel(r'$ S\, \, /\,  \,l/s$')
 plt.xlabel(r'$ p \, \, / \, \, mbar$')
 plt.legend()
 #plt.show()
-plt.savefig('dreh_leck_und_druck.pdf')
+plt.savefig('./plots/dreh/dreh_leck_und_druck.pdf')
 
 ## Bestimmung des Leitwerts
 print('-----------------------------------------------------------------')
@@ -656,9 +657,9 @@ plt.xlabel(r'$ p \, \, / \, \, \mu bar$')
 plt.xscale('log')
 plt.legend()
 #plt.show()
-plt.savefig('turbo_leck_und_druck_ohne_hersteller.pdf')
+plt.savefig('./plots/turbo/turbo_leck_und_druck_ohne_hersteller.pdf')
 plt.axhline(77, linewidth=0.8, linestyle='--', label=r'$\mathrm{Herstellerangabe}$')
-plt.savefig('turbo_leck_und_druck_mit_hersteller.pdf')
+plt.savefig('./plots/turbo/turbo_leck_und_druck_mit_hersteller.pdf')
 
 # Leitwert Turbopumpe
 
