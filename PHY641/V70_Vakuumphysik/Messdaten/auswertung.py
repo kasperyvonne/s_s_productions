@@ -390,16 +390,22 @@ print('Saugvermögen Leck 4: ', saug_dreh_leck_4,'\n', 'Gleichgewichtsdruck: ', 
 plt.clf()
 druckbereich_1_dreh=[p_druck[1],p_druck[4]]
 druckbereich_2_dreh=[p_druck[4],p_druck[12]]
-druckbereich_3_dreh=p_druck[12:15]
+druckbereich_3_dreh=[p_druck[12],p_druck[14]]
 
 saug_1_dreh=saug_dreh_1*np.ones(len(druckbereich_1_dreh))
 saug_2_dreh=saug_dreh_2*np.ones(len(druckbereich_2_dreh))
 saug_3_dreh=saug_dreh_3*np.ones(len(druckbereich_3_dreh))
 
 
-plt.errorbar(noms(druckbereich_1_dreh),noms(saug_1_dreh), xerr=None, yerr=stds(saug_1_dreh),fmt='-b', label=r'$\mathrm{Saugvermögen \, Druckkuvre}$')
+plt.errorbar(noms(druckbereich_1_dreh),noms(saug_1_dreh), xerr=None, yerr=stds(saug_1_dreh),fmt='-b', label=r'$\mathrm{Saugvermögen \, Druckkurve}$')
+plt.fill_between(noms(druckbereich_1_dreh), noms(saug_1_dreh)-stds(saug_1_dreh), noms(saug_1_dreh)+stds(saug_1_dreh),facecolor='blue',alpha=0.2,antialiased=True)
+
 plt.errorbar(noms(druckbereich_2_dreh),noms(saug_2_dreh), xerr=None, yerr=stds(saug_2_dreh), fmt='-b')
+plt.fill_between(noms(druckbereich_2_dreh), noms(saug_2_dreh)-stds(saug_2_dreh), noms(saug_2_dreh)+stds(saug_2_dreh),facecolor='blue',alpha=0.2,antialiased=True)
+
 plt.errorbar(noms(druckbereich_3_dreh),noms(saug_3_dreh), xerr=None, yerr=stds(saug_3_dreh), fmt='-b')
+plt.fill_between(noms(druckbereich_3_dreh), noms(saug_3_dreh)-stds(saug_3_dreh), noms(saug_3_dreh)+stds(saug_3_dreh),facecolor='blue',alpha=0.2,antialiased=True)
+
 
 plt.errorbar(noms(p_dreh_leck_1[0]), noms(saug_dreh_leck_1), xerr=None, yerr=stds(saug_dreh_leck_1),fmt='.r', label=r'$\mathrm{Saugvermögen \, Leckrate}$')
 plt.errorbar(noms(p_dreh_leck_2[0]), noms(saug_dreh_leck_2), xerr=None, yerr=stds(saug_dreh_leck_2),fmt='.r')
@@ -408,10 +414,12 @@ plt.errorbar(noms(p_dreh_leck_4[0]), noms(saug_dreh_leck_4), xerr=None, yerr=std
 
 plt.axhline(1.1, linewidth=0.8, linestyle='--', label=r'$\mathrm{Herstellerangabe}$')
 plt.grid()
+plt.xscale('log')
 plt.ylabel(r'$ S\, \, /\,  \,l/s$')
 plt.xlabel(r'$ p \, \, / \, \, mbar$')
 plt.legend()
 #plt.show()
+plt.savefig('dreh_leck_und_druck.pdf')
 
 ## Bestimmung des Leitwerts
 print('-----------------------------------------------------------------')
@@ -422,6 +430,9 @@ leitwert_dreh_3=leit(1.1, saug_dreh_3)
 print('Leitwert Drehschieber Druckbereich 1: ', leitwert_dreh_1 , '\n')
 print('Leitwert Drehschieber Druckbereich 2: ', leitwert_dreh_2 , '\n')
 print('Leitwert Drehschieber Druckbereich 3: ', leitwert_dreh_3 , '\n')
+
+
+
 
 
 
@@ -625,20 +636,29 @@ saug_3_turbo=saug_turbo_3*np.ones(len(druckbereich_3_turbo))
 
 
 plt.errorbar(noms(druckbereich_1_turbo),noms(saug_1_turbo), xerr=None, yerr=stds(saug_1_turbo),fmt='-b', label=r'$\mathrm{Saugvermögen \, Druckkuvre}$')
+plt.fill_between(noms(druckbereich_1_turbo), noms(saug_1_turbo)-stds(saug_1_turbo), noms(saug_1_turbo)+stds(saug_1_turbo),facecolor='blue',alpha=0.2,antialiased=True)
+
 plt.errorbar(noms(druckbereich_2_turbo),noms(saug_2_turbo), xerr=None, yerr=stds(saug_2_turbo), fmt='-b')
+plt.fill_between(noms(druckbereich_2_turbo), noms(saug_2_turbo)-stds(saug_2_turbo), noms(saug_2_turbo)+stds(saug_2_turbo),facecolor='blue',alpha=0.2,antialiased=True)
+
 plt.errorbar(noms(druckbereich_3_turbo),noms(saug_3_turbo), xerr=None, yerr=stds(saug_3_turbo), fmt='-b')
+plt.fill_between(noms(druckbereich_3_turbo), noms(saug_3_turbo)-stds(saug_3_turbo), noms(saug_3_turbo)+stds(saug_3_turbo),facecolor='blue',alpha=0.2,antialiased=True)
 
 plt.errorbar(noms(p_turbo_leck_1[0]*1e-3), noms(saug_turbo_leck_1), xerr=None, yerr=stds(saug_turbo_leck_1),fmt='.r', label=r'$\mathrm{Saugvermögen \, Leckrate}$')
 plt.errorbar(noms(p_turbo_leck_2[0]*1e-3), noms(saug_turbo_leck_2), xerr=None, yerr=stds(saug_turbo_leck_2),fmt='.r')
 plt.errorbar(noms(p_turbo_leck_3[0]*1e-3), noms(saug_turbo_leck_3), xerr=None, yerr=stds(saug_turbo_leck_3),fmt='.r')
 plt.errorbar(noms(p_turbo_leck_4[0]*1e-3), noms(saug_turbo_leck_4), xerr=None, yerr=stds(saug_turbo_leck_4),fmt='.r')
 
-plt.axhline(77, linewidth=0.8, linestyle='--', label=r'$\mathrm{Herstellerangabe}$')
 plt.grid()
+
 plt.ylabel(r'$ S\, \, /\,  \,l/s$')
 plt.xlabel(r'$ p \, \, / \, \, \mu bar$')
+plt.xscale('log')
 plt.legend()
 #plt.show()
+plt.savefig('turbo_leck_und_druck_ohne_hersteller.pdf')
+plt.axhline(77, linewidth=0.8, linestyle='--', label=r'$\mathrm{Herstellerangabe}$')
+plt.savefig('turbo_leck_und_druck_mit_hersteller.pdf')
 
 # Leitwert Turbopumpe
 
@@ -650,3 +670,6 @@ leitwert_turbo_3=leit(77, saug_turbo_3)
 print('Leitwert Turbopumpe Druckbereich 1: ', leitwert_turbo_1 , '\n')
 print('Leitwert Turbopumpe Druckbereich 2: ', leitwert_turbo_2 , '\n')
 print('Leitwert Turbopumpe Druckbereich 3: ', leitwert_turbo_3 , '\n')
+
+
+# Plot der Leckkraten und Druckkurve zusammen
