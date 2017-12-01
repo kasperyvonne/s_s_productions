@@ -530,6 +530,9 @@ saug_turbo_3=saukraft_druck(m_u_druck_turbo_3,v_turbo)
 print('Saugvermögen Turbo Bereich 3 : ', saug_turbo_3,'\n')
 
 
+print('-----------------------------------------------------------------')
+print(' Auswertung Turbopumpe Parameter Regressionsgerade Leckkrate \n-----------------------------------------------------------------\n')
+
 
 ## Leckkurve
 def auswertung_leck_turbo(p, t_1, t_2, t_3,name):
@@ -554,13 +557,13 @@ def auswertung_leck_turbo(p, t_1, t_2, t_3,name):
     plt.errorbar(noms(t_gemittelt),p, xerr=stds(t_gemittelt), yerr=stds(preasure),fmt='.',label='Messwerte')
     plt.plot(laufvariabele, noms(m_u)* laufvariabele+ noms(b_u), label='Regressionsgerade')
     plt.xlabel(r'$ t \, / \, s $')
-    plt.ylabel(r'$ p \, / \, bar $')
+    plt.ylabel(r'$ p \, / \, \mu bar $')
     plt.legend()
     plt.savefig('./plots/'+ name + '/leckrate_' + name +'_'+ str(p[0]) + '.pdf')
 
     l.Latexdocument('./table/'+name+'/'+name+'_tabelle_' +str(p[0])+ '.tex').tabular(
     data = [preasure, t_1,t_2,t_3, t_gemittelt], #Data incl. unpuarray
-    header = ['p / \bar', 't_1 / \second', 't_2 / \second','t_3 / \second', '\overline{t} / \second'],
+    header = ['p / \\micro\\bar', 't_1 / \second', 't_2 / \second','t_3 / \second', '\overline{t} / \second'],
     places = [(1.1,1.1), 1, 1, 1, (1.1, 1.1)],
     caption = 'Gemessene Drücke bei der Leckkratenmethode für die Drehschieberpumpe mit $p_{\mathrm{l}}=' +str(p[0]) +'$. Messung bei Raumtemperatur.',
     label = 'leck_' + name + '_leck_'+ str(p[0]) + '.pdf' )
@@ -644,6 +647,6 @@ print(' Auswertung Leitwert Turbopumpe \n---------------------------------------
 leitwert_turbo_1=leit(77, saug_turbo_1)
 leitwert_turbo_2=leit(77, saug_turbo_2)
 leitwert_turbo_3=leit(77, saug_turbo_3)
-print('Leitwert Drehschieber Druckbereich 1: ', leitwert_turbo_1 , '\n')
-print('Leitwert Drehschieber Druckbereich 2: ', leitwert_turbo_2 , '\n')
-print('Leitwert Drehschieber Druckbereich 3: ', leitwert_turbo_3 , '\n')
+print('Leitwert Turbopumpe Druckbereich 1: ', leitwert_turbo_1 , '\n')
+print('Leitwert Turbopumpe Druckbereich 2: ', leitwert_turbo_2 , '\n')
+print('Leitwert Turbopumpe Druckbereich 3: ', leitwert_turbo_3 , '\n')
