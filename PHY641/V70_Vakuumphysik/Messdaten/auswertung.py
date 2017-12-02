@@ -339,7 +339,7 @@ def auswertung_leck(p, t_1, t_2, t_3,name):
     l.Latexdocument('./table/'+name+'/'+name+'_tabelle_' +str(noms(p[0]))+ '.tex').tabular(
     data = [preasure, t_1,t_2,t_3, t_gemittelt], #Data incl. unpuarray
     header = [r'p / \milli\bar', 't_1 / \second', 't_2 / \second','t_3 / \second', '\overline{t} / \second'],
-    places = [(1.1,1.1), 1, 1, 1, (1.1, 1.1)],
+    places = [(1.2,1.2), 1, 1, 1, (1.2, 1.2)],
     caption = 'Gemessene Drücke bei der Leckkratenmethode für die Drehschieberpumpe mit $p_{\mathrm{l}}=' +str(p[0]) +'$. Messung bei Raumtemperatur.',
     label = 'leck_' + name + '_leck_'+ str(noms(p[0])) + '.pdf' )
 
@@ -576,8 +576,8 @@ def auswertung_leck_turbo(p, t_1, t_2, t_3,name):
     l.Latexdocument('./table/'+name+'/'+name+'_tabelle_' +str(p[0])+ '.tex').tabular(
     data = [preasure, t_1,t_2,t_3, t_gemittelt], #Data incl. unpuarray
     header = ['p / \\micro\\bar', 't_1 / \second', 't_2 / \second','t_3 / \second', '\overline{t} / \second'],
-    places = [(1.1,1.1), 1, 1, 1, (1.1, 1.1)],
-    caption = 'Gemessene Drücke bei der Leckkratenmethode für die Drehschieberpumpe mit $p_{\mathrm{l}}=' +str(p[0]) +'$. Messung bei Raumtemperatur.',
+    places = [(1.2,1.2), 1, 1, 1, (1.2, 1.2)],
+    caption = 'Gemessene Drücke bei der Leckkratenmethode für die Turbopumpe mit $p_{\mathrm{l}}=' +str(p[0]) +'$. Messung bei Raumtemperatur.',
     label = 'leck_' + name + '_leck_'+ str(p[0]) + '.pdf' )
 
     return messwerte
