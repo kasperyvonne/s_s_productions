@@ -32,25 +32,25 @@ Hierbei ist zu beachten, dass sich die Volumina vom Drehschieber- und Turbopumpe
 Als Messfehler für die Bauteile wird $\SI{0.5}{\milli\meter}$ angenommen, jedoch nicht beim Volumen des Tankes. Dort werden die
 Bauteile mit einem Fehler von $\SI{2.5}{\milli\meter}$ behaftet. Der vergrößerte Fehler kommt dadurch zustande, dass die
 Dicke des Tankes nur abgeschätzt werden kann und zusätzlich die Durchmesser der Einzelteile des Tankes nur schlecht vermessen werden können.
-Für die Volumensberechnung wird jedes Bauteil als Zylinder genährt.  Für Volumen und Fehler werden die folgenden Gleichungen verwendet
+Für die Volumenberechnung wird jedes Bauteil als Zylinder genährt.  Für Volumen und Fehler werden die folgenden Gleichungen verwendet
 
 \begin{equation}
   \label{eq: volumen_fehler_zylinder}
   V=\pi r^2 h, \qquad \sigma_{V}=\sqrt{4 \pi^{2} h^{2} r^{2} \sigma_{r}^{2}  + \pi^{2} r^{4} \sigma_{h}^{2} }
 \end{equation}
 Hierbei wird mit Gleichung \eqref{eq: gauss_fehler} der Fehler des Zylindervolumens bestimmt.
-Die Gleichung \ref{eq: volumen_fehler_zylinder} wird ohne weitere Kommentar im folenden Kapitel verwendet.
+Die Gleichung \ref{eq: volumen_fehler_zylinder} wird ohne weitere Kommentare im folgenden Kapitel verwendet.
 
 Zu Beginn wird das Volumen des Tankes bestimmt, dieser ist in das in der Abbildung \ref{fig: aufbau} mit der Nummer
 \circled{1} versehen Bauteil.
-Der Tank der aus drei Zylinder zusammengesetzt ist,  besitzt die Abmessungen:
+Der Tank, der aus drei Zylinder zusammengesetzt ist,  besitzt die Abmessungen:
 
 \begin{align*}
 h_1&=\SI{495 \pm 2.5}{\milli\meter}, \quad r_1=\SI{37.7\pm2.5}{\milli\meter} \\
 h_2&=\SI{85 \pm 2.5}{\milli\meter}, \quad r_2=\SI{16.1\pm 2.5}{\milli\meter} \\
 h_3&=\SI{61 \pm 2.5}{\milli\meter}, \quad r_3=\SI{14.2\pm 2.5}{\milli\meter}. \\
 \end{align*}
-Von den angegeben Radien wurde bereites die Dicke des Tankes $d=\SI{3\pm1}{\milli\meter}$ abgezogen.
+Von den angegebenen Radien wurde bereites die Dicke des Tankes $d=\SI{3\pm1}{\milli\meter}$ abgezogen.
 Für das Volumen des Tankes ergibt sich
 \begin{equation}
   \label{eq:volumen Tank}
@@ -63,7 +63,7 @@ Die Fehler der Einzelvolumen wurden mit
 \end{equation}
 fortgepflanzt.
 
-Zunächst werden die Bauteile aufgeführt die für beide Versuchsaufbauten benötigt werden.
+Zunächst werden die Bauteile aufgeführt, die für beide Versuchsaufbauten benötigt werden.
 Die Zahl an dem jeweiligen Bauelement spiegelt die Nummerierung in der Abbildung \ref{fig: aufbau} wieder.
 Hiermit kann der ungefähre Verwendungsort des Elements angegeben werden.
 \begin{align*}
@@ -99,7 +99,7 @@ Hiermit kann der ungefähre Verwendungsort des Elements angegeben werden.
   \shortintertext{Addiertes Volumen}
   V&=\SI{ 9.3\pm0.6}{\litre},\,  \text{enthält das Volumen von zwei Kugelventilen}.
 \end{align*}
-Der Fehler des addierten Volumen wird mit Formel \ref{eq:fehler_addi} berechnet.
+Der Fehler des addierten Volumens wird mit Formel \ref{eq:fehler_addi} berechnet.
 
 Bei dem Drehschieberaufbau kommt noch das Volumen des großen Schlauches \circled{13} hinzu
 \begin{equation*}
@@ -112,7 +112,7 @@ Damit dann das Gesamtvolumen:
 \end{equation}
 
 Der Turbopumpenaufbau enthält ein drittes Kugelventil, welches zusätzlich beachtet werden muss.
-Neben den Kugelventil muss noch der Schlauch zur Turbopumpe \circled{12} berücksichtitigt werden
+Neben dem Kugelventil muss noch der Schlauch zur Turbopumpe \circled{12} berücksichtigt werden
 \begin{equation*}
   r=\SI{8.5\pm 0.5}{\milli\meter}, \quad h=\SI{210\pm0.5}{\milli\meter}, \quad V=\SI{ 4.8\pm0.6 e-2}{\litre}.
 \end{equation*}
@@ -136,7 +136,7 @@ Der Enddruck bei der Drehschieberpumpe liegt bei
 Die aufgenommenen Werte sind in Tabelle \ref{tab: druck_dreh} aufgelistet.
 \input{../Messdaten/table/dreh/druck_messdaten_final.tex}
 Die Mittelwerte und die Fehler der Zeitmessung werden mit Gleichungen \eqref{eq: mittel} und
-\eqref{eq: standartabweichung} bestimmt. Außerdem wwird um den Fehler von $\ln(\frac{ p(t)-p_{ \mathrm{g} } }{ p_0-p_{ \mathrm{g} } })$
+\eqref{eq: standartabweichung} bestimmt. Außerdem wird um den Fehler von $\ln(\frac{ p(t)-p_{ \mathrm{g} } }{ p_0-p_{ \mathrm{g} } })$
  zu bestimmen die Gaußsche Fehlerfortpflanzung verwendet:
 
 \begin{equation}
@@ -156,7 +156,7 @@ Eine grafische Darstellung der Messwerte ist in Abbildung \ref{fig: druck_dreh} 
 \FloatBarrier
 
 Wie in der Abbildung \ref{fig: druck_dreh} zu erkennen gibt es drei lineare Bereiche.
-In diesen Bereichen wird and die Messdaten eine Gerade
+In diesen Bereichen wird an die Messdaten eine Gerade
 \begin{equation}
   \label{eq: geradengleichung}
   g(x)=mx+b
@@ -189,12 +189,12 @@ gefittet. Mit Hilfe von Regressionsberechnungen werden die Parameter der einzeln
 \end{aligned}
 \end{align}
 
-Aus der Steigung und dem Volumen kann anschließend die Saugleistung ermittlt werden:
+Aus der Steigung und dem Volumen kann anschließend die Saugleistung ermittelt werden:
 \begin{equation}
   \label{eq: saug_druck}
   S\ua{eff}=-mV, \qquad \sigma_{S}=\sqrt{\sigma_{m}^{2} V^{2} + \sigma_{V}^{2} m^{2}}.
 \end{equation}
-Für die Saugleistung der Dreheschieberpumpe ergigbt sich somit:
+Für die Saugleistung der Drehschieberpumpe ergibt sich somit:
 \begin{align}
   \label{eq:dreh_saug_1}
   \begin{aligned}
@@ -220,7 +220,7 @@ Für die Saugleistung der Dreheschieberpumpe ergigbt sich somit:
 \end{align}
 
 Nach Herstellerangabe besitzt die Drehschieberpumpe ein Saugvermögen von $S_0=\SI{1.1}{\litre\per\second}$.
-Aus dem experiementell bestimmten Saugvermögen und den Herstellerangabe kann ein Leitwert $L$ errechnet werden.
+Aus dem experimentell bestimmten Saugvermögen und den Herstellerangaben kann ein Leitwert $L$ errechnet werden.
 Gegeben ist der Leitwert durch
 \begin{equation}
   \label{eq: leitwert}
@@ -295,8 +295,8 @@ Eine grafische Darstellung der Werte ist in den Abbildung \ref{fig: leck_dreh_1}
     \caption{Leckratenmessung bei der Drehschieberpumpe.}
       \label{fig: leck_dreh_2}
 \end{figure}
-Mittels Regressionsrechnunge werden die Parameter der in den Abbildung eingezeichneten Ausgleichsgeraden ermittelt.
-Das Resultat der Ausgleichsrechnung wird notiert:r
+Mittels Regressionsrechnungen werden die Parameter der in den Abbildungen eingezeichneten Ausgleichsgeraden ermittelt.
+Das Resultat der Ausgleichsrechnung wird notiert:
 
 \begin{align*}
   \text{Gleichgewichtsdruck: } &\, p_g=\SI{0.1}{\milli\bar} \\
@@ -336,7 +336,7 @@ bestimmt.
   S&=\SI{1.12\pm 0.23}{\litre\per\second}.
 \end{align*}
 
-Abschließend werden die sich aus der Druckkurve und Leckkratenmessung bestimmen
+Abschließend werden die sich aus der Druckkurve und Leckratenmessung bestimmen
 Saugvermögen in einem Plot (vgl. Abb. \ref{fig: dreh_druck_leck}) illustriert.
 
 \begin{figure}[h]
@@ -349,7 +349,7 @@ Saugvermögen in einem Plot (vgl. Abb. \ref{fig: dreh_druck_leck}) illustriert.
 \subsection{Turbopumpe}
 Auf Grund der Messungenauigkeit der Glühkathode wird der gemessene
 Druck mit einem Fehler von $10\%$ behaftet.
-Der gemessene Enddruck der mit der Turbopumpe erreicht wird liegt bei
+Der gemessene Enddruck, der mit der Turbopumpe erreicht wird liegt bei
 \begin{equation}
   \label{eq:enddruck_drehschieber}
   p_{\mathrm{g}}=\SI{9.0 \pm 0.9}{\nano\bar}.
@@ -357,7 +357,7 @@ Der gemessene Enddruck der mit der Turbopumpe erreicht wird liegt bei
 
 \subsubsection{Auswertung der Druckkurve}
 Die aufgenommenen Messwerte für die Druckkurve sind in Tabelle \ref{tab: druck_turbo}
-aufgeführt. Die Fehler der lograritmierten Werte werden mit Gleichung \eqref{eq: fehler_ln_druck} errechnet.
+aufgeführt. Die Fehler der lograrithmierten Werte werden mit Gleichung \eqref{eq: fehler_ln_druck} errechnet.
 \input{../Messdaten/table/turbo/druck_messdaten_final.tex}
 
 Die grafische Darstellung der Messwerte ist in Abbildung \ref{fig: druck_turbo} zufinden.
