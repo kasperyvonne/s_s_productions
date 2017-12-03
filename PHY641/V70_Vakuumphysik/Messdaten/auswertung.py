@@ -331,9 +331,9 @@ def auswertung_leck(p, t_1, t_2, t_3,name):
     plt.grid()
     plt.errorbar(noms(t_gemittelt),noms(p), xerr=stds(t_gemittelt), yerr=stds(preasure),fmt='.',label='Messwerte')
     plt.plot(laufvariabele, noms(m_u)* laufvariabele+ noms(b_u), label='Regressionsgerade')
-    plt.xlabel(r'$ \bar{t} \, / \, s $')
-    plt.ylabel(r'$ p \, / \, mbar $')
-    plt.legend(loc='upper left')
+    plt.xlabel(r'$ \bar{t} \, / \, s $',fontsize=20)
+    plt.ylabel(r'$ p \, / \, mbar $',fontsize=20)
+    plt.legend(loc='upper left',fontsize=15)
     plt.savefig('./plots/'+ name + '/leckrate_' + name +'_'+ str(noms(p[0])) + '.pdf')
 
     l.Latexdocument('./table/'+name+'/'+name+'_tabelle_' +str(noms(p[0]))+ '.tex').tabular(
@@ -568,9 +568,9 @@ def auswertung_leck_turbo(p, t_1, t_2, t_3,name):
     plt.grid()
     plt.errorbar(noms(t_gemittelt),p, xerr=stds(t_gemittelt), yerr=stds(preasure),fmt='.',label='Messwerte')
     plt.plot(laufvariabele, noms(m_u)* laufvariabele+ noms(b_u), label='Regressionsgerade')
-    plt.xlabel(r'$ t \, / \, s $')
-    plt.ylabel(r'$ p \, / \, \mu bar $')
-    plt.legend()
+    plt.xlabel(r'$ t \, / \, s $',fontsize=20)
+    plt.ylabel(r'$ p \, / \, \mu bar $',fontsize=20)
+    plt.legend(fontsize=15)
     plt.savefig('./plots/'+ name + '/leckrate_' + name +'_'+ str(p[0]) + '.pdf')
 
     l.Latexdocument('./table/'+name+'/'+name+'_tabelle_' +str(p[0])+ '.tex').tabular(
