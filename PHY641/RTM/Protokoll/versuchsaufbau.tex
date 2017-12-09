@@ -5,7 +5,7 @@ Der grundlegende Aufbau ist in der Abbildung \ref{fig: aufbau} abgebildet.
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.6\textwidth]{./pics/aufbau.png}
-  \caption{Grundlegender Aufbau eines Rastertunnelmikroskops \cite{rtm}.}
+  \caption{Grundlegender Aufbau eines Rastertunnelmikroskops \cite{anleitung_frankfurt}.}
   \label{fig: aufbau}
 \end{figure}
 In der Abbildung ist die Spitzenhalterung zu sehen und
@@ -20,12 +20,33 @@ Jedoch bietet diese Methode die Gefahr, dass die Spitze die Probe rammt und so u
 Umgekehrt ist es möglich den Tunnelstrom konstant zu lassen und den Abstand zu variieren.
 Die in der Theorie angesprochende Näherung, dass die Auslenkung des Piezokrostalls linear
 mit dem anliegenden Feld geht ist in der Realität kaum zu beobachten. Deshalb wird eine
-geeignete Software benötigt, die eine genaue Ansteuerung des Piezokristall ermöglicht.
-Die im Versuch verwendete Software bietet drei verstellbare Parameter P,S \textbf{Hier noch weiter schreiben}.
-% Messverfahren P,S siehe das Skript von der Uni Frankfurt
-
+geeignete Regelkreis benötig, die eine genaue Ansteuerung des Piezokristall ermöglicht.
+Der verwendete Regelkreis misst die den Tunnelstrom $I$ und vergleicht diesen mit einen
+eingestellten Sollwert. Bei einer Differenz der beiden Werte wird die Höhe des Piezoelemnts
+entsprechend angepasst. Dabei lässt sich die Anpasssgeschwindigkeit über zwei Parameter
+einstellen. Zum einen den \emph{integralen Anteil}, dieser beeinflusst im wesentlich die
+Geschwindigkeit mit der auf Abweichung reagiert wird. Zum andern kann mit Hilfe
+dem \emph{propotionalen Anteil} gibt an wie stark auf eine Abweichung reagiert wird.
+Die Werte vom integralen und propotionalen Anteil hängen von der Beschaffenheit
+der Probe und Spitze ab \cite{anleitung_frankfurt}.
 
 \subsection{Versuchsdurchführung}
+
+Für eine genaue Messung wird eine einatomige Spitze benötigt.
+Die Spitze wird aus \ce{PtIr}-Draht (Platinum-Iridium) hergestellt, dazu
+werden eine Pinzette, eine Zang und ein Seitenscheider verwendet.
+Bevor diese benutzt werden können müssen sowohl sie als auch der Draht mit Aceton und Propanol
+gereinigt werden. Damit die Spitze besonder fein wird, werden die Werkzeuge wie in Abbildung \ref{fig: zange_schneider}
+dargestellt positioniert.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.6\textwidth]{./pics/herstellung_spitze.png}
+  \caption{Positionierung des Seitenschneiders und der Zange am Draht. \cite{anleitung_frankfurt}.}
+  \label{fig: zange_schneider}
+\end{figure}
+
+Anschließend werden Zange und Schneider in entgegensetzte Richtung gezogen, der Draht sollte
+auseinander gerissen werden. Wichtig ist das der Draht nicht geschnitten wird.
 
 % Spitze ziehen, Draht
 % Reinigung, Einsetzen, spitzen Strom einschalten, manuelles heranfahren (Spiegelbild), automatischs Heranfahren
