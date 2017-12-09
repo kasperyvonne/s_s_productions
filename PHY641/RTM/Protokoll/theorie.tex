@@ -1,28 +1,29 @@
 \setcounter{page}{1}
 \section*{Zielsetzung}
-In diesem Versuch soll der Grundlagen der Rastertunnelmikroskopie
-erlernt werden. Hierzu werden die Oberfläche einer HOPG- (Graphit) und
-Goldprobe untersucht. Mit Hilfe der Oberflächenmessung werden die Gittervektoren
-der HOPG Struktur bestimmt und ein Höhenprofil des Goldes vermessen.
+In diesem Versuch sollen die Grundlagen der Rastertunnelmikroskopie
+erlernt werden.
+Hierzu werden die Oberfläche einer HOPG- (Graphit) und
+Goldprobe untersucht. Mit Hilfe der Oberflächenmessung sollen die Gittervektoren
+einer HOPG Struktur bestimmt werden und das Höhenprofil einer Goldprobe untersucht werden.
 
 \section{Theorie}
-Die Funktnsweise eines  Rastertunnelmikroskops (RTM) beruht auf den aus der Quantenmechnaik bekannten
+Die Funktnsweise eines  Rastertunnelmikroskops (RTM) beruht auf den, aus der Quantenmechnaik bekannten,
 \emph{Tunneleffekt}. Dieser erlaubt es Elektron in klassisch verbotene Bereich zu \emph{tunneln}.
 Beim Tunneln durchqueren die Elektron ein Potential, welches sie im klassichen Sinne
 eigentlich nicht überwinden können (vgl. Abb. \ref{fig: tunneleffekt}).
 \begin{figure}[!h]
   \centering
   \includegraphics[width=0.6\textwidth]{./pics/tunelleffekt.png}
-  \caption{Darstellung des Tunneleffekts \cite{tunnel}.}
+  \caption{Darstellung des Tunneleffekts.
+  Das Elektron durchquert ein Potential $V$, obwohl seine Energie $E$ dafür eigentlich nicht ausreicht. \cite{tunnel}}
   \label{fig: tunneleffekt}
 \end{figure}
-Zum Beispiel Tunneln die Heliumkerne beim $\alpha$-Zerfall durch das Coulombpotential.
-Das Rastertunnelmikroskop bietet die Möglichkeiten im Bereich von $\SI{1}{\angstrom}$.
+Der Tunneleffekt spielt zum Beispiel beim $\alpha$-Zerfall eine zentrale Rolle,hier tunnelt ein Heliumkern durch das Coulombpotential.
+Das Rastertunnelmikroskop bietet die Möglichkeiten im Bereich von $\SI{1}{\angstrom}$ genau aufzulösen.
 
-Ein RTM verwendet den Tunneleffekt, um einen \emph{Tunnelstrom} zu erzeugen. Dieser Tunnelstrom
-fließt zwischen der Messpitze des Mikroskops und der Probe. Das  zu durch tunnelde
-Potential ist hier die Luft. Dabei wird angenommen das sich kein Luftmolekül im Tunnelbereich befindet, welches
-die Tunnelwahrscheinlichkeit herabsetzten würde. Der gemessene Tunnelstrom ist proptional zu
+Der Tunneleffekt wird bei einem RTM verwendet, um einen \emph{Tunnelstrom} zu erzeugen. Dieser Tunnelstrom
+fließt zwischen der Messpitze des Mikroskops und der Probe.
+Der gemessene Tunnelstrom ist proptional zu
 
 \begin{equation}
   \label{eq: tunnelstrom}
@@ -33,19 +34,21 @@ $\phi$ die durchschnittliche Elektronaustrittsarbeit und $k$ eine Konstante die 
 \begin{equation*}
   k=\SI{1.025}{\per\angstrom\sqrt{\eV}}.
 \end{equation*}
-Der Tunnelstrom ist ein Maß für die Elektrondichte und kann verwendet werden, um die Oberflächenstruktur
-zu rekonstruieren.
 
-Mit Hilfe der Rastertunnelmikroskopie können Proben so genau aufgelöst werden, das thermische Effekte
-Genauigkeit der Messung beeinflussen. So haben thermische Dirfts die auf eine Temperaturänderung, verursacht zum Beispiel
-durch anfassen der Probe, zurückzuführen sind eine signifikante Auswirkung auf die Messung.
-Damit die Fehler die durch Dirfts verursacht verkleinert werden, wird eine Messung immer
-nur in eine Richtung, zum Beispiel von rechts nach links, durchgeführt.
+Mit Hilfe der Rastertunnelmikroskopie werden Proben so detailreich aufgelöst werden, das thermische Effekte eine Rolle spiele.
+So haben thermische Dirfts  eine Temperaturänderung,  zurückzuführen sind eine signifikante Auswirkung auf die Messung.
+So beeinflussen z.B. thermische Drifts die Signifikanz einer Messung.
+Thermische Drifts entstehen bei einer Temerperaturveränderung und können zum Beispiel
+durch anfassen der Probe verursacht werden.
+Damit die Fehler die durch Dirfts verursachten verkleinert werden,
+wird eine Messung immer nur in eine Richtung, zum Beispiel von rechts nach links, durchgeführt.
 
 \subsection{Piezokeramiken}
-Damit Rastertunnelmikroskop Strukturen im Nanometerbeich untersuchen kann, muss
-die Spitze sehr genau manövriert werden. Mit Hilfe von Piezokeramiken bzw.
-Piezokristallen (vgl. Abb. \ref{fig: piezo}) ist es möglich solche Genauigkeiten zuerreichen.
+
+Die hohen Genauigkeiten eines Rastertunnelmikroskop werden durch Ausnutzung des
+\emph{piezoelekttrischen Effekts} erreicht.
+Stoffe die dem piezoelekttrischen Effekts Effekt unterliegen werden als Piezokristall
+oder als Piezokeramik (vgl. Abb. \ref{fig: piezo}) bezeichnet.
 \begin{figure}[!h]
   \centering
   \includegraphics[width=0.6\textwidth]{./pics/piezo.png}
@@ -54,31 +57,31 @@ Piezokristallen (vgl. Abb. \ref{fig: piezo}) ist es möglich solche Genauigkeite
   \label{fig: piezo}
 \end{figure}
 Ein Piezokrisall besitzt die Eigenschaft, sich unter Einwirkung eines äußeren
-elektrischen Feldes auszudehnen. Dabei findet die Ausdehnung immer parallel zur
-Ausrichtung des elektrischen Feldes statt und ist mit den in den Kristall wirkenden
+elektrischen Feldes auszudehnen bzw. zusammenzuziehen. Dabei findet die Ausdehnung immer parallel zur
+Ausrichtung des elektrischen Feldes statt und ist mit den in dem Kristall wirkenden
 Dipolmomenten zu erklären. In erster Näherung ist die Ausdehnung linear mit der anliegenden Feldstärke,
 jedoch ist in Wirklichkeit ein nicht linearer Zusammenhang zwischen Ausdehnung und Feldstärke
-gegeben (vgl. Ab.b \ref{fig: non_linear}). Diese Nichtlinearität sorgt dafür das einzelne Bilder des
-Rastertunnelmikrsokop nicht einheitlich aussehen.
+gegeben (vgl. Ab.b \ref{fig: non_linear}). Diese Nichtlinearität sorgt dafür, dass die Qualität der aufgenommenen Bilder
+vermindert wird.
 \begin{figure}[!h]
   \centering
   \includegraphics[width=0.6\textwidth]{./pics/nicht_linearität.png}
   \caption{Schematische Darstellung der Nichtlineraität der Auslenkung eines Piezokristalls \cite{rtm}.}
   \label{fig: non_linear}
 \end{figure}
-Neben der Nichtlineratiät verschlechtern noch weitere
+
+Neben der Nichtlineratiät der Ausdehnung verschlechtern noch weitere
 Effekte die Genauigkeit eines RTM. Hierzu gehört zum Beispiel Hystereseeffekte (vgl. Abb. \ref{fig: hysterese}) die dafür sorgen,
-das Messungen Richtungsabhängig sind.
+das Messungen richtungsabhängig sind.
 \begin{figure}[!h]
   \centering
   \includegraphics[width=0.6\textwidth]{./pics/hysterese.png}
   \caption{Schematische Darstellung der Hysterese einer Piezokeramik \cite{rtm}.}
   \label{fig: hysterese}
 \end{figure}
-
-Bei einer aprupten Spannungsänderung ändert der Kristall seine Auslenkung nicht instantan, sondern benötigt erst eine Gewisse Zeit.
+Bei einer aprupten Spannungsänderung ändert der Kristall seine Auslenkung nicht instantan, sondern benötigt erst eine gewisse Zeit.
 Dieser Effekt, der als \emph{Schleichen} bezeichnet wird, kann bis zu $\SI{100}{\second}$ andauern.
-Durch das Schleichen können eigentlich eckige Strukturen gekrümmt aussehen (vgl. Abb. \ref{fig: creep}).
+Durch das Schleichen sehen eigentlich eckige Strukturen gekrümmt aus (vgl. Abb. \ref{fig: creep}).
 \begin{figure}[!h]
   \centering
   \includegraphics[width=0.6\textwidth]{./pics/creep.png}
@@ -86,9 +89,9 @@ Durch das Schleichen können eigentlich eckige Strukturen gekrümmt aussehen (vg
   \label{fig: creep}
 \end{figure}
 Außerdem unterliegt ein Piezokeramik einem Effekt der als \emph{Alterung} bezeichnet wird, dieser besagt
-das bei langer nicht Verwendung des Kristalls die Ausdehnungsfähigkeit verringert. erklärbar ist der Effekt mit den
-Dipolmomenten im Kristalle, die Momente richten sich bei langer nicht Benutzung wirklich aus und verringern
-somit die Empfindlichkeit auf äußere Spannungsänderungen (vgl. Abb. \ref{fig: ageing}).
+das bei langer nicht Verwendung des Kristalls die Ausdehnungsfähigkeit verringert. Erklärbar ist der Effekt mit den
+Dipolmomenten im Kristall, die Momente richten sich bei langer nicht Benutzung willkürlich aus und verringern
+somit die Empfindlichkeit auf äußere Feldänderungen (vgl. Abb. \ref{fig: ageing}).
 \begin{figure}[!h]
   \centering
   \includegraphics[width=0.6\textwidth]{./pics/ageing.png}
@@ -108,8 +111,9 @@ Die damit verbundenen Fehlern können mit Hilfe einer Software rausgerechnet wer
 
 %thermische Drifts
 \subsection{HOPG}
-HOPG (Highly oriented pyrolytic graphite) ist ein Graphit, welches sich durch eine besonders hohen Grad
-an Ordnung auszeichnet. Die atomare Strukur von HOPG, welche durch die Van Der Waals Kraft zusammengehalten wird,
+HOPG (Highly oriented pyrolytic graphite) ist ein Graphit, welches sich durch einen besonders hohen Grad
+an Ordnung auszeichnet. Deshalb wird diese Graphitstruktur oftmals verwendet, um sich mit einem Rastertunnelmikroskop vertraut zu machen.
+Die atomare Strukur von HOPG, welche durch die Van Der Waals Kraft zusammengehalten wird,
 ist in Abbildung \ref{fig: hopg} illustriert.
 \begin{figure}[!h]
   \centering
@@ -117,6 +121,5 @@ ist in Abbildung \ref{fig: hopg} illustriert.
   \caption{Atomarer Aufbau von HOPG \cite{hopg}.}
   \label{fig: hopg}
 \end{figure}
-Wie in der Abbildung zu erkennen ist sind die Atome hexagonal angeordnet und besitzen einen Abstand von ca
-$\SI{1.45}{\angstrom}$. Somit eignet sich HOPG besonders gut, um die Funktionsweise eines Rastertunnelmikroskop
-kennenzu lernen.
+Wie in der Abbildung zu erkennen ist sind die Atome hexagonal angeordnet. Außerdem besitzen sie einen Abstand von ca.
+$\SI{1.45}{\angstrom}$.
