@@ -53,27 +53,18 @@ $\vec{a}\ua{b, n_3}$, $\vec{b}\ua{b, n_4}$ bestimmt, die sich über $n\ua{i}$ Ei
 \end{align}
 Im Mittel ergeben sich folgende Gittervektoren $\vec{a}$ und $\vec{b}$ bezogen auf die Einheitszelle:
 \begin{equation}
-  \vec{a} = \begin{pmatrix} \num{-1.57(2)} \\  \num{1.017(2)} \end{pmatrix}\si{\angstrom}
+  \vec{a} = \begin{pmatrix} \num{-1.57(2)} \\  \num{1.017(2)} \end{pmatrix}\si{\angstrom} \qquad
   \vec{b} = \begin{pmatrix} \num{0.742(7)} \\  \num{1.384(5)} \end{pmatrix}\si{\angstrom}
 \end{equation}
 Mit den Beträgen
 \begin{equation}
-  \left|\vec{a}\right| = \SI{1.87(1)}{\angstrom} \quad \left|\vec{a}\right| = \SI{1.571(5)}{\angstrom}.
+  \left|\vec{a}\right| = \SI{1.87(1)}{\angstrom} \quad \left|\vec{b}\right| = \SI{1.571(5)}{\angstrom}.
   \label{eq: mittlere_gittervektoren}
 \end{equation}
 und dem Innenwinkel:
 \begin{equation}
   \theta = 1.
 \end{equation}
-%Für die Beträge der Gittervektoren geteilt durch die Anzahl der Einheitszellen ergeben sich folgende Werte:
-%\begin{align}
-%  \left|\vec{a}\ua{f}\right| &= \SI{1.89}{\angstrom} & \left|\vec{b}\ua{f}\right| &= \SI{1.57}{\angstrom}\\
-%  \left|\vec{a}\ua{b}\right| &= \SI{1.87}{\angstrom} & \left|\vec{b}\ua{b}\right| &= \SI{1.56}{\angstrom}.
-%\end{align}
-%Die Winkel $\theta$ zwischen den Vektoren betragen
-%\begin{equation}
-%  \theta\ua{f} = \SI{85.7}{\degree} \text{bzw.} \theta\ua{b} = \SI{84.5}{\degree}.
-%\end{equation}
 Der Literaturwert für die Gitterkonstante $G$ beträgt gemäß \cite{} $G = \SI{2.56}{\angstrom}$. Zur quantitativen Analyse
 der durch den Aufbau verzerrten Darstellung der Struktur sollen die Elemente einer Skalierungsmatrix $S$ ermittelt werden, die
 die gefundenen Vektoren in die theoretischen Gittervektoren überführen soll. $S$ wird als diagonal angesetzt
@@ -99,15 +90,28 @@ Der Winkel $\theta\ua{skaliert}$ zwischen den mit diesen Werten skalierten Vekto
 \subsection{Untersuchung der Goldprobe}
 Das aufgenommene RTM Bild zur Untersuchung der Goldoberfläche ist in Abbildung~\ref{fig: au} einzusehen.
 In der Abbildung ist zudem eine Gerade eingezeichnet entlang derer das Höhenprofil vermessen werden soll.
-Die mit \emph{gwyddion} entnommenen Daten sind in Tabelle\ref{tab: au} aufgeführt und in Abbildung~\ref{fig: höhenprofil}
-graphisch dargestellt. Gemäß der Einfärbung in Abbildung~\ref{fig: höhenprofil} werden die Daten zwei verschiedenen
+Die mit \emph{gwyddion} entnommenen Daten sind in Abbildung~\ref{fig: höhenprofil}
+graphisch dargestellt. Gemäß den eingezeichneten vertikalen Linien
+in Abbildung~\ref{fig: höhenprofil} werden die Daten zwei verschiedenen
 Niveaus $h_1$ und $h_2$ zugeordnet, an denen eine Ausgleichsrechnung durchgeführt wird. Es ergeben sich für die
 Niveaus
 \begin{equation}
-  h_1 = \qquad h_2 =
+  h_1 = \SI{-58.180(7)}{\nano\meter} \qquad h_2 = \SI{-58.655(5)}{\nano\meter}
 \end{equation}
-Für die Höhendifferenz $\Delta h$ gilt daher
+Für die Höhendifferenz $\Delta h$ gilt damit
 \begin{equation}
-  \Delta h = .
+  \Delta h = \SI{4.75(9)}{\angstrom}.
 \end{equation}
-Der Gitterabstand von Gold beträgt gemäß \cite{} $\SI{4.08}{\angstrom}$
+\begin{figure}
+  \centering
+  \includegraphics[width = \textwidth]{../Messdaten/bilder/goldoberfläche.pdf}
+  \caption{Aufgenommenes RTM Bild der Goldoberfläche. Eingezeichnet ist die Linie entlang derer
+  das Höhenprofil quantitativ untersucht wird.}
+  \label{fig: au}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width = \textwidth]{/path/to/figure}
+  \caption{}
+  \label{}
+\end{figure}
