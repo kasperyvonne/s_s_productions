@@ -159,28 +159,36 @@ plt.clf()
 img = mpimg.imread('bilder/au.png')
 plt.imshow(img)
 plt.savefig('bilder/goldoberfläche.pdf')
-x, y = np.genfromtxt('data_au.txt', unpack = True)*1e9
-x_p_1 = x[x < 30.5]
-y_p_1 = y[x < 30.5]
+x, y = np.genfromtxt('data_aut.txt', unpack = True)*1e9
+x_p_1 = x[x < 15]
+y_p_1 = y[x < 15]
 
-x_p_2 = x[x > 30.5]
-x_p_2 = x_p_2[x_p_2 < 43.0]
-y_p_2 = y[x > 30.5]
-y_p_2 = y_p_2[x_p_2 < 43.0]
-
+x_p_2 = x[x > 18]
+y_p_2 = y[x > 18]
+plt.clf()
+plt.plot(x, y)
 
 params_p_1, cov_p_1 = curve_fit(const, x_p_1, y_p_1)
 params_p_2, cov_p_2 = curve_fit(const, x_p_2, y_p_2)
-h_1 = correlated_values(params_p_1, cov_p_1)
-h_2 = correlated_values(params_p_2, cov_p_2)
-print(h_1, h_2 )
+h_1 = ufloat(params_p_1[0], np.sqrt(cov_p_1[0][0]))
+h_2 = ufloat(params_p_2[0], np.sqrt(cov_p_2[0][0]))
+print(abs(h_1 - h_2))
+print(h_1)
+print(h_2)
 plt.clf()
 
 x_plot_p_1 = np.linspace(0, x_p_1[-1])
 x_plot_p_2 = np.linspace(x_p_2[0], x_p_2[-1])
-plt.plot(x_plot_p_1, const(x_plot_p_1, *params_p_1), 'r-')
-plt.plot(x_plot_p_2, const(x_plot_p_2, *params_p_2), 'b-')
-plt.plot(x_p_1, y_p_1, 'rx')
-plt.plot(x_p_2, y_p_2, 'bx')
-#plt.plot(x, y, 'bx')
-plt.show()
+plt.plot(x_plot_p_1, const(x_plot_p_1, *params_p_1), 'r-', label = '$h_1$')
+plt.plot(x_plot_p_2, const(x_plot_p_2, *params_p_2), 'b-', label = '$h_2$')
+plt.axvline(x = 15, linestyle = '--', label = 'Schranken für Plateaus')
+plt.axvline(x = 18, linestyle = '--')
+plt.xlim(0, x[-1])
+plt.plot(x_p_1, y_p_1, 'r-')
+plt.plot(x_p_2, y_p_2, 'b-')
+plt.xlabel('$x$/nm')
+plt.ylabel('$z$/nm')
+plt.plot(x, y, 'k-', label = 'Höhenprofil')
+plt.grid()
+plt.legend(loc = 'best')
+plt.savefig('bilder/au_plateau.pdf')
