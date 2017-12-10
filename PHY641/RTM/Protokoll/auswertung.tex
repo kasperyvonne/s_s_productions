@@ -1,1 +1,113 @@
 \section{Auswertung}
+Zur quantitativen Auswertung der aufgenommenen RTM BIlder wird die Software \emph{gwyddion}\cite{gwyddion}
+verwendet. Hiermit wird vorallem eine Rauschunterdrückung in den Aufnahmen durchgeführt und das Höhenprofil
+der Goldprobe vermessen. Die Auswertungen der foreward und backward Scans erfolgen zunächst unabhängig, sodass
+abschließend über die gewonnen Ergebnisse gemittelt werden kann.
+\cite{uncertainties} benutzt.
+
+\subsection{Untersuchung der HOPG-Probe}
+Die aufgenommenen Bilder der HOPG-Probe im foreward und backward Modus sind in den Abbildungen~\ref{fig: foreward}
+und~\ref{fig: backward} einzusehen.
+\begin{figure}
+  \centering
+  \includegraphics[width = \textwidth]{../Messdaten/bilder/fit_01_foreward.pdf}
+  \caption{Foreward Scan der HOPG-Probe mit eingezeichneten Messwerten und linearen Regressionen.}
+  \label{fig: foreward}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width = \textwidth]{../Messdaten/bilder/fit_01_backward.pdf}
+  \caption{Backward Scan der HOPG-Probe mit eingezeichneten Messwerten und linearen Regressionen.}
+  \label{fig: backward}
+\end{figure}
+
+
+
+
+Entlang zweier Achsen $\vec{a}$ und $\vec{b}$ werden die Koordinaten der ersichtlichen Helligkeitsminima
+abgelesen. Die Daten sind in Tabelle \ref{tab: data_messpunkte} eingetragen. Hiermit wird eine Regression an eine
+lineare Funktion der Form
+\begin{equation}
+  y = m \cdot x + g
+\end{equation}
+durchgeführt. Die Fitparameter für foreward (f) und backward (b) Scan ergeben sich zu
+\begin{align}
+  m\ua{f, \vec{a}} &= \num{-0.652(7)} & g\ua{f, \vec{a}} &= \SI{2.44(1)}{\nano\meter} \\
+  m\ua{f, \vec{b}} &= \num{1.85(3)} & g\ua{f, \vec{b}} &= \SI{-1.95(5)}{\nano\meter}
+\end{align}
+und
+\begin{align}
+  m\ua{b, \vec{a}} &= \num{-0.645(5)} & g\ua{b, \vec{a}} &= \SI{2.213(8)}{\nano\meter} \\
+  m\ua{b, \vec{b}} &= \num{1.88(2)}   & g\ua{b, \vec{b}} &= \SI{-1.53(4)}{\nano\meter}
+\end{align}
+Die verwendeten Daten und Regressionsgeraden sind ebenfalls in den Abbildungen~\ref{fig: foreward}
+und~\ref{fig: backward} eingezeichnet.
+Die auftretenden Fehler der Regressionsrechnung liegen in einer Größenordnung, die außerhalb der Ablesegenauigkeit der
+gefundenen Daten \ref{tab: data_messpunkte} liegt. Von einer Fortpflanzung der Fehler wird daher abgesehen. In der Diskussion
+wird hierauf näher eingegangen.
+Mit den Fitparamtern und den Koordinaten der ersten und letzten Punkte der abgelesenen Daten werden Gittervektoren $\vec{a}\ua{f, n_1}$, $\vec{b}\ua{f, n_2}$ und
+$\vec{a}\ua{b, n_3}$, $\vec{b}\ua{b, n_4}$ bestimmt, die sich über $n\ua{i}$ Einheitszellen erstrecken
+\begin{align}
+  \vec{a}\ua{f, 14} &= \begin{pmatrix} \num{-2.18} \\  \num{1.42} \end{pmatrix}\si{\nano\meter} & \vec{b}\ua{f, 17}   &= \begin{pmatrix} \num{1.27} \\ \num{2.35} \end{pmatrix} \si{\nano\meter}\\
+  \vec{a}\ua{b, 14} &= \begin{pmatrix}  \num{-2.21} \\ \num{1.43} \end{pmatrix}\si{\nano\meter} &  \vec{b}\ua{b, 16} &= \begin{pmatrix} \num{1.18} \\ \num{2.22} \end{pmatrix} \si{\nano\meter}.
+\end{align}
+Im Mittel ergeben sich folgende Gittervektoren $\vec{a}$ und $\vec{b}$ bezogen auf die Einheitszelle:
+\begin{equation}
+  \vec{a} = \begin{pmatrix} \num{-1.57(2)} \\  \num{1.017(2)} \end{pmatrix}\si{\angstrom}
+  \vec{b} = \begin{pmatrix} \num{0.742(7)} \\  \num{1.384(5)} \end{pmatrix}\si{\angstrom}
+\end{equation}
+Mit den Beträgen
+\begin{equation}
+  \left|\vec{a}\right| = \SI{1.87(1)}{\angstrom} \quad \left|\vec{a}\right| = \SI{1.571(5)}{\angstrom}.
+  \label{eq: mittlere_gittervektoren}
+\end{equation}
+und dem Innenwinkel:
+\begin{equation}
+  \theta = 1.
+\end{equation}
+%Für die Beträge der Gittervektoren geteilt durch die Anzahl der Einheitszellen ergeben sich folgende Werte:
+%\begin{align}
+%  \left|\vec{a}\ua{f}\right| &= \SI{1.89}{\angstrom} & \left|\vec{b}\ua{f}\right| &= \SI{1.57}{\angstrom}\\
+%  \left|\vec{a}\ua{b}\right| &= \SI{1.87}{\angstrom} & \left|\vec{b}\ua{b}\right| &= \SI{1.56}{\angstrom}.
+%\end{align}
+%Die Winkel $\theta$ zwischen den Vektoren betragen
+%\begin{equation}
+%  \theta\ua{f} = \SI{85.7}{\degree} \text{bzw.} \theta\ua{b} = \SI{84.5}{\degree}.
+%\end{equation}
+Der Literaturwert für die Gitterkonstante $G$ beträgt gemäß \cite{} $G = \SI{2.56}{\angstrom}$. Zur quantitativen Analyse
+der durch den Aufbau verzerrten Darstellung der Struktur sollen die Elemente einer Skalierungsmatrix $S$ ermittelt werden, die
+die gefundenen Vektoren in die theoretischen Gittervektoren überführen soll. $S$ wird als diagonal angesetzt
+\begin{equation}
+  \vec{a}\ua{lit} = \begin{pmatrix} s\ua{x} & 0 \\  0  &   s\ua{y} \end{pmatrix} \vec{a},
+  \qquad \vec{b}\ua{lit} = \begin{pmatrix} s\ua{x} & 0 \\  0  &   s\ua{y} \end{pmatrix} \vec{b}.
+\end{equation}
+Aus der der Forderung $G = \left|S \vec{a}\right| = \left|S \vec{b}\right|$ können die konstanten $s_x$ und $s_y$ ermittelt werden
+\begin{align}
+  s_y^2 &= \frac{G^2\left( a\ua{x}**2 - b\ua{x}^2\right)}{a\ua{x}^2 b\ua{y}^2 - a\ua{y}^2 b\ua{x}^2} \\
+  s_x^2 &= \frac{G^2 - s\ua{y}^2 a\ua{y}^2}{a\ua{x}^2}.
+\end{align}
+Einsetzen der Werte der in \eqref{eq: mittlere_gittervektoren} aufgeführten Vektoren liefert
+\begin{equation}
+  s\ua{x} = \num{1.14(1)}  \qquad s\ua{y} = \num{1.670(8)}.
+\end{equation}
+Der Winkel $\theta\ua{skaliert}$ zwischen den mit diesen Werten skalierten Vektoren beträgt.
+\begin{equation}
+  \theta\ua{skaliert} = \SI{66.4(6)}{\degree}.
+\end{equation}
+
+
+\subsection{Untersuchung der Goldprobe}
+Das aufgenommene RTM Bild zur Untersuchung der Goldoberfläche ist in Abbildung~\ref{fig: au} einzusehen.
+In der Abbildung ist zudem eine Gerade eingezeichnet entlang derer das Höhenprofil vermessen werden soll.
+Die mit \emph{gwyddion} entnommenen Daten sind in Tabelle\ref{tab: au} aufgeführt und in Abbildung~\ref{fig: höhenprofil}
+graphisch dargestellt. Gemäß der Einfärbung in Abbildung~\ref{fig: höhenprofil} werden die Daten zwei verschiedenen
+Niveaus $h_1$ und $h_2$ zugeordnet, an denen eine Ausgleichsrechnung durchgeführt wird. Es ergeben sich für die
+Niveaus
+\begin{equation}
+  h_1 = \qquad h_2 =
+\end{equation}
+Für die Höhendifferenz $\Delta h$ gilt daher
+\begin{equation}
+  \Delta h = .
+\end{equation}
+Der Gitterabstand von Gold beträgt gemäß \cite{} $\SI{4.08}{\angstrom}$
