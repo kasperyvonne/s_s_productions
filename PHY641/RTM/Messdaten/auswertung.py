@@ -158,7 +158,12 @@ def const(x, h):
 plt.clf()
 img = mpimg.imread('bilder/au.png')
 plt.imshow(img)
+plt.xlim(0,800)
+plt.ylim(800, 0)
+plt.xlabel('$x/pm$')
+plt.ylabel('$y/pm$')
 plt.savefig('bilder/goldoberfläche.pdf')
+
 x, y = np.genfromtxt('data_aut.txt', unpack = True)*1e9
 x_p_1 = x[x < 15]
 y_p_1 = y[x < 15]
