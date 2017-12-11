@@ -115,8 +115,10 @@ for i in ['foreward', 'backward']:
     #Neuer Winkel
     vec_h_scaled = np.array([s_x * delta_x_h, s_y * delta_y_h])
     vec_v_scaled = np.array([s_x * delta_x_v, s_y * delta_y_v])
+    #np.array([s_x * delta_x_h, s_y * delta_y_h]), np.array([s_x * delta_x_v, s_y * delta_y_v]))
+
     theta_scaled = angle(vec_h_scaled, vec_v_scaled)
-    #print(theta_scaled)
+    #print('Skalierter Winkel: ', theta_scaled)
 
     #plt.plot([x_h[0], x_h[0] + noms(vec_h[0])], [linear(x_h, *noms(params_h))[0], linear(x_h, *noms(params_h))[0] + noms(vec_h[1])], 'g-')
     #plt.plot([x_v[0], x_v[0] + noms(vec_v[0])], [linear(x_v, *noms(params_v))[0], linear(x_v, *noms(params_h))[0] + noms(vec_v[1])], 'g-')
@@ -146,10 +148,10 @@ s_x = sqrt(s_x_2)
 S = np.matrix([[s_x, 0], [0, s_y]])
 mid_vec_h_scaled = np.array([s_x * mid_vec_h[0], s_y * mid_vec_h[1]])
 mid_vec_v_scaled = np.array([s_x * mid_vec_v[0], s_y * mid_vec_v[1]])
-print(mid_vec_v_scaled)
+print('Skalierte Vektoren: ', mid_vec_h_scaled, mid_vec_v_scaled)
 
 
-print(acos(    (   mid_vec_h_scaled[0]* mid_vec_v_scaled[0] + mid_vec_h_scaled[1] * mid_vec_v_scaled[1]   )  /  (   sqrt(mid_vec_h_scaled[0]**2 + mid_vec_h_scaled[1]**2) * sqrt(mid_vec_v_scaled[0]**2 + mid_vec_v_scaled[1]**2)   ))/np.pi*180)
+print('Skalierter Winkel: ', acos(    (   mid_vec_h_scaled[0]* mid_vec_v_scaled[0] + mid_vec_h_scaled[1] * mid_vec_v_scaled[1]   )  /  (   sqrt(mid_vec_h_scaled[0]**2 + mid_vec_h_scaled[1]**2) * sqrt(mid_vec_v_scaled[0]**2 + mid_vec_v_scaled[1]**2)   ))/np.pi*180)
 
 def const(x, h):
     return [h for i in x]
