@@ -150,6 +150,7 @@ vec_v_b = globvec[3]
 
 mid_vec_h = np.array([mid([vec_h_f[0], vec_h_b[0]]), mid([vec_h_f[1], vec_h_b[1]])])
 mid_vec_v = np.array([mid([vec_v_f[0], vec_v_b[0]]), mid([vec_v_f[1], vec_v_b[1]])])
+print('unskalierter winkel: ', angle(mid_vec_v, mid_vec_h))
 
 print(mid_vec_h, norm(mid_vec_h))
 
