@@ -71,12 +71,13 @@ und dem Innenwinkel:
 \begin{equation}
   \theta = \SI{85.2(4)}{\degree}.
 \end{equation}
-Der Literaturwert für die Gitterkonstante $G$ beträgt gemäß \cite{} $G = \SI{2.56}{\angstrom}$. Zur quantitativen Analyse
+Der Literaturwert für die Gitterkonstante $G$ beträgt gemäß \cite{hopg} $G = \SI{2.56}{\angstrom}$. Zur quantitativen Analyse
 der durch den Aufbau verzerrten Darstellung der Struktur sollen die Elemente einer Skalierungsmatrix $S$ ermittelt werden, die
 die gefundenen Vektoren in die theoretischen Gittervektoren überführen soll. $S$ wird als diagonal angesetzt
 \begin{equation}
   \vec{a}\ua{lit} = \begin{pmatrix} s\ua{x} & 0 \\  0  &   s\ua{y} \end{pmatrix} \vec{a},
   \qquad \vec{b}\ua{lit} = \begin{pmatrix} s\ua{x} & 0 \\  0  &   s\ua{y} \end{pmatrix} \vec{b}.
+  \label{eq: korrekturmatrix}
 \end{equation}
 Aus der der Forderung $G = \left|S \vec{a}\right| = \left|S \vec{b}\right|$ können die konstanten $s_x$ und $s_y$ ermittelt werden
 \begin{align}
@@ -124,6 +125,6 @@ Für die Höhendifferenz $\Delta h$ gilt damit
   \centering
   \includegraphics[width = 0.8\textwidth]{../Messdaten/bilder/au_plateau.pdf}
   \caption{Darstellung der Plateaus auf der Goldoberfläche. Eingezeichnet sind die Regressionen an
-  konstante Werte der Höhe $z$.}
+  konstante Werte der Höhe $z$. Bemerkung: Da sehr viele Datenpunkte entnommen wurden, ist die Höhnelinie durchgezogen gezeichnet.}
   \label{fig: höhenprofil}
 \end{figure}
