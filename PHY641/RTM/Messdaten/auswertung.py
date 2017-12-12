@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 from pint import UnitRegistry
 import latex as l
 from uncertainties.umath import *
-r = l.Latexdocument('results.tex')
+from siunitx_ticklabels import *
 u = UnitRegistry()
 Q_ = u.Quantity
 #series = pd.Series(data, index=index)
@@ -34,12 +34,30 @@ def norm(vec):
 def angle(a, b):
     return acos((np.dot(a, b)) / (sqrt(a[0]**2 + a[1]**2)*sqrt(b[0]**2 + b[1]**2)))/np.pi * 180
 
+#Tabelle
+x_h_fore, y_h_fore = np.genfromtxt('data_01_foreward.txt', unpack = True)
+x_v_fore, y_v_fore = np.genfromtxt('data_01_b_foreward.txt', unpack = True)
+x_h_back, y_h_back = np.genfromtxt('data_01_backward.txt', unpack = True)
+x_v_back, y_v_back = np.genfromtxt('data_01_b_backward.txt', unpack = True)
+
+#l.Latexdocument('vector_data.tex').tabular(
+#data = [x_h_fore, y_h_fore, x_v_fore, y_v_fore, x_h_back, y_h_back, x_v_back, y_v_back],
+#header = [r'x_{\vec{a}} / \nano\meter', r'y_{\vec{a}} / \nano\meter', r'x_{\vec{b}} / \nano\meter', r'y_{\vec{b}} / \nano\meter', r'x_{\vec{a}} / \nano\meter', r'y_{\vec{a}} / \nano\meter', r'x_{\vec{b}} / \nano\meter', r'y_{\vec{b}} / \nano\meter'],
+#places = [2, 2, 2, 2, 2, 2, 2, 2],
+#caption = 'Aus den Scans bestimmte Koordinaten der Minima.',
+#label = 'tab: data')
+
+
+
+
+
 globvec = []
 #EINLESEN DER BILDER
 for i in ['foreward', 'backward']:
     print('Auswertung für ' + i + ':')
     img = mpimg.imread('bilder/pic_01_' + i + '.png')
     plt.clf()
+
     #x und y Werte der abgelesenen horizontalen und vertikalen Minima
     x_h, y_h = np.genfromtxt('data_01_'+ i + '.txt', unpack = True)* 1000
     x_v, y_v = np.genfromtxt('data_01_b_'+ i + '.txt', unpack = True)* 1000
@@ -55,10 +73,9 @@ for i in ['foreward', 'backward']:
     plt.ylim(0, 2500)
     plt.legend()
     plt.imshow(img)
-    plt.xlabel(r'$x$/pm')
-    plt.ylabel(r'$y$/pm')
+    plt.xlabel(r'$x/ \si{\pico\meter}$')
+    plt.ylabel(r'$y/ \si{\pico\meter}$')
     #plt.show()
-
 
     #Berechnungen zu den Gittervektoren
     #Arrays mit Fitparametern und Fehlern
@@ -122,6 +139,7 @@ for i in ['foreward', 'backward']:
 
     #plt.plot([x_h[0], x_h[0] + noms(vec_h[0])], [linear(x_h, *noms(params_h))[0], linear(x_h, *noms(params_h))[0] + noms(vec_h[1])], 'g-')
     #plt.plot([x_v[0], x_v[0] + noms(vec_v[0])], [linear(x_v, *noms(params_v))[0], linear(x_v, *noms(params_h))[0] + noms(vec_v[1])], 'g-')
+
     plt.savefig('bilder/fit_01_'+ i + '.pdf')
 #print(globvec)
 
@@ -162,8 +180,8 @@ img = mpimg.imread('bilder/au.png')
 plt.imshow(img)
 plt.xlim(0,800)
 plt.ylim(800, 0)
-plt.xlabel('$x/pm$')
-plt.ylabel('$y/pm$')
+plt.xlabel(r'$x/\si{\angstrom}$')
+plt.ylabel(r'$y/\si{\angstrom}$')
 plt.savefig('bilder/goldoberfläche.pdf')
 
 x, y = np.genfromtxt('data_aut.txt', unpack = True)*1e9
@@ -188,13 +206,13 @@ x_plot_p_1 = np.linspace(0, x_p_1[-1])
 x_plot_p_2 = np.linspace(x_p_2[0], x_p_2[-1])
 plt.plot(x_plot_p_1, const(x_plot_p_1, *params_p_1), 'r-', label = '$h_1$')
 plt.plot(x_plot_p_2, const(x_plot_p_2, *params_p_2), 'b-', label = '$h_2$')
-plt.axvline(x = 15, linestyle = '--', label = 'Schranken für Plateaus')
+plt.axvline(x = 15, linestyle = '--', label = 'Schranken für Plateaufits')
 plt.axvline(x = 18, linestyle = '--')
 plt.xlim(0, x[-1])
 plt.plot(x_p_1, y_p_1, 'r-')
 plt.plot(x_p_2, y_p_2, 'b-')
-plt.xlabel('$x$/nm')
-plt.ylabel('$z$/nm')
+plt.xlabel(r'$x/\si{\nano\meter}$')
+plt.ylabel(r'$z/\si{\nano\meter}$')
 plt.plot(x, y, 'k-', label = 'Höhenprofil')
 plt.grid()
 plt.legend(loc = 'best')

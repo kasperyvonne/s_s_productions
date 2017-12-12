@@ -1,9 +1,16 @@
 \section{Auswertung}
-Zur quantitativen Auswertung der aufgenommenen RTM BIlder wird die Software \emph{gwyddion}\cite{gwyddion}
+Zur quantitativen Auswertung der aufgenommenen RTM Bilder wird die Software \emph{gwyddion}\cite{gwyddion}
 verwendet. Hiermit wird vorallem eine Rauschunterdrückung in den Aufnahmen durchgeführt und das Höhenprofil
 der Goldprobe vermessen. Die Auswertungen der foreward und backward Scans erfolgen zunächst unabhängig, sodass
 abschließend über die gewonnen Ergebnisse gemittelt werden kann.
-\cite{uncertainties} benutzt.
+Von einer quantitativen Analyse der im up Modus aufgenommen Bilder wird abgesehen. In Abbildung \ref{fig: up} ist eine
+beispielhafte Aufnahme einzusehen. Hierauf ist klar zu erkennen, dass die Struktur stark verzerrt ist.
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.5\textwidth]{../Messdaten/bilder/up.png}
+  \caption{RTM Aufnahme im up Modus.}
+  \label{fig: up}
+\end{figure}
 
 \subsection{Untersuchung der HOPG-Probe}
 Die aufgenommenen Bilder der HOPG-Probe im foreward und backward Modus sind in den Abbildungen~\ref{fig: foreward}
@@ -20,17 +27,16 @@ und~\ref{fig: backward} einzusehen.
   \caption{Backward Scan der HOPG-Probe mit eingezeichneten Messwerten und linearen Regressionen.}
   \label{fig: backward}
 \end{figure}
-
-
-
-
 Entlang zweier Achsen $\vec{a}$ und $\vec{b}$ werden die Koordinaten der ersichtlichen Helligkeitsminima
 abgelesen. Die Daten sind in Tabelle \ref{tab: data_messpunkte} eingetragen. Hiermit wird eine Regression an eine
 lineare Funktion der Form
 \begin{equation}
   y = m \cdot x + g
 \end{equation}
-durchgeführt. Die Fitparameter für foreward (f) und backward (b) Scan ergeben sich zu
+durchgeführt.
+\input{../Messdaten/vector_data.tex}
+
+Die Fitparameter für foreward (f) und backward (b) Scan ergeben sich zu
 \begin{align}
   m\ua{f, \vec{a}} &= \num{-0.652(7)} & g\ua{f, \vec{a}} &= \SI{2.44(1)}{\nano\meter} \\
   m\ua{f, \vec{b}} &= \num{1.85(3)} & g\ua{f, \vec{b}} &= \SI{-1.95(5)}{\nano\meter}
