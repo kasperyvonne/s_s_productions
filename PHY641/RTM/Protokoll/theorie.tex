@@ -7,8 +7,8 @@ Goldprobe untersucht. Mit Hilfe der Oberflächenmessung sollen die Gittervektore
 einer HOPG-Struktur bestimmt werden und das Höhenprofil einer Goldprobe untersucht werden.
 
 \section{Theorie}
-Die Funktionsweise eines Rastertunnelmikroskops (RTM) beruht auf den, aus der Quantenmechanik bekannten, %dem
-\emph{Tunneleffekt}. Dieser erlaubt es Elektron in klassisch verbotene Bereiche zu \emph{tunneln}. %Elektronen
+Die Funktionsweise eines Rastertunnelmikroskops (RTM) beruht auf dem, aus der Quantenmechanik bekannten, %dem
+\emph{Tunneleffekt}. Dieser erlaubt es Elektronen in klassisch verbotene Bereiche zu \emph{tunneln}. %Elektronen
 Beim Tunneln durchqueren die Elektronen ein Potential, welches sie im klassischen Sinne
 eigentlich nicht überwinden können (vgl. Abb. \ref{fig: tunneleffekt}).
 \begin{figure}[!h]
@@ -18,13 +18,12 @@ eigentlich nicht überwinden können (vgl. Abb. \ref{fig: tunneleffekt}).
   Das Elektron durchquert ein Potential $V$, obwohl seine Energie $E$ dafür eigentlich nicht ausreicht. \cite{tunnel}}
   \label{fig: tunneleffekt}
 \end{figure}
-Der Tunneleffekt spielt zum Beispiel beim $\alpha$-Zerfall eine zentrale Rolle,hier tunnelt ein Heliumkern durch das Coulombpotential. %leerzeichen
-Das Rastertunnelmikroskop bietet die Möglichkeiten im Bereich von $\SI{1}{\angstrom}$ genau aufzulösen. %denke noch genauer
+Der Tunneleffekt spielt zum Beispiel beim $\alpha$-Zerfall eine zentrale Rolle, hier tunnelt ein Heliumkern durch das Coulombpotential. %leerzeichen
+Das Rastertunnelmikroskop bietet die Möglichkeiten bis in den atomaren Bereich genau aufzulösen\cite{aufl}. %denke noch genauer
 
 Der Tunneleffekt wird bei einem RTM verwendet, um einen \emph{Tunnelstrom} zu erzeugen. Dieser Tunnelstrom
 fließt zwischen der Messspitze des Mikroskops und der Probe.
 Der gemessene Tunnelstrom ist proportional zu %Absatz
-
 \begin{equation}
   \label{eq: tunnelstrom}
 I\propto \frac{U}{d}\exp{-kd\sqrt{\phi}}.
@@ -34,20 +33,17 @@ $\phi$ die durchschnittliche Elektronaustrittsarbeit und $k$ eine Konstante, die
 \begin{equation*}
   k=\SI{1.025}{\per\angstrom\sqrt{\eV}}.
 \end{equation*}
-
-Mit Hilfe der Rastertunnelmikroskopie werden Proben so detailreich aufgelöst werden, dass thermische Effekte eine Rolle spielen. %kein werden nach detailreich
-So haben thermische Drifts eine Temperaturänderung, zurückzuführen sind eine signifikante Auswirkung auf die Messung. %satz überarbeiten
-So beeinflussen z.\,B. thermische Drifts die Signifikanz einer Messung. %Abschnitt nochmal überarbeiten
-Thermische Drifts entstehen bei einer Temperaturveränderung und können zum Beispiel
-durch Anfassen der Probe verursacht werden.
-Damit die Fehler die durch Dirfts verursachten verkleinert werden, %Drifts, Satz überarbeiten
-wird eine Messung immer nur in eine Richtung, zum Beispiel von rechts nach links, durchgeführt. %nicht klar warum die dadurch verkleinert werden.. wir unterschieden nur bewusst die Richtungen
+Mit Hilfe der Rastertunnelmikroskopie werden Proben so detailreich aufgelöst, dass thermische Effekte eine Rolle spielen. %kein werden nach detailreich
+So haben durch Temperaturänderung verursachte thermische Drifts, eine signifikante Auswirkung auf die Messung. %satz überarbeiten%Abschnitt nochmal überarbeiten
+Eine Temperaturänderung kann zum Beispiel durch das Anfassen der Probe verursacht werden.
+Damit die durch die thermischen Effekte verursachten Fehlern verkleinert werden,
+werden Oberflächenmessung immer nur in eine Richtung durchgeführt.
 
 \subsection{Piezokeramiken}
 
 Die hohen Genauigkeiten eines Rastertunnelmikroskops werden durch Ausnutzung des
 \emph{piezoelekttrischen Effekts} erreicht. %Hier noch erwähnen, dass die Ausdehnung zur mechanischen Bewegung der Spitze genutzt werden
-Stoffe, die dem piezoelektrischen Effekts Effekt unterliegen werden als Piezokristall %doppelt Effekt
+Stoffe, die dem piezoelektrischen Effekt unterliegen werden als Piezokristall %doppelt Effekt
 oder als Piezokeramik (vgl. Abb. \ref{fig: piezo}) bezeichnet.
 \begin{figure}[!h]
   \centering
@@ -57,20 +53,21 @@ oder als Piezokeramik (vgl. Abb. \ref{fig: piezo}) bezeichnet.
   \label{fig: piezo}
 \end{figure}
 Ein Piezokristall besitzt die Eigenschaft, sich unter Einwirkung eines äußeren
-elektrischen Feldes auszudehnen bzw. zusammenzuziehen. Dabei findet die Ausdehnung immer parallel zur
+elektrischen Feldes auszudehnen bzw. zusammenzuziehen.
+Dabei findet die Ausdehnung immer parallel zur
 Ausrichtung des elektrischen Feldes statt und ist mit den in dem Kristall wirkenden
 Dipolmomenten zu erklären. In erster Näherung ist die Ausdehnung linear mit der anliegenden Feldstärke,
 jedoch ist in Wirklichkeit ein nicht linearer Zusammenhang zwischen Ausdehnung und Feldstärke
 gegeben (vgl. Ab.b \ref{fig: non_linear}). Diese Nichtlinearität sorgt dafür, dass die Qualität der aufgenommenen Bilder
-vermindert wird.
+vermindert wird. Die Ausdehnung des Kristalls wird dazu verwendet, um die Spitze des Rastertunnelmikroskops zu manövrieren.
 \begin{figure}[!h]
   \centering
   \includegraphics[width=0.6\textwidth]{./pics/nicht_linearität.png}
-  \caption{Schematische Darstellung der Nichtlineraität der Auslenkung eines Piezokristalls \cite{rtm}.} %Ausdehnung
+  \caption{Schematische Darstellung der Nichtlineraität derAusdehnung eines Piezokristalls \cite{rtm}.} %Ausdehnung
   \label{fig: non_linear}
 \end{figure}
 
-Neben der Nichtlineratiät der Ausdehnung verschlechtern noch weitere %linearität
+Neben der Nichtlinearitiät der Ausdehnung verschlechtern noch weitere %linearität
 Effekte die Genauigkeit eines RTM. Hierzu gehören zum Beispiel Hystereseeffekte (vgl. Abb. \ref{fig: hysterese}) die dafür sorgen,
 dass Messungen richtungsabhängig sind.
 \begin{figure}[!h]
@@ -89,31 +86,32 @@ Durch das Schleichen sehen eigentlich eckige Strukturen gekrümmt aus (vgl. Abb.
   \label{fig: creep}
 \end{figure}
 Außerdem unterliegt eine Piezokeramik einem Effekt, der als \emph{Alterung} bezeichnet wird. Der Effekt besagt,
-das bei langer nicht Verwendung des Kristalls die Ausdehnungsfähigkeit verringert. Erklärbar ist der Effekt mit den %dass, verb fehlt
-Dipolmomenten im Kristall, die Momente richten sich bei langer nicht Benutzung willkürlich aus und verringern %wenn dann Nichtbenutzung oder anderes Wort
+dass bei langer nicht Verwendung des Kristalls sich die Ausdehnungsfähigkeit verringert. Erklärbar ist der Effekt mit den %dass, verb fehlt
+Dipolmomenten im Kristall, die Momente richten sich bei langer Nichtbenutzung willkürlich aus und verringern %wenn dann Nichtbenutzung oder anderes Wort
 somit die Empfindlichkeit auf äußere Feldänderungen (vgl. Abb. \ref{fig: ageing}).
 \begin{figure}[!h]
   \centering
   \includegraphics[width=0.6\textwidth]{./pics/ageing.png}
-  \caption{Schmeatische Darstelung des Verhalten eines Piezokristall bei häugiger und weniger Benutzung \cite{rtm}.} %Schematische Darstellung, kristalls, häufiger
+  \caption{Schematische Darstellung des Verhalten eines Piezokristalls bei häufiger und weniger Benutzung \cite{rtm}.} %Schematische Darstellung, kristalls, häufiger
   \label{fig: ageing}
 \end{figure}
 Es ist möglich nach einer Zeit der Nichtverwendung
 durch häufiges Benutzen die anfängliche Empfindlichkeit wieder zu erlangen.
-Das Phänomen der \emph{Kreuzkopplung} beschreibt die $x$- und $y$-Abhängigkeit der $z$-Komponente des Piezokristall (vgl. Abb. \ref{fig: cross_copeling}). %kristalls
+Das Phänomen der \emph{Kreuzkopplung} beschreibt die $x$- und $y$-Abhängigkeit der $z$-Komponente des Piezokristalls (vgl. Abb. \ref{fig: cross_copeling}). %kristalls
+Die damit verbundenen Fehler können mit Hilfe einer Software rausgerechnet werden. %Satz vielleicht noch vor der Abbildung
 \begin{figure}[!h]
   \centering
   \includegraphics[width=0.6\textwidth]{./pics/cross_copling.png}
   \caption{Schmeatische Darstelung der Auslenkung der Kreuzkopplung \cite{rtm}.}
   \label{fig: cross_copeling}
 \end{figure}
-Die damit verbundenen Fehler können mit Hilfe einer Software rausgerechnet werden. %Satz vielleicht noch vor der Abbildung
 
 %thermische Drifts
 \subsection{HOPG}
 HOPG (Highly oriented pyrolytic graphite) ist ein Graphit, welches sich durch einen besonders hohen Grad
-an Ordnung auszeichnet. Deshalb wird diese Graphitstruktur oftmals verwendet, um sich mit einem Rastertunnelmikroskop vertraut zu machen. %und zur Kallibrierung
-Die atomare Struktur von HOPG, welche durch die Van Der Waals Kraft zusammengehalten wird, %nur die schichten, atome untereinander über kovalente Bindung (nicht sicher, nochmal nachlesen)
+an Ordnung auszeichnet. Deshalb wird diese Graphitstruktur oftmals verwendet, um sich ein Rastertunnelmikroskop zu kalibrieren und
+um sich mit dem Gerät vertraut zu machen. %und zur Kallibrierung
+Die atomare Struktur von HOPG %nur die schichten, atome untereinander über kovalente Bindung (nicht sicher, nochmal nachlesen) (hier)s
 ist in Abbildung \ref{fig: hopg} illustriert.
 \begin{figure}[!h]
   \centering
@@ -122,4 +120,4 @@ ist in Abbildung \ref{fig: hopg} illustriert.
   \label{fig: hopg}
 \end{figure}
 Wie in der Abbildung zu erkennen ist, sind die Atome hexagonal angeordnet. Außerdem besitzen sie einen Abstand von ca.
-$\SI{1.45}{\angstrom}$. %Vielleicht besser den für uns relevanten ABstand aufführen
+$\SI{1.45}{\angstrom}$ \cite{hopg} und eine Gitterkonstante von $G=\SI{4.08}{\angstrom}$ \cite{gitterkonstanten}. %Vielleicht besser den für uns relevanten ABstand aufführen (hier)
