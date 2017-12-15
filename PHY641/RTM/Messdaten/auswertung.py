@@ -177,7 +177,7 @@ def const(x, h):
 
 #AUSWERTUNG DER GOLDDATEN
 plt.clf()
-img = mpimg.imread('bilder/au.png')
+img = mpimg.imread('bilder/au_new.png')
 plt.imshow(img)
 plt.xlim(0,800)
 plt.ylim(800, 0)
