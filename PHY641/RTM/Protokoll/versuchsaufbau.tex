@@ -9,7 +9,7 @@ Der grundlegende Aufbau ist in der Abbildung \ref{fig: aufbau} illustriert.
   \label{fig: aufbau}
 \end{figure}
 In der Abbildung ist die Spitzenhalterung und
-der Carrier bzw. Probenhalter mit Probe zu sehen. Die Apparatur wird mittels Computersoftware gesteuert.
+der Probenhalter mit Probe zu sehen. Die Apparatur wird mittels Computersoftware gesteuert.
 Die in dem Schema zu erkennenden Piezokeramiken werden
 verwendet, um die Spitze filigran zu bewegen. %filigran
 
@@ -24,11 +24,11 @@ Der verwendete Regelkreis misst den Tunnelstrom und vergleicht ihn mit einem
 eingestellten Sollwert. Bei einer Differenz der beiden Werte wird die Höhe des Piezoelements
 entsprechend angepasst. Die Anpassgeschwindigkeit lässt sich über zwei Parameter
 einstellen. Zum einen den \emph{integralen Anteil}, dieser beeinflusst im Wesentlich die %Wesentlichen
-Geschwindigkeit mit der auf Abweichungen reagiert wird. Zum andern kann der %Abweichungen
+Geschwindigkeit mit der auf Abweichungen reagiert wird. Zum anderen kann der %Abweichungen
 \emph{propotionale Anteil} verändert werden,
 er regelt, wie stark auf eine Abweichung reagiert wird.
-Die Werte vom integralen und proportionalen Anteil hängen von der Beschaffenheit
-der Probe und Spitze ab \cite{anleitung_frankfurt} und sind somit nicht universell einstellbar.
+Die Werte vom integralen und proportionalen Anteil hängen von der Art der
+Oberflächenuntersuchung ab.
 
 \subsection{Versuchsdurchführung}
 
@@ -49,26 +49,25 @@ Dabei ist von essentieller Bedeutung, dass der Draht wirklich auseinander gezoge
 nicht geschnitten.
 
 Nachdem eine Spitze gerissen wurde, wird der Probenhalter in das Rastertunnelmikroskop eingesetzt.
-Anschließend wird der Carry mit der Probe in das RTM eingeführt.
+Anschließend wird der Probenhalter mit der Probe in das RTM eingeführt.
 Nun muss die Probe nah genug an die Spitze herangeführt werden, dies wird zu Beginn
 manuell gemacht. Die Probe wird manuell so nah an die Spitze herangeführt, bis sich
-die Spitze und ihr Spiegelbild beinah berühren. Die Software für das Automatische
-heranführen überprüft regelmäßig, ob ein Tunnelstrom detektiert werden kann oder nicht. %komma zu viel
+die Spitze und ihr Spiegelbild beinah berühren. Die Software für das automatische
+Heranführen überprüft regelmäßig, ob ein Tunnelstrom detektiert werden kann oder nicht. %komma zu viel
 Wird zum Beispiel kein Tunnelstrom gemessen so wird die Probe, von der Software %komma zu viel
-näher an die Spitze gefahren $\left(I\propto \frac{1}{d}\exp{(-d)}\right)$.
+näher an die Spitze gefahren $\left(I\propto \frac{1}{d}\exp{(-d)}\right) $.
 Deshalb ist es wichtig, bevor der automatische
-Modus verwendet wird, eine Spannung an der Spitze anzulegen $I\propto U$. Mit Hilfe einer
+Modus verwendet wird, eine Spannung an der Spitze anzulegen $\left(I\propto U\right)$. Mit Hilfe einer
 Statusleuchte kann kontrolliert werden, ob ein Tunnelstrom detektiert wird. Außerdem zeigt die Leuchte
 ob die Spitze die Probe berührt hat.
 Sobald die Software fertig mit der Justage ist, beginnt automatisch die Messung.
 Bei der Messung wird unterschieden, ob die Spitze von rechts nach links (backward) oder von links nach rechts (forward) %begriffe foreward und backward einführen
-die Probe abrastert. Mit der Unterscheidung soll die Auswirkung von z.\,B. thermischen Drifts überprüfbar werden. %wird damit nicht verringert aber ist überprüfbar
- Auf jeder, der in der Skizze \ref{fig: aufbau} zu dargestellten Linie misst die Spitze eine %dargestellten, kein kommas
-vorher eingestellte Anzahl Mal den Abstand zwischen Probe und Spitze.
-Bei den Messungen wird die Methode des konstanten Tunnelstroms verwendet.
+die Probe abrastert. Mit der Unterscheidung soll die Auswirkung von Hysterese Effekte überprüfbar werden. %wird damit nicht verringert aber ist überprüfbar
+Auf jeder, der in der Skizze \ref{fig: aufbau} dargestellten, Linie wird eine vorher eingestellte
+Anzahl an Messungen durchgeführt.
 
 In dem Versuch werden eine HOPG- und Goldprobe vermessen.
 Bei der HOPG-Probe sollen die Gittervektoren der atomaren Struktur
-experimentell bestimmt werden. Die Bestimmung der Gittervektoren
-bei Gold ist nicht mit dem verwendeten Versuchsaufbau möglich, stattdessen %vielleicht grund nennen (hier)
-wird das Höhenprofil der Goldoberfläche untersucht.
+experimentell bestimmt werden.
+Bei der Goldprobe wird mit Hilfe des Höhenprofils der Goldoberfläche impliziet
+die Gitterkonstante des fcc-Gitters in $[111]$-Richtung ermittelt.

@@ -26,10 +26,10 @@ fließt zwischen der Messspitze des Mikroskops und der Probe.
 Der gemessene Tunnelstrom ist proportional zu %Absatz
 \begin{equation}
   \label{eq: tunnelstrom}
-I\propto \frac{U}{d}\exp{-kd\sqrt{\phi}}.
+I\propto \frac{U}{d}\exp{(-kd\sqrt{\phi}) }.
 \end{equation}
 Dabei ist $d$ der Abstand zwischen Spitze und Probe, $U$ die zwischen Spitze und Probe anliegende Spannung,
-$\phi$ die durchschnittliche Elektronaustrittsarbeit und $k$ eine Konstante, die im Vakuum gegeben ist als
+$\phi$ die durchschnittliche Elektronaustrittsarbeit zwischen Spitze und Probe und $k$ eine Konstante, die im Vakuum gegeben ist als
 \begin{equation*}
   k=\SI{1.025}{\per\angstrom\sqrt{\eV}}.
 \end{equation*}
@@ -37,7 +37,7 @@ Mit Hilfe der Rastertunnelmikroskopie werden Proben so detailreich aufgelöst, d
 So haben durch Temperaturänderung verursachte thermische Drifts, eine signifikante Auswirkung auf die Messung. %satz überarbeiten%Abschnitt nochmal überarbeiten
 Eine Temperaturänderung wird zum Beispiel durch das Anfassen der Probe verursacht.
 Damit die durch die thermischen Effekte verursachten Fehlern verkleinert werden,
-werden Oberflächenmessung immer nur in eine Richtung durchgeführt.
+werden die Richtungen der Oberflächenmessung unterschieden.
 
 \subsection{Piezokeramiken}
 
@@ -58,7 +58,7 @@ Dabei findet die Ausdehnung immer parallel zur
 Ausrichtung des elektrischen Feldes statt und ist mit den in dem Kristall wirkenden
 Dipolmomenten zu erklären. In erster Näherung ist die Ausdehnung linear mit der anliegenden Feldstärke,
 jedoch ist in Wirklichkeit ein nicht linearer Zusammenhang zwischen Ausdehnung und Feldstärke
-gegeben (vgl. Ab.b \ref{fig: non_linear}). Diese Nichtlinearität sorgt dafür, dass die Qualität der aufgenommenen Bilder
+gegeben (vgl. Abb. \ref{fig: non_linear}). Diese Nichtlinearität sorgt dafür, dass die Qualität der aufgenommenen Bilder
 vermindert wird. Die Ausdehnung des Kristalls wird dazu verwendet, um die Spitze des Rastertunnelmikroskops zu manövrieren.
 \begin{figure}[!h]
   \centering
@@ -77,12 +77,12 @@ dass Messungen richtungsabhängig sind.
   \label{fig: hysterese}
 \end{figure}
 Bei einer abrupten Spannungsänderung ändert der Kristall seine Auslenkung nicht instantan, sondern benötigt erst eine gewisse Zeit.
-Dieser Effekt, der als \emph{Schleichen} bezeichnet wird, kann bis zu $\SI{100}{\second}$ andauern.
-Durch das Schleichen sehen eigentlich eckige Strukturen gekrümmt aus (vgl. Abb. \ref{fig: creep}).
+Dieser Effekt, der als \emph{Kriechen} bezeichnet wird, kann bis zu $\SI{100}{\second}$ andauern.
+Durch das Kriechen sehen eigentlich eckige Strukturen gekrümmt aus (vgl. Abb. \ref{fig: creep}).
 \begin{figure}[!h]
   \centering
   \includegraphics[width=0.6\textwidth]{./pics/creep.png}
-  \caption{Auswirkung von Creeps auf eine Messung mit einem RTM \cite{rtm}.}
+  \caption{Auswirkung des Kriechens auf eine Messung mit einem RTM \cite{rtm}.}
   \label{fig: creep}
 \end{figure}
 Außerdem unterliegt eine Piezokeramik einem Effekt, der als \emph{Alterung} bezeichnet wird. Der Effekt besagt,
@@ -96,7 +96,7 @@ somit die Empfindlichkeit auf äußere Feldänderungen (vgl. Abb. \ref{fig: agei
   \label{fig: ageing}
 \end{figure}
 Es ist möglich nach einer Zeit der Nichtverwendung
-durch häufiges Benutzen die anfängliche Empfindlichkeit wieder zu erlangen.
+durch häufiges Benutzen die Empfindlichkeit wieder zu verbessern.
 Das Phänomen der \emph{Kreuzkopplung} beschreibt die $x$- und $y$-Abhängigkeit der $z$-Komponente des Piezokristalls (vgl. Abb. \ref{fig: cross_copeling}). %kristalls
 Die damit verbundenen Fehler können mit Hilfe einer Software rausgerechnet werden. %Satz vielleicht noch vor der Abbildung
 \begin{figure}[!h]
@@ -120,4 +120,4 @@ ist in Abbildung \ref{fig: hopg} illustriert.
   \label{fig: hopg}
 \end{figure}
 Wie in der Abbildung zu erkennen ist, sind die Atome hexagonal angeordnet. Außerdem besitzen sie einen Abstand von ca.
-$\SI{1.45}{\angstrom}$ \cite{hopg} und eine Gitterkonstante von $G=\SI{4.08}{\angstrom}$ \cite{gitterkonstanten}. %Vielleicht besser den für uns relevanten ABstand aufführen (hier)
+$\SI{1.45}{\angstrom}$ \cite{hopg}. %Vielleicht besser den für uns relevanten ABstand aufführen (hier)
