@@ -35,3 +35,21 @@ label = 'testlabel')
 ##############################################
 
 #r.makeresults()
+
+def E_00(I_0, omega, r):
+    return I_0*np.exp( (-2*r**2)/omega**2 )
+
+def E_10(I_0, omega, r):
+    return I_0* (8*r**2/omega**2)*np.exp( (-2*r**2)/omega**2)
+
+def polarisation( I_0, phi_0, phi):
+    return I_0*np.sin(phi-phi_0)**2
+
+def lamb(spaltbreite, n, abstand_haupt, abstand_neben):
+    bib={}
+    bib['theta']=unp.arctan(abstand_neben/abstand_haupt)
+    bib['lambda']=spaltbreite/n*unp.sin(bib['theta'])
+    return bib
+
+a=lamb(ufloat(1,1),1,ufloat(1,1),1)
+print(a)
