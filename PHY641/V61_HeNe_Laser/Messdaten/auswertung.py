@@ -58,3 +58,11 @@ print(np.mean(test['lambda']))
 r,I=np.genfromtxt('T_00.txt',unpack=True)
 plt.plot(r,I,'rx')
 plt.show()
+
+## Auswertung T_00
+
+## Auswertung T_10
+
+## Auswertung Polarisation
+
+## Auswertung Wellenlänge
