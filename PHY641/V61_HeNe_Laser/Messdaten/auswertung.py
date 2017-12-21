@@ -51,5 +51,10 @@ def lamb(spaltbreite, n, abstand_haupt, abstand_neben):
     bib['lambda']=spaltbreite/n*unp.sin(bib['theta'])
     return bib
 
-a=lamb(ufloat(1,1),1,ufloat(1,1),1)
-print(a)
+n, abstand= np.genfromtxt('wellenlaenge.txt', unpack=True)
+test=lamb( 1e-5, n, 83.0e-2,(abstand/2)*1e-2)
+print(np.mean(test['lambda']))
+
+r,I=np.genfromtxt('T_00.txt',unpack=True)
+plt.plot(r,I,'rx')
+plt.show()
