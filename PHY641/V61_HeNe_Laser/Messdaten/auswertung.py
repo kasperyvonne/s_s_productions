@@ -116,8 +116,6 @@ r_right_max=r_10[np.where(I_10==I_max_right)[0][0]]
 omega_guess_left=8*sem( I_10[1:13])
 omega_guess_right=8*sem( I_10[13:-1])
 
-print([I_max_left, r_left_max, omega_guess_left, I_max_right, r_right_max, omega_guess_right])
-
 params_I_10, cov_I_10 = curve_fit(E_10,r_10,I_10,p0=[I_max_left, r_left_max, 1, I_max_right, r_right_max,1])
 error_I_10= np.sqrt(np.diag(cov_I_10))
 
@@ -156,8 +154,8 @@ plt.legend()
 plt.xlabel(r'$r \, / \, mm $')
 plt.ylabel(r'$ I_{\mathrm{p}}\, / \, \mu A$')
 plt.grid()
-plt.show()
-
+#plt.show()
+plt.savefig('./plots/T_10.pdf')
 
 
 
