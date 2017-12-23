@@ -52,6 +52,11 @@ def lamb(spaltbreite, n, abstand_haupt, abstand_neben):
     bib['lambda']=spaltbreite/n*unp.sin(bib['theta'])
     return bib
 
+def quadrat(x,a,b,c):
+    return a*x**2+b*x+c
+
+def g(x,m,b):
+    return m*x+b
 
 
 
@@ -65,6 +70,7 @@ r_00, I_00=np.genfromtxt('T_00.txt',unpack=True)
 params_I_00, cov_I_00 = curve_fit(E_00,r_00,I_00 )
 error_I_00= np.sqrt(np.diag(cov_I_00))
 
+
 amplitude_I_00 = ufloat(params_I_00[0],error_I_00[0])
 verschiebung_I_00 = ufloat( params_I_00[1], error_I_00[1])
 omega_I_00 = ufloat( params_I_00[2], error_I_00[2])
@@ -76,9 +82,9 @@ print('Frequenz ', omega_I_00, '\n')
 # Tabelle erstellen
 
 l.Latexdocument('./table/T_00.tex').tabular(
-data = [r_00, I_00], #Data incl. unpuarray
-header = ['r / \milli\meter ', 'I_p / \micro\ampere'],
-places = [1, 1],
+data = [r_00[0:7], I_00[0:7], r_00[7:14], I_00[7:14], r_00[14:22], I_00[14: 22]], #Data incl. unpuarray
+header = ['r / \milli\meter ', 'I_p / \micro\\ampere', 'r / \milli\meter ', 'I_p / \micro\\ampere', 'r / \milli\meter ', 'I_p / \micro\\ampere'],
+places = [2, 2, 2, 2, 2, 2],
 caption = 'Messwerte der T_00 Mode.',
 label = 'T_00')
 
@@ -106,10 +112,10 @@ print('\n\n\n-----------------------------------------------------------\n','Aus
 r_10, I_10=np.genfromtxt('T_10_2.txt',unpack=True)
 
 
+
 I_max_left=max(I_10[1:10])
 I_max_right=max(I_10[10:-1])
 null=np.where(I_10<0.04)[0][0]
-print(null)
 r_left_max=r_10[np.where(I_10==I_max_left)[0][0]]
 r_right_max=r_10[np.where(I_10==I_max_right)[0][0]]
 
@@ -138,9 +144,9 @@ print('Frequenz 2: ', omega_2, '\n')
 
 # Tabelle erstellen
 l.Latexdocument('./table/T_10.tex').tabular(
-data = [r_10, I_10], #Data incl. unpuarray
-header = ['r / \milli\meter ', 'I_p / \micro\ampere'],
-places = [1, 1],
+data = [r_10[0:13], I_10[0:13],r_10[13:], I_10[13:]], #Data incl. unpuarray
+header = ['r / \milli\meter ', 'I_p / \micro\\ampere','r / \milli\meter ', 'I_p / \micro\ampere'],
+places = [2, 2, 2, 2],
 caption = 'Messwerte der T_10 Mode.',
 label = 'T_10')
 
@@ -166,6 +172,7 @@ plt.savefig('./plots/T_10.pdf')
 print('\n\n\n-----------------------------------------------------------\n','Auswertung der Polarisation', '\n', '-----------------------------------------------------------\n\n\n')
 
 winkel, I_pola= np.genfromtxt('polarisation.txt', unpack=True)
+winkel_deg=winkel
 winkel=np.deg2rad(winkel)
 print(max(I_pola))
 
@@ -179,11 +186,24 @@ print(' Amplitude Pola: ', amplitude_pola,'\n')
 print(' Phase: ', phase_pola, '\n')
 
 # Erstellen der Tabelle
+# Expand list to a length of 39
+winkel_list=list(winkel)
+winkel_list.append(0)
+winkel_list.append(0)
+
+winkel_deg_list=list(winkel_deg)
+winkel_deg_list.append(0)
+winkel_deg_list.append(0)
+
+I_pola_list=list(I_pola)
+I_pola_list.append(0)
+I_pola_list.append(0)
+
 
 l.Latexdocument('./table/polar.tex').tabular(
-data = [winkel, I_pola], #Data incl. unpuarray
-header = ['\phi / \rad ', 'I_p / \milli\ampere'],
-places = [1, 1],
+data = [winkel_deg_list[0:13], winkel_list[0:13], I_pola_list[0:13], winkel_deg_list[13:26], winkel_list[13:26], I_pola_list[13:26], winkel_deg_list[26:], winkel_list[26:], I_pola_list[26:]], #Data incl. unpuarray
+header = ['\phi / \\deg ','\phi / \\rad ', 'I_p / \milli\\ampere', '\phi / \\deg ','\phi / \\rad ', 'I_p / \milli\\ampere', '\phi / \\deg ','\phi / \\rad ', 'I_p / \milli\\ampere'],
+places = [0,2, 2, 0,2, 2, 0,2, 2],
 caption = 'Aufgenommene Werte bei der Polarisationsmessungs.',
 label = 'pola')
 
@@ -204,15 +224,16 @@ plt.savefig('./plots/pola.pdf')
 
 
 
-
-## Auswertung Wellenlänge
+##########################
+# Auswertung Wellenlänge #
+##########################
 print('\n\n\n-----------------------------------------------------------\n','Wellenlängenbestimmung', '\n', '-----------------------------------------------------------\n\n\n')
 
 n, abstand= np.genfromtxt('wellenlaenge.txt', unpack=True)
 wellenlange=lamb( 1e-5, n, 83.0e-2,(abstand/2)*1e-2) # dictenoary with 'theta' and 'lambda'
 
 # Tabelle erstellen
-l.Latexdocument('wellenlaenge.tex').tabular(
+l.Latexdocument('./table/wellenlaenge.tex').tabular(
 data = [n, abstand, wellenlange['theta'], wellenlange['lambda']], #Data incl. unpuarray
 header = ['Ordnung ', 'd / \centi\meter', '\theta / \rad', '\lambda / \nano\meter'],
 places = [1, 1, 1, 1],
@@ -221,3 +242,54 @@ label = 'wellenlänge')
 
 mittelwert_wellenlaenge= ufloat( np.mean(wellenlange['lambda']),sem(wellenlange['lambda']) )
 print('Gemittelte Wellenlange: ', mittelwert_wellenlaenge,'\n')
+
+
+
+
+
+
+
+##################################################
+# Auswertung Stabilitätsbediungung konkav/konkav #
+##################################################
+
+print('\n\n\n-----------------------------------------------------------\n','Stabilitätsbedinung Konkav/konkav', '\n', '-----------------------------------------------------------\n\n\n')
+
+abstand_kk, I_kk= np.genfromtxt('stabilitaets_bed_kon_kon.txt', unpack=True)
+
+params_stab_kk, cov_stab_kk = curve_fit(quadrat,abstand_kk,I_kk)
+
+
+
+#Plot
+x=np.linspace(abstand_kk[0]-1, abstand_kk[-1]+1,1000)
+
+plt.clf()
+plt.plot(abstand_kk,I_kk,'.')
+plt.plot(x, quadrat(x,params_stab_kk[0],params_stab_kk[1], params_stab_kk[2]))
+plt.show()
+
+
+
+
+
+
+##################################################
+# Auswertung Stabilitätsbediungung konkav/flach #
+##################################################
+
+print('\n\n\n-----------------------------------------------------------\n','Stabilitätsbedinung Konkav/flach', '\n', '-----------------------------------------------------------\n\n\n')
+
+abstand_kf, I_kf= np.genfromtxt('stabilitaets_bed_kon_flach.txt', unpack=True)
+
+params_stab_kf, cov_stab_kf = curve_fit(g,abstand_kf,I_kf)
+
+
+
+#Plot
+x=np.linspace(abstand_kf[0]-1, abstand_kf[-1]+1,1000)
+
+plt.clf()
+plt.plot(abstand_kf,I_kf,'.')
+plt.plot(x, g(x,params_stab_kf[0],params_stab_kf[1]))
+plt.show()
