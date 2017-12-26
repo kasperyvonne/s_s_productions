@@ -58,6 +58,13 @@ def quadrat(x,a,b,c):
 def g(x,m,b):
     return m*x+b
 
+def g_1g_2(L,r_1,r_2): # Resonatorlänge L, Krümmungsradius r
+    return (1- L/r_1)*(1-L/r_2)
+
+r_ebene=1e15
+r_k1= 100
+r_k2=140
+
 
 
 
@@ -237,7 +244,7 @@ l.Latexdocument('./table/wellenlaenge.tex').tabular(
 data = [n, abstand, wellenlange['theta'], wellenlange['lambda']], #Data incl. unpuarray
 header = ['Ordnung ', 'd / \centi\meter', '\theta / \rad', '\lambda / \nano\meter'],
 places = [1, 1, 1, 1],
-caption = 'Aufgenommene Messwerte für die Wellenlängenbestimmung. Der Winkel $\theta$ und die Wellenlänge $\lambda$ werden mit den Gleichung \eqref{} und \eqref{} bestimmt. Der Abstand zum Schirm beträgt $l=\SI{80}{\centi\meter}$ und der Gitterabstand $a=\SI{}{}$.',
+caption = 'Aufgenommene Messwerte für die Wellenlängenbestimmung. Der Winkel $\theta$ und die Wellenlänge $\lambda$ werden mit den Gleichung \eqref{} und \eqref{} bestimmt. Der Abstand zum Schirm beträgt $l=\SI{83}{\centi\meter}$ und der Gitterabstand $a=\SI{1e-5}{\meter}$.',
 label = 'wellenlänge')
 
 mittelwert_wellenlaenge= ufloat( np.mean(wellenlange['lambda']),sem(wellenlange['lambda']) )
@@ -257,16 +264,26 @@ print('\n\n\n-----------------------------------------------------------\n','Sta
 
 abstand_kk, I_kk= np.genfromtxt('stabilitaets_bed_kon_kon.txt', unpack=True)
 
-params_stab_kk, cov_stab_kk = curve_fit(quadrat,abstand_kk,I_kk)
+#params_stab_kk, cov_stab_kk = curve_fit(quadrat,abstand_kk,I_kk)
 
+min_I_kk=min(I_kk)
+print(min_I_kk)
+max_I_kk=max(I_kk)
+print(max_I_kk)
+c=g_1g_2(abstand_kk[np.where( I_kk == max_I_kk )],r_k2,r_k2 )
 
+test= (I_kk*c)/max_I_kk
+params_stab_kk, cov_stab_kk = curve_fit(quadrat,abstand_kk,test)
+print('C',c)
 
 #Plot
 x=np.linspace(abstand_kk[0]-1, abstand_kk[-1]+1,1000)
 
 plt.clf()
-plt.plot(abstand_kk,I_kk,'.')
+plt.plot(abstand_kk,test,'.')
 plt.plot(x, quadrat(x,params_stab_kk[0],params_stab_kk[1], params_stab_kk[2]))
+plt.plot(x, g_1g_2(x,r_k2,r_k2),label='R_k2, R_K2')
+plt.legend()
 plt.show()
 
 
@@ -282,14 +299,30 @@ print('\n\n\n-----------------------------------------------------------\n','Sta
 
 abstand_kf, I_kf= np.genfromtxt('stabilitaets_bed_kon_flach.txt', unpack=True)
 
-params_stab_kf, cov_stab_kf = curve_fit(g,abstand_kf,I_kf)
+#params_stab_kf, cov_stab_kf = curve_fit(g,abstand_kf,I_kf)
 
 
+min_I_kf=min(I_kf)
+print(min_I_kf)
+max_I_kf=max(I_kf)
+print(max_I_kf)
+c_kf=g_1g_2(abstand_kf[np.where( I_kf == max_I_kf )],r_ebene,r_k2 )
+
+test=(I_kf*c_kf)/ max_I_kf
+
+
+params_stab_kf, cov_stab_kf = curve_fit(g,abstand_kf,test)
+
+print(params_stab_kk)
+
+print(params_stab_kf)
 
 #Plot
 x=np.linspace(abstand_kf[0]-1, abstand_kf[-1]+1,1000)
 
 plt.clf()
-plt.plot(abstand_kf,I_kf,'.')
+plt.plot(abstand_kf,test,'.')
 plt.plot(x, g(x,params_stab_kf[0],params_stab_kf[1]))
+plt.plot(x, g_1g_2(x,r_ebene,r_k2),label='Ebene, R_K1')
+plt.legend()
 plt.show()
