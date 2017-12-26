@@ -4,11 +4,11 @@ Die in der Auswertung bestimmten Ausgleichsrechnungen werden mit
 der Funktion \emph{curve\_ fit} \cite{scipy} aus dem Python Paket \emph{scipy.optimize}\cite{scipy} durchgeführt.
 
 \subsection{Auswertung der $T_{00}$ Mode}
-
+\FloatBarrier
 In der Tabelle \ref{tab: T_00} befinden sich die aufgenommenen Messwerte.
 \input{../Messdaten/table/T_00.tex}
 Weiterhin werden die Messdaten in Abbildung \ref{fig: T_00} grafisch dargestellt.
-\begin{figure}[h]
+\begin{figure}[h!]
   \centering
   \includegraphics[width=0.7\textwidth]{../Messdaten/plots/T_00.pdf}
   \caption{Plot der in Tabelle \ref{tab: T_00} gelisteten Messwerte. Zusätzlich ist in der Grafik die bestimmte Ausgleichsgeraden zu sehen.}
@@ -17,14 +17,17 @@ Weiterhin werden die Messdaten in Abbildung \ref{fig: T_00} grafisch dargestellt
 In der Abbildung ist die mit Hilfe von \emph{scipy.optimize} an die Funktion \eqref{} erstellte Funktion zu erkennen.
 Aus der Ausgleichsrechnung ergeben sich die folgenden Parameter
 
-\begin{align*}
+\begin{align}
+  \label{eq: fit_t_00}
+  \begin{aligned}
   I_0&=\SI{9.47 \pm 0.05}{\micro\ampere}\\
   d_0&=\SI{-1.63\pm 0.03}{\milli\meter}\\
   \omega&=\SI{9.67\pm0.06}{\per\milli\meter}
-\end{align*}
-
+\end{aligned}
+\end{align}
+\FloatBarrier
 \subsection{Auswertung der $T_{10}$ Mode}
-
+\FloatBarrier
 Die bei der Vermessung der $T_{10}$ Mode aufgenommen Messwerte sind in der Tabelle
 \ref{tab: T_10} notiert.
 \input{../Messdaten/table/T_10.tex}
@@ -36,15 +39,53 @@ die Funktion \emph{curve\_fit} die folgenden Startparameter gewählt
   \omega_1&=\SI{1}{\per\milli\meter} &   \omega_2&=\SI{1}{\per\milli\meter}.
 \end{align*}
 Das Ergebnis der Ausgleichsberechnungen lautet
-\begin{align*}
+\begin{align}
+  \label{eq: fit_t_10}
+  \begin{aligned}
   I_{0,1}&=\SI{2.09\pm0.09}{\micro\ampere} & I_{0,2}&=\SI{1.66\pm0.09}{\micro\ampere}\\
   d_{0,1}&=\SI{-4.38\pm0.12}{\milli\meter}& d_{0,2}&=\SI{7.28\pm0.15}{\milli\meter} \\
   \omega_1&=\SI{4.99\pm0.24}{\per\milli\meter} &   \omega_2&=\SI{4.88\pm0.30}{\per\milli\meter}.
-\end{align*}
+\end{aligned}
+\end{align}
 Die Regressionskurve und die Messdaten sind in Abbildung \ref{fig: T_10} dargestellt.
-\begin{figure}[h]
+\begin{figure}[h!]
   \centering
   \includegraphics[width=0.8\textwidth]{../Messdaten/plots/T_10.pdf}
   \caption{Plot der in Tabelle \ref{tab: T_10} gelisteten Messwerte. Zusätzlich ist in der Grafik die bestimmte Ausgleichsgeraden zu sehen.}
   \label{fig: T_10}
 \end{figure}
+\FloatBarrier
+\subsection{Auswertung der Polarisation}
+
+In der Tabelle \ref{tab: pola} sind die notierten Werte der Polarisationsmessung
+aufgelistet.
+\FloatBarrier
+\input{../Messdaten/table/polar_final.tex}
+An die Messwerte wird die Funktion
+
+\begin{equation}
+  \label{eq: func_polarisation}
+  I(\phi)=I_0\sin\left(\phi-\phi_0\right)
+\end{equation}
+mit den folgeden Parametern gefittet:
+
+\begin{align}
+  \label{eq: fit_pola}
+  \begin{aligned}
+  I_0&=\SI{0.748\pm0.005}{\milli\ampere}\\
+  \phi_0&=\SI{0.792\pm0.006}{\radian}
+\end{aligned}
+\end{align}
+Die Messwerte und die Ausgleichkurve sind in Abbildung \ref{fig: pola} skizziert.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.8\textwidth]{../Messdaten/plots/pola.pdf}
+  \caption{Plot der in Tabelle \ref{tab: pola} gelisteten Messwerte. Zusätzlich ist in der Grafik die bestimmte Ausgleichsgeraden zu sehen.}
+  \label{fig: pola}
+\end{figure}
+\FloatBarrier
+
+\subsection{Wellenlängenbestimmung}
+Die für die Bestimmung der Wellenlänge des Lasers aufgenommenen Messwerte sind
+in der Tabelle \ref{} notiert.

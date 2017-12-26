@@ -218,7 +218,7 @@ I_pola_list.append(0)
 
 l.Latexdocument('./table/polar.tex').tabular(
 data = [winkel_deg_list[0:13], winkel_list[0:13], I_pola_list[0:13], winkel_deg_list[13:26], winkel_list[13:26], I_pola_list[13:26], winkel_deg_list[26:], winkel_list[26:], I_pola_list[26:]], #Data incl. unpuarray
-header = ['\phi / \\deg ','\phi / \\rad ', 'I_p / \milli\\ampere', '\phi / \\deg ','\phi / \\rad ', 'I_p / \milli\\ampere', '\phi / \\deg ','\phi / \\rad ', 'I_p / \milli\\ampere'],
+header = ['\phi / \degree ','\phi / \\radian ', 'I_p / \milli\\ampere', '\phi / \degree ','\phi / \\radian ', 'I_p / \milli\\ampere', '\phi / \degree ','\phi / \\radian ', 'I_p / \milli\\ampere'],
 places = [0,2, 2, 0,2, 2, 0,2, 2],
 caption = 'Aufgenommene Werte bei der Polarisationsmessungs.',
 label = 'pola')
@@ -259,6 +259,9 @@ label = 'wellenlänge')
 mittelwert_wellenlaenge= ufloat( np.mean(wellenlange['lambda']),sem(wellenlange['lambda']) )
 print('Gemittelte Wellenlange: ', mittelwert_wellenlaenge,'\n')
 
+lambda_theo=632.8e-9
+delta_lambda= (mittelwert_wellenlaenge/lambda_theo-1)*100
+print('Abweichung zur Theorie: ', delta_lambda , '\n')
 
 
 
