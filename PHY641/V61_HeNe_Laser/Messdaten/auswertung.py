@@ -250,8 +250,8 @@ wellenlange=lamb( 1e-5, n, 83.0e-2,(abstand/2)*1e-2) # dictenoary with 'theta' a
 
 # Tabelle erstellen
 l.Latexdocument('./table/wellenlaenge.tex').tabular(
-data = [n, abstand, wellenlange['theta'], wellenlange['lambda']], #Data incl. unpuarray
-header = ['Ordnung ', 'd / \centi\meter', '\theta / \rad', '\lambda / \nano\meter'],
+data = [n, abstand, wellenlange['theta'], wellenlange['lambda']*1e9], #Data incl. unpuarray
+header = ['n {}', 'd / \centi\meter', '\\theta / \\radian', '\lambda / \\nano\meter'],
 places = [1, 1, 1, 1],
 caption = 'Aufgenommene Messwerte für die Wellenlängenbestimmung. Der Winkel $\theta$ und die Wellenlänge $\lambda$ werden mit den Gleichung \eqref{} und \eqref{} bestimmt. Der Abstand zum Schirm beträgt $l=\SI{83}{\centi\meter}$ und der Gitterabstand $a=\SI{1e-5}{\meter}$.',
 label = 'wellenlänge')
