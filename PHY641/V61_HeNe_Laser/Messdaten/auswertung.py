@@ -92,7 +92,7 @@ l.Latexdocument('./table/T_00.tex').tabular(
 data = [r_00[0:7], I_00[0:7], r_00[7:14], I_00[7:14], r_00[14:22], I_00[14: 22]], #Data incl. unpuarray
 header = ['r / \milli\meter ', 'I_p / \micro\\ampere', 'r / \milli\meter ', 'I_p / \micro\\ampere', 'r / \milli\meter ', 'I_p / \micro\\ampere'],
 places = [2, 2, 2, 2, 2, 2],
-caption = 'Messwerte der T_00 Mode.',
+caption = 'Messwerte der $T_{00}$ Mode.',
 label = 'T_00')
 
 
@@ -128,6 +128,15 @@ r_right_max=r_10[np.where(I_10==I_max_right)[0][0]]
 
 omega_guess_left=8*sem( I_10[1:13])
 omega_guess_right=8*sem( I_10[13:-1])
+print(omega_guess_left)
+print('Verwendete Startwerte für den T_10 Fit: \n')
+print('I_1 ',I_max_left)
+print('d_1 ', r_left_max)
+
+print('\n I_2 ',I_max_right)
+print('d_2 ', r_right_max)
+
+
 
 params_I_10, cov_I_10 = curve_fit(E_10,r_10,I_10,p0=[I_max_left, r_left_max, 1, I_max_right, r_right_max,1])
 error_I_10= np.sqrt(np.diag(cov_I_10))
@@ -152,9 +161,9 @@ print('Frequenz 2: ', omega_2, '\n')
 # Tabelle erstellen
 l.Latexdocument('./table/T_10.tex').tabular(
 data = [r_10[0:13], I_10[0:13],r_10[13:], I_10[13:]], #Data incl. unpuarray
-header = ['r / \milli\meter ', 'I_p / \micro\\ampere','r / \milli\meter ', 'I_p / \micro\ampere'],
+header = ['r / \milli\meter ', 'I_p / \micro\\ampere','r / \milli\meter ', 'I_p / \micro\\ampere'],
 places = [2, 2, 2, 2],
-caption = 'Messwerte der T_10 Mode.',
+caption = 'Messwerte der $T_{10}$  Mode.',
 label = 'T_10')
 
 
