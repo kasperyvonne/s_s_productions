@@ -98,3 +98,38 @@ mit aufgelistet. Hierbei wird die Wellenlänge mit Formel \eqref{} und der Winke
   \label{eq: mittelwert_wellenlaenge}
   \ov{\lambda}=\SI{636\pm9}{\nano\meter}.
 \end{equation}
+
+\subsection{Untersuchugn der Stabilitätsbedingung}
+Die Stabilitätsbedingung wird für zwei verschiedene Konfiguration untersucht,
+zum einen werden für den Resonator zwei konkave Spiegel verwendet und zum andern
+ein konkaver und ein flacher Spiegel.
+Um einen Vergleich zwischen den Messwerten und der Theorie zu ermöglichen wurden die gemessenen
+Spannugn wie folgt umkskaliert:
+\begin{equation*}
+  I_p \rightarrow \frac{I_p\cdot c}{I_{p,max}}.
+\end{equation*}
+Hierbei wird $c$ aus Startlänge $d_0$ der jeweiligen Konfiguration (legt $r_i$ fest) und der Formel
+\eqref{} berechnet.
+\begin{equation*}
+  c=g_1g_2(d_0, r_1, r_2)
+\end{equation*}
+
+\subsubsection{Konkav-Konkave Konfiguration}
+
+Die für diese Konfiguration aufgenommen Messwerte befinden sich in Tabelle \ref{fig: konkon}.
+\input{../Messdaten/table/konkon_final.tex}
+Der Skalierungsfaktor besitzt den Wert $c=\num{0.12}$.
+An die skalierten Messwerte wird eine quadratische Funktion der Form
+\begin{equation*}
+  f(d)=a\,d^2+b\,d+c
+\end{equation*}
+gefittet. Aus der Ausgleichsrechnung folgen die Werte
+\begin{align}
+  \label{eq: fit_konkon}
+  \begin{aligned}
+
+
+
+\subsubsection{Konkav-Flache Konfiguration}
+Die Messwerte sind in Tabelle \ref{tab: konflach} aufgelistet.
+\input{../Messdaten/table/konflach_final.tex}

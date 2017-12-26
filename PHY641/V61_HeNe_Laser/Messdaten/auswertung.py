@@ -276,25 +276,42 @@ print('\n\n\n-----------------------------------------------------------\n','Sta
 
 abstand_kk, I_kk= np.genfromtxt('stabilitaets_bed_kon_kon.txt', unpack=True)
 
+
+c=g_1g_2(91,r_k2,r_k2 )
+
+test= (I_kk*c)/(max(I_kk))
+# Tabelle erstellen
+
+l.Latexdocument('./table/konkon.tex').tabular(
+data = [abstand_kk, I_kk,test], #Data incl. unpuarray
+header = [' d / \centi\meter', ' I_p / \milli\\ampere',' (I_p\cdot c)/I_{p,max} '],
+places = [0, 2,2],
+caption = 'Aufgenommene Messwerte für die Untersuchung der Stabilitätsbedingung bei Konkav-Konkave Konfiguration. Der Umskalierungsfaktor $c$ beträgt $\\num{0.12}$.',
+label = 'konkon')
+
+
+
 #params_stab_kk, cov_stab_kk = curve_fit(quadrat,abstand_kk,I_kk)
 
-min_I_kk=min(I_kk)
-print(min_I_kk)
-max_I_kk=max(I_kk)
-print(max_I_kk)
-c=g_1g_2(abstand_kk[np.where( I_kk == max_I_kk )],r_k2,r_k2 )
 
-test= (I_kk*c)/max_I_kk
+
 params_stab_kk, cov_stab_kk = curve_fit(quadrat,abstand_kk,test)
-print('C',c)
+print('c_kk: ',c)
+print(' Quadrat: ', params_stab_kk[0],'\n')
+print(' Linear: ', params_stab_kk[1],'\n')
+print(' Konstante: ', params_stab_kk[2],'\n')
 
 #Plot
 x=np.linspace(abstand_kk[0]-1, abstand_kk[-1]+1,1000)
 
 plt.clf()
-plt.plot(abstand_kk,test,'.')
-plt.plot(x, quadrat(x,params_stab_kk[0],params_stab_kk[1], params_stab_kk[2]))
-plt.plot(x, g_1g_2(x,r_k2,r_k2),label='R_k2, R_K2')
+plt.plot(abstand_kk,test,'.',label=r'$\mathrm{Messwerte}$')
+plt.plot(x, quadrat(x,params_stab_kk[0],params_stab_kk[1], params_stab_kk[2]), label=r'$\mathrm{Fit}$')
+plt.plot(x, g_1g_2(x,r_k2,r_k2),label=r'$\mathrm{Theorie:} r_{k2}, r_{K2}$')
+
+plt.xlabel(r'$d / mm $')
+plt.ylabel(r'$ g_1g_2$')
+plt.grid()
 plt.legend()
 plt.show()
 
@@ -311,30 +328,44 @@ print('\n\n\n-----------------------------------------------------------\n','Sta
 
 abstand_kf, I_kf= np.genfromtxt('stabilitaets_bed_kon_flach.txt', unpack=True)
 
-#params_stab_kf, cov_stab_kf = curve_fit(g,abstand_kf,I_kf)
+# tabelle erstellen
 
 
-min_I_kf=min(I_kf)
-print(min_I_kf)
 max_I_kf=max(I_kf)
-print(max_I_kf)
-c_kf=g_1g_2(abstand_kf[np.where( I_kf == max_I_kf )],r_ebene,r_k2 )
+c_kf=g_1g_2(75,r_ebene,r_k2 )
 
 test=(I_kf*c_kf)/ max_I_kf
 
-
 params_stab_kf, cov_stab_kf = curve_fit(g,abstand_kf,test)
+l.Latexdocument('./table/konflach.tex').tabular(
+data = [abstand_kf, I_kf, test], #Data incl. unpuarray
+header = [' d / \centi\meter', ' I_p / \milli\\ampere',' (I_p\cdot c)/I_{p,max} '],
+places = [0, 2],
+caption = 'Aufgenommene Messwerte für die Untersuchung der Stabilitätsbedingung bei Konkav-Flache Konfiguration. Der Umskalierungsfaktor $c$ beträgt $\\num{0.46}$.',
+label = 'konflach')
 
-print(params_stab_kk)
 
-print(params_stab_kf)
+
+
+#params_stab_kf, cov_stab_kf = curve_fit(g,abstand_kf,I_kf)
+
+
+
+
+print('c_kf: ',c_kf)
+print(' linear: ', params_stab_kf[0],'\n')
+print(' konstante: ', params_stab_kf[1],'\n')
+
 
 #Plot
 x=np.linspace(abstand_kf[0]-1, abstand_kf[-1]+1,1000)
 
 plt.clf()
-plt.plot(abstand_kf,test,'.')
-plt.plot(x, g(x,params_stab_kf[0],params_stab_kf[1]))
-plt.plot(x, g_1g_2(x,r_ebene,r_k2),label='Ebene, R_K1')
+plt.plot(abstand_kf,test,'.',label=r'$\mathrm{Messwerte}$')
+plt.plot(x, g(x,params_stab_kf[0],params_stab_kf[1]), label=r'$\mathrm{Fit}$')
+plt.plot(x, g_1g_2(x,r_ebene,r_k2),label=r'$\mathrm{Theorie:} \, flach, r_{K1}$')
+plt.xlabel(r'$d / mm $')
+plt.ylabel(r'$ g_1g_2$')
+plt.grid()
 plt.legend()
 plt.show()
