@@ -65,7 +65,7 @@ An die Messwerte wird die Funktion
 
 \begin{equation}
   \label{eq: func_polarisation}
-  I(\phi)=I_0\sin\left(\phi-\phi_0\right)
+  I(\phi)=I_0\sin^2\left(\phi-\phi_0\right)
 \end{equation}
 mit den folgeden Parametern gefittet:
 
@@ -88,7 +88,7 @@ Die Messwerte und die Ausgleichkurve sind in Abbildung \ref{fig: pola} skizziert
 
 \subsection{Wellenlängenbestimmung}
 Die für die Bestimmung der Wellenlänge des Lasers aufgenommenen Messwerte sind
-in der Tabelle \ref{} notiert. Bei der Messund betrug der Abstand zum Schirm $l=\SI{83}{\centi\meter}$
+in der Tabelle \ref{tab: wellenlaenge} notiert. Bei der Messund betrug der Abstand zum Schirm $l=\SI{83}{\centi\meter}$
 und wurde mit einem Gitter mit den Gitterabstand von $a=\SI{1e-5}{\meter}$ durchgeführt.
 \input{../Messdaten/table/wellenlaenge_final.tex}
 In der Tabelle werden ebenso die für jede Ordnung $n$ errechnetetn Wellenlängen $\lambda$ und Winkel $\theta$
@@ -127,9 +127,41 @@ gefittet. Aus der Ausgleichsrechnung folgen die Werte
 \begin{align}
   \label{eq: fit_konkon}
   \begin{aligned}
+    a&=\SI{2.0\pm 1.9 e-5}{\per\square\milli\meter}\\
+    b&=\SI{-6\pm5 e-3}{\per\milli\meter}\\
+    c&=\num{0.47\pm0.28}.
+  \end{aligned}
+\end{align}
+In der Grafik \ref{fig: konkon} werden die Messwerte, der Fit und die Theoriekurve \eqref{} miteinander verglichen.
 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.8\textwidth]{../Messdaten/plots/konkon.pdf}
+  \caption{Plot der in Tabelle \ref{tab: konkon} gelisteten Messwerte. Zusätzlich ist in der Grafik die bestimmte Ausgleichsgeraden und die Theoriekurve \eqref{} zu sehen.}
+  \label{fig: konkon}
+\end{figure}
 
 
 \subsubsection{Konkav-Flache Konfiguration}
 Die Messwerte sind in Tabelle \ref{tab: konflach} aufgelistet.
 \input{../Messdaten/table/konflach_final.tex}
+An die Messwerte wird eine Gerade
+\begin{equation*}
+  g(d)=md+a
+\end{equation*}
+gefittet. Die Parameter $m$ und $a$ werden mittels Regressionsberechnung zu
+\begin{align}
+  \label{eq: konflach}
+  \begin{aligned}
+    m=\SI{1.29 \pm 0.29 e-2}{\per\milli\meter}
+    a=\num{1.46\pm0.27}
+  \end{aligned}
+\end{align}
+Die Regressionskurve wird mit den Messwerten und der Theoriekurve \eqref{} in Abbildung \ref{fig: konflach} dargestellt.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.8\textwidth]{../Messdaten/plots/konflach.pdf}
+  \caption{Plot der in Tabelle \ref{tab: konflach} gelisteten Messwerte. Zusätzlich ist in der Grafik die bestimmte Ausgleichsgeraden und die Theoriekurve \eqref{} zu sehen.}
+  \label{fig: konflach}
+\end{figure}
